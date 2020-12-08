@@ -13,6 +13,8 @@ GetActivityDungeon_ExchangeUis = function(ui, ...)
   uis.GetReward_C = GetActivityDungeon_GetRewardUis(ui:GetChild("GetReward_C"))
   uis.AssetStrip = GetCommonResource_AssetStripUis(ui:GetChild("AssetStrip"))
   uis.ResetBtn = ui:GetChild("ResetBtn")
+  uis.SkipBtn = ui:GetChild("SkipBtn")
+  uis.SkipTxt = ui:GetChild("SkipTxt")
   uis.root = ui
   return uis
 end

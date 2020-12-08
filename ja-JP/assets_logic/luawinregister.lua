@@ -130,6 +130,8 @@ ShopWindow = {name = "ShopWindow", package = "Shop", comName = "ShopWindow", hid
 , 
 ShopBuyWindow = {name = "ShopBuyWindow", package = "Shop", comName = "ShopBuyWindow", hideBelow = false}
 , 
+ActivityDungeonShopBuyWindow = {name = "ActivityDungeonShopBuyWindow", package = "ActivityDungeon", comName = "BuyWindow", hideBelow = false}
+, 
 EquipmentWindow = {name = "EquipmentWindow", package = "Equipt", comName = "Equipt", hideBelow = true}
 , 
 ExplainWindow = {name = "ExplainWindow", package = "Message", comName = "ExplainWindow", hideBelow = false}
@@ -294,6 +296,8 @@ GuidePictureWindow = {name = "GuidePictureWindow", package = "Guide", comName = 
 , 
 ActivityDungeonWindow = {name = "ActivityDungeonWindow", package = "ActivityDungeon", comName = "ActivityDungeon", hideBelow = true}
 , 
+ActivityDungeonShopWindow = {name = "ActivityDungeonShopWindow", package = "ActivityDungeon", comName = "ChoiceShop", hideBelow = true}
+, 
 RenameWindow = {name = "RenameWindow", package = "ActorInfo", comName = "RenameWindow", hideBelow = false}
 , 
 NameWindow = {name = "NameWindow", package = "Message", comName = "NamingWindow", hideBelow = false, notReopen = true}
@@ -346,6 +350,8 @@ SpendTipsWindow = {name = "SpendTipsWindow", package = "Message", comName = "Spe
 , 
 ActivityDungeonMainWindow = {name = "ActivityDungeonMainWindow", package = "ActivityDungeon", comName = "ActivityMain", hideBelow = true}
 , 
+ActivityExplainWindow = {name = "ActivityExplainWindow", package = "ActivityDungeon", comName = "Explain", hideBelow = false}
+, 
 ActivityDungeonExchangeWindow = {name = "ActivityDungeonExchangeWindow", package = "ActivityDungeon", comName = "Exchange", hideBelow = true}
 , 
 HandBookPlotWindow = {name = "HandBookPlotWindow", package = "HandBook", comName = "AllPlot", hideBelow = true}
@@ -363,6 +369,42 @@ TitleWindow = {name = "TitleWindow", package = "Title", comName = "TitleWindow",
 FormationMonsterInfoWindow = {name = "FormationMonsterInfoWindow", package = "HandBook", comName = "MInformationWindow", hideBelow = false}
 , 
 AccountTipsWindow = {name = "AccountTipsWindow", package = "Activity", comName = "AccountTipsWindow", hideBelow = false}
+, 
+GuildBossMainWindow = {name = "GuildBossMainWindow", package = "GuildBoss", comName = "GuildBossMain", hideBelow = true}
+, 
+GuildBossSkillWindow = {name = "GuildBossSkillWindow", package = "GuildBoss", comName = "GuildSkill", hideBelow = false}
+, 
+GuildBossSeasonStartWindow = {name = "GuildBossSeasonStartWindow", package = "GuildBoss", comName = "GuildBossOpen", hideBelow = false}
+, 
+GuildBossSeasonEndWindow = {name = "GuildBossSeasonEndWindow", package = "GuildBoss", comName = "GuildBossEnd", hideBelow = false}
+, 
+GuildBossDetailWindow = {name = "GuildBossDetailWindow", package = "GuildBoss", comName = "BossPreviewWindow", hideBelow = false}
+, 
+GuildBossSupportWindow = {name = "GuildBossSupportWindow", package = "GuildBoss", comName = "BossSupportWindow", hideBelow = false}
+, 
+GuildBossRewardWindow = {name = "GuildBossRewardWindow", package = "GuildBoss", comName = "BossRewardWindow", hideBelow = false}
+, 
+GuildBossInformationWindow = {name = "GuildBossInformationWindow", package = "GuildBoss", comName = "AllBossBattleWindow", hideBelow = false}
+, 
+GuildBossRankWindow = {name = "GuildBossRankWindow", package = "GuildBoss", comName = "GuildBossRankWindow", hideBelow = false}
+, 
+GuildBossHurtReportWindow = {name = "GuildBossHurtReportWindow", package = "GuildBoss", comName = "BattleNewsWindow", hideBelow = false}
+, 
+GuildImpeachWindow = {name = "GuildImpeachWindow", package = "Guild", comName = "ImpeachWindow", hideBelow = false, notReopen = true}
+, 
+BrithDayMainWindow = {name = "BrithDayMainWindow", package = "Birthday", comName = "BirthdayMainWindow", hideBelow = false}
+, 
+SignActivityMainWindow = {name = "SignActivityMainWindow", package = "SignActivity", comName = "SignActivity", hideBelow = false}
+, 
+EquipmentPresetRenameWindow = {name = "EquipmentPresetRenameWindow", package = "Equipt", comName = "ReNameWindow", hideBelow = false}
+, 
+FriendsListWindow = {name = "FriendsListWindow", package = "Friends", comName = "Friends", hideBelow = true}
+, 
+FriendDetailWindow = {name = "FriendDetailWindow", package = "Friends", comName = "FriendDetailsWindow", hideBelow = false}
+, 
+FriendAddWindow = {name = "FriendAddWindow", package = "Friends", comName = "FriendAdd", hideBelow = true}
+, 
+FriendChatWindow = {name = "FriendChatWindow", package = "Friends", comName = "FriendChat", hideBelow = true}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -379,33 +421,33 @@ _ENV.RegisterAllLuaWindowType = function(...)
 end
 
 _ENV.WindowMsgEnum = {
-HomeWindow = {E_MSG_UPDATE_ACTOR_INFO = 1, E_MSG_UPDATE_ACTIVITY_VISIBLE = 2, E_MSG_RESET_TASK_SPINE = 3, E_MSG_UPDATE_BG = 4}
+HomeWindow = {E_MSG_UPDATE_ACTOR_INFO = 1, E_MSG_UPDATE_ACTIVITY_VISIBLE = 2, E_MSG_RESET_TASK_SPINE = 3, E_MSG_UPDATE_BG = 4, E_MSG_UPDATE_BANNER = 5, E_MSG_UPDATE_BANNER_REDDOT = 6}
 , 
 LoadingWindow = {E_MSG_UPDATE_LOADING_PROCESS = 1, E_MSG_UPDATE_LOADING_PROCESS_TWEEN = 2, E_MSG_UPDATE_LOADING_PROCESS_TWEEN_ADD = 3}
 , 
 MsgWaitingWindow = {E_MSG_UPDATE_TXT = 1}
 , 
-BattleUIWindow = {E_MSG_UPDATE_ROUND = 1, E_MSG_UPDATE_WAVE = 2, E_MSG_UPDATE_CARD_HP = 3, E_MSG_UPDATE_CARD_DANDER = 4, E_MSG_UPDATE_ORDER_LINE = 5, E_MSG_RESET_ORDER_LINE = 6, E_MSG_SHOW_DAMAGE = 7, E_MSG_SHOW_SKILL_INFO = 8, E_MSG_CHANGE_WAVE_UPDATE = 9, E_MSG_SHOW_WAVE_START = 10, E_MSG_SHOW_BOSS_COME = 11, E_MSG_HIDE_UNIQUE_UI = 12, E_MSG_SHOW_UNIQUE_UI = 13, E_MSG_UPDATE_SETTING_UI = 14, E_MSG_UPDATE_BOSS_BLOOD = 15, E_MSG_PLAY_SKILL_EFFECT = 16, E_MSG_REFRESH_ORDER_LINE = 17, E_MSG_REOPEN = 18, E_MSG_PLAY_SKILL_CARD = 19, E_MSG_BATTLE_PAUSE = 20, E_MSG_UPDATE_BOTTOM_HEAD = 21, E_MSG_UPDATE_CARD_SHIELD = 22}
+BattleUIWindow = {E_MSG_UPDATE_ROUND = 1, E_MSG_UPDATE_WAVE = 2, E_MSG_UPDATE_CARD_HP = 3, E_MSG_UPDATE_CARD_DANDER = 4, E_MSG_UPDATE_ORDER_LINE = 5, E_MSG_RESET_ORDER_LINE = 6, E_MSG_SHOW_DAMAGE = 7, E_MSG_SHOW_SKILL_INFO = 8, E_MSG_CHANGE_WAVE_UPDATE = 9, E_MSG_SHOW_WAVE_START = 10, E_MSG_SHOW_BOSS_COME = 11, E_MSG_HIDE_UNIQUE_UI = 12, E_MSG_SHOW_UNIQUE_UI = 13, E_MSG_UPDATE_SETTING_UI = 14, E_MSG_UPDATE_BOSS_BLOOD = 15, E_MSG_PLAY_SKILL_EFFECT = 16, E_MSG_REFRESH_ORDER_LINE = 17, E_MSG_REOPEN = 18, E_MSG_PLAY_SKILL_CARD = 19, E_MSG_BATTLE_PAUSE = 20, E_MSG_UPDATE_BOTTOM_HEAD = 21, E_MSG_UPDATE_CARD_SHIELD = 22, E_MSG_UPDATE_GUILD_BOSS_SCORE = 23}
 , 
 CardWindow = {E_MSG_CARD_INFO = 1, E_MSG_CARD_LEVELUP = 2, E_MSG_CARD_STAGEUP = 3, E_MSG_CARD_STAGEUPPROPERTY = 4, E_MSG_CARD_SKILLGET = 5, E_MSG_CARD_CARDGET = 6, E_MSG_CARD_SKILLUP = 7, E_MSG_CARD_SKILLDETAIL = 8, E_MSG_CARD_GOODCHANGE = 9, E_MSG_CARD_REFRESHCARDLISTBUTTOM = 10, E_MSG_CARD_SENDCARDDATATOINFO = 11, E_MSG_CARD_STARUP = 12, E_MSG_CARD_SETFASHIONID = 13, E_MSG_CARD_CLOSECARDCHOICE = 14, E_MSG_CARD_CHOICESELECTCARDLIST = 15, E_MSG_CARD_PIECE_EXCHANGE_COUNT = 16, E_MSG_CARD_AFTER_EXCHANGE = 17, E_MSG_CARD_STAR_UP_EFFECT = 18, E_MSG_CARD_PICE_TO_CARD = 19, E_MSG_CARD_USE_EXP_PROP = 20, E_MSG_CARD_CLOSECARDINFO = 21, E_MSG_CARD_CHOICEWINDOWSELECT = 22, E_MSG_CARD_LEVELUP_TRUE = 23, E_MSG_CARD_STAGEUP_TRUE = 24, E_MSG_CARD_STARUP_TRUE = 25, E_MSG_CARD_CLOSEGET_TOLIST = 26, E_MSG_CARD_LIST_SCROLL = 27, E_MSG_CARD_SWEEP_END = 28, E_MSG_GETWAY_CLOESED = 29, E_MSG_CARD_SETMAINFASHION = 30, E_MSG_CARD_CLOSECARDLOOK = 31, E_MSG_CARD_AFTERCLOSEGOLD = 32}
 , 
 Lottery = {E_MSG_LOTTERY_INIT = 1, E_MSG_LOTTERY_DRAW = 2, E_MSG_LOTTERY_SHOWREWARD = 3, E_MSG_LOTTERY_REWARDCLOSE = 4, E_MSG_LOTTERY_DRAW_ANIMATION_END = 5, E_MSG_ONCLOSE_NEWGET = 6, E_MSG_ONCLICKCARDGET_SKIPBTN = 7, E_MSG_THE_ENDOFTHE_FRESH = 8, E_MSG_REFRESHLOTTERYLIST = 9}
 , 
-Equipt = {E_MSG_REFRESH_EQUIPMENT = 1, E_MSG_REFRESH_EQUIPMENT_IN_BAG = 2, E_MSG_REFRESH_LOCK_EQUIPMENT = 3, E_MSG_REFRESH_CHOSED_MAIN_ATTR = 4, E_MSG_DISABLE_ALL_DECOMPOSE = 5, E_MSG_REFRESH_EQUIPMENT_TO_IDENTIFY = 6, E_MSG_REFRESH_EQUIPMENT_TO_DECOMPOSE = 7, E_MSG_REFRESH_ALL_CHOOSE_BTN = 8, E_MSG_PLAY_IDENTIFY_EFFECT = 9}
+Equipt = {E_MSG_REFRESH_EQUIPMENT = 1, E_MSG_REFRESH_EQUIPMENT_IN_BAG = 2, E_MSG_REFRESH_LOCK_EQUIPMENT = 3, E_MSG_REFRESH_CHOSED_MAIN_ATTR = 4, E_MSG_DISABLE_ALL_DECOMPOSE = 5, E_MSG_REFRESH_EQUIPMENT_TO_IDENTIFY = 6, E_MSG_REFRESH_EQUIPMENT_TO_DECOMPOSE = 7, E_MSG_REFRESH_ALL_CHOOSE_BTN = 8, E_MSG_PLAY_IDENTIFY_EFFECT = 9, E_MSG_REFRESH_PRESET = 10, E_MSG_REFRESH_PRESET_AFTER_OPREATE = 11, E_MSG_REFRESH_EDIT_PRESET = 12, E_MSG_REFRESH_PRESET_NAME = 13, E_MSG_CANCEL_EDIT_PRESET = 14}
 , 
-PlotPlay = {E_MSG_PLAY_CHAPTER_NAME = 1, E_MSG_PLAY_DIALOGUE = 2, E_MSG_SET_BACKGROUND = 3, E_MSG_FINISH = 4, E_MSG_BACKGROUND_ENTER = 5, E_MSG_SHOW_ASIDE = 6, E_MSG_CAMERA_SHAKE = 7, E_MSG_SET_BTN = 8, E_MSG_STOP_SOUND = 9, E_MSG_CALLBACK_KEEP = 10, E_MSG_RECYCLE_ROLE_RES = 11}
+PlotPlay = {E_MSG_PLAY_CHAPTER_NAME = 1, E_MSG_PLAY_DIALOGUE = 2, E_MSG_SET_BACKGROUND = 3, E_MSG_FINISH = 4, E_MSG_BACKGROUND_ENTER = 5, E_MSG_SHOW_ASIDE = 6, E_MSG_CAMERA_SHAKE = 7, E_MSG_SET_BTN = 8, E_MSG_STOP_SOUND = 9, E_MSG_CALLBACK_KEEP = 10, E_MSG_RECYCLE_ROLE_RES = 11, E_MSG_SKIP_BTN = 12, E_MSG_BLANK_BTN = 13}
 , 
 Mail = {E_MSG_MAIL_LIST = 1, E_MSG_MAIL_DETAIL = 2, E_MSG_MAIL_DELETE = 3, E_MSG_MAIL_GET = 4}
 , 
-ActorInfo = {E_MSG_SETFASHIONHEAD = 1, E_MSG_SET_NEW_NICKNAME = 2}
+ActorInfo = {E_MSG_SETFASHIONHEAD = 1, E_MSG_SET_NEW_NICKNAME = 2, E_MSG_SETFASHIONFRAME = 3}
 , 
 Talent = {E_MSG_TALENT_INIT = 1, E_MSG_TALENT_UP_NODE = 2, E_MSG_TALENT_UP_SEAL = 3, E_MSG_TALENT_STARUP_CLOSE = 4}
 , 
 Arena = {E_MSG_REFRESH_INFO = 1, E_MSG_REFRESH_RIVAL = 2, E_MSG_REFRESH_REWARD = 3, E_MSG_REFRESH_CHALLENGE_TIMES = 4, E_MSG_REFRESH_SELF_RANK = 5, E_MSG_REFRESH_CHALLENGE_CD = 6, E_MSG_SMASH = 7, E_MSG_CHALLENGE = 8, E_MSG_REFRESH_FC = 9}
 , 
-Tower = {E_MSG_REFRESH_BOUNS_STATUS = 1, E_MSG_REFRESH_SELF_FC = 2}
+Tower = {E_MSG_REFRESH_BOUNS_STATUS = 1, E_MSG_REFRESH_SELF_FC = 2, E_MSG_SHOW_BOUNS_LEVEL = 3}
 , 
-Adventure = {E_MSG_CHANGE_STATUE = 1, E_MSG_ROLE_MOVE = 2, E_MSG_NODE_ANIM = 3, E_MSG_CHANGE_MAP = 4, E_MSG_REFRESH_BUILDING_STATUE = 5, E_MSG_REFRESH_UNDONE_EVENT = 6, E_MSG_REFRESH_WISH_POINT = 7, E_MSG_CHANGE_DRAG_STATUE = 8, E_MSG_SHOW_CHOOSE_FORK = 9, E_MSG_SHOW_TAROT_RESULT = 10, E_MSG_SHOW_DESTINATION_MARKER = 11, E_MSG_AFTER_SEND_SCREEN_BULLET = 12, E_MSG_SHOW_RPS_RESULT = 13, E_MSG_PLAY_DICE_ANIM = 14, E_MSG_FOCUS_ON_CHARACTER = 15, E_MSG_CLOSE_REWARDGET_WINDOW = 16, E_MSG_GOLD_REWARDS = 17, E_MSG_QUESTION_REWARDS = 18, E_MSG_BRICK_REWARDS = 19, E_MSG_FINISH_NODE_ANIM = 20, E_MSG_REFRESH = 21, E_MSG_REFRESH_CTRL_REDDOT = 22}
+Adventure = {E_MSG_CHANGE_STATUE = 1, E_MSG_ROLE_MOVE = 2, E_MSG_NODE_ANIM = 3, E_MSG_CHANGE_MAP = 4, E_MSG_REFRESH_BUILDING_STATUE = 5, E_MSG_REFRESH_UNDONE_EVENT = 6, E_MSG_REFRESH_WISH_POINT = 7, E_MSG_CHANGE_DRAG_STATUE = 8, E_MSG_SHOW_CHOOSE_FORK = 9, E_MSG_SHOW_TAROT_RESULT = 10, E_MSG_SHOW_DESTINATION_MARKER = 11, E_MSG_AFTER_SEND_SCREEN_BULLET = 12, E_MSG_SHOW_RPS_RESULT = 13, E_MSG_PLAY_DICE_ANIM = 14, E_MSG_FOCUS_ON_CHARACTER = 15, E_MSG_CLOSE_REWARDGET_WINDOW = 16, E_MSG_GOLD_REWARDS = 17, E_MSG_QUESTION_REWARDS = 18, E_MSG_BRICK_REWARDS = 19, E_MSG_FINISH_NODE_ANIM = 20, E_MSG_REFRESH = 21, E_MSG_REFRESH_CTRL_REDDOT = 22, E_MSG_REFRESH_MULTINUMBER = 23}
 , 
 MessageWindow = {E_MSG_REWARD_REFRESH = 1, E_Msg_INIT_CONFIRM = 2, E_Msg_CHANGE_CONFIRM_ARG = 3, E_Msg_SHOW_CONFIRM = 4, E_Msg_CLOSE_CONFIRM = 5, E_Msg_REFRESH_BUY_TIMES = 6, E_Msg_REFRESH_BUY_COSTS = 7, E_MSG_POP_UP_CONFIRM = 8, E_MSG_CLOSE_CANCEL = 9}
 , 
@@ -435,7 +477,7 @@ HandBookIntimacyWindow = {SHOW_HEAD_LIST = 1, SHOW_CARD_INFORMATION = 2, SHOW_CA
 , 
 ActivityMainWindow = {SING_INIT = 1, VIT_GET_INIT = 2, BINDING = 3, GIFT_CODE = 4, SEVEN_DAY = 5, INFORM_CHILD_VIEW = 999}
 , 
-Guild = {E_MSG_JOIN_GUILD = 1, E_MSG_REFRESH_GUILD_LIST = 2, E_MSG_INIT_GUILD_CHAT = 3, E_MSG_REFRESH_MEMBER_RIGHTS = 4, E_MSG_REFRESH_MEMBER_LIST = 5, E_MSG_REFRESH_BUILD_INFO = 6, E_MSG_REFRESH_WELFARE_STATUS = 7, E_MSG_REFRESH_WELFARE_RANK = 8, E_MSG_REFRESH_GUILD_ICON = 9, E_MSG_REFRESH_GUILD_NAME = 10, E_MSG_REFRESH_GUILD_CONDITION = 11, E_MSG_REFRESH_GUILD_ANNOUNCEMENT = 12, E_MSG_REFRESH_GUILD_LOG = 13, E_MSG_REFRESH_GUILD_MEMBER = 14, E_MSG_REFRESH_GUILD_APPLY = 15, E_MSG_MY_APPLY_APPROVED = 16, E_MSG_KICK_OUT_GUILD = 17, E_MSG_REFRESH_GUILD_NAME = 18}
+Guild = {E_MSG_JOIN_GUILD = 1, E_MSG_REFRESH_GUILD_LIST = 2, E_MSG_INIT_GUILD_CHAT = 3, E_MSG_REFRESH_MEMBER_RIGHTS = 4, E_MSG_REFRESH_MEMBER_LIST = 5, E_MSG_REFRESH_BUILD_INFO = 6, E_MSG_REFRESH_WELFARE_STATUS = 7, E_MSG_REFRESH_WELFARE_RANK = 8, E_MSG_REFRESH_GUILD_ICON = 9, E_MSG_REFRESH_GUILD_NAME = 10, E_MSG_REFRESH_GUILD_CONDITION = 11, E_MSG_REFRESH_GUILD_ANNOUNCEMENT = 12, E_MSG_REFRESH_GUILD_LOG = 13, E_MSG_REFRESH_GUILD_MEMBER = 14, E_MSG_REFRESH_GUILD_APPLY = 15, E_MSG_MY_APPLY_APPROVED = 16, E_MSG_KICK_OUT_GUILD = 17, E_MSG_REFRESH_GUILD_NAME = 18, E_MSG_REFRESH_GUILD_WAR = 19}
 , 
 AssetShop = {E_MSG_DIAMOND = 1, E_MSG_GOLD = 2, E_MSG_PHYSICAL = 3}
 , 
@@ -452,6 +494,16 @@ GuideTips = {E_MSG_SHOW_TIPS = 1}
 ActivityDungeonExchange = {E_MSG_SHOW_RESULT = 1, E_MSG_RESET = 2, E_MSG_REFRESH = 3, E_MSG_BTN_REFRESH = 4}
 , 
 Title = {E_MSG_REFRESH = 1, E_MSG_RED_DOT = 2}
+, 
+GuildBoss = {E_MSG_REFRESH_TALENT = 1, E_MSG_REFRESH_SINGLE_TALENT = 2, E_MSG_GUILD_RANK_REFRESH = 3, E_MSG_GUILD_MAIN_BOSS = 4}
+, 
+ActivityDungeonShopWindow = {E_MSG_REFRESH_ITEMLIST = 1, E_MSG_REFRESH_LEFT_SHOW = 2}
+, 
+ActivityDoubleAsset = {E_MSG_ASSET_DOUBLE = 1, E_MSG_DIAMOND_DOUBLE = 2}
+, 
+LoginWindow = {E_MSG_REFRESH_EFFECT = 1}
+, 
+Friends = {E_MSG_REFRESH_MAIN_LIST = 1, E_MSG_REFRESH_ADD_LIST = 2, E_MSG_REFRESH_ONLY_ADD_LIST = 3, E_MSG_REFRESH_CHAT_LIST = 4, E_MSG_UNREAD_CHAT_LIST = 5, E_MSG_FRIEND_UPDATE_CHAT = 6}
 }
 _ENV.WindowLoadPackages = {
 LoginWindow = {"LandPic"}
@@ -567,5 +619,21 @@ HandBookCGShowWindow = {"Share"}
 AdventureWindow = {"AdventureIcon"}
 , 
 HandBookActivityPlotWindow = {"HandBookPlotBanner"}
+, 
+GuildBossInformationWindow = {"MonsterHeadSquare"}
+, 
+GuildBossRankWindow = {"CardHeadIconCircle", "Guild"}
+, 
+GuildBossHurtReportWindow = {"CardHeadIconCircle"}
+, 
+GuildBossSupportWindow = {"Equipicon"}
+, 
+ActivityDungeonShopWindow = {"Equipicon"}
+, 
+FriendsListWindow = {"CharacterHeadBanner", "Title"}
+, 
+FriendAddWindow = {"CharacterHeadBanner", "CardHeadIconCircle"}
+, 
+FriendChatWindow = {"CardHeadIconCircle"}
 }
 

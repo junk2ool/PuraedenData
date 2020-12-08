@@ -6,7 +6,7 @@ CardMgr = {}
 CardMgr.GetHeadIconSquareUrl = function(cardData, ...)
   -- function num : 0_0 , upvalues : _ENV
   if cardData then
-    local fashionConfig = (CardData.GetFashionConfig)(cardData)
+    local fashionConfig = (CardData.GetFashionConfig)(cardData, true)
     if fashionConfig then
       local url = (Util.GetItemUrl)(fashionConfig.head_icon_square)
       return url
@@ -19,7 +19,12 @@ end
 CardMgr.GetHeadIconRound = function(cardData, ...)
   -- function num : 0_1 , upvalues : _ENV
   if cardData then
-    local fashionConfig = (CardData.GetFashionConfig)(cardData)
+    local _, isMonster = (CardData.GetBaseConfig)(cardData.id)
+    local notUseFashionID = true
+    if cardData.id == nil or isMonster == true then
+      notUseFashionID = false
+    end
+    local fashionConfig = (CardData.GetFashionConfig)(cardData, notUseFashionID)
     if fashionConfig then
       local url = (Util.GetItemUrl)(fashionConfig.head_icon_round)
       return url
@@ -32,7 +37,7 @@ end
 CardMgr.GetHeadIconBanner = function(cardData, ...)
   -- function num : 0_2 , upvalues : _ENV
   if cardData then
-    local fashionConfig = (CardData.GetFashionConfig)(cardData)
+    local fashionConfig = (CardData.GetFashionConfig)(cardData, true)
     if fashionConfig then
       local url = (Util.GetItemUrl)(fashionConfig.head_icon_banner)
       return url
@@ -45,7 +50,7 @@ end
 CardMgr.GetHeadIconBattle = function(cardData, ...)
   -- function num : 0_3 , upvalues : _ENV
   if cardData then
-    local fashionConfig = (CardData.GetFashionConfig)(cardData)
+    local fashionConfig = (CardData.GetFashionConfig)(cardData, true)
     if fashionConfig and fashionConfig.head_icon_battle then
       local url = (Util.GetItemUrl)(fashionConfig.head_icon_battle)
       return url
@@ -184,16 +189,17 @@ CardMgr.GetBaseCardQualityData = function(quality, id, ...)
 end
 
 local selectedIndex = 0
+local selectedCard = 0
 local concatCards = {}
 local clickedFunc = {}
 local cardList = {}
 local leftArrowBtn = {}
 local rightArrowBtn = {}
 local currentTag = nil
--- DECOMPILER ERROR at PC51: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC52: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, leftBtn, rightBtn, tag, ...)
-  -- function num : 0_13 , upvalues : concatCards, _ENV, clickedFunc, cardList, currentTag, selectedIndex, leftArrowBtn, rightArrowBtn
+  -- function num : 0_13 , upvalues : concatCards, _ENV, clickedFunc, cardList, currentTag, selectedIndex, selectedCard, leftArrowBtn, rightArrowBtn
   concatCards = {}
   concatCards = (CardData.GetObtainedCardList)()
   clickedFunc[tag] = _clickedFunc
@@ -212,7 +218,12 @@ CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, le
   ;
   (cardList[tag]).itemRenderer = CardMgr.RefreshCardItem
   selectedIndex = _selectedIndex
-  -- DECOMPILER ERROR at PC26: Confused about usage of register: R6 in 'UnsetPending'
+  if selectedIndex <= #concatCards then
+    selectedCard = (concatCards[selectedIndex]).id
+  else
+    selectedCard = 0
+  end
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (cardList[tag]).numItems = #concatCards
@@ -225,10 +236,10 @@ CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, le
   (CardMgr.CheckArrow)(tag)
 end
 
--- DECOMPILER ERROR at PC54: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC55: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.RefreshCardItem = function(index, item, ...)
-  -- function num : 0_14 , upvalues : concatCards, currentTag, _ENV, selectedIndex, cardList, clickedFunc
+  -- function num : 0_14 , upvalues : concatCards, currentTag, _ENV, selectedIndex, selectedCard, cardList, clickedFunc
   index = index + 1
   local data = concatCards[index]
   ;
@@ -243,7 +254,7 @@ CardMgr.RefreshCardItem = function(index, item, ...)
     end
     ;
     (Util.SetHeadFrame)(item, data)
-    if index == selectedIndex then
+    if (index == selectedIndex and selectedCard == 0) or data.id == selectedCard then
       (item:GetController("c1")).selectedIndex = 1
     else
       ;
@@ -253,8 +264,9 @@ CardMgr.RefreshCardItem = function(index, item, ...)
     (item:GetController("QualityCtrl")).selectedIndex = data.intelligence + 1
     ;
     (item.onClick):Set(function(...)
-    -- function num : 0_14_0 , upvalues : selectedIndex, index, cardList, currentTag, clickedFunc, data
+    -- function num : 0_14_0 , upvalues : selectedIndex, index, selectedCard, data, cardList, currentTag, clickedFunc
     selectedIndex = index
+    selectedCard = data.id
     ;
     (cardList[currentTag]):RefreshVirtualListImmediately()
     if clickedFunc[currentTag] ~= nil then
@@ -265,23 +277,29 @@ CardMgr.RefreshCardItem = function(index, item, ...)
   end
 end
 
--- DECOMPILER ERROR at PC57: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC58: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.ChangeCardListTag = function(tag, ...)
   -- function num : 0_15 , upvalues : currentTag
   currentTag = tag
 end
 
--- DECOMPILER ERROR at PC60: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC61: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.RefreshCardList = function(num, ...)
-  -- function num : 0_16 , upvalues : cardList, currentTag
-  -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
+  -- function num : 0_16 , upvalues : cardList, currentTag, concatCards, _ENV
+  -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
-  (cardList[currentTag]).numItems = num
+  if num then
+    (cardList[currentTag]).numItems = num
+  else
+    concatCards = (CardData.GetObtainedCardList)()
+    ;
+    (cardList[currentTag]):RefreshVirtualList()
+  end
 end
 
--- DECOMPILER ERROR at PC63: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC64: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.CheckArrow = function(tag, ...)
   -- function num : 0_17 , upvalues : leftArrowBtn, rightArrowBtn, cardList
@@ -328,7 +346,7 @@ CardMgr.CheckArrow = function(tag, ...)
   end
 end
 
--- DECOMPILER ERROR at PC66: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC67: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.GetQualitySelectIndexByLevel = function(quality, cardID, ...)
   -- function num : 0_18 , upvalues : _ENV
@@ -340,7 +358,7 @@ CardMgr.GetQualitySelectIndexByLevel = function(quality, cardID, ...)
   return selectedIndex
 end
 
--- DECOMPILER ERROR at PC69: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC70: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.TryExchangeDebris = function(goodsIndex, count, debrisId, needCount, ...)
   -- function num : 0_19 , upvalues : _ENV
@@ -354,7 +372,7 @@ CardMgr.TryExchangeDebris = function(goodsIndex, count, debrisId, needCount, ...
   (CardService.ReqExchangeDebris)(goodsIndex, count, debrisId)
 end
 
--- DECOMPILER ERROR at PC72: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC73: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.OpenCardWindowWithTag = function(index, ...)
   -- function num : 0_20 , upvalues : _ENV
@@ -370,7 +388,7 @@ CardMgr.OpenCardWindowWithTag = function(index, ...)
 )
 end
 
--- DECOMPILER ERROR at PC75: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC76: Confused about usage of register: R9 in 'UnsetPending'
 
 CardMgr.ClickCardResultByCardId = function(cardId, ...)
   -- function num : 0_21 , upvalues : _ENV
@@ -421,10 +439,10 @@ local LikeCardList = {}
 local cardPraiseList = {}
 local hotComment = {}
 local newComment = {}
--- DECOMPILER ERROR at PC84: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC85: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.CardCommentState = {Like = 1, Cancel = 2}
--- DECOMPILER ERROR at PC87: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC88: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.SetLikeCardList = function(id, state, ...)
   -- function num : 0_22 , upvalues : _ENV, LikeCardList
@@ -439,14 +457,14 @@ CardMgr.SetLikeCardList = function(id, state, ...)
   end
 end
 
--- DECOMPILER ERROR at PC90: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC91: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.SetCardPraiseList = function(list, ...)
   -- function num : 0_23 , upvalues : cardPraiseList
   cardPraiseList = list
 end
 
--- DECOMPILER ERROR at PC93: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC94: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.AddPraiseToList = function(id, ...)
   -- function num : 0_24 , upvalues : _ENV, cardPraiseList
@@ -454,7 +472,7 @@ CardMgr.AddPraiseToList = function(id, ...)
   UIMgr:SendWindowMessage((WinResConfig.CardCommentWindow).name, 1)
 end
 
--- DECOMPILER ERROR at PC96: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC97: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.InitCommentContent = function(msg, ...)
   -- function num : 0_25 , upvalues : hotComment, newComment, _ENV
@@ -470,7 +488,7 @@ CardMgr.InitCommentContent = function(msg, ...)
   (CardMgr.ProcessComment)(msg)
 end
 
--- DECOMPILER ERROR at PC99: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC100: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.AddSelfComment = function(chatData, ...)
   -- function num : 0_26 , upvalues : _ENV, newComment
@@ -480,7 +498,7 @@ CardMgr.AddSelfComment = function(chatData, ...)
   end
 end
 
--- DECOMPILER ERROR at PC102: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC103: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.ModifyComment = function(chatData, ...)
   -- function num : 0_27 , upvalues : _ENV, hotComment, newComment
@@ -496,7 +514,7 @@ CardMgr.ModifyComment = function(chatData, ...)
   end
 end
 
--- DECOMPILER ERROR at PC105: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC106: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.ProcessComment = function(msg, ...)
   -- function num : 0_28 , upvalues : _ENV, hotComment, newComment
@@ -526,7 +544,7 @@ CardMgr.ProcessComment = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC108: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC109: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.GetCardLikeState = function(cardID, ...)
   -- function num : 0_29 , upvalues : _ENV, LikeCardList
@@ -541,21 +559,21 @@ CardMgr.GetCardLikeState = function(cardID, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC111: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC112: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.GetHotComment = function(...)
   -- function num : 0_30 , upvalues : hotComment
   return hotComment
 end
 
--- DECOMPILER ERROR at PC114: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC115: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.GetNewComment = function(...)
   -- function num : 0_31 , upvalues : newComment
   return newComment
 end
 
--- DECOMPILER ERROR at PC117: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC118: Confused about usage of register: R13 in 'UnsetPending'
 
 CardMgr.GetCommentPraise = function(chatId, ...)
   -- function num : 0_32 , upvalues : _ENV, cardPraiseList
@@ -568,7 +586,7 @@ CardMgr.GetCommentPraise = function(chatId, ...)
 end
 
 local intelligenceEffectsPool = {}
--- DECOMPILER ERROR at PC121: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC122: Confused about usage of register: R14 in 'UnsetPending'
 
 CardMgr.SetIntelligenceEffect = function(intelligence, uiMap, ...)
   -- function num : 0_33 , upvalues : _ENV, intelligenceEffectsPool
@@ -603,7 +621,7 @@ CardMgr.SetIntelligenceEffect = function(intelligence, uiMap, ...)
   end
 end
 
--- DECOMPILER ERROR at PC124: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC125: Confused about usage of register: R14 in 'UnsetPending'
 
 CardMgr.ClearIntelligenceEffectsPool = function(...)
   -- function num : 0_34 , upvalues : intelligenceEffectsPool

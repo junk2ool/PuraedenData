@@ -105,9 +105,6 @@ end
 
 TowerMgr.TryEnterTower = function(layerId, stageId, smash, skipSetFormation, rewards, ...)
   -- function num : 0_8 , upvalues : _ENV
-  if TowerData.LastReqStageId ~= 0 then
-    return false
-  end
   if (TowerMgr.CheckTowerAvailable)(layerId, stageId) == false then
     return 
   end
@@ -180,13 +177,10 @@ end
 
 TowerMgr.ReqEnterTower = function(stageId, formation, smash, ...)
   -- function num : 0_9 , upvalues : _ENV
-  if TowerData.LastReqStageId ~= 0 then
-    return 
-  end
-  -- DECOMPILER ERROR at PC6: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R3 in 'UnsetPending'
 
   TowerData.LastReqStageId = stageId
-  -- DECOMPILER ERROR at PC12: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC7: Confused about usage of register: R3 in 'UnsetPending'
 
   TowerData.CurrentLucky = (CardData.GetFormationLucky)(formation)
   ;

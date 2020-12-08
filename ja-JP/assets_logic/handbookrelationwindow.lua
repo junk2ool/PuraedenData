@@ -484,7 +484,7 @@ HandBookRelationWindow.SetAttrInfo = function(item, attr, state, ftData, ...)
       if state == 2 then
         if ftData then
           if ftData.lock_type == 1 then
-            text = (PUtil.get)(166) .. ftData.star .. "<img src=\'" .. starUrl .. "\' " .. "width=\'" .. tostring(26) .. "\' " .. "height=\'" .. tostring(26) .. "\'>" .. (PUtil.get)(165)
+            text = "<img src=\'" .. starUrl .. "\' " .. "width=\'" .. tostring(26) .. "\' " .. "height=\'" .. tostring(26) .. "\'>" .. ftData.star .. (PUtil.get)(166)
           else
             local quality = ftData.quality
             local stageData = (CardMgr.GetBaseCardQualityData)(quality, 11100003)

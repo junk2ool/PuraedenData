@@ -47,11 +47,15 @@ end
 ShopService.OnResShopGridData = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
   if msg then
-    if not (ShopService.CheckIsContainFreeItem)(msg.shopGridData) then
-      (RedDotService.ReqRemoveRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Shop_Main, 23000000 + msg.shopType)
+    if msg.shopType == ShopType.ActivityDungeonShop then
+      OpenWindow((WinResConfig.ActivityDungeonShopWindow).name, UILayer.HUD, msg)
+    else
+      if not (ShopService.CheckIsContainFreeItem)(msg.shopGridData) then
+        (RedDotService.ReqRemoveRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Shop_Main, 23000000 + msg.shopType)
+      end
+      ;
+      (ShopMgr.InitShopGridData)(msg)
     end
-    ;
-    (ShopMgr.InitShopGridData)(msg)
   end
 end
 
@@ -106,9 +110,14 @@ end
 ShopService.OnResShopBuy = function(msg, ...)
   -- function num : 0_9 , upvalues : _ENV
   if msg.success then
-    (ShopMgr.SetShopGridData)(msg.shopGridData)
     UIMgr:CloseWindow((WinResConfig.ShopBuyWindow).name)
-    UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_REFRESH_ITEM)
+    if msg.shopType == ShopType.ActivityDungeonShop then
+      UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonShopWindow).name, (WindowMsgEnum.ActivityDungeonShopWindow).E_MSG_REFRESH_ITEMLIST, {data = msg.shopGridData})
+    else
+      ;
+      (ShopMgr.SetShopGridData)(msg.shopGridData)
+      UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_REFRESH_ITEM)
+    end
   end
 end
 

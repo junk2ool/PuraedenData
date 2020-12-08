@@ -22,6 +22,8 @@ ActorService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResWearTitle, ActorService.OnResWearTitle)
   ;
   (Net.AddListener)((Proto.MsgName).ResActivityLottery, ActorService.OnResActivityLottery)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResHeadData, ActorService.OnResHeadData)
 end
 
 local needInit = false
@@ -92,6 +94,8 @@ ActorService.OnResDetailInfo = function(msg, ...)
           (AnnouncementMgr.InitAnnouncementRedDot)()
         end
 )
+        ;
+        (ActivityService.ReqBannerIdList)()
         ;
         (ActorMgr.ReqEnterInfo)()
       end
@@ -250,6 +254,7 @@ ActorService.OnResGoodsChange = function(msg, ...)
     UIMgr:SendWindowMessage((WinResConfig.StarDebrisChangeGrpWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_AFTER_EXCHANGE)
     UIMgr:SendWindowMessage((WinResConfig.GetWayWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_AFTER_EXCHANGE)
     UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_AFTER_EXCHANGE)
+    UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonShopWindow).name, (WindowMsgEnum.ActivityDungeonShopWindow).E_MSG_REFRESH_LEFT_SHOW)
   end
 end
 
@@ -464,6 +469,22 @@ ActorService.OnResActivityLottery = function(msg, ...)
     OpenWindow((WinResConfig.LotteryWindow).name, UILayer.HUD)
   end
 )
+end
+
+-- DECOMPILER ERROR at PC75: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.OnReqHeadData = function(...)
+  -- function num : 0_23 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqHeadData, m, (Proto.MsgName).ResHeadData)
+end
+
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.OnResHeadData = function(msg, ...)
+  -- function num : 0_24 , upvalues : _ENV
+  OpenWindow((WinResConfig.HeadChoiceWindow).name, UILayer.HUD, msg.headIcon, msg.headFrame)
 end
 
 ;

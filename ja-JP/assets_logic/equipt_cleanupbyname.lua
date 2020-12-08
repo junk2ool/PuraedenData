@@ -13,6 +13,8 @@ GetEquipt_CleanUpUis = function(ui, ...)
   uis.AllChoiceBtn = ui:GetChild("AllChoiceBtn")
   uis.AllChoiceTxt = ui:GetChild("AllChoiceTxt")
   uis.DecomposeBtn = ui:GetChild("DecomposeBtn")
+  uis.AppraisalChoiceBtn = ui:GetChild("AppraisalChoiceBtn")
+  uis.AppraisalChoiceTxt = ui:GetChild("AppraisalChoiceTxt")
   uis.WareHouseGrp = ui:GetChild("WareHouseGrp")
   uis.root = ui
   return uis

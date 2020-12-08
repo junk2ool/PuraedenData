@@ -300,7 +300,7 @@ end
 
 BuildingUseWindow.ClickUnlockBtn = function(...)
   -- function num : 0_18 , upvalues : _ENV, argTable
-  (AdventureService.ReqAdventureBuilding)(AdventureBuildingOperateType.Unlock, {id = argTable[2], value = argTable[1]})
+  (AdventureService.ReqAdventureBuilding)(AdventureBuildingOperateType.Unlock, {id = argTable[2], value = argTable[1]}, nil, nil, argTable[3])
 end
 
 BuildingUseWindow.HandleMessage = function(msgId, para, ...)

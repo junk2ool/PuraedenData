@@ -14,6 +14,16 @@ EquiptService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResLevelUpEquip, EquiptService.RecvLevelUpEquip)
   ;
   (Net.AddListener)((Proto.MsgName).ResIdentifyEquip, EquiptService.RecvIdentifyEquip)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResEquipScheme, EquiptService.RecvEquipScheme)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResRemoveEquipScheme, EquiptService.RecvRemoveEquipScheme)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResAddEquipScheme, EquiptService.RecvAddEquipScheme)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResUpdateEquipSchemeName, EquiptService.RecvUpdateEquipSchemeName)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResUseEquipScheme, EquiptService.RecvUseEquipScheme)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -159,6 +169,93 @@ end
 EquiptService.RecvIdentifyEquip = function(msg, ...)
   -- function num : 0_10 , upvalues : _ENV
   (EquiptMgr.RecvIdentifyEquips)(msg.equipInfo)
+end
+
+-- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.ReqEquipScheme = function(...)
+  -- function num : 0_11 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqEquipScheme, m, (Proto.MsgName).ResEquipScheme)
+end
+
+-- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.RecvEquipScheme = function(msg, ...)
+  -- function num : 0_12 , upvalues : _ENV
+  (EquiptMgr.RecvEquipPreset)(msg)
+end
+
+-- DECOMPILER ERROR at PC43: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.ReqRemoveEquipScheme = function(id, ...)
+  -- function num : 0_13 , upvalues : _ENV
+  local m = {}
+  m.id = id
+  ;
+  (Net.Send)((Proto.MsgName).ReqRemoveEquipScheme, m, (Proto.MsgName).ResRemoveEquipScheme)
+end
+
+-- DECOMPILER ERROR at PC46: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.RecvRemoveEquipScheme = function(msg, ...)
+  -- function num : 0_14 , upvalues : _ENV
+  (EquiptMgr.RecvDeletePreset)(msg)
+end
+
+-- DECOMPILER ERROR at PC49: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.ReqAddEquipScheme = function(data, type, ...)
+  -- function num : 0_15 , upvalues : _ENV
+  local m = {}
+  m.equipScheme = data
+  m.type = type
+  ;
+  (Net.Send)((Proto.MsgName).ReqAddEquipScheme, m, (Proto.MsgName).ResAddEquipScheme)
+end
+
+-- DECOMPILER ERROR at PC52: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.RecvAddEquipScheme = function(msg, ...)
+  -- function num : 0_16 , upvalues : _ENV
+  (EquiptMgr.RecvUpdateEquipPreset)(msg)
+end
+
+-- DECOMPILER ERROR at PC55: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.ReqUpdateEquipSchemeName = function(id, name, ...)
+  -- function num : 0_17 , upvalues : _ENV
+  local m = {}
+  m.id = id
+  m.schemeName = name
+  ;
+  (Net.Send)((Proto.MsgName).ReqUpdateEquipSchemeName, m, (Proto.MsgName).ResUpdateEquipSchemeName)
+end
+
+-- DECOMPILER ERROR at PC58: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.RecvUpdateEquipSchemeName = function(msg, ...)
+  -- function num : 0_18
+end
+
+-- DECOMPILER ERROR at PC61: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.ReqUseEquipScheme = function(id, cardId, type, ...)
+  -- function num : 0_19 , upvalues : _ENV
+  local m = {}
+  m.id = id
+  m.cardId = cardId
+  m.useType = type
+  ;
+  (Net.Send)((Proto.MsgName).ReqUseEquipScheme, m, (Proto.MsgName).ResUseEquipScheme)
+end
+
+-- DECOMPILER ERROR at PC64: Confused about usage of register: R0 in 'UnsetPending'
+
+EquiptService.RecvUseEquipScheme = function(msg, ...)
+  -- function num : 0_20 , upvalues : _ENV
+  (EquiptMgr.RecvUsePreset)(msg)
 end
 
 ;

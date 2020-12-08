@@ -2,6 +2,7 @@
 -- function num : 0 , upvalues : _ENV
 require("CommonResource_FrameEffByName")
 require("CommonResource_NewCompByName")
+require("CommonResource_EquiptPlanByName")
 GetCommonResource_EquiptIconUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
@@ -25,12 +26,14 @@ GetCommonResource_EquiptIconUis = function(ui, ...)
   uis.NewCompGrp = GetCommonResource_NewCompUis(ui:GetChild("NewCompGrp"))
   uis.DropLcokImage = ui:GetChild("DropLcokImage")
   uis.StarList = ui:GetChild("StarList")
+  uis.EquiptPlan = GetCommonResource_EquiptPlanUis(ui:GetChild("EquiptPlan"))
   uis.c1Ctr = ui:GetController("c1")
   uis.c2Ctr = ui:GetController("c2")
   uis.c3Ctr = ui:GetController("c3")
   uis.c4Ctr = ui:GetController("c4")
   uis.c5Ctr = ui:GetController("c5")
   uis.c6Ctr = ui:GetController("c6")
+  uis.PlanCtr = ui:GetController("Plan")
   uis.root = ui
   return uis
 end

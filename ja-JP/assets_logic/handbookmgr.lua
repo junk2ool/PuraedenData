@@ -43,6 +43,8 @@ HandBookMgr.HandleActivityStoryChapter = function(ids, type, JumpToType, JumpToI
       else
         ;
         (MessageMgr.SendCenterTips)((PUtil.get)(20000405))
+        ;
+        (Util.SetPlayerSetting)(PlayerPrefsKeyName.ACTIVITY_DUNGEON_PLOT_DOT, 0)
       end
     else
       OpenWindow((WinResConfig.HandBookActivityPlotWindow).name, UILayer.HUD)

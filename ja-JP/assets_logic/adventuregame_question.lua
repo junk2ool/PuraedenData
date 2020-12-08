@@ -4,7 +4,7 @@ require("AdventureGame_AnswerWindowByName")
 local AdventureGame_Question = {}
 local uis, contentPane = nil, nil
 local argTable = {}
-local nodeId, questionType = nil, nil
+local nodeId, uid, questionType = nil, nil, nil
 local tableCount = 0
 local rdQues = {}
 local quesCount = 5
@@ -14,15 +14,19 @@ local isCheack = false
 local isPlayAnim = false
 local notFoundEffect, finishFunc = nil, nil
 AdventureGame_Question.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, nodeId, questionType, uis, rdQues, finishFunc, quesCount, AdventureGame_Question, isCheack
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, nodeId, uid, questionType, uis, rdQues, finishFunc, quesCount, AdventureGame_Question, isCheack
   bridgeObj:SetView((WinResConfig.AdventureGame_Question).package, (WinResConfig.AdventureGame_Question).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
   nodeId = argTable[1]
-  if argTable[2] then
-    questionType = argTable[2]
+  if nodeId ~= -1 then
+    uid = argTable[2]
   else
-    questionType = 1
+    if argTable[2] then
+      questionType = argTable[2]
+    else
+      questionType = 1
+    end
   end
   uis = GetAdventureGame_AnswerWindowUis(contentPane)
   if nodeId == -1 then
@@ -35,7 +39,7 @@ AdventureGame_Question.OnInit = function(bridgeObj, ...)
       (table.insert)(rdQues, QuestionData)
     end
     quesCount = #rdQues
-    -- DECOMPILER ERROR at PC62: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC68: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     ((uis.AnswerGrp).OrderTxt).visible = #ques > 1
@@ -162,7 +166,7 @@ AdventureGame_Question.ClearButtonSelectedState = function(...)
 end
 
 AdventureGame_Question.CheckAnswerFinish = function(select, clickedBtn, otherBtn, ...)
-  -- function num : 0_5 , upvalues : isPlayAnim, AdventureGame_Question, rightNum, uis, quesCount, _ENV, notFoundEffect, curQuesIndex, isCheack, nodeId, finishFunc
+  -- function num : 0_5 , upvalues : isPlayAnim, AdventureGame_Question, rightNum, uis, quesCount, _ENV, notFoundEffect, curQuesIndex, isCheack, nodeId, finishFunc, uid
   if isPlayAnim then
     return 
   end
@@ -190,7 +194,7 @@ AdventureGame_Question.CheckAnswerFinish = function(select, clickedBtn, otherBtn
   PlayUITrans((uis.AnswerGrp).ThreeBtn, "in")
   ;
   (SimpleTimer.setTimeout)(2, function(...)
-    -- function num : 0_5_1 , upvalues : curQuesIndex, quesCount, isCheack, nodeId, finishFunc, rightNum, _ENV, isPlayAnim, AdventureGame_Question
+    -- function num : 0_5_1 , upvalues : curQuesIndex, quesCount, isCheack, nodeId, finishFunc, rightNum, _ENV, uid, isPlayAnim, AdventureGame_Question
     if quesCount < curQuesIndex then
       if isCheack == false then
         isCheack = true
@@ -230,7 +234,7 @@ AdventureGame_Question.CheckAnswerFinish = function(select, clickedBtn, otherBtn
       do
         local rewardInfo = (AdventureData.GetMiniGameRewardInfo)(AdventureEventType.Question, result)
         ;
-        (AdventureService.ReqAdventureEventReward)(nodeId, AdventureEventType.Question, false, {[1] = rewardInfo.Id})
+        (AdventureService.ReqAdventureEventReward)(nodeId, AdventureEventType.Question, false, {[1] = rewardInfo.Id}, uid)
         ;
         (SimpleTimer.setTimeout)(0.5, function(...)
       -- function num : 0_5_1_0 , upvalues : _ENV

@@ -49,6 +49,8 @@ CardListWindow.OnInit = function(_bridgeObj, ...)
   m.moneyTypes = {}
   ;
   (CommonWinMgr.RegisterAssets)(m)
+  ;
+  (CardData.SaveNotObtainCardList)()
   haveUrl = (Util.GetResUrl)("Card:HaveCardinfoGrp")
   notHaveUrl = (Util.GetResUrl)("Card:UnHavetiaoGrp")
   ;
@@ -580,6 +582,10 @@ CardListWindow.HandleMessage = function(msgId, para, ...)
   local windowMsgEnum = WindowMsgEnum.CardWindow
   if msgId == windowMsgEnum.E_MSG_CARD_PICE_TO_CARD then
     OpenWindow("PiceGetShowWindow", UILayer.HUD, para.cardId)
+    ;
+    (CardListWindow.InitCardListState)()
+    ;
+    (CardListWindow.CardsInfoInit)()
   else
     if msgId == windowMsgEnum.E_MSG_CARD_CLOSEGET_TOLIST then
       (CardListWindow.InitCardListState)()

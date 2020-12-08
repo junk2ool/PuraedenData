@@ -16,6 +16,8 @@ local book2 = "book_02"
 local book3 = "book_04"
 local book4 = "book_03"
 local book5 = "book_05"
+local book6 = "book_08"
+local book7 = "book_07"
 local bookAni = {LEFT_UPTURN = "zf_shang", LEFT_DOWN = "zf_xia", RIGHT_UPTURN = "yf_shang", RIGHT_DOWN = "yf_xia"}
 local isLoading = false
 local bookNameList = {
@@ -28,6 +30,10 @@ local bookNameList = {
 [4] = {book4, book4 .. "_l", book4 .. "_r"}
 , 
 [5] = {book5, book5 .. "_l", book5 .. "_r"}
+, 
+[6] = {book6, book6 .. "_l", book6 .. "_r"}
+, 
+[7] = {book7, book7 .. "_l", book7 .. "_r"}
 }
 local mRoot = nil
 local currentIndex = 0

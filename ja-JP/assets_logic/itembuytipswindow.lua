@@ -87,13 +87,20 @@ ItemBuyTipsWindow.ShowTips = function(model, mItem, root, ...)
 
   ;
   (modelUis.ItemList).numItems = 0
-  ;
-  (Util.SetFrame)(mItem.id, 1, modelUis.ItemList)
+  if not mItem.noIcon then
+    (Util.SetFrame)(mItem.id, 1, modelUis.ItemList)
+  end
   local itemData = (Util.GetConfigDataByID)(mItem.id)
-  -- DECOMPILER ERROR at PC20: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC29: Confused about usage of register: R5 in 'UnsetPending'
 
-  ;
-  (modelUis.NameTxt).text = (PUtil.get)(20000109, itemData.name, mItem.Num)
+  if (Util.StringIsNullOrEmpty)(mItem.content) then
+    (modelUis.NameTxt).text = (PUtil.get)(20000109, itemData.name, mItem.Num)
+  else
+    -- DECOMPILER ERROR at PC33: Confused about usage of register: R5 in 'UnsetPending'
+
+    ;
+    (modelUis.NameTxt).text = mItem.content
+  end
   local tran = (model.root):GetTransition("in")
   ;
   (LuaSound.PlaySound)(LuaSound.COMMON_SHOW_REWARD_TINY, SoundBank.OTHER)

@@ -161,11 +161,13 @@ AnnouncementWindow.CheckArrow = function(...)
 end
 
 AnnouncementWindow.OnClose = function(...)
-  -- function num : 0_12 , upvalues : AnnouncementWindow, uis, contentPane, argTable
+  -- function num : 0_12 , upvalues : AnnouncementWindow, uis, contentPane, argTable, _ENV
   (AnnouncementWindow.RemoveEvent)()
   uis = nil
   contentPane = nil
   argTable = {}
+  ;
+  (ActivityMgr.CheckPopupAfterAnnounceActivity)()
 end
 
 AnnouncementWindow.RefreshTitleItem = function(index, item, ...)
@@ -216,19 +218,21 @@ AnnouncementWindow.RefreshContent = function(content, ...)
   ;
   ((uis.Announcement).ImageList):RemoveChildrenToPool()
   local contentData = (AnnouncementData.GetAnalyzedContent)(content.content, argTable[1])
-  -- DECOMPILER ERROR at PC41: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC47: Unhandled construct in 'MakeBoolean' P3
 
-  -- DECOMPILER ERROR at PC41: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC47: Unhandled construct in 'MakeBoolean' P3
+
+  -- DECOMPILER ERROR at PC47: Unhandled construct in 'MakeBoolean' P3
 
   local onlyImage = (#contentData ~= 1 or (contentData[1]).Type ~= AnnouncementDataContentType.BigImage) and #contentData == 2 and (contentData[1]).Type ~= AnnouncementDataContentType.BigImage
   local list = nil
-  -- DECOMPILER ERROR at PC49: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC55: Confused about usage of register: R4 in 'UnsetPending'
 
   if onlyImage then
     ((uis.Announcement).c1Ctr).selectedIndex = 1
     list = (uis.Announcement).ImageList
   else
-    -- DECOMPILER ERROR at PC55: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC61: Confused about usage of register: R4 in 'UnsetPending'
 
     ((uis.Announcement).c1Ctr).selectedIndex = 0
     list = (uis.Announcement).ContentList
@@ -258,6 +262,8 @@ AnnouncementWindow.RefreshContent = function(content, ...)
         eachData.Component = imgPanel
       elseif eachData.Type == AnnouncementDataContentType.BigImage or onlyImage and eachData.Type == AnnouncementDataContentType.Image then
         imgPanel = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.AnnouncementWindow).package, AnnouncementData.CONTENT_BIG_IMG_RESOURCE))
+        ;
+        (imgPanel.onClick):Clear()
         local loader = imgPanel:GetChild("ImageLoader")
         loader.loaded = function(...)
     -- function num : 0_16_1 , upvalues : loader
@@ -271,6 +277,27 @@ AnnouncementWindow.RefreshContent = function(content, ...)
         (imgPanel:GetController("c1")).selectedIndex = 0
         ;
         (AnnouncementWindow.SetDatePanel)(imgPanel)
+      elseif eachData.Type == AnnouncementDataContentType.ImageUrl then
+        imgPanel = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.AnnouncementWindow).package, AnnouncementData.CONTENT_BIG_IMG_RESOURCE))
+        local loader = imgPanel:GetChild("ImageLoader")
+        loader.loaded = function(...)
+    -- function num : 0_16_2 , upvalues : loader
+    loader:SetSize(loader.width, (loader.texture).height)
+  end
+
+        loge("load:" .. eachData.Img)
+        loader.url = eachData.Img
+        eachData.Component = imgPanel
+        ;
+        (imgPanel:GetController("c1")).selectedIndex = 0
+        ;
+        (AnnouncementWindow.SetDatePanel)(imgPanel)
+        ;
+        (imgPanel.onClick):Set(function(...)
+    -- function num : 0_16_3 , upvalues : _ENV, eachData
+    (((CS.UnityEngine).Application).OpenURL)(eachData.Url)
+  end
+)
       else
         local component, text = nil, nil
         if eachData.Type == AnnouncementDataContentType.Button then
@@ -281,7 +308,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
           btn.text = (PUtil.get)(60000072)
           ;
           (btn.onClick):Set(function(...)
-    -- function num : 0_16_2 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_4 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -296,7 +323,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
             (imgPanel:GetController("c1")).selectedIndex = 0
             ;
             (imgPanel.onClick):Set(function(...)
-    -- function num : 0_16_3 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_5 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -324,7 +351,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
             btn.text = (PUtil.get)(60000072)
             ;
             (btn.onClick):Set(function(...)
-    -- function num : 0_16_4 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_6 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -352,7 +379,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
       end
     end
   end
-  -- DECOMPILER ERROR: 17 unprocessed JMP targets
+  -- DECOMPILER ERROR: 18 unprocessed JMP targets
 end
 
 AnnouncementWindow.SetTextFormat = function(text, format, ...)

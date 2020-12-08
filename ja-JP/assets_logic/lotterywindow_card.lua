@@ -101,12 +101,13 @@ LotteryWindow_Card.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound,
   local isKaQuan = excelData.type == 3
   if freeNum > 0 and (((grp.LotteryPanelGrp).GetCha_CardGrp).TimeTxt).visible == false then
     (btn:GetChild("Number_01_Loader")).visible = false
-    ;
-    (btn:GetChild("FreeNumberTxt")).visible = true
+    if btn:GetChild("FreeNumberTxt") then
+      (btn:GetChild("FreeNumberTxt")).visible = true
+      ;
+      (btn:GetChild("FreeNumberTxt")).text = (PUtil.get)(89, freeNum, excelData.day_free_num)
+    end
     ;
     (btn:GetChild("Number_01_Txt")).text = (PUtil.get)(90)
-    ;
-    (btn:GetChild("FreeNumberTxt")).text = (PUtil.get)(89, freeNum, excelData.day_free_num)
   else
     (btn:GetChild("Number_01_Loader")).visible = true
     if btn:GetChild("FreeNumberTxt") then
@@ -177,10 +178,14 @@ LotteryWindow_Card.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound,
           (LotteryData.SaveCurCostMode)(CostType.Ticket)
         end
         ;
-        (LotteryService.ReqLotteryDraw)(id)
-        if sound ~= nil then
-          (LuaSound.PlaySound)(sound, SoundBank.OTHER)
-        end
+        (MessageMgr.OpenCostResConfirmWindow)(224, excelData.first_cost, function(...)
+      -- function num : 0_4_0_0 , upvalues : _ENV, id, sound
+      (LotteryService.ReqLotteryDraw)(id)
+      if sound ~= nil then
+        (LuaSound.PlaySound)(sound, SoundBank.OTHER)
+      end
+    end
+)
       else
         loge("消耗绑钻或者非绑钻   " .. tostring(id))
         if id == LotteryCardId.day then
@@ -190,7 +195,7 @@ LotteryWindow_Card.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound,
             local bindId = tonumber((split(excelData.cost, ":"))[2])
             if bind then
               (MessageMgr.OpenCostResConfirmWindow)(224, excelData.cost, function(...)
-      -- function num : 0_4_0_0 , upvalues : _ENV, id, sound
+      -- function num : 0_4_0_1 , upvalues : _ENV, id, sound
       (LotteryService.ReqLotteryDraw)(id)
       if sound ~= nil then
         (LuaSound.PlaySound)(sound, SoundBank.OTHER)
@@ -210,7 +215,7 @@ LotteryWindow_Card.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound,
               (LotteryData.SaveCurCostMode)(CostType.Diamond)
               ;
               (MessageMgr.OpenCostResConfirmWindow)(224, excelData.cost, function(...)
-      -- function num : 0_4_0_1 , upvalues : _ENV, id, sound
+      -- function num : 0_4_0_2 , upvalues : _ENV, id, sound
       (LotteryService.ReqLotteryDraw)(id)
       if sound ~= nil then
         (LuaSound.PlaySound)(sound, SoundBank.OTHER)
@@ -224,7 +229,7 @@ LotteryWindow_Card.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound,
     end
   end
 )
-  -- DECOMPILER ERROR: 15 unprocessed JMP targets
+  -- DECOMPILER ERROR: 16 unprocessed JMP targets
 end
 
 -- DECOMPILER ERROR at PC32: Confused about usage of register: R7 in 'UnsetPending'

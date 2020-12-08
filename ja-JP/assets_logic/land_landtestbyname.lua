@@ -12,6 +12,7 @@ GetLand_LandTestUis = function(ui, ...)
   uis.LinkStart6Btn = ui:GetChild("LinkStart6Btn")
   uis.LinkStart1Btn = ui:GetChild("LinkStart1Btn")
   uis.LinkStart2Btn = ui:GetChild("LinkStart2Btn")
+  uis.LinkStart9Btn = ui:GetChild("LinkStart9Btn")
   uis.root = ui
   return uis
 end

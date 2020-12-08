@@ -101,6 +101,11 @@ LoginService.ReqLogout = function(...)
   ;
   (ActorMgr.RemoveHeartUpdate)()
   UIMgr:CloseAllWindow(true)
+  UIMgr:SetOnShownComplete((WinResConfig.LoginWindow).name, function(...)
+    -- function num : 0_3_0 , upvalues : _ENV
+    UIMgr:SendWindowMessage((WinResConfig.LoginWindow).name, (WindowMsgEnum.LoginWindow).E_MSG_REFRESH_EFFECT)
+  end
+)
   OpenWindow("LoginWindow", UILayer.HUD)
 end
 
@@ -260,6 +265,10 @@ LoginService.OnResAlert = function(msg, ...)
   local param = msg.param
   if msgId then
     (MsgWaiterObj.ReceiveMsg)(nil, msgId)
+  end
+  if content == "guild_war_need_refresh" then
+    (GuildBossService.ReqGuildBattleInfo)(true)
+    UIMgr:CloseWindow((WinResConfig.GuildBossDetailWindow).name)
   end
   if type == (ProtoEnum.E_ALERT_TYPE).HIDE then
     return 

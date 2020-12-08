@@ -220,24 +220,26 @@ HandBookService.ResCGCopyStage = function(msg, ...)
   (CardData.UpdateCardStageID)(StageData.card_id, (msg.stageInfo).stageId)
 end
 
--- DECOMPILER ERROR at PC52: Confused about usage of register: R3 in 'UnsetPending'
+local formationList = {}
+-- DECOMPILER ERROR at PC53: Confused about usage of register: R4 in 'UnsetPending'
 
 HandBookService.OnReqInCGCopyStage = function(stageId, cardList, ...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV, formationList
   local m = {}
   m.stageId = stageId
   m.cardList = (Util.CovertLoaclFormationToRemote)(cardList)
+  formationList = cardList
   ;
   (Net.Send)((Proto.MsgName).ReqInCGCopyStage, m, (Proto.MsgName).InitBattleData)
 end
 
--- DECOMPILER ERROR at PC55: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC56: Confused about usage of register: R4 in 'UnsetPending'
 
 HandBookService.ResInCGCopyStage = function(msg, ...)
   -- function num : 0_16
 end
 
--- DECOMPILER ERROR at PC58: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC59: Confused about usage of register: R4 in 'UnsetPending'
 
 HandBookService.OnReqSettleCGCopyStage = function(battleCompleteData, ...)
   -- function num : 0_17 , upvalues : _ENV
@@ -251,10 +253,10 @@ HandBookService.OnReqSettleCGCopyStage = function(battleCompleteData, ...)
 )
 end
 
--- DECOMPILER ERROR at PC61: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC62: Confused about usage of register: R4 in 'UnsetPending'
 
 HandBookService.ResSettleCGCopyStage = function(msg, ...)
-  -- function num : 0_18 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV, formationList
   if msg.success then
     local m = {}
     do
@@ -289,42 +291,104 @@ HandBookService.ResSettleCGCopyStage = function(msg, ...)
     do
       local m = {}
       m.BattleType = (ProtoEnum.E_BATTLE_TYPE).CG
+      local btn = {}
+      btn.btnTxt = (PUtil.get)(20000565)
+      btn.fun = function(...)
+    -- function num : 0_18_1 , upvalues : _ENV, msg, formationList
+    if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
+      ld("Battle", function(...)
+      -- function num : 0_18_1_0 , upvalues : _ENV
+      (BattleMgr.CloseBattle)()
+    end
+)
+      UIMgr:SetOnShownComplete((WinResConfig.HandBookCardPlotBattleWindow).name, function(...)
+      -- function num : 0_18_1_1 , upvalues : _ENV, msg, formationList
+      (HandBookService.EnterFormation)((msg.stageInfo).stageId, formationList)
+    end
+)
+    end
+  end
+
+      m.btn3 = btn
       ;
       (CommonWinMgr.OpenBattleFailConvergeWindow)(m)
     end
   end
 end
 
--- DECOMPILER ERROR at PC64: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC65: Confused about usage of register: R4 in 'UnsetPending'
+
+HandBookService.EnterFormation = function(stageID, cards, ...)
+  -- function num : 0_19 , upvalues : _ENV
+  local StageData = ((TableData.gTable).BaseHandbookStageData)[stageID]
+  local groupList = split(StageData.monster_group_list, ":")
+  local enemyList = (Util.CovertMonsterFormationToLocal)(tonumber(groupList[1]))
+  local btnData = {}
+  btnData.btnTxt = (PUtil.get)(20000021)
+  btnData.fun = function(list, ...)
+    -- function num : 0_19_0 , upvalues : _ENV, stageID
+    (HandBookService.OnReqInCGCopyStage)(stageID, list)
+  end
+
+  local formationData = {}
+  formationData.enemyList = enemyList
+  formationData.myselfList = cards
+  local selfMonster = split(StageData.embattle_monster_ids, ":")
+  formationData.PrepareList = selfMonster
+  local externalData = {}
+  externalData.maxFight = StageData.embattle_count_limit
+  externalData.mustID = StageData.embattle_need_id
+  formationData.ExternalData = externalData
+  formationData.BtnData = btnData
+  formationData.formationType = FormationType.CG
+  formationData.battleType = (ProtoEnum.E_BATTLE_TYPE).CG
+  formationData.stageId = stageID
+  formationData.DetailBtn = function(...)
+    -- function num : 0_19_1 , upvalues : groupList, _ENV
+    local length = #groupList
+    local data = {}
+    for i = 1, length do
+      local enemyList = (Util.CovertMonsterFormationToLocal)(tonumber(groupList[i]))
+      ;
+      (table.insert)(data, enemyList)
+    end
+    OpenWindow((WinResConfig.FormationMonsterInfoWindow).name, UILayer.HUD1, data)
+  end
+
+  ;
+  (MessageMgr.OpenFormationWindow)(formationData)
+end
+
+-- DECOMPILER ERROR at PC68: Confused about usage of register: R4 in 'UnsetPending'
 
 HandBookService.OnReqCGCopyGetCG = function(...)
-  -- function num : 0_19 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   local m = {}
   ;
   (Net.Send)((Proto.MsgName).ReqStoryCopyGetCG, m, (Proto.MsgName).ResStoryCopyGetCG)
 end
 
--- DECOMPILER ERROR at PC67: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC71: Confused about usage of register: R4 in 'UnsetPending'
 
 HandBookService.ResCGCopyGetCG = function(msg, ...)
-  -- function num : 0_20
+  -- function num : 0_21
 end
 
 local isPlot = false
--- DECOMPILER ERROR at PC71: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC75: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnReqCGList = function(plot, ...)
-  -- function num : 0_21 , upvalues : isPlot, _ENV
+  -- function num : 0_22 , upvalues : isPlot, _ENV
   isPlot = plot
   local m = {}
   ;
   (Net.Send)((Proto.MsgName).ReqCGList, m, (Proto.MsgName).ResCGList)
 end
 
--- DECOMPILER ERROR at PC74: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.ResCGList = function(msg, ...)
-  -- function num : 0_22 , upvalues : isPlot, _ENV
+  -- function num : 0_23 , upvalues : isPlot, _ENV
   if isPlot then
     OpenWindow((WinResConfig.CGPreviewWindow).name, UILayer.HUD, 1, msg.CGList)
   else
@@ -333,65 +397,65 @@ HandBookService.ResCGList = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC77: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC81: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnReqHandLetterList = function(...)
-  -- function num : 0_23 , upvalues : _ENV
+  -- function num : 0_24 , upvalues : _ENV
   local m = {}
   ;
   (Net.Send)((Proto.MsgName).ReqHandLetterList, m, (Proto.MsgName).ResHandLetterList)
 end
 
--- DECOMPILER ERROR at PC80: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC84: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.ResHandLetterList = function(msg, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   (HandBookMgr.SetLetterData)(msg.letterList)
 end
 
--- DECOMPILER ERROR at PC83: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC87: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnReqOpenCG = function(id, ...)
-  -- function num : 0_25 , upvalues : _ENV
+  -- function num : 0_26 , upvalues : _ENV
   local m = {}
   m.CGId = id
   ;
   (Net.Send)((Proto.MsgName).ReqOpenCG, m)
 end
 
--- DECOMPILER ERROR at PC86: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC90: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnReqOpenLetter = function(id, ...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : _ENV
   local m = {}
   m.letterId = id
   ;
   (Net.Send)((Proto.MsgName).ReqOpenLetter, m)
 end
 
--- DECOMPILER ERROR at PC89: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC93: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnReqSetHandbookCover = function(cardID, ...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_28 , upvalues : _ENV
   local m = {}
   m.cardId = cardID
   ;
   (Net.Send)((Proto.MsgName).ReqSetHandbookCover, m)
 end
 
--- DECOMPILER ERROR at PC92: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC96: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.ResSetHandbookCover = function(msg, ...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   local card = (CardData.GetCardData)(msg.cardId)
   ;
   (MessageMgr.SendCenterTips)(card.name .. "已成为手账管理员")
 end
 
--- DECOMPILER ERROR at PC95: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC99: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnReqIntimacyInfo = function(cardID, isInitList, ...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   if (FunctionControlMgr.GetFunctionState)(ControlID.HandBook_Intimacy, true) == false then
     return 
   end
@@ -404,10 +468,10 @@ HandBookService.OnReqIntimacyInfo = function(cardID, isInitList, ...)
   (Net.Send)((Proto.MsgName).ReqIntimacyInfo, m, (Proto.MsgName).ResIntimacyInfo)
 end
 
--- DECOMPILER ERROR at PC98: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC102: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.ResIntimacyInfo = function(msg, ...)
-  -- function num : 0_30 , upvalues : _ENV
+  -- function num : 0_31 , upvalues : _ENV
   (HandBookMgr.IntimacyCardData)(msg)
   if msg.isSync then
     local intimacyLv = ((CardData.GetCardData)(msg.cardId)).intimacyLv
@@ -426,10 +490,10 @@ HandBookService.ResIntimacyInfo = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC101: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC105: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnReqUseIntimacyItem = function(itemID, cardID, count, ...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_32 , upvalues : _ENV
   if not count then
     count = 1
   end
@@ -441,10 +505,10 @@ HandBookService.OnReqUseIntimacyItem = function(itemID, cardID, count, ...)
   (Net.Send)((Proto.MsgName).ReqUseProp, m, (Proto.MsgName).ResUseProp)
 end
 
--- DECOMPILER ERROR at PC104: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC108: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.ReqActivateFetter = function(id, ...)
-  -- function num : 0_32 , upvalues : _ENV
+  -- function num : 0_33 , upvalues : _ENV
   print("请求激活羁绊  ", id)
   local m = {}
   m.id = id
@@ -452,10 +516,10 @@ HandBookService.ReqActivateFetter = function(id, ...)
   (Net.Send)((Proto.MsgName).ReqActivateFetter, m, (Proto.MsgName).ResActivateFetter)
 end
 
--- DECOMPILER ERROR at PC107: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC111: Confused about usage of register: R5 in 'UnsetPending'
 
 HandBookService.OnResActivateFetter = function(msg, ...)
-  -- function num : 0_33 , upvalues : _ENV
+  -- function num : 0_34 , upvalues : _ENV
   print("激活羁绊返回  ", msg.id)
   ;
   (HandBookData.SetFetterDataByFetterTreeId)(msg.id)

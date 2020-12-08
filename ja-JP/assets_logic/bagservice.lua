@@ -122,6 +122,13 @@ BagService.ResUseProp = function(msg, ...)
       end
     end
   end
+  if propData.id == ARENA_TICKET then
+    local item = {
+{id = msg.propId, noIcon = true, content = (PUtil.get)(60000545) .. propData.effect_value}
+}
+    ;
+    (MessageMgr.OpenItemBuyTipsWindow)(item)
+  end
 end
 
 -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'

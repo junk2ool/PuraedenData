@@ -6,6 +6,7 @@ GetHome_NiudanBtnUis = function(ui, ...)
   local uis = {}
   uis.RedDot = GetCommonResource_RedDollUis(ui:GetChild("RedDot"))
   uis.buttonCtr = ui:GetController("button")
+  uis.ClothesCtr = ui:GetController("Clothes")
   uis.root = ui
   return uis
 end

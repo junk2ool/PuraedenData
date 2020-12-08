@@ -245,10 +245,17 @@ TableData.GetBasePlayConfigByType = function(type, ...)
   end
 end
 
-TableData.GetExpeditionMonsterConfig = function(selfMaxFc, ...)
-  -- function num : 0_16 , upvalues : TableData, pairs, _ENV
+TableData.GetMonsterFcConfig = function(selfMaxFc, battleType, ...)
+  -- function num : 0_16 , upvalues : _ENV, TableData, pairs
   if selfMaxFc > 0 then
-    local allConfig = (TableData.gTable).BaseExpeditionMonsterData
+    local allConfig = nil
+    if battleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION then
+      allConfig = (TableData.gTable).BaseExpeditionMonsterData
+    else
+      if battleType == (ProtoEnum.E_BATTLE_TYPE).ACTIVITY then
+        allConfig = (TableData.gTable).BaseMonsterAddData
+      end
+    end
     for _,v in pairs(allConfig) do
       local fcRange = split(v.fc_range, ":")
       if tonumber(fcRange[1]) <= selfMaxFc and selfMaxFc <= tonumber(fcRange[2]) then
@@ -281,6 +288,19 @@ TableData.GetSummonConfigByType = function(type, ...)
   end
 )
     return configResult
+  end
+end
+
+TableData.GetGuildTalentConfig = function(id, level, ...)
+  -- function num : 0_18 , upvalues : TableData, pairs
+  local talentConfig = ((TableData.gTable).BaseGuildWarTalentData)[id]
+  if talentConfig then
+    local upConfig = (TableData.gTable).BaseGuildWarTalentUpData
+    for i,v in pairs(upConfig) do
+      if v.type == talentConfig.grow_type and v.level == level then
+        return v
+      end
+    end
   end
 end
 

@@ -521,7 +521,7 @@ ActivityDungeonExchangeWindow.InitAssetStrip = function(...)
   m.windowName = (WinResConfig.ActivityDungeonExchangeWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStrip
-  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.ACTIVITY_SCORE}
+  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.ACTIVITY_SCORE_NEW}
   ;
   (CommonWinMgr.RegisterAssets)(m)
 end
@@ -621,7 +621,11 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
     -- function num : 0_21_1 , upvalues : _ENV
     local content = (PUtil.get)(20000512, (SlotsData.ChangeTotalRound)() + 1)
     ;
-    (MessageMgr.OpenSoloConfirmWindow)(content, nil, (PUtil.get)(20000513))
+    (SimpleTimer.setTimeout)(0.01, function(...)
+      -- function num : 0_21_1_0 , upvalues : _ENV, content
+      (MessageMgr.OpenSoloConfirmWindow)(content, nil, (PUtil.get)(20000513))
+    end
+)
   end
 )
           end

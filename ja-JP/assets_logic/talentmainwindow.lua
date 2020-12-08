@@ -708,7 +708,7 @@ TalentMainWindow.OnClose = function(...)
   curSelectedPointItem = nil
   lastClickIndex = 0
   for index,value in ipairs(rotateTweenPool) do
-    value:Kill()
+    value:SetPaused()
   end
   rotateTweenPool = {}
   for index,value in ipairs(stableEffectPool) do

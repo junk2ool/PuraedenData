@@ -2,6 +2,7 @@
 -- function num : 0 , upvalues : _ENV
 local LuaTime = {}
 TimeType = {EVERYDAY_TIME = 1, EVERY_WEEK_TIME = 2, EVERY_MOON_DAY_TIME = 3, EVERY_MOON_WEEKDAY_TIME = 4, SPECIFIED_TIME = 5, START_SERVER_TIME = 6, EVERY_DAY_PERSISTENT_TIME = 7, EVERY_MOON_PERSISTENT_TIME = 8}
+local DurationType = {Second = "SX", Minute = "MX", Hour = "HX"}
 LuaTime.GetStampStr = function(time, ...)
   -- function num : 0_0 , upvalues : _ENV
   return (os.date)("%Y-%m-%d %H-%M-%S", (math.ceil)(time / 1000))
@@ -107,7 +108,11 @@ LuaTime.GetTimeStr = function(time, showDay, ...)
     if showDay then
       local day = (math.floor)(hours / 24)
       hours = hours % 24
-      return (string.format)("%02d%s %02d:%02d:%02d", day, (PUtil.get)(20000219), hours, minutes, seconds)
+      if day == 0 then
+        return (string.format)("%02d:%02d:%02d", hours, minutes, seconds)
+      else
+        return (string.format)("%02d%s %02d:%02d:%02d", day, (PUtil.get)(20000219), hours, minutes, seconds)
+      end
     else
       do
         do return (string.format)("%02d:%02d:%02d", hours, minutes, seconds) end
@@ -117,7 +122,7 @@ LuaTime.GetTimeStr = function(time, showDay, ...)
   end
 end
 
-LuaTime.GetTimeStrVersion2 = function(time, ...)
+LuaTime.GetTimeStrVersion2 = function(time, showDay, ...)
   -- function num : 0_6 , upvalues : _ENV
   local arg1, arg2, arg3, arg4 = nil, nil, nil, nil
   if time < 3600 then
@@ -132,7 +137,14 @@ LuaTime.GetTimeStrVersion2 = function(time, ...)
     arg3 = 60000097
     arg4 = 60000393
   end
-  return (string.format)("%02d%s%02d%s", arg1, (PUtil.get)(arg3), arg2, (PUtil.get)(arg4))
+  do
+    if showDay and arg1 > 24 then
+      local day = (math.floor)(arg1 / 24)
+      arg1 = arg1 % 24
+      return (string.format)("%d%s%02d%s%02d%s", day, (PUtil.get)(20000219), arg1, (PUtil.get)(arg3), arg2, (PUtil.get)(arg4))
+    end
+    return (string.format)("%02d%s%02d%s", arg1, (PUtil.get)(arg3), arg2, (PUtil.get)(arg4))
+  end
 end
 
 LuaTime.GetTimeWithoutSeondsStr = function(time, ...)
@@ -221,7 +233,11 @@ LuaTime.InitConfigStr = function(value, ...)
 
   local array = .end
   local TimeType = TimeType
-  if (((((timeType == TimeType.EVERYDAY_TIME and timeType ~= TimeType.EVERY_WEEK_TIME) or timeType == TimeType.EVERY_MOON_DAY_TIME) and timeType ~= TimeType.EVERY_MOON_WEEKDAY_TIME) or timeType == TimeType.SPECIFIED_TIME) and timeType ~= TimeType.START_SERVER_TIME) or timeType == TimeType.EVERY_DAY_PERSISTENT_TIME then
+  if (((timeType == TimeType.EVERYDAY_TIME and timeType ~= TimeType.EVERY_WEEK_TIME) or timeType == TimeType.EVERY_MOON_DAY_TIME) and timeType ~= TimeType.EVERY_MOON_WEEKDAY_TIME) or timeType == TimeType.SPECIFIED_TIME then
+    return (LuaTime.AnalyseSpecifedTime)(strS[2], strS[3])
+  else
+  end
+  if timeType ~= TimeType.START_SERVER_TIME or timeType == TimeType.EVERY_DAY_PERSISTENT_TIME then
     array = (LuaTime.HourMin)(strS[2])
   else
   end
@@ -231,8 +247,78 @@ LuaTime.InitConfigStr = function(value, ...)
   end
 end
 
+LuaTime.AnalyseSpecifedTime = function(arg1, arg2, ...)
+  -- function num : 0_13 , upvalues : _ENV, LuaTime, DurationType
+  if (Util.StringIsNullOrEmpty)(arg1) or (Util.StringIsNullOrEmpty)(arg2) then
+    return 
+  end
+  local year1 = arg1:sub(1, 4)
+  if (Util.StringIsNullOrEmpty)(year1) then
+    loge("时间配置错误:" .. arg1)
+    return 
+  end
+  year1 = tonumber(year1)
+  local month1 = arg1:sub(5, 6)
+  if (Util.StringIsNullOrEmpty)(month1) then
+    loge("时间配置错误:" .. arg1)
+    return 
+  end
+  month1 = tonumber(month1)
+  local day1 = arg1:sub(7, 8)
+  if (Util.StringIsNullOrEmpty)(day1) then
+    loge("时间配置错误:" .. arg1)
+    return 
+  end
+  day1 = tonumber(day1)
+  local hour1 = arg1:sub(9, 10)
+  if (Util.StringIsNullOrEmpty)(hour1) then
+    loge("时间配置错误:" .. arg1)
+    return 
+  end
+  hour1 = tonumber(hour1)
+  local minute1 = arg1:sub(11, 12)
+  if (Util.StringIsNullOrEmpty)(minute1) then
+    loge("时间配置错误:" .. arg1)
+    return 
+  end
+  minute1 = tonumber(minute1)
+  local timeStamp = (os.time)({year = year1, month = month1, day = day1, hour = hour1, min = minute1})
+  timeStamp = (LuaTime.CoverTimeZone)(timeStamp)
+  local type = arg2:sub(1, 2)
+  local duration = tonumber(arg2:sub(3))
+  if duration == 0 then
+    return timeStamp
+  else
+    local timeStamp2 = nil
+    if type == DurationType.Second then
+      timeStamp2 = timeStamp + duration
+    else
+      if type == DurationType.Minute then
+        timeStamp2 = timeStamp + duration * 60
+      else
+        if type == DurationType.Hour then
+          timeStamp2 = timeStamp + duration * 3600
+        end
+      end
+    end
+    return timeStamp, timeStamp2
+  end
+end
+
+LuaTime.CoverTimeZone = function(timeStamp, ...)
+  -- function num : 0_14 , upvalues : LuaTime, _ENV
+  local timezone = (LuaTime.GetTimeZone)()
+  return timeStamp - timezone + 3600 * Game.timeZone
+end
+
+LuaTime.GetTimeZone = function(...)
+  -- function num : 0_15 , upvalues : _ENV
+  local now = (os.time)()
+  return (os.difftime)(now, (os.time)((os.date)("!*t", now)))
+end
+
 LuaTime.HourMin = function(str, ...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   local array = {}
   local hour = tonumber((string.sub)(str, 1, 2))
   local minute = tonumber((string.sub)(str, 3))
@@ -246,7 +332,7 @@ LuaTime.HourMin = function(str, ...)
 end
 
 LuaTime.keepTime = function(str, ...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   if (string.len)(str) < 2 then
     loge("配置错误")
     return 
@@ -274,7 +360,7 @@ LuaTime.keepTime = function(str, ...)
 end
 
 LuaTime.GetRangeTime = function(str, ...)
-  -- function num : 0_15 , upvalues : LuaTime, _ENV
+  -- function num : 0_18 , upvalues : LuaTime, _ENV
   local time, keep = (LuaTime.InitConfigStr)(str)
   local startTime = (string.format)("%02d:%02d", time[1], time[2])
   local keepHour, keepMin = (LuaTime.GetTimeNum)(keep)
@@ -284,13 +370,13 @@ LuaTime.GetRangeTime = function(str, ...)
 end
 
 LuaTime.GetGameHour = function(time, ...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_19 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return tonumber((os.date)("%H", (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)))
 end
 
 LuaTime.GetTimeWithTimezone = function(time, ...)
-  -- function num : 0_17 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)
 end

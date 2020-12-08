@@ -5,96 +5,124 @@ EquiptDetailPanelType = {NoButton = 1, Change = 2, Disarm = 3, Equip = 4}
 EquiptOpenType = {Normal = 1, Identify = 2, SpecifyEquipment = 3, Decompose = 4, ChangeRoldEquipts = 5}
 EquiptAcquireType = {Default = 0, Tower = 1, Dungeon = 2, Shop = 3, Gift = 4, Lottory = 5}
 EquiptAttrStatusType = {Normal = 0, New = 1, Demote = 2, Promote = 3}
+EquiptPresetEditStatus = {Same = 0, New = 1, Modified = 2, EmptyNew = 3}
 if Const then
   EquiptAttrColor = {Const.RedEquipmentColor, Const.BlueEquipmentColor, Const.GreenEquipmentColor, Const.YellowEquipmentColor, Const.LightBlueEquipmentColor, Const.LightGrayEquipmentColor}
-  -- DECOMPILER ERROR at PC48: Confused about usage of register: R0 in 'UnsetPending'
-
-  EquiptData.MAX_EQUIP_PANEL_SIZE = 610
-  -- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
-
-  EquiptData.DEFAULT_MAX_BAG_SLOTS = 72000005
-  -- DECOMPILER ERROR at PC52: Confused about usage of register: R0 in 'UnsetPending'
-
-  EquiptData.EQUIPMENT_INTELLIGENCE_LIMIT = 72000011
   -- DECOMPILER ERROR at PC54: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_BUFF_TYPE_NAME = 72000012
+  EquiptData.MAX_EQUIP_PANEL_SIZE = 610
   -- DECOMPILER ERROR at PC56: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.MAX_IDENTIFY_AMOUNT = 72000015
+  EquiptData.DEFAULT_MAX_BAG_SLOTS = 72000005
   -- DECOMPILER ERROR at PC58: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.LINE_A_RESOURCE = "EquiptPopLine_A"
+  EquiptData.EQUIPMENT_INTELLIGENCE_LIMIT = 72000011
   -- DECOMPILER ERROR at PC60: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.LIST_A_RESOURCE = "EquiptPopAttribute_A"
+  EquiptData.EQUIPMENT_BUFF_TYPE_NAME = 72000012
   -- DECOMPILER ERROR at PC62: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.LIST_B_RESOURCE = "EquiptPopAttribute_B"
+  EquiptData.MAX_IDENTIFY_AMOUNT = 72000015
   -- DECOMPILER ERROR at PC64: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_TYPE_FILTER_RESOURCE = "EquiptTips"
+  EquiptData.MAX_PRESET_AMOUNT = 72010071
   -- DECOMPILER ERROR at PC66: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_INTELLIGENCE_FILTER_RESOURCE = "EquiptStage"
+  EquiptData.MAX_PRESET_NAME_LENGTH = 72010072
   -- DECOMPILER ERROR at PC68: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_PARTS_FILTER_RESOURCE = "EquiptPosition"
+  EquiptData.LINE_A_RESOURCE = "EquiptPopLine_A"
   -- DECOMPILER ERROR at PC70: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_FILTER_RESOURCE = "EquiptAttribute"
+  EquiptData.LIST_A_RESOURCE = "EquiptPopAttribute_A"
   -- DECOMPILER ERROR at PC72: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_ATTRIBUTE_RESOURCE = "AttributeTipsLIst"
+  EquiptData.LIST_B_RESOURCE = "EquiptPopAttribute_B"
   -- DECOMPILER ERROR at PC74: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_BUFF_DETAIL_RESOURCE = "EquiptDetailedBuff"
+  EquiptData.EQUIPMENT_TYPE_FILTER_RESOURCE = "EquiptTips"
   -- DECOMPILER ERROR at PC76: Confused about usage of register: R0 in 'UnsetPending'
 
+  EquiptData.EQUIPMENT_INTELLIGENCE_FILTER_RESOURCE = "EquiptStage"
+  -- DECOMPILER ERROR at PC78: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EQUIPMENT_PARTS_FILTER_RESOURCE = "EquiptPosition"
+  -- DECOMPILER ERROR at PC80: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EQUIPMENT_FILTER_RESOURCE = "EquiptAttribute"
+  -- DECOMPILER ERROR at PC82: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EQUIPMENT_ATTRIBUTE_RESOURCE = "AttributeTipsLIst"
+  -- DECOMPILER ERROR at PC84: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EQUIPMENT_BUFF_DETAIL_RESOURCE = "EquiptDetailedBuff"
+  -- DECOMPILER ERROR at PC86: Confused about usage of register: R0 in 'UnsetPending'
+
   EquiptData.EQUIPMENT_DETAIL_LINE_A_RESOURCE = "EquiptDetailedLine_A"
-  -- DECOMPILER ERROR at PC85: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC88: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.MaxBagSlots = (((TableData.gTable).BaseFixedData)[EquiptData.DEFAULT_MAX_BAG_SLOTS]).int_value
-  -- DECOMPILER ERROR at PC87: Confused about usage of register: R0 in 'UnsetPending'
+  EquiptData.PRESET_LINE_A = "Edit_A"
+  -- DECOMPILER ERROR at PC90: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EQUIPMENT_TYPE_COUNT = 4
-  -- DECOMPILER ERROR at PC89: Confused about usage of register: R0 in 'UnsetPending'
+  EquiptData.PRESET_INFO_A = "Info_A"
+  -- DECOMPILER ERROR at PC92: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.MAX_ATTR_QUALITY_AMOUNT = 8
-  -- DECOMPILER ERROR at PC91: Confused about usage of register: R0 in 'UnsetPending'
+  EquiptData.PRESET_INFO_B = "Info_B"
+  -- DECOMPILER ERROR at PC94: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.MAX_ATTRIBUTE_AMOUNT = 8
-  -- DECOMPILER ERROR at PC93: Confused about usage of register: R0 in 'UnsetPending'
+  EquiptData.PRESET_ATTR_A = "Edit_C"
+  -- DECOMPILER ERROR at PC96: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.EquipPanelBottomBlankSize = 0
-  -- DECOMPILER ERROR at PC95: Confused about usage of register: R0 in 'UnsetPending'
-
-  EquiptData.CurrentRoleData = nil
+  EquiptData.PRESET_ATTR_B = "Info_D"
   -- DECOMPILER ERROR at PC98: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.AvailableParts = {}
-  -- DECOMPILER ERROR at PC101: Confused about usage of register: R0 in 'UnsetPending'
-
-  EquiptData.Equipments = {}
-  -- DECOMPILER ERROR at PC104: Confused about usage of register: R0 in 'UnsetPending'
-
-  EquiptData.EquipmentsToDecompose = {}
+  EquiptData.PRESET_BUFF_A = "Edit_B"
   -- DECOMPILER ERROR at PC107: Confused about usage of register: R0 in 'UnsetPending'
 
+  EquiptData.MaxBagSlots = (((TableData.gTable).BaseFixedData)[EquiptData.DEFAULT_MAX_BAG_SLOTS]).int_value
+  -- DECOMPILER ERROR at PC109: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EQUIPMENT_TYPE_COUNT = 4
+  -- DECOMPILER ERROR at PC111: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.MAX_ATTR_QUALITY_AMOUNT = 8
+  -- DECOMPILER ERROR at PC113: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.MAX_ATTRIBUTE_AMOUNT = 8
+  -- DECOMPILER ERROR at PC115: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipPanelBottomBlankSize = 0
+  -- DECOMPILER ERROR at PC117: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.CurrentRoleData = nil
+  -- DECOMPILER ERROR at PC120: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.AvailableParts = {}
+  -- DECOMPILER ERROR at PC123: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.Equipments = {}
+  -- DECOMPILER ERROR at PC126: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipmentsToDecompose = {}
+  -- DECOMPILER ERROR at PC129: Confused about usage of register: R0 in 'UnsetPending'
+
   EquiptData.AvailableEquipmentsInBag = {}
-  -- DECOMPILER ERROR at PC110: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC132: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.UnidentifiedEquipments = {}
-  -- DECOMPILER ERROR at PC112: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC134: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.Identifying = false
+  -- DECOMPILER ERROR at PC137: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.PresetEditEquipments = {}
   EquiptSortType = {Increase = 1, Decrease = 2}
   EquiptType = {Normal = 0, Activity = 2, Privilege = 1}
   EquiptPartsType = {Weapon = 1, Chest = 2, Ring = 3, Necklace = 4, All = 5}
   EquiptEnhanceType = {Fixed = 1, Percent = 2}
-  EquiptSetType = {Change = 1, Decompose = 2, Identify = 3}
+  EquiptSetType = {Change = 1, Decompose = 2, Identify = 3, Preset = 4}
   EquiptFilterType = {Type = 1, SinglePart = 2, MultiplyParts = 3, Intelligence = 4, Attributes = 5, Buff = 6, AttributeAmount = 7, Privilege = 8}
-  -- DECOMPILER ERROR at PC204: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC237: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.EquipmentSetContainFilter = {
 [EquiptSetType.Change] = {[1] = EquiptFilterType.Type, [2] = EquiptFilterType.SinglePart, [3] = EquiptFilterType.Intelligence, [4] = EquiptFilterType.Attributes, [5] = EquiptFilterType.Buff, [6] = EquiptFilterType.AttributeAmount, [7] = EquiptFilterType.Privilege}
@@ -102,58 +130,82 @@ if Const then
 [EquiptSetType.Decompose] = {[1] = EquiptFilterType.Type, [2] = EquiptFilterType.MultiplyParts, [3] = EquiptFilterType.Intelligence, [4] = EquiptFilterType.Attributes, [5] = EquiptFilterType.Buff, [6] = EquiptFilterType.AttributeAmount}
 , 
 [EquiptSetType.Identify] = {[1] = EquiptFilterType.SinglePart}
+, 
+[EquiptSetType.Preset] = {[1] = EquiptFilterType.SinglePart}
 }
-  -- DECOMPILER ERROR at PC207: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC240: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.Filters = {}
-  -- DECOMPILER ERROR at PC210: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC243: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ReadyToDecompose = {}
-  -- DECOMPILER ERROR at PC213: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC246: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.AdvanceEquiptToDecompose = {}
-  -- DECOMPILER ERROR at PC216: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC249: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ReadyToIdentify = {}
-  -- DECOMPILER ERROR at PC219: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC252: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.IdentifyCost = {}
-  -- DECOMPILER ERROR at PC222: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC255: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.UpgradeConfig = {}
-  -- DECOMPILER ERROR at PC225: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC258: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SuitInfo = {}
-  -- DECOMPILER ERROR at PC228: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC261: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ChosedMainType = {}
-  -- DECOMPILER ERROR at PC231: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC264: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CurrentMainAttr = {}
-  -- DECOMPILER ERROR at PC234: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC267: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GroupSuitInfo = {}
-  -- DECOMPILER ERROR at PC236: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC269: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.MaxIntelligence = 0
-  -- DECOMPILER ERROR at PC239: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC272: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.Attributes = {}
-  -- DECOMPILER ERROR at PC242: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC275: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.Buffs = {}
-  -- DECOMPILER ERROR at PC245: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC278: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.NewEquipments = {}
-  local _init = false
-  -- DECOMPILER ERROR at PC249: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC280: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.PresetInitialized = false
+  -- DECOMPILER ERROR at PC282: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.ReInitialize = false
+  -- DECOMPILER ERROR at PC285: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipBelongTo = {}
+  -- DECOMPILER ERROR at PC288: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.PresetBelongTo = {}
+  -- DECOMPILER ERROR at PC291: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.NPEquipBelongToCard = {}
+  -- DECOMPILER ERROR at PC294: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipPresetsIndex = {}
+  -- DECOMPILER ERROR at PC297: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipPresets = {}
+  -- DECOMPILER ERROR at PC300: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EditPreset = {}
+  -- DECOMPILER ERROR at PC303: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitConfig = function(...)
-  -- function num : 0_0 , upvalues : _init, _ENV
-  if _init or IsBattleServer == true then
+  -- function num : 0_0 , upvalues : _ENV
+  if (_G.next)(EquiptData.GroupSuitInfo) ~= nil or IsBattleServer == true then
     return 
   end
-  _init = true
   ;
   (EquiptData.InitLevelUpConfig)()
   ;
@@ -162,7 +214,7 @@ if Const then
   (EquiptData.InitGroupSuitInfo)()
 end
 
-  -- DECOMPILER ERROR at PC252: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC306: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitLevelUpConfig = function(...)
   -- function num : 0_1 , upvalues : _ENV
@@ -187,14 +239,14 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC255: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC309: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetPartName = function(part, ...)
   -- function num : 0_2 , upvalues : _ENV
   return (PUtil.get)(60000047 + part)
 end
 
-  -- DECOMPILER ERROR at PC258: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC312: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitPartMayContainAttrConfig = function(...)
   -- function num : 0_3 , upvalues : _ENV
@@ -232,7 +284,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC261: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC315: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitGroupSuitInfo = function(...)
   -- function num : 0_4 , upvalues : _ENV
@@ -278,7 +330,7 @@ SuitIdDic = {}
   end
 end
 
-  -- DECOMPILER ERROR at PC264: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC318: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitMaxIntelligence = function(...)
   -- function num : 0_5 , upvalues : _ENV
@@ -294,7 +346,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC267: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC321: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitEquiptAttributes = function(...)
   -- function num : 0_6 , upvalues : _ENV
@@ -318,7 +370,7 @@ end
 )
 end
 
-  -- DECOMPILER ERROR at PC270: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC324: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitEquiptBuff = function(...)
   -- function num : 0_7 , upvalues : _ENV
@@ -335,7 +387,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC273: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC327: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetWearEquipInfo = function(cardId, EquipId, ...)
   -- function num : 0_8 , upvalues : _ENV
@@ -349,7 +401,7 @@ end
   return nil
 end
 
-  -- DECOMPILER ERROR at PC276: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC330: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ClearEquipData = function(...)
   -- function num : 0_9 , upvalues : _ENV
@@ -368,11 +420,35 @@ end
   -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.UnidentifiedEquipments = {}
+  -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.NewEquipments = {}
+  -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.PresetInitialized = false
+  -- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.ReInitialize = false
+  -- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipBelongTo = {}
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.PresetBelongTo = {}
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.NPEquipBelongToCard = {}
+  -- DECOMPILER ERROR at PC33: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipPresetsIndex = {}
+  -- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipPresets = {}
   ;
   (EquiptData.ResetData)()
 end
 
-  -- DECOMPILER ERROR at PC279: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC333: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetCardSuitCount = function(cardId, ...)
   -- function num : 0_10 , upvalues : _ENV
@@ -382,7 +458,7 @@ end
   return #((EquiptData.GetCardSuitInfo)(cardId)).GroupId
 end
 
-  -- DECOMPILER ERROR at PC282: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC336: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetCardSuitStatue = function(cardId, suitId, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -393,7 +469,7 @@ end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
-  -- DECOMPILER ERROR at PC285: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC339: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetSuitInfobyEquipts = function(equipts, ...)
   -- function num : 0_12 , upvalues : _ENV
@@ -427,7 +503,7 @@ end
   return activedSuit
 end
 
-  -- DECOMPILER ERROR at PC288: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC342: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetCardSuitInfo = function(cardId, ...)
   -- function num : 0_13 , upvalues : _ENV
@@ -444,7 +520,7 @@ GroupId = {}
   return (EquiptData.SuitInfo)[cardId]
 end
 
-  -- DECOMPILER ERROR at PC291: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC345: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.UpdateCardSuitInfo = function(cardId, ...)
   -- function num : 0_14 , upvalues : _ENV
@@ -509,7 +585,7 @@ GroupDic = {}
   -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
-  -- DECOMPILER ERROR at PC294: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC348: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckAvailableParts = function(parts, id, ...)
   -- function num : 0_15 , upvalues : _ENV
@@ -524,16 +600,20 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC297: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC351: Confused about usage of register: R0 in 'UnsetPending'
 
-  EquiptData.HandelAvailablePartsData = function(equipmentId, equiptConfigId, add, ...)
+  EquiptData.HandelAvailablePartsData = function(equipmentId, equiptConfigId, add, equip, ...)
   -- function num : 0_16 , upvalues : _ENV
   if equiptConfigId == nil then
-    equiptConfigId = ((EquiptData.Equipments)[(EquiptData.Equipments)[equipmentId]]).id
+    if equip then
+      equiptConfigId = equip.id
+    else
+      equiptConfigId = ((EquiptData.Equipments)[(EquiptData.Equipments)[equipmentId]]).id
+    end
   end
   local config = ((TableData.gTable).BaseEquipData)[equiptConfigId]
   local equiptType = config.type
-  -- DECOMPILER ERROR at PC27: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC31: Confused about usage of register: R6 in 'UnsetPending'
 
   if add then
     if (EquiptData.AvailableParts)[equiptType] == nil then
@@ -541,43 +621,43 @@ end
 Privilege = {}
 , Other = 0}
     end
-    -- DECOMPILER ERROR at PC37: Confused about usage of register: R5 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC41: Confused about usage of register: R6 in 'UnsetPending'
 
     if ((EquiptData.AvailableParts)[equiptType])[equipmentId] == nil then
       ((EquiptData.AvailableParts)[equiptType])[equipmentId] = true
-      -- DECOMPILER ERROR at PC57: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC61: Confused about usage of register: R6 in 'UnsetPending'
 
       if config.show_type == EquiptType.Privilege then
         if (((EquiptData.AvailableParts)[equiptType]).Privilege)[config.card_id] == nil then
           (((EquiptData.AvailableParts)[equiptType]).Privilege)[config.card_id] = {}
         end
-        -- DECOMPILER ERROR at PC64: Confused about usage of register: R5 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC68: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         ((((EquiptData.AvailableParts)[equiptType]).Privilege)[config.card_id])[equipmentId] = true
       else
-        -- DECOMPILER ERROR at PC74: Confused about usage of register: R5 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC78: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         ((EquiptData.AvailableParts)[equiptType]).Other = ((EquiptData.AvailableParts)[equiptType]).Other + 1
       end
     end
   else
-    -- DECOMPILER ERROR at PC90: Confused about usage of register: R5 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC94: Confused about usage of register: R6 in 'UnsetPending'
 
     if (EquiptData.AvailableParts)[equiptType] ~= nil and ((EquiptData.AvailableParts)[equiptType])[equipmentId] then
       ((EquiptData.AvailableParts)[equiptType])[equipmentId] = nil
-      -- DECOMPILER ERROR at PC102: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC106: Confused about usage of register: R6 in 'UnsetPending'
 
       if config.show_type == EquiptType.Privilege then
         ((((EquiptData.AvailableParts)[equiptType]).Privilege)[config.card_id])[equipmentId] = nil
-        -- DECOMPILER ERROR at PC119: Confused about usage of register: R5 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC123: Confused about usage of register: R6 in 'UnsetPending'
 
         if (_G.next)((((EquiptData.AvailableParts)[equiptType]).Privilege)[config.card_id]) == nil then
           (((EquiptData.AvailableParts)[equiptType]).Privilege)[config.card_id] = nil
         end
       else
-        -- DECOMPILER ERROR at PC129: Confused about usage of register: R5 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC133: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         ((EquiptData.AvailableParts)[equiptType]).Other = ((EquiptData.AvailableParts)[equiptType]).Other - 1
@@ -586,7 +666,7 @@ Privilege = {}
   end
 end
 
-  -- DECOMPILER ERROR at PC300: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC354: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.StoreEquipments = function(equipments, ...)
   -- function num : 0_17 , upvalues : _ENV
@@ -620,9 +700,10 @@ end
       end
     end
   end
+  loge("..")
 end
 
-  -- DECOMPILER ERROR at PC303: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC357: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.HandleEquiptData = function(dataSet, data, add, ...)
   -- function num : 0_18 , upvalues : _ENV
@@ -659,7 +740,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC306: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC360: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.HandleEquiptObjectIndexData = function(dataSet, objectIndex, add, ...)
   -- function num : 0_19 , upvalues : _ENV
@@ -696,7 +777,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC309: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC363: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetData = function(...)
   -- function num : 0_20 , upvalues : _ENV
@@ -713,7 +794,7 @@ end
   (EquiptData.ResetIdentifyCost)()
 end
 
-  -- DECOMPILER ERROR at PC312: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC366: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetIdentifyCost = function(...)
   -- function num : 0_21 , upvalues : _ENV
@@ -724,7 +805,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC315: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC369: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitFilter = function(...)
   -- function num : 0_22 , upvalues : _ENV
@@ -733,9 +814,11 @@ end
   (EquiptData.InitSingleFilter)(EquiptSetType.Decompose, EquiptData.EquipmentsToDecompose)
   ;
   (EquiptData.InitSingleFilter)(EquiptSetType.Identify, EquiptData.UnidentifiedEquipments)
+  ;
+  (EquiptData.InitSingleFilter)(EquiptSetType.Preset, EquiptData.AvailableEquipmentsInBag)
 end
 
-  -- DECOMPILER ERROR at PC318: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC372: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitSingleFilter = function(setType, data, ...)
   -- function num : 0_23 , upvalues : _ENV
@@ -765,7 +848,7 @@ end
   (EquiptData.Filters)[setType] = filter
 end
 
-  -- DECOMPILER ERROR at PC321: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC375: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.FilteringEquiptSet = function(setType, ...)
   -- function num : 0_24 , upvalues : _ENV
@@ -774,7 +857,7 @@ end
   (EquiptData.SortEquipmentSet)(setType)
 end
 
-  -- DECOMPILER ERROR at PC324: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC378: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetFilters = function(setType, ...)
   -- function num : 0_25 , upvalues : _ENV
@@ -793,7 +876,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC327: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC381: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.FilteringEquips = function(setType, currentRole, ...)
   -- function num : 0_26 , upvalues : _ENV
@@ -873,10 +956,164 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC330: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC384: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.InitPresetEditEquipments = function(presetData, ...)
+  -- function num : 0_27 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
+
+  EquiptData.PresetEditEquipments = {}
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (EquiptData.PresetEditEquipments).SrcData = (Util.Copy)(EquiptData.AvailableEquipmentsInBag)
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (EquiptData.PresetEditEquipments).SortType = EquiptSortType.Decrease
+  -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (EquiptData.PresetEditEquipments).Result = {}
+  -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (EquiptData.PresetEditEquipments).EquipDetail = {}
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (EquiptData.PresetEditEquipments).CurrentType = EquiptPartsType.All
+  local count = #(EquiptData.PresetEditEquipments).SrcData
+  local subCount, cardInfo, equipInfo = nil, nil, nil
+  for i = 1, count do
+    equipInfo = (EquiptData.Equipments)[(EquiptData.Equipments)[((EquiptData.PresetEditEquipments).SrcData)[i]]]
+    -- DECOMPILER ERROR at PC52: Confused about usage of register: R9 in 'UnsetPending'
+
+    ;
+    ((EquiptData.PresetEditEquipments).EquipDetail)[equipInfo.objectIndex] = equipInfo
+  end
+  local cards = (CardData.GetObtainedCardList)()
+  -- DECOMPILER ERROR at PC59: Confused about usage of register: R6 in 'UnsetPending'
+
+  EquiptData.NPEquipBelongToCard = {}
+  count = #cards
+  for i = 1, count do
+    cardInfo = cards[i]
+    subCount = #cardInfo.equipInfo
+    for j = 1, subCount do
+      equipInfo = (cardInfo.equipInfo)[j]
+      equipInfo.SortedAttr = (EquiptData.GetSortedAttrs)(equipInfo)
+      ;
+      (table.insert)((EquiptData.PresetEditEquipments).SrcData, equipInfo.objectIndex)
+      -- DECOMPILER ERROR at PC90: Confused about usage of register: R14 in 'UnsetPending'
+
+      ;
+      ((EquiptData.PresetEditEquipments).EquipDetail)[equipInfo.objectIndex] = equipInfo
+      -- DECOMPILER ERROR at PC95: Confused about usage of register: R14 in 'UnsetPending'
+
+      ;
+      (EquiptData.NPEquipBelongToCard)[equipInfo.objectIndex] = cardInfo.id
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC387: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.ChangePresetEditFilter = function(type, ...)
+  -- function num : 0_28 , upvalues : _ENV
+  (EquiptData.FilteringPresetEditEquipments)(type)
+  ;
+  (EquiptData.SortPresetEquipments)()
+end
+
+  -- DECOMPILER ERROR at PC390: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.SortPresetEquipments = function(...)
+  -- function num : 0_29 , upvalues : _ENV
+  if (EquiptData.PresetEditEquipments).SortType == EquiptSortType.Increase then
+    (table.sort)((EquiptData.PresetEditEquipments).Result, function(x, y, ...)
+    -- function num : 0_29_0 , upvalues : _ENV
+    local equipInfoX = ((EquiptData.PresetEditEquipments).EquipDetail)[x]
+    local equipInfoY = ((EquiptData.PresetEditEquipments).EquipDetail)[y]
+    return (EquiptData.EquipmentIncreaseSort)(equipInfoX, equipInfoY)
+  end
+)
+  else
+    ;
+    (table.sort)((EquiptData.PresetEditEquipments).Result, function(x, y, ...)
+    -- function num : 0_29_1 , upvalues : _ENV
+    local equipInfoX = ((EquiptData.PresetEditEquipments).EquipDetail)[x]
+    local equipInfoY = ((EquiptData.PresetEditEquipments).EquipDetail)[y]
+    return (EquiptData.EquipmentDecreaseSort)(equipInfoX, equipInfoY)
+  end
+)
+  end
+end
+
+  -- DECOMPILER ERROR at PC393: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.HandlePresetResult = function(add, equiptInfo, ...)
+  -- function num : 0_30 , upvalues : _ENV
+  local config = ((TableData.gTable).BaseEquipData)[equiptInfo.id]
+  if (EquiptData.PresetEditEquipments).CurrentType ~= EquiptPartsType.All and (EquiptData.PresetEditEquipments).CurrentType ~= config.type then
+    return 
+  end
+  if add then
+    (table.insert)((EquiptData.PresetEditEquipments).Result, equiptInfo.objectIndex)
+    ;
+    (EquiptData.SortPresetEquipments)()
+  else
+    local count = #(EquiptData.PresetEditEquipments).Result
+    for i = 1, count do
+      if ((EquiptData.PresetEditEquipments).Result)[i] == equiptInfo.objectIndex then
+        (table.remove)((EquiptData.PresetEditEquipments).Result, i)
+        break
+      end
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC396: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.FilteringPresetEditEquipments = function(type, ...)
+  -- function num : 0_31 , upvalues : _ENV
+  if type == nil then
+    type = (EquiptData.PresetEditEquipments).CurrentType
+  else
+    -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    (EquiptData.PresetEditEquipments).CurrentType = type
+  end
+  -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (EquiptData.PresetEditEquipments).Result = {}
+  local count = nil
+  local equipInPreset = {}
+  if (EquiptData.EditPreset).equipIndex ~= nil then
+    count = #(EquiptData.EditPreset).equipIndex
+    for i = 1, count do
+      equipInPreset[((EquiptData.EditPreset).equipIndex)[i]] = true
+    end
+  end
+  do
+    local count = #(EquiptData.PresetEditEquipments).SrcData
+    local equipInfo, equipConfig = nil, nil
+    for i = 1, count do
+      equipInfo = ((EquiptData.PresetEditEquipments).EquipDetail)[((EquiptData.PresetEditEquipments).SrcData)[i]]
+      equipConfig = ((TableData.gTable).BaseEquipData)[equipInfo.id]
+      if not equipInPreset[equipInfo.objectIndex] and (type == EquiptPartsType.All or type == equipConfig.type) then
+        (table.insert)((EquiptData.PresetEditEquipments).Result, equipInfo.objectIndex)
+      end
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC399: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckAttributes = function(equipInfo, filter, ...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_32 , upvalues : _ENV
   if (_G.next)(filter) == nil then
     return true
   else
@@ -905,10 +1142,10 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC333: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC402: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckBuffs = function(equipInfo, filter, ...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_33 , upvalues : _ENV
   if (_G.next)(filter) == nil then
     return true
   else
@@ -933,174 +1170,188 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC336: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC405: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SortEquipmentSet = function(setType, ...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_34 , upvalues : _ENV
   if ((EquiptData.Filters)[setType]).SortType == EquiptSortType.Increase then
     (table.sort)(((EquiptData.Filters)[setType]).Result, function(x, y, ...)
-    -- function num : 0_29_0 , upvalues : _ENV
+    -- function num : 0_34_0 , upvalues : _ENV
     local equipInfoX = (EquiptData.Equipments)[(EquiptData.Equipments)[x]]
     local equipInfoY = (EquiptData.Equipments)[(EquiptData.Equipments)[y]]
-    local configX = ((TableData.gTable).BaseEquipData)[equipInfoX.id]
-    local configY = ((TableData.gTable).BaseEquipData)[equipInfoY.id]
-    if equipInfoX.identify == equipInfoY.identify then
-      if equipInfoX.identify then
-        if (EquiptData.NewEquipments)[x] == (EquiptData.NewEquipments)[y] then
-          if configX.sort == configY.sort then
-            if configX.type == configY.type then
-              local count = ((math.max)(#equipInfoX.SortedAttr, #equipInfoY.SortedAttr))
-              local attrX, attrY = nil, nil
-              for i = 1, count do
-                attrX = (equipInfoX.SortedAttr)[i]
-                attrY = (equipInfoY.SortedAttr)[i]
-                if attrX ~= attrY then
-                  if attrX == nil then
-                    return false
-                  else
-                    if attrY == nil then
-                      return true
-                    else
-                      return attrX < attrY
-                    end
-                  end
-                end
-              end
-              local count = ((math.max)(#equipInfoX.randomBuff, #equipInfoY.randomBuff))
-              local buffX, buffY = nil, nil
-              for i = 1, count do
-                buffX = (equipInfoX.randomBuff)[i]
-                buffY = (equipInfoY.randomBuff)[i]
-                if buffX ~= buffY then
-                  if buffX == nil then
-                    return false
-                  elseif buffY == nil then
-                    return true
-                  else
-                    return buffX < buffY
-                  end
-                end
-              end
-              if equipInfoX.objectIndex == equipInfoY.objectIndex then
-                return false
-              else
-                return equipInfoX.objectIndex < equipInfoY.objectIndex
-              end
-            else
-              return configY.type < configX.type
-            end
-          else
-            return configY.sort < configX.sort
-          end
-        elseif (EquiptData.NewEquipments)[x] then
-          do return not (EquiptData.NewEquipments)[y] end
-          if configX.sort == configY.sort then
-            if configX.type == configY.type then
-              if equipInfoX.objectIndex == equipInfoY.objectIndex then
-                return false
-              else
-                return equipInfoX.objectIndex < equipInfoY.objectIndex
-              end
-            else
-              return configY.type < configX.type
-            end
-          else
-            return configY.sort < configX.sort
-          end
-          if equipInfoX.identify then
-            do return not equipInfoY.identify end
-            -- DECOMPILER ERROR: 24 unprocessed JMP targets
-          end
-        end
-      end
-    end
+    return (EquiptData.EquipmentIncreaseSort)(equipInfoX, equipInfoY)
   end
 )
   else
     ;
     (table.sort)(((EquiptData.Filters)[setType]).Result, function(x, y, ...)
-    -- function num : 0_29_1 , upvalues : _ENV
+    -- function num : 0_34_1 , upvalues : _ENV
     local equipInfoX = (EquiptData.Equipments)[(EquiptData.Equipments)[x]]
     local equipInfoY = (EquiptData.Equipments)[(EquiptData.Equipments)[y]]
-    local configX = ((TableData.gTable).BaseEquipData)[equipInfoX.id]
-    local configY = ((TableData.gTable).BaseEquipData)[equipInfoY.id]
-    if equipInfoX.identify == equipInfoY.identify then
-      if equipInfoX.identify then
-        if (EquiptData.NewEquipments)[x] == (EquiptData.NewEquipments)[y] then
-          if configX.sort == configY.sort then
-            if configX.type == configY.type then
-              local count = ((math.max)(#equipInfoX.SortedAttr, #equipInfoY.SortedAttr))
-              local attrX, attrY = nil, nil
-              for i = 1, count do
-                attrX = (equipInfoX.SortedAttr)[i]
-                attrY = (equipInfoY.SortedAttr)[i]
-                if attrX ~= attrY then
-                  if attrX == nil then
-                    return true
-                  else
-                    if attrY == nil then
-                      return false
-                    else
-                      return attrY < attrX
-                    end
-                  end
-                end
-              end
-              local count = ((math.max)(#equipInfoX.randomBuff, #equipInfoY.randomBuff))
-              local buffX, buffY = nil, nil
-              for i = 1, count do
-                buffX = (equipInfoX.randomBuff)[i]
-                buffY = (equipInfoY.randomBuff)[i]
-                if buffX ~= buffY then
-                  if buffX == nil then
-                    return true
-                  elseif buffY == nil then
-                    return false
-                  else
-                    return buffY < buffX
-                  end
-                end
-              end
-              if equipInfoX.objectIndex == equipInfoY.objectIndex then
-                return false
-              else
-                return equipInfoY.objectIndex < equipInfoX.objectIndex
-              end
-            else
-              return configX.type < configY.type
-            end
-          else
-            return configX.sort < configY.sort
-          end
-        elseif (EquiptData.NewEquipments)[x] then
-          do return not (EquiptData.NewEquipments)[y] end
-          if configX.sort == configY.sort then
-            if configX.type == configY.type then
-              if equipInfoX.objectIndex == equipInfoY.objectIndex then
-                return false
-              else
-                return equipInfoY.objectIndex < equipInfoX.objectIndex
-              end
-            else
-              return configX.type < configY.type
-            end
-          else
-            return configX.sort < configY.sort
-          end
-          do return (not equipInfoX.identify and equipInfoY.identify) end
-          -- DECOMPILER ERROR: 25 unprocessed JMP targets
-        end
-      end
-    end
+    return (EquiptData.EquipmentDecreaseSort)(equipInfoX, equipInfoY)
   end
 )
   end
 end
 
-  -- DECOMPILER ERROR at PC339: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC408: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipmentIncreaseSort = function(equipInfoX, equipInfoY, ...)
+  -- function num : 0_35 , upvalues : _ENV
+  local configX = ((TableData.gTable).BaseEquipData)[equipInfoX.id]
+  local configY = ((TableData.gTable).BaseEquipData)[equipInfoY.id]
+  if equipInfoX.identify == equipInfoY.identify then
+    if equipInfoX.identify then
+      if (EquiptData.NewEquipments)[equipInfoX.objectIndex] == (EquiptData.NewEquipments)[equipInfoY.objectIndex] then
+        if configX.sort == configY.sort then
+          if configX.type == configY.type then
+            local count = ((math.max)(#equipInfoX.SortedAttr, #equipInfoY.SortedAttr))
+            local attrX, attrY = nil, nil
+            for i = 1, count do
+              attrX = (equipInfoX.SortedAttr)[i]
+              attrY = (equipInfoY.SortedAttr)[i]
+              if attrX ~= attrY then
+                if attrX == nil then
+                  return false
+                else
+                  if attrY == nil then
+                    return true
+                  else
+                    return attrX < attrY
+                  end
+                end
+              end
+            end
+            local count = ((math.max)(#equipInfoX.randomBuff, #equipInfoY.randomBuff))
+            local buffX, buffY = nil, nil
+            for i = 1, count do
+              buffX = (equipInfoX.randomBuff)[i]
+              buffY = (equipInfoY.randomBuff)[i]
+              if buffX ~= buffY then
+                if buffX == nil then
+                  return false
+                elseif buffY == nil then
+                  return true
+                else
+                  return buffX < buffY
+                end
+              end
+            end
+            if equipInfoX.objectIndex == equipInfoY.objectIndex then
+              return false
+            else
+              return equipInfoX.objectIndex < equipInfoY.objectIndex
+            end
+          else
+            return configY.type < configX.type
+          end
+        else
+          return configY.sort < configX.sort
+        end
+      elseif (EquiptData.NewEquipments)[equipInfoX.objectIndex] then
+        do return not (EquiptData.NewEquipments)[equipInfoY.objectIndex] end
+        if configX.sort == configY.sort then
+          if configX.type == configY.type then
+            if equipInfoX.objectIndex == equipInfoY.objectIndex then
+              return false
+            else
+              return equipInfoX.objectIndex < equipInfoY.objectIndex
+            end
+          else
+            return configY.type < configX.type
+          end
+        else
+          return configY.sort < configX.sort
+        end
+        if equipInfoX.identify then
+          do return not equipInfoY.identify end
+          -- DECOMPILER ERROR: 24 unprocessed JMP targets
+        end
+      end
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC411: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.EquipmentDecreaseSort = function(equipInfoX, equipInfoY, ...)
+  -- function num : 0_36 , upvalues : _ENV
+  local configX = ((TableData.gTable).BaseEquipData)[equipInfoX.id]
+  local configY = ((TableData.gTable).BaseEquipData)[equipInfoY.id]
+  if equipInfoX.identify == equipInfoY.identify then
+    if equipInfoX.identify then
+      if (EquiptData.NewEquipments)[equipInfoX.objectIndex] == (EquiptData.NewEquipments)[equipInfoY.objectIndex] then
+        if configX.sort == configY.sort then
+          if configX.type == configY.type then
+            local count = ((math.max)(#equipInfoX.SortedAttr, #equipInfoY.SortedAttr))
+            local attrX, attrY = nil, nil
+            for i = 1, count do
+              attrX = (equipInfoX.SortedAttr)[i]
+              attrY = (equipInfoY.SortedAttr)[i]
+              if attrX ~= attrY then
+                if attrX == nil then
+                  return true
+                else
+                  if attrY == nil then
+                    return false
+                  else
+                    return attrY < attrX
+                  end
+                end
+              end
+            end
+            local count = ((math.max)(#equipInfoX.randomBuff, #equipInfoY.randomBuff))
+            local buffX, buffY = nil, nil
+            for i = 1, count do
+              buffX = (equipInfoX.randomBuff)[i]
+              buffY = (equipInfoY.randomBuff)[i]
+              if buffX ~= buffY then
+                if buffX == nil then
+                  return true
+                elseif buffY == nil then
+                  return false
+                else
+                  return buffY < buffX
+                end
+              end
+            end
+            if equipInfoX.objectIndex == equipInfoY.objectIndex then
+              return false
+            else
+              return equipInfoY.objectIndex < equipInfoX.objectIndex
+            end
+          else
+            return configX.type < configY.type
+          end
+        else
+          return configX.sort < configY.sort
+        end
+      elseif (EquiptData.NewEquipments)[equipInfoX.objectIndex] then
+        do return not (EquiptData.NewEquipments)[equipInfoY.objectIndex] end
+        if configX.sort == configY.sort then
+          if configX.type == configY.type then
+            if equipInfoX.objectIndex == equipInfoY.objectIndex then
+              return false
+            else
+              return equipInfoY.objectIndex < equipInfoX.objectIndex
+            end
+          else
+            return configX.type < configY.type
+          end
+        else
+          return configX.sort < configY.sort
+        end
+        do return (not equipInfoX.identify and equipInfoY.identify) end
+        -- DECOMPILER ERROR: 25 unprocessed JMP targets
+      end
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC414: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentTypeWeight = function(equipmentType, ...)
-  -- function num : 0_30 , upvalues : _ENV
+  -- function num : 0_37 , upvalues : _ENV
   if equipmentType == EquiptType.Normal then
     return 2
   else
@@ -1112,10 +1363,10 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC342: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC417: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetSortedAttrs = function(equipInfo, ...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_38 , upvalues : _ENV
   local attrs = (Util.Copy)(equipInfo.randomAttrId)
   if equipInfo.mainAttrId ~= 0 then
     (table.insert)(attrs, equipInfo.mainAttrId)
@@ -1129,7 +1380,7 @@ end
   end
   ;
   (table.sort)(attrs, function(x, y, ...)
-    -- function num : 0_31_0
+    -- function num : 0_38_0
     do return x < y end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -1137,10 +1388,10 @@ end
   return attrs
 end
 
-  -- DECOMPILER ERROR at PC345: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC420: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ChangeFilter = function(setType, filterType, arg1, arg2, ...)
-  -- function num : 0_32 , upvalues : _ENV
+  -- function num : 0_39 , upvalues : _ENV
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R4 in 'UnsetPending'
 
   if filterType == EquiptFilterType.SinglePart then
@@ -1151,10 +1402,10 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC348: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC423: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SetTableFilter = function(filter, type, add, ...)
-  -- function num : 0_33
+  -- function num : 0_40
   if add then
     filter[type] = true
   else
@@ -1162,10 +1413,42 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC351: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC426: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.GetEquipmentsFCById = function(equipIds, equipInfo, ...)
+  -- function num : 0_41 , upvalues : _ENV
+  if equipInfo == nil then
+    equipInfo = {}
+    if equipIds then
+      for k,v in pairs(equipIds) do
+        (table.insert)(equipInfo, (EquiptData.Equipments)[(EquiptData.Equipments)[v]])
+      end
+    end
+  end
+  do
+    return (EquiptData.GetEquipmentsFC)(equipInfo)
+  end
+end
+
+  -- DECOMPILER ERROR at PC429: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.GetEquipmentsPresetEditFC = function(equipIds, ...)
+  -- function num : 0_42 , upvalues : _ENV
+  local equipInfo = {}
+  if equipIds then
+    for k,v in pairs(equipIds) do
+      (table.insert)(equipInfo, ((EquiptData.PresetEditEquipments).EquipDetail)[v])
+    end
+  end
+  do
+    return (EquiptData.GetEquipmentsFC)(equipInfo)
+  end
+end
+
+  -- DECOMPILER ERROR at PC432: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentsFC = function(equipInfo, ...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_43 , upvalues : _ENV
   ((CardData.GetEquipAddAttrList)(equipInfo))
   local equipAddAttrs = nil
   local config = nil
@@ -1177,40 +1460,92 @@ end
   return (math.ceil)(fc)
 end
 
-  -- DECOMPILER ERROR at PC354: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC435: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.AcquireEquipments = function(equipments, ...)
-  -- function num : 0_35 , upvalues : _ENV
+  -- function num : 0_44 , upvalues : _ENV
   (EquiptData.StoreEquipments)(equipments)
 end
 
-  -- DECOMPILER ERROR at PC357: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC438: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.LoseEquipments = function(equipmentIds, ...)
-  -- function num : 0_36 , upvalues : _ENV
+  -- function num : 0_45 , upvalues : _ENV
   local count = #equipmentIds
-  local subCount, data, config = nil, nil, nil
+  local equipmentId, presetId, presetData, subCount = nil, nil, nil, nil
   local needRemove = {}
   for i = 1, count do
-    if (EquiptData.ReadyToIdentify)[equipmentIds[i]] ~= nil then
-      (EquiptMgr.HandleEquipmentToIdentify)((EquiptData.Equipments)[(EquiptData.Equipments)[equipmentIds[i]]], false, true)
+    equipmentId = equipmentIds[i]
+    presetId = (EquiptData.EquipBelongTo)[equipmentId]
+    if presetId ~= nil then
+      (EquiptData.RemoveFromPreset)(equipmentId, presetId)
+    end
+    if (EquiptData.ReadyToIdentify)[equipmentId] ~= nil then
+      (EquiptMgr.HandleEquipmentToIdentify)((EquiptData.Equipments)[(EquiptData.Equipments)[equipmentId]], false, true)
     end
     ;
-    (EquiptData.HandelAvailablePartsData)(equipmentIds[i], nil, false)
+    (EquiptData.HandelAvailablePartsData)(equipmentId, nil, false)
     ;
-    (EquiptData.HandleEquiptData)(EquiptData.Equipments, (EquiptData.Equipments)[(EquiptData.Equipments)[equipmentIds[i]]], false)
+    (EquiptData.HandleEquiptData)(EquiptData.Equipments, (EquiptData.Equipments)[(EquiptData.Equipments)[equipmentId]], false)
     ;
-    (EquiptData.HandleEquiptObjectIndexData)(EquiptData.EquipmentsToDecompose, equipmentIds[i], false)
-    if (EquiptData.HandleEquiptObjectIndexData)(EquiptData.AvailableEquipmentsInBag, equipmentIds[i], false) == false then
-      (EquiptData.HandleEquiptObjectIndexData)(EquiptData.UnidentifiedEquipments, equipmentIds[i], false)
+    (EquiptData.HandleEquiptObjectIndexData)(EquiptData.EquipmentsToDecompose, equipmentId, false)
+    if (EquiptData.HandleEquiptObjectIndexData)(EquiptData.AvailableEquipmentsInBag, equipmentId, false) == false then
+      (EquiptData.HandleEquiptObjectIndexData)(EquiptData.UnidentifiedEquipments, equipmentId, false)
     end
   end
 end
 
-  -- DECOMPILER ERROR at PC360: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC441: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.AddToPreset = function(equipmentId, presetId, ...)
+  -- function num : 0_46 , upvalues : _ENV
+  if presetId == nil or (EquiptData.EquipPresetsIndex)[presetId] == nil then
+    return 
+  end
+  local presetData = (EquiptData.EquipPresets)[(EquiptData.EquipPresetsIndex)[presetId]]
+  ;
+  (table.insert)(presetData.equipIndex, equipmentId)
+  -- DECOMPILER ERROR at PC21: Confused about usage of register: R3 in 'UnsetPending'
+
+  ;
+  (EquiptData.EquipBelongTo)[equipmentId] = presetId
+end
+
+  -- DECOMPILER ERROR at PC444: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.RemoveFromPreset = function(equipmentId, presetId, notRemove, ...)
+  -- function num : 0_47 , upvalues : _ENV
+  if presetId == nil or (EquiptData.EquipPresetsIndex)[presetId] == nil then
+    return 
+  end
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R3 in 'UnsetPending'
+
+  ;
+  (EquiptData.EquipBelongTo)[equipmentId] = nil
+  local presetData = (EquiptData.EquipPresets)[(EquiptData.EquipPresetsIndex)[presetId]]
+  local count = #presetData.equipIndex
+  for i = 1, count do
+    if (presetData.equipIndex)[i] == equipmentId then
+      (table.remove)(presetData.equipIndex, i)
+      break
+    end
+  end
+  do
+    -- DECOMPILER ERROR at PC42: Confused about usage of register: R5 in 'UnsetPending'
+
+    if #presetData.equipIndex == 0 and not notRemove then
+      (EquiptData.PresetBelongTo)[presetId] = nil
+      ;
+      (EquiptData.UpdateEquipPreset)(presetData, false)
+      return true
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC447: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SortEquiptAttr = function(x, y, ...)
-  -- function num : 0_37 , upvalues : _ENV
+  -- function num : 0_48 , upvalues : _ENV
   local attrsX = split((((TableData.gTable).BaseEquipAttributeData)[x]).value, ":")
   local attrsY = split((((TableData.gTable).BaseEquipAttributeData)[y]).value, ":")
   if tonumber(attrsY[3]) >= tonumber(attrsX[3]) then
@@ -1220,10 +1555,10 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC363: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC450: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetColorByStar = function(star, ...)
-  -- function num : 0_38 , upvalues : _ENV
+  -- function num : 0_49 , upvalues : _ENV
   if star <= 2 then
     return star
   else
@@ -1235,10 +1570,10 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC366: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC453: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetDecomposeData = function(...)
-  -- function num : 0_39 , upvalues : _ENV
+  -- function num : 0_50 , upvalues : _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ReadyToDecompose = {}
@@ -1247,10 +1582,10 @@ end
   EquiptData.AdvanceEquiptToDecompose = {}
 end
 
-  -- DECOMPILER ERROR at PC369: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC456: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipIndex = function(equipmentId, ...)
-  -- function num : 0_40 , upvalues : _ENV
+  -- function num : 0_51 , upvalues : _ENV
   local count = #((EquiptData.Filters)[EquiptSetType.Change]).Result
   for i = 1, count do
     if ((((EquiptData.Filters)[EquiptSetType.Change]).Result)[i]).objectIndex == equipmentId then
@@ -1260,10 +1595,10 @@ end
   return -1
 end
 
-  -- DECOMPILER ERROR at PC372: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC459: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ClearFilterInfo = function(...)
-  -- function num : 0_41 , upvalues : _ENV
+  -- function num : 0_52 , upvalues : _ENV
   (EquiptData.ResetFilters)(EquiptSetType.Change)
   ;
   (EquiptData.ResetFilters)(EquiptSetType.Decompose)
@@ -1271,10 +1606,10 @@ end
   (EquiptData.ResetFilters)(EquiptSetType.Identify)
 end
 
-  -- DECOMPILER ERROR at PC375: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC462: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetRedDotList = function(...)
-  -- function num : 0_42 , upvalues : _ENV
+  -- function num : 0_53 , upvalues : _ENV
   local list = (CardData.GetObtainedCardList)()
   local count = (math.min)(#list, Const.MAX_SHOW_RED_DOT_ROLE_INDEX)
   local result = {}
@@ -1291,10 +1626,10 @@ end
   return result, found
 end
 
-  -- DECOMPILER ERROR at PC378: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC465: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckSingleRedDot = function(oneCardData, ...)
-  -- function num : 0_43 , upvalues : _ENV
+  -- function num : 0_54 , upvalues : _ENV
   local equipmentCount = #oneCardData.equipInfo
   if equipmentCount < EquiptData.EQUIPMENT_TYPE_COUNT then
     local equiptType = {}
@@ -1313,6 +1648,136 @@ end
       do return false end
     end
   end
+end
+
+  -- DECOMPILER ERROR at PC468: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.InitEquipPresetData = function(list, ...)
+  -- function num : 0_55 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
+
+  EquiptData.EquipPresetsIndex = {}
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
+
+  EquiptData.EquipBelongTo = {}
+  -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
+
+  EquiptData.PresetBelongTo = {}
+  ;
+  (table.sort)(list, function(x, y, ...)
+    -- function num : 0_55_0
+    if x.id == y.id then
+      return false
+    else
+      return x.id < y.id
+    end
+    -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  end
+)
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
+
+  EquiptData.EquipPresets = list
+  local count = #list
+  local subCount, data = nil, nil
+  for i = 1, count do
+    data = list[i]
+    subCount = #data.equipIndex
+    for j = 1, subCount do
+      -- DECOMPILER ERROR at PC34: Confused about usage of register: R12 in 'UnsetPending'
+
+      (EquiptData.EquipBelongTo)[(data.equipIndex)[j]] = data.id
+    end
+    -- DECOMPILER ERROR at PC39: Confused about usage of register: R8 in 'UnsetPending'
+
+    ;
+    (EquiptData.EquipPresetsIndex)[data.id] = i
+    -- DECOMPILER ERROR at PC47: Confused about usage of register: R8 in 'UnsetPending'
+
+    if data.cardId ~= 0 then
+      (EquiptData.PresetBelongTo)[data.id] = data.cardId
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC471: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.UpdateEquipPreset = function(data, add, ...)
+  -- function num : 0_56 , upvalues : _ENV
+  if add then
+    (table.insert)(EquiptData.EquipPresets, data)
+    -- DECOMPILER ERROR at PC14: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (EquiptData.EquipPresetsIndex)[data.id] = #EquiptData.EquipPresets
+  else
+    local index = (EquiptData.EquipPresetsIndex)[data.id]
+    -- DECOMPILER ERROR at PC23: Confused about usage of register: R3 in 'UnsetPending'
+
+    ;
+    (EquiptData.EquipPresetsIndex)[data.id] = nil
+    ;
+    (table.remove)(EquiptData.EquipPresets, index)
+    local count = #EquiptData.EquipPresets
+    for i = index, count do
+      -- DECOMPILER ERROR at PC43: Confused about usage of register: R8 in 'UnsetPending'
+
+      (EquiptData.EquipPresetsIndex)[((EquiptData.EquipPresets)[i]).id] = i
+    end
+  end
+end
+
+  -- DECOMPILER ERROR at PC474: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.GetEquipmentAttrById = function(equipIds, equipInfo, ...)
+  -- function num : 0_57 , upvalues : _ENV
+  if not equipInfo then
+    equipInfo = {}
+  end
+  if equipIds then
+    for k,v in pairs(equipIds) do
+      (table.insert)(equipInfo, (EquiptData.Equipments)[(EquiptData.Equipments)[v]])
+    end
+  end
+  do
+    return (EquiptData.GetEquipmentAttr)(equipInfo)
+  end
+end
+
+  -- DECOMPILER ERROR at PC477: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.GetEquipmentPresetEditAttr = function(equipIds, ...)
+  -- function num : 0_58 , upvalues : _ENV
+  local equipInfo = {}
+  if equipIds then
+    for k,v in pairs(equipIds) do
+      (table.insert)(equipInfo, ((EquiptData.PresetEditEquipments).EquipDetail)[v])
+    end
+  end
+  do
+    return (EquiptData.GetEquipmentAttr)(equipInfo)
+  end
+end
+
+  -- DECOMPILER ERROR at PC480: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.GetEquipmentAttr = function(equipInfos, ...)
+  -- function num : 0_59 , upvalues : _ENV
+  local attrs = (CardData.GetEquipAddAttrList)(equipInfos)
+  local data = {}
+  for k,v in pairs(attrs) do
+    (table.insert)(data, v)
+  end
+  ;
+  (table.sort)(data, function(x, y, ...)
+    -- function num : 0_59_0
+    if y.value >= x.value then
+      do return x.id ~= y.id end
+      do return x.id < y.id end
+      -- DECOMPILER ERROR: 4 unprocessed JMP targets
+    end
+  end
+)
+  return data
 end
 
   ;

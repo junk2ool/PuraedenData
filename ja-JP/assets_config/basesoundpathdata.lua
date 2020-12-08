@@ -3578,6 +3578,738 @@ BaseSoundPathData = {
 [320200401] = {id = 320200401, play_frame = 28, path = "sfx_jy20_maliya_pt_wh_34fr", bank = "jy20_maliya"}
 , 
 [320200402] = {id = 320200402, play_frame = 47, path = "sfx_jy20_maliya_pt_wh_48fr", bank = "jy20_maliya"}
+, 
+[230080101] = {id = 230080101, play_frame = 12, path = "sfx_lisha_big_tx_12fr", bank = "lisha"}
+, 
+[230080102] = {id = 230080102, play_frame = 54, path = "sfx_lisha_big_tx_54fr", bank = "lisha"}
+, 
+[230080103] = {id = 230080103, play_frame = 69, path = "sfx_lisha_big_tx_69fr", bank = "lisha"}
+, 
+[230080104] = {id = 230080104, play_frame = 81, path = "sfx_lisha_big_tx_81fr", bank = "lisha"}
+, 
+[230080105] = {id = 230080105, play_frame = 93, path = "sfx_lisha_big_tx_93fr", bank = "lisha"}
+, 
+[230080106] = {id = 230080106, play_frame = 107, path = "sfx_lisha_big_tx_107fr", bank = "lisha"}
+, 
+[230080107] = {id = 230080107, play_frame = 117, path = "sfx_lisha_big_tx_117fr", bank = "lisha"}
+, 
+[230080108] = {id = 230080108, play_frame = 131, path = "sfx_lisha_big_tx_131fr", bank = "lisha"}
+, 
+[230080109] = {id = 230080109, play_frame = 143, path = "sfx_lisha_big_tx_143fr", bank = "lisha"}
+, 
+[230080110] = {id = 230080110, play_frame = 156, path = "sfx_lisha_big_tx_156fr", bank = "lisha"}
+, 
+[230080111] = {id = 230080111, play_frame = 181, path = "sfx_lisha_big_tx_181fr", bank = "lisha"}
+, 
+[230080112] = {id = 230080112, play_frame = 293, path = "sfx_lisha_big_tx_293fr", bank = "lisha"}
+, 
+[230080113] = {id = 230080113, play_frame = 338, path = "sfx_lisha_big_tx_338fr", bank = "lisha"}
+, 
+[230080114] = {id = 230080114, play_frame = 371, path = "sfx_lisha_big_tx_371fr", bank = "lisha"}
+, 
+[230080115] = {id = 230080115, play_frame = 384, path = "sfx_lisha_big_tx_384fr", bank = "lisha"}
+, 
+[230080116] = {id = 230080116, play_frame = 437, path = "sfx_lisha_big_tx_437fr", bank = "lisha"}
+, 
+[230080117] = {id = 230080117, play_frame = 522, path = "sfx_lisha_big_tx_522fr", bank = "lisha"}
+, 
+[230080118] = {id = 230080118, play_frame = 559, path = "sfx_lisha_big_tx_559fr", bank = "lisha"}
+, 
+[230080201] = {id = 230080201, play_frame = 18, path = "sfx_lisha_pt_tx_18fr", bank = "lisha"}
+, 
+[230080202] = {id = 230080202, play_frame = 56, path = "sfx_lisha_pt_tx_56fr", bank = "lisha"}
+, 
+[230080203] = {id = 230080203, play_frame = 57, path = "sfx_lisha_pt_wh_57fr", bank = "lisha"}
+, 
+[230080204] = {id = 230080204, play_frame = 72, path = "sfx_lisha_pt_tx_72fr", bank = "lisha"}
+, 
+[230080301] = {id = 230080301, play_frame = 27, path = "sfx_lisha_small_tx_27fr", bank = "lisha"}
+, 
+[230080302] = {id = 230080302, play_frame = 94, path = "sfx_lisha_small_wh_94fr", bank = "lisha"}
+, 
+[230080303] = {id = 230080303, play_frame = 129, path = "sfx_lisha_small_tx_129fr", bank = "lisha"}
+, 
+[230080304] = {id = 230080304, play_frame = 143, path = "sfx_lisha_small_tx_143fr", bank = "lisha"}
+, 
+[230080305] = {id = 230080305, play_frame = 156, path = "sfx_lisha_small_tx_156fr", bank = "lisha"}
+, 
+[230080306] = {id = 230080306, play_frame = 165, path = "sfx_lisha_small_tx_165fr", bank = "lisha"}
+, 
+[230080307] = {id = 230080307, play_frame = 179, path = "sfx_lisha_small_tx_179fr", bank = "lisha"}
+, 
+[230080308] = {id = 230080308, play_frame = 193, path = "sfx_lisha_small_tx_193fr", bank = "lisha"}
+, 
+[211070101] = {id = 211070101, play_frame = 1, path = "sfx_paluoneisi_big_trans_tx", bank = "paluoneisi"}
+, 
+[211070201] = {id = 211070201, play_frame = 29, path = "sfx_paluoneisi_pt_tx_29fr", bank = "paluoneisi"}
+, 
+[211070202] = {id = 211070202, play_frame = 49, path = "sfx_paluoneisi_pt_wh_49fr", bank = "paluoneisi"}
+, 
+[211070203] = {id = 211070203, play_frame = 59, path = "sfx_paluoneisi_pt_tx_59fr", bank = "paluoneisi"}
+, 
+[211070204] = {id = 211070204, play_frame = 79, path = "sfx_paluoneisi_pt_wh_79fr", bank = "paluoneisi"}
+, 
+[211070205] = {id = 211070205, play_frame = 91, path = "sfx_paluoneisi_pt_tx_91fr", bank = "paluoneisi"}
+, 
+[211070301] = {id = 211070301, play_frame = 42, path = "sfx_paluoneisi_small_wh_42fr", bank = "paluoneisi"}
+, 
+[211070302] = {id = 211070302, play_frame = 48, path = "sfx_paluoneisi_small_tx_48fr", bank = "paluoneisi"}
+, 
+[230100101] = {id = 230100101, play_frame = 23, path = "sfx_buoumao_big_tx_23fr", bank = "buoumao"}
+, 
+[230100102] = {id = 230100102, play_frame = 101, path = "sfx_buoumao_big_tx_101fr", bank = "buoumao"}
+, 
+[230100103] = {id = 230100103, play_frame = 159, path = "sfx_buoumao_big_tx_159fr", bank = "buoumao"}
+, 
+[230100104] = {id = 230100104, play_frame = 188, path = "sfx_buoumao_big_tx_188fr", bank = "buoumao"}
+, 
+[230100105] = {id = 230100105, play_frame = 199, path = "sfx_buoumao_big_tx_199fr", bank = "buoumao"}
+, 
+[230100106] = {id = 230100106, play_frame = 218, path = "sfx_buoumao_big_tx_218fr", bank = "buoumao"}
+, 
+[230100107] = {id = 230100107, play_frame = 249, path = "sfx_buoumao_big_tx_249fr", bank = "buoumao"}
+, 
+[230100108] = {id = 230100108, play_frame = 289, path = "sfx_buoumao_big_tx_289fr", bank = "buoumao"}
+, 
+[230100109] = {id = 230100109, play_frame = 374, path = "sfx_buoumao_big_tx_374fr", bank = "buoumao"}
+, 
+[230100110] = {id = 230100110, play_frame = 403, path = "sfx_buoumao_big_tx_403fr", bank = "buoumao"}
+, 
+[230100111] = {id = 230100111, play_frame = 464, path = "sfx_buoumao_big_tx_464fr", bank = "buoumao"}
+, 
+[230100112] = {id = 230100112, play_frame = 479, path = "sfx_buoumao_big_tx_479fr", bank = "buoumao"}
+, 
+[230100113] = {id = 230100113, play_frame = 487, path = "sfx_buoumao_big_tx_487fr", bank = "buoumao"}
+, 
+[230100114] = {id = 230100114, play_frame = 497, path = "sfx_buoumao_big_tx_497fr", bank = "buoumao"}
+, 
+[230100115] = {id = 230100115, play_frame = 510, path = "sfx_buoumao_big_tx_510fr", bank = "buoumao"}
+, 
+[230100116] = {id = 230100116, play_frame = 516, path = "sfx_buoumao_big_tx_516fr", bank = "buoumao"}
+, 
+[230100117] = {id = 230100117, play_frame = 558, path = "sfx_buoumao_big_tx_558fr", bank = "buoumao"}
+, 
+[230100118] = {id = 230100118, play_frame = 608, path = "sfx_buoumao_big_tx_608fr", bank = "buoumao"}
+, 
+[230100201] = {id = 230100201, play_frame = 21, path = "sfx_buoumao_pt_wh_21fr", bank = "buoumao"}
+, 
+[230100202] = {id = 230100202, play_frame = 48, path = "sfx_buoumao_pt_wh_48fr", bank = "buoumao"}
+, 
+[230100203] = {id = 230100203, play_frame = 59, path = "sfx_buoumao_pt_tx_59fr", bank = "buoumao"}
+, 
+[230100204] = {id = 230100204, play_frame = 73, path = "sfx_buoumao_pt_wh_73fr", bank = "buoumao"}
+, 
+[230100205] = {id = 230100205, play_frame = 81, path = "sfx_buoumao_pt_tx_81fr", bank = "buoumao"}
+, 
+[230100206] = {id = 230100206, play_frame = 105, path = "sfx_buoumao_pt_tx_105fr", bank = "buoumao"}
+, 
+[230100301] = {id = 230100301, play_frame = 14, path = "sfx_buoumao_small_wh_14fr", bank = "buoumao"}
+, 
+[230100302] = {id = 230100302, play_frame = 45, path = "sfx_buoumao_small_wh_45fr", bank = "buoumao"}
+, 
+[230100303] = {id = 230100303, play_frame = 63, path = "sfx_buoumao_small_tx_63fr", bank = "buoumao"}
+, 
+[230100304] = {id = 230100304, play_frame = 75, path = "sfx_buoumao_small_wh_75fr", bank = "buoumao"}
+, 
+[230100305] = {id = 230100305, play_frame = 81, path = "sfx_buoumao_small_tx_81fr", bank = "buoumao"}
+, 
+[230100306] = {id = 230100306, play_frame = 97, path = "sfx_buoumao_small_wh_97fr", bank = "buoumao"}
+, 
+[230100307] = {id = 230100307, play_frame = 99, path = "sfx_buoumao_small_tx_99fr", bank = "buoumao"}
+, 
+[230100308] = {id = 230100308, play_frame = 111, path = "sfx_buoumao_small_wh_111fr", bank = "buoumao"}
+, 
+[230100309] = {id = 230100309, play_frame = 114, path = "sfx_buoumao_small_tx_114fr", bank = "buoumao"}
+, 
+[230100310] = {id = 230100310, play_frame = 126, path = "sfx_buoumao_small_wh_126fr", bank = "buoumao"}
+, 
+[230100311] = {id = 230100311, play_frame = 131, path = "sfx_buoumao_small_tx_131fr", bank = "buoumao"}
+, 
+[230100312] = {id = 230100312, play_frame = 149, path = "sfx_buoumao_small_wh_149fr", bank = "buoumao"}
+, 
+[230100313] = {id = 230100313, play_frame = 151, path = "sfx_buoumao_small_tx_151fr", bank = "buoumao"}
+, 
+[230100314] = {id = 230100314, play_frame = 178, path = "sfx_buoumao_small_tx_178fr", bank = "buoumao"}
+, 
+[230100401] = {id = 230100401, play_frame = 2, path = "sfx_buoumao_pt_wh_48fr", bank = "buoumao"}
+, 
+[230100402] = {id = 230100402, play_frame = 8, path = "sfx_buoumao_pt_tx_59fr", bank = "buoumao"}
+, 
+[330110101] = {id = 330110101, play_frame = 19, path = "sfx_boss_shitouren1_big_tx_19fr", bank = "boss_shitouren1"}
+, 
+[330110102] = {id = 330110102, play_frame = 30, path = "sfx_boss_shitouren1_big_tx_30fr", bank = "boss_shitouren1"}
+, 
+[330110103] = {id = 330110103, play_frame = 82, path = "sfx_boss_shitouren1_big_tx_82fr", bank = "boss_shitouren1"}
+, 
+[330110104] = {id = 330110104, play_frame = 150, path = "sfx_boss_shitouren1_big_tx_150fr", bank = "boss_shitouren1"}
+, 
+[330110105] = {id = 330110105, play_frame = 182, path = "sfx_boss_shitouren1_big_tx_182fr", bank = "boss_shitouren1"}
+, 
+[330110201] = {id = 330110201, play_frame = 34, path = "sfx_boss_shitouren1_pt_wh_34fr", bank = "boss_shitouren1"}
+, 
+[330110202] = {id = 330110202, play_frame = 43, path = "sfx_boss_shitouren1_pt_tx_43fr", bank = "boss_shitouren1"}
+, 
+[330110301] = {id = 330110301, play_frame = 12, path = "sfx_boss_shitouren1_small_wh_12fr", bank = "boss_shitouren1"}
+, 
+[330110302] = {id = 330110302, play_frame = 28, path = "sfx_boss_shitouren1_small_tx_28fr", bank = "boss_shitouren1"}
+, 
+[330110303] = {id = 330110303, play_frame = 46, path = "sfx_boss_shitouren1_small_wh_46fr", bank = "boss_shitouren1"}
+, 
+[330110304] = {id = 330110304, play_frame = 49, path = "sfx_boss_shitouren1_small_tx_49fr", bank = "boss_shitouren1"}
+, 
+[330110305] = {id = 330110305, play_frame = 57, path = "sfx_boss_shitouren1_small_tx_57fr", bank = "boss_shitouren1"}
+, 
+[330110306] = {id = 330110306, play_frame = 58, path = "sfx_boss_shitouren1_small_wh_58fr", bank = "boss_shitouren1"}
+, 
+[330110307] = {id = 330110307, play_frame = 66, path = "sfx_boss_shitouren1_small_tx_66fr", bank = "boss_shitouren1"}
+, 
+[330120101] = {id = 330120101, play_frame = 52, path = "sfx_boss_shitouren2_big_wh_52fr", bank = "boss_shitouren2"}
+, 
+[330120102] = {id = 330120102, play_frame = 72, path = "sfx_boss_shitouren2_big_tx_72fr", bank = "boss_shitouren2"}
+, 
+[330120103] = {id = 330120103, play_frame = 91, path = "sfx_boss_shitouren2_big_tx_91fr", bank = "boss_shitouren2"}
+, 
+[330120201] = {id = 330120201, play_frame = 13, path = "sfx_boss_shitouren2_pt_wh_13fr", bank = "boss_shitouren2"}
+, 
+[330120202] = {id = 330120202, play_frame = 21, path = "sfx_boss_shitouren2_pt_tx_21fr", bank = "boss_shitouren2"}
+, 
+[330120203] = {id = 330120203, play_frame = 48, path = "sfx_boss_shitouren2_pt_wh_48fr", bank = "boss_shitouren2"}
+, 
+[330120204] = {id = 330120204, play_frame = 62, path = "sfx_boss_shitouren2_pt_tx_62fr", bank = "boss_shitouren2"}
+, 
+[330120301] = {id = 330120301, play_frame = 23, path = "sfx_boss_shitouren2_small_wh_23fr", bank = "boss_shitouren2"}
+, 
+[330120302] = {id = 330120302, play_frame = 32, path = "sfx_boss_shitouren2_small_wh_32fr", bank = "boss_shitouren2"}
+, 
+[330120303] = {id = 330120303, play_frame = 34, path = "sfx_boss_shitouren2_small_tx_34fr", bank = "boss_shitouren2"}
+, 
+[330120304] = {id = 330120304, play_frame = 74, path = "sfx_boss_shitouren2_small_wh_74fr", bank = "boss_shitouren2"}
+, 
+[330120305] = {id = 330120305, play_frame = 77, path = "sfx_boss_shitouren2_small_tx_77fr", bank = "boss_shitouren2"}
+, 
+[330120306] = {id = 330120306, play_frame = 86, path = "sfx_boss_shitouren2_small_tx_86fr", bank = "boss_shitouren2"}
+, 
+[330130101] = {id = 330130101, play_frame = 13, path = "sfx_boss_shitouren3_big_vo_13fr", bank = "boss_shitouren3"}
+, 
+[330130102] = {id = 330130102, play_frame = 38, path = "sfx_boss_shitouren3_big_tx_38fr", bank = "boss_shitouren3"}
+, 
+[330130103] = {id = 330130103, play_frame = 100, path = "sfx_boss_shitouren3_big_tx_100fr", bank = "boss_shitouren3"}
+, 
+[330130104] = {id = 330130104, play_frame = 118, path = "sfx_boss_shitouren3_big_tx_118fr", bank = "boss_shitouren3"}
+, 
+[330130105] = {id = 330130105, play_frame = 125, path = "sfx_boss_shitouren3_big_tx_125fr", bank = "boss_shitouren3"}
+, 
+[330130201] = {id = 330130201, play_frame = 40, path = "sfx_boss_shitouren3_pt_vo_40fr", bank = "boss_shitouren3"}
+, 
+[330130202] = {id = 330130202, play_frame = 58, path = "sfx_boss_shitouren3_pt_wh_58fr", bank = "boss_shitouren3"}
+, 
+[330130203] = {id = 330130203, play_frame = 74, path = "sfx_boss_shitouren3_pt_tx_74fr", bank = "boss_shitouren3"}
+, 
+[330130301] = {id = 330130301, play_frame = 42, path = "sfx_boss_shitouren3_small_wh_42fr", bank = "boss_shitouren3"}
+, 
+[330130302] = {id = 330130302, play_frame = 64, path = "sfx_boss_shitouren3_small_tx_64fr", bank = "boss_shitouren3"}
+, 
+[330130303] = {id = 330130303, play_frame = 78, path = "sfx_boss_shitouren3_small_wh_78fr", bank = "boss_shitouren3"}
+, 
+[330130304] = {id = 330130304, play_frame = 94, path = "sfx_boss_shitouren3_small_tx_94fr", bank = "boss_shitouren3"}
+, 
+[330130305] = {id = 330130305, play_frame = 120, path = "sfx_boss_shitouren3_small_wh_120fr", bank = "boss_shitouren3"}
+, 
+[330130306] = {id = 330130306, play_frame = 138, path = "sfx_boss_shitouren3_small_tx_138fr", bank = "boss_shitouren3"}
+, 
+[221120101] = {id = 221120101, play_frame = 33, path = "sfx_nuonuoyongzhuang_big_tx_33fr", bank = "nuonuoyongzhuang"}
+, 
+[221120102] = {id = 221120102, play_frame = 128, path = "sfx_nuonuoyongzhuang_big_tx_128fr", bank = "nuonuoyongzhuang"}
+, 
+[221120103] = {id = 221120103, play_frame = 279, path = "sfx_nuonuoyongzhuang_big_tx_279fr", bank = "nuonuoyongzhuang"}
+, 
+[221120201] = {id = 221120201, play_frame = 19, path = "sfx_nuonuoyongzhuang_pt_wh_19fr", bank = "nuonuoyongzhuang"}
+, 
+[221120202] = {id = 221120202, play_frame = 48, path = "sfx_nuonuoyongzhuang_pt_wh_48fr", bank = "nuonuoyongzhuang"}
+, 
+[221120203] = {id = 221120203, play_frame = 54, path = "sfx_nuonuoyongzhuang_pt_tx_54fr", bank = "nuonuoyongzhuang"}
+, 
+[221120301] = {id = 221120301, play_frame = 8, path = "sfx_nuonuoyongzhuang_small_wh_8fr", bank = "nuonuoyongzhuang"}
+, 
+[221120302] = {id = 221120302, play_frame = 32, path = "sfx_nuonuoyongzhuang_small_wh_32fr", bank = "nuonuoyongzhuang"}
+, 
+[221120303] = {id = 221120303, play_frame = 39, path = "sfx_nuonuoyongzhuang_small_tx_39fr", bank = "nuonuoyongzhuang"}
+, 
+[221120304] = {id = 221120304, play_frame = 58, path = "sfx_nuonuoyongzhuang_small_wh_58fr", bank = "nuonuoyongzhuang"}
+, 
+[221120305] = {id = 221120305, play_frame = 65, path = "sfx_nuonuoyongzhuang_small_tx_65fr", bank = "nuonuoyongzhuang"}
+, 
+[221120306] = {id = 221120306, play_frame = 89, path = "sfx_nuonuoyongzhuang_small_wh_89fr", bank = "nuonuoyongzhuang"}
+, 
+[221120307] = {id = 221120307, play_frame = 93, path = "sfx_nuonuoyongzhuang_small_tx_93fr", bank = "nuonuoyongzhuang"}
+, 
+[221120401] = {id = 221120401, play_frame = 19, path = "sfx_nuonuoyongzhuang_pt_wh_19fr", bank = "nuonuoyongzhuang"}
+, 
+[221120402] = {id = 221120402, play_frame = 46, path = "sfx_nuonuoyongzhuang_pt_wh_48fr", bank = "nuonuoyongzhuang"}
+, 
+[221120403] = {id = 221120403, play_frame = 54, path = "sfx_nuonuoyongzhuang_pt_tx_54fr", bank = "nuonuoyongzhuang"}
+, 
+[230090101] = {id = 230090101, play_frame = 19, path = "sfx_yishabeilayongzhuang_big_tx_19fr", bank = "yishabeilayongzhuang"}
+, 
+[230090102] = {id = 230090102, play_frame = 80, path = "sfx_yishabeilayongzhuang_big_tx_80fr", bank = "yishabeilayongzhuang"}
+, 
+[230090103] = {id = 230090103, play_frame = 137, path = "sfx_yishabeilayongzhuang_big_tx_137fr", bank = "yishabeilayongzhuang"}
+, 
+[230090104] = {id = 230090104, play_frame = 147, path = "sfx_yishabeilayongzhuang_big_tx_147fr", bank = "yishabeilayongzhuang"}
+, 
+[230090105] = {id = 230090105, play_frame = 200, path = "sfx_yishabeilayongzhuang_big_tx_200fr", bank = "yishabeilayongzhuang"}
+, 
+[230090106] = {id = 230090106, play_frame = 248, path = "sfx_yishabeilayongzhuang_big_tx_248fr", bank = "yishabeilayongzhuang"}
+, 
+[230090107] = {id = 230090107, play_frame = 341, path = "sfx_yishabeilayongzhuang_big_tx_341fr", bank = "yishabeilayongzhuang"}
+, 
+[230090108] = {id = 230090108, play_frame = 463, path = "sfx_yishabeilayongzhuang_big_tx_463fr", bank = "yishabeilayongzhuang"}
+, 
+[230090201] = {id = 230090201, play_frame = 3, path = "sfx_yishabeilayongzhuang_pt_wh_3fr", bank = "yishabeilayongzhuang"}
+, 
+[230090202] = {id = 230090202, play_frame = 5, path = "sfx_yishabeilayongzhuang_pt_tx_5fr", bank = "yishabeilayongzhuang"}
+, 
+[230090203] = {id = 230090203, play_frame = 14, path = "sfx_yishabeilayongzhuang_pt_wh_14fr", bank = "yishabeilayongzhuang"}
+, 
+[230090204] = {id = 230090204, play_frame = 18, path = "sfx_yishabeilayongzhuang_pt_tx_18fr", bank = "yishabeilayongzhuang"}
+, 
+[230090205] = {id = 230090205, play_frame = 33, path = "sfx_yishabeilayongzhuang_pt_wh_33fr", bank = "yishabeilayongzhuang"}
+, 
+[230090206] = {id = 230090206, play_frame = 35, path = "sfx_yishabeilayongzhuang_pt_tx_35fr", bank = "yishabeilayongzhuang"}
+, 
+[230090301] = {id = 230090301, play_frame = 2, path = "sfx_yishabeilayongzhuang_small_wh_2fr", bank = "yishabeilayongzhuang"}
+, 
+[230090302] = {id = 230090302, play_frame = 11, path = "sfx_yishabeilayongzhuang_small_tx_11fr", bank = "yishabeilayongzhuang"}
+, 
+[230090303] = {id = 230090303, play_frame = 38, path = "sfx_yishabeilayongzhuang_small_wh_38fr", bank = "yishabeilayongzhuang"}
+, 
+[230090304] = {id = 230090304, play_frame = 40, path = "sfx_yishabeilayongzhuang_small_tx_40fr", bank = "yishabeilayongzhuang"}
+, 
+[230090305] = {id = 230090305, play_frame = 46, path = "sfx_yishabeilayongzhuang_small_wh_46fr", bank = "yishabeilayongzhuang"}
+, 
+[230090306] = {id = 230090306, play_frame = 47, path = "sfx_yishabeilayongzhuang_small_tx_47fr", bank = "yishabeilayongzhuang"}
+, 
+[230090307] = {id = 230090307, play_frame = 52, path = "sfx_yishabeilayongzhuang_small_wh_52fr", bank = "yishabeilayongzhuang"}
+, 
+[230090308] = {id = 230090308, play_frame = 53, path = "sfx_yishabeilayongzhuang_small_tx_53fr", bank = "yishabeilayongzhuang"}
+, 
+[230090309] = {id = 230090309, play_frame = 58, path = "sfx_yishabeilayongzhuang_small_wh_58fr", bank = "yishabeilayongzhuang"}
+, 
+[230090310] = {id = 230090310, play_frame = 60, path = "sfx_yishabeilayongzhuang_small_tx_60fr", bank = "yishabeilayongzhuang"}
+, 
+[230090311] = {id = 230090311, play_frame = 68, path = "sfx_yishabeilayongzhuang_small_wh_68fr", bank = "yishabeilayongzhuang"}
+, 
+[230090312] = {id = 230090312, play_frame = 71, path = "sfx_yishabeilayongzhuang_small_tx_71fr", bank = "yishabeilayongzhuang"}
+, 
+[230090313] = {id = 230090313, play_frame = 78, path = "sfx_yishabeilayongzhuang_small_wh_78fr", bank = "yishabeilayongzhuang"}
+, 
+[230090314] = {id = 230090314, play_frame = 86, path = "sfx_yishabeilayongzhuang_small_tx_86fr", bank = "yishabeilayongzhuang"}
+, 
+[230090401] = {id = 230090401, play_frame = 3, path = "sfx_yishabeilayongzhuang_pt_wh_3fr", bank = "yishabeilayongzhuang"}
+, 
+[230090402] = {id = 230090402, play_frame = 5, path = "sfx_yishabeilayongzhuang_pt_tx_5fr", bank = "yishabeilayongzhuang"}
+, 
+[221110101] = {id = 221110101, play_frame = 21, path = "sfx_jinyu_big_tx_21fr", bank = "jinyu"}
+, 
+[221110102] = {id = 221110102, play_frame = 41, path = "sfx_jinyu_big_tx_41fr", bank = "jinyu"}
+, 
+[221110103] = {id = 221110103, play_frame = 88, path = "sfx_jinyu_big_tx_88fr", bank = "jinyu"}
+, 
+[221110104] = {id = 221110104, play_frame = 176, path = "sfx_jinyu_big_tx_176fr", bank = "jinyu"}
+, 
+[221110105] = {id = 221110105, play_frame = 261, path = "sfx_jinyu_big_tx_261fr", bank = "jinyu"}
+, 
+[221110106] = {id = 221110106, play_frame = 284, path = "sfx_jinyu_big_tx_284fr", bank = "jinyu"}
+, 
+[221110107] = {id = 221110107, play_frame = 381, path = "sfx_jinyu_big_tx_381fr", bank = "jinyu"}
+, 
+[221110108] = {id = 221110108, play_frame = 453, path = "sfx_jinyu_big_tx_453fr", bank = "jinyu"}
+, 
+[221110109] = {id = 221110109, play_frame = 539, path = "sfx_jinyu_big_tx_539fr", bank = "jinyu"}
+, 
+[221110201] = {id = 221110201, play_frame = 43, path = "sfx_jinyu_pt_wh_43fr", bank = "jinyu"}
+, 
+[221110202] = {id = 221110202, play_frame = 68, path = "sfx_jinyu_pt_tx_68fr", bank = "jinyu"}
+, 
+[221110203] = {id = 221110203, play_frame = 83, path = "sfx_jinyu_pt_tx_83fr", bank = "jinyu"}
+, 
+[221110204] = {id = 221110204, play_frame = 94, path = "sfx_jinyu_pt_tx_94fr", bank = "jinyu"}
+, 
+[221110301] = {id = 221110301, play_frame = 11, path = "sfx_jinyu_small_wh_11fr", bank = "jinyu"}
+, 
+[221110302] = {id = 221110302, play_frame = 13, path = "sfx_jinyu_small_tx_13fr", bank = "jinyu"}
+, 
+[221110303] = {id = 221110303, play_frame = 34, path = "sfx_jinyu_small_wh_34fr", bank = "jinyu"}
+, 
+[221110304] = {id = 221110304, play_frame = 39, path = "sfx_jinyu_small_tx_39fr", bank = "jinyu"}
+, 
+[221110305] = {id = 221110305, play_frame = 48, path = "sfx_jinyu_small_wh_48fr", bank = "jinyu"}
+, 
+[221110306] = {id = 221110306, play_frame = 59, path = "sfx_jinyu_small_tx_59fr", bank = "jinyu"}
+, 
+[221110307] = {id = 221110307, play_frame = 62, path = "sfx_jinyu_small_wh_62fr", bank = "jinyu"}
+, 
+[221110308] = {id = 221110308, play_frame = 83, path = "sfx_jinyu_small_tx_83fr", bank = "jinyu"}
+, 
+[221110309] = {id = 221110309, play_frame = 87, path = "sfx_jinyu_small_wh_87fr", bank = "jinyu"}
+, 
+[222080101] = {id = 222080101, play_frame = 8, path = "sfx_jijuxie_big_tx_8fr", bank = "jijuxie"}
+, 
+[222080102] = {id = 222080102, play_frame = 43, path = "sfx_jijuxie_big_tx_43fr", bank = "jijuxie"}
+, 
+[222080103] = {id = 222080103, play_frame = 86, path = "sfx_jijuxie_big_tx_86fr", bank = "jijuxie"}
+, 
+[222080104] = {id = 222080104, play_frame = 142, path = "sfx_jijuxie_big_tx_142fr", bank = "jijuxie"}
+, 
+[222080105] = {id = 222080105, play_frame = 208, path = "sfx_jijuxie_big_tx_208fr", bank = "jijuxie"}
+, 
+[222080201] = {id = 222080201, play_frame = 3, path = "sfx_jijuxie_pt_wh_3fr", bank = "jijuxie"}
+, 
+[222080202] = {id = 222080202, play_frame = 5, path = "sfx_jijuxie_pt_tx_5fr", bank = "jijuxie"}
+, 
+[222080203] = {id = 222080203, play_frame = 15, path = "sfx_jijuxie_pt_wh_15fr", bank = "jijuxie"}
+, 
+[222080204] = {id = 222080204, play_frame = 19, path = "sfx_jijuxie_pt_tx_19fr", bank = "jijuxie"}
+, 
+[222080205] = {id = 222080205, play_frame = 31, path = "sfx_jijuxie_pt_wh_31fr", bank = "jijuxie"}
+, 
+[222080206] = {id = 222080206, play_frame = 34, path = "sfx_jijuxie_pt_tx_34fr", bank = "jijuxie"}
+, 
+[222080301] = {id = 222080301, play_frame = 2, path = "sfx_jijuxie_small_wh_2fr", bank = "jijuxie"}
+, 
+[222080302] = {id = 222080302, play_frame = 5, path = "sfx_jijuxie_small_tx_5fr", bank = "jijuxie"}
+, 
+[222080303] = {id = 222080303, play_frame = 12, path = "sfx_jijuxie_small_wh_12fr", bank = "jijuxie"}
+, 
+[222080304] = {id = 222080304, play_frame = 15, path = "sfx_jijuxie_small_tx_15fr", bank = "jijuxie"}
+, 
+[222080305] = {id = 222080305, play_frame = 32, path = "sfx_jijuxie_small_wh_32fr", bank = "jijuxie"}
+, 
+[222080306] = {id = 222080306, play_frame = 34, path = "sfx_jijuxie_small_tx_34fr", bank = "jijuxie"}
+, 
+[222080307] = {id = 222080307, play_frame = 84, path = "sfx_jijuxie_small_wh_84fr", bank = "jijuxie"}
+, 
+[222080308] = {id = 222080308, play_frame = 94, path = "sfx_jijuxie_small_tx_94fr", bank = "jijuxie"}
+, 
+[230110101] = {id = 230110101, play_frame = 7, path = "sfx_dabaisha_big_wh_7fr", bank = "dabaisha"}
+, 
+[230110102] = {id = 230110102, play_frame = 62, path = "sfx_dabaisha_big_wh_62fr", bank = "dabaisha"}
+, 
+[230110103] = {id = 230110103, play_frame = 83, path = "sfx_dabaisha_big_wh_83fr", bank = "dabaisha"}
+, 
+[230110104] = {id = 230110104, play_frame = 123, path = "sfx_dabaisha_big_wh_123fr", bank = "dabaisha"}
+, 
+[230110105] = {id = 230110105, play_frame = 125, path = "sfx_dabaisha_big_wh_125fr", bank = "dabaisha"}
+, 
+[230110106] = {id = 230110106, play_frame = 157, path = "sfx_dabaisha_big_wh_157fr", bank = "dabaisha"}
+, 
+[230110107] = {id = 230110107, play_frame = 160, path = "sfx_dabaisha_big_wh_160fr", bank = "dabaisha"}
+, 
+[230110108] = {id = 230110108, play_frame = 243, path = "sfx_dabaisha_big_tx_243fr", bank = "dabaisha"}
+, 
+[230110109] = {id = 230110109, play_frame = 284, path = "sfx_dabaisha_big_tx_284fr", bank = "dabaisha"}
+, 
+[230110110] = {id = 230110110, play_frame = 308, path = "sfx_dabaisha_big_tx_308fr", bank = "dabaisha"}
+, 
+[230110111] = {id = 230110111, play_frame = 337, path = "sfx_dabaisha_big_tx_337fr", bank = "dabaisha"}
+, 
+[230110112] = {id = 230110112, play_frame = 345, path = "sfx_dabaisha_big_tx_345fr", bank = "dabaisha"}
+, 
+[230110113] = {id = 230110113, play_frame = 357, path = "sfx_dabaisha_big_tx_357fr", bank = "dabaisha"}
+, 
+[230110114] = {id = 230110114, play_frame = 392, path = "sfx_dabaisha_big_tx_392fr", bank = "dabaisha"}
+, 
+[230110115] = {id = 230110115, play_frame = 472, path = "sfx_dabaisha_big_tx_472fr", bank = "dabaisha"}
+, 
+[230110116] = {id = 230110116, play_frame = 556, path = "sfx_dabaisha_big_tx_556fr", bank = "dabaisha"}
+, 
+[230110117] = {id = 230110117, play_frame = 658, path = "sfx_dabaisha_big_tx_658fr", bank = "dabaisha"}
+, 
+[230110201] = {id = 230110201, play_frame = 2, path = "sfx_dabaisha_pt_wh_2fr", bank = "dabaisha"}
+, 
+[230110202] = {id = 230110202, play_frame = 17, path = "sfx_dabaisha_pt_tx_17fr", bank = "dabaisha"}
+, 
+[230110203] = {id = 230110203, play_frame = 29, path = "sfx_dabaisha_pt_wh_29fr", bank = "dabaisha"}
+, 
+[230110204] = {id = 230110204, play_frame = 44, path = "sfx_dabaisha_pt_tx_44fr", bank = "dabaisha"}
+, 
+[230110205] = {id = 230110205, play_frame = 58, path = "sfx_dabaisha_pt_wh_58fr", bank = "dabaisha"}
+, 
+[230110206] = {id = 230110206, play_frame = 64, path = "sfx_dabaisha_pt_tx_64fr", bank = "dabaisha"}
+, 
+[230110301] = {id = 230110301, play_frame = 9, path = "sfx_dabaisha_small_wh_9fr", bank = "dabaisha"}
+, 
+[230110302] = {id = 230110302, play_frame = 11, path = "sfx_dabaisha_small_tx_11fr", bank = "dabaisha"}
+, 
+[230110303] = {id = 230110303, play_frame = 17, path = "sfx_dabaisha_small_wh_17fr", bank = "dabaisha"}
+, 
+[230110304] = {id = 230110304, play_frame = 21, path = "sfx_dabaisha_small_tx_21fr", bank = "dabaisha"}
+, 
+[230110305] = {id = 230110305, play_frame = 27, path = "sfx_dabaisha_small_wh_27fr", bank = "dabaisha"}
+, 
+[230110306] = {id = 230110306, play_frame = 32, path = "sfx_dabaisha_small_tx_32fr", bank = "dabaisha"}
+, 
+[230110307] = {id = 230110307, play_frame = 37, path = "sfx_dabaisha_small_wh_37fr", bank = "dabaisha"}
+, 
+[230110308] = {id = 230110308, play_frame = 42, path = "sfx_dabaisha_small_tx_42fr", bank = "dabaisha"}
+, 
+[230110309] = {id = 230110309, play_frame = 52, path = "sfx_dabaisha_small_wh_52fr", bank = "dabaisha"}
+, 
+[230110310] = {id = 230110310, play_frame = 64, path = "sfx_dabaisha_small_tx_64fr", bank = "dabaisha"}
+, 
+[230110401] = {id = 230110401, play_frame = 2, path = "sfx_dabaisha_pt_wh_2fr", bank = "dabaisha"}
+, 
+[230110402] = {id = 230110402, play_frame = 14, path = "sfx_dabaisha_pt_tx_17fr", bank = "dabaisha"}
+, 
+[230120101] = {id = 230120101, play_frame = 17, path = "sfx_huolieniao_big_tx_17fr", bank = "huolieniao"}
+, 
+[230120102] = {id = 230120102, play_frame = 38, path = "sfx_huolieniao_big_tx_38fr", bank = "huolieniao"}
+, 
+[230120103] = {id = 230120103, play_frame = 131, path = "sfx_huolieniao_big_tx_131fr", bank = "huolieniao"}
+, 
+[230120104] = {id = 230120104, play_frame = 157, path = "sfx_huolieniao_big_wh_157fr", bank = "huolieniao"}
+, 
+[230120105] = {id = 230120105, play_frame = 177, path = "sfx_huolieniao_big_tx_177fr", bank = "huolieniao"}
+, 
+[230120106] = {id = 230120106, play_frame = 189, path = "sfx_huolieniao_big_wh_189fr", bank = "huolieniao"}
+, 
+[230120107] = {id = 230120107, play_frame = 200, path = "sfx_huolieniao_big_tx_200fr", bank = "huolieniao"}
+, 
+[230120108] = {id = 230120108, play_frame = 216, path = "sfx_huolieniao_big_wh_216fr", bank = "huolieniao"}
+, 
+[230120109] = {id = 230120109, play_frame = 228, path = "sfx_huolieniao_big_wh_228fr", bank = "huolieniao"}
+, 
+[230120110] = {id = 230120110, play_frame = 237, path = "sfx_huolieniao_big_tx_237fr", bank = "huolieniao"}
+, 
+[230120111] = {id = 230120111, play_frame = 256, path = "sfx_huolieniao_big_tx_256fr", bank = "huolieniao"}
+, 
+[230120112] = {id = 230120112, play_frame = 273, path = "sfx_huolieniao_big_tx_273fr", bank = "huolieniao"}
+, 
+[230120113] = {id = 230120113, play_frame = 325, path = "sfx_huolieniao_big_tx_325fr", bank = "huolieniao"}
+, 
+[230120114] = {id = 230120114, play_frame = 389, path = "sfx_huolieniao_big_tx_389fr", bank = "huolieniao"}
+, 
+[230120115] = {id = 230120115, play_frame = 471, path = "sfx_huolieniao_big_tx_471fr", bank = "huolieniao"}
+, 
+[230120116] = {id = 230120116, play_frame = 534, path = "sfx_huolieniao_big_tx_534fr", bank = "huolieniao"}
+, 
+[230120117] = {id = 230120117, play_frame = 694, path = "sfx_huolieniao_big_tx_694fr", bank = "huolieniao"}
+, 
+[230120201] = {id = 230120201, play_frame = 3, path = "sfx_huolieniao_pt_wh_3fr", bank = "huolieniao"}
+, 
+[230120202] = {id = 230120202, play_frame = 38, path = "sfx_huolieniao_pt_wh_38fr", bank = "huolieniao"}
+, 
+[230120203] = {id = 230120203, play_frame = 42, path = "sfx_huolieniao_pt_tx_42fr", bank = "huolieniao"}
+, 
+[230120204] = {id = 230120204, play_frame = 64, path = "sfx_huolieniao_pt_tx_64fr", bank = "huolieniao"}
+, 
+[230120301] = {id = 230120301, play_frame = 18, path = "sfx_huolieniao_small_wh_18fr", bank = "huolieniao"}
+, 
+[230120302] = {id = 230120302, play_frame = 42, path = "sfx_huolieniao_small_tx_42fr", bank = "huolieniao"}
+, 
+[230120303] = {id = 230120303, play_frame = 54, path = "sfx_huolieniao_small_tx_54fr", bank = "huolieniao"}
+, 
+[230120304] = {id = 230120304, play_frame = 69, path = "sfx_huolieniao_small_tx_69fr", bank = "huolieniao"}
+, 
+[230120305] = {id = 230120305, play_frame = 79, path = "sfx_huolieniao_small_tx_79fr", bank = "huolieniao"}
+, 
+[230120306] = {id = 230120306, play_frame = 103, path = "sfx_huolieniao_small_tx_103fr", bank = "huolieniao"}
+, 
+[222090101] = {id = 222090101, play_frame = 9, path = "sfx_wanshengkuiyin_big_tx_9fr", bank = "wanshengkuiyin"}
+, 
+[222090102] = {id = 222090102, play_frame = 68, path = "sfx_wanshengkuiyin_big_tx_68fr", bank = "wanshengkuiyin"}
+, 
+[222090103] = {id = 222090103, play_frame = 109, path = "sfx_wanshengkuiyin_big_tx_109fr", bank = "wanshengkuiyin"}
+, 
+[222090104] = {id = 222090104, play_frame = 237, path = "sfx_wanshengkuiyin_big_tx_237fr", bank = "wanshengkuiyin"}
+, 
+[222090105] = {id = 222090105, play_frame = 249, path = "sfx_wanshengkuiyin_big_tx_249fr", bank = "wanshengkuiyin"}
+, 
+[222090106] = {id = 222090106, play_frame = 309, path = "sfx_wanshengkuiyin_big_tx_309fr", bank = "wanshengkuiyin"}
+, 
+[222090201] = {id = 222090201, play_frame = 25, path = "sfx_wanshengkuiyin_pt_wh_25fr", bank = "wanshengkuiyin"}
+, 
+[222090202] = {id = 222090202, play_frame = 38, path = "sfx_wanshengkuiyin_pt_tx_38fr", bank = "wanshengkuiyin"}
+, 
+[222090203] = {id = 222090203, play_frame = 53, path = "sfx_wanshengkuiyin_pt_tx_53fr", bank = "wanshengkuiyin"}
+, 
+[222090204] = {id = 222090204, play_frame = 64, path = "sfx_wanshengkuiyin_pt_tx_64fr", bank = "wanshengkuiyin"}
+, 
+[222090301] = {id = 222090301, play_frame = 12, path = "sfx_wanshengkuiyin_small_wh_12fr", bank = "wanshengkuiyin"}
+, 
+[222090302] = {id = 222090302, play_frame = 40, path = "sfx_wanshengkuiyin_small_tx_40fr", bank = "wanshengkuiyin"}
+, 
+[230130101] = {id = 230130101, play_frame = 31, path = "sfx_wanshengxiao_big_wh_31fr", bank = "wanshengxiao"}
+, 
+[230130102] = {id = 230130102, play_frame = 38, path = "sfx_wanshengxiao_big_wh_38fr", bank = "wanshengxiao"}
+, 
+[230130103] = {id = 230130103, play_frame = 44, path = "sfx_wanshengxiao_big_tx_44fr", bank = "wanshengxiao"}
+, 
+[230130104] = {id = 230130104, play_frame = 69, path = "sfx_wanshengxiao_big_tx_69fr", bank = "wanshengxiao"}
+, 
+[230130105] = {id = 230130105, play_frame = 116, path = "sfx_wanshengxiao_big_wh_116fr", bank = "wanshengxiao"}
+, 
+[230130106] = {id = 230130106, play_frame = 125, path = "sfx_wanshengxiao_big_wh_125fr", bank = "wanshengxiao"}
+, 
+[230130107] = {id = 230130107, play_frame = 128, path = "sfx_wanshengxiao_big_tx_128fr", bank = "wanshengxiao"}
+, 
+[230130108] = {id = 230130108, play_frame = 141, path = "sfx_wanshengxiao_big_tx_141fr", bank = "wanshengxiao"}
+, 
+[230130109] = {id = 230130109, play_frame = 159, path = "sfx_wanshengxiao_big_tx_159fr", bank = "wanshengxiao"}
+, 
+[230130110] = {id = 230130110, play_frame = 222, path = "sfx_wanshengxiao_big_tx_222fr", bank = "wanshengxiao"}
+, 
+[230130111] = {id = 230130111, play_frame = 257, path = "sfx_wanshengxiao_big_tx_257fr", bank = "wanshengxiao"}
+, 
+[230130112] = {id = 230130112, play_frame = 269, path = "sfx_wanshengxiao_big_tx_269fr", bank = "wanshengxiao"}
+, 
+[230130113] = {id = 230130113, play_frame = 301, path = "sfx_wanshengxiao_big_tx_301fr", bank = "wanshengxiao"}
+, 
+[230130114] = {id = 230130114, play_frame = 308, path = "sfx_wanshengxiao_big_tx_308fr", bank = "wanshengxiao"}
+, 
+[230130115] = {id = 230130115, play_frame = 368, path = "sfx_wanshengxiao_big_tx_368fr", bank = "wanshengxiao"}
+, 
+[230130116] = {id = 230130116, play_frame = 462, path = "sfx_wanshengxiao_big_tx_462fr", bank = "wanshengxiao"}
+, 
+[230130117] = {id = 230130117, play_frame = 471, path = "sfx_wanshengxiao_big_tx_471fr", bank = "wanshengxiao"}
+, 
+[230130118] = {id = 230130118, play_frame = 497, path = "sfx_wanshengxiao_big_tx_497fr", bank = "wanshengxiao"}
+, 
+[230130119] = {id = 230130119, play_frame = 534, path = "sfx_wanshengxiao_big_tx_534fr", bank = "wanshengxiao"}
+, 
+[230130201] = {id = 230130201, play_frame = 29, path = "sfx_wanshengxiao_pt_wh_29fr", bank = "wanshengxiao"}
+, 
+[230130202] = {id = 230130202, play_frame = 45, path = "sfx_wanshengxiao_pt_tx_45fr", bank = "wanshengxiao"}
+, 
+[230130203] = {id = 230130203, play_frame = 53, path = "sfx_wanshengxiao_pt_wh_53fr", bank = "wanshengxiao"}
+, 
+[230130204] = {id = 230130204, play_frame = 57, path = "sfx_wanshengxiao_pt_tx_57fr", bank = "wanshengxiao"}
+, 
+[230130205] = {id = 230130205, play_frame = 74, path = "sfx_wanshengxiao_pt_wh_74fr", bank = "wanshengxiao"}
+, 
+[230130206] = {id = 230130206, play_frame = 78, path = "sfx_wanshengxiao_pt_tx_78fr", bank = "wanshengxiao"}
+, 
+[230130207] = {id = 230130207, play_frame = 97, path = "sfx_wanshengxiao_pt_wh_97fr", bank = "wanshengxiao"}
+, 
+[230130208] = {id = 230130208, play_frame = 100, path = "sfx_wanshengxiao_pt_tx_100fr", bank = "wanshengxiao"}
+, 
+[230130301] = {id = 230130301, play_frame = 33, path = "sfx_wanshengxiao_small_tx_33fr", bank = "wanshengxiao"}
+, 
+[230130302] = {id = 230130302, play_frame = 43, path = "sfx_wanshengxiao_small_tx_43fr", bank = "wanshengxiao"}
+, 
+[230130303] = {id = 230130303, play_frame = 103, path = "sfx_wanshengxiao_small_tx_103fr", bank = "wanshengxiao"}
+, 
+[230130304] = {id = 230130304, play_frame = 125, path = "sfx_wanshengxiao_small_tx_125fr", bank = "wanshengxiao"}
+, 
+[230130305] = {id = 230130305, play_frame = 138, path = "sfx_wanshengxiao_small_tx_138fr", bank = "wanshengxiao"}
+, 
+[230140101] = {id = 230140101, play_frame = 10, path = "sfx_haibao_big_tx_10fr", bank = "haibao"}
+, 
+[230140102] = {id = 230140102, play_frame = 97, path = "sfx_haibao_big_tx_97fr", bank = "haibao"}
+, 
+[230140103] = {id = 230140103, play_frame = 227, path = "sfx_haibao_big_tx_227fr", bank = "haibao"}
+, 
+[230140104] = {id = 230140104, play_frame = 267, path = "sfx_haibao_big_tx_267fr", bank = "haibao"}
+, 
+[230140105] = {id = 230140105, play_frame = 317, path = "sfx_haibao_big_tx_317fr", bank = "haibao"}
+, 
+[230140106] = {id = 230140106, play_frame = 385, path = "sfx_haibao_big_tx_385fr", bank = "haibao"}
+, 
+[230140107] = {id = 230140107, play_frame = 400, path = "sfx_haibao_big_tx_400fr", bank = "haibao"}
+, 
+[230140108] = {id = 230140108, play_frame = 457, path = "sfx_haibao_big_tx_457fr", bank = "haibao"}
+, 
+[230140109] = {id = 230140109, play_frame = 489, path = "sfx_haibao_big_tx_489fr", bank = "haibao"}
+, 
+[230140110] = {id = 230140110, play_frame = 519, path = "sfx_haibao_big_tx_519fr", bank = "haibao"}
+, 
+[230140201] = {id = 230140201, play_frame = 28, path = "sfx_haibao_pt_wh_28fr", bank = "haibao"}
+, 
+[230140202] = {id = 230140202, play_frame = 47, path = "sfx_haibao_pt_tx_47fr", bank = "haibao"}
+, 
+[230140301] = {id = 230140301, play_frame = 0, path = "sfx_haibao_small_wh_0fr", bank = "haibao"}
+, 
+[230140302] = {id = 230140302, play_frame = 83, path = "sfx_haibao_small_tx_83fr", bank = "haibao"}
+, 
+[230150101] = {id = 230150101, play_frame = 12, path = "sfx_shala_chrismas_big_tx_12fr", bank = "shala_chrismas"}
+, 
+[230150102] = {id = 230150102, play_frame = 22, path = "sfx_shala_chrismas_big_tx_22fr", bank = "shala_chrismas"}
+, 
+[230150103] = {id = 230150103, play_frame = 43, path = "sfx_shala_chrismas_big_tx_43fr", bank = "shala_chrismas"}
+, 
+[230150104] = {id = 230150104, play_frame = 74, path = "sfx_shala_chrismas_big_tx_74fr", bank = "shala_chrismas"}
+, 
+[230150105] = {id = 230150105, play_frame = 119, path = "sfx_shala_chrismas_big_tx_119fr", bank = "shala_chrismas"}
+, 
+[230150106] = {id = 230150106, play_frame = 172, path = "sfx_shala_chrismas_big_tx_172fr", bank = "shala_chrismas"}
+, 
+[230150107] = {id = 230150107, play_frame = 187, path = "sfx_shala_chrismas_big_tx_187fr", bank = "shala_chrismas"}
+, 
+[230150108] = {id = 230150108, play_frame = 201, path = "sfx_shala_chrismas_big_tx_201fr", bank = "shala_chrismas"}
+, 
+[230150109] = {id = 230150109, play_frame = 224, path = "sfx_shala_chrismas_big_tx_224fr", bank = "shala_chrismas"}
+, 
+[230150110] = {id = 230150110, play_frame = 278, path = "sfx_shala_chrismas_big_tx_278fr", bank = "shala_chrismas"}
+, 
+[230150111] = {id = 230150111, play_frame = 295, path = "sfx_shala_chrismas_big_tx_295fr", bank = "shala_chrismas"}
+, 
+[230150112] = {id = 230150112, play_frame = 324, path = "sfx_shala_chrismas_big_tx_324fr", bank = "shala_chrismas"}
+, 
+[230150113] = {id = 230150113, play_frame = 339, path = "sfx_shala_chrismas_big_tx_339fr", bank = "shala_chrismas"}
+, 
+[230150114] = {id = 230150114, play_frame = 419, path = "sfx_shala_chrismas_big_tx_419fr", bank = "shala_chrismas"}
+, 
+[230150201] = {id = 230150201, play_frame = 12, path = "sfx_shala_chrismas_pt_wh_12fr", bank = "shala_chrismas"}
+, 
+[230150202] = {id = 230150202, play_frame = 29, path = "sfx_shala_chrismas_pt_wh_29fr", bank = "shala_chrismas"}
+, 
+[230150203] = {id = 230150203, play_frame = 37, path = "sfx_shala_chrismas_pt_tx_37fr", bank = "shala_chrismas"}
+, 
+[230150204] = {id = 230150204, play_frame = 59, path = "sfx_shala_chrismas_pt_wh_59fr", bank = "shala_chrismas"}
+, 
+[230150205] = {id = 230150205, play_frame = 67, path = "sfx_shala_chrismas_pt_tx_67fr", bank = "shala_chrismas"}
+, 
+[230150301] = {id = 230150301, play_frame = 9, path = "sfx_shala_chrismas_small_wh_9fr", bank = "shala_chrismas"}
+, 
+[230150302] = {id = 230150302, play_frame = 18, path = "sfx_shala_chrismas_small_tx_18fr", bank = "shala_chrismas"}
+, 
+[230150303] = {id = 230150303, play_frame = 41, path = "sfx_shala_chrismas_small_wh_41fr", bank = "shala_chrismas"}
+, 
+[230150304] = {id = 230150304, play_frame = 44, path = "sfx_shala_chrismas_small_wh_44fr", bank = "shala_chrismas"}
+, 
+[230150305] = {id = 230150305, play_frame = 54, path = "sfx_shala_chrismas_small_wh_54fr", bank = "shala_chrismas"}
+, 
+[230150306] = {id = 230150306, play_frame = 62, path = "sfx_shala_chrismas_small_wh_62fr", bank = "shala_chrismas"}
+, 
+[230150307] = {id = 230150307, play_frame = 68, path = "sfx_shala_chrismas_small_wh_68fr", bank = "shala_chrismas"}
+, 
+[230150308] = {id = 230150308, play_frame = 73, path = "sfx_shala_chrismas_small_wh_73fr", bank = "shala_chrismas"}
+, 
+[230150309] = {id = 230150309, play_frame = 85, path = "sfx_shala_chrismas_small_wh_85fr", bank = "shala_chrismas"}
+, 
+[230150310] = {id = 230150310, play_frame = 98, path = "sfx_shala_chrismas_small_tx_98fr", bank = "shala_chrismas"}
+, 
+[230150401] = {id = 230150401, play_frame = 3, path = "sfx_shala_chrismas_pt_wh_59fr", bank = "shala_chrismas"}
+, 
+[230150402] = {id = 230150402, play_frame = 16, path = "sfx_shala_chrismas_pt_tx_67fr", bank = "shala_chrismas"}
+, 
+[222100101] = {id = 222100101, play_frame = 46, path = "sfx_neinaier_chrismas_big_tx_46fr", bank = "neinaier_chrismas"}
+, 
+[222100102] = {id = 222100102, play_frame = 149, path = "sfx_neinaier_chrismas_big_tx_149fr", bank = "neinaier_chrismas"}
+, 
+[222100103] = {id = 222100103, play_frame = 158, path = "sfx_neinaier_chrismas_big_tx_158fr", bank = "neinaier_chrismas"}
+, 
+[222100104] = {id = 222100104, play_frame = 178, path = "sfx_neinaier_chrismas_big_tx_178fr", bank = "neinaier_chrismas"}
+, 
+[222100201] = {id = 222100201, play_frame = 17, path = "sfx_neinaier_chrismas_pt_wh_17fr", bank = "neinaier_chrismas"}
+, 
+[222100202] = {id = 222100202, play_frame = 23, path = "sfx_neinaier_chrismas_pt_wh_23fr", bank = "neinaier_chrismas"}
+, 
+[222100203] = {id = 222100203, play_frame = 29, path = "sfx_neinaier_chrismas_pt_tx_29fr", bank = "neinaier_chrismas"}
+, 
+[222100301] = {id = 222100301, play_frame = 19, path = "sfx_neinaier_chrismas_small_wh_19fr", bank = "neinaier_chrismas"}
+, 
+[222100302] = {id = 222100302, play_frame = 39, path = "sfx_neinaier_chrismas_small_tx_39fr", bank = "neinaier_chrismas"}
 }
 return BaseSoundPathData
 

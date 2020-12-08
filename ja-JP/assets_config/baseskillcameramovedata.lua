@@ -539,6 +539,178 @@ BaseSkillCameraMoveData = {
 , 
 [48120269] = {id = 48120269, scale = 5, move_time = 117}
 , 
+[48120270] = {id = 48120270, end_type = 1, position_a = "5,0", position_b = "10,0", move_time = 200}
+, 
+[48120271] = {id = 48120271, scale = -1, end_type = 2, move_time = 300}
+, 
+[48120272] = {id = 48120272, position_a = "-5,0", move_time = 367}
+, 
+[48120273] = {id = 48120273, position_a = "3,0", move_time = 100}
+, 
+[48120274] = {id = 48120274, move_time = 0}
+, 
+[48120275] = {id = 48120275, move_time = 0}
+, 
+[48120276] = {id = 48120276, move_time = 0}
+, 
+[48120277] = {id = 48120277, move_time = 0}
+, 
+[48120278] = {id = 48120278, scale = 3, move_time = 50}
+, 
+[48120279] = {id = 48120279, scale = -2, move_time = 200}
+, 
+[48120280] = {id = 48120280, position_a = "-3,0", move_time = 83}
+, 
+[48120281] = {id = 48120281, position_a = "3,0", move_time = 83}
+, 
+[48120282] = {id = 48120282, position_a = "-3,0", move_time = 150}
+, 
+[48120283] = {id = 48120283, position_a = "3,0", move_time = 117}
+, 
+[48120284] = {id = 48120284, scale = 3, position_a = "-6,0", move_time = 500}
+, 
+[48120285] = {id = 48120285, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
+, 
+[48120286] = {id = 48120286, end_type = 2, move_time = 300}
+, 
+[48120287] = {id = 48120287, move_time = 0}
+, 
+[48120288] = {id = 48120288, move_time = 0}
+, 
+[48120289] = {id = 48120289, move_time = 0}
+, 
+[48120290] = {id = 48120290, move_time = 0}
+, 
+[48120291] = {id = 48120291, position_a = "-7,0", move_time = 317}
+, 
+[48120292] = {id = 48120292, scale = 3, position_a = "7,0", move_time = 100}
+, 
+[48120293] = {id = 48120293, scale = -2, move_time = 200}
+, 
+[48120294] = {id = 48120294, position_a = "3,0", move_time = 100}
+, 
+[48120295] = {id = 48120295, scale = 2, move_time = 83}
+, 
+[48120296] = {id = 48120296, scale = 3, move_time = 83}
+, 
+[48120297] = {id = 48120297, end_type = 1, position_a = "5,0", position_b = "10,0", move_time = 200}
+, 
+[48120298] = {id = 48120298, scale = -1, end_type = 2, move_time = 300}
+, 
+[48120299] = {id = 48120299, move_time = 0}
+, 
+[48120300] = {id = 48120300, move_time = 0}
+, 
+[48120301] = {id = 48120301, move_time = 0}
+, 
+[48120302] = {id = 48120302, move_time = 0}
+, 
+[48120303] = {id = 48120303, move_time = 0}
+, 
+[48120304] = {id = 48120304, move_time = 0}
+, 
+[48120305] = {id = 48120305, position_a = "0,5", move_time = 117}
+, 
+[48120306] = {id = 48120306, scale = 3, position_a = "0,-5", move_time = 83}
+, 
+[48120307] = {id = 48120307, end_type = 1, position_a = "5,0", position_b = "10,0", move_time = 200}
+, 
+[48120308] = {id = 48120308, scale = -1, end_type = 2, move_time = 300}
+, 
+[48120309] = {id = 48120309, position_a = "5,0", move_time = 100}
+, 
+[48120310] = {id = 48120310, position_a = "-5,0", move_time = 67}
+, 
+[48120311] = {id = 48120311, position_a = "5,0", move_time = 67}
+, 
+[48120312] = {id = 48120312, position_a = "-5,0", move_time = 50}
+, 
+[48120313] = {id = 48120313, position_a = "0,5", move_time = 267}
+, 
+[48120314] = {id = 48120314, scale = 3, position_a = "0,-5", move_time = 167}
+, 
+[48120315] = {id = 48120315, scale = -2, move_time = 200}
+, 
+[48120316] = {id = 48120316, scale = -3, move_time = 300}
+, 
+[48120317] = {id = 48120317, scale = 1.5, move_time = 83}
+, 
+[48120318] = {id = 48120318, scale = 1.5, move_time = 167}
+, 
+[48120319] = {id = 48120319, scale = 1.5, move_time = 167}
+, 
+[48120320] = {id = 48120320, scale = 2, move_time = 167}
+, 
+[48120321] = {id = 48120321, scale = 2.5, move_time = 167}
+, 
+[48120322] = {id = 48120322, scale = -2, move_time = 200}
+, 
+[48120323] = {id = 48120323, move_time = 0}
+, 
+[48120324] = {id = 48120324, move_time = 0}
+, 
+[48120325] = {id = 48120325, move_time = 0}
+, 
+[48120326] = {id = 48120326, move_time = 0}
+, 
+[48120327] = {id = 48120327, scale = 3, move_time = 100}
+, 
+[48120328] = {id = 48120328, scale = -2, move_time = 200}
+, 
+[48120329] = {id = 48120329, position_a = "0,3", move_time = 200}
+, 
+[48120330] = {id = 48120330, position_a = "5,0", move_time = 833}
+, 
+[48120331] = {id = 48120331, move_time = 0}
+, 
+[48120332] = {id = 48120332, move_time = 0}
+, 
+[48120333] = {id = 48120333, move_time = 0}
+, 
+[48120334] = {id = 48120334, scale = 5, move_time = 83}
+, 
+[48120335] = {id = 48120335, scale = -2, move_time = 200}
+, 
+[48120336] = {id = 48120336, position_a = "0,-4", move_time = 167}
+, 
+[48120337] = {id = 48120337, position_a = "0,5", move_time = 317}
+, 
+[48120338] = {id = 48120338, scale = 0.5, move_time = 83}
+, 
+[48120339] = {id = 48120339, scale = 0.5, move_time = 83}
+, 
+[48120340] = {id = 48120340, scale = 0.5, move_time = 83}
+, 
+[48120341] = {id = 48120341, scale = 0.5, move_time = 83}
+, 
+[48120342] = {id = 48120342, scale = 2, move_time = 133}
+, 
+[48120343] = {id = 48120343, scale = -2, move_time = 200}
+, 
+[48120344] = {id = 48120344, position_a = "0,-3", move_time = 100}
+, 
+[48120345] = {id = 48120345, position_a = "0,5", move_time = 133}
+, 
+[48120346] = {id = 48120346, position_a = "0,-5", move_time = 167}
+, 
+[48120347] = {id = 48120347, scale = 5, position_a = "0,5", move_time = 200}
+, 
+[48120348] = {id = 48120348, end_type = 1, position_a = "5,0", position_b = "10,0", move_time = 200}
+, 
+[48120349] = {id = 48120349, scale = -1, end_type = 2, move_time = 300}
+, 
+[48120350] = {id = 48120350, move_time = 0}
+, 
+[48120351] = {id = 48120351, move_time = 0}
+, 
+[48120352] = {id = 48120352, scale = 1, move_time = 250}
+, 
+[48120353] = {id = 48120353, scale = 1.5, move_time = 300}
+, 
+[48120354] = {id = 48120354, position_a = "0,7", move_time = 133}
+, 
+[48120355] = {id = 48120355, position_a = "0,-10", move_time = 100}
+, 
 [48220001] = {id = 48220001, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
 , 
 [48220002] = {id = 48220002, scale = -2, end_type = 2, move_time = 267}
@@ -1074,6 +1246,47 @@ BaseSkillCameraMoveData = {
 [48220267] = {id = 48220267, position_a = "0,5", move_time = 167}
 , 
 [48220268] = {id = 48220268, scale = 3, position_a = "0,-5", move_time = 167}
+, 
+[48220269] = {id = 48220269, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
+, 
+[48220270] = {id = 48220270, end_type = 2, move_time = 300}
+, 
+[48220271] = {id = 48220271, scale = 5, move_time = 500}
+, 
+[48220272] = {id = 48220272, move_time = 0}
+, 
+[48220273] = {id = 48220273, move_time = 0}
+, 
+[48220274] = {id = 48220274, move_time = 0}
+, 
+[48220275] = {id = 48220275, move_time = 0}
+, 
+[48220276] = {id = 48220276, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
+, 
+[48220277] = {id = 48220277, end_type = 2, move_time = 300}
+, 
+[48220278] = {id = 48220278, position_a = "0,5", move_time = 267}
+, 
+[48220279] = {id = 48220279, position_a = "0,-5", move_time = 133}
+, 
+[48220280] = {id = 48220280, position_a = "-5,0", move_time = 283}
+, 
+[48220281] = {id = 48220281, scale = 3, move_time = 150}
+, 
+[48220282] = {id = 48220282, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
+, 
+[48220283] = {id = 48220283, end_type = 2, move_time = 300}
+, 
+[48220284] = {id = 48220284, position_a = "-5,5", move_time = 417}
+, 
+[48220285] = {id = 48220285, position_a = "5,-5", move_time = 217}
+, 
+[48220286] = {id = 48220286, position_a = "-5,5", move_time = 333}
+, 
+[48220287] = {id = 48220287, position_a = "5,-5", move_time = 183}
+, 
+[48220288] = {id = 48220288, position_a = "-5,5", move_time = 417}
+, 
+[48220289] = {id = 48220289, scale = 5, position_a = "5,-5", move_time = 183}
 }
-return BaseSkillCameraMoveData
 

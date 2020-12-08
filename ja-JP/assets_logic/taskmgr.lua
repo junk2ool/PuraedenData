@@ -114,15 +114,22 @@ TaskMgr.SetTaskData = function(msg, ...)
         v.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS
       end
     end
-    local taskData = ((TableData.gTable).BaseTaskData)[tonumber(msg.id)]
-    local rewards = (Util.ParseConfigStr)(taskData.reward)
     local items = {}
-    for _,v in ipairs(rewards) do
-      local ItemDataModel = {}
-      ItemDataModel.id = tonumber(v[2])
-      ItemDataModel.Num = tonumber(v[3])
-      ;
-      (table.insert)(items, ItemDataModel)
+    local taskData = ((TableData.gTable).BaseTaskData)[tonumber(msg.id)]
+    local mLV = tonumber(msg.param)
+    local remarkTable = (Util.ParseConfigStr)(taskData.reward, "_", "|")
+    for _,v in ipairs(remarkTable) do
+      local lvRange = split(v[1], ":")
+      if tonumber(lvRange[1]) <= mLV and mLV <= tonumber(lvRange[2]) then
+        local rewards = (Util.ParseConfigStr)(v[2])
+        for _,v in ipairs(rewards) do
+          local ItemDataModel = {}
+          ItemDataModel.id = tonumber(v[2])
+          ItemDataModel.Num = tonumber(v[3])
+          ;
+          (table.insert)(items, ItemDataModel)
+        end
+      end
     end
     local LivelinessValue = taskData.liveness
     do

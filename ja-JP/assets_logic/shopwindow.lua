@@ -29,6 +29,9 @@ ShopWindow.OnInit = function(bridgeObj, ...)
     end
     currentType = mType
   end
+  -- DECOMPILER ERROR at PC36: Confused about usage of register: R2 in 'UnsetPending'
+
+  PayMgr.LimitBuy = false
   isBackOpen = bridgeObj.OpenFromClose
   ;
   (ShopWindow.InitShopBtn)()
@@ -36,7 +39,7 @@ ShopWindow.OnInit = function(bridgeObj, ...)
   (ShopWindow.InitAssetStrip)()
   ;
   (ShopWindow.InitFunctionControl)()
-  -- DECOMPILER ERROR at PC45: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC47: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.CommodityList).itemRenderer = ShopWindow.RendererList
@@ -48,7 +51,7 @@ ShopWindow.OnInit = function(bridgeObj, ...)
   ;
   (ShopWindow.Binding)()
   GuideSetDelayShow(contentPane)
-  -- DECOMPILER ERROR at PC69: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC71: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.TimeNameTxt).text = (PUtil.get)(20000364)

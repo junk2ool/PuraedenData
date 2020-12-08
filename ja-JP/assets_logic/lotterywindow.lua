@@ -31,6 +31,9 @@ LotteryWindow.OnInit = function(bridgeObj, ...)
   ResHelper = CS.ResHelper
   ;
   (ResHelper.ClearAllCache)()
+  if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp4) then
+    (LotteryWindow_Activity4.PreLoadFxMain)(uis)
+  end
   if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp3) then
     (LotteryWindow_Activity3.PreLoadFxMain)(uis)
   end
@@ -148,6 +151,9 @@ LotteryWindow.LotteryButtonRefresh = function(...)
     if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp3) then
       (table.insert)(btnTab, LotteryType.HuoDongUp3)
     end
+    if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp4) then
+      (table.insert)(btnTab, LotteryType.HuoDongUp4)
+    end
   end
   if (ActorData.GetLotteryActivityNum)(LotteryType.ShilianBiChu) then
     (table.insert)(btnTab, LotteryType.ShilianBiChu)
@@ -168,9 +174,9 @@ LotteryWindow.LotteryButtonRefresh = function(...)
         do
           isStillChooseThisType = true
           do break end
-          -- DECOMPILER ERROR at PC93: LeaveBlock: unexpected jumping out IF_THEN_STMT
+          -- DECOMPILER ERROR at PC104: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-          -- DECOMPILER ERROR at PC93: LeaveBlock: unexpected jumping out IF_STMT
+          -- DECOMPILER ERROR at PC104: LeaveBlock: unexpected jumping out IF_STMT
 
         end
       end
@@ -183,11 +189,11 @@ LotteryWindow.LotteryButtonRefresh = function(...)
     end
     local button = ((uis.LotteryPanelGrp).ButtonList):AddItemFromPool((UIPackage.GetItemURL)("Lottery", showData.button_asset))
     lotteryBtns[value] = button
-    -- DECOMPILER ERROR at PC124: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC135: Confused about usage of register: R9 in 'UnsetPending'
 
     if value == lotteryType then
       ((uis.LotteryPanelGrp).ButtonList).selectedIndex = index - 1
-      -- DECOMPILER ERROR at PC128: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC139: Confused about usage of register: R9 in 'UnsetPending'
 
       ;
       ((uis.LotteryPanelGrp).c1Ctr).selectedIndex = showData.selected_index
@@ -227,6 +233,10 @@ LotteryWindow.RefreshLotteryPanel = function(...)
       if lotteryType == LotteryType.HuoDongUp3 then
         (LotteryWindow_Activity3.RefreshWindow)(uis)
       else
+        if lotteryType == LotteryType.HuoDongUp4 then
+          (LotteryWindow_Activity4.RefreshWindow)(uis)
+        else
+        end
       end
     end
   end
@@ -301,6 +311,8 @@ LotteryWindow.OnClose = function(...)
   ;
   (LotteryWindow_Activity3.OnClose)()
   ;
+  (LotteryWindow_Activity4.OnClose)()
+  ;
   (ResHelper.ClearAllCache)()
 end
 
@@ -335,6 +347,10 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
               else
                 if lotteryType == LotteryType.HuoDongUp3 then
                   (LotteryWindow_Activity3.ReceiveInitData)()
+                else
+                  if lotteryType == LotteryType.HuoDongUp4 then
+                    (LotteryWindow_Activity4.ReceiveInitData)()
+                  end
                 end
               end
             end
@@ -365,6 +381,10 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
                 else
                   if lotteryType == LotteryType.HuoDongUp3 then
                     (LotteryWindow_Activity3.ReceiveDrawedData)(para)
+                  else
+                    if lotteryType == LotteryType.HuoDongUp4 then
+                      (LotteryWindow_Activity4.ReceiveDrawedData)(para)
+                    end
                   end
                 end
               end
@@ -375,12 +395,12 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
       local randomCard = (Util.Shuffle)((para.data).goods)
       ;
       (LotteryWindow.BubbleSortGoods)(randomCard)
-      -- DECOMPILER ERROR at PC157: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC174: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (para.data).goods = randomCard
       drawResult = para
-      -- DECOMPILER ERROR at PC160: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC177: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (uis.TouchScreenBtn).visible = true
@@ -390,17 +410,19 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
       (LotteryWindow_Activity2.HideOrShowFxMain)(false)
       ;
       (LotteryWindow_Activity3.HideOrShowFxMain)(false)
+      ;
+      (LotteryWindow_Activity4.HideOrShowFxMain)(false)
     else
       do
-        -- DECOMPILER ERROR at PC178: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC199: Confused about usage of register: R3 in 'UnsetPending'
 
         if msgId == windowMsgEnum.E_MSG_LOTTERY_REWARDCLOSE then
           (uis.TouchScreenBtn).visible = false
-          -- DECOMPILER ERROR at PC181: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC202: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((uis.StartWord).root).visible = false
-          -- DECOMPILER ERROR at PC184: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC205: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((uis.LotteryPanelGrp).BgImage).visible = false
@@ -414,7 +436,7 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
           isAutoPlay = false
           ;
           (LotteryWindow.ShowCardProcess)(drawResult)
-          -- DECOMPILER ERROR at PC208: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC229: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((uis.LotteryPanelGrp).BgImage).visible = true
@@ -432,6 +454,8 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
               (LotteryWindow_Activity2.HideOrShowFxMain)(true)
               ;
               (LotteryWindow_Activity3.HideOrShowFxMain)(true)
+              ;
+              (LotteryWindow_Activity4.HideOrShowFxMain)(true)
               if lotteryType == LotteryType.Card then
                 (LotteryWindow_Card.ShowResult)(drawResult)
               else
@@ -465,18 +489,24 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
                               (LotteryWindow_Activity3.ShowResult)(drawResult)
                               ;
                               (LotteryWindow.ClassicInit)()
+                            else
+                              if lotteryType == LotteryType.HuoDongUp4 then
+                                (LotteryWindow_Activity4.ShowResult)(drawResult)
+                                ;
+                                (LotteryWindow.ClassicInit)()
+                              end
                             end
                           end
                         end
                       end
                     end
-                    -- DECOMPILER ERROR at PC319: Confused about usage of register: R3 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC355: Confused about usage of register: R3 in 'UnsetPending'
 
                     ;
                     ((uis.GechaCardEffectGrp).root).visible = false
                     if msgId == windowMsgEnum.E_MSG_ONCLICKCARDGET_SKIPBTN then
                       isAutoPlay = true
-                      -- DECOMPILER ERROR at PC328: Confused about usage of register: R3 in 'UnsetPending'
+                      -- DECOMPILER ERROR at PC364: Confused about usage of register: R3 in 'UnsetPending'
 
                       ;
                       ((uis.GechaCardEffectGrp).SkipBtn).visible = false
@@ -770,6 +800,12 @@ LotteryWindow.SetAssetType = function(...)
                 if lotteryType == LotteryType.HuoDongUp3 then
                   ((uis.AssetStripGrp).FunctionNameTxt).text = (PUtil.get)(220)
                 else
+                  -- DECOMPILER ERROR at PC129: Confused about usage of register: R3 in 'UnsetPending'
+
+                  if lotteryType == LotteryType.HuoDongUp4 then
+                    ((uis.AssetStripGrp).FunctionNameTxt).text = (PUtil.get)(220)
+                  else
+                  end
                 end
               end
             end

@@ -28,8 +28,15 @@ end
 
 -- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
 
-PlotPlayMgr.InitMainPlotQueue = function(triggerID, triggerType, ...)
+PlotPlayMgr.GetIsCanSkip = function(...)
   -- function num : 0_2 , upvalues : _ENV
+  return (PlotPlayData.CurrentChapterDataConfig).skip
+end
+
+-- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
+
+PlotPlayMgr.InitMainPlotQueue = function(triggerID, triggerType, ...)
+  -- function num : 0_3 , upvalues : _ENV
   local ids, times, config = nil, nil, nil
   local noNeedQuery = true
   if triggerType == PlotPlayTriggerType.INSTANTLY_PLAY then
@@ -102,10 +109,10 @@ PlotPlayMgr.InitMainPlotQueue = function(triggerID, triggerType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC17: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.PlayNextPlot = function(...)
-  -- function num : 0_3 , upvalues : _ENV
+  -- function num : 0_4 , upvalues : _ENV
   if (PlotPlayData.GetNextPlot)() then
     (PlotPlayMgr.PlayPlot)()
   else
@@ -114,10 +121,10 @@ PlotPlayMgr.PlayNextPlot = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC17: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC20: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.PlayPlot = function(...)
-  -- function num : 0_4 , upvalues : _ENV
+  -- function num : 0_5 , upvalues : _ENV
   loge("Play:" .. tostring((PlotPlayData.CurrentChapterDataConfig).id))
   if (PlotPlayData.CurrentChapterDataConfig).guild_type == PlotPlayGuideType.Play or (PlotPlayData.CurrentChapterDataConfig).guild_type == PlotPlayGuideType.Both then
     (Util.ShowGuideTips)(GuideTipsCheckPoint.PlotPlay, (PlotPlayData.CurrentChapterDataConfig).name, (PlotPlayData.CurrentChapterDataConfig).remark)
@@ -130,9 +137,9 @@ PlotPlayMgr.PlayPlot = function(...)
   UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_SET_BTN, (PlotPlayData.CurrentChapterDataConfig).skip)
   if (Util.StringIsNullOrEmpty)((PlotPlayData.CurrentChapterDataConfig).name) then
     UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_SET_BACKGROUND, function(...)
-    -- function num : 0_4_0 , upvalues : _ENV
+    -- function num : 0_5_0 , upvalues : _ENV
     UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_SHOW_ASIDE, function(...)
-      -- function num : 0_4_0_0 , upvalues : _ENV
+      -- function num : 0_5_0_0 , upvalues : _ENV
       if (TableData.GetBaseStoryDialogueData)(PlotPlayData.CurrentDialogueID) == nil then
         (PlotPlayService.ReqFinishStory)(PlotPlayFinishType.Normal, {(PlotPlayData.CurrentChapterDataConfig).id})
         ;
@@ -146,9 +153,9 @@ PlotPlayMgr.PlayPlot = function(...)
 )
   else
     UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_PLAY_CHAPTER_NAME, function(...)
-    -- function num : 0_4_1 , upvalues : _ENV
+    -- function num : 0_5_1 , upvalues : _ENV
     UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_SHOW_ASIDE, function(...)
-      -- function num : 0_4_1_0 , upvalues : _ENV
+      -- function num : 0_5_1_0 , upvalues : _ENV
       if (TableData.GetBaseStoryDialogueData)(PlotPlayData.CurrentDialogueID) == nil then
         (PlotPlayService.ReqFinishStory)(PlotPlayFinishType.Normal, {(PlotPlayData.CurrentChapterDataConfig).id})
         ;
@@ -164,10 +171,10 @@ PlotPlayMgr.PlayPlot = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC20: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.PrePlayDialogueShow = function(...)
-  -- function num : 0_5 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV
   local dialogueConfig = (TableData.GetBaseStoryDialogueData)(PlotPlayData.CurrentDialogueID)
   if dialogueConfig == nil then
     loge("Dialogue Id:" .. tostring(PlotPlayData.CurrentDialogueID) .. " 未在BaseStoryDialogueData中找到")
@@ -181,10 +188,10 @@ PlotPlayMgr.PrePlayDialogueShow = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC26: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.PlayDialogue = function(id, ...)
-  -- function num : 0_6 , upvalues : _ENV
+  -- function num : 0_7 , upvalues : _ENV
   local dialogueID = nil
   if id ~= nil then
     dialogueID = id
@@ -197,19 +204,19 @@ PlotPlayMgr.PlayDialogue = function(id, ...)
   UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_PLAY_DIALOGUE, {id = dialogueID})
 end
 
--- DECOMPILER ERROR at PC26: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.AfterDialogueShowed = function(choice, skip, stopLine, ...)
-  -- function num : 0_7 , upvalues : _ENV
+  -- function num : 0_8 , upvalues : _ENV
   UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_STOP_SOUND, skip or stopLine)
   ;
   (PlotPlayMgr.GetToNextDialogue)(choice, skip)
 end
 
--- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC32: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.GetToNextDialogue = function(choice, skip, ...)
-  -- function num : 0_8 , upvalues : _ENV
+  -- function num : 0_9 , upvalues : _ENV
   local dialogueConfig = (TableData.GetBaseStoryDialogueData)(PlotPlayData.CurrentDialogueID)
   if dialogueConfig.next == PlotPlayNextDialogueType.DONE or skip or dialogueConfig.next == PlotPlayNextDialogueType.KEEP then
     if (PlotPlayData.CurrentChapterDataConfig).guild_type == PlotPlayGuideType.Finish or (PlotPlayData.CurrentChapterDataConfig).guild_type == PlotPlayGuideType.Both then
@@ -260,10 +267,10 @@ PlotPlayMgr.GetToNextDialogue = function(choice, skip, ...)
   end
 end
 
--- DECOMPILER ERROR at PC32: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.Finish = function(...)
-  -- function num : 0_9 , upvalues : _ENV
+  -- function num : 0_10 , upvalues : _ENV
   (PlotPlayData.InitQueueData)()
   if UIMgr:IsWindowOpen((WinResConfig.PlotPlayPanelWindow).name) then
     UIMgr:CloseWindow((WinResConfig.PlotPlayPanelWindow).name, true, true)
@@ -275,10 +282,10 @@ PlotPlayMgr.Finish = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
 
 PlotPlayMgr.Callback = function(...)
-  -- function num : 0_10 , upvalues : _callback
+  -- function num : 0_11 , upvalues : _callback
   local callback = _callback
   if callback then
     _callback = nil

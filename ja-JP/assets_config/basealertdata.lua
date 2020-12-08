@@ -351,7 +351,7 @@ trial_sweep_no_num = {id = "trial_sweep_no_num", name = "掃討回数不足"}
 , 
 arena_rank_deficiency = {id = "arena_rank_deficiency", name = "闘技場ボーナス獲得可能のランキングに入らなかった"}
 , 
-player_no_clear_cd = {id = "player_no_clear_cd", name = "该活动不需要清理cd"}
+player_no_clear_cd = {id = "player_no_clear_cd", name = "冷却時間中、挑戦できるまでしばらくお待ちください"}
 , 
 guild_name_repeated = {id = "guild_name_repeated", name = "ギルド名が使用されました"}
 , 
@@ -384,6 +384,52 @@ guess_cup_is_zero = {id = "guess_cup_is_zero", name = "お祈りのリセット�
 guess_cup_upper = {id = "guess_cup_upper", name = "お祈り回数が足りません"}
 , 
 guild_level_no_enough = {id = "guild_level_no_enough", name = "ギルドレベルが足りません"}
+, 
+expedition_buy_num_no_matching = {id = "expedition_buy_num_no_matching", name = "購入可能回数不足"}
+, 
+expedition_buy_num_no_enough = {id = "expedition_buy_num_no_enough", name = "購入可能回数不足"}
+, 
+expedition_no_drop = {id = "expedition_no_drop", name = "「ドロップ」データが間違っています"}
+, 
+no_expedition_player = {id = "no_expedition_player", name = "遠征相手が見つかりません"}
+, 
+can_not_quit_guild = {id = "can_not_quit_guild", name = "公会战挑战期间无法退出/剔除/解散公会"}
+, 
+param_error = {id = "param_error", name = "パラメーターが間違っています"}
+, 
+param_length_error = {id = "param_length_error", name = "パラメーターが間違っています"}
+, 
+guild_war_need_refresh = {id = "guild_war_need_refresh", name = "ギルド戦データが更新されました"}
+, 
+season_end = {id = "season_end", name = "今シーズン終了"}
+, 
+adventure_event_nonentity = {id = "adventure_event_nonentity", name = "イベントが存在しません"}
+, 
+adventure_event_no_battle = {id = "adventure_event_no_battle", name = "当該イベントは戦闘イベントではありません"}
+, 
+no_adventure_player = {id = "no_adventure_player", name = "戦闘相手が見つかりません"}
+, 
+slots_not_reset = {id = "slots_not_reset", name = "操作が頻繁すぎます。しばらくしてからお試しください"}
+, 
+prop_pass_stamp = {id = "prop_pass_stamp", name = "アイテム使用期限が切れました"}
+, 
+only_friend_can_chat = {id = "only_friend_can_chat", name = "フレンドになるだけでメッセージを送ることができます"}
+, 
+no_house = {id = "no_house", name = "相手の「ハウス」機能がまだ解放されていません"}
+, 
+can_not_quit_guild_of_im = {id = "can_not_quit_guild_of_im", name = "弾劾期間中にギルドを脱退できません"}
+, 
+arena_not_open_time = {id = "arena_not_open_time", name = "現在は開催期間外です"}
+, 
+equip_scheme_not_exist = {id = "equip_scheme_not_exist", name = "この装備案は使用できない"}
+, 
+add_equip_scheme_lose = {id = "add_equip_scheme_lose", name = "装備案の設定に失敗しました"}
+, 
+arena_rival_rank_not_correct = {id = "arena_rival_rank_not_correct", name = "ランキングが更新されました"}
+, 
+slots_cost_deficiency = {id = "slots_cost_deficiency", name = "抽選用アイテムが不足しています"}
+, 
+equip_scheme_is_full = {id = "equip_scheme_is_full", name = "装備プリセットが上限に達しました"}
 }
 return BaseAlertData
 

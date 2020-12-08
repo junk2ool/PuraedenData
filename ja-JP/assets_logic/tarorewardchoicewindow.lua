@@ -74,7 +74,8 @@ TaroRewardChoiceWindow.OnHide = function(...)
 end
 
 TaroRewardChoiceWindow.Init = function(...)
-  -- function num : 0_8 , upvalues : _ENV, TaroRewardChoiceWindow, _playing
+  -- function num : 0_8 , upvalues : uis, _ENV, TaroRewardChoiceWindow, _playing
+  ((uis.root):GetChild("Subtitle")).visible = false
   if AdventureData.TarotStatue == AdventureTarotStatue.Played then
     (TaroRewardChoiceWindow.ShowResult)()
   else
@@ -84,7 +85,6 @@ TaroRewardChoiceWindow.Init = function(...)
   ;
   (TaroRewardChoiceWindow.InitSubtitleBtn)()
   if _playing then
-    (TaroRewardChoiceWindow.InitBulletScreen)()
   end
 end
 
@@ -245,10 +245,14 @@ TaroRewardChoiceWindow.PickTarotCard = function(...)
 end
 
 TaroRewardChoiceWindow.InitBulletScreen = function(...)
-  -- function num : 0_18 , upvalues : _ENV, _screenBulletInfo, TaroRewardChoiceWindow
-  local count = (math.min)(#AdventureData.TaroChatData, AdventureData.MaxBulletAmount)
+  -- function num : 0_18 , upvalues : _ENV, TaroRewardChoiceWindow, _screenBulletInfo
+  local count = ((math.min)(#AdventureData.TaroChatData, AdventureData.MaxBulletAmount))
+  local bulletInfo = nil
   for i = 1, count do
-    (table.insert)(_screenBulletInfo, (TaroRewardChoiceWindow.ShootOneBullet)(true, i))
+    bulletInfo = (TaroRewardChoiceWindow.ShootOneBullet)(true, i)
+    if bulletInfo then
+      (table.insert)(_screenBulletInfo, bulletInfo)
+    end
   end
   for k,v in pairs(AdventureData.CurrentBulletStatue) do
     if v.Delay then
@@ -265,24 +269,33 @@ TaroRewardChoiceWindow.AfterSendScreenBullet = function(...)
 end
 
 TaroRewardChoiceWindow.ShootNextBullet = function(index, ...)
-  -- function num : 0_20 , upvalues : _playing, _screenBulletInfo, TaroRewardChoiceWindow
+  -- function num : 0_20 , upvalues : _playing, TaroRewardChoiceWindow, _screenBulletInfo
   if not _playing then
     return 
   end
-  _screenBulletInfo[index] = (TaroRewardChoiceWindow.ShootOneBullet)(false, index)
+  local bulletInfo = nil
+  repeat
+    bulletInfo = (TaroRewardChoiceWindow.ShootOneBullet)(false, index)
+    if bulletInfo then
+      _screenBulletInfo[index] = bulletInfo
+    end
+  until bulletInfo ~= false
 end
 
 TaroRewardChoiceWindow.ShootOneBullet = function(init, index, ...)
   -- function num : 0_21 , upvalues : _ENV, TaroRewardChoiceWindow
   local bulletData = (AdventureData.PopScreenBulletContent)()
   if bulletData == nil then
-    return 
+    return nil
   end
   local bullet = (TaroRewardChoiceWindow.GetOneBullet)()
   local bulletInfo = {}
   bulletInfo.Info = bulletData
   bulletInfo.Index = index
   bulletInfo.Bullet = bullet
+  if bulletData.bulletScreenData == nil then
+    return false
+  end
   local size = (bulletData.bulletScreenData).size
   local bulletStatue = (AdventureData.CurrentBulletStatue)[size]
   if bulletStatue == nil then
@@ -304,7 +317,7 @@ TaroRewardChoiceWindow.ShootOneBullet = function(init, index, ...)
     end
     local txt = bullet:GetChild("TaroWordTxt")
     txt.text = "[color=#" .. ((AdventureData.BulletsColorPool)[(bulletData.bulletScreenData).color]).Value .. "]" .. bulletData.content .. "[/color]"
-    -- DECOMPILER ERROR at PC68: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC74: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (txt.textFormat).size = size
@@ -345,6 +358,10 @@ TaroRewardChoiceWindow.GetOneBullet = function(...)
   end
   ;
   (uis.root):AddChild(bullet)
+  ;
+  (bullet:GetChild("TaroWordTxt")).text = ""
+  ;
+  (bullet:GetChild("n1")).visible = false
   return bullet
 end
 
@@ -362,16 +379,13 @@ TaroRewardChoiceWindow.ChangeScreenBulletStatus = function(...)
   -- function num : 0_24 , upvalues : _playing, TaroRewardChoiceWindow, uis, _ENV
   _playing = not _playing
   if _playing then
-    (TaroRewardChoiceWindow.InitBulletScreen)()
-  else
-    ;
     (TaroRewardChoiceWindow.StopScreenBullet)()
-  end
-  if (uis.SubtitleBtn).selected then
-    (Util.SetPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_SKIP_SUBTITLE, Const.False)
-  else
-    ;
-    (Util.SetPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_SKIP_SUBTITLE, Const.True)
+    if (uis.SubtitleBtn).selected then
+      (Util.SetPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_SKIP_SUBTITLE, Const.False)
+    else
+      ;
+      (Util.SetPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_SKIP_SUBTITLE, Const.True)
+    end
   end
 end
 

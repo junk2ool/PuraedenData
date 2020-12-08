@@ -15,6 +15,8 @@ GetActorInfo_BattleSetUis = function(ui, ...)
   uis.Content_04_Grp = GetActorInfo_SwitchUis(ui:GetChild("Content_04_Grp"))
   uis.Content_05_Txt = ui:GetChild("Content_05_Txt")
   uis.Content_05_Grp = GetActorInfo_SwitchUis(ui:GetChild("Content_05_Grp"))
+  uis.Content_06_Txt = ui:GetChild("Content_06_Txt")
+  uis.Content_06_Grp = GetActorInfo_SwitchUis(ui:GetChild("Content_06_Grp"))
   uis.root = ui
   return uis
 end

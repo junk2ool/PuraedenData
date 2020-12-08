@@ -35,6 +35,12 @@ ActorInfoService.onResSet = function(msg, ...)
       UIMgr:SendWindowMessage("HeadChoiceWindow", (WindowMsgEnum.ActorInfo).E_MSG_SETFASHIONHEAD, {})
       UIMgr:SendWindowMessage("ActorInfoWindow", (WindowMsgEnum.ActorInfo).E_MSG_SETFASHIONHEAD, {})
     else
+      if type == (ProtoEnum.E_SET_TYPE).FASHION_FRAME then
+        (ActorData.SetFashionFrame)(tonumber(value))
+        UIMgr:SendWindowMessage("HeadChoiceWindow", (WindowMsgEnum.ActorInfo).E_MSG_SETFASHIONFRAME, {})
+        UIMgr:SendWindowMessage("ActorInfoWindow", (WindowMsgEnum.ActorInfo).E_MSG_SETFASHIONFRAME, {})
+      else
+      end
     end
     if type ~= (ProtoEnum.E_SET_TYPE).FASHION_SHOW or type == (ProtoEnum.E_SET_TYPE).SIGNATURE then
       (ActorData.SetSignature)(value)

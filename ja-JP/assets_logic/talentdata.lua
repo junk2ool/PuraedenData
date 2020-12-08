@@ -124,22 +124,18 @@ end
 
 TalentData.GetPointGrpByFzIdAndCurNode = function(fazhenId, curNode, ...)
   -- function num : 0_7 , upvalues : _ENV
+  print("fazhenId,curNode,", fazhenId, curNode)
   local points = {}
   local pre = "713"
-  local middle = ((string.sub)(tostring(fazhenId), 7, 8))
+  local middle = (string.sub)(tostring(fazhenId), 7, 8)
+  local matrix_config = (((TableData.gTable).BaseMatrixData)[fazhenId]).matrix_config
   local last, level = nil, nil
   if curNode == 0 then
     level = 1
   else
     level = (((TableData.gTable).BaseMatrixNodeData)[curNode]).show_level
   end
-  local tmp = tostring((level - 1) * 7 + 1)
-  local tmp_len = (string.len)(tmp)
-  last = tmp
-  for i = 1, 3 - tmp_len do
-    last = "0" .. last
-  end
-  local final = tonumber(pre .. middle .. last)
+  local final = matrix_config + ((level - 1) * 7 + 1)
   if final + 6 == curNode then
     local next = (((TableData.gTable).BaseMatrixNodeData)[curNode]).next
   end

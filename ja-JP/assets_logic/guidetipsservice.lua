@@ -62,6 +62,10 @@ GuideTipsService.RecvGuideNotice = function(msg, ...)
                   else
                     if msg.type == (ProtoEnum.GUIDE_TYPE).COPY_TOWER_TYPE then
                       (Util.ShowGuideTips)(GuideTipsCheckPoint.UnlockNewTower)
+                    else
+                      if msg.type == (ProtoEnum.GUIDE_TYPE).GUILD_WAR_TYPE then
+                        (Util.ShowGuideTips)(GuideTipsCheckPoint.GuildBossTimesIncrease, (msg.params)[1])
+                      end
                     end
                   end
                 end

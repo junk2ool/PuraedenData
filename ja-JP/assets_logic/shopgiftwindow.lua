@@ -57,8 +57,10 @@ ShopGiftWindow.OnInit = function(bridgeObj, ...)
       ;
       (uis.c2Ctr).selectedIndex = 0
       if configData.gift_type ~= GiftType.EveryDayGiftFree then
-        local list = uis["Reward_" .. configData.gift_type .. "_List"]
-        -- DECOMPILER ERROR at PC92: Confused about usage of register: R4 in 'UnsetPending'
+        if not uis["Reward_" .. configData.gift_type .. "_List"] then
+          local list = (uis.root):GetChild("Reward_" .. configData.gift_type .. "_List")
+        end
+        -- DECOMPILER ERROR at PC101: Confused about usage of register: R4 in 'UnsetPending'
 
         ;
         (uis.c3Ctr).selectedIndex = 0
@@ -75,11 +77,11 @@ ShopGiftWindow.OnInit = function(bridgeObj, ...)
         end
       else
         do
-          -- DECOMPILER ERROR at PC132: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC141: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           (uis.c3Ctr).selectedIndex = 1
-          -- DECOMPILER ERROR at PC138: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC147: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           (uis.TipsTxt).text = (PUtil.get)(230)
@@ -88,7 +90,7 @@ ShopGiftWindow.OnInit = function(bridgeObj, ...)
             local rewardCard = tonumber(role[1])
             local cardList = (CardData.GetObtainedCardList)()
             local possess = false
-            -- DECOMPILER ERROR at PC157: Overwrote pending register: R7 in 'AssignReg'
+            -- DECOMPILER ERROR at PC166: Overwrote pending register: R7 in 'AssignReg'
 
             for _,v in obj(cardList) do
               if v.id == rewardCard then
@@ -102,7 +104,7 @@ ShopGiftWindow.OnInit = function(bridgeObj, ...)
                   local com = ((uis.Reward_1_List):GetChildAt(0)):GetChild("n0")
                   ChangeUIController(com, "c1", 1)
                 end
-                -- DECOMPILER ERROR at PC187: Confused about usage of register: R3 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC196: Confused about usage of register: R3 in 'UnsetPending'
 
                 ;
                 (uis.TitleTxt).text = (PUtil.get)(20000378)

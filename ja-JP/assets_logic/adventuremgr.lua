@@ -90,14 +90,21 @@ end
 
 -- DECOMPILER ERROR at PC24: Confused about usage of register: R2 in 'UnsetPending'
 
-AdventureMgr.TryPlayMultiDice = function(...)
+AdventureMgr.TryPlayMultiDice = function(tryTimes, ...)
   -- function num : 0_6 , upvalues : _ENV
   if not (Util.CheckCostResources)(PropType.ASSET .. ":" .. AssetType.ENDURANCE .. ":" .. (AdventureData.CurrentMapConfig).dice_cost) then
     return 
   end
+  if AdventureData.LeftStep > 0 then
+    return 
+  end
+  local times = (Util.GetIntPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_MOVE_TIMES)
+  if times < AdventureData.FIXED_MOVE_TIMES then
+    (MessageMgr.SendCenterTips)((PUtil.get)(60000299, AdventureData.FIXED_MOVE_TIMES - times))
+    return 
+  end
   ;
-  (AdventureData.ResetChosedEvent)()
-  OpenWindow((WinResConfig.TenTimeUIWindow).name, UILayer.HUD, (AdventureData.GetNextPotentialEvents)(AdventureData.CurrentNode))
+  (AdventureMgr.PlayMultiDice)(tryTimes)
 end
 
 -- DECOMPILER ERROR at PC27: Confused about usage of register: R2 in 'UnsetPending'
@@ -142,39 +149,22 @@ end
 
 -- DECOMPILER ERROR at PC33: Confused about usage of register: R2 in 'UnsetPending'
 
-AdventureMgr.PlayMultiDice = function(...)
-  -- function num : 0_9 , upvalues : _ENV, _lastReqType
-  local specifyNodes = {}
-  for k,v in pairs(AdventureData.ChosedEvent) do
-    (table.insert)(specifyNodes, v)
-  end
-  ;
-  (table.sort)(specifyNodes, function(x, y, ...)
-    -- function num : 0_9_0
-    do return x.Index < y.Index end
-    -- DECOMPILER ERROR: 1 unprocessed JMP targets
-  end
-)
-  local sortedNodes = {}
-  local count = #specifyNodes
-  for i = 1, count do
-    (table.insert)(sortedNodes, (specifyNodes[i]).NodeId)
-  end
-  local str = ""
-  for i = 1, count do
-    str = str .. " " .. tostring(sortedNodes[i])
-  end
-  logw("sorted:" .. str)
+AdventureMgr.PlayMultiDice = function(times, ...)
+  -- function num : 0_9 , upvalues : _lastReqType, _ENV
   _lastReqType = AdventureDiceType.Multiply
   ;
-  (AdventureMgr.PlayDice)(AdventureData.MULTI_DICE_NUMBER, sortedNodes)
+  (AdventureMgr.PlayDice)(times)
 end
 
 -- DECOMPILER ERROR at PC36: Confused about usage of register: R2 in 'UnsetPending'
 
-AdventureMgr.PlayDice = function(times, specifyNodes, ...)
+AdventureMgr.PlayDice = function(times, ...)
   -- function num : 0_10 , upvalues : _ENV
-  (AdventureService.ReqPlayDice)(nil, nil, times, specifyNodes)
+  -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
+
+  (GRoot.inst).touchable = false
+  ;
+  (AdventureService.ReqPlayDice)(nil, nil, times)
 end
 
 -- DECOMPILER ERROR at PC39: Confused about usage of register: R2 in 'UnsetPending'
@@ -205,46 +195,23 @@ AdventureMgr.RecvPlayDice = function(msg, ...)
   ;
   (AdventureMgr.InitDiceData)(msg)
   UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_CHANGE_DRAG_STATUE, false)
-  if currentLeftStep <= 0 then
-    if _lastReqType == AdventureDiceType.Multiply then
-      local str = "掷出："
-      local count = #msg.diceNum
-      for i = 1, count do
-        str = str .. " " .. tostring((msg.diceNum)[i])
-      end
-      ;
-      (MessageMgr.OpenSoloConfirmWindow)(str, function(...)
-    -- function num : 0_12_0 , upvalues : _ENV, msg
-    -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
-
-    (GRoot.inst).touchable = false
-    ;
+  if _lastReqType == AdventureDiceType.Multiply then
     (AdventureMgr.AfterPlayDice)(msg)
-  end
-)
-    else
-      do
-        -- DECOMPILER ERROR at PC57: Confused about usage of register: R3 in 'UnsetPending'
-
-        ;
-        (GRoot.inst).touchable = false
-        UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_PLAY_DICE_ANIM, {Number = (msg.diceNum)[1], Remote = _lastReqType == AdventureDiceType.Remote, Callback = function(...)
-    -- function num : 0_12_1 , upvalues : _ENV, msg
+  else
+    UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_PLAY_DICE_ANIM, {Number = (msg.diceNum)[1], Remote = _lastReqType == AdventureDiceType.Remote, Callback = function(...)
+    -- function num : 0_12_0 , upvalues : _ENV, msg
     (AdventureMgr.AfterPlayDice)(msg)
   end
 })
-        ;
-        (AdventureMgr.MoveToNextNode)(AdventureData.ChosedFork)
-        local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[(ActorData.GetLevel)() + 72300000]
-        local curValue = (ActorData.GetAssetCount)(AssetType.ENDURANCE)
-        if curValue / LevelUpData.max_sta < 0.8 then
-          (RedDotMgr.EliminateRedDot)((WinResConfig.AdventureGameWindow).name, RedDotComID.BigAdventure_Vit)
-        end
-        _lastReqType = nil
-        -- DECOMPILER ERROR: 4 unprocessed JMP targets
-      end
-    end
   end
+  UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_MULTINUMBER)
+  local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[(ActorData.GetLevel)() + 72300000]
+  local curValue = (ActorData.GetAssetCount)(AssetType.ENDURANCE)
+  if curValue / LevelUpData.max_sta < 0.8 then
+    (RedDotMgr.EliminateRedDot)((WinResConfig.AdventureGameWindow).name, RedDotComID.BigAdventure_Vit)
+  end
+  _lastReqType = nil
+  -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
 -- DECOMPILER ERROR at PC45: Confused about usage of register: R2 in 'UnsetPending'
@@ -288,8 +255,10 @@ AdventureMgr.Move = function(...)
         -- DECOMPILER ERROR at PC96: Confused about usage of register: R1 in 'UnsetPending'
 
         AdventureData.CurrentMoveNode = 0
+        ;
+        (AdventureMgr.ShowTenTimeResult)()
       end
-      -- DECOMPILER ERROR at PC99: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC102: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       (GRoot.inst).touchable = true
@@ -353,13 +322,32 @@ AdventureMgr.ShowTenTimeResult = function(...)
   if #AdventureData.Rewards > 1 then
     local rewards = {}
     local count = #AdventureData.Rewards
-    local subCount = nil
+    local subCount, data = nil, nil
     for i = 1, count do
       subCount = #((AdventureData.Rewards)[i]).rewards
       for j = 1, subCount do
-        (table.insert)(rewards, (((AdventureData.Rewards)[i]).rewards)[j])
+        data = (((AdventureData.Rewards)[i]).rewards)[j]
+        if rewards[data.id] == nil then
+          rewards[data.id] = data
+        else
+          -- DECOMPILER ERROR at PC42: Confused about usage of register: R12 in 'UnsetPending'
+
+          ;
+          (rewards[data.id]).value = (rewards[data.id]).value + data.value
+        end
       end
     end
+    ;
+    (table.sort)(AdventureData.TirggeredEvent, function(x, y, ...)
+    -- function num : 0_17_0
+    if x.EventId == y.EventId then
+      return false
+    else
+      return x.EventId < y.EventId
+    end
+    -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  end
+)
     OpenWindow((WinResConfig.TenTimeResultWindow).name, UILayer.HUD, rewards, AdventureData.TirggeredEvent)
   end
 end
@@ -388,34 +376,43 @@ AdventureMgr.MoveToNextNode = function(nodeId, ...)
       local eventConfig = nil
       if config.event_id ~= 0 then
         eventConfig = ((TableData.gTable).BaseAdventureEventData)[config.event_id]
-        if AdventureEventType.Reward < eventConfig.type and (eventConfig.type ~= AdventureEventType.Building or (AdventureData.BuildingInfo)[tonumber(eventConfig.parameter)] == nil) then
-          (table.insert)(AdventureData.TirggeredEvent, {NodeId = AdventureData.CurrentMoveNode, EventId = config.event_id})
-        end
-      end
-      -- DECOMPILER ERROR at PC83: Confused about usage of register: R2 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC84: Confused about usage of register: R2 in 'UnsetPending'
 
-      ;
-      (AdventureData.PassedNode)[AdventureData.CurrentMoveNode] = true
-      if AdventureData.LeftStep <= 0 then
-        if #AdventureData.TirggeredEvent == 1 then
-          (AdventureMgr.TriggerEvent)(eventConfig.type, config.id, tonumber(eventConfig.parameter))
-        else
-          if #AdventureData.Rewards == 1 then
-            local rewards = ((AdventureData.Rewards)[1]).rewards
-            if (rewards[#rewards]).id == AssetType.GOLD then
-              (LuaSound.PlaySound)(LuaSound.ADVENTURE_ACQUIRE_GOLD, SoundBank.OTHER)
-            end
-            ;
-            (MessageMgr.OpenItemBuyTipsWindowBySingle)({id = (rewards[#rewards]).id, Num = (rewards[#rewards]).value})
-            UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_NODE_ANIM, {NodeId = nodeId})
+        if AdventureEventType.Reward < eventConfig.type and (eventConfig.type ~= AdventureEventType.Building or (AdventureData.BuildingInfo)[tonumber(eventConfig.parameter)] ~= nil or not (AdventureData.TriggeredBuilding)[AdventureData.CurrentMoveNode]) then
+          if eventConfig.type == AdventureEventType.Building then
+            (AdventureData.TriggeredBuilding)[AdventureData.CurrentMoveNode] = true
           end
+          local uid = (table.remove)((AdventureData.NodeEventIds)[AdventureData.CurrentMoveNode], 1)
+          ;
+          (table.insert)(AdventureData.TirggeredEvent, {Uid = uid, NodeId = AdventureData.CurrentMoveNode, EventId = config.event_id})
         end
       end
       do
+        -- DECOMPILER ERROR at PC110: Confused about usage of register: R2 in 'UnsetPending'
+
+        ;
+        (AdventureData.PassedNode)[AdventureData.CurrentMoveNode] = true
+        if AdventureData.LeftStep <= 0 then
+          if #AdventureData.TirggeredEvent == 1 then
+            (AdventureMgr.TriggerEvent)(eventConfig.type, config.id, tonumber(eventConfig.parameter), ((AdventureData.TirggeredEvent)[1]).Uid)
+          else
+            if #AdventureData.Rewards == 1 then
+              local rewards = ((AdventureData.Rewards)[1]).rewards
+              if (rewards[#rewards]).id == AssetType.GOLD then
+                (LuaSound.PlaySound)(LuaSound.ADVENTURE_ACQUIRE_GOLD, SoundBank.OTHER)
+              end
+              ;
+              (MessageMgr.OpenItemBuyTipsWindowBySingle)({id = (rewards[#rewards]).id, Num = (rewards[#rewards]).value})
+              UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_NODE_ANIM, {NodeId = nodeId})
+            end
+          end
+        end
         do
-          UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_FINISH_NODE_ANIM)
-          ;
-          (AdventureMgr.Move)()
+          do
+            UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_FINISH_NODE_ANIM)
+            ;
+            (AdventureMgr.Move)()
+          end
         end
       end
     end
@@ -426,25 +423,25 @@ end
 
 -- DECOMPILER ERROR at PC63: Confused about usage of register: R2 in 'UnsetPending'
 
-AdventureMgr.TriggerEvent = function(type, nodeId, bulidingID, ...)
+AdventureMgr.TriggerEvent = function(type, nodeId, bulidingID, uid, ...)
   -- function num : 0_19 , upvalues : _ENV
   if type == AdventureEventType.Building then
-    OpenWindow((WinResConfig.BuildingUseWindow).name, UILayer.HUD, bulidingID, nodeId)
+    OpenWindow((WinResConfig.BuildingUseWindow).name, UILayer.HUD, bulidingID, nodeId, uid)
   else
     if type == AdventureEventType.Battle then
-      (AdventureService.ReqInitAdventureBattleEmba)(nodeId)
+      (AdventureService.ReqInitAdventureBattleEmba)(nodeId, uid)
     else
       if type == AdventureEventType.RPS then
-        OpenWindow((WinResConfig.AdventureMiniRPSGameWindow).name, UILayer.HUD, nodeId)
+        OpenWindow((WinResConfig.AdventureMiniRPSGameWindow).name, UILayer.HUD, nodeId, uid)
       else
         if type == AdventureEventType.Question then
-          OpenWindow((WinResConfig.AdventureGame_Question).name, UILayer.HUD, nodeId)
+          OpenWindow((WinResConfig.AdventureGame_Question).name, UILayer.HUD, nodeId, uid)
         else
           if type == AdventureEventType.Brick then
-            OpenWindow((WinResConfig.AdventureGame_BrickGame).name, UILayer.HUD, nodeId)
+            OpenWindow((WinResConfig.AdventureGame_BrickGame).name, UILayer.HUD, nodeId, uid)
           else
             if type == AdventureEventType.Goldmine then
-              OpenWindow((WinResConfig.AdventureGame_GoldGame).name, UILayer.HUD, nodeId)
+              OpenWindow((WinResConfig.AdventureGame_GoldGame).name, UILayer.HUD, nodeId, uid)
             end
           end
         end
@@ -460,15 +457,18 @@ AdventureMgr.ChangeToTargetMap = function(...)
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   AdventureData.PassedNode = {}
-  -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
 
-  AdventureData.CurrentMapConfig = ((TableData.gTable).BaseAdventureMapData)[AdventureData.TargetMap]
-  UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_CHANGE_MAP, {MapId = AdventureData.TargetMap, NodeId = (AdventureData.CurrentMapConfig).head_node, Callback = function(...)
+  AdventureData.CurrentMapConfig = ((TableData.gTable).BaseAdventureMapData)[(AdventureData.CurrentMapConfig).next]
+  UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_CHANGE_MAP, {MapId = (AdventureData.CurrentMapConfig).id, NodeId = (AdventureData.CurrentMapConfig).head_node, Callback = function(...)
     -- function num : 0_20_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
-    AdventureData.CurrentMoveNode = (AdventureData.CurrentMapConfig).head_node
+    AdventureData.LeftChangeMapTimes = AdventureData.LeftChangeMapTimes - 1
     -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
+
+    AdventureData.CurrentMoveNode = (AdventureData.CurrentMapConfig).head_node
+    -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
 
     AdventureData.LeftStep = AdventureData.LeftStep - 1
     UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_FINISH_NODE_ANIM)
@@ -509,63 +509,105 @@ AdventureMgr.InitDiceData = function(data, ...)
   -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
 
   AdventureData.UndoneEvent = data.undoneEvent
-  -- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
+  local count = #data.undoneEvent
+  local event = nil
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R3 in 'UnsetPending'
+
+  AdventureData.NodeEventIds = {}
+  for i = 1, count do
+    event = (data.undoneEvent)[i]
+    -- DECOMPILER ERROR at PC59: Confused about usage of register: R7 in 'UnsetPending'
+
+    if (AdventureData.NodeEventIds)[event.nodeId] == nil then
+      (AdventureData.NodeEventIds)[event.nodeId] = {}
+    end
+    ;
+    (table.insert)((AdventureData.NodeEventIds)[event.nodeId], event.id)
+  end
+  -- DECOMPILER ERROR at PC71: Confused about usage of register: R3 in 'UnsetPending'
 
   AdventureData.BoughtCtrlDice = data.boughtCtrlDice
   UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_CTRL_REDDOT)
-  -- DECOMPILER ERROR at PC51: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC83: Confused about usage of register: R3 in 'UnsetPending'
 
   AdventureData.TarotStatue = data.isTarot
-  -- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC85: Confused about usage of register: R3 in 'UnsetPending'
 
-  if AdventureData.LeftStep <= 0 then
-    AdventureData.LeftStep = 0
-    -- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
+  AdventureData.LeftStep = 0
+  -- DECOMPILER ERROR at PC88: Confused about usage of register: R3 in 'UnsetPending'
 
-    AdventureData.TirggeredEvent = {}
-    -- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
+  AdventureData.TirggeredEvent = {}
+  -- DECOMPILER ERROR at PC91: Confused about usage of register: R3 in 'UnsetPending'
 
-    AdventureData.EventPoint = {}
-    -- DECOMPILER ERROR at PC66: Confused about usage of register: R1 in 'UnsetPending'
+  AdventureData.TriggeredBuilding = {}
+  -- DECOMPILER ERROR at PC94: Confused about usage of register: R3 in 'UnsetPending'
 
-    AdventureData.Rewards = {}
-    -- DECOMPILER ERROR at PC69: Confused about usage of register: R1 in 'UnsetPending'
+  AdventureData.EventPoint = {}
+  -- DECOMPILER ERROR at PC97: Confused about usage of register: R3 in 'UnsetPending'
 
-    AdventureData.PassingNode = {}
-  end
-  -- DECOMPILER ERROR at PC73: Confused about usage of register: R1 in 'UnsetPending'
+  AdventureData.Rewards = {}
+  -- DECOMPILER ERROR at PC100: Confused about usage of register: R3 in 'UnsetPending'
+
+  AdventureData.StopByNodes = {}
+  -- DECOMPILER ERROR at PC104: Confused about usage of register: R3 in 'UnsetPending'
 
   AdventureData.CurrentMoveNode = AdventureData.CurrentNode
-  local count = #data.diceNum
-  -- DECOMPILER ERROR at PC84: Confused about usage of register: R2 in 'UnsetPending'
+  count = #data.diceNum
+  -- DECOMPILER ERROR at PC115: Confused about usage of register: R3 in 'UnsetPending'
 
   if AdventureData.StepToTarot > 0 then
     AdventureData.StepToTarot = AdventureData.StepToTarot - count
   end
+  local currentNode = AdventureData.CurrentMoveNode
+  local nextNode, index, config, mapConfig = nil, nil, nil, nil
+  -- DECOMPILER ERROR at PC120: Confused about usage of register: R8 in 'UnsetPending'
+
+  AdventureData.TotalChangeMapTimes = 0
   for i = 1, count do
-    -- DECOMPILER ERROR at PC95: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC131: Confused about usage of register: R12 in 'UnsetPending'
 
     AdventureData.LeftStep = AdventureData.LeftStep + (data.diceNum)[i]
-  end
-  local nodeId = tonumber((((TableData.gTable).BaseAdventureNodeData)[AdventureData.CurrentNode]).next)
-  while 1 do
-    local config = ((TableData.gTable).BaseAdventureNodeData)[nodeId]
-    ;
-    (table.insert)(AdventureData.PassingNode, nodeId)
-    if config.id ~= AdventureData.TargetNode then
-      do
-        nodeId = tonumber(config.next)
-        -- DECOMPILER ERROR at PC125: LeaveBlock: unexpected jumping out IF_THEN_STMT
+    nextNode = currentNode + (data.diceNum)[i]
+    if ((TableData.gTable).BaseAdventureNodeData)[nextNode] == nil or (((TableData.gTable).BaseAdventureNodeData)[nextNode]).type == AdventureNodeType.End then
+      index = 0
+      while 1 do
+        while 1 do
+          config = ((TableData.gTable).BaseAdventureNodeData)[currentNode]
+          -- DECOMPILER ERROR at PC164: Confused about usage of register: R12 in 'UnsetPending'
 
-        -- DECOMPILER ERROR at PC125: LeaveBlock: unexpected jumping out IF_STMT
+          if config.type == AdventureNodeType.End then
+            AdventureData.TotalChangeMapTimes = AdventureData.TotalChangeMapTimes + 1
+            -- DECOMPILER ERROR at PC166: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
+            -- DECOMPILER ERROR at PC166: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
+        end
+        index = index + 1
+        currentNode = tonumber(config.next)
       end
+      mapConfig = ((TableData.gTable).BaseAdventureMapData)[(((TableData.gTable).BaseAdventureMapData)[config.map_id]).next]
+      currentNode = mapConfig.head_node + (data.diceNum)[i] - (index)
+    else
+      currentNode = nextNode
     end
+    -- DECOMPILER ERROR at PC198: Confused about usage of register: R12 in 'UnsetPending'
+
+    if (AdventureData.StopByNodes)[currentNode] == nil then
+      (AdventureData.StopByNodes)[currentNode] = {}
+    end
+    -- DECOMPILER ERROR at PC204: Confused about usage of register: R12 in 'UnsetPending'
+
+    ;
+    ((AdventureData.StopByNodes)[currentNode])[AdventureData.TotalChangeMapTimes] = true
   end
+  -- DECOMPILER ERROR at PC209: Confused about usage of register: R8 in 'UnsetPending'
+
+  AdventureData.LeftChangeMapTimes = AdventureData.TotalChangeMapTimes
   local totalStep = AdventureData.LeftStep
   for i = 1, count do
     totalStep = totalStep - (data.diceNum)[i]
-    -- DECOMPILER ERROR at PC137: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC221: Confused about usage of register: R13 in 'UnsetPending'
 
     ;
     (AdventureData.EventPoint)[totalStep] = true
@@ -621,7 +663,7 @@ AdventureMgr.UndoneEventsChange = function(...)
   if AdventureData.DealingEvent ~= nil then
     local count = #AdventureData.UndoneEvent
     for i = 1, count do
-      if ((AdventureData.UndoneEvent)[i]).nodeId == AdventureData.DealingEvent then
+      if ((AdventureData.UndoneEvent)[i]).id == AdventureData.DealingEvent then
         (table.remove)(AdventureData.UndoneEvent, i)
         if #AdventureData.UndoneEvent == 0 then
           UIMgr:RemoveWindowList((WinResConfig.UnMakeEventWindow).name)
@@ -633,14 +675,22 @@ AdventureMgr.UndoneEventsChange = function(...)
       UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_UNDONE_EVENT)
       UIMgr:SendWindowMessage((WinResConfig.UnMakeEventWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_UNDONE_EVENT)
       count = #AdventureData.TirggeredEvent
+      local data = nil
       for i = 1, count do
-        if ((AdventureData.TirggeredEvent)[i]).NodeId == AdventureData.DealingEvent then
+        data = (AdventureData.TirggeredEvent)[i]
+        -- DECOMPILER ERROR at PC81: Confused about usage of register: R6 in 'UnsetPending'
+
+        if data.Uid == AdventureData.DealingEvent then
+          if (AdventureData.TriggeredBuilding)[data.nodeId] then
+            (AdventureData.TriggeredBuilding)[data.nodeId] = nil
+          end
+          ;
           (table.remove)(AdventureData.TirggeredEvent, i)
           break
         end
       end
       do
-        -- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC91: Confused about usage of register: R2 in 'UnsetPending'
 
         AdventureData.DealingEvent = nil
         UIMgr:SendWindowMessage((WinResConfig.TenTimeResultWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_UNDONE_EVENT)
@@ -690,8 +740,7 @@ AdventureMgr.OpenTarotUI = function(...)
     if AdventureData.MaxBulletAmount == 0 then
       (AdventureData.InitBulletScreenData)()
     end
-    ;
-    (AdventureService.ReqGetChat)()
+    OpenWindow((WinResConfig.TaroRewardChoiceWindow).name, UILayer.HUD)
   end
 end
 
@@ -805,7 +854,7 @@ AdventureMgr.EnterSetFormation = function(msg, ...)
   btnData.btnTxt = (PUtil.get)(20000021)
   btnData.fun = function(cards, ...)
     -- function num : 0_32_0 , upvalues : _ENV
-    (AdventureService.ReqInAdventureBattleEmba)(AdventureData.BattleNode, false, (Util.CovertLoaclFormationToRemote)(cards))
+    (AdventureService.ReqInAdventureBattleEmba)((AdventureData.BattleNodeInfo).NodeId, false, (Util.CovertLoaclFormationToRemote)(cards), (AdventureData.BattleNodeInfo).Uid)
   end
 
   local formationData = {}
@@ -814,7 +863,7 @@ AdventureMgr.EnterSetFormation = function(msg, ...)
   formationData.myselfList = (Util.CovertRemoteFormationToLocal)(msg.myCards)
   formationData.battleType = (ProtoEnum.E_BATTLE_TYPE).ADVENTURE
   formationData.BtnData = btnData
-  formationData.stageId = AdventureData.BattleNode
+  formationData.stageId = (AdventureData.BattleNodeInfo).NodeId
   ;
   (MessageMgr.OpenFormationWindow)(formationData)
 end

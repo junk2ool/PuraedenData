@@ -34,6 +34,14 @@ ActivityService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResLoginActGet, ActivityService.ResLoginActGet)
   ;
   (Net.AddListener)((Proto.MsgName).ResGiftCode, ActivityService.OnResGiftCode)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResBannerIdList, ActivityService.RecvBannerIdList)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSaveBannerId, ActivityService.RecvSaveBannerId)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResRemoveBannerId, ActivityService.RecvRemoveBannerId)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResGetReward, ActivityService.OnResGetReward)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -215,6 +223,13 @@ ActivityService.OnReqActivityInfo = function(type, mark, aId, ...)
   else
     do
       loge("活动" .. type .. "未开启")
+      if type == (ActivityMgr.ActivityType).Total_Login then
+        ld("BrithDay", function(...)
+    -- function num : 0_17_0 , upvalues : _ENV
+    (BrithDayService.ReqBirthdayList)()
+  end
+)
+      end
     end
   end
 end
@@ -233,6 +248,18 @@ ActivityService.ResActivityInfo = function(msg, ...)
     else
       if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Drop_Multiple then
         (CommonWinMgr.SetCountDown)((msg.baseActivityInfo).actId, (msg.baseActivityInfo).endTime)
+      else
+        if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Total_Login then
+          if (msg.loginDayActInfo).todayGet == false then
+            OpenWindow((WinResConfig.SignActivityMainWindow).name, UILayer.HUD, msg)
+          else
+            ld("BrithDay", function(...)
+    -- function num : 0_18_0 , upvalues : _ENV
+    (BrithDayService.ReqBirthdayList)()
+  end
+)
+          end
+        end
       end
     end
   end
@@ -408,6 +435,96 @@ ActivityService.OnResGiftCode = function(msg, ...)
         end
       end
     end
+  end
+end
+
+-- DECOMPILER ERROR at PC94: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.ReqBannerIdList = function(...)
+  -- function num : 0_30 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqBannerIdList, m, (Proto.MsgName).ResBannerIdList)
+end
+
+-- DECOMPILER ERROR at PC97: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.RecvBannerIdList = function(msg, ...)
+  -- function num : 0_31 , upvalues : _ENV
+  (ActivityMgr.InitBannerRedDot)(msg.bannerId)
+  UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_BANNER_REDDOT)
+end
+
+-- DECOMPILER ERROR at PC100: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.ReqSaveBannerId = function(bannerId, ...)
+  -- function num : 0_32 , upvalues : _ENV
+  local m = {}
+  m.bannerId = bannerId
+  ;
+  (Net.Send)((Proto.MsgName).ReqSaveBannerId, m, (Proto.MsgName).ResSaveBannerId)
+end
+
+-- DECOMPILER ERROR at PC103: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.RecvSaveBannerId = function(msg, ...)
+  -- function num : 0_33 , upvalues : _ENV
+  (ActivityMgr.AddBannerRedDot)(msg.bannerId)
+end
+
+-- DECOMPILER ERROR at PC106: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.ReqRemoveBannerId = function(bannerId, ...)
+  -- function num : 0_34 , upvalues : _ENV
+  local m = {}
+  m.bannerId = bannerId
+  ;
+  (Net.Send)((Proto.MsgName).ReqRemoveBannerId, m, (Proto.MsgName).ResRemoveBannerId)
+end
+
+-- DECOMPILER ERROR at PC109: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.RecvRemoveBannerId = function(msg, ...)
+  -- function num : 0_35 , upvalues : _ENV
+  (ActivityMgr.RemoveBannerRedDot)(msg.bannerId)
+end
+
+-- DECOMPILER ERROR at PC112: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.ReqGetReward = function(actId, rewId, ...)
+  -- function num : 0_36 , upvalues : _ENV
+  local m = {}
+  m.actId = actId
+  m.rewId = rewId
+  ;
+  (Net.Send)((Proto.MsgName).ReqGetReward, m, (Proto.MsgName).ResGetReward)
+end
+
+-- DECOMPILER ERROR at PC115: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.OnResGetReward = function(msg, ...)
+  -- function num : 0_37 , upvalues : _ENV
+  if msg.result then
+    local rewardConfig = ((TableData.gTable).BaseActivityLoginData)[msg.rewId]
+    local rewardStr = split(rewardConfig.rewards, ":")
+    local item = {}
+    local items = {}
+    item.Type = tonumber(rewardStr[1])
+    item.id = tonumber(rewardStr[2])
+    item.Num = tonumber(rewardStr[3])
+    ;
+    (table.insert)(items, item)
+    ;
+    (MessageMgr.OpenRewardShowWindow)(items, function(...)
+    -- function num : 0_37_0 , upvalues : _ENV
+    UIMgr:CloseWindow((WinResConfig.SignActivityMainWindow).name)
+    ld("BrithDay", function(...)
+      -- function num : 0_37_0_0 , upvalues : _ENV
+      (BrithDayService.ReqBirthdayList)()
+    end
+)
+  end
+)
   end
 end
 

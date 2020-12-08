@@ -1,6 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 require("CardPop_CardDetailsByName")
+require("CommonResource_SkillFrameByName")
 local CardDetailsWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
@@ -103,18 +104,21 @@ CardDetailsWindow.RefreshWindow = function(...)
       if fashionData.unlock_remark then
         (uis.WordTxt).text = (PUtil.get)(186, fashionData.unlock_remark)
       end
-      local skills = {excelData.unique_skill_id, excelData.special_skill_id}
-      for i = 1, 2 do
-        local skillGrp = uis["SkillMessage_0" .. tostring(i) .. "_Grp"]
-        local skillData = (TableData.GetBaseSkillData)(skills[i])
-        -- DECOMPILER ERROR at PC222: Confused about usage of register: R15 in 'UnsetPending'
+      ;
+      (uis.SkillMessageList):RemoveChildrenToPool()
+      local skills = {excelData.unique_skill_id, excelData.special_skill_id, excelData.ex_passiveSkillId}
+      for i = 1, #skills do
+        if skills[i] ~= nil then
+          local skillGrp = GetCommonResource_SkillFrameUis((uis.SkillMessageList):AddItemFromPool())
+          local skillData = (TableData.GetBaseSkillData)(skills[i])
+          -- DECOMPILER ERROR at PC227: Confused about usage of register: R15 in 'UnsetPending'
 
-        ;
-        (skillGrp.SkillLoader).url = (Util.GetResUrl)(skillData.icon_path)
-        ;
-        ((skillGrp.SkillLoader).onClick):Clear()
-        ;
-        ((skillGrp.SkillLoader).onClick):Add(function(...)
+          ;
+          (skillGrp.SkillLoader).url = (Util.GetResUrl)(skillData.icon_path)
+          ;
+          ((skillGrp.SkillLoader).onClick):Clear()
+          ;
+          ((skillGrp.SkillLoader).onClick):Add(function(...)
     -- function num : 0_1_0 , upvalues : _ENV, skillData, excelData
     OpenWindow("SkillTipsWindow", UILayer.HUD)
     local data = {}
@@ -125,21 +129,28 @@ CardDetailsWindow.RefreshWindow = function(...)
     UIMgr:SendWindowMessage((WinResConfig.SkillTipsWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SKILLDETAIL, data)
   end
 )
-        local skillType = skillData.type
-        -- DECOMPILER ERROR at PC236: Confused about usage of register: R16 in 'UnsetPending'
-
-        if skillType == 2 then
-          (skillGrp.c1Ctr).selectedIndex = 2
-        else
+          local skillType = skillData.type
           -- DECOMPILER ERROR at PC241: Confused about usage of register: R16 in 'UnsetPending'
 
-          if skillType == 3 then
-            (skillGrp.c1Ctr).selectedIndex = 1
+          if skillType == 2 then
+            (skillGrp.c1Ctr).selectedIndex = 2
           else
-            -- DECOMPILER ERROR at PC244: Confused about usage of register: R16 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC246: Confused about usage of register: R16 in 'UnsetPending'
 
-            ;
-            (skillGrp.c1Ctr).selectedIndex = 0
+            if skillType == 3 then
+              (skillGrp.c1Ctr).selectedIndex = 1
+            else
+              -- DECOMPILER ERROR at PC251: Confused about usage of register: R16 in 'UnsetPending'
+
+              if skillType == 6 then
+                (skillGrp.c1Ctr).selectedIndex = 3
+              else
+                -- DECOMPILER ERROR at PC254: Confused about usage of register: R16 in 'UnsetPending'
+
+                ;
+                (skillGrp.c1Ctr).selectedIndex = 0
+              end
+            end
           end
         end
       end

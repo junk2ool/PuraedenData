@@ -79,8 +79,8 @@ ArenaNewSeasonWindow.Init = function(...)
     month = 12
     year = year - 1
   end
-  local finish = (os.date)("%Y/%m/%d", (((ArenaData.BaseData).seasonSettleTime).bTime + ((ArenaData.BaseData).seasonSettleTime).durationTime) * 0.001)
-  -- DECOMPILER ERROR at PC64: Confused about usage of register: R4 in 'UnsetPending'
+  local finish = (os.date)("%Y/%m/%d", ((ArenaData.BaseData).seasonSettleTime).bTime * 0.001)
+  -- DECOMPILER ERROR at PC59: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   (uis.TimeTxt).text = year .. "/" .. month .. "/" .. day .. "-" .. finish

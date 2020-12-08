@@ -290,16 +290,34 @@ HandBookCardPlotWindow.GetNoGainAndCloseCardList = function(...)
   local closeList = {}
   local noGainList = {}
   for _,v in pairs(data) do
-    -- DECOMPILER ERROR at PC28: Unhandled construct in 'MakeBoolean' P1
+    if v.is_display_in_uncall == 1 then
+      local configTime = v.open_time
+      local isSatisfy = true
+      do
+        do
+          if configTime then
+            local serverTime = (LuaTime.GetTimeStamp)()
+            isSatisfy = tonumber(configTime) <= tonumber(serverTime)
+          end
+          -- DECOMPILER ERROR at PC47: Unhandled construct in 'MakeBoolean' P1
 
-    if v.is_display_in_uncall == 1 and openType == (HandBookMgr.CardPlotWinType).Intimacy and not (CardData.GetCardData)(v.id) then
-      (table.insert)(noGainList, v)
+          if isSatisfy and openType == (HandBookMgr.CardPlotWinType).Intimacy and not (CardData.GetCardData)(v.id) then
+            (table.insert)(noGainList, v)
+          end
+          if v.is_handbookstage_open == 1 and not (CardData.GetCardData)(v.id) then
+            (table.insert)(noGainList, v)
+          end
+          ;
+          (table.insert)(closeList, v)
+          -- DECOMPILER ERROR at PC69: LeaveBlock: unexpected jumping out DO_STMT
+
+          -- DECOMPILER ERROR at PC69: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+          -- DECOMPILER ERROR at PC69: LeaveBlock: unexpected jumping out IF_STMT
+
+        end
+      end
     end
-    if v.is_handbookstage_open == 1 and not (CardData.GetCardData)(v.id) then
-      (table.insert)(noGainList, v)
-    end
-    ;
-    (table.insert)(closeList, v)
   end
   ;
   (table.sort)(noGainList, function(a, b, ...)
@@ -315,7 +333,8 @@ HandBookCardPlotWindow.GetNoGainAndCloseCardList = function(...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  return noGainList, closeList
+  do return noGainList, closeList end
+  -- DECOMPILER ERROR: 5 unprocessed JMP targets
 end
 
 HandBookCardPlotWindow.SortList = function(...)

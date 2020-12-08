@@ -28,7 +28,10 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
     end
   end
 
-  -- DECOMPILER ERROR at PC35: Confused about usage of register: R3 in 'UnsetPending'
+  local tarItem = nil
+  local tarType = (ActivityMgr.MouthDoubleType).AssetMouth
+  local activityId = 33000241
+  -- DECOMPILER ERROR at PC40: Confused about usage of register: R6 in 'UnsetPending'
 
   if configData.type == PayProductType.LittleMonthCard then
     (uis.c1Ctr).selectedIndex = 0
@@ -37,9 +40,12 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
     (uis.RewardAList):AddChild(obj)
     canBuy = (((PayData.GetPayData)()).moonPayInfo).resCanBuy
     addEffect(obj)
+    tarItem = obj
+    tarType = (ActivityMgr.MouthDoubleType).AssetMouth
+    activityId = 33000241
   else
     do
-      -- DECOMPILER ERROR at PC61: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC71: Confused about usage of register: R6 in 'UnsetPending'
 
       if configData.type == PayProductType.BigMonthCard then
         (uis.c1Ctr).selectedIndex = 1
@@ -48,19 +54,24 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
         (uis.RewardBList):AddChild(obj)
         canBuy = (((PayData.GetPayData)()).moonPayInfo).diaCanBuy
         addEffect(obj)
+        tarItem = obj
+        tarType = (ActivityMgr.MouthDoubleType).DiamondMouth
+        activityId = 33000242
       end
       do
         ;
         (ShopMonthCardWindow.InitEvent)()
-        -- DECOMPILER ERROR at PC87: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC102: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (uis.ItemNameTxt).text = (PUtil.get)(20000355)
-        -- DECOMPILER ERROR at PC93: Confused about usage of register: R3 in 'UnsetPending'
+        ;
+        (ShopMonthCardWindow.SetDouble)(tarItem, tarType, activityId)
+        -- DECOMPILER ERROR at PC113: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (uis.TipsTxt).text = (PUtil.get)(20000356)
-        -- DECOMPILER ERROR at PC99: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC119: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (uis.TitleTxt).text = (PUtil.get)(20000406)
@@ -73,10 +84,37 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
   end
 end
 
+ShopMonthCardWindow.SetDouble = function(obj, type, activityId, ...)
+  -- function num : 0_1 , upvalues : _ENV, uis
+  local childNum = (obj:GetChildren()).Length
+  local isHave = (ActivityMgr.GetMouthRewardDouble)(type)
+  local actData = ((TableData.gTable).BaseActivityData)[activityId]
+  print("------------------isHave", isHave, actData.begin_time)
+  for i = 0, childNum - 1 do
+    local item = obj:GetChildAt(i)
+    local ctr = item:GetController("c1")
+    if ctr and isHave then
+      ctr.selectedIndex = 1
+    else
+      ctr.selectedIndex = 0
+    end
+  end
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R6 in 'UnsetPending'
+
+  if isHave then
+    (uis.TimeTxt).text = actData.remark
+  else
+    -- DECOMPILER ERROR at PC41: Confused about usage of register: R6 in 'UnsetPending'
+
+    ;
+    (uis.TimeTxt).text = ""
+  end
+end
+
 ShopMonthCardWindow.InitEvent = function(...)
-  -- function num : 0_1 , upvalues : uis, _ENV, canBuy, configData
+  -- function num : 0_2 , upvalues : uis, _ENV, canBuy, configData
   ((uis.CloseBtn).onClick):Set(function(...)
-    -- function num : 0_1_0 , upvalues : _ENV
+    -- function num : 0_2_0 , upvalues : _ENV
     UIMgr:CloseWindow((WinResConfig.ShopMonthCardWindow).name)
   end
 )
@@ -87,7 +125,7 @@ ShopMonthCardWindow.InitEvent = function(...)
   end
   ;
   ((uis.SureBtn).onClick):Set(function(...)
-    -- function num : 0_1_1 , upvalues : canBuy, _ENV, configData
+    -- function num : 0_2_1 , upvalues : canBuy, _ENV, configData
     if canBuy then
       (PayMgr.SendPayCheck)(configData.id)
     else
@@ -115,7 +153,7 @@ ShopMonthCardWindow.InitEvent = function(...)
   end
   ;
   ((uis.GetBtn).onClick):Set(function(...)
-    -- function num : 0_1_2 , upvalues : canGet, _ENV, configData
+    -- function num : 0_2_2 , upvalues : canGet, _ENV, configData
     if canGet then
       (PayService.ReqGetMoonReward)(configData.type)
     else
@@ -127,7 +165,7 @@ ShopMonthCardWindow.InitEvent = function(...)
 end
 
 ShopMonthCardWindow.OnShown = function(...)
-  -- function num : 0_2 , upvalues : _ENV, configData, uis
+  -- function num : 0_3 , upvalues : _ENV, configData, uis
   local remainDay = (PayData.GetRemainMonthCardDay)(configData.type)
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -146,18 +184,18 @@ ShopMonthCardWindow.OnShown = function(...)
 end
 
 ShopMonthCardWindow.OnHide = function(...)
-  -- function num : 0_3
+  -- function num : 0_4
 end
 
 ShopMonthCardWindow.OnClose = function(...)
-  -- function num : 0_4 , upvalues : uis, contentPane, argTable
+  -- function num : 0_5 , upvalues : uis, contentPane, argTable
   uis = nil
   contentPane = nil
   argTable = {}
 end
 
 ShopMonthCardWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_5
+  -- function num : 0_6
 end
 
 return ShopMonthCardWindow

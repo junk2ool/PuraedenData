@@ -75,11 +75,13 @@ SystemSetWindow.InitText = function(...)
   (SystemSetWindow.InitSingleGrpText)(_battleGrp, 4, 60000383, 60000360, 60000361)
   ;
   (SystemSetWindow.InitSingleGrpText)(_battleGrp, 5, 60000384, 60000360, 60000361)
-  -- DECOMPILER ERROR at PC83: Confused about usage of register: R0 in 'UnsetPending'
+  ;
+  (SystemSetWindow.InitSingleGrpText)(_battleGrp, 6, 40002021, 60000360, 60000361)
+  -- DECOMPILER ERROR at PC90: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (_uiSetGrp.NameTxt).text = (PUtil.get)(60000353)
-  -- DECOMPILER ERROR at PC89: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC96: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (_uiSetGrp.ExplainTxt).text = (PUtil.get)(60000506)
@@ -89,27 +91,27 @@ SystemSetWindow.InitText = function(...)
   (SystemSetWindow.InitSingleGrpText)(_uiSetGrp, 2, 60000355, 60000351, 60000352)
   ;
   (SystemSetWindow.InitSingleGrpText)(_uiSetGrp, 3, 40002020, 60000351, 60000352)
-  -- DECOMPILER ERROR at PC116: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC123: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  (_messageSetGrp.NameTxt).text = (PUtil.get)(60000385)
+  (_messageSetGrp.NameTxt).text = (PUtil.get)(20000604)
   ;
   (SystemSetWindow.InitSingleGrpText)(_messageSetGrp, 1, 60000385, 60000360, 60000361)
   ;
   (SystemSetWindow.InitSingleGrpText)(_messageSetGrp, 2, 60000481, 60000360, 60000361)
-  -- DECOMPILER ERROR at PC136: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  (_soundSetGrp.NameTxt).text = (PUtil.get)(60000356)
   -- DECOMPILER ERROR at PC143: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  ((_soundSetGrp.SoundControl_01_Grp).NameTxt).text = (PUtil.get)(60000357)
+  (_soundSetGrp.NameTxt).text = (PUtil.get)(60000356)
   -- DECOMPILER ERROR at PC150: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  ((_soundSetGrp.SoundControl_02_Grp).NameTxt).text = (PUtil.get)(60000358)
+  ((_soundSetGrp.SoundControl_01_Grp).NameTxt).text = (PUtil.get)(60000357)
   -- DECOMPILER ERROR at PC157: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((_soundSetGrp.SoundControl_02_Grp).NameTxt).text = (PUtil.get)(60000358)
+  -- DECOMPILER ERROR at PC164: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((_soundSetGrp.SoundControl_03_Grp).NameTxt).text = (PUtil.get)(60000359)
@@ -147,6 +149,18 @@ SystemSetWindow.InitButtonEvent = function(...)
   (((_battleGrp.Content_05_Grp).Switch_A_Btn).onClick):Add(SystemSetWindow.ClickHpBarBtn)
   ;
   (((_battleGrp.Content_05_Grp).Switch_B_Btn).onClick):Add(SystemSetWindow.ClickHpBarBtn)
+  -- DECOMPILER ERROR at PC61: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (_battleGrp.Content_06_Txt).visible = true
+  -- DECOMPILER ERROR at PC64: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((_battleGrp.Content_06_Grp).root).visible = true
+  ;
+  (((_battleGrp.Content_06_Grp).Switch_A_Btn).onClick):Add(SystemSetWindow.ClickRageBarBtn)
+  ;
+  (((_battleGrp.Content_06_Grp).Switch_B_Btn).onClick):Add(SystemSetWindow.ClickRageBarBtn)
   ;
   (((_uiSetGrp.Content_01_Grp).Switch_A_Btn).onClick):Add(SystemSetWindow.ClickBattleFrameBtn)
   ;
@@ -228,42 +242,52 @@ SystemSetWindow.Init = function(...)
     ;
     ((_battleGrp.Content_01_Grp).c1Ctr).selectedIndex = 0
   end
+  -- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
+
+  if tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.BATTLE_SETTING_RAGE_BAR, "0")) == 0 then
+    ((_battleGrp.Content_06_Grp).c1Ctr).selectedIndex = 0
+  else
+    -- DECOMPILER ERROR at PC48: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((_battleGrp.Content_06_Grp).c1Ctr).selectedIndex = 1
+  end
   ;
   (SystemSetWindow.UpdateBattleSelection)(true)
-  -- DECOMPILER ERROR at PC46: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC63: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((_uiSetGrp.Content_01_Grp).c1Ctr).selectedIndex = tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.BATTLE_SETTING_FRAME, Game.defaultBattleFrame))
-  -- DECOMPILER ERROR at PC59: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC76: Confused about usage of register: R0 in 'UnsetPending'
 
   if tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.SCROLL_INFO, "0")) == 0 then
     ((_messageSetGrp.Content_01_Grp).c1Ctr).selectedIndex = 1
   else
-    -- DECOMPILER ERROR at PC63: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC80: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     ((_messageSetGrp.Content_01_Grp).c1Ctr).selectedIndex = 0
   end
-  -- DECOMPILER ERROR at PC74: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC91: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((_messageSetGrp.Content_02_Grp).c1Ctr).selectedIndex = tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.IGNORE_DIAMOND_CONSUM_TIPS, "0"))
-  -- DECOMPILER ERROR at PC87: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC104: Confused about usage of register: R0 in 'UnsetPending'
 
   if tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.SETTING_FRAME, "0")) == 0 then
     ((_uiSetGrp.Content_02_Grp).c1Ctr).selectedIndex = 1
   else
-    -- DECOMPILER ERROR at PC91: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC108: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     ((_uiSetGrp.Content_02_Grp).c1Ctr).selectedIndex = 0
   end
-  -- DECOMPILER ERROR at PC104: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC121: Confused about usage of register: R0 in 'UnsetPending'
 
   if tonumber((PlayerPrefs.GetString)(PlayerPrefsKeyName.SETTING_QUALITY, "1")) == 0 then
     ((_uiSetGrp.Content_03_Grp).c1Ctr).selectedIndex = 1
   else
-    -- DECOMPILER ERROR at PC108: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC125: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     ((_uiSetGrp.Content_03_Grp).c1Ctr).selectedIndex = 0
@@ -336,6 +360,10 @@ end
 
 SystemSetWindow.ClickBattleOutBtn = function(...)
   -- function num : 0_14 , upvalues : _ENV
+  if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).GUILD_WAR then
+    (GuildBossService.ReqGuildBattleInfo)(true)
+  end
+  ;
   (BattleService.SendOutBattle)()
   UIMgr:CloseWindow((WinResConfig.SystemSetWindow).name)
   ;
@@ -419,8 +447,26 @@ SystemSetWindow.ClickHpBarBtn = function(...)
   end
 end
 
+SystemSetWindow.ClickRageBarBtn = function(...)
+  -- function num : 0_21 , upvalues : SystemSetWindow, _ENV, _battleGrp, argTable
+  local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.BATTLE_SETTING_RAGE_BAR)
+  -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
+
+  if value == 0 then
+    ((_battleGrp.Content_06_Grp).c1Ctr).selectedIndex = 0
+  else
+    -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    ((_battleGrp.Content_06_Grp).c1Ctr).selectedIndex = 1
+  end
+  if argTable.Type ~= SystemSetType.NonBattle then
+    UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_SETTING_UI)
+  end
+end
+
 SystemSetWindow.ClickBattleFrameBtn = function(...)
-  -- function num : 0_21 , upvalues : SystemSetWindow, _ENV, _uiSetGrp, argTable
+  -- function num : 0_22 , upvalues : SystemSetWindow, _ENV, _uiSetGrp, argTable
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.BATTLE_SETTING_FRAME)
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -432,7 +478,7 @@ SystemSetWindow.ClickBattleFrameBtn = function(...)
 end
 
 SystemSetWindow.ClickWithHideBattle = function(clickItem, ...)
-  -- function num : 0_22 , upvalues : _ENV, _battleGrp, SystemSetWindow
+  -- function num : 0_23 , upvalues : _ENV, _battleGrp, SystemSetWindow
   local visible = (BattleConfig.IsHideBattleHeadInfo)() == false
   do
     if visible == false then
@@ -469,7 +515,7 @@ SystemSetWindow.ClickWithHideBattle = function(clickItem, ...)
 end
 
 SystemSetWindow.UpdateBattleSelection = function(init, ...)
-  -- function num : 0_23 , upvalues : _ENV, _battleGrp
+  -- function num : 0_24 , upvalues : _ENV, _battleGrp
   local visible = (BattleConfig.IsHideBattleHeadInfo)() == false
   -- DECOMPILER ERROR at PC19: Confused about usage of register: R2 in 'UnsetPending'
 
@@ -515,7 +561,7 @@ SystemSetWindow.UpdateBattleSelection = function(init, ...)
 end
 
 SystemSetWindow.ClickFrameBtn = function(...)
-  -- function num : 0_24 , upvalues : SystemSetWindow, _ENV, _uiSetGrp
+  -- function num : 0_25 , upvalues : SystemSetWindow, _ENV, _uiSetGrp
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.SETTING_FRAME)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -532,7 +578,7 @@ SystemSetWindow.ClickFrameBtn = function(...)
 end
 
 SystemSetWindow.ClickQualityBtn = function(...)
-  -- function num : 0_25 , upvalues : _ENV, _uiSetGrp
+  -- function num : 0_26 , upvalues : _ENV, _uiSetGrp
   local launch = (CS.Launch).Singleton
   local value = tonumber((PlayerPrefs.GetString)(PlayerPrefsKeyName.SETTING_QUALITY, "1"))
   if value == 1 then
@@ -554,7 +600,7 @@ SystemSetWindow.ClickQualityBtn = function(...)
 end
 
 SystemSetWindow.ClickScrollInfoBtn = function(...)
-  -- function num : 0_26 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
+  -- function num : 0_27 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.SCROLL_INFO)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -576,7 +622,7 @@ SystemSetWindow.ClickScrollInfoBtn = function(...)
 end
 
 SystemSetWindow.ClickConsumTipBtn = function(...)
-  -- function num : 0_27 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
+  -- function num : 0_28 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.IGNORE_DIAMOND_CONSUM_TIPS)
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -585,7 +631,7 @@ SystemSetWindow.ClickConsumTipBtn = function(...)
 end
 
 SystemSetWindow.ClickSoundMuteBtn = function(...)
-  -- function num : 0_28 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
+  -- function num : 0_29 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
   local on = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.SOUND_MUTE) == 0
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -599,7 +645,7 @@ SystemSetWindow.ClickSoundMuteBtn = function(...)
 end
 
 SystemSetWindow.ClickMusicMuteBtn = function(...)
-  -- function num : 0_29 , upvalues : SystemSetWindow, _ENV, _soundSetGrp, argTable
+  -- function num : 0_30 , upvalues : SystemSetWindow, _ENV, _soundSetGrp, argTable
   local on = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.MUSIC_MUTE) == 0
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -620,7 +666,7 @@ SystemSetWindow.ClickMusicMuteBtn = function(...)
 end
 
 SystemSetWindow.ClickCVMuteBtn = function(...)
-  -- function num : 0_30 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
+  -- function num : 0_31 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
   local on = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.CV_MUTE) == 0
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -632,7 +678,7 @@ SystemSetWindow.ClickCVMuteBtn = function(...)
 end
 
 SystemSetWindow.SoundVolumeChanged = function(...)
-  -- function num : 0_31 , upvalues : _soundSetGrp, _ENV
+  -- function num : 0_32 , upvalues : _soundSetGrp, _ENV
   local value = ((_soundSetGrp.SoundControl_01_Grp).SoundSlider).value / 100
   ;
   (Util.SetFloatPlayerSetting)(PlayerPrefsKeyName.SOUND_VOLUME, value)
@@ -641,7 +687,7 @@ SystemSetWindow.SoundVolumeChanged = function(...)
 end
 
 SystemSetWindow.MusicVolumeChanged = function(...)
-  -- function num : 0_32 , upvalues : _soundSetGrp, _ENV
+  -- function num : 0_33 , upvalues : _soundSetGrp, _ENV
   local value = ((_soundSetGrp.SoundControl_02_Grp).SoundSlider).value / 100
   ;
   (LuaSound.ChangeBGMVolume)(value)
@@ -650,14 +696,14 @@ SystemSetWindow.MusicVolumeChanged = function(...)
 end
 
 SystemSetWindow.CVVolumeChanged = function(...)
-  -- function num : 0_33 , upvalues : _soundSetGrp, _ENV
+  -- function num : 0_34 , upvalues : _soundSetGrp, _ENV
   local value = ((_soundSetGrp.SoundControl_03_Grp).SoundSlider).value / 100
   ;
   (Util.SetFloatPlayerSetting)(PlayerPrefsKeyName.CV_VOLUME, value)
 end
 
 SystemSetWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_34
+  -- function num : 0_35
 end
 
 return SystemSetWindow

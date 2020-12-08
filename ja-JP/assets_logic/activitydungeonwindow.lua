@@ -166,11 +166,23 @@ ActivityDungeonWindow.SetCountDown = function(time, ...)
 
   if time - (ActorData.GetServerTime)() <= 0 then
     (uis.Time_02_Txt).text = (PUtil.get)(20000221)
+    -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    (uis.SweepBtn).visible = false
   else
+    -- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    (uis.SweepBtn).visible = true
     mTime = (LuaTime.CountDown)(time * 0.001 - (ActorData.GetServerTime)() * 0.001, uis.Time_02_Txt, function(...)
     -- function num : 0_4_0 , upvalues : uis, _ENV
-    -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
+    (uis.SweepBtn).visible = false
+    -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
     (uis.Time_02_Txt).text = (PUtil.get)(20000221)
   end
 , true)
@@ -245,25 +257,16 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
   end
 )
   ;
-  ((uis.ExchangeBtn).onClick):Set(function(...)
-    -- function num : 0_6_2 , upvalues : _ENV
-    ld("Slots")
-    ;
-    (SlotsService.ReqSlotsData)((SlotsData.SlotType).ACTIVITY_SLOT)
-  end
-)
+  ((uis.SweepBtn):GetChild("title")).text = (PUtil.get)(20000400)
   ;
-  ((uis.PlotBtn).onClick):Set(function(...)
-    -- function num : 0_6_3 , upvalues : _ENV
-    local acID = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
-    local ActivityData = ((TableData.gTable).BaseActivityData)[acID]
-    ;
-    (HandBookService.OnReqAdventureStoryChapter)((ProtoEnum.E_BATTLE_TYPE).ACTIVITY, ActivityData.story_type)
+  ((uis.SweepBtn).onClick):Set(function(...)
+    -- function num : 0_6_2 , upvalues : _ENV
+    OpenWindow((WinResConfig.FastSweepWindow).name, UILayer.HUD, DungeonType.ActivityDungeon)
   end
 )
   if not (PlotDungeonMgr.ChapterIsOpen)(ChapterIds.Difficult) then
     ((uis.Difficulty_02_Btn).onClick):AddCapture(function(eventContext, ...)
-    -- function num : 0_6_4 , upvalues : _ENV
+    -- function num : 0_6_3 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(20000383))
     eventContext:StopPropagation()
   end
@@ -274,16 +277,10 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
   end
   ;
   (ActivityDungeonWindow.SetRedDot)()
-  ;
-  (GuideData.RegisterGuideAndControl)(ControlID.HandBook_Album, uis.PlotBtn, (WinResConfig.ActivityDungeonWindow).name)
 end
 
 ActivityDungeonWindow.SetRedDot = function(...)
-  -- function num : 0_7 , upvalues : uis, _ENV
-  ((uis.ExchangeBtn):GetChild("RedDot")).visible = (ActorData.GetAssetCount)(AssetType.ACTIVITY_SCORE) > 0
-  ;
-  ((uis.PlotBtn):GetChild("RedDot")).visible = (ActivityMgr.PlotRedDotShow)()
-  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  -- function num : 0_7
 end
 
 ActivityDungeonWindow.RefreshChapter = function(...)
@@ -393,6 +390,9 @@ ActivityDungeonWindow.HandleMessage = function(msgId, para, ...)
   end
   if msgId ~= (WindowMsgEnum.ActivityDungeon).E_MSG_SET_COUNTDOWN or msgId == (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH_RED then
     (ActivityDungeonWindow.SetRedDot)()
+  else
+  end
+  if msgId == (WindowMsgEnum.ActivityDungeon).E_MSG_SHOW_DIFFICULT_RED then
   end
 end
 

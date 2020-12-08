@@ -17,8 +17,8 @@ local tonumber = tonumber
 local math = math
 -- DECOMPILER ERROR at PC21: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.Initial = function(atkCard, defCards, buffId, targetId, skillConfig, ...)
-  -- function num : 0_0 , upvalues : _ENV, t_insert, ipairs, BattleBuffOprType, BattleDisplayEffect, split, tonumber, BattleBuffEffectCalType, BattleBuffEffectDependType, math
+BattleBuff.Initial = function(atkCard, defCards, buffId, targetId, skillConfig, atkInfo, ...)
+  -- function num : 0_0 , upvalues : _ENV, t_insert, ipairs, BattleBuffOprType, BattleDisplayEffect, split, tonumber, math, BattleBuffEffectCalType, BattleBuffEffectDependType
   if atkCard then
     local battleBuff = {buffId = buffId, atkPos = atkCard:GetPosIndex(), curDefPos = 0, 
 targetPosTable = {}
@@ -28,8 +28,8 @@ summonCards = {}
 effectRounds = {}
 , curRoundActive = false}
     battleBuff.Init = function(self, ...)
-    -- function num : 0_0_0 , upvalues : _ENV, atkCard, targetId, defCards, t_insert, skillConfig
-    local targetCards = (BattleChoose.GetTargetCardsByTargetId)(atkCard, targetId, defCards, true)
+    -- function num : 0_0_0 , upvalues : _ENV, atkCard, targetId, defCards, atkInfo, t_insert, skillConfig
+    local targetCards = (BattleChoose.GetTargetCardsByTargetId)(atkCard, targetId, defCards, true, nil, atkInfo)
     local targetPosTable = self:GetTargetPosTable()
     for _,v in pairs(targetCards) do
       t_insert(targetPosTable, v:GetPosIndex())
@@ -131,7 +131,7 @@ effectRounds = {}
       local skillLevel = atkCard and (BattleSkill.GetSkillLevel)(atkCard:GetCardUid(), self:GetSkillId()) or 0
       local attrTable = (BattleBuffEffect.ParseEffectAttrValue)(self, skillLevel)
       for _,oneEffect in ipairs(attrTable) do
-        t_insert(effectTable, {effectId = oneEffect.effectId, attributeId = 0, value = (oneEffect.base).value, realValue = (oneEffect.base).value})
+        t_insert(effectTable, {absorbDamage = 0, isInvincible = false, isKeepAlive = false, effectId = oneEffect.effectId, attributeId = 0, value = (oneEffect.base).value, realValue = (oneEffect.base).value})
       end
       return effectTable
     end
@@ -211,8 +211,8 @@ effectRounds = {}
     end
   end
 
-    battleBuff.DealAttribute = function(self, ...)
-    -- function num : 0_0_18 , upvalues : _ENV, ipairs, BattleDisplayEffect
+    battleBuff.DealAttribute = function(self, atkInfo, ...)
+    -- function num : 0_0_18 , upvalues : _ENV, ipairs, BattleDisplayEffect, math
     local BattleData = BattleData
     local active_forever = self:GetActiveForever()
     if active_forever == 1 then
@@ -226,34 +226,40 @@ effectRounds = {}
           local attributeId = v.attributeId
           local value = v.value
           v.realValue = value
+          local atkCard = (BattleData.GetCardInfoByPos)(buffData.atkPos)
           if effectId == BattleDisplayEffect.DANDER_ABSORB then
             local dander = card:GetDander()
             if dander + v.realValue <= 0 then
               v.realValue = -dander
             end
             local dander_absorb = -v.realValue
-            if dander_absorb > 0 then
-              local atkCard = (BattleData.GetCardInfoByPos)(buffData.atkPos)
-              if atkCard then
-                atkCard:SetDander(atkCard:GetDander() + dander_absorb)
-              end
+            if dander_absorb > 0 and atkCard then
+              atkCard:SetDander(atkCard:GetDander() + dander_absorb)
             end
           end
           do
+            local realValue, absorbDamage, specialEffect = card:AddAttrValue(attributeId, v.realValue, effectId, atkInfo)
+            if realValue ~= nil then
+              v.realValue = realValue
+            end
+            v.absorbDamage = absorbDamage or 0
+            if specialEffect then
+              v.isInvincible = specialEffect.isInvincible
+              v.isKeepAlive = specialEffect.isKeepAlive
+            else
+              v.isInvincible = false
+              v.isKeepAlive = false
+            end
             do
-              local realValue, absorbDamage, specialEffect = card:AddAttrValue(attributeId, v.realValue, effectId)
-              if realValue ~= nil then
-                v.realValue = realValue
+              if (BattleBuff.IsAddIntoDamage)(effectId) ~= true then
+                if not v.realValue then
+                  local changeHp = v.value
+                end
+                if attributeId == BattleCardAttributeID.HP and buffData.atkPos ~= 0 and (changeHp < 0 or v.absorbDamage > 0) then
+                  (BattleResultCount.UpdateDamageDataBuff)(atkCard, card, (math.abs)(changeHp) + v.absorbDamage)
+                end
               end
-              v.absorbDamage = absorbDamage or 0
-              if specialEffect then
-                v.isInvincible = specialEffect.isInvincible
-                v.isKeepAlive = specialEffect.isKeepAlive
-              else
-                v.isInvincible = false
-                v.isKeepAlive = false
-              end
-              -- DECOMPILER ERROR at PC69: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC102: LeaveBlock: unexpected jumping out DO_STMT
 
             end
           end
@@ -468,33 +474,38 @@ effectRounds = {}
     end
   end
 
-    battleBuff.GetAtkPos = function(self, ...)
+    battleBuff.SetAtkPos = function(self, pos, ...)
     -- function num : 0_0_29
+    self.atkPos = pos
+  end
+
+    battleBuff.GetAtkPos = function(self, ...)
+    -- function num : 0_0_30
     return self.atkPos
   end
 
     battleBuff.SetCurDefPos = function(self, pos, ...)
-    -- function num : 0_0_30
+    -- function num : 0_0_31
     self.curDefPos = pos
   end
 
     battleBuff.GetCurDefPos = function(self, ...)
-    -- function num : 0_0_31
+    -- function num : 0_0_32
     return self.curDefPos
   end
 
     battleBuff.GetTargetPosTable = function(self, ...)
-    -- function num : 0_0_32
+    -- function num : 0_0_33
     return self.targetPosTable
   end
 
     battleBuff.SetSettleRoundType = function(self, settle_round_type, ...)
-    -- function num : 0_0_33
+    -- function num : 0_0_34
     self.settle_round_type = settle_round_type
   end
 
     battleBuff.GetSettleRoundType = function(self, ...)
-    -- function num : 0_0_34
+    -- function num : 0_0_35
     if self.settle_round_type then
       return self.settle_round_type
     end
@@ -505,12 +516,12 @@ effectRounds = {}
   end
 
     battleBuff.SetDeductionRoundType = function(self, deduction_round_type, ...)
-    -- function num : 0_0_35
+    -- function num : 0_0_36
     self.deduction_round_type = deduction_round_type
   end
 
     battleBuff.GetDeductionRoundType = function(self, ...)
-    -- function num : 0_0_36
+    -- function num : 0_0_37
     if self.deduction_round_type then
       return self.deduction_round_type
     end
@@ -521,7 +532,7 @@ effectRounds = {}
   end
 
     battleBuff.GetSettleRoundCnt = function(self, ...)
-    -- function num : 0_0_37
+    -- function num : 0_0_38
     local buffConfig = self:GetBuffConfig()
     if buffConfig then
       return buffConfig.settle_round_cnt
@@ -529,7 +540,7 @@ effectRounds = {}
   end
 
     battleBuff.GetActiveForever = function(self, ...)
-    -- function num : 0_0_38
+    -- function num : 0_0_39
     local buffConfig = self:GetBuffConfig()
     if buffConfig then
       return buffConfig.active_forever
@@ -537,17 +548,17 @@ effectRounds = {}
   end
 
     battleBuff.SetSummonCards = function(self, summonCard, ...)
-    -- function num : 0_0_39 , upvalues : t_insert
+    -- function num : 0_0_40 , upvalues : t_insert
     t_insert(self.summonCards, summonCard)
   end
 
     battleBuff.GetSummonCards = function(self, ...)
-    -- function num : 0_0_40
+    -- function num : 0_0_41
     return self.summonCards
   end
 
     battleBuff.GetRealBuffInfo = function(self, atkInfo, ...)
-    -- function num : 0_0_41
+    -- function num : 0_0_42
     if self.buffData then
       local buffData = self.buffData
       buffData.activeCount = self:GetActiveCount()
@@ -564,7 +575,7 @@ effectRounds = {}
   end
 
     battleBuff.GetBuffInfo = function(self, atkInfo, needCopy, ...)
-    -- function num : 0_0_42 , upvalues : _ENV, ipairs, t_insert, BattleDisplayEffect, BattleBuffEffectCalType, BattleBuffEffectDependType, math
+    -- function num : 0_0_43 , upvalues : _ENV, ipairs, t_insert, BattleDisplayEffect, BattleBuffEffectCalType, BattleBuffEffectDependType, math, split, tonumber
     local GetCardInfoByPos = BattleData.GetCardInfoByPos
     if self.buffData then
       local data = self.buffData
@@ -582,7 +593,7 @@ effectRounds = {}
       local effectTable = {}
       local atkCard = GetCardInfoByPos(self:GetAtkPos())
       local defCard = GetCardInfoByPos(self:GetCurDefPos())
-      local skillLevel = (BattleSkill.GetSkillLevel)(atkCard:GetCardUid(), self:GetSkillId()) or 0
+      local skillLevel = atkCard and (BattleSkill.GetSkillLevel)(atkCard:GetCardUid(), self:GetSkillId()) or 0
       local attrTable = (BattleBuffEffect.ParseEffectAttrValue)(self, skillLevel)
       local ContainEffectId = BattleBuff.ContainEffectId
       local GetAtkDamage = BattleAtk.GetAtkDamage
@@ -606,268 +617,347 @@ effectRounds = {}
                 totalValue = totalValue + effect.realValue
               end
             end
-            do
-              if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST or oneEffect.effectId == BattleDisplayEffect.DAMAGE_REPEAT then
-                local isContain, buff, effect = ContainEffectId(atkCard, BattleDisplayEffect.DAMAGE_PERSIST_UP)
-                if isContain == true then
-                  totalValue = totalValue + effect.realValue
+            if baseType == BattleBuffEffectCalType.VALUE then
+              totalValue = totalValue + baseValue
+            else
+              if baseType == BattleBuffEffectCalType.ATK_PER then
+                if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                  totalValue = totalValue + (math.ceil)(atkCard:GetAtk(true) * baseValue / 10000)
+                else
+                  if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                    totalValue = totalValue + (math.ceil)(defCard:GetAtk(true) * baseValue / 10000)
+                  end
                 end
-              end
-              if baseType == BattleBuffEffectCalType.VALUE then
-                totalValue = totalValue + baseValue
               else
-                if baseType == BattleBuffEffectCalType.ATK_PER then
+                if baseType == BattleBuffEffectCalType.DEF_PER then
                   if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                    totalValue = totalValue + (math.ceil)(atkCard:GetAtk(true) * baseValue / 10000)
+                    totalValue = totalValue + (math.ceil)(atkCard:GetDef(true) * baseValue / 10000)
                   else
                     if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                      totalValue = totalValue + (math.ceil)(defCard:GetAtk(true) * baseValue / 10000)
+                      totalValue = totalValue + (math.ceil)(defCard:GetDef(true) * baseValue / 10000)
                     end
                   end
                 else
-                  if baseType == BattleBuffEffectCalType.DEF_PER then
+                  if baseType == BattleBuffEffectCalType.HP_PER then
                     if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                      totalValue = totalValue + (math.ceil)(atkCard:GetDef(true) * baseValue / 10000)
+                      totalValue = totalValue + (math.ceil)(atkCard:GetMaxHp(true) * baseValue / 10000)
                     else
                       if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                        totalValue = totalValue + (math.ceil)(defCard:GetDef(true) * baseValue / 10000)
+                        totalValue = totalValue + (math.ceil)(defCard:GetMaxHp(true) * baseValue / 10000)
                       end
                     end
                   else
-                    if baseType == BattleBuffEffectCalType.HP_PER then
-                      if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                        totalValue = totalValue + (math.ceil)(atkCard:GetMaxHp(true) * baseValue / 10000)
-                      else
-                        if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                          totalValue = totalValue + (math.ceil)(defCard:GetMaxHp(true) * baseValue / 10000)
-                        end
-                      end
+                    if atkInfo and baseType == BattleBuffEffectCalType.HURT_PER then
+                      local totalDamage = GetAtkDamage(atkInfo)
+                      totalValue = totalValue + (math.ceil)((math.abs)(totalDamage) * baseValue / 10000)
                     else
-                      if atkInfo and baseType == BattleBuffEffectCalType.HURT_PER then
-                        local totalDamage = GetAtkDamage(atkInfo)
-                        totalValue = totalValue + (math.ceil)((math.abs)(totalDamage) * baseValue / 10000)
-                      else
-                        do
-                          if baseType == BattleBuffEffectCalType.ATK_BASED_TARGET_DEAD then
-                            totalValue = totalValue + (math.ceil)((3 - self.targetCount) / self.targetCount * atkCard:GetAtk(true) * baseValue / 10000)
+                      do
+                        if baseType == BattleBuffEffectCalType.ATK_BASED_TARGET_DEAD then
+                          totalValue = totalValue + (math.ceil)((3 - self.targetCount) / self.targetCount * atkCard:GetAtk(true) * baseValue / 10000)
+                        else
+                          if baseType == BattleBuffEffectCalType.ATK_BASED_SELF_DEAD then
+                            local count = GetCampDeadCount(atkCard:GetCampFlag())
+                            totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * baseValue / 10000)
                           else
-                            if baseType == BattleBuffEffectCalType.ATK_BASED_SELF_DEAD then
-                              local count = GetCampDeadCount(atkCard:GetCampFlag())
-                              totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * baseValue / 10000)
-                            else
-                              do
-                                if baseType == BattleBuffEffectCalType.ATK_BASED_ALL_DEAD then
-                                  local count = GetCampDeadCount()
-                                  totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * baseValue / 10000)
-                                else
-                                  do
-                                    if baseType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP then
-                                      local per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.1)
-                                      totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk(true) * baseValue / 10000)
-                                    else
-                                      do
-                                        if atkInfo and baseType == BattleBuffEffectCalType.DAMAGE_BASED_TARGET_DEAD then
-                                          local totalDamage = GetAtkDamage(atkInfo)
-                                          totalValue = totalValue + (math.ceil)((math.abs)(totalDamage / self.targetCount) * baseValue / 10000)
-                                        else
-                                          do
-                                            if baseType == BattleBuffEffectCalType.ATK_BASED_CLEAR_BUFF then
-                                              totalValue = totalValue + (math.ceil)(self:GetClearCount() * atkCard:GetAtk(true) * baseValue / 10000)
-                                            else
-                                              if baseType == BattleBuffEffectCalType.SPD_PER then
-                                                if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                  totalValue = totalValue + (math.ceil)(atkCard:GetSpd(true) * baseValue / 10000)
-                                                else
-                                                  if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                    totalValue = totalValue + (math.ceil)(defCard:GetSpd(true) * baseValue / 10000)
-                                                  end
+                            do
+                              if baseType == BattleBuffEffectCalType.ATK_BASED_ALL_DEAD then
+                                local count = GetCampDeadCount()
+                                totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * baseValue / 10000)
+                              else
+                                do
+                                  if baseType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP then
+                                    local per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.1)
+                                    totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk(true) * baseValue / 10000)
+                                  else
+                                    do
+                                      if atkInfo and baseType == BattleBuffEffectCalType.DAMAGE_BASED_TARGET_DEAD then
+                                        local totalDamage = GetAtkDamage(atkInfo)
+                                        totalValue = totalValue + (math.ceil)((math.abs)(totalDamage / self.targetCount) * baseValue / 10000)
+                                      else
+                                        do
+                                          if baseType == BattleBuffEffectCalType.ATK_BASED_CLEAR_BUFF then
+                                            totalValue = totalValue + (math.ceil)(self:GetClearCount() * atkCard:GetAtk(true) * baseValue / 10000)
+                                          else
+                                            if baseType == BattleBuffEffectCalType.SPD_PER then
+                                              if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                totalValue = totalValue + (math.ceil)(atkCard:GetSpd(true) * baseValue / 10000)
+                                              else
+                                                if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                  totalValue = totalValue + (math.ceil)(defCard:GetSpd(true) * baseValue / 10000)
                                                 end
                                               end
-                                            end
-                                            if upType == BattleBuffEffectCalType.VALUE then
-                                              totalValue = totalValue + upValue
                                             else
-                                              if upType == BattleBuffEffectCalType.ATK_PER then
-                                                if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                  totalValue = totalValue + (math.ceil)(atkCard:GetAtk(true) * upValue / 10000)
-                                                else
-                                                  if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                    totalValue = totalValue + (math.ceil)(defCard:GetAtk(true) * upValue / 10000)
-                                                  end
-                                                end
+                                              if baseType == BattleBuffEffectCalType.STAR_CONFIG then
+                                                local config = self:GetBuffConfig()
+                                                local strTable = split(config.star_config, ":")
+                                                local cardStar = (atkCard:GetCardInfo()):GetStar()
+                                                totalValue = tonumber(strTable[cardStar])
                                               else
-                                                if upType == BattleBuffEffectCalType.DEF_PER then
-                                                  if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                    totalValue = totalValue + (math.ceil)(atkCard:GetDef(true) * upValue / 10000)
+                                                do
+                                                  if baseType == BattleBuffEffectCalType.DEPEND_ROUND then
+                                                    local config = self:GetBuffConfig()
+                                                    local strTable = split(config.star_config, ":")
+                                                    local cardStar = (atkCard:GetCardInfo()):GetStar()
+                                                    local percent = tonumber(strTable[cardStar])
+                                                    local round = BattleData.roundIndex
+                                                    totalValue = totalValue + round * percent
                                                   else
-                                                    if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                      totalValue = totalValue + (math.ceil)(defCard:GetDef(true) * upValue / 10000)
-                                                    end
-                                                  end
-                                                else
-                                                  if upType == BattleBuffEffectCalType.HP_PER then
-                                                    if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                      totalValue = totalValue + (math.ceil)(atkCard:GetMaxHp(true) * upValue / 10000)
-                                                    else
-                                                      if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                        totalValue = totalValue + (math.ceil)(defCard:GetMaxHp(true) * upValue / 10000)
-                                                      end
-                                                    end
-                                                  else
-                                                    if atkInfo and upType == BattleBuffEffectCalType.HURT_PER then
-                                                      local totalDamage = GetAtkDamage(atkInfo)
-                                                      totalValue = totalValue + (math.ceil)((math.abs)(totalDamage) * upValue / 10000)
-                                                    else
-                                                      do
-                                                        if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_DEAD then
-                                                          totalValue = totalValue + (math.ceil)((3 - self.targetCount) / self.targetCount * atkCard:GetAtk(true) * upValue / 10000)
+                                                    do
+                                                      if baseType == BattleBuffEffectCalType.CUR_HP_PERCENT then
+                                                        if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                          local atkHpPer = atkCard:GetHp() / atkCard:GetMaxHp()
+                                                          totalValue = (math.ceil)(atkHpPer * defCard:GetMaxHp()) - defCard:GetHp()
                                                         else
-                                                          if upType == BattleBuffEffectCalType.ATK_BASED_SELF_DEAD then
-                                                            local count = GetCampDeadCount(atkCard:GetCampFlag())
-                                                            totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
-                                                          else
+                                                          do
                                                             do
-                                                              if upType == BattleBuffEffectCalType.ATK_BASED_ALL_DEAD then
-                                                                local count = GetCampDeadCount()
-                                                                totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
-                                                              else
-                                                                do
-                                                                  if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP then
-                                                                    local per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.1)
-                                                                    totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk() * upValue / 10000)
+                                                              if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                local defHpPer = defCard:GetHp() / defCard:GetMaxHp()
+                                                                totalValue = (math.ceil)(defHpPer * atkCard:GetMaxHp()) - atkCard:GetHp()
+                                                              end
+                                                              if baseType == BattleBuffEffectCalType.ENEMY_MAX_HP_PER then
+                                                                local cards = (BattleChoose.GetTopHpCards)(atkCard, false, 1, false)
+                                                                local maxHpCard = cards[1]
+                                                                local HpPer = maxHpCard:GetHp() / maxHpCard:GetMaxHp()
+                                                                totalValue = HpPer * atkCard:GetMaxHp() - atkCard:GetHp()
+                                                                totalValue = (math.ceil)((math.max)(0, totalValue))
+                                                              end
+                                                              do
+                                                                if upType == BattleBuffEffectCalType.VALUE then
+                                                                  totalValue = totalValue + upValue
+                                                                else
+                                                                  if upType == BattleBuffEffectCalType.ATK_PER then
+                                                                    if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                      totalValue = totalValue + (math.ceil)(atkCard:GetAtk(true) * upValue / 10000)
+                                                                    else
+                                                                      if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                        totalValue = totalValue + (math.ceil)(defCard:GetAtk(true) * upValue / 10000)
+                                                                      end
+                                                                    end
                                                                   else
-                                                                    do
-                                                                      if atkInfo and upType == BattleBuffEffectCalType.DAMAGE_BASED_TARGET_DEAD then
-                                                                        local totalDamage = GetAtkDamage(atkInfo)
-                                                                        totalValue = totalValue + (math.ceil)((math.abs)(totalDamage / self.targetCount) * upValue / 10000)
+                                                                    if upType == BattleBuffEffectCalType.DEF_PER then
+                                                                      if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                        totalValue = totalValue + (math.ceil)(atkCard:GetDef(true) * upValue / 10000)
                                                                       else
-                                                                        do
+                                                                        if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                          totalValue = totalValue + (math.ceil)(defCard:GetDef(true) * upValue / 10000)
+                                                                        end
+                                                                      end
+                                                                    else
+                                                                      if upType == BattleBuffEffectCalType.HP_PER then
+                                                                        if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                          totalValue = totalValue + (math.ceil)(atkCard:GetMaxHp(true) * upValue / 10000)
+                                                                        else
+                                                                          if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                            totalValue = totalValue + (math.ceil)(defCard:GetMaxHp(true) * upValue / 10000)
+                                                                          end
+                                                                        end
+                                                                      else
+                                                                        if atkInfo and upType == BattleBuffEffectCalType.HURT_PER then
+                                                                          local totalDamage = GetAtkDamage(atkInfo)
+                                                                          totalValue = totalValue + (math.ceil)((math.abs)(totalDamage) * upValue / 10000)
+                                                                        else
                                                                           do
-                                                                            if upType == BattleBuffEffectCalType.ATK_BASED_CLEAR_BUFF then
-                                                                              totalValue = totalValue + (math.ceil)(self:GetClearCount() * atkCard:GetAtk(true) * upValue / 10000)
+                                                                            if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_DEAD then
+                                                                              totalValue = totalValue + (math.ceil)((3 - self.targetCount) / self.targetCount * atkCard:GetAtk(true) * upValue / 10000)
                                                                             else
-                                                                              if upType == BattleBuffEffectCalType.SPD_PER then
-                                                                                if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                                                  totalValue = totalValue + (math.ceil)(atkCard:GetSpd(true) * upValue / 10000)
-                                                                                else
-                                                                                  if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                                                    totalValue = totalValue + (math.ceil)(defCard:GetSpd(true) * upValue / 10000)
+                                                                              if upType == BattleBuffEffectCalType.ATK_BASED_SELF_DEAD then
+                                                                                local count = GetCampDeadCount(atkCard:GetCampFlag())
+                                                                                totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
+                                                                              else
+                                                                                do
+                                                                                  if upType == BattleBuffEffectCalType.ATK_BASED_ALL_DEAD then
+                                                                                    local count = GetCampDeadCount()
+                                                                                    totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
+                                                                                  else
+                                                                                    do
+                                                                                      if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP then
+                                                                                        local per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.1)
+                                                                                        totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk() * upValue / 10000)
+                                                                                      else
+                                                                                        do
+                                                                                          if atkInfo and upType == BattleBuffEffectCalType.DAMAGE_BASED_TARGET_DEAD then
+                                                                                            local totalDamage = GetAtkDamage(atkInfo)
+                                                                                            totalValue = totalValue + (math.ceil)((math.abs)(totalDamage / self.targetCount) * upValue / 10000)
+                                                                                          else
+                                                                                            do
+                                                                                              if upType == BattleBuffEffectCalType.ATK_BASED_CLEAR_BUFF then
+                                                                                                totalValue = totalValue + (math.ceil)(self:GetClearCount() * atkCard:GetAtk(true) * upValue / 10000)
+                                                                                              else
+                                                                                                if upType == BattleBuffEffectCalType.SPD_PER then
+                                                                                                  if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                                                    totalValue = totalValue + (math.ceil)(atkCard:GetSpd(true) * upValue / 10000)
+                                                                                                  else
+                                                                                                    if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                                                      totalValue = totalValue + (math.ceil)(defCard:GetSpd(true) * upValue / 10000)
+                                                                                                    end
+                                                                                                  end
+                                                                                                end
+                                                                                              end
+                                                                                              if oneEffect.effectId == BattleDisplayEffect.SHIELD and oneEffect.attributeId == BattleCardAttributeID.HP and self:GetActiveForever() == 0 then
+                                                                                                self:SetShieldHp(totalValue)
+                                                                                              end
+                                                                                              do
+                                                                                                do
+                                                                                                  if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST or oneEffect.effectId == BattleDisplayEffect.DAMAGE_REPEAT or oneEffect.effectId == BattleDisplayEffect.FIX_DAMAGE_PER then
+                                                                                                    local isContain, buff, effect = ContainEffectId(atkCard, BattleDisplayEffect.DAMAGE_PERSIST_UP)
+                                                                                                    if isContain == true then
+                                                                                                      totalValue = (math.ceil)((totalValue) * (10000 + effect.realValue) / 10000)
+                                                                                                    end
+                                                                                                  end
+                                                                                                  t_insert(effectTable, {absorbDamage = 0, isInvincible = false, isKeepAlive = false, effectId = oneEffect.effectId, attributeId = oneEffect.attributeId, value = totalValue, realValue = totalValue})
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                  -- DECOMPILER ERROR at PC756: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                end
+                                                                                              end
+                                                                                            end
+                                                                                          end
+                                                                                        end
+                                                                                      end
+                                                                                    end
                                                                                   end
                                                                                 end
                                                                               end
                                                                             end
-                                                                            if oneEffect.effectId == BattleDisplayEffect.SHIELD and oneEffect.attributeId == BattleCardAttributeID.HP and self:GetActiveForever() == 0 then
-                                                                              self:SetShieldHp(totalValue)
-                                                                            end
-                                                                            t_insert(effectTable, {effectId = oneEffect.effectId, attributeId = oneEffect.attributeId, value = totalValue, realValue = totalValue})
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                            -- DECOMPILER ERROR at PC636: LeaveBlock: unexpected jumping out IF_STMT
-
                                                                           end
                                                                         end
                                                                       end
@@ -920,7 +1010,7 @@ effectRounds = {}
   end
 
     battleBuff.SetShieldHp = function(self, hp, ...)
-    -- function num : 0_0_43 , upvalues : _ENV
+    -- function num : 0_0_44 , upvalues : _ENV
     self.shieldHp = hp
     local defCard = (BattleData.GetCardInfoByPos)(self:GetCurDefPos())
     if defCard then
@@ -929,22 +1019,22 @@ effectRounds = {}
   end
 
     battleBuff.GetShieldHp = function(self, ...)
-    -- function num : 0_0_44
+    -- function num : 0_0_45
     return self.shieldHp
   end
 
     battleBuff.SetUsedShieldHp = function(self, hp, ...)
-    -- function num : 0_0_45
+    -- function num : 0_0_46
     self.usedShieldHp = hp
   end
 
     battleBuff.GetUsedShieldHp = function(self, ...)
-    -- function num : 0_0_46
+    -- function num : 0_0_47
     return self.usedShieldHp
   end
 
     battleBuff.GetAttributeValue = function(self, attributeId, ...)
-    -- function num : 0_0_47 , upvalues : ipairs
+    -- function num : 0_0_48 , upvalues : ipairs
     local value = 0
     local buffData = self:GetBuffInfo()
     if buffData then
@@ -961,7 +1051,7 @@ effectRounds = {}
   end
 
     battleBuff.Destroy = function(self, ...)
-    -- function num : 0_0_48 , upvalues : _ENV
+    -- function num : 0_0_49 , upvalues : _ENV
     do
       if IsBattleServer == nil then
         local defCard = (BattleData.GetCardInfoByPos)(self:GetCurDefPos())
@@ -999,7 +1089,7 @@ end
 -- DECOMPILER ERROR at PC27: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
-  -- function num : 0_2 , upvalues : _ENV, math, ipairs, BattleBuffMgr
+  -- function num : 0_2 , upvalues : _ENV, math, split, tonumber, ipairs, BattleBuffMgr
   local BuffTriggerCondition = BuffTriggerCondition
   local ceil = math.ceil
   local CompareNum = Util.CompareNum
@@ -1008,114 +1098,173 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
   local buffConfig = buff:GetBuffConfig()
   local trigger_condition = buffConfig.trigger_condition
   local trigger_type = buffConfig.trigger_type
-  local trigger_value = buffConfig.trigger_value
-  local atkPos = buff:GetAtkPos()
-  local atkCard = (BattleData.GetCardInfoByPos)(atkPos)
-  local battleType = BattleData.battleType
-  if trigger_condition > 0 then
-    if trigger_condition == BuffTriggerCondition.BUFF_TARGET_HP_PER then
-      local hpPer = ceil(10000 * card:GetHp() / card:GetMaxHp())
-      if CompareNum(trigger_type, hpPer, trigger_value) == true then
-        return true
-      end
-    else
-      do
-        do
-          if trigger_condition == BuffTriggerCondition.SELF_HP_PER and atkCard then
-            local hpPer = ceil(10000 * atkCard:GetHp() / atkCard:GetMaxHp())
-            if CompareNum(trigger_type, hpPer, trigger_value) == true then
-              return true
-            end
+  local trigger_value = 0
+  local trigger_value_up = 0
+  if type(buffConfig.trigger_value) == "string" then
+    local value = split(buffConfig.trigger_value, "|")
+    trigger_value = tonumber(value[1])
+    trigger_value_up = tonumber(value[2] or 0)
+  else
+    do
+      trigger_value = tonumber(buffConfig.trigger_value)
+      local atkPos = buff:GetAtkPos()
+      local atkCard = (BattleData.GetCardInfoByPos)(atkPos)
+      local battleType = BattleData.battleType
+      if trigger_condition and trigger_condition > 0 then
+        if trigger_condition == BuffTriggerCondition.BUFF_TARGET_HP_PER then
+          local hpPer = ceil(10000 * card:GetHp() / card:GetMaxHp())
+          if CompareNum(trigger_type, hpPer, trigger_value) == true then
+            return true
           end
-          if trigger_condition == BuffTriggerCondition.ATTACK_TARGET_HP_PER then
-            local defCardsInfo = atkInfo.defCardsInfo
-            for _,v in ipairs(defCardsInfo) do
-              local defPos = v.defPos
-              if defPos ~= atkPos then
-                local defCard = (BattleData.GetCardInfoByPos)(defPos)
-                if defCard then
-                  local hpPer = ceil(10000 * defCard:GetHp() / defCard:GetMaxHp())
-                  if CompareNum(trigger_type, hpPer, trigger_value) == true then
-                    return true
-                  end
+        else
+          do
+            do
+              if trigger_condition == BuffTriggerCondition.SELF_HP_PER and atkCard then
+                local hpPer = ceil(10000 * atkCard:GetHp() / atkCard:GetMaxHp())
+                if CompareNum(trigger_type, hpPer, trigger_value) == true then
+                  return true
                 end
               end
-            end
-          else
-            do
-              if trigger_condition == BuffTriggerCondition.SELF_TARGET_DANDER then
-                local dander_atk = atkCard:GetDander()
-                local dander_def = card:GetDander()
-                if CompareNum(trigger_type, dander_atk, dander_def) == true then
-                  return true
+              if trigger_condition == BuffTriggerCondition.ATTACK_TARGET_HP_PER then
+                local defCardsInfo = atkInfo.defCardsInfo
+                for _,v in ipairs(defCardsInfo) do
+                  local defPos = v.defPos
+                  if defPos ~= atkPos then
+                    local defCard = (BattleData.GetCardInfoByPos)(defPos)
+                    if defCard then
+                      local hpPer = ceil(10000 * defCard:GetHp() / defCard:GetMaxHp())
+                      if CompareNum(trigger_type, hpPer, trigger_value) == true then
+                        return true
+                      end
+                    end
+                  end
                 end
               else
                 do
-                  if trigger_condition == BuffTriggerCondition.TARGET_DANDER then
-                    local dander = card:GetDander()
-                    if CompareNum(trigger_type, dander, trigger_value) == true then
+                  if trigger_condition == BuffTriggerCondition.ATTACK_TARGET_NOT_SWIMSUIT then
+                    local config = card:GetCardConfig()
+                    if config and config.swimsuit ~= 1 then
                       return true
                     end
                   else
                     do
-                      if trigger_condition == BuffTriggerCondition.SELF_TARGET_ATK then
-                        local atk_atk = atkCard:GetAtk()
-                        local atk_def = card:GetAtk()
-                        if CompareNum(trigger_type, atk_atk, atk_def) == true then
+                      if trigger_condition == BuffTriggerCondition.SELF_TARGET_DANDER then
+                        local dander_atk = atkCard:GetDander()
+                        local dander_def = card:GetDander()
+                        if CompareNum(trigger_type, dander_atk, dander_def) == true then
                           return true
                         end
                       else
                         do
-                          if trigger_condition == BuffTriggerCondition.SELF_CAMP_CARD_ALIVE then
-                            local needCardId = trigger_value
-                            local needCard = (BattleData.GetCardByCampAndId)(needCardId, atkCard:GetCampFlag())
-                            if needCard and needCard:IsDead() ~= true then
+                          if trigger_condition == BuffTriggerCondition.TARGET_DANDER then
+                            local dander = card:GetDander()
+                            if CompareNum(trigger_type, dander, trigger_value) == true then
                               return true
                             end
                           else
                             do
-                              if trigger_condition == BuffTriggerCondition.TARGET_HAVE_EFFECT then
-                                local needEffectId = trigger_value
-                                return (BattleBuff.ContainEffectId)(card, needEffectId)
+                              if trigger_condition == BuffTriggerCondition.SELF_TARGET_ATK then
+                                local atk_atk = atkCard:GetAtk()
+                                local atk_def = card:GetAtk()
+                                if CompareNum(trigger_type, atk_atk, atk_def) == true then
+                                  return true
+                                end
                               else
                                 do
-                                  if trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF_TYPE then
-                                    local needBuffType = trigger_value
-                                    local buffTable = (BattleBuffMgr.GetBuffListByCardAndType)(card, needBuffType)
-                                    return not buffTable or #buffTable > 0
-                                  elseif trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF then
-                                    local needBuff = trigger_value
-                                    local buffTable = (BattleBuffMgr.GetBuffListByCardAndId)(card, needBuff)
-                                    return not buffTable or #buffTable > 0
-                                  elseif trigger_condition == BuffTriggerCondition.RANDOM then
-                                    local random = (BattleData.GetRandomSeed)()
-                                    if CompareNum(trigger_type, random, trigger_value) == true then
+                                  if trigger_condition == BuffTriggerCondition.SELF_CAMP_CARD_ALIVE then
+                                    local needCardId = trigger_value
+                                    local needCard = (BattleData.GetCardByCampAndId)(needCardId, atkCard:GetCampFlag())
+                                    if needCard and needCard:IsDead() ~= true then
                                       return true
                                     end
                                   else
-                                    local isPVE = trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PVE
-                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PLOT or isPVE == true) and battleType == E_BATTLE_TYPE.STORY then
-                                      return true
-                                    end
-                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_HERO or isPVE == true) and battleType == E_BATTLE_TYPE.HERO then
-                                      return true
-                                    end
-                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_DAILY or isPVE == true) and (battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP) then
-                                      return true
-                                    end
-                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_TOWER or isPVE == true) and (battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_ENCOUNTER) then
-                                      return true
-                                    end
-                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_EXPEDITION or isPVE == true) and battleType == E_BATTLE_TYPE.EXPEDITION then
-                                      return true
-                                    end
-                                    if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_ARENA and battleType == E_BATTLE_TYPE.ARENA then
-                                      return true
+                                    do
+                                      if trigger_condition == BuffTriggerCondition.TARGET_HAVE_EFFECT then
+                                        local needEffectId = trigger_value
+                                        return (BattleBuff.ContainEffectId)(card, needEffectId)
+                                      else
+                                        do
+                                          if trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF_TYPE then
+                                            local needBuffType = trigger_value
+                                            local buffTable = (BattleBuffMgr.GetBuffListByCardAndType)(card, needBuffType)
+                                            return not buffTable or #buffTable > 0
+                                          elseif trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF then
+                                            local needBuff = trigger_value
+                                            local buffTable = (BattleBuffMgr.GetBuffListByCardAndId)(card, needBuff)
+                                            return not buffTable or #buffTable > 0
+                                          elseif trigger_condition == BuffTriggerCondition.TARGET_CARD_TYPE then
+                                            local needType = trigger_value
+                                            local cardConfig = card:GetCardConfig()
+                                            if cardConfig and needType and cardConfig.attr_prior == tonumber(needType) then
+                                              return true
+                                            end
+                                          elseif trigger_condition == BuffTriggerCondition.TARGET_CARD_COUNT then
+                                            local defCardsInfo = atkInfo.defCardsInfo
+                                            local count = 0
+                                            for _,v in ipairs(defCardsInfo) do
+                                              local defPos = v.defPos
+                                              if v.isSkillTarget == true then
+                                                local defCard = (BattleData.GetCardInfoByPos)(defPos)
+                                                if defCard and defCard:IsDead() == false then
+                                                  count = count + 1
+                                                end
+                                              end
+                                            end
+                                            if CompareNum(trigger_type, count, trigger_value) == true then
+                                              return true
+                                            end
+                                          elseif trigger_condition == BuffTriggerCondition.RANDOM then
+                                            local random = (BattleData.GetRandomSeed)()
+                                            if CompareNum(trigger_type, random, trigger_value) == true then
+                                              return true
+                                            end
+                                          elseif trigger_condition == BuffTriggerCondition.RANDOM_UP_HP then
+                                            local random = (BattleData.GetRandomSeed)()
+                                            if atkCard then
+                                              local dec_hpPer = (math.floor)((10000 - 10000 * atkCard:GetHp() / atkCard:GetMaxHp()) / 500)
+                                              local targetValue = trigger_value + dec_hpPer * trigger_value_up
+                                              print("最终计算出来的概率：", targetValue)
+                                              if CompareNum(trigger_type, random, targetValue) == true then
+                                                return true
+                                              end
+                                            end
+                                          else
+                                            local isPVE = trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PVE
+                                            if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_NOT_GUILD_WAR and battleType ~= E_BATTLE_TYPE.GUILD_WAR then
+                                              return true
+                                            end
+                                            if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PLOT or isPVE == true) and battleType == E_BATTLE_TYPE.STORY then
+                                              return true
+                                            end
+                                            if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_HERO or isPVE == true) and battleType == E_BATTLE_TYPE.HERO then
+                                              return true
+                                            end
+                                            if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_DAILY or isPVE == true) and (battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP) then
+                                              return true
+                                            end
+                                            if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_TOWER or isPVE == true) and (battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_ENCOUNTER) then
+                                              return true
+                                            end
+                                            if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_EXPEDITION or isPVE == true) and battleType == E_BATTLE_TYPE.EXPEDITION then
+                                              return true
+                                            end
+                                            if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_GUILD_WAR or isPVE == true) and battleType == E_BATTLE_TYPE.GUILD_WAR then
+                                              return true
+                                            end
+                                            if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_ARENA and battleType == E_BATTLE_TYPE.ARENA then
+                                              return true
+                                            end
+                                            if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_NOT_GUILD_WAR_AND_NO_PLOT and battleType ~= E_BATTLE_TYPE.GUILD_WAR and battleType ~= E_BATTLE_TYPE.GOLD and battleType ~= E_BATTLE_TYPE.EXP and battleType ~= E_BATTLE_TYPE.EQUIPEXP then
+                                              return true
+                                            end
+                                          end
+                                          do return false end
+                                          do return true end
+                                          -- DECOMPILER ERROR: 30 unprocessed JMP targets
+                                        end
+                                      end
                                     end
                                   end
-                                  do return false end
-                                  do return true end
-                                  -- DECOMPILER ERROR: 22 unprocessed JMP targets
                                 end
                               end
                             end
@@ -1136,8 +1285,8 @@ end
 
 -- DECOMPILER ERROR at PC30: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsBuffReset = function(battleCard, buff, ...)
-  -- function num : 0_3 , upvalues : _ENV, BattleBuffMgr, ipairs
+BattleBuff.IsBuffReset = function(battleCard, buff, atkInfo, ...)
+  -- function num : 0_3 , upvalues : _ENV, BattleBuffMgr, ipairs, t_insert
   local clone = Util.Copy
   local BattleDataCount = BattleDataCount
   local BattleBuffDeductionRoundType = BattleBuffDeductionRoundType
@@ -1162,21 +1311,40 @@ BattleBuff.IsBuffReset = function(battleCard, buff, ...)
           canAdd = false
           local overlay_buff_list = buffConfig.overlay_buff_list
           if overlay_buff_list and overlay_buff_list ~= "" and overlay_buff_list ~= "0" then
-            local newBuffTable = (BattleSkill.GetAllBuffByBuffList)(nil, {}, overlay_buff_list)
+            local atkPos = buff.atkPos
+            local atkCard = (BattleData.GetCardInfoByPos)(atkPos)
+            local newBuffTable = (BattleSkill.GetAllBuffByBuffList)(atkCard, {}, overlay_buff_list, nil, atkInfo)
             for _,newBuff in ipairs(newBuffTable) do
-              local targetCards = buff:GetTargetCard(newBuff.targetId)
-              for _,card in ipairs(targetCards) do
-                if card and card:IsDead() ~= true then
-                  local buffClone = clone(newBuff)
-                  buffClone:SetCurDefPos(card:GetPosIndex())
-                  buffClone.atkPos = buff.atkPos
-                  local canAdd = (BattleDataCount.DealAddBuff)(card, buffClone)
-                  if canAdd == true then
-                    local deductionRoundType = buffClone:GetDeductionRoundType()
-                    if deductionRoundType == BattleBuffDeductionRoundType.NOW then
-                      (BattleDataCount.RealUpdateBuffCount)(buffClone, nil, true)
+              local targetId = newBuff.targetId
+              local targetCards = {}
+              if targetId == 1001 or targetId == 1002 then
+                targetCards = buff:GetTargetCard(newBuff.targetId)
+              else
+                local targetPosTable = newBuff:GetTargetPosTable()
+                for _,pos in ipairs(targetPosTable) do
+                  t_insert(targetCards, (BattleData.GetCardInfoByPos)(pos))
+                end
+              end
+              do
+                for _,card in ipairs(targetCards) do
+                  if card and card:IsDead() ~= true then
+                    local buffClone = clone(newBuff)
+                    buffClone:SetCurDefPos(card:GetPosIndex())
+                    buffClone.atkPos = buff.atkPos
+                    local canAdd = (BattleDataCount.DealAddBuff)(card, buffClone)
+                    if canAdd == true then
+                      local deductionRoundType = buffClone:GetDeductionRoundType()
+                      if deductionRoundType == BattleBuffDeductionRoundType.NOW then
+                        (BattleDataCount.RealUpdateBuffCount)(buffClone, nil, true)
+                      end
+                      ;
+                      (BattleDataCount.DealEquipBuff)(card, buffClone)
                     end
                   end
+                end
+                do
+                  -- DECOMPILER ERROR at PC124: LeaveBlock: unexpected jumping out DO_STMT
+
                 end
               end
             end
@@ -1213,6 +1381,7 @@ BattleBuff.PlayBuffActive = function(card, buffData, ...)
       card:PlayBuffEffect(BattleBuffEffectPosType.BODY, effectId, buffId, buffTimeStamp, buffData)
       card:PlayBuffEffect(BattleBuffEffectPosType.AROUND, effectId, buffId, buffTimeStamp, buffData)
       card:PlayBuffEffect(BattleBuffEffectPosType.WORD, effectId, buffId, buffTimeStamp, buffData)
+      card:PlayBuffEffect(BattleBuffEffectPosType.GROUND, effectId, buffId, buffTimeStamp, buffData)
       card:SetControlType(effectId, true)
     end
   end
@@ -1236,7 +1405,7 @@ end
 -- DECOMPILER ERROR at PC39: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.PlayBuffUpdate = function(card, buffData, ...)
-  -- function num : 0_6 , upvalues : _ENV, ipairs, math, BattleDisplayEffect, BattleBuffEffectPosType
+  -- function num : 0_6 , upvalues : _ENV, ipairs, BattleDisplayEffect, BattleBuffEffectPosType
   local BattleCardAttributeID = BattleCardAttributeID
   local BattleData = BattleData
   local BattleBuff = BattleBuff
@@ -1254,11 +1423,6 @@ BattleBuff.PlayBuffUpdate = function(card, buffData, ...)
             local changeHp = (BattleBuff.IsAddIntoDamage)(effectId) == true or value
           end
           card:ChangeHp({oriValue = value, hurt = changeHp, absorb = v.absorbDamage}, nil, true, v, true)
-          if buffData.atkPos ~= 0 and (changeHp < 0 or v.absorbDamage > 0) then
-            local atkCard = (BattleData.GetCardInfoByPos)(buffData.atkPos)
-            ;
-            (BattleResultCount.UpdateDamageDataBuff)(atkCard, card, (math.abs)(changeHp) + v.absorbDamage)
-          end
         else
           do
             if attributeId == BattleCardAttributeID.DANDER then
@@ -1274,17 +1438,17 @@ BattleBuff.PlayBuffUpdate = function(card, buffData, ...)
               do
                 do
                   card:ChangeDander(value)
-                  -- DECOMPILER ERROR at PC83: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC62: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC83: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                  -- DECOMPILER ERROR at PC62: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                  -- DECOMPILER ERROR at PC83: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC62: LeaveBlock: unexpected jumping out IF_STMT
 
-                  -- DECOMPILER ERROR at PC83: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC62: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC83: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                  -- DECOMPILER ERROR at PC62: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                  -- DECOMPILER ERROR at PC83: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC62: LeaveBlock: unexpected jumping out IF_STMT
 
                 end
               end
@@ -1308,6 +1472,7 @@ BattleBuff.PlayBuffUpdate = function(card, buffData, ...)
       card:UpdateBuffEffect(BattleBuffEffectPosType.HEAD, nil, buffData)
       card:UpdateBuffEffect(BattleBuffEffectPosType.BODY, nil, buffData)
       card:UpdateBuffEffect(BattleBuffEffectPosType.AROUND, nil, buffData)
+      card:UpdateBuffEffect(BattleBuffEffectPosType.GROUND, nil, buffData)
     end
   end
 end
@@ -1326,6 +1491,7 @@ BattleBuff.PlayBuffRemove = function(card, buffData, ...)
       card:RemoveBuffEffect(BattleBuffEffectPosType.HEAD, effectId, buffId, buffTimeStamp)
       card:RemoveBuffEffect(BattleBuffEffectPosType.BODY, effectId, buffId, buffTimeStamp)
       card:RemoveBuffEffect(BattleBuffEffectPosType.AROUND, effectId, buffId, buffTimeStamp)
+      card:RemoveBuffEffect(BattleBuffEffectPosType.GROUND, effectId, buffId, buffTimeStamp)
       card:SetControlType(effectId, false)
       if (BattleBuff.IsShield)(effectId) == true then
         card:SetCurShield(buffData.usedShieldHp - buffData.shieldHp)
@@ -1336,8 +1502,9 @@ end
 
 -- DECOMPILER ERROR at PC45: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ...)
-  -- function num : 0_8 , upvalues : _ENV, BattleBuffMgr, self, BattleBuffOprType, ipairs, math, BattleDisplayEffect
+BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, skillType, CaseEffectID, ...)
+  -- function num : 0_8 , upvalues : _ENV, BattleBuffMgr, self, BattleBuffOprType, ipairs, BattleDisplayEffect, math
+  local divideCardInfo = {}
   local totalDamage = 0
   local absorbDamage = 0
   local specialEffect = {isKeepAlive = false, isInvincible = false}
@@ -1351,51 +1518,19 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ...
         defCard:SetIsSleep(false)
         if sleepBuff then
           do
-            do
-              if atkInfo then
-                local allBuffTable = atkInfo.allBuffTable
-                ;
-                (Util.InsertTable)(allBuffTable, {buff = sleepBuff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.DELETE}, true)
-              end
-              if IsBattleServer == true then
-                (BattleBuffMgr.RemoveBuffFromList)(sleepBuff)
-              else
+            if atkInfo then
+              local allBuffTable = atkInfo.allBuffTable
+              ;
+              (Util.InsertTable)(allBuffTable, {buff = sleepBuff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.DELETE}, true)
+            end
+            ;
+            (BattleBuffMgr.RemoveBuffFromList)(sleepBuff)
+            if IsBattleServer == true then
+              do
                 sleepBuff:SetSleepState(1)
-              end
-              local damageReduceTotal = 0
-              local damageExtraAdd = 0
-              for _,buff in ipairs(buffTable) do
-                local isCanEffect = buff:IsCanEffect()
-                local buffData = buff:GetBuffInfo()
-                local effectTable = buffData.effectTable
-                for _,v in ipairs(effectTable) do
-                  local effectId = v.effectId
-                  local attributeId = v.attributeId
-                  local value = v.value
-                  if (self.IsAddIntoDamage)(effectId) == true and isRoundAtk == true and isCanEffect == true then
-                    buff:SetCurRoundActive(true)
-                    damageExtraAdd = damageExtraAdd + value
-                  end
-                  if isHurt == true then
-                    if (self.IsInvincible)(effectId) == true and isCanEffect == true then
-                      buff:SetCurRoundActive(true)
-                      specialEffect.isInvincible = true
-                    end
-                    if ((self.IsDamageReduce)(effectId) == true or (self.IsDamageAdd)(effectId) == true) and isCanEffect == true then
-                      buff:SetCurRoundActive(true)
-                      damageReduceTotal = damageReduceTotal + value
-                    end
-                    if (self.IsResist)(effectId) == true and isCanEffect == true then
-                      buff:SetCurRoundActive(true)
-                      damageReduceTotal = 10000
-                    end
-                  end
-                end
-              end
-              if atkInfo and isHurt == true then
-                local atkPos = atkInfo.atkPos
-                local atkBuffTable = (BattleBuffMgr.GetBuffListByCardPos)(atkPos)
-                for _,buff in ipairs(atkBuffTable) do
+                local damageReduceTotal = 0
+                local damageExtraAdd = 0
+                for _,buff in ipairs(buffTable) do
                   local isCanEffect = buff:IsCanEffect()
                   local buffData = buff:GetBuffInfo()
                   local effectTable = buffData.effectTable
@@ -1403,76 +1538,156 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ...
                     local effectId = v.effectId
                     local attributeId = v.attributeId
                     local value = v.value
-                    if (self.IsDeadly)(effectId) == true and isRoundAtk == true and isCanEffect == true then
+                    if (self.IsAddIntoDamage)(effectId) == true and isRoundAtk == true and isCanEffect == true then
                       buff:SetCurRoundActive(true)
-                      if defCard:GetHp() / defCard:GetMaxHp() > 0.5 then
-                        damageExtraAdd = damageExtraAdd + value
+                      damageExtraAdd = damageExtraAdd + value
+                    end
+                    if isHurt == true then
+                      if (self.IsInvincible)(effectId) == true and isCanEffect == true then
+                        buff:SetCurRoundActive(true)
+                        specialEffect.isInvincible = true
+                      end
+                      if (self.IsDamageReduce)(effectId) == true and isCanEffect == true then
+                        buff:SetCurRoundActive(true)
+                        damageReduceTotal = damageReduceTotal + value
+                      end
+                      if (self.IsDamageAdd)(effectId) == true and isCanEffect == true then
+                        buff:SetCurRoundActive(true)
+                        if not CaseEffectID or CaseEffectID ~= BattleDisplayEffect.FIX_DAMAGE_PER then
+                          damageReduceTotal = damageReduceTotal + value
+                        end
+                      end
+                      if (self.IsResist)(effectId) == true and isCanEffect == true then
+                        buff:SetCurRoundActive(true)
+                        damageReduceTotal = 10000
                       end
                     end
                   end
                 end
-              end
-              if specialEffect.isInvincible == true then
-                if IsBattleServer == nil then
-                  print("无敌抵挡伤害： ", "被攻击位置:", defCard:GetPosIndex())
+                if atkInfo and isHurt == true then
+                  local atkPos = atkInfo.atkPos
+                  local atkBuffTable = (BattleBuffMgr.GetBuffListByCardPos)(atkPos)
+                  for _,buff in ipairs(atkBuffTable) do
+                    local isCanEffect = buff:IsCanEffect()
+                    local buffData = buff:GetBuffInfo()
+                    local effectTable = buffData.effectTable
+                    for _,v in ipairs(effectTable) do
+                      local effectId = v.effectId
+                      local attributeId = v.attributeId
+                      local value = v.value
+                      if (self.IsDeadly)(effectId) == true and isRoundAtk == true and isCanEffect == true then
+                        buff:SetCurRoundActive(true)
+                        if defCard:GetHp() / defCard:GetMaxHp() > 0.5 then
+                          damageExtraAdd = damageExtraAdd + value
+                        end
+                      end
+                    end
+                  end
                 end
-                return 0, damage, specialEffect
-              end
-              if damageExtraAdd ~= 0 then
-                if IsBattleServer == nil then
+                if specialEffect.isInvincible == true then
+                  if IsBattleServer == nil then
+                    print("无敌抵挡伤害： ", "被攻击位置:", defCard:GetPosIndex())
+                  end
+                  return 0, damage, specialEffect
+                end
+                if damageExtraAdd ~= 0 and IsBattleServer == nil then
                   print("             --------------额外伤害:", damageExtraAdd)
                 end
-                damage = damage - (damageExtraAdd)
-              end
-              if damageReduceTotal ~= 0 then
-                if IsBattleServer == nil then
-                  print("             --------------免伤/增伤效果值:", damageReduceTotal)
+                if damageReduceTotal ~= 0 then
+                  if IsBattleServer == nil then
+                    print("             --------------免伤/增伤效果值:", damageReduceTotal)
+                  end
+                  damage = (math.ceil)(damage * (math.max)(0, 10000 - damageReduceTotal) / 10000)
+                  damageExtraAdd = -(math.ceil)(-(damageExtraAdd) * (math.max)(0, 10000 - damageReduceTotal) / 10000)
                 end
-                damage = (math.ceil)((damage) * (math.max)(0, 10000 - damageReduceTotal) / 10000)
-              end
-              if isHurt == true and damage < 0 then
-                damage = 0
-              elseif isHurt == false and damage > 0 then
-                damage = 0
-              end
-              if damageAdd then
-                damage = damage * damageAdd
-              end
-              totalDamage = damage
-              if isHurt == true then
-                for _,v in ipairs(buffTable) do
-                  local shieldHp = v:GetShieldHp()
-                  local usedShieldHp = v:GetUsedShieldHp()
-                  local leftShieldHp = shieldHp - usedShieldHp
-                  if shieldHp > 0 and leftShieldHp > 0 then
-                    if leftShieldHp < damage then
-                      v:SetUsedShieldHp(shieldHp)
-                      damage = damage - leftShieldHp
-                      if IsBattleServer == nil then
-                        print("被攻击位置:", defCard:GetPosIndex(), " 实际造成伤害：", damage, " 护盾抵挡伤害：", totalDamage - (damage), " 护盾剩余血量：", leftShieldHp - totalDamage + (damage))
+                if isHurt == true and damage < 0 then
+                  damage = 0
+                elseif isHurt == false and damage > 0 then
+                  damage = 0
+                end
+                if damageExtraAdd > 0 then
+                  damageExtraAdd = 0
+                end
+                if damageAdd then
+                  damage = damage * damageAdd
+                  damageExtraAdd = damageExtraAdd * damageAdd
+                end
+                if isHurt == true and (skillType == BattleSkillType.SMALL or skillType == BattleSkillType.SKILL or skillType == BattleSkillType.NORMAL or skillType == BattleSkillType.ASSIST) then
+                  local isDivide, divideInfo = (BattleBuff.IsDamageDivide)(defCard)
+                  local allCard = (BattleBuff.GetDamageDivideCards)(defCard)
+                  if isDivide == true and allCard and #allCard > 0 then
+                    local value = (BattleBuff.GetBuffEffectValue)(divideInfo, BattleDisplayEffect.DAMAGE_DIVIDE)
+                    value = (math.min)(10000, value)
+                    value = (math.max)(0, value)
+                    local divide_damage = (math.ceil)(value * (damage) / #allCard / 10000)
+                    damage = (math.ceil)(damage * (10000 - value) / 10000 + value * (damage) / #allCard / 10000)
+                    for _,v in ipairs(allCard) do
+                      if (v.card):GetPosIndex() ~= defCard:GetPosIndex() then
+                        (table.insert)(divideCardInfo, {card = v.card, damage = divide_damage})
                       end
-                    else
-                      v:SetUsedShieldHp(v:GetUsedShieldHp() + (damage))
-                      damage = 0
-                      if IsBattleServer == nil then
-                        print("被攻击位置:", defCard:GetPosIndex(), " 实际造成伤害：", damage, " 护盾抵挡伤害：", totalDamage - damage, " 护盾剩余血量：", leftShieldHp - totalDamage + damage)
+                    end
+                  end
+                  local isDivide, divideInfo = (BattleBuff.IsExtraDamageDivide)(defCard)
+                  local allCard = (BattleBuff.GetExtraDamageDivideCards)(defCard)
+                  if isDivide == true and allCard and #allCard > 0 and damageExtraAdd < 0 then
+                    local value = (BattleBuff.GetBuffEffectValue)(divideInfo, BattleDisplayEffect.EXTRA_DAMAGE_DIVIDE)
+                    value = (math.min)(10000, value)
+                    value = (math.max)(0, value)
+                    local divide_damageExtraAdd = -(math.ceil)(-value * (damageExtraAdd) / #allCard / 10000)
+                    damageExtraAdd = -(math.ceil)(-(damageExtraAdd) * (10000 - value) / 10000 - value * (damageExtraAdd) / #allCard / 10000)
+                    for _,v in ipairs(allCard) do
+                      if (v.card):GetPosIndex() ~= defCard:GetPosIndex() then
+                        local isFind = false
+                        for _,m in ipairs(divideCardInfo) do
+                          if m.card == v.card then
+                            isFind = true
+                            m.damage = m.damage - divide_damageExtraAdd
+                          end
+                        end
+                        if isFind == false then
+                          (table.insert)(divideCardInfo, {card = v.card, damage = -divide_damageExtraAdd})
+                        end
                       end
-                      break
                     end
                   end
                 end
-              end
-              absorbDamage = totalDamage - damage
-              do
-                if (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.KEEP_ALIVE) == true then
-                  local curCardHp = defCard:GetHp()
-                  if curCardHp < damage then
-                    damage = curCardHp - 1
-                    specialEffect.isKeepAlive = true
+                damage = damage - damageExtraAdd
+                totalDamage = damage
+                if isHurt == true then
+                  for _,v in ipairs(buffTable) do
+                    local shieldHp = v:GetShieldHp()
+                    local usedShieldHp = v:GetUsedShieldHp()
+                    local leftShieldHp = shieldHp - usedShieldHp
+                    if shieldHp > 0 and leftShieldHp > 0 then
+                      if leftShieldHp < damage then
+                        v:SetUsedShieldHp(shieldHp)
+                        damage = damage - leftShieldHp
+                        if IsBattleServer == nil then
+                          print("被攻击位置:", defCard:GetPosIndex(), " 实际造成伤害：", damage, " 护盾抵挡伤害：", totalDamage - (damage), " 护盾剩余血量：", leftShieldHp - (totalDamage) + (damage))
+                        end
+                      else
+                        v:SetUsedShieldHp(v:GetUsedShieldHp() + (damage))
+                        damage = 0
+                        if IsBattleServer == nil then
+                          print("被攻击位置:", defCard:GetPosIndex(), " 实际造成伤害：", damage, " 护盾抵挡伤害：", totalDamage - damage, " 护盾剩余血量：", leftShieldHp - (totalDamage) + damage)
+                        end
+                        break
+                      end
+                    end
                   end
                 end
-                do return damage, absorbDamage, specialEffect end
-                -- DECOMPILER ERROR: 26 unprocessed JMP targets
+                absorbDamage = totalDamage - damage
+                do
+                  if (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.KEEP_ALIVE) == true or (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.LIKE_ALIVE) == true then
+                    local curCardHp = defCard:GetHp()
+                    if curCardHp < damage then
+                      damage = curCardHp - 1
+                      specialEffect.isKeepAlive = true
+                    end
+                  end
+                  do return damage, absorbDamage, specialEffect, divideCardInfo end
+                  -- DECOMPILER ERROR: 34 unprocessed JMP targets
+                end
               end
             end
           end
@@ -1826,7 +2041,7 @@ end
 
 BattleBuff.IsDamageAdd = function(effectId, ...)
   -- function num : 0_36 , upvalues : BattleDisplayEffect
-  do return effectId == BattleDisplayEffect.STAMP or effectId == BattleDisplayEffect.ATTACK_DAMAGE_CHANGE end
+  do return effectId == BattleDisplayEffect.STAMP or effectId == BattleDisplayEffect.ATTACK_DAMAGE_CHANGE or effectId == BattleDisplayEffect.STAMP_ICON or effectId == BattleDisplayEffect.STAMP_DEPEND_ROUND end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
@@ -1850,7 +2065,7 @@ end
 
 BattleBuff.IsKeepAlive = function(effectId, ...)
   -- function num : 0_39 , upvalues : BattleDisplayEffect
-  do return effectId == BattleDisplayEffect.KEEP_ALIVE end
+  do return effectId == BattleDisplayEffect.KEEP_ALIVE or effectId == BattleDisplayEffect.LIKE_ALIVE end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
@@ -1874,78 +2089,98 @@ end
 
 -- DECOMPILER ERROR at PC147: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsAttackDouble = function(card, ...)
+BattleBuff.IsDamageDivide = function(card, ...)
   -- function num : 0_42 , upvalues : self, BattleDisplayEffect
   if card then
-    return (self.ContainEffectId)(card, BattleDisplayEffect.DOUBLE_ATTACK)
+    return (self.ContainEffectId)(card, BattleDisplayEffect.DAMAGE_DIVIDE)
   end
   return false
 end
 
 -- DECOMPILER ERROR at PC150: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsBuffInvincible = function(card, ...)
+BattleBuff.IsExtraDamageDivide = function(card, ...)
   -- function num : 0_43 , upvalues : self, BattleDisplayEffect
   if card then
-    return (self.ContainEffectId)(card, BattleDisplayEffect.INVINCIBLE)
+    return (self.ContainEffectId)(card, BattleDisplayEffect.EXTRA_DAMAGE_DIVIDE)
   end
   return false
 end
 
 -- DECOMPILER ERROR at PC153: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsBlockPersist = function(card, ...)
+BattleBuff.IsAttackDouble = function(card, ...)
   -- function num : 0_44 , upvalues : self, BattleDisplayEffect
   if card then
-    return (self.ContainEffectId)(card, BattleDisplayEffect.BLOCK_PERSIST)
+    return (self.ContainEffectId)(card, BattleDisplayEffect.DOUBLE_ATTACK)
   end
   return false
 end
 
 -- DECOMPILER ERROR at PC156: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsCritPersist = function(card, ...)
+BattleBuff.IsBuffInvincible = function(card, ...)
   -- function num : 0_45 , upvalues : self, BattleDisplayEffect
   if card then
-    return (self.ContainEffectId)(card, BattleDisplayEffect.CRIT_PERSIST)
+    return (self.ContainEffectId)(card, BattleDisplayEffect.INVINCIBLE)
   end
   return false
 end
 
 -- DECOMPILER ERROR at PC159: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsRebPersist = function(card, ...)
+BattleBuff.IsBlockPersist = function(card, ...)
   -- function num : 0_46 , upvalues : self, BattleDisplayEffect
-  if card then
-    return (self.ContainEffectId)(card, BattleDisplayEffect.REB_PERSIST)
+  if card and not (self.ContainEffectId)(card, BattleDisplayEffect.BLOCK_PERSIST) then
+    do return (self.ContainEffectId)(card, BattleDisplayEffect.BLOCK_PERSIST_NO_EFFECT) end
+    return false
   end
-  return false
 end
 
 -- DECOMPILER ERROR at PC162: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsRecPersist = function(card, ...)
+BattleBuff.IsCritPersist = function(card, ...)
   -- function num : 0_47 , upvalues : self, BattleDisplayEffect
   if card then
-    return (self.ContainEffectId)(card, BattleDisplayEffect.REC_PERSIST)
+    return (self.ContainEffectId)(card, BattleDisplayEffect.CRIT_PERSIST)
   end
   return false
 end
 
 -- DECOMPILER ERROR at PC165: Confused about usage of register: R13 in 'UnsetPending'
 
-BattleBuff.IsDirectKill = function(card, ...)
+BattleBuff.IsRebPersist = function(card, ...)
   -- function num : 0_48 , upvalues : self, BattleDisplayEffect
   if card then
-    return (self.ContainEffectId)(card, BattleDisplayEffect.DIRECT_KILL)
+    return (self.ContainEffectId)(card, BattleDisplayEffect.REB_PERSIST)
   end
   return false
 end
 
 -- DECOMPILER ERROR at PC168: Confused about usage of register: R13 in 'UnsetPending'
 
+BattleBuff.IsRecPersist = function(card, ...)
+  -- function num : 0_49 , upvalues : self, BattleDisplayEffect
+  if card then
+    return (self.ContainEffectId)(card, BattleDisplayEffect.REC_PERSIST)
+  end
+  return false
+end
+
+-- DECOMPILER ERROR at PC171: Confused about usage of register: R13 in 'UnsetPending'
+
+BattleBuff.IsDirectKill = function(card, ...)
+  -- function num : 0_50 , upvalues : self, BattleDisplayEffect
+  if card then
+    return (self.ContainEffectId)(card, BattleDisplayEffect.DIRECT_KILL)
+  end
+  return false
+end
+
+-- DECOMPILER ERROR at PC174: Confused about usage of register: R13 in 'UnsetPending'
+
 BattleBuff.IsAttract = function(card, ...)
-  -- function num : 0_49 , upvalues : _ENV, BattleDisplayEffect
+  -- function num : 0_51 , upvalues : _ENV, BattleDisplayEffect
   do
     if card then
       local isAttract, buff = (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.ATTRACT)
@@ -1955,10 +2190,10 @@ BattleBuff.IsAttract = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC171: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC177: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.GetCounterValue = function(card, ...)
-  -- function num : 0_50 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
+  -- function num : 0_52 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
   local totalValue = 0
   if card then
     local buffTable = (BattleBuffMgr.GetBuffList)()
@@ -1979,10 +2214,10 @@ BattleBuff.GetCounterValue = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC174: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC180: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.GetDamageShareInfo = function(buff, ...)
-  -- function num : 0_51 , upvalues : ipairs, BattleDisplayEffect, _ENV
+  -- function num : 0_53 , upvalues : ipairs, BattleDisplayEffect, _ENV
   local value = 0
   local buffData = buff:GetBuffInfo()
   local atkPos = buff:GetAtkPos()
@@ -1999,43 +2234,74 @@ BattleBuff.GetDamageShareInfo = function(buff, ...)
   return card, value
 end
 
--- DECOMPILER ERROR at PC177: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC183: Confused about usage of register: R13 in 'UnsetPending'
+
+BattleBuff.GetBuffEffectValue = function(buff, effectId, ...)
+  -- function num : 0_54 , upvalues : ipairs
+  local value = 0
+  local buffData = buff:GetBuffInfo()
+  local effectTable = buffData.effectTable
+  for _,effect in ipairs(effectTable) do
+    if effect.effectId == effectId then
+      value = value + effect.value
+    end
+  end
+  return value
+end
+
+-- DECOMPILER ERROR at PC186: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.IsCardCanShareDamage = function(card, ...)
-  -- function num : 0_52 , upvalues : _ENV
+  -- function num : 0_55 , upvalues : _ENV
   if (BattleBuff.IsBuffSleep)(card) == true or (BattleBuff.IsBuffStun)(card) == true or (BattleBuff.IsBuffParalysis)(card) == true then
     return false
   end
   return true
 end
 
--- DECOMPILER ERROR at PC180: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC189: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.ContainEffectId = function(card, effectId, ...)
-  -- function num : 0_53 , upvalues : BattleBuffMgr, ipairs
+  -- function num : 0_56 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and effectId then
-    local buffTable = (BattleBuffMgr.GetBuffList)()
-    for _,v in ipairs(buffTable) do
-      if v:GetCurDefPos() == card:GetPosIndex() then
-        local buffData = v:GetBuffInfo()
-        local effectTable = buffData.effectTable
-        for _,effect in ipairs(effectTable) do
-          if effect.effectId == effectId then
-            return true, v, effect
+    if BattleConfig.isPlayBack == true then
+      local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
+      for _,v in ipairs(buffTable) do
+        if v.curDefPos == card:GetPosIndex() then
+          local effectTable = v.effectTable
+          for _,effect in ipairs(effectTable) do
+            if effect.effectId == effectId then
+              return true, v, effect
+            end
           end
+        end
+      end
+    else
+      do
+        local buffTable = (BattleBuffMgr.GetBuffList)()
+        for _,v in ipairs(buffTable) do
+          if v:GetCurDefPos() == card:GetPosIndex() then
+            local buffData = v:GetBuffInfo()
+            local effectTable = buffData.effectTable
+            for _,effect in ipairs(effectTable) do
+              if effect.effectId == effectId then
+                return true, v, effect
+              end
+            end
+          end
+        end
+        do
+          return false
         end
       end
     end
   end
-  do
-    return false
-  end
 end
 
--- DECOMPILER ERROR at PC183: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC192: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.ContainBuffGroup = function(card, type, ...)
-  -- function num : 0_54 , upvalues : BattleBuffMgr, ipairs
+  -- function num : 0_57 , upvalues : BattleBuffMgr, ipairs
   if card and type then
     local buffTable = (BattleBuffMgr.GetBuffList)()
     for _,v in ipairs(buffTable) do
@@ -2050,10 +2316,10 @@ BattleBuff.ContainBuffGroup = function(card, type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC186: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC195: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
-  -- function num : 0_55 , upvalues : ipairs
+  -- function num : 0_58 , upvalues : ipairs
   if buff and effectId then
     local effectTable = nil
     if buff.GetEffectTable then
@@ -2072,10 +2338,40 @@ BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC189: Confused about usage of register: R13 in 'UnsetPending'
+-- DECOMPILER ERROR at PC198: Confused about usage of register: R13 in 'UnsetPending'
+
+BattleBuff.GetDamageDivideCards = function(card, ...)
+  -- function num : 0_59 , upvalues : _ENV, ipairs
+  local cards = {}
+  local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
+  for i,v in ipairs(allCard) do
+    local isDivide, divideInfo = (BattleBuff.IsDamageDivide)(v)
+    if isDivide == true then
+      (table.insert)(cards, {card = v, info = divideInfo})
+    end
+  end
+  return cards
+end
+
+-- DECOMPILER ERROR at PC201: Confused about usage of register: R13 in 'UnsetPending'
+
+BattleBuff.GetExtraDamageDivideCards = function(card, ...)
+  -- function num : 0_60 , upvalues : _ENV, ipairs
+  local cards = {}
+  local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
+  for i,v in ipairs(allCard) do
+    local isDivide, divideInfo = (BattleBuff.IsExtraDamageDivide)(v)
+    if isDivide == true then
+      (table.insert)(cards, {card = v, info = divideInfo})
+    end
+  end
+  return cards
+end
+
+-- DECOMPILER ERROR at PC204: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.GetUniqueSkillDamageAdd = function(atkCard, ...)
-  -- function num : 0_56 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
+  -- function num : 0_61 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
   local totalAddPercent = 0
   local buffTable = BattleBuffMgr.buffList
   for _,buff in ipairs(buffTable) do

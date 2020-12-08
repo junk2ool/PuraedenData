@@ -128,7 +128,7 @@ end
 ArenaData.CheckSettle = function(...)
   -- function num : 0_2 , upvalues : _ENV
   local current = (LuaTime.GetTimeStamp)() * 1000
-  do return ((ArenaData.BaseData).settleTime).bTime <= current and current < ((ArenaData.BaseData).settleTime).bTime + ((ArenaData.BaseData).settleTime).durationTime end
+  do return (((ArenaData.BaseData).daySettleTime).bTime <= current and current < ((ArenaData.BaseData).daySettleTime).bTime + ((ArenaData.BaseData).daySettleTime).durationTime) or (((ArenaData.BaseData).seasonSettleTime).bTime <= current and current < ((ArenaData.BaseData).seasonSettleTime).bTime + ((ArenaData.BaseData).seasonSettleTime).durationTime) end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
@@ -298,20 +298,20 @@ ArenaData.CovertArenaRivalFormationToLocalPlayer = function(arenaRivalCards, pow
   local count = #arenaRivalCards
   for i = 1, count do
     formation[(arenaRivalCards[i]).position] = {}
-    -- DECOMPILER ERROR at PC18: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC19: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
-    (formation[(arenaRivalCards[i]).position]).fashionId = ((CardData.GetFashionConfig)(arenaRivalCards[i])).id
-    -- DECOMPILER ERROR at PC24: Confused about usage of register: R8 in 'UnsetPending'
+    (formation[(arenaRivalCards[i]).position]).fashionId = ((CardData.GetFashionConfig)(arenaRivalCards[i], true)).id
+    -- DECOMPILER ERROR at PC25: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (formation[(arenaRivalCards[i]).position]).spd = (arenaRivalCards[i]).speed
-    -- DECOMPILER ERROR at PC30: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC31: Confused about usage of register: R8 in 'UnsetPending'
 
     if i == 1 then
       (formation[(arenaRivalCards[i]).position]).fc = power
     else
-      -- DECOMPILER ERROR at PC35: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC36: Confused about usage of register: R8 in 'UnsetPending'
 
       ;
       (formation[(arenaRivalCards[i]).position]).fc = 0

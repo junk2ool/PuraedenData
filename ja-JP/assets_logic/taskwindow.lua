@@ -332,40 +332,66 @@ TaskWindow.Renderer = function(index, item, ...)
   end
   local objModel = GetTask_TaskDetailedUis(item)
   local mouthType = data.MouthType
-  -- DECOMPILER ERROR at PC14: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R5 in 'UnsetPending'
+
+  ;
+  (objModel.c2Ctr).selectedIndex = 0
+  -- DECOMPILER ERROR at PC16: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   (objModel.Complete_01_Txt).visible = mouthType == nil
-  -- DECOMPILER ERROR at PC20: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC22: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   (objModel.Complete_02_Txt).visible = mouthType == nil
-  -- DECOMPILER ERROR at PC26: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   (objModel.Complete_03_Txt).visible = mouthType == nil
   if mouthType ~= nil then
+    local isHaveDouble = false
+    local activityData = nil
     local productData = (PayData.GetProductDataByType)(mouthType)
-    -- DECOMPILER ERROR at PC35: Confused about usage of register: R6 in 'UnsetPending'
+    if productData.product_id == "jp.red.zuanshicardtest_month" then
+      isHaveDouble = (ActivityMgr.GetMouthRewardDouble)((ActivityMgr.MouthDoubleType).DiamondMouth)
+      activityData = ((TableData.gTable).BaseActivityData)[33000242]
+    elseif productData.product_id == "jp.red.ziyuancardtest_month" then
+      isHaveDouble = (ActivityMgr.GetMouthRewardDouble)((ActivityMgr.MouthDoubleType).AssetMouth)
+      activityData = ((TableData.gTable).BaseActivityData)[33000241]
+    end
+    -- DECOMPILER ERROR at PC69: Confused about usage of register: R8 in 'UnsetPending'
+
+    if isHaveDouble then
+      (objModel.c2Ctr).selectedIndex = 1
+    else
+      -- DECOMPILER ERROR at PC72: Confused about usage of register: R8 in 'UnsetPending'
+
+      (objModel.c2Ctr).selectedIndex = 0
+    end
+    -- DECOMPILER ERROR at PC75: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (objModel.NameTxt).text = productData.product_name
     local remainTime = data.remainTime
     local rewards = (Util.ParseConfigStr)(productData.show_day_reward)
-    -- DECOMPILER ERROR at PC42: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC82: Confused about usage of register: R10 in 'UnsetPending'
 
     ;
     (objModel.ItemList).numItems = 0
     for _,v in ipairs(rewards) do
-      local item = (Util.CreateFrame)(tonumber(v[2]), false, tonumber(v[3]), false, true)
+      local number = tonumber(v[3])
+      if isHaveDouble then
+        number = number * 2
+      end
+      local item = (Util.CreateFrame)(tonumber(v[2]), false, number, false, true)
       ;
       (objModel.ItemList):AddChild(item)
     end
-    -- DECOMPILER ERROR at PC72: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC116: Confused about usage of register: R10 in 'UnsetPending'
 
     if data.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT then
       (objModel.c1Ctr).selectedIndex = 0
-      -- DECOMPILER ERROR at PC78: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC122: Confused about usage of register: R10 in 'UnsetPending'
 
       ;
       (objModel.JumpBtn).text = (PUtil.get)(20000328)
@@ -377,16 +403,16 @@ TaskWindow.Renderer = function(index, item, ...)
     (ShopMgr.ExternalGotoShop)(ShopType.GiftBuy)
   end
 )
-      -- DECOMPILER ERROR at PC89: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC133: Confused about usage of register: R10 in 'UnsetPending'
 
       ;
       (objModel.TipsTxt).text = (PUtil.get)(20000330)
     else
-      -- DECOMPILER ERROR at PC98: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC142: Confused about usage of register: R10 in 'UnsetPending'
 
       if data.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
         (objModel.c1Ctr).selectedIndex = 1
-        -- DECOMPILER ERROR at PC104: Confused about usage of register: R8 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC148: Confused about usage of register: R10 in 'UnsetPending'
 
         ;
         (objModel.functionBtn).text = (PUtil.get)(60000023)
@@ -398,32 +424,37 @@ TaskWindow.Renderer = function(index, item, ...)
     (TaskWindow.SetListTouchEnable)()
   end
 )
-        -- DECOMPILER ERROR at PC116: Confused about usage of register: R8 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC160: Confused about usage of register: R10 in 'UnsetPending'
 
         ;
         (objModel.TipsTxt).text = (PUtil.get)(20000329, remainTime)
       else
-        -- DECOMPILER ERROR at PC119: Confused about usage of register: R8 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC163: Confused about usage of register: R10 in 'UnsetPending'
 
         (objModel.c1Ctr).selectedIndex = 2
-        -- DECOMPILER ERROR at PC126: Confused about usage of register: R8 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC170: Confused about usage of register: R10 in 'UnsetPending'
 
         ;
         (objModel.TipsTxt).text = (PUtil.get)(20000329, remainTime)
       end
     end
+    -- DECOMPILER ERROR at PC183: Confused about usage of register: R10 in 'UnsetPending'
+
+    if isHaveDouble then
+      (objModel.TipsTxt).text = (objModel.TipsTxt).text .. "\n" .. (PUtil.get)(262) .. activityData.remark
+    end
     return 
   end
   local TaskConfig = ((TableData.gTable).BaseTaskData)[tonumber(data.id)]
-  -- DECOMPILER ERROR at PC142: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC199: Confused about usage of register: R6 in 'UnsetPending'
 
   if data.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT then
     (objModel.c1Ctr).selectedIndex = 0
-    -- DECOMPILER ERROR at PC149: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC206: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (objModel.JumpBtn).visible = TaskConfig.target_href_id > 0
-    -- DECOMPILER ERROR at PC155: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC212: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (objModel.JumpBtn).text = (PUtil.get)(60000072)
@@ -436,24 +467,24 @@ TaskWindow.Renderer = function(index, item, ...)
     (Util.GetWayGoto)(TaskConfig.target_href_id)
   end
 )
-    -- DECOMPILER ERROR at PC164: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC221: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (objModel.Complete_01_Txt).color = Const.TaskLackColorRGB
-    -- DECOMPILER ERROR at PC168: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC225: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (objModel.Complete_02_Txt).color = Const.WhiteColorRGB
-    -- DECOMPILER ERROR at PC172: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC229: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (objModel.Complete_03_Txt).color = Const.WhiteColorRGB
   else
-    -- DECOMPILER ERROR at PC181: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC238: Confused about usage of register: R6 in 'UnsetPending'
 
     if data.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
       (objModel.c1Ctr).selectedIndex = 1
-      -- DECOMPILER ERROR at PC187: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC244: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (objModel.functionBtn).text = (PUtil.get)(20000091)
@@ -465,51 +496,58 @@ TaskWindow.Renderer = function(index, item, ...)
     (TaskWindow.SetListTouchEnable)()
   end
 )
-      -- DECOMPILER ERROR at PC196: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC253: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (objModel.Complete_01_Txt).color = Const.TaskBlueColorRGB
-      -- DECOMPILER ERROR at PC200: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC257: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (objModel.Complete_02_Txt).color = Const.TaskBlueColorRGB
-      -- DECOMPILER ERROR at PC204: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC261: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (objModel.Complete_03_Txt).color = Const.TaskBlueColorRGB
     else
-      -- DECOMPILER ERROR at PC213: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC270: Confused about usage of register: R6 in 'UnsetPending'
 
       if data.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
         (objModel.c1Ctr).selectedIndex = 2
       end
     end
   end
-  -- DECOMPILER ERROR at PC216: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC273: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (objModel.Complete_01_Txt).text = data.comp
-  -- DECOMPILER ERROR at PC219: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC276: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (objModel.Complete_03_Txt).text = data.need
-  -- DECOMPILER ERROR at PC222: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC279: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (objModel.NameTxt).text = TaskConfig.name
-  -- DECOMPILER ERROR at PC225: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC282: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (objModel.TipsTxt).text = TaskConfig.remark
-  local rewards = (Util.ParseConfigStr)(TaskConfig.reward)
-  -- DECOMPILER ERROR at PC231: Confused about usage of register: R7 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC284: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (objModel.ItemList).numItems = 0
-  for _,v in ipairs(rewards) do
-    local item = (Util.CreateFrame)(tonumber(v[2]), false, tonumber(v[3]), false, true)
-    ;
-    (objModel.ItemList):AddChild(item)
+  local mLV = tonumber(data.param)
+  local remarkTable = (Util.ParseConfigStr)(TaskConfig.reward, "_", "|")
+  for _,v in ipairs(remarkTable) do
+    local lvRange = split(v[1], ":")
+    if tonumber(lvRange[1]) <= mLV and mLV <= tonumber(lvRange[2]) then
+      local rewards = (Util.ParseConfigStr)(v[2])
+      for _,v2 in ipairs(rewards) do
+        local item = (Util.CreateFrame)(tonumber(v2[2]), false, tonumber(v2[3]), false, true)
+        ;
+        (objModel.ItemList):AddChild(item)
+      end
+    end
   end
   local LivelinessValue = TaskConfig.liveness
   do
@@ -518,7 +556,7 @@ TaskWindow.Renderer = function(index, item, ...)
       ;
       (objModel.ItemList):AddChild(item)
     end
-    -- DECOMPILER ERROR: 14 unprocessed JMP targets
+    -- DECOMPILER ERROR: 21 unprocessed JMP targets
   end
 end
 

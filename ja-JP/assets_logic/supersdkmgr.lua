@@ -247,8 +247,16 @@ SuperSDKMgr.DealSDKPay = function(result_table, ...)
     (SuperSDKUtil.SendAdCPay)()
     ;
     (SuperSDKUtil.SendAdPayCompleted)()
+    -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
+
+    if PayMgr.RecodeTimes <= 1 then
+      PayMgr.LimitProductID = PayMgr.RecodeProductID
+      -- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
+
+      PayMgr.LimitBuy = true
+    end
   end
-  -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
 
   SuperSDKData.curPayPrice = nil
 end

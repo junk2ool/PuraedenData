@@ -111,6 +111,8 @@ BaseWindowNameData = {
 , 
 [4005] = {id = 4005, window_name = "GuildBuildingWindow", rule_des = "0:88304004", red_dot_max = 7}
 , 
+[4006] = {id = 4006, window_name = "GuildBossMainWindow", rule_des = "0:88304005", red_dot_max = 7}
+, 
 [5001] = {id = 5001, window_name = "ActivityMainWindow", red_dot_max = 7}
 }
 return BaseWindowNameData

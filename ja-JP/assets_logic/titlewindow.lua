@@ -122,7 +122,7 @@ TitleWindow.SetListShow = function(titleID, list, ...)
   (show:GetChild("AttributeTxt")).text = (PUtil.get)(20000449)
   ;
   (show:GetChild("GetBTxt")).text = configData.remark
-  local attrStr = configData.add_attr
+  local attrStr = configData.attr_des
   ;
   (TitleWindow.SetAttrInfo)(show, attrStr)
   list:AddChild(show)
@@ -137,15 +137,12 @@ TitleWindow.SetAttrInfo = function(show, attrStr, ...)
     list.numItems = 0
     local attr = (Util.ParseConfigStr)(attrStr)
     for _,v in ipairs(attr) do
-      if tonumber(v[1]) == 1 then
-        local line = UIMgr:CreateObject("Title", "TitleAttribute")
-        local AttributeData = ((TableData.gTable).BaseAttributeData)[tonumber(v[2])]
-        ;
-        (line:GetChild("AttributeNameTxt")).text = AttributeData.display_name
-        ;
-        (line:GetChild("AttributeNumberTxt")).text = v[3]
-        list:AddChild(line)
-      end
+      local line = UIMgr:CreateObject("Title", "TitleAttribute")
+      ;
+      (line:GetChild("AttributeNameTxt")).text = (PUtil.get)(tonumber(v[1]))
+      ;
+      (line:GetChild("AttributeNumberTxt")).text = (PUtil.get)(tonumber(v[2]))
+      list:AddChild(line)
     end
     list.height = list.numItems * 40 - 10
   else

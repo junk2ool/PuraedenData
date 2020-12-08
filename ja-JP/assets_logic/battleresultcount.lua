@@ -138,34 +138,50 @@ BattleResultCount.SaveWaveEndCardState = function(...)
   local allCard = (BattleData.GetAllCardList)()
   local teamA = (BattleData.allBattleTeamCardState).teamA
   local teamB = (BattleData.allBattleTeamCardState).teamB
-  local curTeamA = {}
-  curTeamA.waveNum = curWave
-  curTeamA.cardState = {}
-  local curTeamB = {}
-  curTeamB.waveNum = curWave
-  curTeamB.cardState = {}
-  for i,v in ipairs(allCard) do
-    local oneCard = {}
-    oneCard.id = v:GetCardId()
-    local pos = v:GetPosIndex()
-    pos = pos % 100
-    if pos > 10 then
-      pos = pos - 7
-    end
-    oneCard.uid = v:GetCardUid()
-    oneCard.pos = pos
-    oneCard.supHp = v:GetHp()
-    oneCard.supDander = v:GetDander()
-    if v:GetCampFlag() == BattleCardCamp.LEFT then
-      t_insert(curTeamA.cardState, oneCard)
-    else
-      if v:GetCampFlag() == BattleCardCamp.RIGHT then
-        t_insert(curTeamB.cardState, oneCard)
-      end
+  for i,v in ipairs(teamA) do
+    if v.waveNum == curWave then
+      (table.remove)(teamA, i)
+      break
     end
   end
-  t_insert(teamA, curTeamA)
-  t_insert(teamB, curTeamB)
+  do
+    for i,v in ipairs(teamB) do
+      if v.waveNum == curWave then
+        (table.remove)(teamB, i)
+        break
+      end
+    end
+    do
+      local curTeamA = {}
+      curTeamA.waveNum = curWave
+      curTeamA.cardState = {}
+      local curTeamB = {}
+      curTeamB.waveNum = curWave
+      curTeamB.cardState = {}
+      for i,v in ipairs(allCard) do
+        local oneCard = {}
+        oneCard.id = v:GetCardId()
+        local pos = v:GetPosIndex()
+        pos = pos % 100
+        if pos > 10 then
+          pos = pos - 7
+        end
+        oneCard.uid = v:GetCardUid()
+        oneCard.pos = pos
+        oneCard.supHp = v:GetHp()
+        oneCard.supDander = v:GetDander()
+        if v:GetCampFlag() == BattleCardCamp.LEFT then
+          t_insert(curTeamA.cardState, oneCard)
+        else
+          if v:GetCampFlag() == BattleCardCamp.RIGHT then
+            t_insert(curTeamB.cardState, oneCard)
+          end
+        end
+      end
+      t_insert(teamA, curTeamA)
+      t_insert(teamB, curTeamB)
+    end
+  end
 end
 
 -- DECOMPILER ERROR at PC22: Confused about usage of register: R8 in 'UnsetPending'
@@ -232,7 +248,7 @@ end
 
 BattleResultCount.IsEnemyBehindDead = function(...)
   -- function num : 0_5 , upvalues : _ENV, BattleCardCamp, ipairs
-  local aliveCards = (BattleData.GetAliveCards)(BattleCardCamp.RIGHT)
+  local aliveCards = (BattleData.GetAliveCards)(BattleCardCamp.RIGHT, true)
   for _,v in ipairs(aliveCards) do
     if v:GetPosIndex() > 103 then
       return false
@@ -245,7 +261,7 @@ end
 
 BattleResultCount.IsEnemyAllDead = function(...)
   -- function num : 0_6 , upvalues : _ENV, BattleCardCamp
-  local aliveCards = (BattleData.GetAliveCards)(BattleCardCamp.RIGHT)
+  local aliveCards = (BattleData.GetAliveCards)(BattleCardCamp.RIGHT, true)
   if #aliveCards <= 0 then
     return true
   end

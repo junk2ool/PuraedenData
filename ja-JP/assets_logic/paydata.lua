@@ -260,7 +260,27 @@ PayData.GetProductRemainTimes = function(id, ...)
   local config = ((TableData.gTable).BasePayProductData)[id]
   local buyTime = (PayData.GetProductTimes)(config.product_id, config.sell_limit_type)
   local limitTime = config.sell_limit_max
-  if limitTime then
+  if limitTime and config.sell_limit_type ~= PayProductLimitType.NoLimit then
+    return limitTime - buyTime
+  else
+    return 9999
+  end
+end
+
+-- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
+
+PayData.GetProductRemainTimesByProductId = function(id, ...)
+  -- function num : 0_15 , upvalues : _ENV
+  local config = nil
+  local allConfig = (TableData.gTable).BasePayProductData
+  for i,v in pairs(allConfig) do
+    if v.product_id == tostring(id) then
+      config = v
+    end
+  end
+  local buyTime = (PayData.GetProductTimes)(config.product_id, config.sell_limit_type)
+  local limitTime = config.sell_limit_max
+  if limitTime and config.sell_limit_type ~= PayProductLimitType.NoLimit then
     return limitTime - buyTime
   else
     return 9999

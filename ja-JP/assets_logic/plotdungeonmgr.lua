@@ -275,6 +275,7 @@ PlotDungeonMgr.OnClickChallengeDungeon = function(...)
   if not (PlotDungeonMgr.CheckSatisfyContent)(self.CurrentDungeon) then
     return 
   end
+  local stageId = self.CurrentDungeon
   local formationDataIsOpen = (FunctionControlMgr.GetFunctionState)(ControlID.Formation_Operation, false)
   if not formationDataIsOpen then
     local configStr = split(stageData.cards_list, ":")
@@ -288,7 +289,7 @@ PlotDungeonMgr.OnClickChallengeDungeon = function(...)
       end
     end
     ;
-    (PlotDungeonMgr.StartChallenge)(formation)
+    (PlotDungeonMgr.StartChallenge)(formation, stageId)
     return 
   end
   do
@@ -305,7 +306,11 @@ PlotDungeonMgr.OnClickChallengeDungeon = function(...)
     end
     local btnData = {}
     btnData.btnTxt = (PUtil.get)(20000021)
-    btnData.fun = PlotDungeonMgr.StartChallenge
+    btnData.fun = function(card, ...)
+    -- function num : 0_11_0 , upvalues : _ENV, stageId
+    (PlotDungeonMgr.StartChallenge)(card, stageId)
+  end
+
     local formationData = {}
     formationData.enemyList = enemyList
     formationData.myselfList = (PlotDungeonMgr.InitSelfFormation)()
@@ -313,20 +318,32 @@ PlotDungeonMgr.OnClickChallengeDungeon = function(...)
     formationData.formationType = FormationType.Basic
     formationData.battleType = (ProtoEnum.E_BATTLE_TYPE).STORY
     formationData.stageId = self.CurrentDungeon
-    formationData.backFun = function(cards, ...)
-    -- function num : 0_11_0 , upvalues : _ENV
+    local StageData = ((TableData.gTable).BaseStageData)[self.CurrentDungeon]
+    do
+      if StageData.activity_fc then
+        local battleNum = 0
+        if (PlotDungeonMgr.GetActivityDungeonPlayerFc)() < StageData.fc then
+          battleNum = StageData.fc
+        else
+          battleNum = (PlotDungeonMgr.GetActivityDungeonPlayerFc)()
+        end
+        formationData.tureEnemyFC = (math.floor)(battleNum * StageData.activity_fc * 0.0001)
+      end
+      formationData.backFun = function(cards, ...)
+    -- function num : 0_11_1 , upvalues : _ENV
     (PlotDungeonService.ReqSaveFormation)(cards, (PlotDungeonMgr.GetDungeonType)())
   end
 
-    formationData.closeFun = function(cards, ...)
-    -- function num : 0_11_1 , upvalues : _ENV
+      formationData.closeFun = function(cards, ...)
+    -- function num : 0_11_2 , upvalues : _ENV
     (PlotDungeonService.ReqSaveFormation)(cards, (PlotDungeonMgr.GetDungeonType)())
     ;
     (PlotDungeonMgr.RecodeHeroDungeonPos)(-1)
   end
 
-    ;
-    (MessageMgr.OpenFormationWindow)(formationData)
+      ;
+      (MessageMgr.OpenFormationWindow)(formationData)
+    end
   end
 end
 
@@ -410,73 +427,94 @@ end
 
 -- DECOMPILER ERROR at PC86: Confused about usage of register: R2 in 'UnsetPending'
 
-PlotDungeonMgr.GetSelectChapter = function(...)
+PlotDungeonMgr.GetActivityDungeonPlayerFc = function(playerActivityFc, ...)
   -- function num : 0_18 , upvalues : self
-  return self.CurrentChapter
+  if playerActivityFc == nil then
+    return self.playerActivityFc
+  else
+    self.playerActivityFc = playerActivityFc
+  end
 end
 
 -- DECOMPILER ERROR at PC89: Confused about usage of register: R2 in 'UnsetPending'
 
-PlotDungeonMgr.SetSelectChapter = function(chpterID, ...)
+PlotDungeonMgr.ActivityDungeonEnemyFc = function(fc, ...)
   -- function num : 0_19 , upvalues : self
-  self.CurrentChapter = chpterID
+  if fc == nil then
+    return self.activityEnemyFc
+  else
+    self.activityEnemyFc = fc
+  end
 end
 
 -- DECOMPILER ERROR at PC92: Confused about usage of register: R2 in 'UnsetPending'
 
-PlotDungeonMgr.ChapterIsOpen = function(ChapterId, ...)
-  -- function num : 0_20 , upvalues : self, _ENV
-  do return (self.chapterInfo)[tonumber(ChapterId)] ~= nil end
-  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+PlotDungeonMgr.GetSelectChapter = function(...)
+  -- function num : 0_20 , upvalues : self
+  return self.CurrentChapter
 end
 
 -- DECOMPILER ERROR at PC95: Confused about usage of register: R2 in 'UnsetPending'
 
-PlotDungeonMgr.CurrentIsPassDungeon = function(...)
+PlotDungeonMgr.SetSelectChapter = function(chpterID, ...)
   -- function num : 0_21 , upvalues : self
-  return ((self.stageStates)[self.CurrentDungeon]).isGet
+  self.CurrentChapter = chpterID
 end
 
 -- DECOMPILER ERROR at PC98: Confused about usage of register: R2 in 'UnsetPending'
 
-PlotDungeonMgr.IsPassDungeon = function(stateId, ...)
+PlotDungeonMgr.ChapterIsOpen = function(ChapterId, ...)
   -- function num : 0_22 , upvalues : self, _ENV
+  do return (self.chapterInfo)[tonumber(ChapterId)] ~= nil end
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+end
+
+-- DECOMPILER ERROR at PC101: Confused about usage of register: R2 in 'UnsetPending'
+
+PlotDungeonMgr.CurrentIsPassDungeon = function(...)
+  -- function num : 0_23 , upvalues : self
+  return ((self.stageStates)[self.CurrentDungeon]).isGet
+end
+
+-- DECOMPILER ERROR at PC104: Confused about usage of register: R2 in 'UnsetPending'
+
+PlotDungeonMgr.IsPassDungeon = function(stateId, ...)
+  -- function num : 0_24 , upvalues : self, _ENV
   if (self.stageStates)[tonumber(stateId)] then
     return ((self.stageStates)[tonumber(stateId)]).isGet
   end
 end
 
--- DECOMPILER ERROR at PC101: Confused about usage of register: R2 in 'UnsetPending'
-
-PlotDungeonMgr.CanChangeTimesDungeon = function(...)
-  -- function num : 0_23 , upvalues : self
-  return ((self.stageStates)[self.CurrentDungeon]).remindTimes
-end
-
--- DECOMPILER ERROR at PC104: Confused about usage of register: R2 in 'UnsetPending'
-
-PlotDungeonMgr.GetCanChangeTimesDungeon = function(stageId, ...)
-  -- function num : 0_24 , upvalues : self, _ENV
-  return ((self.stageStates)[tonumber(stageId)]).remindTimes
-end
-
 -- DECOMPILER ERROR at PC107: Confused about usage of register: R2 in 'UnsetPending'
 
-PlotDungeonMgr.IsOnlyGetData = function(...)
+PlotDungeonMgr.CanChangeTimesDungeon = function(...)
   -- function num : 0_25 , upvalues : self
-  do return self.externalId ~= nil and #self.externalId > 0 end
-  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  return ((self.stageStates)[self.CurrentDungeon]).remindTimes
 end
 
 -- DECOMPILER ERROR at PC110: Confused about usage of register: R2 in 'UnsetPending'
 
+PlotDungeonMgr.GetCanChangeTimesDungeon = function(stageId, ...)
+  -- function num : 0_26 , upvalues : self, _ENV
+  return ((self.stageStates)[tonumber(stageId)]).remindTimes
+end
+
+-- DECOMPILER ERROR at PC113: Confused about usage of register: R2 in 'UnsetPending'
+
+PlotDungeonMgr.IsOnlyGetData = function(...)
+  -- function num : 0_27 , upvalues : self
+  do return self.externalId ~= nil and #self.externalId > 0 end
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+end
+
+-- DECOMPILER ERROR at PC116: Confused about usage of register: R2 in 'UnsetPending'
+
 PlotDungeonMgr.ExternalGotoStage = function(dungeonType, stageId, aimItemId, aimItemNum, ...)
-  -- function num : 0_26 , upvalues : _ENV, self
+  -- function num : 0_28 , upvalues : _ENV, self
   if stageId == nil then
     (PlotDungeonService.ReqStoryInfo)(dungeonType)
     return 
   end
-  self.CurrentChapter = (PlotDungeonMgr.GetChapterIdByStageID)(stageId)
   if next(self.stageStates) == nil then
     local stageType = (PlotDungeonMgr.GetStageChapterType)(stageId)
     ;
@@ -491,17 +529,17 @@ PlotDungeonMgr.ExternalGotoStage = function(dungeonType, stageId, aimItemId, aim
   end
 end
 
--- DECOMPILER ERROR at PC113: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC119: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.OpenStage = function(stageId, aimItemId, aimItemNum, ...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   (PlotDungeonMgr.OnClickStage)(stageId, false, aimItemId, aimItemNum)
 end
 
--- DECOMPILER ERROR at PC116: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC122: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetChapterIdByStageID = function(stageId, ...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   local chapterData = (TableData.gTable).BaseChapterData
   for _,v in pairs(chapterData) do
     local stages = split(v.stages, ":")
@@ -513,10 +551,10 @@ PlotDungeonMgr.GetChapterIdByStageID = function(stageId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC119: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC125: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.ExternalGetStageState = function(chapterType, stageId, fun, ...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_31 , upvalues : _ENV
   if (FunctionControlMgr.GetFunctionState)(chapterType, false) then
     (PlotDungeonMgr.GetStageState)(stageId, fun)
   else
@@ -524,10 +562,10 @@ PlotDungeonMgr.ExternalGetStageState = function(chapterType, stageId, fun, ...)
   end
 end
 
--- DECOMPILER ERROR at PC122: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC128: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetStageState = function(stageId, fun, ...)
-  -- function num : 0_30 , upvalues : self, _ENV
+  -- function num : 0_32 , upvalues : self, _ENV
   if stageId == nil or fun == nil then
     return 
   end
@@ -546,21 +584,21 @@ PlotDungeonMgr.GetStageState = function(stageId, fun, ...)
   end
 end
 
--- DECOMPILER ERROR at PC125: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC131: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.IsOnlyOnceState = function(stageId, ...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_33 , upvalues : _ENV
   local stageData = ((TableData.gTable).BaseStageData)[tonumber(stageId)]
   do return stageData.challenge_num == -1 and stageData.type == StageType.FIGHT end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC128: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC134: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.SetInitChapterID = function(storyChapter, ...)
-  -- function num : 0_32 , upvalues : _ENV
+  -- function num : 0_34 , upvalues : _ENV
   (table.sort)(storyChapter, function(a, b, ...)
-    -- function num : 0_32_0
+    -- function num : 0_34_0
     do return a.id < b.id end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -579,10 +617,10 @@ PlotDungeonMgr.SetInitChapterID = function(storyChapter, ...)
   end
 end
 
--- DECOMPILER ERROR at PC131: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC137: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.RevertDungeonData = function(...)
-  -- function num : 0_33 , upvalues : self, _ENV
+  -- function num : 0_35 , upvalues : self, _ENV
   self.stageStates = {}
   self.selfFormation = {}
   self.SweepData = {}
@@ -595,10 +633,10 @@ PlotDungeonMgr.RevertDungeonData = function(...)
   (PlotDungeonMgr.IsQuestHeroData)(false)
 end
 
--- DECOMPILER ERROR at PC134: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC140: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.RefreshDungeonData = function(storyChapter, isInt, ...)
-  -- function num : 0_34 , upvalues : _ENV, self
+  -- function num : 0_36 , upvalues : _ENV, self
   for _,v in ipairs(storyChapter) do
     -- DECOMPILER ERROR at PC7: Confused about usage of register: R7 in 'UnsetPending'
 
@@ -651,10 +689,10 @@ PlotDungeonMgr.RefreshDungeonData = function(storyChapter, isInt, ...)
   end
 end
 
--- DECOMPILER ERROR at PC137: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC143: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetAppendixIsCanGet = function(...)
-  -- function num : 0_35 , upvalues : _ENV, self
+  -- function num : 0_37 , upvalues : _ENV, self
   for _,v in pairs(self.stageStates) do
     if v.appendixBox == AppendixBoxState.Unclaimed then
       return true
@@ -663,10 +701,10 @@ PlotDungeonMgr.GetAppendixIsCanGet = function(...)
   return false
 end
 
--- DECOMPILER ERROR at PC140: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC146: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.TempObtainCardList = function(cardList, ...)
-  -- function num : 0_36 , upvalues : self
+  -- function num : 0_38 , upvalues : self
   if cardList == nil then
     return self.tempCardList
   else
@@ -674,10 +712,10 @@ PlotDungeonMgr.TempObtainCardList = function(cardList, ...)
   end
 end
 
--- DECOMPILER ERROR at PC143: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC149: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.ChangeAppendixState = function(stageId, state, ...)
-  -- function num : 0_37 , upvalues : _ENV, self
+  -- function num : 0_39 , upvalues : _ENV, self
   if state then
     local chapterType = (PlotDungeonMgr.GetStageChapterType)(stageId)
     do
@@ -702,7 +740,7 @@ PlotDungeonMgr.ChangeAppendixState = function(stageId, state, ...)
       end
       ;
       (MessageMgr.OpenRewardShowWindow)(items, function(...)
-    -- function num : 0_37_0 , upvalues : _ENV, stageId, chapterType
+    -- function num : 0_39_0 , upvalues : _ENV, stageId, chapterType
     local type = (PlotDungeonMgr.GetStageChapterType)(stageId)
     if DungeonType.BasicDungeon == chapterType then
       UIMgr:SendWindowMessage((WinResConfig.PlotPlayWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_NEXT_CHAPTER)
@@ -713,19 +751,19 @@ PlotDungeonMgr.ChangeAppendixState = function(stageId, state, ...)
   end
 end
 
--- DECOMPILER ERROR at PC146: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC152: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetAppendixState = function(stageId, ...)
-  -- function num : 0_38 , upvalues : self, _ENV
+  -- function num : 0_40 , upvalues : self, _ENV
   if (self.stageStates)[tonumber(stageId)] then
     return ((self.stageStates)[tonumber(stageId)]).appendixBox
   end
 end
 
--- DECOMPILER ERROR at PC149: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC155: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.IsFromGetAway = function(stageId, ...)
-  -- function num : 0_39 , upvalues : _ENV
+  -- function num : 0_41 , upvalues : _ENV
   if (PlotDungeonMgr.GetStageChapterType)(stageId) == DungeonType.HeroDungeon and UIMgr:IsWindowInList((WinResConfig.HeroDungeonMainWindow).name) == false then
     return true
   end
@@ -738,28 +776,28 @@ PlotDungeonMgr.IsFromGetAway = function(stageId, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC152: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC158: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.SettleGotoStage = function(stageID, ...)
-  -- function num : 0_40 , upvalues : _ENV
+  -- function num : 0_42 , upvalues : _ENV
   local stageType = (PlotDungeonMgr.GetStageChapterType)(stageID)
   if stageType == DungeonType.HeroDungeon then
     UIMgr:SetOnShownComplete((WinResConfig.HeroDungeonMainWindow).name, function(...)
-    -- function num : 0_40_0 , upvalues : _ENV, stageID
+    -- function num : 0_42_0 , upvalues : _ENV, stageID
     (PlotDungeonMgr.OnClickStage)(stageID)
   end
 )
   else
     if stageType == DungeonType.BasicDungeon then
       UIMgr:SetOnShownComplete((WinResConfig.PlotPlayWindow).name, function(...)
-    -- function num : 0_40_1 , upvalues : _ENV, stageID
+    -- function num : 0_42_1 , upvalues : _ENV, stageID
     (PlotDungeonMgr.OnClickStage)(stageID)
   end
 )
     else
       if stageType == DungeonType.ActivityDungeon then
         UIMgr:SetOnShownComplete((WinResConfig.ActivityDungeonWindow).name, function(...)
-    -- function num : 0_40_2 , upvalues : _ENV, stageID
+    -- function num : 0_42_2 , upvalues : _ENV, stageID
     (PlotDungeonMgr.OnClickStage)(stageID)
   end
 )
@@ -768,10 +806,10 @@ PlotDungeonMgr.SettleGotoStage = function(stageID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC155: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC161: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.RefreshCardState = function(msg, ...)
-  -- function num : 0_41 , upvalues : _ENV, self
+  -- function num : 0_43 , upvalues : _ENV, self
   local curStageId = PlotDungeonMgr.saveStageId
   local isFromGetAway = (PlotDungeonMgr.IsFromGetAway)(curStageId)
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R3 in 'UnsetPending'
@@ -780,10 +818,10 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
     PlotDungeonMgr.saveStageId = nil
     if curStageId then
       local btn1Func = function(...)
-    -- function num : 0_41_0 , upvalues : _ENV, curStageId
+    -- function num : 0_43_0 , upvalues : _ENV, curStageId
     (PlotDungeonMgr.SettleGotoStage)(curStageId)
     ld("Battle", function(...)
-      -- function num : 0_41_0_0 , upvalues : _ENV
+      -- function num : 0_43_0_0 , upvalues : _ENV
       (BattleMgr.CloseBattle)()
     end
 )
@@ -803,7 +841,7 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
     else
       do
         ld("Battle", function(...)
-    -- function num : 0_41_1 , upvalues : _ENV
+    -- function num : 0_43_1 , upvalues : _ENV
     (BattleMgr.CloseBattle)()
   end
 )
@@ -853,10 +891,10 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
             end
             ;
             (MessageMgr.OpenRewardShowWindow)(items, function(...)
-    -- function num : 0_41_2 , upvalues : _ENV, stageInfo, stageData
+    -- function num : 0_43_2 , upvalues : _ENV, stageInfo, stageData
     if (Util.GetChapterIDByStageID)(stageInfo.id) ~= (Util.GetChapterIDByStageID)(stageData.next_stage) then
       OpenPlotPlay((Util.GetChapterIDByStageID)(stageInfo.id), PlotPlayTriggerType.CHAPTER_COMPLETE, function(...)
-      -- function num : 0_41_2_0 , upvalues : _ENV
+      -- function num : 0_43_2_0 , upvalues : _ENV
       UIMgr:SendWindowMessage((WinResConfig.PlotPlayWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_CHECK_PASS_PROCESS)
     end
 )
@@ -871,7 +909,11 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
             return 
           end
           local SettleWinData = {}
-          SettleWinData.BattleType = (ProtoEnum.E_BATTLE_TYPE).STORY
+          if (PlotDungeonMgr.GetStageChapterType)(curStageId) == DungeonType.ActivityDungeon then
+            SettleWinData.BattleType = (ProtoEnum.E_BATTLE_TYPE).ACTIVITY
+          else
+            SettleWinData.BattleType = (ProtoEnum.E_BATTLE_TYPE).STORY
+          end
           SettleWinData.CardAddExp = msg.exp
           SettleWinData.CardAddIntimacy = stageData.card_intimacy
           SettleWinData.TeamAddExp = stageData.player_exp
@@ -886,11 +928,11 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
               local btn2 = {}
               btn2.btnTxt = (PUtil.get)(20000024)
               btn2.fun = function(...)
-    -- function num : 0_41_3 , upvalues : _ENV, stageData, msg
+    -- function num : 0_43_3 , upvalues : _ENV, stageData, msg
     if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
       (PlotDungeonMgr.SettleGotoStage)(stageData.next_stage)
       ld("Battle", function(...)
-      -- function num : 0_41_3_0 , upvalues : _ENV
+      -- function num : 0_43_3_0 , upvalues : _ENV
       (BattleMgr.CloseBattle)()
     end
 )
@@ -907,13 +949,13 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
             if isFromGetAway ~= true or not (PUtil.get)(30) then
               btn3.btnTxt = (PUtil.get)(20000025)
               btn3.fun = function(...)
-    -- function num : 0_41_4 , upvalues : _ENV, msg, curStageId, stageData
+    -- function num : 0_43_4 , upvalues : _ENV, msg, curStageId, stageData
     if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
       if (PlotDungeonMgr.GetStageChapterType)((msg.stageInfo).id) == DungeonType.HeroDungeon then
         UIMgr:SetOnShownComplete((WinResConfig.HeroDungeonMainWindow).name, function(...)
-      -- function num : 0_41_4_0 , upvalues : _ENV, msg
+      -- function num : 0_43_4_0 , upvalues : _ENV, msg
       OpenPlotPlay((msg.stageInfo).id, PlotPlayTriggerType.AFTER_QUIT_LEVEL, function(...)
-        -- function num : 0_41_4_0_0 , upvalues : msg, _ENV
+        -- function num : 0_43_4_0_0 , upvalues : msg, _ENV
         if msg.isFirst then
           UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.HeroDungeonMainWindow).E_MSG_PASS_CHAPTER)
         end
@@ -926,7 +968,7 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
       else
         if (PlotDungeonMgr.GetStageChapterType)((msg.stageInfo).id) == DungeonType.BasicDungeon then
           UIMgr:SetOnShownComplete((WinResConfig.PlotPlayWindow).name, function(...)
-      -- function num : 0_41_4_1 , upvalues : _ENV, msg, curStageId
+      -- function num : 0_43_4_1 , upvalues : _ENV, msg, curStageId
       OpenPlotPlay((msg.stageInfo).id, PlotPlayTriggerType.AFTER_QUIT_LEVEL)
       if (Util.GetChapterIDByStageID)((msg.stageInfo).id) ~= (Util.GetChapterIDByStageID)((((TableData.gTable).BaseStageData)[(msg.stageInfo).id]).next_stage) then
         OpenPlotPlay((Util.GetChapterIDByStageID)((msg.stageInfo).id), PlotPlayTriggerType.CHAPTER_COMPLETE)
@@ -941,14 +983,14 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
         else
           if (PlotDungeonMgr.GetStageChapterType)((msg.stageInfo).id) == DungeonType.ActivityDungeon then
             UIMgr:SetOnShownComplete((WinResConfig.ActivityDungeonWindow).name, function(...)
-      -- function num : 0_41_4_2 , upvalues : msg, _ENV, stageData
+      -- function num : 0_43_4_2 , upvalues : msg, _ENV, stageData
       local stageID = (msg.stageInfo).id
       OpenPlotPlay((msg.stageInfo).id, PlotPlayTriggerType.AFTER_QUIT_LEVEL)
       if msg.isFirst then
         local RecordData = ((TableData.gTable).BaseHandbookAdventureRecordData)[stageID]
         do
           local openStoryFunc = function(...)
-        -- function num : 0_41_4_2_0 , upvalues : RecordData, _ENV, stageID
+        -- function num : 0_43_4_2_0 , upvalues : RecordData, _ENV, stageID
         if RecordData == nil then
           return 
         end
@@ -956,7 +998,7 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
         (Util.SetPlayerSetting)(PlayerPrefsKeyName.ACTIVITY_DUNGEON_PLOT_DOT, stageID)
         ;
         (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000494, RecordData.sort), function(...)
-          -- function num : 0_41_4_2_0_0 , upvalues : _ENV, stageID
+          -- function num : 0_43_4_2_0_0 , upvalues : _ENV, stageID
           local acID = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
           local ActivityData = ((TableData.gTable).BaseActivityData)[acID]
           ;
@@ -968,7 +1010,7 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
           local cg_reward = stageData.cg_reward
           if cg_reward and cg_reward ~= "0" then
             (CommonWinMgr.OpenCGShow)(tonumber(cg_reward), true, function(...)
-        -- function num : 0_41_4_2_1 , upvalues : openStoryFunc
+        -- function num : 0_43_4_2_1 , upvalues : openStoryFunc
         openStoryFunc()
       end
 )
@@ -979,6 +1021,9 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
       end
       do
         UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH_RED)
+        if msg.isFirst and stageData.next_stage == 0 and stageData.activity_type == 0 then
+          UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_SHOW_DIFFICULT_RED)
+        end
       end
     end
 )
@@ -986,7 +1031,7 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
         end
       end
       ld("Battle", function(...)
-      -- function num : 0_41_4_3 , upvalues : _ENV
+      -- function num : 0_43_4_3 , upvalues : _ENV
       (BattleMgr.CloseBattle)()
     end
 )
@@ -1007,19 +1052,19 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC158: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC164: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.TempCreateSummarize = function(...)
-  -- function num : 0_42 , upvalues : _ENV
+  -- function num : 0_44 , upvalues : _ENV
   local ChallengeSummarizeDataTable = (BattleResultCount.GetBattleDamageData)()
   ;
   (CommonWinMgr.OpenBattleDataWindow)(ChallengeSummarizeDataTable)
 end
 
--- DECOMPILER ERROR at PC161: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC167: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.RefreshFormation = function(formationInfo, ...)
-  -- function num : 0_43 , upvalues : _ENV, self
+  -- function num : 0_45 , upvalues : _ENV, self
   for _,v in ipairs(formationInfo) do
     -- DECOMPILER ERROR at PC9: Confused about usage of register: R6 in 'UnsetPending'
 
@@ -1034,24 +1079,24 @@ PlotDungeonMgr.RefreshFormation = function(formationInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC164: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC170: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetSelfFormation = function(...)
-  -- function num : 0_44 , upvalues : self
+  -- function num : 0_46 , upvalues : self
   return self.selfFormation
 end
 
--- DECOMPILER ERROR at PC167: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC173: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetEnemyFormation = function(...)
-  -- function num : 0_45 , upvalues : self
+  -- function num : 0_47 , upvalues : self
   return self.enemyFormation
 end
 
--- DECOMPILER ERROR at PC170: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC176: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.includePre = function(vs, pre, ...)
-  -- function num : 0_46 , upvalues : _ENV
+  -- function num : 0_48 , upvalues : _ENV
   for _,v in ipairs(vs) do
     if v.id == pre then
       return true
@@ -1060,10 +1105,10 @@ PlotDungeonMgr.includePre = function(vs, pre, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC173: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC179: Confused about usage of register: R2 in 'UnsetPending'
 
-PlotDungeonMgr.StartChallenge = function(cards, ...)
-  -- function num : 0_47 , upvalues : _ENV, self
+PlotDungeonMgr.StartChallenge = function(cards, stageID, ...)
+  -- function num : 0_49 , upvalues : _ENV
   local cardInfo = {}
   for i = 1, 6 do
     local common = {}
@@ -1077,13 +1122,13 @@ PlotDungeonMgr.StartChallenge = function(cards, ...)
     (table.insert)(cardInfo, common)
   end
   ;
-  (PlotDungeonService.ReqStartChallenge)(self.CurrentDungeon, cardInfo)
+  (PlotDungeonService.ReqStartChallenge)(stageID, cardInfo)
 end
 
--- DECOMPILER ERROR at PC176: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC182: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.RefreshStorySweep = function(msg, isFastSweep, ...)
-  -- function num : 0_48 , upvalues : _ENV, self
+  -- function num : 0_50 , upvalues : _ENV, self
   local goods = {}
   for _,v in ipairs(msg.goodsLists) do
     local m = {}
@@ -1140,10 +1185,10 @@ PlotDungeonMgr.RefreshStorySweep = function(msg, isFastSweep, ...)
   end
 end
 
--- DECOMPILER ERROR at PC179: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC185: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.ResAwardBox = function(msg, ...)
-  -- function num : 0_49 , upvalues : self, _ENV, m
+  -- function num : 0_51 , upvalues : self, _ENV, m
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   ((self.stageStates)[msg.stageId]).isGet = msg.success
@@ -1179,27 +1224,27 @@ PlotDungeonMgr.ResAwardBox = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC182: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC188: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetStageChapterType = function(stageID, ...)
-  -- function num : 0_50 , upvalues : _ENV
+  -- function num : 0_52 , upvalues : _ENV
   local StageData = ((TableData.gTable).BaseStageData)[stageID]
   if StageData then
     return StageData.chapter_type
   end
 end
 
--- DECOMPILER ERROR at PC185: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC191: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.StartSweep = function(stageId, times, aimItemId, aimNum, ...)
-  -- function num : 0_51 , upvalues : _ENV, self
+  -- function num : 0_53 , upvalues : _ENV, self
   if not (PlotDungeonMgr.IsPassDungeon)(stageId) then
     (MessageMgr.SendCenterTips)((PUtil.get)(20000057))
     return 
   end
   ;
   (EquiptMgr.CheckShowEquipBagConfirm)(EquiptAcquireType.Dungeon, function(...)
-    -- function num : 0_51_0 , upvalues : _ENV, stageId, self, aimItemId, aimNum, times
+    -- function num : 0_53_0 , upvalues : _ENV, stageId, self, aimItemId, aimNum, times
     -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
     if (PlotDungeonMgr.CheckSatisfyContent)(stageId) then
@@ -1219,10 +1264,10 @@ PlotDungeonMgr.StartSweep = function(stageId, times, aimItemId, aimNum, ...)
 , (((TableData.gTable).BaseStageData)[stageId]).sweep_reward)
 end
 
--- DECOMPILER ERROR at PC188: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC194: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.FastSweep = function(debris, stages, ...)
-  -- function num : 0_52 , upvalues : self, _ENV
+  -- function num : 0_54 , upvalues : self, _ENV
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R2 in 'UnsetPending'
 
   (self.SweepData).debrisS = debris
@@ -1234,17 +1279,17 @@ PlotDungeonMgr.FastSweep = function(debris, stages, ...)
   (PlotDungeonService.ReqFastSweep)(stages)
 end
 
--- DECOMPILER ERROR at PC191: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC197: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetSweepData = function(...)
-  -- function num : 0_53 , upvalues : self
+  -- function num : 0_55 , upvalues : self
   return self.SweepData
 end
 
--- DECOMPILER ERROR at PC194: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC200: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.RecodeHeroDungeonPos = function(pos, ...)
-  -- function num : 0_54 , upvalues : self
+  -- function num : 0_56 , upvalues : self
   if pos then
     self.heroChallengeId = pos
   else
@@ -1252,10 +1297,10 @@ PlotDungeonMgr.RecodeHeroDungeonPos = function(pos, ...)
   end
 end
 
--- DECOMPILER ERROR at PC197: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC203: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.ActivityDungeonRecodeID = function(id, ...)
-  -- function num : 0_55 , upvalues : self
+  -- function num : 0_57 , upvalues : self
   if id then
     self.ActivityDungeonRecode = id
   else
@@ -1263,10 +1308,10 @@ PlotDungeonMgr.ActivityDungeonRecodeID = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC200: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC206: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.ActivityDungeonIsHero = function(id, ...)
-  -- function num : 0_56 , upvalues : _ENV
+  -- function num : 0_58 , upvalues : _ENV
   if (PlotDungeonMgr.GetStageChapterType)(id) == DungeonType.ActivityDungeon then
     local data = ((TableData.gTable).BaseStageData)[id]
     if data.activity_type ~= 1 then

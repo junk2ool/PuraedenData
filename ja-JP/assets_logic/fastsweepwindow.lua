@@ -10,12 +10,15 @@ local DebrisData = {}
 local DebrisSort = {}
 local ChooseDebris = {}
 local Consumption = 12
+local mPlotType = 0
 FastSweepWindow.OnInit = function(bridge, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, ChooseDebris, FastSweepWindow, DebrisData, Consumption
+  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, mPlotType, ChooseDebris, FastSweepWindow, DebrisData, Consumption
   bridge:SetView((WinResConfig.FastSweepWindow).package, (WinResConfig.FastSweepWindow).comName)
   contentPane = bridge.contentPane
+  local argTable = bridge.argTable
   uis = GetHeroDungeon_SpeedSweepWindowUis(contentPane)
   uis = uis.SpeedSweep
+  mPlotType = argTable[1]
   local isSave = (Util.GetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD, tostring(0))
   if isSave == tostring(1) then
     local str = (Util.GetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD_INFO)
@@ -33,7 +36,7 @@ FastSweepWindow.OnInit = function(bridge, ...)
       (FastSweepWindow.InItDebrisData)()
       ;
       (FastSweepWindow.InitDebrisList)()
-      -- DECOMPILER ERROR at PC80: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC83: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.DefaultBtn).selected = (Util.GetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD, 0) == tostring(1)
@@ -54,7 +57,7 @@ FastSweepWindow.OnInit = function(bridge, ...)
     end
   end
 )
-      -- DECOMPILER ERROR at PC96: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC99: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SpeedSweepBtn).text = (PUtil.get)(20000053)
@@ -104,11 +107,11 @@ FastSweepWindow.OnInit = function(bridge, ...)
 )
       ;
       (FastSweepWindow.RefreshPhysics)()
-      -- DECOMPILER ERROR at PC109: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC112: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.RewardTxt).text = (PUtil.get)(20000400)
-      -- DECOMPILER ERROR at PC115: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC118: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.DefaultTxt).text = (PUtil.get)(20000407)
@@ -118,10 +121,10 @@ FastSweepWindow.OnInit = function(bridge, ...)
 end
 
 FastSweepWindow.InItDebrisData = function(...)
-  -- function num : 0_1 , upvalues : _ENV, DebrisData, DebrisSort
+  -- function num : 0_1 , upvalues : _ENV, mPlotType, DebrisData, DebrisSort
   local chapterData = (TableData.gTable).BaseChapterData
   for _,v in pairs(chapterData) do
-    if (PlotDungeonMgr.ChapterIsOpen)(v.id) and v.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
+    if (PlotDungeonMgr.ChapterIsOpen)(v.id) and v.type == mPlotType then
       local stages = split(v.stages, ":")
       for _,v2 in ipairs(stages) do
         local stageData = ((TableData.gTable).BaseStageData)[tonumber(v2)]

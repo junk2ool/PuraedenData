@@ -68,6 +68,10 @@ GuildService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResGuildSummary, GuildService.RecvGuildSummary)
   ;
   (Net.AddListener)((Proto.MsgName).ResPopUpLevelUp, GuildService.ResPopUpLevelUp)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResImpeachData, GuildService.OnResImpeachData)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResVoting, GuildService.OnResVoting)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -713,10 +717,85 @@ GuildService.ResPopUpLevelUp = function(msg, ...)
   (SimpleTimer.setTimeout)(0.5, function(...)
     -- function num : 0_66_0 , upvalues : msg, _ENV
     if msg.level > 1 then
+      if UIMgr:IsWindowOpen((WinResConfig.GuildImpeachWindow).name) then
+        UIMgr:SetOnHideComplete((WinResConfig.GuildImpeachWindow).name, function(...)
+      -- function num : 0_66_0_0 , upvalues : _ENV, msg
       OpenWindow((WinResConfig.GuildLevelUpWindow).name, UILayer.HUD, msg.level)
+    end
+)
+      else
+        OpenWindow((WinResConfig.GuildLevelUpWindow).name, UILayer.HUD, msg.level)
+      end
     end
   end
 )
+end
+
+-- DECOMPILER ERROR at PC206: Confused about usage of register: R1 in 'UnsetPending'
+
+GuildService.ReqImpeachData = function(...)
+  -- function num : 0_67 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqImpeachData, m, (Proto.MsgName).ResImpeachData)
+end
+
+-- DECOMPILER ERROR at PC209: Confused about usage of register: R1 in 'UnsetPending'
+
+GuildService.OnResImpeachData = function(msg, ...)
+  -- function num : 0_68 , upvalues : _ENV
+  if not msg.success and msg.request then
+    (MessageMgr.SendCenterTipsByWordID)(20000619)
+    return 
+  end
+  -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
+
+  GuildData.Organizer = msg.organizer
+  local voteList = msg.voteInfo
+  local mPlayerIndex = (ActorData.GetPlayerIndex)()
+  local alreadyVote = false
+  for _,v in ipairs(voteList) do
+    if v.memberIndex == mPlayerIndex then
+      alreadyVote = true
+    end
+  end
+  do
+    -- DECOMPILER ERROR at PC36: Confused about usage of register: R4 in 'UnsetPending'
+
+    GuildData.IsImpeach = alreadyVote and 3 or 2
+    if not msg.request then
+      return 
+    end
+    if UIMgr:IsWindowOpen((WinResConfig.GuildLevelUpWindow).name) then
+      UIMgr:SetOnHideComplete((WinResConfig.GuildLevelUpWindow).name, function(...)
+    -- function num : 0_68_0 , upvalues : _ENV, msg
+    OpenWindow((WinResConfig.GuildImpeachWindow).name, UILayer.HUD1, msg)
+  end
+)
+    else
+      if UIMgr:IsWindowOpen((WinResConfig.GuildImpeachWindow).name) then
+        UIMgr:SendWindowMessage((WinResConfig.GuildImpeachWindow).name, 1, msg)
+      else
+        OpenWindow((WinResConfig.GuildImpeachWindow).name, UILayer.HUD1, msg)
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC212: Confused about usage of register: R1 in 'UnsetPending'
+
+GuildService.ReqVoting = function(vote, ...)
+  -- function num : 0_69 , upvalues : _ENV
+  local m = {}
+  m.vote = vote
+  ;
+  (Net.Send)((Proto.MsgName).ReqVoting, m)
+end
+
+-- DECOMPILER ERROR at PC215: Confused about usage of register: R1 in 'UnsetPending'
+
+GuildService.OnResVoting = function(...)
+  -- function num : 0_70
 end
 
 ;

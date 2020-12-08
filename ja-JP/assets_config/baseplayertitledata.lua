@@ -1,7 +1,22 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BasePlayerTitleData = {
-[29000001] = {id = 29000001, goods_icon = "ItemIcon:29000001", type = 1, remark = (PUtil.get)(84111001), icon = "Title:29000001", date = -1, sort = 1, add_attr = "0"}
+[29000001] = {id = 29000001, name = (PUtil.get)(84111101), goods_icon = "ItemIcon:29000001", type = 1, quality = 3, remark = (PUtil.get)(84111001), des = (PUtil.get)(84111201), icon = "Title:29000001", date = -1, sort = 1, add_attr = "0"}
+, 
+[29000002] = {id = 29000002, name = (PUtil.get)(84111102), goods_icon = "ItemIcon:29000002", type = 1, quality = 4, remark = (PUtil.get)(84111002), des = (PUtil.get)(84111202), icon = "Title:29000002", date = -2, sort = 9, add_attr = "0", passive_buff_list = "47005001,47005011,47005021", attr_des = "84110000:84110008,84110001:84110003,84110002:84110003"}
+, 
+[29000003] = {id = 29000003, name = (PUtil.get)(84111103), goods_icon = "ItemIcon:29000003", type = 1, quality = 4, remark = (PUtil.get)(84111003), des = (PUtil.get)(84111203), icon = "Title:29000003", date = -2, sort = 8, add_attr = "0", passive_buff_list = "47005002,47005012,47005022", attr_des = "84110000:84110009,84110001:84110004,84110002:84110004"}
+, 
+[29000004] = {id = 29000004, name = (PUtil.get)(84111104), goods_icon = "ItemIcon:29000004", type = 1, quality = 4, remark = (PUtil.get)(84111004), des = (PUtil.get)(84111204), icon = "Title:29000004", date = -2, sort = 7, add_attr = "0", passive_buff_list = "47005003,47005013,47005023", attr_des = "84110000:84110010,84110001:84110005,84110002:84110005"}
+, 
+[29000005] = {id = 29000005, name = (PUtil.get)(84111105), goods_icon = "ItemIcon:29000005", type = 1, quality = 3, remark = (PUtil.get)(84111005), des = (PUtil.get)(84111205), icon = "Title:29000005", date = -2, sort = 6, add_attr = "0", passive_buff_list = "47005003,47005013", attr_des = "84110000:84110010,84110001:84110005"}
+, 
+[29000006] = {id = 29000006, name = (PUtil.get)(84111106), goods_icon = "ItemIcon:29000006", type = 1, quality = 3, remark = (PUtil.get)(84111006), des = (PUtil.get)(84111206), icon = "Title:29000006", date = -2, sort = 5, add_attr = "0", passive_buff_list = "47005004,47005014", attr_des = "84110000:84110011,84110001:84110006"}
+, 
+[29000007] = {id = 29000007, name = (PUtil.get)(84111107), goods_icon = "ItemIcon:29000007", type = 1, quality = 2, remark = (PUtil.get)(84111007), des = (PUtil.get)(84111207), icon = "Title:29000007", date = -2, sort = 4, add_attr = "0", passive_buff_list = "47005004", attr_des = "84110000:84110011"}
+, 
+[29000008] = {id = 29000008, name = (PUtil.get)(84111108), goods_icon = "ItemIcon:29000008", type = 1, quality = 2, remark = (PUtil.get)(84111008), des = (PUtil.get)(84111208), icon = "Title:29000008", date = -2, sort = 3, add_attr = "0", passive_buff_list = "47005005", attr_des = "84110000:84110005"}
+, 
+[29000009] = {id = 29000009, name = (PUtil.get)(84111109), goods_icon = "ItemIcon:29000009", type = 1, quality = 1, remark = (PUtil.get)(84111009), des = (PUtil.get)(84111209), icon = "Title:29000009", date = -2, sort = 2, add_attr = "0"}
 }
-return BasePlayerTitleData
 

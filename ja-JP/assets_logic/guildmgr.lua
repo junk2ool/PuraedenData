@@ -137,30 +137,39 @@ GuildMgr.RecvGuildDetailInfo = function(msg, ...)
   -- DECOMPILER ERROR at PC26: Confused about usage of register: R1 in 'UnsetPending'
 
   GuildData.LogInfos = msg.logList
+  -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+
+  GuildData.GuildBossSummaryInfo = msg.warInfo
   local pos = {}
   local data = nil
   local count = #(GuildData.BaseInfo).members
-  -- DECOMPILER ERROR at PC34: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC37: Confused about usage of register: R4 in 'UnsetPending'
 
   GuildData.ViceLeaderCount = 0
   for i = 1, count do
     data = ((GuildData.BaseInfo).members)[i]
     pos[data.objectindex] = data.post
-    -- DECOMPILER ERROR at PC56: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC59: Confused about usage of register: R8 in 'UnsetPending'
 
     if data.post == (ProtoEnum.GUILD_POST).VICE_LEADER_POST then
       GuildData.ViceLeaderCount = GuildData.ViceLeaderCount + 1
     end
-    -- DECOMPILER ERROR at PC65: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC68: Confused about usage of register: R8 in 'UnsetPending'
 
     if data.objectindex == (ActorData.GetPlayerIndex)() then
       GuildData.SelfPosition = data.post
     end
   end
-  -- DECOMPILER ERROR at PC69: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC72: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   (GuildData.BaseInfo).members = pos
+  -- DECOMPILER ERROR at PC75: Confused about usage of register: R4 in 'UnsetPending'
+
+  GuildData.IsImpeach = msg.impeach
+  -- DECOMPILER ERROR at PC78: Confused about usage of register: R4 in 'UnsetPending'
+
+  GuildData.Organizer = msg.organizer
   if _openGuildUI then
     _openGuildUI = false
     if UIMgr:IsWindowOpen((WinResConfig.GuildNonpartyWindow).name) then
@@ -171,6 +180,20 @@ GuildMgr.RecvGuildDetailInfo = function(msg, ...)
     (ChatService.ReqGetGuildChat)()
   end
 )
+    if UIMgr:IsWindowOpen((WinResConfig.GuildMainWindow).name) and msg.impeach == 2 then
+      if (GuideMgr.IsPlayPictureGuide)((WinResConfig.GuildMainWindow).name) then
+        UIMgr:SetOnHideComplete((WinResConfig.GuidePictureWindow).name, function(...)
+    -- function num : 0_6_1 , upvalues : _ENV
+    (GuildService.ReqImpeachData)()
+  end
+)
+      else
+        ;
+        (GuildService.ReqImpeachData)()
+      end
+    end
+  else
+    UIMgr:SendWindowMessage((WinResConfig.GuildMainWindow).name, (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_WAR)
   end
 end
 
@@ -533,6 +556,21 @@ GuildMgr.KickOutMember = function(memberInfo, ...)
     (MessageMgr.SendCenterTips)((PUtil.get)(60000318))
     return 
   end
+  if (GuildData.GuildBossSummaryInfo).status == (ProtoEnum.GUILD_WAR_STATUS).CHALLENGE then
+    (MessageMgr.SendCenterTipsByWordID)(20000557)
+    return 
+  end
+  if GuildData.IsImpeach == 2 or GuildData.IsImpeach == 3 then
+    if GuildData.SelfPosition == (ProtoEnum.GUILD_POST).LEADER_POST then
+      (MessageMgr.SendCenterTipsByWordID)(20000624)
+      return 
+    else
+      if GuildData.Organizer == memberInfo.objectindex then
+        (MessageMgr.SendCenterTipsByWordID)(20000625)
+        return 
+      end
+    end
+  end
   ;
   (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000502, memberInfo.name), function(...)
     -- function num : 0_23_0 , upvalues : _ENV, memberInfo
@@ -672,7 +710,7 @@ end
 -- DECOMPILER ERROR at PC97: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RecvGuildBuild = function(data, ...)
-  -- function num : 0_29 , upvalues : _ENV, _requesting
+  -- function num : 0_29 , upvalues : _ENV, _currentPanel, _requesting
   (GuildData.UpdateGuildBuildingInfo)(data.buildingGuild, data.type)
   local count = #data.goods
   for i = 1, count do
@@ -684,11 +722,30 @@ GuildMgr.RecvGuildBuild = function(data, ...)
     guildExp.Num = (((TableData.gTable).BaseGuildBuildData)[(GuildData.BuildConfig)[data.param]]).guild_exp
     ;
     (MessageMgr.OpenItemBuyTipsWindowBySingle)(guildExp)
+    -- DECOMPILER ERROR at PC53: Confused about usage of register: R3 in 'UnsetPending'
+
+    if data.guildLv ~= nil then
+      (GuildData.BaseInfo).level = data.guildLv
+    end
+    -- DECOMPILER ERROR at PC60: Confused about usage of register: R3 in 'UnsetPending'
+
+    if data.guildExp ~= nil then
+      (GuildData.BaseInfo).exp = data.guildExp
+    end
+    -- DECOMPILER ERROR at PC67: Confused about usage of register: R3 in 'UnsetPending'
+
+    if data.guildAct ~= nil then
+      (GuildData.BaseInfo).activation = data.guildAct
+    end
+    ;
+    (GuildMgr.InitLevelInfo)(_currentPanel)
+    ;
+    (GuildMgr.InitVigourInfo)(_currentPanel)
   else
     do
       if data.type == GuildBuildOperateType.AcquireRewards then
         loge("recv:" .. data.param)
-        -- DECOMPILER ERROR at PC62: Confused about usage of register: R2 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC91: Confused about usage of register: R2 in 'UnsetPending'
 
         ;
         ((GuildData.BuildingInfo).RewardStatus)[data.param] = true
@@ -822,6 +879,11 @@ end
 
 GuildMgr.TryDissolveGuild = function(...)
   -- function num : 0_37 , upvalues : _ENV
+  if (GuildData.GuildBossSummaryInfo).status == (ProtoEnum.GUILD_WAR_STATUS).CHALLENGE then
+    (MessageMgr.SendCenterTipsByWordID)(20000556)
+    return 
+  end
+  ;
   (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000276), function(...)
     -- function num : 0_37_0 , upvalues : _ENV
     OpenWindow((WinResConfig.GuildDissolveWindow).name, UILayer.HUD)
@@ -845,6 +907,15 @@ end
 
 GuildMgr.ReqQuitGuild = function(...)
   -- function num : 0_39 , upvalues : _ENV
+  if (GuildData.GuildBossSummaryInfo).status == (ProtoEnum.GUILD_WAR_STATUS).CHALLENGE then
+    (MessageMgr.SendCenterTipsByWordID)(20000556)
+    return 
+  else
+    if GuildData.Organizer and GuildData.Organizer == (ActorData.GetPlayerIndex)() then
+      (MessageMgr.SendCenterTipsByWordID)(20000622)
+      return 
+    end
+  end
   local quitCD = (((TableData.gTable).BaseFixedData)[GuildData.QUIT_GUILD_CD]).int_value
   ;
   (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000275, (LuaTime.GetLeftTimeString)(-quitCD, true)), function(...)
@@ -1221,6 +1292,35 @@ GuildMgr.InitQuitBtn = function(panel, ...)
     ;
     ((panel.OutBtn).onClick):Set(GuildMgr.ReqQuitGuild)
   end
+  -- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
+
+  if GuildData.IsImpeach == 2 or GuildData.IsImpeach == 3 then
+    (panel.ImpeachBtn).text = (PUtil.get)(20000614)
+  else
+    -- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    (panel.ImpeachBtn).text = (PUtil.get)(20000615)
+  end
+  ;
+  ((panel.ImpeachBtn).onClick):Set(function(...)
+    -- function num : 0_57_0 , upvalues : _ENV
+    if GuildData.IsImpeach == 0 then
+      (MessageMgr.SendCenterTipsByWordID)(20000619)
+    else
+      if GuildData.IsImpeach == 1 then
+        (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000616), function(...)
+      -- function num : 0_57_0_0 , upvalues : _ENV
+      (GuildService.ReqImpeachData)()
+    end
+, nil, (PUtil.get)(20000617), (PUtil.get)(20000615), (PUtil.get)(20000618))
+      else
+        ;
+        (GuildService.ReqImpeachData)()
+      end
+    end
+  end
+)
 end
 
 -- DECOMPILER ERROR at PC184: Confused about usage of register: R6 in 'UnsetPending'

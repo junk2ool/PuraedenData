@@ -8,17 +8,19 @@ local argTable = {}
 local winType = {Main = 1, Branch = 2, Activity = 3}
 local OpenType = winType.Main
 local listData = {}
+local isInit = true
 HandBookAlbumWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, HandBookAlbumWindow
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, isInit, uis, HandBookAlbumWindow
   bridgeObj:SetView((WinResConfig.HandBookAlbumWindow).package, (WinResConfig.HandBookAlbumWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
+  isInit = true
   uis = GetHandBook_AlbumUis(contentPane)
   ;
   (HandBookAlbumWindow.InitAssetStrip)()
   ;
   (HandBookAlbumWindow.InitBtn)()
-  -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.AlbumCGList).CGList).itemRenderer = HandBookAlbumWindow.ListRender
@@ -26,6 +28,12 @@ HandBookAlbumWindow.OnInit = function(bridgeObj, ...)
   ((uis.AlbumCGList).CGList):SetBeginAnim(false, "up", 0.05, 0.05, true)
   ;
   ((uis.AlbumCGList).CGList):SetVirtual()
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  ((uis.AlbumActivityCG).CGList).itemRenderer = HandBookAlbumWindow.SetActivityListRender
+  ;
+  ((uis.AlbumActivityCG).CGList):SetVirtual()
   ;
   (HandBookAlbumWindow.BindingUI)()
   ;
@@ -110,6 +118,7 @@ HandBookAlbumWindow.RefreshList = function(...)
   -- function num : 0_5 , upvalues : listData, _ENV, OpenType, winType, uis, HandBookAlbumWindow
   listData = {}
   local data = (TableData.gTable).BaseHandbookCGData
+  local activityList = {}
   for _,v in pairs(data) do
     if tonumber(v.type) == OpenType then
       if OpenType == winType.Branch then
@@ -119,42 +128,91 @@ HandBookAlbumWindow.RefreshList = function(...)
         end
       else
         do
+          if not v.open_time then
+            local configTime = OpenType ~= winType.Activity or 0
+          end
+          local serverTime = (LuaTime.GetTimeStamp)()
+          local isSatisfy = tonumber(configTime) <= tonumber(serverTime)
           do
-            if OpenType == winType.Activity then
-              (table.insert)(listData, v)
-            else
+            do
+              if isSatisfy then
+                local activity_sort = v.activity_sort
+                if activityList[activity_sort] == nil then
+                  activityList[activity_sort] = {}
+                end
+                ;
+                (table.insert)(activityList[activity_sort], v)
+              end
               if OpenType == winType.Main then
                 (table.insert)(listData, v)
               end
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out DO_STMT
+
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out DO_STMT
+
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_STMT
+
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_STMT
+
             end
-            -- DECOMPILER ERROR at PC54: LeaveBlock: unexpected jumping out DO_STMT
-
-            -- DECOMPILER ERROR at PC54: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-            -- DECOMPILER ERROR at PC54: LeaveBlock: unexpected jumping out IF_STMT
-
-            -- DECOMPILER ERROR at PC54: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-            -- DECOMPILER ERROR at PC54: LeaveBlock: unexpected jumping out IF_STMT
-
           end
         end
       end
     end
   end
-  ;
-  (table.sort)(listData, function(a, b, ...)
+  if OpenType == winType.Activity then
+    for i,v in pairs(activityList) do
+      local mList = v
+      ;
+      (table.sort)(mList, function(a, b, ...)
     -- function num : 0_5_0
     do return a.id < b.id end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  -- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+      ;
+      (table.insert)(listData, {sort = i, list = mList})
+    end
+    ;
+    (table.sort)(listData, function(a, b, ...)
+    -- function num : 0_5_1
+    do return a.sort < b.sort end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+    -- DECOMPILER ERROR at PC114: Confused about usage of register: R2 in 'UnsetPending'
 
-  ;
-  ((uis.AlbumCGList).CGList).numItems = #listData
+    ;
+    ((uis.AlbumActivityCG).CGList).numItems = #listData
+    -- DECOMPILER ERROR at PC116: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (uis.c1Ctr).selectedIndex = 1
+    ;
+    (((uis.AlbumActivityCG).CGList).scrollPane):ScrollBottom()
+  else
+    (table.sort)(listData, function(a, b, ...)
+    -- function num : 0_5_2
+    do return a.id < b.id end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+    -- DECOMPILER ERROR at PC132: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    ((uis.AlbumCGList).CGList).numItems = #listData
+    -- DECOMPILER ERROR at PC134: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (uis.c1Ctr).selectedIndex = 0
+  end
   ;
   (HandBookAlbumWindow.SetCollectionNum)()
+  -- DECOMPILER ERROR: 7 unprocessed JMP targets
 end
 
 HandBookAlbumWindow.CheckRedDot = function(...)
@@ -194,8 +252,83 @@ HandBookAlbumWindow.CheckIsContainNew = function(...)
   return false
 end
 
+HandBookAlbumWindow.SetActivityListRender = function(index, obj, ...)
+  -- function num : 0_9 , upvalues : listData, _ENV, isInit
+  local data = listData[index + 1]
+  local AlbumList = data.list
+  local mList = obj:GetChild("CGList")
+  mList:RemoveChildrenToPool()
+  local possessTime = 0
+  local activity_name = nil
+  for i,v in ipairs(AlbumList) do
+    do
+      local album = mList:AddItemFromPool()
+      if isInit then
+        album.alpha = 0
+        ;
+        (SimpleTimer.setTimeout)(0.05 * i, function(...)
+    -- function num : 0_9_0 , upvalues : album, _ENV
+    album.alpha = 1
+    PlayUITrans(album, "up", nil)
+  end
+)
+      end
+      local isGet, isNew = (HandBookMgr.GetAlbumState)(v.id)
+      local albumObj = album:GetChild("AlbumCG")
+      local model = GetHandBook_AlbumCGUis(albumObj)
+      ;
+      (albumObj:GetChild("IconImage")).url = (Util.GetItemUrl)(v.icon)
+      ChangeUIController(albumObj, "c2", 0)
+      -- DECOMPILER ERROR at PC56: Confused about usage of register: R17 in 'UnsetPending'
+
+      ;
+      (model.NumberTxt).text = "No." .. (string.format)("%03d", v.index)
+      -- DECOMPILER ERROR at PC61: Confused about usage of register: R17 in 'UnsetPending'
+
+      if isGet then
+        (model.WordTxt).text = v.name
+      end
+      if isGet then
+        possessTime = possessTime + 1
+        ChangeUIController(albumObj, "c1", 0)
+      else
+        ChangeUIController(albumObj, "c1", 1)
+      end
+      if isNew then
+        ChangeUIController(albumObj, "c3", 0)
+      else
+        ChangeUIController(albumObj, "c3", 1)
+      end
+      ;
+      (albumObj.onClick):Set(function(...)
+    -- function num : 0_9_1 , upvalues : isGet, isNew, _ENV, v, albumObj
+    if isGet then
+      if isNew then
+        (HandBookService.OnReqOpenCG)(v.id)
+        ChangeUIController(albumObj, "c3", 1)
+      end
+      ;
+      (CommonWinMgr.OpenCGShow)(v.id, false)
+    else
+      ;
+      (MessageMgr.SendCenterTips)((PUtil.get)(20000507))
+    end
+  end
+)
+      activity_name = v.activity_name
+    end
+  end
+  mList.height = (math.ceil)(#AlbumList / 4) * 170
+  if possessTime > 0 then
+    (obj:GetChild("NumberTxt")).text = activity_name .. "  [color=#3dffbd]" .. possessTime .. "[/color]/" .. #AlbumList
+  else
+    ;
+    (obj:GetChild("NumberTxt")).text = activity_name .. "  " .. possessTime .. "/" .. #AlbumList
+  end
+end
+
 HandBookAlbumWindow.ListRender = function(index, obj, ...)
-  -- function num : 0_9 , upvalues : listData, _ENV, OpenType, winType
+  -- function num : 0_10 , upvalues : listData, _ENV, OpenType, winType
   local data = listData[index + 1]
   local isGet, isNew = nil, nil
   obj = obj:GetChild("AlbumCG")
@@ -233,7 +366,7 @@ HandBookAlbumWindow.ListRender = function(index, obj, ...)
     end
     ;
     (obj.onClick):Set(function(...)
-    -- function num : 0_9_0 , upvalues : isGet, isNew, _ENV, data, obj, OpenType, winType
+    -- function num : 0_10_0 , upvalues : isGet, isNew, _ENV, data, obj, OpenType, winType
     if isGet then
       if isNew then
         (HandBookService.OnReqOpenCG)(data.id)
@@ -255,15 +388,15 @@ HandBookAlbumWindow.ListRender = function(index, obj, ...)
 end
 
 HandBookAlbumWindow.OnHide = function(...)
-  -- function num : 0_10
+  -- function num : 0_11
 end
 
 HandBookAlbumWindow.InitBtn = function(...)
-  -- function num : 0_11 , upvalues : uis, _ENV, OpenType, winType, HandBookAlbumWindow
+  -- function num : 0_12 , upvalues : uis, _ENV, OpenType, winType, HandBookAlbumWindow, isInit
   (((uis.AlbumPanelGrp).MuJianBtn):GetChild("NameTxt")).text = (PUtil.get)(20000253)
   ;
   (((uis.AlbumPanelGrp).MuJianBtn).onClick):Set(function(...)
-    -- function num : 0_11_0 , upvalues : OpenType, winType, HandBookAlbumWindow
+    -- function num : 0_12_0 , upvalues : OpenType, winType, HandBookAlbumWindow
     OpenType = winType.Main
     ;
     (HandBookAlbumWindow.RefreshList)()
@@ -275,18 +408,25 @@ HandBookAlbumWindow.InitBtn = function(...)
   (((uis.AlbumPanelGrp).ShouXinBtn):GetChild("NameTxt")).text = (PUtil.get)(20000506)
   ;
   (((uis.AlbumPanelGrp).ShouXinBtn).onClick):Set(function(...)
-    -- function num : 0_11_1 , upvalues : OpenType, winType, HandBookAlbumWindow
+    -- function num : 0_12_1 , upvalues : OpenType, winType, isInit, HandBookAlbumWindow, _ENV
     OpenType = winType.Activity
+    isInit = true
     ;
     (HandBookAlbumWindow.RefreshList)()
     ;
     (HandBookAlbumWindow.CheckRedDot)()
+    ;
+    (SimpleTimer.setTimeout)(0.01, function(...)
+      -- function num : 0_12_1_0 , upvalues : isInit
+      isInit = false
+    end
+)
   end
 )
 end
 
 HandBookAlbumWindow.OnClose = function(...)
-  -- function num : 0_12 , upvalues : _ENV, uis, contentPane, argTable, listData
+  -- function num : 0_13 , upvalues : _ENV, uis, contentPane, argTable, listData
   (CommonWinMgr.RemoveAssets)((WinResConfig.HandBookAlbumWindow).name)
   uis = nil
   contentPane = nil
@@ -295,7 +435,7 @@ HandBookAlbumWindow.OnClose = function(...)
 end
 
 HandBookAlbumWindow.InitAssetStrip = function(...)
-  -- function num : 0_13 , upvalues : _ENV, uis, OpenType, winType
+  -- function num : 0_14 , upvalues : _ENV, uis, OpenType, winType
   local m = {}
   m.windowName = (WinResConfig.HandBookAlbumWindow).name
   m.Tip = (PUtil.get)(20000132)
@@ -303,7 +443,7 @@ HandBookAlbumWindow.InitAssetStrip = function(...)
   m.closeToWindow = (WinResConfig.HandBookMainWindow).name
   m.moneyTypes = {}
   m.CloseBtnFun = function(...)
-    -- function num : 0_13_0 , upvalues : OpenType, winType
+    -- function num : 0_14_0 , upvalues : OpenType, winType
     OpenType = winType.Album
   end
 
@@ -312,7 +452,7 @@ HandBookAlbumWindow.InitAssetStrip = function(...)
 end
 
 HandBookAlbumWindow.GetIDIndex = function(id, ...)
-  -- function num : 0_14 , upvalues : _ENV, listData
+  -- function num : 0_15 , upvalues : _ENV, listData
   for i,v in ipairs(listData) do
     if v.id == id then
       return i
@@ -321,7 +461,7 @@ HandBookAlbumWindow.GetIDIndex = function(id, ...)
 end
 
 HandBookAlbumWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_15 , upvalues : HandBookAlbumWindow, uis, _ENV
+  -- function num : 0_16 , upvalues : HandBookAlbumWindow, uis, _ENV
   if msgId == 1 then
     (HandBookAlbumWindow.RefreshList)()
   else

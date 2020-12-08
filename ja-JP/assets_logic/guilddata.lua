@@ -133,6 +133,15 @@ GuildData.KickOutMemberName = ""
 GuildData.MemberCards = {}
 -- DECOMPILER ERROR at PC155: Confused about usage of register: R0 in 'UnsetPending'
 
+GuildData.GuildBossSummaryInfo = {}
+-- DECOMPILER ERROR at PC157: Confused about usage of register: R0 in 'UnsetPending'
+
+GuildData.IsImpeach = 0
+-- DECOMPILER ERROR at PC159: Confused about usage of register: R0 in 'UnsetPending'
+
+GuildData.Organizer = ""
+-- DECOMPILER ERROR at PC162: Confused about usage of register: R0 in 'UnsetPending'
+
 GuildData.AddItemToApplyList = function(id, ...)
   -- function num : 0_0 , upvalues : _ENV
   local count = #GuildData.GuildList
@@ -170,7 +179,7 @@ GuildData.AddItemToApplyList = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC158: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC165: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.RemoveItemFromApplyList = function(id, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -184,7 +193,7 @@ GuildData.RemoveItemFromApplyList = function(id, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC161: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC168: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitRewardData = function(...)
   -- function num : 0_2 , upvalues : _ENV
@@ -208,7 +217,7 @@ GuildData.InitRewardData = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC164: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC171: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitVigourConfig = function(...)
   -- function num : 0_3 , upvalues : _ENV
@@ -239,7 +248,7 @@ GuildData.InitVigourConfig = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC167: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC174: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitShowChats = function(chatData, ...)
   -- function num : 0_4 , upvalues : _ENV
@@ -312,7 +321,7 @@ GuildData.InitShowChats = function(chatData, ...)
   end
 end
 
--- DECOMPILER ERROR at PC170: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC177: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitEmojiList = function(...)
   -- function num : 0_5 , upvalues : _ENV
@@ -362,7 +371,7 @@ GuildData.InitEmojiList = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC173: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC180: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.AddEmojiToOftenList = function(id, ...)
   -- function num : 0_6 , upvalues : _ENV
@@ -421,7 +430,7 @@ GuildData.AddEmojiToOftenList = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC176: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC183: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.IsContainExpressionGroup = function(id, ...)
   -- function num : 0_7 , upvalues : _ENV
@@ -433,7 +442,7 @@ GuildData.IsContainExpressionGroup = function(id, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC179: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC186: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitMemberList = function(memberList, ...)
   -- function num : 0_8 , upvalues : _ENV
@@ -469,7 +478,7 @@ GuildData.InitMemberList = function(memberList, ...)
   end
 end
 
--- DECOMPILER ERROR at PC182: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC189: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitGuildPositionRights = function(...)
   -- function num : 0_9 , upvalues : _ENV
@@ -483,14 +492,14 @@ GuildData.InitGuildPositionRights = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC185: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC192: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.GetPositionName = function(position, ...)
   -- function num : 0_10 , upvalues : _ENV
   return (PUtil.get)(60000223 + position)
 end
 
--- DECOMPILER ERROR at PC188: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC195: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.GetPositionUIIndex = function(position, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -505,7 +514,7 @@ GuildData.GetPositionUIIndex = function(position, ...)
   end
 end
 
--- DECOMPILER ERROR at PC191: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC198: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitGuildLevelConfig = function(...)
   -- function num : 0_12 , upvalues : _ENV
@@ -519,7 +528,7 @@ GuildData.InitGuildLevelConfig = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC194: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC201: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitBuildConfig = function(...)
   -- function num : 0_13 , upvalues : _ENV
@@ -533,7 +542,7 @@ GuildData.InitBuildConfig = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC197: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC204: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.InitGuildBadgeConfig = function(...)
   -- function num : 0_14 , upvalues : _ENV
@@ -545,7 +554,7 @@ GuildData.InitGuildBadgeConfig = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC200: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC207: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.UpdateGuildBuildingInfo = function(data, appendType, ...)
   -- function num : 0_15 , upvalues : _ENV
@@ -591,7 +600,7 @@ GuildData.UpdateGuildBuildingInfo = function(data, appendType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC203: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC210: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.CheckBuildingRewardAvailable = function(...)
   -- function num : 0_16 , upvalues : _ENV
@@ -611,14 +620,14 @@ GuildData.CheckBuildingRewardAvailable = function(...)
   return false
 end
 
--- DECOMPILER ERROR at PC206: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC213: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.GetSelfRights = function(...)
   -- function num : 0_17 , upvalues : _ENV
   return ((TableData.gTable).BaseGuildJobData)[(GuildData.PositionRights)[GuildData.SelfPosition]]
 end
 
--- DECOMPILER ERROR at PC209: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC216: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildData.GetGuildIcon = function(icon, ...)
   -- function num : 0_18 , upvalues : _ENV

@@ -9,7 +9,7 @@ local s_find = string.find
 local split = split
 -- DECOMPILER ERROR at PC12: Confused about usage of register: R6 in 'UnsetPending'
 
-BattleSkill.GetAllBuff = function(atkCard, defCards, skillConfig, ...)
+BattleSkill.GetAllBuff = function(atkCard, defCards, skillConfig, atkInfo, ...)
   -- function num : 0_0 , upvalues : _ENV
   if skillConfig == nil then
     return 
@@ -19,7 +19,7 @@ BattleSkill.GetAllBuff = function(atkCard, defCards, skillConfig, ...)
     local buff_list = skillConfig.buff_list
     local random = (BattleData.GetRandomSeed)()
     if random <= buff_odds then
-      return (BattleSkill.GetAllBuffByBuffList)(atkCard, defCards, buff_list, skillConfig)
+      return (BattleSkill.GetAllBuffByBuffList)(atkCard, defCards, buff_list, skillConfig, atkInfo)
     end
   end
   do
@@ -29,7 +29,7 @@ end
 
 -- DECOMPILER ERROR at PC15: Confused about usage of register: R6 in 'UnsetPending'
 
-BattleSkill.GetAllBuffByBuffList = function(atkCard, defCards, buff_list, skillConfig, ...)
+BattleSkill.GetAllBuffByBuffList = function(atkCard, defCards, buff_list, skillConfig, atkInfo, ...)
   -- function num : 0_1 , upvalues : s_find, split, ipairs, tonumber, t_insert, pairs, _ENV
   if s_find(buff_list, ":") == nil then
     return {}
@@ -59,18 +59,18 @@ BattleSkill.GetAllBuffByBuffList = function(atkCard, defCards, buff_list, skillC
     local random = (BattleData.GetRandomSeed)()
     for _,groupBuff in ipairs(groupBuffs) do
       if random <= totalProp + groupBuff.prob then
-        local buff = (BattleBuff.Initial)(atkCard, defCards, groupBuff.id, groupBuff.targetId, skillConfig)
+        local buff = (BattleBuff.Initial)(atkCard, defCards, groupBuff.id, groupBuff.targetId, skillConfig, atkInfo)
         t_insert(activeBuffTable, buff)
         break
       else
         do
           do
             totalProp = totalProp + groupBuff.prob
-            -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out DO_STMT
+            -- DECOMPILER ERROR at PC81: LeaveBlock: unexpected jumping out DO_STMT
 
-            -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+            -- DECOMPILER ERROR at PC81: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-            -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_STMT
+            -- DECOMPILER ERROR at PC81: LeaveBlock: unexpected jumping out IF_STMT
 
           end
         end

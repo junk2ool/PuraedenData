@@ -75,7 +75,11 @@ ShowHurtNum = function(hurt_type, num, bindObject, ...)
                 return 
               else
                 if hurt_type == HurtNumType.KEEP_ALIVE then
-                  ShowBuffWord(BattleBuffWordType.KEEP_ALIVE, bindObject)
+                  if (BattleBuff.ContainEffectId)(bindObject, BattleDisplayEffect.LIKE_ALIVE) then
+                    ShowBuffWord(BattleBuffWordType.UNYIELDING, bindObject)
+                  else
+                    ShowBuffWord(BattleBuffWordType.KEEP_ALIVE, bindObject)
+                  end
                   return 
                 else
                   if hurt_type == HurtNumType.UNTREATMENT then
@@ -95,6 +99,13 @@ ShowHurtNum = function(hurt_type, num, bindObject, ...)
       end
     end
   end
+  if bindObject == nil then
+    return 
+  end
+  local model = bindObject:GetModel()
+  if model == nil or model.activeSelf == false then
+    return 
+  end
   local hurtObject, text = nil, nil
   hurtObject = (BattleHurtNum.GetHurtNumRes)(hurt_type)
   if text then
@@ -113,7 +124,7 @@ ShowHurtNum = function(hurt_type, num, bindObject, ...)
   if skillCamera and skillCamera.activeSelf == true then
     camera = skillCamera:GetComponent("Camera")
   end
-  local pt = ((CS.TransformExtensionOrigin).Get3DPositionToUIPosition)(bindObject:GetModel(), camera, comp)
+  local pt = ((CS.TransformExtensionOrigin).Get3DPositionToUIPosition)(model, camera, comp)
   hurtObject:SetXY((Umath.RoundToInt)(pt.x) + random(-10, 10), (Umath.RoundToInt)(pt.y - 200) + random(-10, 10))
   local trans = hurtObject:GetTransition("NumberUpAni")
   if trans then
@@ -132,7 +143,8 @@ ShowStateWord = function(path, num, bindObject, ...)
   if bindObject == nil then
     return 
   end
-  if bindObject:GetModel() == nil then
+  local model = bindObject:GetModel()
+  if model == nil or model.activeSelf == false then
     return 
   end
   local resStr = ""
@@ -167,11 +179,11 @@ ShowStateWord = function(path, num, bindObject, ...)
     return 
   end
   local wordUrl = (Util.GetItemUrl)(path)
-  -- DECOMPILER ERROR at PC65: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC68: Confused about usage of register: R9 in 'UnsetPending'
 
   ;
   (comp.StateLoader).url = wordUrl
-  -- DECOMPILER ERROR at PC74: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC77: Confused about usage of register: R9 in 'UnsetPending'
 
   ;
   (comp.NumberTxt).text = (math.floor)((math.abs)(num))
@@ -184,7 +196,7 @@ ShowStateWord = function(path, num, bindObject, ...)
   if skillCamera and skillCamera.activeSelf == true then
     camera = skillCamera:GetComponent("Camera")
   end
-  local pt = ((CS.TransformExtensionOrigin).Get3DPositionToUIPosition)(bindObject:GetModel(), camera, comp)
+  local pt = ((CS.TransformExtensionOrigin).Get3DPositionToUIPosition)(model, camera, comp)
   wordObject:SetXY((Umath.RoundToInt)(pt.x) + random(-10, 10), (Umath.RoundToInt)(pt.y - 200) + random(-10, 10))
   local trans = wordObject:GetTransition("in")
   if trans then
@@ -200,10 +212,17 @@ end
 
 ShowBuffWord = function(path, bindObject, ...)
   -- function num : 0_4 , upvalues : battleHurtObjectPool, _ENV, random
+  if bindObject == nil then
+    return 
+  end
+  local model = bindObject:GetModel()
+  if model == nil or model.activeSelf == false then
+    return 
+  end
   local wordObject = battleHurtObjectPool:GetObject((Util.GetItemUrl)("Battle:BuffWord"))
   local uis = GetBattle_BuffWordUis(wordObject)
   local wordUrl = (Util.GetItemUrl)(path)
-  -- DECOMPILER ERROR at PC15: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC26: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (uis.BattleWordLoader).url = wordUrl
@@ -216,7 +235,7 @@ ShowBuffWord = function(path, bindObject, ...)
   if skillCamera and skillCamera.activeSelf == true then
     camera = skillCamera:GetComponent("Camera")
   end
-  local pt = ((CS.TransformExtensionOrigin).Get3DPositionToUIPosition)(bindObject:GetModel(), camera, comp)
+  local pt = ((CS.TransformExtensionOrigin).Get3DPositionToUIPosition)(model, camera, comp)
   wordObject:SetXY((Umath.RoundToInt)(pt.x) + random(-10, 10), (Umath.RoundToInt)(pt.y - 200) + random(-10, 10))
   local trans = wordObject:GetTransition("in")
   if trans then

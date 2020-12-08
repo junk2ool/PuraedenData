@@ -87,7 +87,7 @@ BattleDataCount.InsertPreBattleCount = function(...)
       end
     end
   end
-  local dealPreBuff = function(card, randomBuffs, ...)
+  local dealPreBuff = function(card, randomBuffs, noAtkPos, ...)
     -- function num : 0_0_0 , upvalues : ipairs, _ENV, tonumber, clone, BattleBuffMgr
     for _,randomBuff in ipairs(randomBuffs) do
       local eventConfig = ((TableData.gTable).BaseBuffPreBattleData)[tonumber(randomBuff)]
@@ -102,8 +102,19 @@ BattleDataCount.InsertPreBattleCount = function(...)
             if targetCard and targetCard:IsDead() ~= true then
               local buffClone = clone(buff)
               buffClone:SetCurDefPos(targetCard:GetPosIndex())
-              ;
-              (BattleBuffMgr.AddTempBuffToList)(buffClone)
+              if noAtkPos == true then
+                do
+                  (BattleBuffMgr.AddTempBuffToList)(buffClone)
+                  -- DECOMPILER ERROR at PC53: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC53: LeaveBlock: unexpected jumping out IF_STMT
+
+                  -- DECOMPILER ERROR at PC53: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC53: LeaveBlock: unexpected jumping out IF_STMT
+
+                end
+              end
             end
           end
         end
@@ -111,15 +122,20 @@ BattleDataCount.InsertPreBattleCount = function(...)
     end
   end
 
+  local leftCard, rightCard = nil, nil
   local allCard = (BattleData.GetAllCardList)()
   for _,v in ipairs(allCard) do
-    if BattleData.curWave <= 1 then
-      local equipInfo = v:GetEquipInfo()
-      if equipInfo then
-        for _,equip in ipairs(equipInfo) do
-          local randomBuffs = equip.randomBuff
-          dealPreBuff(v, randomBuffs)
-        end
+    if leftCard == nil and v:GetCampFlag() == BattleCardCamp.LEFT then
+      leftCard = v
+    end
+    if rightCard == nil and v:GetCampFlag() == BattleCardCamp.RIGHT then
+      rightCard = v
+    end
+    local equipInfo = v:GetEquipInfo()
+    if equipInfo then
+      for _,equip in ipairs(equipInfo) do
+        local randomBuffs = equip.randomBuff
+        dealPreBuff(v, randomBuffs)
       end
     end
     do
@@ -130,19 +146,45 @@ BattleDataCount.InsertPreBattleCount = function(...)
           loge("处理被动buff效果")
           dealPreBuff(v, randomBuffs)
         end
-        -- DECOMPILER ERROR at PC123: LeaveBlock: unexpected jumping out DO_STMT
+        -- DECOMPILER ERROR at PC136: LeaveBlock: unexpected jumping out DO_STMT
 
       end
     end
   end
-  ;
-  (self.DealActiveBuff)(nil, preBattleInfo, BattleBuffSettleRoundType.BEFORE_BATTLE)
-  ;
-  (self.UpdateBuffCount)(preBattleInfo, BattleBuffDeductionRoundType.BEFORE_BATTLE)
-  if IsBattleServer == nil then
-    (BattleData.SaveBattleProcess)("战前buff处理结束")
+  if BattleData.battleType ~= (ProtoEnum.E_BATTLE_TYPE).CG then
+    local teamATitle = BattleData.teamATitle
+    for _,titleId in ipairs(teamATitle) do
+      local titleConfig = ((TableData.gTable).BasePlayerTitleData)[titleId]
+      if titleConfig then
+        local passive_buff_list = titleConfig.passive_buff_list
+        if passive_buff_list and passive_buff_list ~= "" and passive_buff_list ~= "0" then
+          local randomBuffs = split(passive_buff_list, ",")
+          dealPreBuff(leftCard, randomBuffs, true)
+        end
+      end
+    end
+    local teamBTitle = BattleData.teamBTitle
+    for _,titleId in ipairs(teamBTitle) do
+      local titleConfig = ((TableData.gTable).BasePlayerTitleData)[titleId]
+      if titleConfig then
+        local passive_buff_list = titleConfig.passive_buff_list
+        if passive_buff_list and passive_buff_list ~= "" and passive_buff_list ~= "0" then
+          local randomBuffs = split(passive_buff_list, ",")
+          dealPreBuff(rightCard, randomBuffs, true)
+        end
+      end
+    end
   end
-  return preBattleInfo
+  do
+    ;
+    (self.DealActiveBuff)(nil, preBattleInfo, BattleBuffSettleRoundType.BEFORE_BATTLE)
+    ;
+    (self.UpdateBuffCount)(preBattleInfo, BattleBuffDeductionRoundType.BEFORE_BATTLE)
+    if IsBattleServer == nil then
+      (BattleData.SaveBattleProcess)("战前buff处理结束")
+    end
+    return preBattleInfo
+  end
 end
 
 -- DECOMPILER ERROR at PC148: Confused about usage of register: R47 in 'UnsetPending'
@@ -180,13 +222,15 @@ BattleDataCount.GetPreRoundCount = function(...)
   end
   ;
   (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY)
+  ;
+  (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.AFTER_DAMAGE)
   return preRoundInfo
 end
 
 -- DECOMPILER ERROR at PC151: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealActiveBuff = function(atkCard, atkInfo, settle_round_type, ...)
-  -- function num : 0_2 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffSettleRoundType, self, BattleBuffDeductionRoundType, BattleDisplayEffect
+  -- function num : 0_2 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffSettleRoundType, self, BattleBuffDeductionRoundType
   local tempBuffList = (BattleBuffMgr.GetTempBuffList)()
   local buffListBackUp = {}
   for i,v in ipairs(tempBuffList) do
@@ -197,44 +241,39 @@ BattleDataCount.DealActiveBuff = function(atkCard, atkInfo, settle_round_type, .
       local settleRoundType = tempBuff:GetSettleRoundType()
       local defCardPos = tempBuff:GetCurDefPos()
       local card = (BattleData.GetCardInfoByPos)(defCardPos)
-      -- DECOMPILER ERROR at PC62: Unhandled construct in 'MakeBoolean' P3
+      -- DECOMPILER ERROR at PC76: Unhandled construct in 'MakeBoolean' P3
 
-      -- DECOMPILER ERROR at PC62: Unhandled construct in 'MakeBoolean' P3
+      -- DECOMPILER ERROR at PC76: Unhandled construct in 'MakeBoolean' P3
 
-      if settleRoundType == settle_round_type or ((settle_round_type == BattleBuffSettleRoundType.BEFORE_ATTACK and settleRoundType == BattleBuffSettleRoundType.BEFORE_ACTION) or settle_round_type ~= BattleBuffSettleRoundType.AFTER_ATTACK or settle_round_type ~= BattleBuffSettleRoundType.BEFORE_SKILL or settle_round_type ~= BattleBuffSettleRoundType.AFTER_SKILL or settleRoundType == BattleBuffSettleRoundType.AFTER_ACTION) then
-        if card:IsDead() ~= true then
+      -- DECOMPILER ERROR at PC76: Unhandled construct in 'MakeBoolean' P3
+
+      if settleRoundType == settle_round_type or ((settle_round_type == BattleBuffSettleRoundType.BEFORE_ATTACK and settleRoundType == BattleBuffSettleRoundType.BEFORE_ACTION) or settle_round_type ~= BattleBuffSettleRoundType.AFTER_ATTACK or settle_round_type ~= BattleBuffSettleRoundType.BEFORE_SKILL or settle_round_type ~= BattleBuffSettleRoundType.AFTER_SKILL or settle_round_type == BattleBuffSettleRoundType.AFTER_DAMAGE and (settleRoundType == BattleBuffSettleRoundType.BEFORE_ROUND or settleRoundType == BattleBuffSettleRoundType.AFTER_ATTACK or settleRoundType == BattleBuffSettleRoundType.AFTER_SKILL)) then
+        if card and card:IsDead() ~= true then
           local canAdd = (self.DealAddBuff)(card, tempBuff, atkInfo)
           if canAdd == true then
             local deductionRoundType = tempBuff:GetDeductionRoundType()
             if deductionRoundType == BattleBuffDeductionRoundType.NOW then
               (self.RealUpdateBuffCount)(tempBuff, atkInfo, true)
             end
-            if atkCard then
-              if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.ATTRACT) == true then
-                (self.DealAttractBuff)(atkCard, atkInfo)
-              end
-              if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.TREATMENT_EXTRA) == true then
-                (self.DealTreatDirectBuff)(atkCard, atkInfo)
-              end
-              if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true then
-                (self.DealActiveDamageBuff)(atkCard, atkInfo)
-              end
-            end
+            ;
+            (BattleDataCount.DealEquipBuff)(atkCard, tempBuff, atkInfo)
+            ;
+            (BattleDataCount.DealEquipBuff)(card, tempBuff, atkInfo)
           end
         end
         do
           do
             ;
             (BattleBuffMgr.RemoveTempBuffFromList)(tempBuff)
-            -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out DO_STMT
+            -- DECOMPILER ERROR at PC103: LeaveBlock: unexpected jumping out DO_STMT
 
-            -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_THEN_STMT
+            -- DECOMPILER ERROR at PC103: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-            -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_STMT
+            -- DECOMPILER ERROR at PC103: LeaveBlock: unexpected jumping out IF_STMT
 
-            -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_THEN_STMT
+            -- DECOMPILER ERROR at PC103: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-            -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_STMT
+            -- DECOMPILER ERROR at PC103: LeaveBlock: unexpected jumping out IF_STMT
 
           end
         end
@@ -246,22 +285,39 @@ end
 
 -- DECOMPILER ERROR at PC154: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.DealAttractBuff = function(atkCard, atkInfo, ...)
-  -- function num : 0_3 , upvalues : self, BattleBuffDeductionRoundType
-  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.AFTER_ATTRACT, atkInfo)
+BattleDataCount.DealEquipBuff = function(atkCard, tempBuff, atkInfo, ...)
+  -- function num : 0_3 , upvalues : _ENV, BattleDisplayEffect, self
+  if atkCard then
+    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.ATTRACT) == true then
+      (self.DealAttractBuff)(atkCard, atkInfo)
+    end
+    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.TREATMENT_EXTRA) == true then
+      (self.DealTreatDirectBuff)(atkCard, atkInfo)
+    end
+    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.FIX_DAMAGE_PER) == true then
+      (self.DealActiveDamageBuff)(atkCard, atkInfo)
+    end
+  end
 end
 
 -- DECOMPILER ERROR at PC157: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.DealTreatDirectBuff = function(atkCard, atkInfo, ...)
+BattleDataCount.DealAttractBuff = function(atkCard, atkInfo, ...)
   -- function num : 0_4 , upvalues : self, BattleBuffDeductionRoundType
-  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.AFTER_TREAT_DIRECT, atkInfo)
+  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.AFTER_ATTRACT, atkInfo)
 end
 
 -- DECOMPILER ERROR at PC160: Confused about usage of register: R47 in 'UnsetPending'
 
+BattleDataCount.DealTreatDirectBuff = function(atkCard, atkInfo, ...)
+  -- function num : 0_5 , upvalues : self, BattleBuffDeductionRoundType
+  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.AFTER_TREAT_DIRECT, atkInfo)
+end
+
+-- DECOMPILER ERROR at PC163: Confused about usage of register: R47 in 'UnsetPending'
+
 BattleDataCount.DealHitCritBuff = function(defCardInfoTable, atkInfo, ...)
-  -- function num : 0_5 , upvalues : ipairs, self, BattleBuffDeductionRoundType
+  -- function num : 0_6 , upvalues : ipairs, self, BattleBuffDeductionRoundType
   for _,subAtkInfo in ipairs(defCardInfoTable) do
     if subAtkInfo.isCrit == true then
       local defCardPos = subAtkInfo.defPos
@@ -271,10 +327,10 @@ BattleDataCount.DealHitCritBuff = function(defCardInfoTable, atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC163: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC166: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealDamageBuff = function(atkInfo, ...)
-  -- function num : 0_6 , upvalues : _ENV, pairs, self, BattleBuffDeductionRoundType, ipairs
+  -- function num : 0_7 , upvalues : _ENV, pairs, self, BattleBuffDeductionRoundType, ipairs
   local totalDamage = (BattleAtk.GetAllCardDamage)(atkInfo)
   for pos,damage in pairs(totalDamage) do
     local card = (BattleData.GetCardInfoByPos)(pos)
@@ -304,24 +360,24 @@ BattleDataCount.DealDamageBuff = function(atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC166: Confused about usage of register: R47 in 'UnsetPending'
-
-BattleDataCount.DealDamageKill = function(atkCard, atkInfo, ...)
-  -- function num : 0_7 , upvalues : self, BattleBuffDeductionRoundType
-  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
-end
-
 -- DECOMPILER ERROR at PC169: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.DealActiveDamageBuff = function(atkCard, atkInfo, ...)
+BattleDataCount.DealDamageKill = function(atkCard, atkInfo, ...)
   -- function num : 0_8 , upvalues : self, BattleBuffDeductionRoundType
-  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.DAMAGE_BUFF_ACTIVE, atkInfo)
+  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
 end
 
 -- DECOMPILER ERROR at PC172: Confused about usage of register: R47 in 'UnsetPending'
 
+BattleDataCount.DealActiveDamageBuff = function(atkCard, atkInfo, ...)
+  -- function num : 0_9 , upvalues : self, BattleBuffDeductionRoundType
+  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.DAMAGE_BUFF_ACTIVE, atkInfo)
+end
+
+-- DECOMPILER ERROR at PC175: Confused about usage of register: R47 in 'UnsetPending'
+
 BattleDataCount.DealOneAliveEnemyBuff = function(atkCard, atkInfo, ...)
-  -- function num : 0_9 , upvalues : _ENV, abs, self, BattleBuffDeductionRoundType
+  -- function num : 0_10 , upvalues : _ENV, abs, self, BattleBuffDeductionRoundType
   local camp = atkCard:GetCampFlag()
   local liveCards = (BattleData.GetAliveCards)(abs(1 - camp))
   if liveCards and #liveCards == 1 then
@@ -329,10 +385,10 @@ BattleDataCount.DealOneAliveEnemyBuff = function(atkCard, atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC175: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC178: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealControlEnemyBuff = function(atkCard, atkInfo, ...)
-  -- function num : 0_10 , upvalues : _ENV, abs, ipairs, self, BattleBuffDeductionRoundType
+  -- function num : 0_11 , upvalues : _ENV, abs, ipairs, self, BattleBuffDeductionRoundType
   local camp = atkCard:GetCampFlag()
   local liveCards = (BattleData.GetAliveCards)(abs(1 - camp))
   if liveCards then
@@ -344,10 +400,10 @@ BattleDataCount.DealControlEnemyBuff = function(atkCard, atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC178: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC181: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.UpdateEquipBuff = function(pos, deductionRoundType, atkInfo, ...)
-  -- function num : 0_11 , upvalues : BattleBuffMgr, ipairs, self
+  -- function num : 0_12 , upvalues : BattleBuffMgr, ipairs, self
   local buffList = (BattleBuffMgr.GetBuffListByCardPos)(pos)
   for _,buff in ipairs(buffList) do
     local deduction_round_type = buff:GetDeductionRoundType()
@@ -357,10 +413,10 @@ BattleDataCount.UpdateEquipBuff = function(pos, deductionRoundType, atkInfo, ...
   end
 end
 
--- DECOMPILER ERROR at PC181: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC184: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
-  -- function num : 0_12 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, ipairs, self
+  -- function num : 0_13 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, ipairs, self
   if not atkInfo then
     atkInfo = BattleAtk.curAtkInfo
   end
@@ -376,7 +432,7 @@ BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
         (BattleData.SaveBattleProcess)("  buff被免疫 " .. tempBuff:GetBuffLog())
       end
     else
-      local isReset, canAdd = (BattleBuff.IsBuffReset)(card, tempBuff)
+      local isReset, canAdd = (BattleBuff.IsBuffReset)(card, tempBuff, atkInfo)
       if canAdd ~= false then
         do
           local resetBuffTable = (BattleBuffMgr.ResetAllSameBuff)(card, tempBuff, not isReset)
@@ -409,10 +465,11 @@ BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC184: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC187: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
-  -- function num : 0_13 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, self
+  -- function num : 0_14 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, self
+  local isTrigger = true
   local buffList = (BattleBuffMgr.GetBuffList)()
   local idStr = ""
   do
@@ -435,58 +492,102 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
       if buff then
         local isNew = buff:IsNewBuff(atkInfo)
       end
-      -- DECOMPILER ERROR at PC105: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC106: Unhandled construct in 'MakeBoolean' P1
 
       if deduction_round_type ~= BattleBuffDeductionRoundType.NOW and isNew == true and buff:GetDeductionRoundType() ~= buff:GetSettleRoundType() and (buff:GetDeductionRoundType() ~= BattleBuffDeductionRoundType.AFTER_ACTION or buff:GetSettleRoundType() == BattleBuffSettleRoundType.AFTER_ATTACK or buff:GetSettleRoundType() ~= BattleBuffSettleRoundType.AFTER_SKILL) then
         if (buff:GetDeductionRoundType() == BattleBuffDeductionRoundType.AFTER_ATTACK or buff:GetDeductionRoundType() == BattleBuffDeductionRoundType.AFTER_SKILL) and buff:GetSettleRoundType() == BattleBuffSettleRoundType.AFTER_ACTION then
           local defPos = buff:GetCurDefPos()
           local defCard = (BattleData.GetCardInfoByPos)(defPos)
-          do
-            local deductionRoundType = buff:GetDeductionRoundType()
-            -- DECOMPILER ERROR at PC165: Unhandled construct in 'MakeBoolean' P3
+          local deductionRoundType = buff:GetDeductionRoundType()
+          -- DECOMPILER ERROR at PC166: Unhandled construct in 'MakeBoolean' P3
 
-            -- DECOMPILER ERROR at PC165: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC166: Unhandled construct in 'MakeBoolean' P3
 
-            -- DECOMPILER ERROR at PC165: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC166: Unhandled construct in 'MakeBoolean' P3
 
-            if defCard and defCard:IsDead() ~= true and (deductionRoundType == deduction_round_type or ((deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK) or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ROUND_3 or deduction_round_type ~= BattleBuffDeductionRoundType.BEFORE_ROUND or BattleData.roundIndex == 3)) then
-              if deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY then
+          if defCard and defCard:IsDead() ~= true and (deductionRoundType == deduction_round_type or ((deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK) or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ROUND_3 or deduction_round_type ~= BattleBuffDeductionRoundType.BEFORE_ROUND or BattleData.roundIndex == 3)) then
+            if deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY then
+              (self.RealUpdateBuffCount)(buff, atkInfo)
+            else
+              if (deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_SKILL or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ACTION or deduction_round_type == BattleBuffDeductionRoundType.AFTER_TREAT_DIRECT) and (BattleAtk.IsAtkCardByPos)(atkInfo, defPos) then
                 (self.RealUpdateBuffCount)(buff, atkInfo)
+              end
+            end
+          end
+          if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ENEMY and (BattleAtk.IsDefCampByPos)(atkInfo, defPos) then
+            (self.RealUpdateBuffCount)(buff, atkInfo)
+          end
+          -- DECOMPILER ERROR at PC232: Unhandled construct in 'MakeBoolean' P1
+
+          if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
+            (self.RealUpdateBuffCount)(buff, atkInfo)
+          end
+          if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DAMAGE then
+            local curDefPos = buff:GetCurDefPos()
+            local card = (BattleData.GetCardInfoByPos)(curDefPos)
+            local enemyCard = (BattleChoose.GetTopHpCards)(card, false, 1, false)
+            local maxHpCard = enemyCard[1]
+            if maxHpCard then
+              local enemyHpPer = maxHpCard:GetHp() / maxHpCard:GetMaxHp()
+              local defHpPer = card:GetHp() / card:GetMaxHp()
+              if defHpPer <= 0.2 and defHpPer < enemyHpPer then
+                (self.RealUpdateBuffCount)(buff, atkInfo)
+              end
+            end
+          else
+            do
+              if deduction_round_type == BattleBuffDeductionRoundType.NEAR_DEATH then
+                isTrigger = (self.RealUpdateBuffCount)(buff, atkInfo)
               else
-                if (deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_SKILL or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ACTION or deduction_round_type == BattleBuffDeductionRoundType.AFTER_TREAT_DIRECT) and (BattleAtk.IsAtkCardByPos)(atkInfo, defPos) then
-                  (self.RealUpdateBuffCount)(buff, atkInfo)
+                -- DECOMPILER ERROR at PC296: Unhandled construct in 'MakeBoolean' P1
+
+                if deduction_round_type == BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
+                  local attackTime = defCard:RecodeHitTimes()
+                  attackTime = attackTime + 1
+                  if attackTime >= 4 and (attackTime) % 4 == 0 then
+                    (self.RealUpdateBuffCount)(buff, atkInfo)
+                  end
+                  defCard:RecodeHitTimes(attackTime)
+                end
+              end
+              do
+                do
+                  if deduction_round_type == BattleBuffDeductionRoundType.NOW then
+                    (self.RealUpdateBuffCount)(buff, atkInfo)
+                  end
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out DO_STMT
+
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out DO_STMT
+
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_STMT
+
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_STMT
+
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_STMT
+
                 end
               end
             end
-            if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ENEMY and (BattleAtk.IsDefCampByPos)(atkInfo, defPos) then
-              (self.RealUpdateBuffCount)(buff, atkInfo)
-            end
-            if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
-              (self.RealUpdateBuffCount)(buff, atkInfo)
-            end
-            if deduction_round_type == BattleBuffDeductionRoundType.NOW then
-              (self.RealUpdateBuffCount)(buff, atkInfo)
-            end
-            -- DECOMPILER ERROR at PC237: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-            -- DECOMPILER ERROR at PC237: LeaveBlock: unexpected jumping out IF_STMT
-
-            -- DECOMPILER ERROR at PC237: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-            -- DECOMPILER ERROR at PC237: LeaveBlock: unexpected jumping out IF_STMT
-
           end
         end
       end
     end
     buffListBackUp = {}
+    return isTrigger
   end
 end
 
--- DECOMPILER ERROR at PC187: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC190: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
-  -- function num : 0_14 , upvalues : _ENV, ipairs, t_insert, clone, self, BattleBuffDeductionRoundType
+  -- function num : 0_15 , upvalues : _ENV, ipairs, t_insert, clone, self, BattleBuffDeductionRoundType
+  local isTrigger = false
   local buffConfig = buff:GetBuffConfig()
   local curDefPos = buff:GetCurDefPos()
   local defCard = (BattleData.GetCardInfoByPos)(curDefPos)
@@ -499,7 +600,7 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
       local card = (BattleData.GetCardInfoByPos)(cardInfo.defPos)
       t_insert(defCards, card)
     end
-    local newBuffTable = (BattleSkill.GetAllBuffByBuffList)(defCard, defCards, buff_list)
+    local newBuffTable = (BattleSkill.GetAllBuffByBuffList)(defCard, defCards, buff_list, nil, atkInfo)
     for _,newBuff in ipairs(newBuffTable) do
       local targetId = newBuff.targetId
       local targetCards = {}
@@ -519,26 +620,33 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
             buffClone.atkPos = buff.atkPos
             local canAdd = (self.DealAddBuff)(card, buffClone, atkInfo)
             if canAdd == true then
+              isTrigger = true
               local deductionRoundType = buffClone:GetDeductionRoundType()
               if deductionRoundType == BattleBuffDeductionRoundType.NOW then
                 (self.RealUpdateBuffCount)(buffClone, atkInfo, true)
               end
+              ;
+              (BattleDataCount.DealEquipBuff)(card, buffClone, atkInfo)
             end
           end
         end
         do
-          -- DECOMPILER ERROR at PC111: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC121: LeaveBlock: unexpected jumping out DO_STMT
 
         end
       end
     end
   end
+  do
+    return isTrigger
+  end
 end
 
--- DECOMPILER ERROR at PC190: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC193: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
-  -- function num : 0_15 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, self
+  -- function num : 0_16 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, self
+  local ExtraTrigger = false
   if not atkInfo then
     atkInfo = BattleAtk.curAtkInfo
   end
@@ -555,7 +663,7 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
         if IsBattleServer == nil then
           (BattleData.SaveBattleProcess)("  更新buff 已生效次数：" .. buff:GetActiveCount() + 1 .. " 总次数：" .. buff:GetTotalCount())
         end
-        buff:DealAttribute()
+        buff:DealAttribute(atkInfo)
         buff:SetActiveCount(curActiveCount + 1)
         buff:DealSpecialEffect()
         t_insert(allBuffTable, {buff = buff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.UPDATE})
@@ -571,17 +679,17 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
           ;
           (BattleBuffMgr.RemoveBuffFromList)(buff)
         end
-        ;
-        (self.DealExtraBuffList)(buff, atkInfo, "deduction_buff_list")
+        ExtraTrigger = (self.DealExtraBuffList)(buff, atkInfo, "deduction_buff_list")
+        return ExtraTrigger
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC193: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC196: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.ClearNoUsedBuffCount = function(...)
-  -- function num : 0_16 , upvalues : BattleBuffMgr
+  -- function num : 0_17 , upvalues : BattleBuffMgr
   local buffList = (BattleBuffMgr.GetBuffList)()
   for i = #buffList, 1, -1 do
     local buff = buffList[i]
@@ -591,20 +699,21 @@ BattleDataCount.ClearNoUsedBuffCount = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC196: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC199: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, mainAtkCard, mainAtkInfo, ...)
-  -- function num : 0_17 , upvalues : self, _ENV, ceil, shanghai_fudong_min, shanghai_fudong_max, max
+  -- function num : 0_18 , upvalues : self, _ENV, BattleDisplayEffect, BattleBuffDeductionRoundType, ceil, shanghai_fudong_min, shanghai_fudong_max, max, ipairs
   atkInfo.defCardsInfo = {}
-  ;
-  (self.DealOneAliveEnemyBuff)(atkCard, atkInfo)
-  ;
-  (self.DealControlEnemyBuff)(atkCard, atkInfo)
+  local isAssist = atkInfo.isAssist
+  if isAssist ~= true then
+    (self.DealOneAliveEnemyBuff)(atkCard, atkInfo)
+    ;
+    (self.DealControlEnemyBuff)(atkCard, atkInfo)
+  end
   local isDoubleAttack = atkInfo.isDoubleAttack
   local killCount = 0
   local defHpBeforeAtk = defCard:GetHp()
   local gongji_A = atkCard:GetAtk()
-  local isAssist = atkInfo.isAssist
   local defCardsInfo = atkInfo.defCardsInfo
   local defCardInfo = (BattleAtk.InitSubAtkInfo)(defCard, defCardsInfo)
   local damage = 0
@@ -623,155 +732,244 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
   else
     if (BattleBuff.IsDirectKill)(defCard) then
       defCardInfo.isSkillTarget = true
-      defCardInfo.hpDef = -defCard:GetHp()
-      if defHpBeforeAtk > 0 then
-        killCount = killCount + 1
-      end
-      realDefHp = 0
-      if IsBattleServer == nil then
-        (BattleData.SaveBattleProcess)("    斩杀 ，位置：" .. defCard:GetPosIndex())
-      end
-    else
-      local fangyu_B, is_pofang = (self.PanDingPoFang)(atkCard, defCard)
-      local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard)
-      local shanghai_jiacheng = (self.PanDingShangHaiJiaCheng)(atkCard, defCard)
-      local kezhi_xishu = (self.PanDingKeZhi)(atkCard, defCard)
-      local random_seed = (BattleData.GetRandomSeed)()
-      local random_hurt = ceil(shanghai_fudong_min + (shanghai_fudong_max - shanghai_fudong_min) * random_seed / 10000)
-      damage = max(random_hurt, ceil((gongji_A - fangyu_B) * (10000 + baoji_jiacheng + gedang_jiangdi + shanghai_jiacheng + kezhi_xishu) / 10000 + (zengshang_A - jianshang_B)))
-      if BattleData.printBattleData == true then
-        loge("   计算伤害   ")
-        logw("受击方位置：" .. defCard:GetPosIndex())
-        logw("shanghai_fudong_min  " .. shanghai_fudong_min)
-        logw("shanghai_fudong_max  " .. shanghai_fudong_max)
-        logw("random_hurt  " .. random_hurt)
-        logw("gongji_A  " .. gongji_A)
-        logw("fangyu_B  " .. fangyu_B)
-        logw("baoji_jiacheng  " .. baoji_jiacheng)
-        logw("gedang_jiangdi  " .. gedang_jiangdi)
-        logw("shanghai_jiacheng  " .. shanghai_jiacheng)
-        logw("kezhi_xishu  " .. kezhi_xishu)
-      end
-      if isAssist == true then
-        random_seed = (BattleData.GetRandomSeed)()
-        random_hurt = ceil(shanghai_fudong_min + (shanghai_fudong_max - shanghai_fudong_min) * random_seed / 10000)
-        local skillConfig = atkCard:GetAssistSkillConfig()
-        damage = max(random_hurt, ceil(damage * skillConfig.damage_rate / 10000) + skillConfig.damage)
-      end
+      local lockHp = false
       do
-        local realDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(defCard, damage, isAssist ~= true)
-        damage = realDamage
-        local isInvincible = specialEffect.isInvincible
-        local isKeepAlive = specialEffect.isKeepAlive
-        local skillId = atkInfo.skillId
-        local skillConfig = (TableData.GetBaseSkillData)(skillId)
-        local defFashion = defCard:GetFashionConfig()
-        if skillConfig and defFashion.air_show ~= 0 then
-          local random = (BattleData.GetRandomSeed)()
-          local strike_prob = skillConfig.strike_prob
-          if strike_prob > 0 and random <= strike_prob then
-            atkInfo.isStrike = true
-          end
-        end
-        defCardInfo.isCrit = baoji_jiacheng > 0
-        defCardInfo.isBlock = gedang_jiangdi < 0
-        defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
-        defCardInfo.isInvincible = isInvincible
-        defCardInfo.isKeepAlive = isKeepAlive
-        defCardInfo.isSkillTarget = true
         do
-          local isDamageShare, damageShareBuff = (BattleBuff.IsDamageShare)(defCard)
-          if isDamageShare == true then
-            local card, value = (BattleBuff.GetDamageShareInfo)(damageShareBuff)
-            if value > 0 and (BattleBuff.IsCardCanShareDamage)(card) == true then
-              local assistCardHpBeforeAtk = card:GetHp()
-              local realBeShareDamage = ceil(realDamage * (10000 - value) / 10000)
-              local shareDamage = realDamage - realBeShareDamage
-              realDamage = realBeShareDamage
-              local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
-              local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, shareDamage)
-              defCardInfo.hpDef = -realShareDamage + defCardInfo.hpDef
-              defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
-              defCardInfo.isInvincible = specialEffect.isInvincible
-              defCardInfo.isKeepAlive = specialEffect.isKeepAlive
-              defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
-              card:SetHp(card:GetHp() - realShareDamage, atkCard:GetPosIndex())
-              if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
-                killCount = killCount + 1
-              end
-              if IsBattleServer == nil then
-                (BattleData.SaveBattleProcess)("    援护，援护者：" .. card:GetPosIndex(), " 被援护者：" .. defCard:GetPosIndex())
-              end
+          if (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.LOCK_HP) then
+            local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+            if isTrigger then
+              defCardInfo.hpDef = -defCard:GetHp() + 1
+              realDefHp = 1
+              lockHp = true
             end
           end
-          defCardInfo.hpDef = -realDamage + defCardInfo.hpDef
-          realDefHp = defCard:GetHp() - realDamage
-          if realDefHp <= 0 and defHpBeforeAtk > 0 then
-            killCount = killCount + 1
+          if not lockHp then
+            defCardInfo.hpDef = -defCard:GetHp()
+            if defHpBeforeAtk > 0 then
+              killCount = killCount + 1
+            end
+            realDefHp = 0
           end
-          local danderAtk = 0
-          local danderDef = 0
-          local danderMainAtk = 0
+          if IsBattleServer == nil then
+            (BattleData.SaveBattleProcess)("    斩杀 ，位置：" .. defCard:GetPosIndex() .. "    是触发了锁血buff: " .. tostring(lockHp))
+          end
+          local fangyu_B, is_pofang = (self.PanDingPoFang)(atkCard, defCard)
+          local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard)
+          local shanghai_jiacheng = (self.PanDingShangHaiJiaCheng)(atkCard, defCard)
+          local kezhi_xishu = (self.PanDingKeZhi)(atkCard, defCard)
+          local random_seed = (BattleData.GetRandomSeed)()
+          local random_hurt = ceil(shanghai_fudong_min + (shanghai_fudong_max - shanghai_fudong_min) * random_seed / 10000)
+          damage = max(random_hurt, ceil((gongji_A - fangyu_B) * (10000 + baoji_jiacheng + gedang_jiangdi + shanghai_jiacheng + kezhi_xishu) / 10000 + (zengshang_A - jianshang_B)))
+          if BattleData.printBattleData == true then
+            loge("   计算伤害   ")
+            logw("受击方位置：" .. defCard:GetPosIndex())
+            logw("shanghai_fudong_min  " .. shanghai_fudong_min)
+            logw("shanghai_fudong_max  " .. shanghai_fudong_max)
+            logw("random_hurt  " .. random_hurt)
+            logw("gongji_A  " .. gongji_A)
+            logw("fangyu_B  " .. fangyu_B)
+            logw("baoji_jiacheng  " .. baoji_jiacheng)
+            logw("gedang_jiangdi  " .. gedang_jiangdi)
+            logw("shanghai_jiacheng  " .. shanghai_jiacheng)
+            logw("kezhi_xishu  " .. kezhi_xishu)
+          end
           if isAssist == true then
-            if killCount > 0 then
-              danderMainAtk = (killCount) * mainAtkCard:GetDanderKill()
-              mainAtkInfo.danderAtk = mainAtkInfo.danderAtk + danderMainAtk
+            random_seed = (BattleData.GetRandomSeed)()
+            random_hurt = ceil(shanghai_fudong_min + (shanghai_fudong_max - shanghai_fudong_min) * random_seed / 10000)
+            local skillConfig = atkCard:GetAssistSkillConfig()
+            damage = max(random_hurt, ceil(damage * skillConfig.damage_rate / 10000) + skillConfig.damage)
+          end
+          do
+            local realDamage, absorbDamage, specialEffect, divideCardInfo = (BattleBuff.DealRealHpLoss)(defCard, damage, isAssist ~= true, nil, atkInfo.skillType)
+            damage = realDamage
+            local isInvincible = specialEffect.isInvincible
+            local isKeepAlive = specialEffect.isKeepAlive
+            local skillId = atkInfo.skillId
+            local skillConfig = (TableData.GetBaseSkillData)(skillId)
+            local defFashion = defCard:GetOriginFashionConfig()
+            if skillConfig and defFashion.air_show ~= 0 then
+              local random = (BattleData.GetRandomSeed)()
+              local strike_prob = skillConfig.strike_prob
+              if strike_prob > 0 and random <= strike_prob then
+                local reallyConfig = defCard:GetFashionConfig()
+                if reallyConfig and reallyConfig.air_show ~= 0 then
+                  atkInfo.isStrike = true
+                end
+              end
             end
-            danderAtk = atkCardConfig.dander_atk_assist
-            danderDef = defCardConfig.dander_hit_assist
-          else
-            -- DECOMPILER ERROR at PC369: Unhandled construct in 'MakeBoolean' P1
+            defCardInfo.isCrit = baoji_jiacheng > 0
+            defCardInfo.isBlock = gedang_jiangdi < 0
+            defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
+            defCardInfo.isInvincible = isInvincible
+            defCardInfo.isKeepAlive = isKeepAlive
+            defCardInfo.isSkillTarget = true
+            if divideCardInfo and #divideCardInfo > 0 then
+              for i,info in ipairs(divideCardInfo) do
+                local card = info.card
+                local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
+                local assistCardHpBeforeAtk = card:GetHp()
+                local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, info.damage)
+                do
+                  do
+                    if card:GetHp() - realShareDamage <= 0 and (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
+                      local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                      if isTrigger then
+                        realShareDamage = card:GetHp() - 1
+                      end
+                    end
+                    defCardInfo.hpDef = -(realShareDamage) + defCardInfo.hpDef
+                    defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
+                    defCardInfo.isInvincible = specialEffect.isInvincible
+                    defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                    card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
+                    if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
+                      killCount = killCount + 1
+                    end
+                    -- DECOMPILER ERROR at PC364: LeaveBlock: unexpected jumping out DO_STMT
 
-            if isDoubleAttack == true and killCount > 0 then
-              danderAtk = (killCount) * atkCard:GetDanderKill()
+                  end
+                end
+              end
+            end
+            local isDamageShare, damageShareBuff = (BattleBuff.IsDamageShare)(defCard)
+            if isDamageShare == true then
+              local card, value = (BattleBuff.GetDamageShareInfo)(damageShareBuff)
+              if value > 0 and (BattleBuff.IsCardCanShareDamage)(card) == true then
+                local assistCardHpBeforeAtk = card:GetHp()
+                local realBeShareDamage = ceil(realDamage * (10000 - value) / 10000)
+                local shareDamage = realDamage - realBeShareDamage
+                realDamage = realBeShareDamage
+                local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
+                local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, shareDamage)
+                do
+                  do
+                    if card:GetHp() - realShareDamage <= 0 and (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
+                      local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                      if isTrigger then
+                        realShareDamage = card:GetHp() - 1
+                      end
+                    end
+                    defCardInfo.hpDef = -(realShareDamage) + defCardInfo.hpDef
+                    defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
+                    defCardInfo.isInvincible = specialEffect.isInvincible
+                    defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                    defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
+                    card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
+                    if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
+                      killCount = killCount + 1
+                    end
+                    if IsBattleServer == nil then
+                      (BattleData.SaveBattleProcess)("    援护，援护者：" .. card:GetPosIndex(), " 被援护者：" .. defCard:GetPosIndex())
+                    end
+                    do
+                      do
+                        if defCard:GetHp() - realDamage <= 0 and (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.LOCK_HP) then
+                          local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                          if isTrigger then
+                            realDamage = defCard:GetHp() - 1
+                          end
+                        end
+                        defCardInfo.hpDef = -(realDamage) + defCardInfo.hpDef
+                        realDefHp = defCard:GetHp() - (realDamage)
+                        if realDefHp <= 0 and defHpBeforeAtk > 0 then
+                          killCount = killCount + 1
+                        end
+                        local danderAtk = 0
+                        local danderDef = 0
+                        local danderMainAtk = 0
+                        if isAssist == true then
+                          if killCount > 0 then
+                            danderMainAtk = (killCount) * mainAtkCard:GetDanderKill()
+                            mainAtkInfo.danderAtk = mainAtkInfo.danderAtk + danderMainAtk
+                          end
+                          if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+                            danderAtk = atkCardConfig.dander_atk_assist
+                          end
+                          if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.NO_DEFEND_DANDER_ATTACK) ~= true and (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+                            danderDef = defCardConfig.dander_hit_assist
+                          end
+                        else
+                          -- DECOMPILER ERROR at PC544: Unhandled construct in 'MakeBoolean' P1
+
+                          if isDoubleAttack == true and killCount > 0 then
+                            danderAtk = (killCount) * atkCard:GetDanderKill()
+                          end
+                        end
+                        do
+                          local atkDanderConst = 0
+                          if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+                            atkDanderConst = atkCard:GetDanderAtk()
+                          end
+                          if killCount > 0 then
+                            danderAtk = atkDanderConst + (killCount) * atkCard:GetDanderKill()
+                          else
+                            danderAtk = atkDanderConst
+                          end
+                          if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.NO_DEFEND_DANDER_ATTACK) ~= true and (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+                            danderDef = defCard:GetDanderHit()
+                          end
+                          atkInfo.danderAtk = danderAtk
+                          atkCard:SetDander(atkCard:GetDander() + atkInfo.danderAtk)
+                          if danderMainAtk > 0 then
+                            mainAtkCard:SetDander(mainAtkCard:GetDander() + danderMainAtk)
+                          end
+                          defCardInfo.danderDef = danderDef
+                          defCard:SetDander(defCard:GetDander() + defCardInfo.danderDef)
+                          local countValue = (BattleBuff.GetCounterValue)(defCard)
+                          if countValue > 0 and damage ~= 0 then
+                            local defCardInfo = (BattleAtk.InitSubAtkInfo)(atkCard, defCardsInfo)
+                            local counterDamage = ceil(damage * countValue / 10000)
+                            local realCounterDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(atkCard, counterDamage)
+                            do
+                              do
+                                if atkCard:GetHp() - realCounterDamage <= 0 and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == false and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.LOCK_HP) then
+                                  local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                                  if isTrigger then
+                                    realCounterDamage = atkCard:GetHp() - 1
+                                  end
+                                end
+                                defCardInfo.hpDef = -(realCounterDamage)
+                                defCardInfo.absorbDamage = absorbDamage
+                                defCardInfo.isInvincible = specialEffect.isInvincible
+                                defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                                defCardInfo.isCounter = true
+                                if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == true then
+                                  defCardInfo.hpDef = 0
+                                  defCardInfo.isImmune = true
+                                end
+                                atkCard:SetHp(atkCard:GetHp() + defCardInfo.hpDef, defCard:GetPosIndex())
+                                if IsBattleServer == nil then
+                                  (BattleData.SaveBattleProcess)("    反伤，伤害：" .. defCardInfo.hpDef)
+                                end
+                                defCard:SetHp(realDefHp, atkCard:GetPosIndex())
+                                if killCount > 0 and mainAtkCard then
+                                  for i = 1, killCount do
+                                    (self.DealDamageKill)(mainAtkCard, atkInfo)
+                                  end
+                                end
+                                do return defCardInfo end
+                                -- DECOMPILER ERROR: 25 unprocessed JMP targets
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
             end
           end
-          if killCount > 0 then
-            danderAtk = atkCard:GetDanderAtk() + (killCount) * atkCard:GetDanderKill()
-          else
-            danderAtk = atkCard:GetDanderAtk()
-          end
-          danderDef = defCardConfig.dander_hit
-          atkInfo.danderAtk = danderAtk
-          atkCard:SetDander(atkCard:GetDander() + atkInfo.danderAtk)
-          if danderMainAtk > 0 then
-            mainAtkCard:SetDander(mainAtkCard:GetDander() + danderMainAtk)
-          end
-          defCardInfo.danderDef = danderDef
-          defCard:SetDander(defCard:GetDander() + defCardInfo.danderDef)
-          local countValue = (BattleBuff.GetCounterValue)(defCard)
-          if countValue > 0 and damage ~= 0 then
-            local defCardInfo = (BattleAtk.InitSubAtkInfo)(atkCard, defCardsInfo)
-            local counterDamage = ceil(damage * countValue / 10000)
-            local realCounterDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(atkCard, counterDamage)
-            defCardInfo.hpDef = -realCounterDamage
-            defCardInfo.absorbDamage = absorbDamage
-            defCardInfo.isInvincible = specialEffect.isInvincible
-            defCardInfo.isKeepAlive = specialEffect.isKeepAlive
-            defCardInfo.isCounter = true
-            atkCard:SetHp(atkCard:GetHp() + defCardInfo.hpDef, defCard:GetPosIndex())
-            if IsBattleServer == nil then
-              (BattleData.SaveBattleProcess)("    反伤，伤害：" .. defCardInfo.hpDef)
-            end
-          end
-          defCard:SetHp(realDefHp, atkCard:GetPosIndex())
-          if killCount > 0 and mainAtkCard then
-            for i = 1, killCount do
-              (self.DealDamageKill)(mainAtkCard, atkInfo)
-            end
-          end
-          do return defCardInfo end
-          -- DECOMPILER ERROR: 16 unprocessed JMP targets
         end
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC199: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC202: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtkCard, ...)
-  -- function num : 0_18 , upvalues : self, _ENV, BattleSkillType, ceil, ipairs, shanghai_fudong_min, shanghai_fudong_max, max, t_insert
+BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtkCard, costTable, ...)
+  -- function num : 0_19 , upvalues : self, _ENV, BattleSkillType, ceil, BattleDisplayEffect, ipairs, BattleBuffDeductionRoundType, shanghai_fudong_min, shanghai_fudong_max, max, t_insert
   atkInfo.defCardsInfo = {}
   ;
   (self.DealOneAliveEnemyBuff)(atkCard, atkInfo)
@@ -789,12 +987,12 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
   end
   local base_skill_damage = ceil(skillConfig.damage * (1 + skillConfig.damage_up * skillLevel / 10000) + gongji_A * (skillConfig.damage_rate + skillConfig.damage_rate_up * skillLevel) / 10000)
   local danderAtk = 0
-  if skillConfig.type ~= BattleSkillType.SKILL and isDoubleAttack ~= true then
+  if skillConfig.type ~= BattleSkillType.SKILL and isDoubleAttack ~= true and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
     danderAtk = danderAtk + atkCard:GetDanderAtk()
   end
   local defCardInfoTable = {}
   local killCount = 0
-  for _,defCard in ipairs(defCards) do
+  for i,defCard in ipairs(defCards) do
     local defCardInfo = (BattleAtk.InitSubAtkInfo)(defCard, defCardsInfo)
     local damage = 0
     local defHpBeforeAtk = defCard:GetHp()
@@ -809,126 +1007,239 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
     else
       if (BattleBuff.IsDirectKill)(defCard) then
         defCardInfo.isSkillTarget = true
-        defCardInfo.hpDef = -defCard:GetHp()
-        if defHpBeforeAtk > 0 then
-          killCount = killCount + 1
-        end
-        realDefHp = 0
-        if IsBattleServer == nil then
-          (BattleData.SaveBattleProcess)("    斩杀 ，位置：" .. defCard:GetPosIndex())
-        end
-      else
-        local zengshang_A = atkCard:GetExtDamage()
-        local jianshang_B = defCard:GetExtDamageSub()
-        local fangyu_B, is_pofang = (self.PanDingPoFang)(atkCard, defCard)
-        local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard)
-        local shanghai_jiacheng = (self.PanDingShangHaiJiaCheng)(atkCard, defCard)
-        local kezhi_xishu = (self.PanDingKeZhi)(atkCard, defCard)
-        local random_seed = (BattleData.GetRandomSeed)()
-        local random_hurt = ceil(shanghai_fudong_min + (shanghai_fudong_max - shanghai_fudong_min) * random_seed / 10000)
-        if BattleData.printBattleData == true then
-          loge("   计算伤害   ")
-          logw("受击方位置：" .. defCard:GetPosIndex())
-          logw("base_skill_damage  " .. base_skill_damage)
-          logw("fangyu_B  " .. fangyu_B)
-          logw("baoji_jiacheng  " .. baoji_jiacheng)
-          logw("gedang_jiangdi  " .. gedang_jiangdi)
-          logw("shanghai_jiacheng  " .. shanghai_jiacheng)
-          logw("kezhi_xishu  " .. kezhi_xishu)
-        end
-        damage = max(random_hurt, ceil((base_skill_damage - fangyu_B) * (10000 + baoji_jiacheng + gedang_jiangdi + shanghai_jiacheng + kezhi_xishu) / 10000 + (zengshang_A - jianshang_B)))
-        if uniqueSkillDamageAdd ~= 0 or not 1 then
-          local realDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(defCard, damage, true, uniqueSkillDamageAdd / 10000)
-          damage = realDamage
-          local isInvincible = specialEffect.isInvincible
-          local isKeepAlive = specialEffect.isKeepAlive
-          local skillId = atkInfo.skillId
-          local skillConfig = (TableData.GetBaseSkillData)(skillId)
-          local defFashion = defCard:GetFashionConfig()
-          if skillConfig and defFashion.air_show ~= 0 then
-            local random = (BattleData.GetRandomSeed)()
-            local strike_prob = skillConfig.strike_prob
-            if strike_prob > 0 and random <= strike_prob then
-              atkInfo.isStrike = true
-            end
-          end
+        local lockHp = false
+        do
           do
-            defCardInfo.isCrit = baoji_jiacheng > 0
-            defCardInfo.isBlock = gedang_jiangdi < 0
-            defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
-            defCardInfo.isInvincible = isInvincible
-            defCardInfo.isKeepAlive = isKeepAlive
-            defCardInfo.isSkillTarget = true
-            do
-              local isDamageShare, damageShareBuff = (BattleBuff.IsDamageShare)(defCard)
-              if isDamageShare == true then
-                local card, value = (BattleBuff.GetDamageShareInfo)(damageShareBuff)
-                if value > 0 and (BattleBuff.IsCardCanShareDamage)(card) == true then
-                  local assistCardHpBeforeAtk = card:GetHp()
-                  local realBeShareDamage = ceil(realDamage * (10000 - value) / 10000)
-                  local shareDamage = realDamage - realBeShareDamage
-                  realDamage = realBeShareDamage
-                  local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
-                  local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, shareDamage)
-                  defCardInfo.hpDef = -realShareDamage + defCardInfo.hpDef
-                  defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
-                  defCardInfo.isInvincible = specialEffect.isInvincible
-                  defCardInfo.isKeepAlive = specialEffect.isKeepAlive
-                  defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
-                  card:SetHp(card:GetHp() - realShareDamage, atkCard:GetPosIndex())
-                  if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
-                    killCount = killCount + 1
-                  end
-                  if IsBattleServer == nil then
-                    (BattleData.SaveBattleProcess)("    援护，援护者：" .. card:GetPosIndex(), " 被援护者：" .. defCard:GetPosIndex())
-                  end
-                end
+            if (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.LOCK_HP) then
+              local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+              if isTrigger then
+                defCardInfo.hpDef = -defCard:GetHp() + 1
+                realDefHp = 1
+                lockHp = true
               end
-              defCardInfo.hpDef = -realDamage + defCardInfo.hpDef
-              realDefHp = defCard:GetHp() - realDamage
-              if realDefHp <= 0 and defHpBeforeAtk > 0 then
+            end
+            if not lockHp then
+              defCardInfo.hpDef = -defCard:GetHp()
+              if defHpBeforeAtk > 0 then
                 killCount = killCount + 1
               end
-              local danderDef = 0
-              if isDoubleAttack ~= true then
-                danderDef = defCard:GetDanderHit()
-              end
-              defCardInfo.danderDef = danderDef
-              defCard:SetDander(defCard:GetDander() + defCardInfo.danderDef)
-              do
-                local countValue = (BattleBuff.GetCounterValue)(defCard)
-                if countValue > 0 and damage ~= 0 then
-                  local defCardInfo = (BattleAtk.InitSubAtkInfo)(atkCard, defCardsInfo)
-                  local counterDamage = ceil(damage * countValue / 10000)
-                  local realCounterDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(atkCard, counterDamage)
-                  defCardInfo.hpDef = defCardInfo.hpDef - realCounterDamage
-                  defCardInfo.absorbDamage = defCardInfo.absorbDamage + absorbDamage
-                  defCardInfo.isInvincible = specialEffect.isInvincible
-                  defCardInfo.isKeepAlive = specialEffect.isKeepAlive
-                  defCardInfo.isCounter = true
-                  atkCard:SetHp(atkCard:GetHp() - realCounterDamage, defCard:GetPosIndex())
-                  if IsBattleServer == nil then
-                    (BattleData.SaveBattleProcess)("    反伤，伤害：" .. defCardInfo.hpDef)
+              realDefHp = 0
+            end
+            if IsBattleServer == nil then
+              (BattleData.SaveBattleProcess)("    斩杀 ，位置：" .. defCard:GetPosIndex() .. " 是否有触发了锁血buff:" .. tostring(lockHp))
+            end
+            local zengshang_A = atkCard:GetExtDamage()
+            local jianshang_B = defCard:GetExtDamageSub()
+            local fangyu_B, is_pofang = (self.PanDingPoFang)(atkCard, defCard)
+            local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard)
+            local shanghai_jiacheng = (self.PanDingShangHaiJiaCheng)(atkCard, defCard)
+            local kezhi_xishu = (self.PanDingKeZhi)(atkCard, defCard)
+            local random_seed = (BattleData.GetRandomSeed)()
+            local random_hurt = ceil(shanghai_fudong_min + (shanghai_fudong_max - shanghai_fudong_min) * random_seed / 10000)
+            if BattleData.printBattleData == true then
+              loge("   计算伤害   ")
+              logw("受击方位置：" .. defCard:GetPosIndex())
+              logw("base_skill_damage  " .. base_skill_damage)
+              logw("fangyu_B  " .. fangyu_B)
+              logw("baoji_jiacheng  " .. baoji_jiacheng)
+              logw("gedang_jiangdi  " .. gedang_jiangdi)
+              logw("shanghai_jiacheng  " .. shanghai_jiacheng)
+              logw("kezhi_xishu  " .. kezhi_xishu)
+            end
+            damage = max(random_hurt, ceil((base_skill_damage - fangyu_B) * (10000 + baoji_jiacheng + gedang_jiangdi + shanghai_jiacheng + kezhi_xishu) / 10000 + (zengshang_A - jianshang_B)))
+            if uniqueSkillDamageAdd ~= 0 or not 1 then
+              local realDamage, absorbDamage, specialEffect, divideCardInfo = (BattleBuff.DealRealHpLoss)(defCard, damage, true, uniqueSkillDamageAdd / 10000, atkInfo.skillType)
+              damage = realDamage
+              local isInvincible = specialEffect.isInvincible
+              local isKeepAlive = specialEffect.isKeepAlive
+              local skillId = atkInfo.skillId
+              local skillConfig = (TableData.GetBaseSkillData)(skillId)
+              local defFashion = defCard:GetOriginFashionConfig()
+              if skillConfig and defFashion.air_show ~= 0 then
+                local random = (BattleData.GetRandomSeed)()
+                local strike_prob = skillConfig.strike_prob
+                if strike_prob > 0 and random <= strike_prob then
+                  local reallyConfig = defCard:GetFashionConfig()
+                  if reallyConfig and reallyConfig.air_show ~= 0 then
+                    atkInfo.isStrike = true
                   end
                 end
-                defCard:SetHp(realDefHp, atkCard:GetPosIndex())
-                t_insert(defCardInfoTable, defCardInfo)
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out DO_STMT
+              end
+              do
+                defCardInfo.isCrit = baoji_jiacheng > 0
+                defCardInfo.isBlock = gedang_jiangdi < 0
+                defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
+                defCardInfo.isInvincible = isInvincible
+                defCardInfo.isKeepAlive = isKeepAlive
+                defCardInfo.isSkillTarget = true
+                if divideCardInfo and #divideCardInfo > 0 then
+                  for i,info in ipairs(divideCardInfo) do
+                    local card = info.card
+                    local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
+                    local assistCardHpBeforeAtk = card:GetHp()
+                    local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, info.damage)
+                    do
+                      do
+                        if card:GetHp() - realShareDamage <= 0 and (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
+                          local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                          if isTrigger then
+                            realShareDamage = card:GetHp() - 1
+                          end
+                        end
+                        defCardInfo.hpDef = -(realShareDamage) + defCardInfo.hpDef
+                        defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
+                        defCardInfo.isInvincible = specialEffect.isInvincible
+                        defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                        card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
+                        if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
+                          killCount = killCount + 1
+                        end
+                        -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out DO_STMT
+                      end
+                    end
+                  end
+                end
+                local isDamageShare, damageShareBuff = (BattleBuff.IsDamageShare)(defCard)
+                if isDamageShare == true then
+                  local card, value = (BattleBuff.GetDamageShareInfo)(damageShareBuff)
+                  if value > 0 and (BattleBuff.IsCardCanShareDamage)(card) == true then
+                    local assistCardHpBeforeAtk = card:GetHp()
+                    local realBeShareDamage = ceil(realDamage * (10000 - value) / 10000)
+                    local shareDamage = realDamage - realBeShareDamage
+                    realDamage = realBeShareDamage
+                    local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
+                    local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, shareDamage)
+                    do
+                      do
+                        if card:GetHp() - realShareDamage <= 0 and (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
+                          local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                          if isTrigger then
+                            realShareDamage = card:GetHp() - 1
+                          end
+                        end
+                        defCardInfo.hpDef = -(realShareDamage) + defCardInfo.hpDef
+                        defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
+                        defCardInfo.isInvincible = specialEffect.isInvincible
+                        defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                        defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
+                        card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
+                        if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
+                          killCount = killCount + 1
+                        end
+                        if IsBattleServer == nil then
+                          (BattleData.SaveBattleProcess)("    援护，援护者：" .. card:GetPosIndex(), " 被援护者：" .. defCard:GetPosIndex())
+                        end
+                        do
+                          do
+                            if defCard:GetHp() - realDamage <= 0 and (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.LOCK_HP) then
+                              local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                              if isTrigger then
+                                realDamage = defCard:GetHp() - 1
+                              end
+                            end
+                            defCardInfo.hpDef = -(realDamage) + defCardInfo.hpDef
+                            realDefHp = defCard:GetHp() - (realDamage)
+                            if realDefHp <= 0 and defHpBeforeAtk > 0 then
+                              killCount = killCount + 1
+                            end
+                            local danderDef = 0
+                            if ((skillConfig.type == BattleSkillType.SKILL and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.NO_DEFEND_DANDER_SKILL) ~= true) or skillConfig.type ~= BattleSkillType.SMALL or (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.NO_DEFEND_DANDER_SMALL) ~= true) and (BattleBuff.ContainEffectId)(defCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+                              danderDef = defCard:GetDanderHit()
+                            end
+                            defCardInfo.danderDef = danderDef
+                            defCard:SetDander(defCard:GetDander() + defCardInfo.danderDef)
+                            local costHp = (BattleData.GetCostHp)(costTable)
+                            do
+                              if i == 1 and costHp and costHp ~= 0 then
+                                local defCardInfo = (BattleAtk.InitSubAtkInfo)(atkCard, defCardsInfo, true)
+                                defCardInfo.hpDef = defCardInfo.hpDef - costHp
+                                atkCard:SetHp(atkCard:GetHp() - costHp)
+                              end
+                              local countValue = (BattleBuff.GetCounterValue)(defCard)
+                              if countValue > 0 and damage ~= 0 then
+                                local defCardInfo = (BattleAtk.InitSubAtkInfo)(atkCard, defCardsInfo, false, true)
+                                local counterDamage = ceil(damage * countValue / 10000)
+                                local realCounterDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(atkCard, counterDamage)
+                                do
+                                  do
+                                    do
+                                      if atkCard:GetHp() - realCounterDamage <= 0 and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == false and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.LOCK_HP) then
+                                        local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                                        if isTrigger then
+                                          realCounterDamage = atkCard:GetHp() - 1
+                                        end
+                                      end
+                                      defCardInfo.hpDef = defCardInfo.hpDef - (realCounterDamage)
+                                      defCardInfo.absorbDamage = defCardInfo.absorbDamage + absorbDamage
+                                      defCardInfo.isInvincible = specialEffect.isInvincible
+                                      defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                                      defCardInfo.isCounter = true
+                                      if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == true then
+                                        defCardInfo.hpDef = 0
+                                        defCardInfo.isImmune = true
+                                      end
+                                      atkCard:SetHp(atkCard:GetHp() - (realCounterDamage), defCard:GetPosIndex())
+                                      if IsBattleServer == nil then
+                                        (BattleData.SaveBattleProcess)("    反伤，伤害：" .. defCardInfo.hpDef)
+                                      end
+                                      defCard:SetHp(realDefHp, atkCard:GetPosIndex())
+                                      t_insert(defCardInfoTable, defCardInfo)
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
 
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC431: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
 
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
               end
             end
           end
@@ -940,23 +1251,28 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
     danderAtk = danderAtk + (killCount) * atkCard:GetDanderKill()
   end
   if skillConfig.type == BattleSkillType.SKILL then
-    danderAtk = danderAtk - atkCard:GetMaxDander()
-  end
-  atkInfo.danderAtk = danderAtk
-  atkCard:SetDander(atkCard:GetDander() + (danderAtk))
-  if killCount > 0 and mainAtkCard then
-    for i = 1, killCount do
-      (self.DealDamageKill)(mainAtkCard, atkInfo)
+    local costDander = (BattleData.GetCostDander)(costTable)
+    if not costDander then
+      do
+        danderAtk = danderAtk - atkCard:GetMaxDander(true)
+        atkInfo.danderAtk = danderAtk
+        atkCard:SetDander(atkCard:GetDander() + (danderAtk))
+        if killCount > 0 and mainAtkCard then
+          for i = 1, killCount do
+            (self.DealDamageKill)(mainAtkCard, atkInfo)
+          end
+        end
+        do return defCardInfoTable end
+        -- DECOMPILER ERROR: 22 unprocessed JMP targets
+      end
     end
   end
-  do return defCardInfoTable end
-  -- DECOMPILER ERROR: 11 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC202: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC205: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingPoFang = function(atkCard, defCard, ...)
-  -- function num : 0_19 , upvalues : ceil, gedang_diyu_xishu, _ENV, pofang_diyu_xishu, max
+  -- function num : 0_20 , upvalues : ceil, gedang_diyu_xishu, _ENV, pofang_diyu_xishu, max
   local pofang_A = atkCard:GetArp()
   local diyu_B = defCard:GetRea()
   local pofang_qiangdu_A = atkCard:GetArpInt()
@@ -990,10 +1306,10 @@ BattleDataCount.PanDingPoFang = function(atkCard, defCard, ...)
   -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC205: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC208: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingShanBi = function(atkCard, defCard, atkInfo, isSkill, ...)
-  -- function num : 0_20 , upvalues : ceil, mingzhong_shanbi_xishu, _ENV
+  -- function num : 0_21 , upvalues : ceil, mingzhong_shanbi_xishu, _ENV
   local shanbi_B = defCard:GetEva()
   local mingzhong_A = atkCard:GetHit()
   local ewai_gongji_shanbilv = 0
@@ -1031,10 +1347,10 @@ BattleDataCount.PanDingShanBi = function(atkCard, defCard, atkInfo, isSkill, ...
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC208: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC211: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, ...)
-  -- function num : 0_21 , upvalues : ceil, baoji_mianbao_xishu, min, baojilv_max, max, baojilv_min, _ENV, gedang_poji_xishu, gedanglv_max, gedanglv_min, baoji_jiacheng_max, baoji_jiacheng_min, baoji_kangbao_qiangdu_xishu, gedang_jiacheng_max, gedang_jiacheng_min, gedang_poji_qiangdu_xishu
+  -- function num : 0_22 , upvalues : ceil, baoji_mianbao_xishu, min, baojilv_max, max, baojilv_min, _ENV, gedang_poji_xishu, gedanglv_max, gedanglv_min, baoji_jiacheng_max, baoji_jiacheng_min, baoji_kangbao_qiangdu_xishu, gedang_jiacheng_max, gedang_jiacheng_min, gedang_poji_qiangdu_xishu
   local baoji_A = atkCard:GetCrt()
   local kangbao_B = (defCard:GetRec())
   local baojilv = nil
@@ -1099,28 +1415,36 @@ BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, ...)
     logw("poji_qiangdu_A  " .. poji_qiangdu_A)
     logw("gedang_poji_xishu  " .. gedang_poji_qiangdu_xishu)
   end
+  local param_baoji_kangbao = baoji_qiangdu_A - kangbao_qiangdu_B
+  if param_baoji_kangbao < 0 then
+    param_baoji_kangbao = 0
+  end
+  local param_gedang_poji = gedang_qiangdu_B - poji_qiangdu_A
+  if param_gedang_poji < 0 then
+    param_gedang_poji = 0
+  end
   if baojilv + gedanglv <= 10000 then
     if random_num <= baojilv then
-      baoji_jiacheng = min(baoji_jiacheng_max, max(baoji_jiacheng_min, ceil(10000 * (baoji_qiangdu_A - kangbao_qiangdu_B) / (baoji_qiangdu_A - kangbao_qiangdu_B + baoji_kangbao_qiangdu_xishu))))
+      baoji_jiacheng = min(baoji_jiacheng_max, max(baoji_jiacheng_min, ceil(10000 * param_baoji_kangbao / (param_baoji_kangbao + baoji_kangbao_qiangdu_xishu))))
     else
       if random_num <= baojilv + gedanglv then
-        gedang_jiangdi = -min(gedang_jiacheng_max, max(gedang_jiacheng_min, ceil(10000 * (gedang_qiangdu_B - poji_qiangdu_A) / (gedang_qiangdu_B - poji_qiangdu_A + gedang_poji_qiangdu_xishu))))
+        gedang_jiangdi = -min(gedang_jiacheng_max, max(gedang_jiacheng_min, ceil(10000 * param_gedang_poji / (param_gedang_poji + gedang_poji_qiangdu_xishu))))
       end
     end
   else
     if random_num <= baojilv then
-      baoji_jiacheng = min(baoji_jiacheng_max, max(baoji_jiacheng_min, ceil(10000 * (baoji_qiangdu_A - kangbao_qiangdu_B) / (baoji_qiangdu_A - kangbao_qiangdu_B + baoji_kangbao_qiangdu_xishu))))
+      baoji_jiacheng = min(baoji_jiacheng_max, max(baoji_jiacheng_min, ceil(10000 * param_baoji_kangbao / (param_baoji_kangbao + baoji_kangbao_qiangdu_xishu))))
     else
-      gedang_jiangdi = -min(gedang_jiacheng_max, max(gedang_jiacheng_min, ceil(10000 * (gedang_qiangdu_B - poji_qiangdu_A) / (gedang_qiangdu_B - poji_qiangdu_A + gedang_poji_qiangdu_xishu))))
+      gedang_jiangdi = -min(gedang_jiacheng_max, max(gedang_jiacheng_min, ceil(10000 * param_gedang_poji / (param_gedang_poji + gedang_poji_qiangdu_xishu))))
     end
   end
   return baoji_jiacheng, gedang_jiangdi
 end
 
--- DECOMPILER ERROR at PC211: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC214: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingShangHaiJiaCheng = function(atkCard, defCard, ...)
-  -- function num : 0_22 , upvalues : _ENV, shanghai_jiacheng_min, zengshang_mianshang_xishu, max, ceil, min, shanghai_jiacheng_max
+  -- function num : 0_23 , upvalues : _ENV, shanghai_jiacheng_min, zengshang_mianshang_xishu, max, ceil, min, shanghai_jiacheng_max
   local zengshang_qiangdu_A = atkCard:GetAddInt()
   local mianshang_qiangdu_B = defCard:GetExdInt()
   local shanghai_jiacheng = 0
@@ -1139,17 +1463,17 @@ BattleDataCount.PanDingShangHaiJiaCheng = function(atkCard, defCard, ...)
   return shanghai_jiacheng
 end
 
--- DECOMPILER ERROR at PC214: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC217: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingKeZhi = function(atkCard, defCard, ...)
-  -- function num : 0_23
+  -- function num : 0_24
   return 0
 end
 
--- DECOMPILER ERROR at PC217: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC220: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.GetTreatmentCount = function(atkCard, defCards, atkInfo, ...)
-  -- function num : 0_24 , upvalues : _ENV, ceil, zhiliao_baoji_xishu, min, zhiliao_baojilv_max, max, zhiliao_baojilv_min, zhiliao_baoji_jiacheng_max, zhiliao_baoji_jiacheng_min, zhiliao_baoji_qiangdu_xishu, BattleSkillType, ipairs, zhiliao_fudong_min, zhiliao_fudong_max
+BattleDataCount.GetTreatmentCount = function(atkCard, defCards, atkInfo, costTable, ...)
+  -- function num : 0_25 , upvalues : _ENV, ceil, zhiliao_baoji_xishu, min, zhiliao_baojilv_max, max, zhiliao_baojilv_min, zhiliao_baoji_jiacheng_max, zhiliao_baoji_jiacheng_min, zhiliao_baoji_qiangdu_xishu, BattleDisplayEffect, BattleSkillType, ipairs, zhiliao_fudong_min, zhiliao_fudong_max
   atkInfo.defCardsInfo = {}
   local defCardsInfo = atkInfo.defCardsInfo
   local gongji_A = atkCard:GetAtk()
@@ -1169,41 +1493,57 @@ BattleDataCount.GetTreatmentCount = function(atkCard, defCards, atkInfo, ...)
   else
     baoji_jiacheng = 0
   end
-  local danderAtk = atkCard:GetDanderAtk()
+  local danderAtk = 0
+  if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+    danderAtk = atkCard:GetDanderAtk()
+  end
   if skillConfig.type == BattleSkillType.SKILL then
-    danderAtk = danderAtk - atkCard:GetMaxDander()
-  end
-  atkInfo.danderAtk = danderAtk
-  atkCard:SetDander(atkCard:GetDander() + atkInfo.danderAtk)
-  atkInfo.isTreatment = true
-  local atkTreatAdd = atkCard:GetTreatAdd()
-  local atkTreatSub = atkCard:GetTreatSub()
-  for _,defCard in ipairs(defCards) do
-    local random_seed = (BattleData.GetRandomSeed)()
-    local random_treatment = ceil(-zhiliao_fudong_min + (-zhiliao_fudong_max + zhiliao_fudong_min) * random_seed / 10000)
-    local defBeTreatAdd = defCard:GetBeTreatAdd()
-    local defBeTreatSub = defCard:GetBeTreatSub()
-    local treatment = min(random_treatment, base_treatment + gongji_A * (base_treatment_per + atkTreatAdd - atkTreatSub) * (10000 + defBeTreatAdd - defBeTreatSub) / 100000000)
-    local defCardInfo = (BattleAtk.InitSubAtkInfo)(defCard, defCardsInfo)
-    if (BattleBuff.IsForbiddenTreatment)(defCard) then
-      defCardInfo.hpDef = 0
-      defCardInfo.isCrit = false
-    else
-      local realTreatment = (BattleBuff.DealRealHpLoss)(defCard, treatment, true)
-      defCardInfo.hpDef = ceil(-realTreatment)
-      defCard:SetHp(defCard:GetHp() + defCardInfo.hpDef, atkCard:GetPosIndex())
-      defCardInfo.isCrit = baoji_jiacheng > 0
+    local costDander = (BattleData.GetCostDander)(costTable)
+    if not costDander then
+      do
+        danderAtk = danderAtk - atkCard:GetMaxDander(true)
+        atkInfo.danderAtk = danderAtk
+        atkCard:SetDander(atkCard:GetDander() + atkInfo.danderAtk)
+        atkInfo.isTreatment = true
+        local atkTreatAdd = atkCard:GetTreatAdd()
+        local atkTreatSub = atkCard:GetTreatSub()
+        for _,defCard in ipairs(defCards) do
+          local random_seed = (BattleData.GetRandomSeed)()
+          local random_treatment = ceil(-zhiliao_fudong_min + (-zhiliao_fudong_max + zhiliao_fudong_min) * random_seed / 10000)
+          local defBeTreatAdd = defCard:GetBeTreatAdd()
+          local defBeTreatSub = defCard:GetBeTreatSub()
+          local treatment = min(random_treatment, (base_treatment + gongji_A * (base_treatment_per + atkTreatAdd - atkTreatSub) / 10000) * (10000 + defBeTreatAdd - defBeTreatSub) / 10000)
+          local defCardInfo = (BattleAtk.InitSubAtkInfo)(defCard, defCardsInfo)
+          if (BattleBuff.IsForbiddenTreatment)(defCard) then
+            defCardInfo.hpDef = 0
+            defCardInfo.isCrit = false
+          else
+            local realTreatment = (BattleBuff.DealRealHpLoss)(defCard, treatment, true)
+            defCardInfo.hpDef = ceil(-realTreatment)
+            defCard:SetHp(defCard:GetHp() + defCardInfo.hpDef, atkCard:GetPosIndex())
+            defCardInfo.isCrit = baoji_jiacheng > 0
+          end
+          defCardInfo.danderDef = 0
+          defCardInfo.isSkillTarget = true
+        end
+        local costHp = (BattleData.GetCostHp)(costTable)
+        do
+          if costHp and costHp ~= 0 then
+            local defCardInfo = (BattleAtk.InitSubAtkInfo)(atkCard, defCardsInfo, true)
+            defCardInfo.hpDef = defCardInfo.hpDef - costHp
+            atkCard:SetHp(atkCard:GetHp() - costHp)
+          end
+          -- DECOMPILER ERROR: 4 unprocessed JMP targets
+        end
+      end
     end
-    defCardInfo.danderDef = 0
-    defCardInfo.isSkillTarget = true
   end
-  -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC220: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC223: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetAtkDanderCount = function(atkInfo, ...)
-  -- function num : 0_25
+  -- function num : 0_26
   local atkPos = atkInfo.atkPos
 end
 

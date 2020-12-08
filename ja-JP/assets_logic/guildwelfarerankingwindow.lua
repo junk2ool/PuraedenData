@@ -158,12 +158,14 @@ GuildWelfareRankingWindow.RefreshRankItem = function(index, item, ...)
   local count = #data.goods
   local subItem = nil
   for i = 1, count do
-    subItem = list:AddItemFromPool()
     local subData = (data.goods)[i]
-    ;
-    (subItem:GetChild("ItemLoader")).url = (Util.GetUrlFromItemID)(subData.id, subData.type)
-    ;
-    (subItem:GetChild("ItemNumberTxt")).text = subData.value
+    if subData.id ~= AssetType.GUILD_WAR_TALENT then
+      subItem = list:AddItemFromPool()
+      ;
+      (subItem:GetChild("ItemLoader")).url = (Util.GetUrlFromItemID)(subData.id, subData.type)
+      ;
+      (subItem:GetChild("ItemNumberTxt")).text = subData.value
+    end
   end
 end
 

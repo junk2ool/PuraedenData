@@ -4,7 +4,7 @@ require("AdventureGame_BrickGameByName")
 local AdventureGame_BrickGame = {}
 local uis, contentPane = nil, nil
 local argTable = {}
-local nodeId = nil
+local nodeId, uid = nil, nil
 local brickGrps = {}
 local countDown = 10
 local totalBricks = (((TableData.gTable).BaseFixedData)[Const.MAX_BRICK]).int_value
@@ -15,11 +15,12 @@ local gameState = GameState.init
 local getRewards = {}
 local rdIndex = {}
 AdventureGame_BrickGame.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, nodeId, uis, brickGrps, AdventureGame_BrickGame
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, nodeId, uid, uis, brickGrps, AdventureGame_BrickGame
   bridgeObj:SetView((WinResConfig.AdventureGame_BrickGame).package, (WinResConfig.AdventureGame_BrickGame).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
   nodeId = argTable[1]
+  uid = argTable[2]
   uis = GetAdventureGame_BrickGameUis(contentPane)
   brickGrps = {uis.Brick_01_Grp, uis.Brick_02_Grp, uis.Brick_03_Grp, uis.Brick_04_Grp, uis.Brick_05_Grp, uis.Brick_06_Grp, uis.Brick_07_Grp, uis.Brick_08_Grp, uis.Brick_09_Grp, uis.Brick_10_Grp, uis.Brick_11_Grp, uis.Brick_12_Grp, uis.Brick_13_Grp}
   ;
@@ -223,12 +224,12 @@ AdventureGame_BrickGame.InitAttr = function(...)
 end
 
 AdventureGame_BrickGame.OnGameOver = function(...)
-  -- function num : 0_2 , upvalues : _ENV, nodeId, getRewards, brickGrps, rdIndex
-  (AdventureService.ReqAdventureEventReward)(nodeId, AdventureEventType.Brick, false, getRewards)
+  -- function num : 0_2 , upvalues : _ENV, nodeId, getRewards, uid, brickGrps, rdIndex
+  (AdventureService.ReqAdventureEventReward)(nodeId, AdventureEventType.Brick, false, getRewards, uid)
   for i,v in ipairs(brickGrps) do
     if (v.c1Ctr).selectedIndex == 0 then
       local brickData = ((TableData.gTable).BaseAdventureGameBrickData)[rdIndex[i]]
-      -- DECOMPILER ERROR at PC22: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC23: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (v.c1Ctr).selectedIndex = 1
@@ -243,7 +244,7 @@ AdventureGame_BrickGame.OnGameOver = function(...)
             print("brickData.type ==2", rewardData)
             if rewardData ~= nil and rewardData.Rewards ~= nil then
               local str = split(rewardData.Rewards, ":")
-              -- DECOMPILER ERROR at PC69: Confused about usage of register: R8 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC70: Confused about usage of register: R8 in 'UnsetPending'
 
               ;
               (v.ItemLoader).url = (Util.GetUrlFromItemID)(tonumber(str[2]), tonumber(str[1]))

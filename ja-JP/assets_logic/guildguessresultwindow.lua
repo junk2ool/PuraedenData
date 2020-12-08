@@ -84,7 +84,17 @@ GuildGuessResultWindow.CalculateConsumption = function(...)
   local total = 0
   for _,v in ipairs(data) do
     local totalSub = 0
-    for i = 1, #v.reward do
+    local containTalent = false
+    for _,v2 in ipairs(v.reward) do
+      if v2.id == AssetType.GUILD_WAR_TALENT then
+        containTalent = true
+      end
+    end
+    local countNum = #v.reward
+    if containTalent then
+      countNum = countNum - 1
+    end
+    for i = 1, countNum do
       local coast = (Util.GetBuyTimesConsume)(BuyTimesType.GuildGuess, i)
       totalSub = totalSub + tonumber((split(coast, ":"))[3])
     end

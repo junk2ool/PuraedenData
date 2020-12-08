@@ -42,6 +42,8 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_bag, RedDotComID.Home_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Setting, RedDotComID.Home_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Friend, RedDotComID.Home_Main)
   winName = (WinResConfig.ActorInfoWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Setting_Main, RedDotComID.Home_Setting, (WinResConfig.HomeWindow).name)
@@ -124,11 +126,24 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Guild_Guess, RedDotComID.Guild_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Guild_Gift, RedDotComID.Guild_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Guild_Main_Boss, RedDotComID.Guild_Main)
   winName = (WinResConfig.GuildDetailWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Guild_Detail_Main, RedDotComID.Guild_Detail, (WinResConfig.GuildMainWindow).name)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Guild_Detail_Apply, RedDotComID.Guild_Detail_Main)
+  winName = (WinResConfig.GuildBossMainWindow).name
+  ;
+  (RedDotMgr.RegisterRootNode)(winName, RedDotComID.GuildBoss_Main, RedDotComID.Guild_Main_Boss, (WinResConfig.GuildMainWindow).name)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.GuildBoss_Rem, RedDotComID.GuildBoss_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.GuildBoss_Rwd, RedDotComID.GuildBoss_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.GuildBoss_Rup, RedDotComID.GuildBoss_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.GuildBoss_Talent, RedDotComID.GuildBoss_Main)
   winName = (WinResConfig.LotteryWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Lottery_Main, RedDotComID.Home_Lottery, (WinResConfig.HomeWindow).name)
@@ -221,6 +236,13 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNodeWithList)(winName, RedDotComID.SevenTask_BtnList, RedDotComID.SevenTask_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.SevenTask_GetBtn, RedDotComID.SevenTask_Main)
+  winName = (WinResConfig.FriendsListWindow).name
+  ;
+  (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Friend_Main, RedDotComID.Home_Friend, (WinResConfig.HomeWindow).name)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Friend_Chat, RedDotComID.Friend_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Friend_Add, RedDotComID.Friend_Main)
 end
 
 -- DECOMPILER ERROR at PC9: Confused about usage of register: R2 in 'UnsetPending'
@@ -557,6 +579,8 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
                                                               if node then
                                                                 loge(logStr .. "普通红点ID" .. id)
                                                                 node.NodeValue = IsAdd
+                                                              else
+                                                                loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")
                                                               end
                                                               if id == RedDotComID.FREE_GIFT then
                                                                 UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_FREEGIFTREDDOT)

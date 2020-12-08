@@ -18,10 +18,10 @@ BattleConfig = {ratio = ratio, maxMoveInterval = 0.3, flashInterval = 0.1, nextA
 floatUpBaseSpeed = {1.2, 0.8, 0.4}
 , 
 imitateGravityAcceleration = {0.06, 0.06, 0.06}
-, assistCameraSize = 28, assistCameraTime = 0.1, smokeOff = Vector3(0, -2, -2 * ratio), cardScale = 1.2, battleCameraPosition = Vector3(0, 28, -95), battleStartCameraOffset = Vector3(-100, 0, 0), orthographicSize = 25, battleCameraSizeChange = -5, cardJumpOffDefault = 4, cardPositionOff = Vector3(0, -4, 0), frontPosXOff = Vector3(7.5, 0, 0), frontPosXOff_far_1 = Vector3(10, 0, 0), frontPosXOff_far_2 = Vector3(15, 0, 0), damageShareFrontPosXOff = Vector3(2, 0, 0), nextWaveCardMoveX = 50, nextWaveCardMoveTime = 1.5, printBattleData = false, lowFrameRate = 40, highFrameRate = 60, sortingOrderInit = -100, skillTimelineOrderInit = 0, uniqueSkillHitOrder = 200, originBattleCameraCullingMask = 257, positionInvisible = Vector3(0, 10000, 0), positionZero = Vector3(0, 0, 0), positionCenter_5 = Vector3(5, 0, 0), positionCenter_13 = Vector3(13, 0, 0), positionCenter_15 = Vector3(15, 0, 0), positionCenter_20 = Vector3(20, 0, 0), positionCenter_30 = Vector3(30, 0, 0)}
+, assistCameraSize = 28, assistCameraTime = 0.1, assistRatioSpeedMax = 1, assistRatioSpeedNormal = 1, smokeOff = Vector3(0, -2, -2 * ratio), cardScale = 1.2, battleCameraPosition = Vector3(0, 28, -95), battleStartCameraOffset = Vector3(-100, 0, 0), orthographicSize = 25, battleCameraSizeChange = -5, cardJumpOffDefault = 4, cardPositionOff = Vector3(0, -4, 0), frontPosXOff = Vector3(7.5, 0, 0), frontPosXOff_far_1 = Vector3(10, 0, 0), frontPosXOff_far_2 = Vector3(15, 0, 0), damageShareFrontPosXOff = Vector3(2, 0, 0), nextWaveCardMoveX = 50, nextWaveCardMoveTime = 1.5, printBattleData = false, lowFrameRate = 40, highFrameRate = 60, sortingOrderInit = -100, skillTimelineOrderInit = 0, uniqueSkillHitOrder = 200, originBattleCameraCullingMask = 257, positionInvisible = Vector3(0, 10000, 0), positionZero = Vector3(0, 0, 0), positionCenter_5 = Vector3(5, 0, 0), positionCenter_13 = Vector3(13, 0, 0), positionCenter_15 = Vector3(15, 0, 0), positionCenter_20 = Vector3(20, 0, 0), positionCenter_25 = Vector3(25, 0, 0), positionCenter_30 = Vector3(30, 0, 0)}
 local self = BattleConfig
-OriBattleSpeedList = {1, 1.5, 2}
--- DECOMPILER ERROR at PC167: Confused about usage of register: R9 in 'UnsetPending'
+OriBattleSpeedList = {1, 1.8, 3}
+-- DECOMPILER ERROR at PC175: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleConfig.Init = function(...)
   -- function num : 0_0 , upvalues : self, _ENV, ipairs, t_insert, math, tonumber
@@ -67,7 +67,7 @@ BattleConfig.Init = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC170: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC178: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleConfig.UpdateCurFrameRate = function(...)
   -- function num : 0_1 , upvalues : tonumber, _ENV, self
@@ -84,7 +84,7 @@ BattleConfig.UpdateCurFrameRate = function(...)
   -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC173: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC181: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleConfig.IsHideTopInfo = function(...)
   -- function num : 0_2 , upvalues : tonumber, _ENV
@@ -93,7 +93,7 @@ BattleConfig.IsHideTopInfo = function(...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC176: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC184: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleConfig.IsHideAttackInfo = function(...)
   -- function num : 0_3 , upvalues : tonumber, _ENV
@@ -102,7 +102,7 @@ BattleConfig.IsHideAttackInfo = function(...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC179: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC187: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleConfig.IsHideHpInfo = function(...)
   -- function num : 0_4 , upvalues : tonumber, _ENV
@@ -111,7 +111,7 @@ BattleConfig.IsHideHpInfo = function(...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC182: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC190: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleConfig.IsHideBattleHeadInfo = function(...)
   -- function num : 0_5 , upvalues : tonumber, _ENV
@@ -120,12 +120,21 @@ BattleConfig.IsHideBattleHeadInfo = function(...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC185: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC193: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleConfig.IsHideBattleSpeed = function(...)
   -- function num : 0_6 , upvalues : tonumber, _ENV
   local saveValue = tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.BATTLE_SETTING_SPEED, "0"))
   do return saveValue == 0 end
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+end
+
+-- DECOMPILER ERROR at PC196: Confused about usage of register: R9 in 'UnsetPending'
+
+BattleConfig.IsHideBattleCardRage = function(...)
+  -- function num : 0_7 , upvalues : tonumber, _ENV
+  local saveValue = tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.BATTLE_SETTING_RAGE_BAR, "0"))
+  do return saveValue == 1 end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
@@ -175,19 +184,19 @@ BattleCardPosition = {
 [113] = {pos = Vector3(34.5, 0, -25)}
 }
 BattleCardFloatUpState = {NONE = 0, FLOAT = 1}
-BattleBuffSettleRoundType = {BEFORE_ROUND = 1, BEFORE_ATTACK = 2, AFTER_ATTACK = 3, BEFORE_BATTLE = 4, BEFORE_SKILL = 5, AFTER_SKILL = 6, BEFORE_ACTION = 8, AFTER_ACTION = 9}
-BattleBuffDeductionRoundType = {NOW = 0, BEFORE_ROUND = 1, BEFORE_ATTACK = 2, AFTER_ATTACK = 3, BEFORE_BATTLE = 4, BEFORE_SKILL = 5, AFTER_SKILL = 6, AFTER_SKILL_ENEMY = 7, BEFORE_ACTION = 8, AFTER_ACTION = 9, BEFORE_ROUND_SINCE_2 = 10, AFTER_HIT = 11, AFTER_TREAT_DIRECT = 12, AFTER_ATTRACT = 13, BEFORE_ROUND_3 = 14, AFTER_CRIT = 15, DAMAGE_20_PER = 16, DAMAGE_KILL = 17, DAMAGE_DEAD = 18, DAMAGE_BUFF_ACTIVE = 19, PARTNER_DEAD = 20, ONE_ENEMY_ALIVE = 21, ENEMY_CONTROL = 22, BEFORE_ROUND_DELAY = 30}
-BattlePlaySettleRoundType = {NOW = 0, FIRST_ATTACK = 1}
-BattleBuffEffectCalType = {NONE = 0, VALUE = 1, ATK_PER = 2, HP_PER = 3, DEF_PER = 4, HURT_PER = 5, ATK_BASED_TARGET_DEAD = 6, ATK_BASED_SELF_DEAD = 7, ATK_BASED_ALL_DEAD = 8, ATK_BASED_TARGET_HP = 9, DAMAGE_BASED_TARGET_DEAD = 10, ATK_BASED_CLEAR_BUFF = 11, SPD_PER = 12}
+BattleBuffSettleRoundType = {BEFORE_ROUND = 1, BEFORE_ATTACK = 2, AFTER_ATTACK = 3, BEFORE_BATTLE = 4, BEFORE_SKILL = 5, AFTER_SKILL = 6, BEFORE_ACTION = 8, AFTER_ACTION = 9, AFTER_DAMAGE = 23}
+BattleBuffDeductionRoundType = {NOW = 0, BEFORE_ROUND = 1, BEFORE_ATTACK = 2, AFTER_ATTACK = 3, BEFORE_BATTLE = 4, BEFORE_SKILL = 5, AFTER_SKILL = 6, AFTER_SKILL_ENEMY = 7, BEFORE_ACTION = 8, AFTER_ACTION = 9, BEFORE_ROUND_SINCE_2 = 10, AFTER_HIT = 11, AFTER_TREAT_DIRECT = 12, AFTER_ATTRACT = 13, BEFORE_ROUND_3 = 14, AFTER_CRIT = 15, DAMAGE_20_PER = 16, DAMAGE_KILL = 17, DAMAGE_DEAD = 18, DAMAGE_BUFF_ACTIVE = 19, PARTNER_DEAD = 20, ONE_ENEMY_ALIVE = 21, ENEMY_CONTROL = 22, AFTER_DAMAGE = 23, BEFORE_ROUND_DELAY = 30, AFTER_DAMAGE = 31, NEAR_DEATH = 32, AFTER_FOUR_ATTACK = 33}
+_ENV.BattlePlaySettleRoundType = {NOW = 0, FIRST_ATTACK = 1}
+_ENV.BattleBuffEffectCalType = {NONE = 0, VALUE = 1, ATK_PER = 2, HP_PER = 3, DEF_PER = 4, HURT_PER = 5, ATK_BASED_TARGET_DEAD = 6, ATK_BASED_SELF_DEAD = 7, ATK_BASED_ALL_DEAD = 8, ATK_BASED_TARGET_HP = 9, DAMAGE_BASED_TARGET_DEAD = 10, ATK_BASED_CLEAR_BUFF = 11, SPD_PER = 12, STAR_CONFIG = 14, DEPEND_ROUND = 15, CUR_HP_PERCENT = 16, ENEMY_MAX_HP_PER = 17}
 _ENV.BattleBuffEffectDependType = {ATK_CARD = 1, DEF_CARD = 2}
 _ENV.BattleBuffControlType = {TARGET_FORCE = 101, TARGET_RANDOM = 102, TARGET_SELF = 103, FORBIDDEN_NORMAL = 201, FORBIDDEN_SMALL = 202, FORBIDDEN_SKILL = 203, FORBIDDEN_ASSIST = 204, FORBIDDEN_ASSIST_PASSIVE = 205, FORBIDDEN_BLOCK = 301, FORBIDDEN_ATTACK_HIT = 302, FORBIDDEN_DEFEND_DODGE = 303, REMOVE_ANY_ATTACK = 401, FORBIDDEN_TREATMENT = 402}
 _ENV.BattleCardAttributeID = {HP = 81050001, DANDER = 81050024}
 _ENV.HurtNumType = {NOR_HURT = "NOR_HURT", CRI_HURT = "CRI_HURT", MISS_HURT = "MISS_HURT", NOR_TREATMENT = "NOR_TREATMENT", ABSORB_HURT = "ABSORB_HURT", MOVE_FAIL = "MOVE_FAIL", DANDER = "DANDER", BLOCK_HURT = "BLOCK_HURT", BUFF_HURT = "BUFF_HURT", INVINCIBLE = "INVINCIBLE", DOUBLE_ATTACK = "DOUBLE_ATTACK", KEEP_ALIVE = "KEEP_ALIVE", UNTREATMENT = "UNTREATMENT", RESIST = "RESIST", IMMUNE = "IMMUNE"}
-_ENV.BattleDisplayEffect = {DAMAGE_EXTRA = 101, DAMAGE_PERSIST = 102, DAMAGE_PERCENT = 103, DAMAGE_REPEAT = 104, DEADLY = 105, STAMP = 106, COUNTER = 107, DIRECT_KILL = 108, UNIQUESKILL_DAMAGE_ADD = 109, DOUBLE_ATTACK = 110, FORCE_ASSIST = 111, SUMMON = 112, OFFER_REWARD = 113, WARLIKE = 116, ATTACK_DAMAGE_CHANGE = 117, HIT_DAMAGE_CHANGE = 118, DAMAGE_PERSIST_UP = 119, CRIT_PERSIST = 120, REB_PERSIST = 121, TREATMENT_EXTRA = 201, TREATMENT_PERSIST = 202, SHIELD = 301, DAMAGE_REDUCE = 302, KEEP_ALIVE = 303, DAMAGE_SHARE = 304, BLOCK_PERSIST = 305, INVINCIBLE = 306, RESIST = 309, SHIELD_UP = 311, REC_PERSIST = 312, ENCHANTMENT = 401, PARALYSIS = 402, STUN = 403, SLEEP = 404, SILENT = 405, BLIND = 406, UNTREATMENT = 407, CONFUSION = 408, ATTRACT = 409, LIE = 412, FOCUS_ATTACK = 413, DANDER_ABSORB = 607}
-_ENV.BattleBuffEffectPosType = {BLOOD = 1, HEAD = 2, BODY = 3, AROUND = 4, WORD = 5}
+_ENV.BattleDisplayEffect = {DAMAGE_EXTRA = 101, DAMAGE_PERSIST = 102, DAMAGE_PERCENT = 103, DAMAGE_REPEAT = 104, DEADLY = 105, STAMP = 106, COUNTER = 107, DIRECT_KILL = 108, UNIQUESKILL_DAMAGE_ADD = 109, DOUBLE_ATTACK = 110, FORCE_ASSIST = 111, SUMMON = 112, OFFER_REWARD = 113, WARLIKE = 116, ATTACK_DAMAGE_CHANGE = 117, HIT_DAMAGE_CHANGE = 118, DAMAGE_PERSIST_UP = 119, CRIT_PERSIST = 120, REB_PERSIST = 121, FIX_DAMAGE_PER = 122, STAMP_ICON = 150, STAMP_DEPEND_ROUND = 151, TREATMENT_EXTRA = 201, TREATMENT_PERSIST = 202, SHIELD = 301, DAMAGE_REDUCE = 302, KEEP_ALIVE = 303, DAMAGE_SHARE = 304, BLOCK_PERSIST = 305, INVINCIBLE = 306, RESIST = 309, SHIELD_UP = 311, REC_PERSIST = 312, DAMAGE_DIVIDE = 313, EXTRA_DAMAGE_DIVIDE = 314, BLOCK_PERSIST_NO_EFFECT = 315, EXCHANGE_HP = 316, EXCHANGE_HP_SELF = 317, LOCK_HP = 318, LIKE_ALIVE = 319, ENCHANTMENT = 401, PARALYSIS = 402, STUN = 403, SLEEP = 404, SILENT = 405, BLIND = 406, UNTREATMENT = 407, CONFUSION = 408, ATTRACT = 409, LIE = 412, FOCUS_ATTACK = 413, ATTACK_DEFEAT_NO_DANDER = 415, TRANSFIGURATION = 416, DANDER_ABSORB = 607, NO_DEFEND_DANDER_ATTACK = 803, NO_DEFEND_DANDER_SMALL = 804, NO_DEFEND_DANDER_SKILL = 805, IMMUNE_COUNTER = 806}
+_ENV.BattleBuffEffectPosType = {BLOOD = 1, HEAD = 2, BODY = 3, AROUND = 4, WORD = 5, GROUND = 6}
 _ENV.BattleEffectEnum = {COMMON_STUN = "fx_common_stun", COMMON_ENCHANTMENT = "fx_common_enchantment", COMMON_SLEEP = "fx_common_sleep", COMMON_SILENT = "fx_common_silent", COMMON_CONFUSION = "fx_common_confusion", COMMON_BLIND = "fx_common_blind", COMMON_UNTREATMENT = "fx_common_untreatment", COMMON_PARALYSIS = "fx_common_paralysis", COMMON_BLOODUP = "fx_common_bloodup", COMMON_FLASH = "FX_common_Flash", COMMON_FALLDOWN_SMOKE = "FX_common_falldown_Smoke", COMMON_SHADOW = "fx_common_shadow", COMMON_LEAD = "fx_common_lead", COMMON_NORMAL_SHIELD = "FX_common_normal_Shield", COMMON_PARTY_DIE = "fx_common_Party_Die", COMMON_SKILL_SHIELD = "FX_common_skill_Shield", COMMON_PRESS = "FX_common_press", COMMON_GATHERING = "FX_common_Gathering", COMMON_SKILL_FLASH = "FX_common_skill_Flash", COMMON_IRRADIATION = "FX_common_Irradiation", COMMON_TELEPORT = "FX_common_Teleport", COMMON_RUN_SMOKE = "FX_common_run_Smoke", COMMON_BLOCK = "FX_common_Block", COMMON_BURNING = "FX_common_Burning", COMMON_ENEMY_DIE = "FX_common_Enemy_Die", COMMON_BOOK_FLASH = "FX_common_Flash_ui"}
 _ENV.BattleWinConditionType = {DEFAULT = "0", ENEMY_BEHIND_DEAD = "1", CARD_HP_PERCENT = "2"}
-_ENV.BattleBuffWordType = {ABSORB = "Battle:buff_301", BLOCK = "Battle:buff_305", INVINCIBLE = "Battle:buff_306", CRIT = "Battle:buff_baoji", MOVE_FAIL = "Battle:buff_001", IMMUNE = "Battle:buff_002", DOUBLE_ATTACK = "Battle:buff_110", KEEP_ALIVE = "Battle:buff_303", UNTREATMENT = "Battle:buff_407", RESIST = "Battle:buff_309", ASSIST = "Battle:buff_xieji"}
-_ENV.BuffTriggerCondition = {BUFF_TARGET_HP_PER = 1001, SELF_HP_PER = 1002, ATTACK_TARGET_HP_PER = 1003, SELF_TARGET_DANDER = 1011, TARGET_DANDER = 1112, SELF_TARGET_ATK = 1120, RANDOM = 1130, SELF_CAMP_CARD_ALIVE = 2001, TARGET_HAVE_EFFECT = 2010, TARGET_HAVE_BUFF_TYPE = 2011, TARGET_HAVE_BUFF = 2012, BATTLE_TYPE_PVE = 3000, BATTLE_TYPE_PLOT = 3001, BATTLE_TYPE_HERO = 3002, BATTLE_TYPE_DAILY = 3003, BATTLE_TYPE_TOWER = 3004, BATTLE_TYPE_EXPEDITION = 3005, BATTLE_TYPE_ARENA = 3006}
+_ENV.BattleBuffWordType = {ABSORB = "Battle:buff_301", BLOCK = "Battle:buff_305", INVINCIBLE = "Battle:buff_306", CRIT = "Battle:buff_baoji", MOVE_FAIL = "Battle:buff_001", IMMUNE = "Battle:buff_002", DOUBLE_ATTACK = "Battle:buff_110", KEEP_ALIVE = "Battle:buff_303", UNTREATMENT = "Battle:buff_407", RESIST = "Battle:buff_309", ASSIST = "Battle:buff_xieji", UNYIELDING = "Battle:buff_318"}
+_ENV.BuffTriggerCondition = {BUFF_TARGET_HP_PER = 1001, SELF_HP_PER = 1002, ATTACK_TARGET_HP_PER = 1003, ATTACK_TARGET_NOT_SWIMSUIT = 1004, SELF_TARGET_DANDER = 1011, TARGET_DANDER = 1112, SELF_TARGET_ATK = 1120, RANDOM = 1130, RANDOM_UP_HP = 1131, SELF_CAMP_CARD_ALIVE = 2001, TARGET_HAVE_EFFECT = 2010, TARGET_HAVE_BUFF_TYPE = 2011, TARGET_HAVE_BUFF = 2012, TARGET_CARD_TYPE = 2013, TARGET_CARD_COUNT = 2014, BATTLE_TYPE_PVE = 3000, BATTLE_TYPE_PLOT = 3001, BATTLE_TYPE_HERO = 3002, BATTLE_TYPE_DAILY = 3003, BATTLE_TYPE_TOWER = 3004, BATTLE_TYPE_EXPEDITION = 3005, BATTLE_TYPE_ARENA = 3006, BATTLE_TYPE_GUILD_WAR = 3007, BATTLE_TYPE_NOT_GUILD_WAR = 3008, BATTLE_TYPE_NOT_GUILD_WAR_AND_NO_PLOT = 3009}
 _ENV.BattleBuffOprType = {NEW = "NEW", UPDATE = "UPDATE", DELETE = "DELETE", IMMUNE = "IMMUNE", RESET = "RESET"}
 

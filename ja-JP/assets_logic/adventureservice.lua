@@ -91,7 +91,7 @@ end
 
 -- DECOMPILER ERROR at PC26: Confused about usage of register: R1 in 'UnsetPending'
 
-AdventureService.ReqAdventureBuilding = function(type, common, adventureBuildId, operateType, ...)
+AdventureService.ReqAdventureBuilding = function(type, common, adventureBuildId, operateType, uid, ...)
   -- function num : 0_7 , upvalues : _lasetReqOp, _ENV
   local m = {}
   m.type = type
@@ -101,10 +101,10 @@ AdventureService.ReqAdventureBuilding = function(type, common, adventureBuildId,
   _lasetReqOp = type
   ;
   (Net.Send)((Proto.MsgName).ReqAdventureBuilding, m, (Proto.MsgName).ResAdventureBuilding)
-  -- DECOMPILER ERROR at PC22: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC21: Confused about usage of register: R6 in 'UnsetPending'
 
   if type == AdventureBuildingOperateType.Unlock then
-    AdventureData.DealingEvent = common.id
+    AdventureData.DealingEvent = uid
   end
   if type == AdventureBuildingOperateType.RequestReward then
     (RedDotMgr.EliminateRedDot)((WinResConfig.AdventureGameWindow).name, RedDotComID.BigAdventure_InvestMgr)
@@ -136,19 +136,20 @@ end
 
 -- DECOMPILER ERROR at PC32: Confused about usage of register: R1 in 'UnsetPending'
 
-AdventureService.ReqAdventureEventReward = function(nodeId, type, mustWin, rewards, ...)
+AdventureService.ReqAdventureEventReward = function(nodeId, type, mustWin, rewards, uid, ...)
   -- function num : 0_9 , upvalues : _ENV
   local m = {}
+  m.id = uid
   m.nodeId = nodeId
   m.type = type
   m.mustWin = mustWin
   m.rewardPoolIds = rewards
-  -- DECOMPILER ERROR at PC6: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC7: Confused about usage of register: R6 in 'UnsetPending'
 
   AdventureData.MiniGameRewardID = rewards
-  -- DECOMPILER ERROR at PC8: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC9: Confused about usage of register: R6 in 'UnsetPending'
 
-  AdventureData.DealingEvent = nodeId
+  AdventureData.DealingEvent = uid
   ;
   (Net.Send)((Proto.MsgName).ReqAdventureEventReward, m, (Proto.MsgName).ResAdventureEventReward)
 end
@@ -161,22 +162,35 @@ AdventureService.RecvAdventureEventReward = function(msg, ...)
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   AdventureData.UndoneEvent = msg.undoneEvent
+  if UIMgr:IsWindowOpen((WinResConfig.UnMakeEventWindow).name) then
+    (table.sort)(AdventureData.UndoneEvent, function(x, y, ...)
+    -- function num : 0_10_0
+    if x.eventId == y.eventId then
+      return false
+    else
+      return x.eventId < y.eventId
+    end
+    -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  end
+)
+  end
   ;
   (AdventureMgr.UndoneEventsChange)()
 end
 
 -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
 
-AdventureService.ReqInitAdventureBattleEmba = function(nodeId, ...)
+AdventureService.ReqInitAdventureBattleEmba = function(nodeId, uid, ...)
   -- function num : 0_11 , upvalues : _ENV
   local m = {}
   m.nodeId = nodeId
-  -- DECOMPILER ERROR at PC3: Confused about usage of register: R2 in 'UnsetPending'
+  m.id = uid
+  -- DECOMPILER ERROR at PC7: Confused about usage of register: R3 in 'UnsetPending'
 
-  AdventureData.BattleNode = nodeId
-  -- DECOMPILER ERROR at PC5: Confused about usage of register: R2 in 'UnsetPending'
+  AdventureData.BattleNodeInfo = {NodeId = nodeId, Uid = uid}
+  -- DECOMPILER ERROR at PC9: Confused about usage of register: R3 in 'UnsetPending'
 
-  AdventureData.DealingEvent = nodeId
+  AdventureData.DealingEvent = uid
   ;
   (Net.Send)((Proto.MsgName).ReqInitAdventureBattleEmba, m, (Proto.MsgName).ResInitAdventureBattleEmba)
 end
@@ -190,9 +204,10 @@ end
 
 -- DECOMPILER ERROR at PC44: Confused about usage of register: R1 in 'UnsetPending'
 
-AdventureService.ReqInAdventureBattleEmba = function(nodeId, mustWin, cards, ...)
+AdventureService.ReqInAdventureBattleEmba = function(nodeId, mustWin, cards, uid, ...)
   -- function num : 0_13 , upvalues : _ENV
   local m = {}
+  m.id = uid
   m.nodeId = nodeId
   m.mustWin = mustWin
   m.myCards = cards

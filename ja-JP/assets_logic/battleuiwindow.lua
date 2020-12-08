@@ -145,7 +145,21 @@ BattleUIWindow.ShowPanel = function(...)
 end
 
 BattleUIWindow.Init = function(...)
-  -- function num : 0_5 , upvalues : BattleUIWindow, _ENV
+  -- function num : 0_5 , upvalues : _ENV, uis, BattleUIWindow
+  -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
+
+  if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).GUILD_WAR and uis.GuildBossIntegral then
+    ((uis.GuildBossIntegral).root).visible = true
+    -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((uis.GuildBossIntegral).IntegralTxt).text = (PUtil.get)(20000562)
+    -- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((uis.GuildBossIntegral).IntegralNumberTxt).text = 0
+  end
+  ;
   (BattleUIWindow.ShowPlayBattleStart)()
   ;
   (BattlePlay.CreateAllCard)()
@@ -756,7 +770,8 @@ BattleUIWindow.InitTopButton = function(...)
   local autoBtn = uis.AutoBtn
   local stopBtn = uis.StopBtn
   local skipBtn = uis.SkipBtn
-  if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
+  ld("Overture")
+  if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA or BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).ADVENTURE or Game.testPackage ~= true and OvertureMgr.isPlaying ~= true then
     skipBtn.visible = true
   else
     skipBtn.visible = false
@@ -771,7 +786,7 @@ BattleUIWindow.InitTopButton = function(...)
   (stopBtn.onClick):Add(BattleUIWindow.OnClickStopBtn)
   ;
   (skipBtn.onClick):Add(BattleUIWindow.OnClickSkipBtn)
-  -- DECOMPILER ERROR at PC40: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC58: Confused about usage of register: R5 in 'UnsetPending'
 
   if BattleData.autoBattle == true then
     BattleConfig.autoBattle = true
@@ -790,17 +805,28 @@ BattleUIWindow.InitTopButton = function(...)
   end
 end
 
-BattleUIWindow.OnClickSkipBtn = function(...)
+BattleUIWindow.ShowSkipTips = function(...)
   -- function num : 0_25 , upvalues : _ENV
+  if BattleData.skipBattle == true then
+    (MessageMgr.SendCenterTips)((PUtil.get)(40002063))
+    return true
+  end
+end
+
+BattleUIWindow.OnClickSkipBtn = function(...)
+  -- function num : 0_26 , upvalues : BattleUIWindow, _ENV
+  if (BattleUIWindow.ShowSkipTips)() == true or BattleMgr.displaySKillCard == true then
+    return 
+  end
   if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
     local saveTimeScale = Time.timeScale
     do
-      -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
 
       Time.timeScale = 0
       ;
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(40002060), function(...)
-    -- function num : 0_25_0 , upvalues : _ENV
+    -- function num : 0_26_0 , upvalues : _ENV
     if BattleData.Replay == true then
       (BattleMgr.CloseBattle)()
     else
@@ -820,6 +846,9 @@ BattleUIWindow.OnClickSkipBtn = function(...)
         Time.timeScale = 1
         -- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
 
+        BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
+        -- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+
         BattleData.damageDataTable = BattleData.saveChallengeSummarizeData
         ;
         (BattleData.SetBattleState)(BattleState.BATTLE_OVER)
@@ -827,7 +856,39 @@ BattleUIWindow.OnClickSkipBtn = function(...)
     end
   end
 , function(...)
-    -- function num : 0_25_1 , upvalues : _ENV, saveTimeScale
+    -- function num : 0_26_1 , upvalues : _ENV, saveTimeScale
+    -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+    Time.timeScale = saveTimeScale
+  end
+, nil, (PUtil.get)(40002061), (PUtil.get)(40002062), false, UILayer.HUD)
+    end
+  else
+    do
+      local saveTimeScale = Time.timeScale
+      -- DECOMPILER ERROR at PC46: Confused about usage of register: R1 in 'UnsetPending'
+
+      Time.timeScale = 0
+      ;
+      (MessageMgr.OpenConfirmWindow)((PUtil.get)(40002064), function(...)
+    -- function num : 0_26_2 , upvalues : _ENV, saveTimeScale
+    -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+    Time.timeScale = saveTimeScale
+    -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
+
+    if Time.timeScale == 0 then
+      Time.timeScale = 1
+    end
+    -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
+
+    BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
+    -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
+
+    BattleData.skipBattle = true
+  end
+, function(...)
+    -- function num : 0_26_3 , upvalues : _ENV, saveTimeScale
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     Time.timeScale = saveTimeScale
@@ -838,7 +899,10 @@ BattleUIWindow.OnClickSkipBtn = function(...)
 end
 
 BattleUIWindow.OnClickSettingBtn = function(...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : BattleUIWindow, _ENV
+  if (BattleUIWindow.ShowSkipTips)() == true or BattleMgr.displaySKillCard == true then
+    return 
+  end
   if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
     OpenWindow((WinResConfig.SystemSetWindow).name, UILayer.HUD, SystemSetType.Arena, BattleData.Replay)
   else
@@ -847,23 +911,26 @@ BattleUIWindow.OnClickSettingBtn = function(...)
 end
 
 BattleUIWindow.OnClickSpeedBtn = function(...)
-  -- function num : 0_27 , upvalues : _ENV, BattleUIWindow
+  -- function num : 0_28 , upvalues : BattleUIWindow, _ENV
+  if (BattleUIWindow.ShowSkipTips)() == true or BattleMgr.displaySKillCard == true then
+    return 
+  end
   local speedIndex = BattleConfig.speedIndex
-  -- DECOMPILER ERROR at PC9: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
 
   if BattleSpeedList[speedIndex + 1] then
     BattleConfig.speedIndex = speedIndex + 1
   else
-    -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
 
     BattleConfig.speedIndex = 1
   end
-  -- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
 
   if Time.timeScale == 0 then
     BattleMgr.saveTimeScale = BattleSpeedList[BattleConfig.speedIndex]
   else
-    -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
 
     Time.timeScale = BattleSpeedList[BattleConfig.speedIndex]
   end
@@ -874,7 +941,7 @@ BattleUIWindow.OnClickSpeedBtn = function(...)
 end
 
 BattleUIWindow.UpdateSpeedBtn = function(...)
-  -- function num : 0_28 , upvalues : uis, _ENV
+  -- function num : 0_29 , upvalues : uis, _ENV
   local speedBtn = uis.SpeedBtn
   if speedBtn then
     ChangeUIController(speedBtn, "c1", BattleConfig.speedIndex - 1)
@@ -882,17 +949,20 @@ BattleUIWindow.UpdateSpeedBtn = function(...)
 end
 
 BattleUIWindow.OnClickAutoBtn = function(...)
-  -- function num : 0_29 , upvalues : _ENV, BattleUIWindow
+  -- function num : 0_30 , upvalues : BattleUIWindow, _ENV
+  if (BattleUIWindow.ShowSkipTips)() == true or BattleMgr.displaySKillCard == true then
+    return 
+  end
   if BattleData.autoBattle == true or BattleConfig.lockAuto == true then
     (MessageMgr.SendCenterTips)((PUtil.get)(40001002))
     return 
   end
-  -- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
 
   if BattleConfig.autoBattle == false then
     BattleConfig.autoBattle = true
   else
-    -- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC33: Confused about usage of register: R0 in 'UnsetPending'
 
     BattleConfig.autoBattle = false
   end
@@ -903,7 +973,7 @@ BattleUIWindow.OnClickAutoBtn = function(...)
 end
 
 BattleUIWindow.UpdateAutoBtn = function(...)
-  -- function num : 0_30 , upvalues : uis, _ENV
+  -- function num : 0_31 , upvalues : uis, _ENV
   local autoBtn = uis.AutoBtn
   if autoBtn then
     if BattleConfig.autoBattle == true then
@@ -915,7 +985,10 @@ BattleUIWindow.UpdateAutoBtn = function(...)
 end
 
 BattleUIWindow.OnClickStopBtn = function(...)
-  -- function num : 0_31 , upvalues : _ENV, BattleUIWindow
+  -- function num : 0_32 , upvalues : BattleUIWindow, _ENV
+  if (BattleUIWindow.ShowSkipTips)() == true or BattleMgr.displaySKillCard == true then
+    return 
+  end
   if Time.timeScale == 0 then
     (BattleMgr.ContinueBattle)()
   else
@@ -927,7 +1000,7 @@ BattleUIWindow.OnClickStopBtn = function(...)
 end
 
 BattleUIWindow.UpdateStopBtn = function(...)
-  -- function num : 0_32 , upvalues : uis, _ENV
+  -- function num : 0_33 , upvalues : uis, _ENV
   local stopBtn = uis.StopBtn
   if stopBtn then
     if Time.timeScale == 0 then
@@ -939,7 +1012,7 @@ BattleUIWindow.UpdateStopBtn = function(...)
 end
 
 BattleUIWindow.CreateSelfCardComp = function(...)
-  -- function num : 0_33 , upvalues : _ENV, uis, cardCompList, BattleUIWindow
+  -- function num : 0_34 , upvalues : _ENV, uis, cardCompList, BattleUIWindow
   if not (BattleData.GetSelfTeam)() then
     local selfCardList = {}
   end
@@ -968,7 +1041,7 @@ BattleUIWindow.CreateSelfCardComp = function(...)
 end
 
 BattleUIWindow.PlaySelfCompStart = function(...)
-  -- function num : 0_34 , upvalues : _ENV, cardCompList
+  -- function num : 0_35 , upvalues : _ENV, cardCompList
   if not (BattleData.GetSelfTeam)() then
     local selfCardList = {}
   end
@@ -982,7 +1055,7 @@ BattleUIWindow.PlaySelfCompStart = function(...)
 end
 
 BattleUIWindow.PlaySelfCompEnd = function(...)
-  -- function num : 0_35 , upvalues : _ENV, cardCompList
+  -- function num : 0_36 , upvalues : _ENV, cardCompList
   if not (BattleData.GetSelfTeam)() then
     local selfCardList = {}
   end
@@ -998,7 +1071,7 @@ BattleUIWindow.PlaySelfCompEnd = function(...)
 end
 
 BattleUIWindow.UpdateCardHp = function(info, ...)
-  -- function num : 0_36 , upvalues : _ENV, cardCompList, BattleUIWindow
+  -- function num : 0_37 , upvalues : _ENV, cardCompList, BattleUIWindow
   if info then
     local posIndex = info.posIndex
     local targetValue = info.targetValue
@@ -1038,7 +1111,7 @@ BattleUIWindow.UpdateCardHp = function(info, ...)
 end
 
 BattleUIWindow.UpdateCardShield = function(info, ...)
-  -- function num : 0_37 , upvalues : cardCompList
+  -- function num : 0_38 , upvalues : cardCompList
   if info then
     local posIndex = info.posIndex
     local value = info.value
@@ -1058,7 +1131,7 @@ BattleUIWindow.UpdateCardShield = function(info, ...)
 end
 
 BattleUIWindow.UpdateCardRage = function(info, ...)
-  -- function num : 0_38 , upvalues : cardCompList, _ENV, BattleUIWindow
+  -- function num : 0_39 , upvalues : cardCompList, _ENV, BattleUIWindow
   if info then
     local posIndex = info.posIndex
     do
@@ -1068,26 +1141,48 @@ BattleUIWindow.UpdateCardRage = function(info, ...)
       if cardCompInfo then
         local cardComp = cardCompInfo.cardComp
         local cardUis = cardCompInfo.cardUis
-        local energyProgressBar = (cardUis.root):GetChild("BottomAngerBar")
-        energyProgressBar:TweenValue(value, 0.3)
-        -- DECOMPILER ERROR at PC31: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC24: Confused about usage of register: R7 in 'UnsetPending'
 
-        if value >= 100 and ((cardUis.root):GetController("c1")).selectedIndex == 0 then
-          ChangeUIController(cardUis.root, "c1", 1)
+        if cardUis.SpNumber and value then
+          if value <= 0 then
+            ((cardUis.SpNumber).NumberTxt).text = (PUtil.get)(40001004, "0")
+          else
+            -- DECOMPILER ERROR at PC45: Confused about usage of register: R7 in 'UnsetPending'
+
+            if (math.floor)(value) < value then
+              ((cardUis.SpNumber).NumberTxt).text = (PUtil.get)(40001004, (string.format)("%.1f", value) .. "%")
+            else
+              -- DECOMPILER ERROR at PC59: Confused about usage of register: R7 in 'UnsetPending'
+
+              ;
+              ((cardUis.SpNumber).NumberTxt).text = (PUtil.get)(40001004, (math.floor)(value) .. "%")
+            end
+          end
+        end
+        do
+          if value then
+            local energyProgressBar = (cardUis.root):GetChild("BottomAngerBar")
+            energyProgressBar:TweenValue(value, 0.3)
+          end
           local cardUid = cardCompInfo.cardUid
           local battleCard = (BattleData.GetCardInfoByUid)(cardUid)
-          local holder = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_ANGER, true)
-          if holder then
-            (cardUis.root):AddChildAt(holder, 0)
-            holder:SetXY((cardUis.root).width / 2, (cardUis.root).height / 2 + 34)
-            holder.name = "DanderMaxEffect1"
-          end
-          if BattleConfig.autoBattle == false and (BattleBuff.IsForbiddenSkill)(battleCard) ~= true then
-            (GuideMgr.AddFightMildGuide)(cardUis.root, posIndex)
-          end
-          ;
-          (cardComp.onClick):Set(function(...)
-    -- function num : 0_38_0 , upvalues : _ENV, battleCard, posIndex, BattleUIWindow, cardUis, cardComp
+          local conditionOk, costTable = (BattleData.TestSkillCondition)(battleCard)
+          -- DECOMPILER ERROR at PC94: Unhandled construct in 'MakeBoolean' P1
+
+          if value ~= nil and conditionOk == true and ((cardUis.root):GetController("c1")).selectedIndex == 0 then
+            ChangeUIController(cardUis.root, "c1", 1)
+            local holder = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_ANGER, true)
+            if holder then
+              (cardUis.root):AddChildAt(holder, 0)
+              holder:SetXY((cardUis.root).width / 2, (cardUis.root).height / 2 + 34)
+              holder.name = "DanderMaxEffect1"
+            end
+            if BattleConfig.autoBattle == false and (BattleBuff.IsForbiddenSkill)(battleCard) ~= true then
+              (GuideMgr.AddFightMildGuide)(cardUis.root, posIndex)
+            end
+            ;
+            (cardComp.onClick):Set(function(...)
+    -- function num : 0_39_0 , upvalues : _ENV, battleCard, posIndex, BattleUIWindow, cardUis, cardComp
     if BattleConfig.autoBattle == true then
       return 
     end
@@ -1109,36 +1204,35 @@ BattleUIWindow.UpdateCardRage = function(info, ...)
     end
   end
 )
+          end
+          do
+            ChangeUIController(cardUis.root, "c1", 0)
+            ;
+            (GuideMgr.RemoveFightMildGuide)(posIndex)
+            local effect = (cardUis.root):GetChild("DanderMaxEffect1")
+            if effect then
+              effect:RemoveFromParent()
+              effect:Dispose()
+            end
+            local effect = (cardUis.root):GetChild("DanderMaxEffect2")
+            if effect then
+              effect:RemoveFromParent()
+              effect:Dispose()
+            end
+            if removeFullRage == true then
+              (BattleUIWindow.RemoveSkillEffect)(cardUis, battleCard)
+            end
+            ;
+            (cardComp.onClick):Clear()
+          end
         end
-      end
-      do
-        ChangeUIController(cardUis.root, "c1", 0)
-        ;
-        (GuideMgr.RemoveFightMildGuide)(posIndex)
-        local effect = (cardUis.root):GetChild("DanderMaxEffect1")
-        if effect then
-          effect:RemoveFromParent()
-          effect:Dispose()
-        end
-        local effect = (cardUis.root):GetChild("DanderMaxEffect2")
-        if effect then
-          effect:RemoveFromParent()
-          effect:Dispose()
-        end
-        local cardUid = cardCompInfo.cardUid
-        local battleCard = (BattleData.GetCardInfoByUid)(cardUid)
-        if removeFullRage == true then
-          (BattleUIWindow.RemoveSkillEffect)(cardUis, battleCard)
-        end
-        ;
-        (cardComp.onClick):Clear()
       end
     end
   end
 end
 
 BattleUIWindow.UpdateBottomHead = function(info, ...)
-  -- function num : 0_39 , upvalues : cardCompList, _ENV
+  -- function num : 0_40 , upvalues : cardCompList, _ENV
   if info then
     local posIndex = info.posIndex
     local cardCompInfo = cardCompList[posIndex]
@@ -1156,7 +1250,7 @@ BattleUIWindow.UpdateBottomHead = function(info, ...)
 end
 
 BattleUIWindow.PlaySkillEffect = function(card, ...)
-  -- function num : 0_40 , upvalues : cardCompList, BattleUIWindow
+  -- function num : 0_41 , upvalues : cardCompList, BattleUIWindow
   local posIndex = card:GetPosIndex()
   local info = cardCompList[posIndex]
   if info then
@@ -1168,7 +1262,7 @@ end
 
 local leftHeadOriPos, rightHeadOriPos = nil, nil
 BattleUIWindow.CreateOrderLine = function(...)
-  -- function num : 0_41 , upvalues : uis, _ENV, battleUIWindowObjectPool, orderHeadOriScale, contentPane, orderHeadList, leftHeadOriPos, rightHeadOriPos
+  -- function num : 0_42 , upvalues : uis, _ENV, battleUIWindowObjectPool, orderHeadOriScale, contentPane, orderHeadList, leftHeadOriPos, rightHeadOriPos
   local orderBackLineImage = uis.OrderBackLineImage
   local orderBackLineImageX = orderBackLineImage.x
   local orderBackLineImageY = orderBackLineImage.y
@@ -1227,7 +1321,7 @@ BattleUIWindow.CreateOrderLine = function(...)
 end
 
 BattleUIWindow.UpdateOrderLine = function(...)
-  -- function num : 0_42 , upvalues : orderHeadList, _ENV, uis, BattleUIWindow, orderHeadMaxScale
+  -- function num : 0_43 , upvalues : orderHeadList, _ENV, uis, BattleUIWindow, orderHeadMaxScale
   if orderHeadList then
     local waitAtkCards = (BattleData.GetOrderCard)()
     do
@@ -1249,7 +1343,7 @@ BattleUIWindow.UpdateOrderLine = function(...)
           local tweener = head:TweenMoveY(targetY, 0.2)
           if i == 1 then
             tweener:OnComplete(function(...)
-    -- function num : 0_42_0 , upvalues : BattleUIWindow, head, _ENV, orderBackLineImageX, orderBackLineImageY, orderHeadMaxScale
+    -- function num : 0_43_0 , upvalues : BattleUIWindow, head, _ENV, orderBackLineImageX, orderBackLineImageY, orderHeadMaxScale
     if (BattleUIWindow.IsWindowOpen)() == true and head then
       local time = 0.1
       head:TweenMove(Vector2(orderBackLineImageX - head.width / 2, orderBackLineImageY - head.height / 2), time)
@@ -1265,7 +1359,7 @@ BattleUIWindow.UpdateOrderLine = function(...)
 end
 
 BattleUIWindow.RefreshOrderCard = function(posIndex, ...)
-  -- function num : 0_43 , upvalues : uis, _ENV, battleUIWindowObjectPool, orderHeadOriScale, contentPane, orderHeadList, leftHeadOriPos, rightHeadOriPos, BattleUIWindow
+  -- function num : 0_44 , upvalues : uis, _ENV, battleUIWindowObjectPool, orderHeadOriScale, contentPane, orderHeadList, leftHeadOriPos, rightHeadOriPos, BattleUIWindow
   local orderBackLineImage = uis.OrderBackLineImage
   local orderBackLineImageX = orderBackLineImage.x
   local orderBackLineImageY = orderBackLineImage.y
@@ -1323,7 +1417,7 @@ BattleUIWindow.RefreshOrderCard = function(posIndex, ...)
 end
 
 BattleUIWindow.ResetOrderCard = function(posIndex, ...)
-  -- function num : 0_44 , upvalues : orderHeadList, BattleUIWindow, _ENV, leftHeadOriPos, rightHeadOriPos, orderHeadOriScale
+  -- function num : 0_45 , upvalues : orderHeadList, BattleUIWindow, _ENV, leftHeadOriPos, rightHeadOriPos, orderHeadOriScale
   if orderHeadList then
     local curAtkHeadInfo = orderHeadList[posIndex]
     if curAtkHeadInfo then
@@ -1334,7 +1428,7 @@ BattleUIWindow.ResetOrderCard = function(posIndex, ...)
           orderHeadList[posIndex] = nil
           ;
           (head:TweenFade(0, 0.5)):OnComplete(function(...)
-    -- function num : 0_44_0 , upvalues : BattleUIWindow, head
+    -- function num : 0_45_0 , upvalues : BattleUIWindow, head
     if (BattleUIWindow.IsWindowOpen)() == true and head then
       head.visible = false
       head:Dispose()
@@ -1358,8 +1452,42 @@ BattleUIWindow.ResetOrderCard = function(posIndex, ...)
   end
 end
 
+local curStageConfig = nil
+BattleUIWindow.UpdateGuildBossScore = function(...)
+  -- function num : 0_46 , upvalues : uis, _ENV, curStageConfig
+  local GuildBossIntegral = uis.GuildBossIntegral
+  if GuildBossIntegral then
+    local IntegralNumberTxt = GuildBossIntegral.IntegralNumberTxt
+    if IntegralNumberTxt then
+      local oriHp, remainHp = 0, 0
+      local cards = (BattleData.GetCardsByCamp)(BattleCardCamp.RIGHT)
+      for _,v in ipairs(cards) do
+        oriHp = oriHp + v:GetOriHp()
+        local curHp = v:GetHp()
+        if curHp <= 0 then
+          do
+            remainHp = remainHp + curHp
+            -- DECOMPILER ERROR at PC26: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+            -- DECOMPILER ERROR at PC26: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
+        end
+      end
+      local stageId = BattleData.stageId
+      curStageConfig = ((TableData.gTable).BaseGuildWarStageData)[stageId]
+      if curStageConfig then
+        local score_ratio = curStageConfig.score_ratio
+        local per_score = (((TableData.gTable).BaseFixedData)[72002085]).int_value
+        local score = (math.floor)((oriHp - (remainHp)) / per_score * score_ratio / 10000)
+        IntegralNumberTxt.text = score
+      end
+    end
+  end
+end
+
 BattleUIWindow.ShowDamagePanel = function(param, ...)
-  -- function num : 0_45 , upvalues : _ENV, uis, leftDamageTimer, BattleUIWindow, rightDamageTimer
+  -- function num : 0_47 , upvalues : _ENV, uis, leftDamageTimer, BattleUIWindow, rightDamageTimer
   local camp, damage, isCrit = param.camp, param.totalDamage, param.isCrit
   local damagePanel = nil
   local interval = 0.02
@@ -1373,13 +1501,13 @@ BattleUIWindow.ShowDamagePanel = function(param, ...)
       leftDamageTimer = nil
     end
     leftDamageTimer = (SimpleTimer.setInterval)(interval, loopTime + waitTime, function(timer, count, ...)
-    -- function num : 0_45_0 , upvalues : loopTime, BattleUIWindow, damagePanel, _ENV, perDamage, damage, isCrit
+    -- function num : 0_47_0 , upvalues : loopTime, BattleUIWindow, damagePanel, _ENV, perDamage, damage, isCrit
     if count <= loopTime then
       (BattleUIWindow.UpdateTotalDamagePanel)(damagePanel, (math.min)((math.ceil)(perDamage * count), damage), isCrit)
     end
   end
 , function(...)
-    -- function num : 0_45_1 , upvalues : BattleUIWindow, damagePanel, leftDamageTimer
+    -- function num : 0_47_1 , upvalues : BattleUIWindow, damagePanel, leftDamageTimer
     (BattleUIWindow.HideDamagePanel)(damagePanel)
     leftDamageTimer = nil
   end
@@ -1392,13 +1520,13 @@ BattleUIWindow.ShowDamagePanel = function(param, ...)
         rightDamageTimer = nil
       end
       rightDamageTimer = (SimpleTimer.setInterval)(interval, loopTime + waitTime, function(timer, count, ...)
-    -- function num : 0_45_2 , upvalues : loopTime, BattleUIWindow, damagePanel, _ENV, perDamage, isCrit
+    -- function num : 0_47_2 , upvalues : loopTime, BattleUIWindow, damagePanel, _ENV, perDamage, isCrit
     if count <= loopTime then
       (BattleUIWindow.UpdateTotalDamagePanel)(damagePanel, (math.ceil)(perDamage * count), isCrit)
     end
   end
 , function(...)
-    -- function num : 0_45_3 , upvalues : BattleUIWindow, damagePanel, rightDamageTimer
+    -- function num : 0_47_3 , upvalues : BattleUIWindow, damagePanel, rightDamageTimer
     (BattleUIWindow.HideDamagePanel)(damagePanel)
     rightDamageTimer = nil
   end
@@ -1412,7 +1540,7 @@ BattleUIWindow.ShowDamagePanel = function(param, ...)
 end
 
 BattleUIWindow.UpdateTotalDamagePanel = function(damagePanel, damage, isCrit, ...)
-  -- function num : 0_46 , upvalues : _ENV
+  -- function num : 0_48 , upvalues : _ENV
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R3 in 'UnsetPending'
 
   if damagePanel then
@@ -1431,11 +1559,11 @@ BattleUIWindow.UpdateTotalDamagePanel = function(damagePanel, damage, isCrit, ..
 end
 
 BattleUIWindow.HideDamagePanel = function(damagePanel, ...)
-  -- function num : 0_47 , upvalues : BattleUIWindow
+  -- function num : 0_49 , upvalues : BattleUIWindow
   if damagePanel then
     local trans = (damagePanel.root):GetTransition("out")
     trans:Play(function(...)
-    -- function num : 0_47_0 , upvalues : damagePanel, BattleUIWindow
+    -- function num : 0_49_0 , upvalues : damagePanel, BattleUIWindow
     -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
     if damagePanel and (BattleUIWindow.IsWindowOpen)() == true then
@@ -1447,13 +1575,13 @@ BattleUIWindow.HideDamagePanel = function(damagePanel, ...)
 end
 
 BattleUIWindow.IsWindowOpen = function(...)
-  -- function num : 0_48 , upvalues : _ENV
+  -- function num : 0_50 , upvalues : _ENV
   do return UIMgr:IsWindowOpen("BattleUIWindow") == true end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 BattleUIWindow.AddSkillInfoPanel = function(param, ...)
-  -- function num : 0_49 , upvalues : _ENV, battleUIWindowObjectPool, contentPane, uis, leftSkillInfoList, skillInfoListMaxLength, BattleUIWindow, skillInfoLast, rightSkillInfoList
+  -- function num : 0_51 , upvalues : _ENV, battleUIWindowObjectPool, contentPane, uis, leftSkillInfoList, skillInfoListMaxLength, BattleUIWindow, skillInfoLast, rightSkillInfoList
   local atkCard = param.atkCard
   local skillType = param.skillType
   if atkCard and skillType and skillType == BattleSkillType.SMALL then
@@ -1523,7 +1651,7 @@ BattleUIWindow.AddSkillInfoPanel = function(param, ...)
                 ;
                 (table.insert)(leftSkillInfoList, 1, {hand = skillInfoHand, timer = timer})
                 timer = (SimpleTimer.setTimeout)(skillInfoLast, function(...)
-    -- function num : 0_49_0 , upvalues : BattleUIWindow, skillInfoHand, timer, leftSkillInfoList
+    -- function num : 0_51_0 , upvalues : BattleUIWindow, skillInfoHand, timer, leftSkillInfoList
     (BattleUIWindow.RemoveSkillInfoPanel)({hand = skillInfoHand, timer = timer})
     leftSkillInfoList[#leftSkillInfoList] = nil
   end
@@ -1542,7 +1670,7 @@ BattleUIWindow.AddSkillInfoPanel = function(param, ...)
                   ;
                   (table.insert)(rightSkillInfoList, 1, {hand = skillInfoHand, timer = timer})
                   timer = (SimpleTimer.setTimeout)(skillInfoLast, function(...)
-    -- function num : 0_49_1 , upvalues : BattleUIWindow, skillInfoHand, timer, rightSkillInfoList
+    -- function num : 0_51_1 , upvalues : BattleUIWindow, skillInfoHand, timer, rightSkillInfoList
     (BattleUIWindow.RemoveSkillInfoPanel)({hand = skillInfoHand, timer = timer})
     rightSkillInfoList[#rightSkillInfoList] = nil
   end
@@ -1558,7 +1686,7 @@ BattleUIWindow.AddSkillInfoPanel = function(param, ...)
 end
 
 BattleUIWindow.RemoveSkillInfoPanel = function(skillInfo, ...)
-  -- function num : 0_50 , upvalues : battleUIWindowObjectPool
+  -- function num : 0_52 , upvalues : battleUIWindowObjectPool
   if skillInfo and battleUIWindowObjectPool then
     local timer = skillInfo.timer
     do
@@ -1570,7 +1698,7 @@ BattleUIWindow.RemoveSkillInfoPanel = function(skillInfo, ...)
         local trans = skillInfoHand:GetTransition("out")
         if trans then
           trans:Play(function(...)
-    -- function num : 0_50_0 , upvalues : skillInfoHand, battleUIWindowObjectPool
+    -- function num : 0_52_0 , upvalues : skillInfoHand, battleUIWindowObjectPool
     if skillInfoHand and battleUIWindowObjectPool then
       battleUIWindowObjectPool:ReturnObject(skillInfoHand)
     end
@@ -1583,7 +1711,7 @@ BattleUIWindow.RemoveSkillInfoPanel = function(skillInfo, ...)
 end
 
 BattleUIWindow.ShowSkillCard = function(param, ...)
-  -- function num : 0_51 , upvalues : _ENV, uis
+  -- function num : 0_53 , upvalues : _ENV, uis, BattleUIWindow
   if param then
     local posIndex = param.posIndex
     do
@@ -1613,7 +1741,7 @@ BattleUIWindow.ShowSkillCard = function(param, ...)
       ;
       (AudioManager.PlayBattleVoice)(card:GetFashionId(), CVAudioType.UniqueSkillBubble)
       PlayUITrans(picShow.root, "Pic", function(...)
-    -- function num : 0_51_0 , upvalues : picShow, loader, _ENV, callBack
+    -- function num : 0_53_0 , upvalues : picShow, loader, _ENV, callBack
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
     if picShow then
@@ -1627,13 +1755,16 @@ BattleUIWindow.ShowSkillCard = function(param, ...)
 )
       PlayUITrans(bgMove.root, "Bg")
       PlayUITrans(cardMove.root, "Card")
+      local UpdateInfo = {posIndex = posIndex, value = 0, removeFullRage = true}
+      ;
+      (BattleUIWindow.UpdateCardRage)(UpdateInfo)
     end
   end
   -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
 BattleUIWindow.ShowSkillEffect = function(cardUis, battleCard, ...)
-  -- function num : 0_52 , upvalues : _ENV
+  -- function num : 0_54 , upvalues : _ENV
   if cardUis then
     if battleCard.isWaitPlayWaitUniqueSkillEffect == true then
       return 
@@ -1662,7 +1793,7 @@ BattleUIWindow.ShowSkillEffect = function(cardUis, battleCard, ...)
 end
 
 BattleUIWindow.RemoveSkillEffect = function(cardUis, battleCard, ...)
-  -- function num : 0_53
+  -- function num : 0_55
   if cardUis then
     do
       if battleCard.isHeadUp == true then
@@ -1683,7 +1814,7 @@ BattleUIWindow.RemoveSkillEffect = function(cardUis, battleCard, ...)
 end
 
 BattleUIWindow.UpdateWaveNum = function(waveTxt, ...)
-  -- function num : 0_54 , upvalues : _ENV, uis
+  -- function num : 0_56 , upvalues : _ENV, uis
   if not waveTxt then
     waveTxt = BattleData.enemyCurWave .. "/" .. BattleData.enemyMaxWave
   end
@@ -1692,14 +1823,14 @@ BattleUIWindow.UpdateWaveNum = function(waveTxt, ...)
 end
 
 BattleUIWindow.UpdateRoundNum = function(curRound, ...)
-  -- function num : 0_55 , upvalues : uis, _ENV
+  -- function num : 0_57 , upvalues : uis, _ENV
   local roundNum = uis.RoundNumTxt
   local maxRound = BattleData.maxRound
   roundNum.text = curRound .. "/" .. maxRound
 end
 
 BattleUIWindow.UpdateSkillUIState = function(visible, param, ...)
-  -- function num : 0_56 , upvalues : contentPane, _ENV
+  -- function num : 0_58 , upvalues : contentPane, _ENV
   local interval = 0
   if visible == true then
     interval = param.interval
@@ -1711,7 +1842,7 @@ BattleUIWindow.UpdateSkillUIState = function(visible, param, ...)
     do
       local gt = (GTween.To)(0, 1, interval)
       gt:OnUpdate(function(...)
-    -- function num : 0_56_0 , upvalues : contentPane, gt
+    -- function num : 0_58_0 , upvalues : contentPane, gt
     if contentPane then
       contentPane.alpha = (gt.value).x
     end
@@ -1722,16 +1853,18 @@ BattleUIWindow.UpdateSkillUIState = function(visible, param, ...)
 end
 
 BattleUIWindow.UpdateSettingUI = function(...)
-  -- function num : 0_57 , upvalues : BattleUIWindow, _ENV
+  -- function num : 0_59 , upvalues : BattleUIWindow, _ENV
   (BattleUIWindow.UpdateActionUI)()
   local allCard = (BattleData.GetAliveCards)()
   for _,v in ipairs(allCard) do
     v:UpdateHeadInfoVisible()
   end
+  ;
+  (BattleUIWindow.UpdateCardRageUI)()
 end
 
 BattleUIWindow.UpdateActionUI = function(...)
-  -- function num : 0_58 , upvalues : _ENV, isPlayingUniqueSkill, orderBackLineImage, orderHeadList
+  -- function num : 0_60 , upvalues : _ENV, isPlayingUniqueSkill, orderBackLineImage, orderHeadList
   local visible = false
   if (BattleConfig.IsHideBattleSpeed)() == false and isPlayingUniqueSkill == false then
     visible = true
@@ -1743,12 +1876,28 @@ BattleUIWindow.UpdateActionUI = function(...)
   end
 end
 
+BattleUIWindow.UpdateCardRageUI = function(...)
+  -- function num : 0_61 , upvalues : _ENV, cardCompList
+  local visible = false
+  if (BattleConfig.IsHideBattleCardRage)() == false then
+    visible = true
+  end
+  for i,cardCompInfo in pairs(cardCompList) do
+    local cardUis = cardCompInfo.cardUis
+    -- DECOMPILER ERROR at PC17: Confused about usage of register: R7 in 'UnsetPending'
+
+    if cardUis.SpNumber then
+      ((cardUis.SpNumber).root).visible = visible
+    end
+  end
+end
+
 BattleUIWindow.OnHide = function(...)
-  -- function num : 0_59
+  -- function num : 0_62
 end
 
 BattleUIWindow.CloseBossHpTimer = function(...)
-  -- function num : 0_60 , upvalues : hpChangeTimer
+  -- function num : 0_63 , upvalues : hpChangeTimer
   if hpChangeTimer then
     hpChangeTimer:stop()
     hpChangeTimer = nil
@@ -1756,7 +1905,7 @@ BattleUIWindow.CloseBossHpTimer = function(...)
 end
 
 BattleUIWindow.ClearCardCampList = function(...)
-  -- function num : 0_61 , upvalues : _ENV, cardCompList
+  -- function num : 0_64 , upvalues : _ENV, cardCompList
   for _,v in pairs(cardCompList) do
     local cardUis = v.cardUis
     ;
@@ -1766,7 +1915,7 @@ BattleUIWindow.ClearCardCampList = function(...)
 end
 
 BattleUIWindow.OnClose = function(...)
-  -- function num : 0_62 , upvalues : BattleUIWindow, _ENV, orderHeadList, moveIndex, nowBossHp, maxBossHp, curBarHpIndex, curBarHpValue, bossHpMoveSpeed, displayBossHp, displayCurBarHp, displayCurBarMaxHp, orderBackLineImage, leftSkillInfoList, rightSkillInfoList, isPlayingUniqueSkill, battleUIWindowObjectPool, uis, contentPane
+  -- function num : 0_65 , upvalues : BattleUIWindow, _ENV, orderHeadList, moveIndex, nowBossHp, maxBossHp, curBarHpIndex, curBarHpValue, bossHpMoveSpeed, displayBossHp, displayCurBarHp, displayCurBarMaxHp, orderBackLineImage, leftSkillInfoList, rightSkillInfoList, isPlayingUniqueSkill, battleUIWindowObjectPool, uis, contentPane
   (BattleUIWindow.CloseBossHpTimer)()
   for _,v in pairs(orderHeadList) do
     if v.head then
@@ -1800,7 +1949,7 @@ BattleUIWindow.OnClose = function(...)
 end
 
 BattleUIWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_63 , upvalues : _ENV, BattleUIWindow
+  -- function num : 0_66 , upvalues : _ENV, BattleUIWindow
   local windowMsgEnum = WindowMsgEnum.BattleUIWindow
   if msgId == windowMsgEnum.E_MSG_UPDATE_ROUND then
     (BattleUIWindow.UpdateRoundNum)(para)
@@ -1875,6 +2024,10 @@ BattleUIWindow.HandleMessage = function(msgId, para, ...)
                                               (BattleMgr.PauseBattle)()
                                               ;
                                               (BattleUIWindow.UpdateStopBtn)()
+                                            else
+                                              if msgId == windowMsgEnum.E_MSG_UPDATE_GUILD_BOSS_SCORE and BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).GUILD_WAR then
+                                                (BattleUIWindow.UpdateGuildBossScore)()
+                                              end
                                             end
                                           end
                                         end

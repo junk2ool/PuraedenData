@@ -14,7 +14,7 @@ local SpotList = {}
 local pointName = "Map_A_003_Grp"
 local MapBg = nil
 local isCanClick = true
-local CloudList, PointBackMoveTo = nil, nil
+local CloudList = nil
 local sfxHolder = {}
 local bgPercent = 0.3
 local stageSortNum = 0
@@ -432,11 +432,7 @@ ExpeditionWindow.CalculateEndPos = function(startPoint, endPoint, ...)
 end
 
 ExpeditionWindow.OnClose = function(...)
-  -- function num : 0_18 , upvalues : PointBackMoveTo, _ENV, Swipe, uis, contentPane, expeditionData, MapBg, isCanClick, CloudList, sfxHolder, IconList, LineList, SpotList, putHolder
-  if PointBackMoveTo then
-    PointBackMoveTo:Kill()
-  end
-  ;
+  -- function num : 0_18 , upvalues : _ENV, Swipe, uis, contentPane, expeditionData, MapBg, isCanClick, CloudList, sfxHolder, IconList, LineList, SpotList, putHolder
   (CommonWinMgr.RemoveAssets)((WinResConfig.ExpeditionWindow).name)
   Swipe = nil
   uis = nil

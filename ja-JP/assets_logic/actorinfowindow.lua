@@ -50,7 +50,7 @@ ActorInfoWindow.BasicInfoSet = function(...)
   ;
   ((((uis.InfoAssemblyGrp).ActorHeadGrp).HeadBtn).onClick):Add(function(...)
     -- function num : 0_2_0 , upvalues : _ENV
-    OpenWindow((WinResConfig.HeadChoiceWindow).name, UILayer.HUD)
+    (ActorService.OnReqHeadData)()
   end
 )
   ;
@@ -163,61 +163,73 @@ ActorInfoWindow.RefreshWindow = function(...)
   ;
   (((uis.InfoAssemblyGrp).ActorIntroduceGrp).ActorIntroduceTxt).text = (ActorData.GetSignature)()
   local headLoader = ((uis.InfoAssemblyGrp).ActorHeadGrp).ActorHeadLoader
+  local frameLoader = (((uis.InfoAssemblyGrp).ActorHeadGrp).HeadFrameLoader).HeadFrameLoader
   local fashionHead = (ActorData.GetFashionHead)()
-  do
-    if headLoader and fashionHead then
-      local fashionConfig = ((TableData.gTable).BasePlayerHeadIconData)[fashionHead]
-      if fashionConfig then
-        headLoader.url = (Util.GetResUrl)(fashionConfig.icon_path)
+  local fashionFrame = (ActorData.GetFashionFrame)()
+  if headLoader then
+    do
+      if fashionHead then
+        local fashionConfig = ((TableData.gTable).BasePlayerHeadIconData)[fashionHead]
+        if fashionConfig then
+          headLoader.url = (Util.GetResUrl)(fashionConfig.icon_path)
+        end
       end
-    end
-    -- DECOMPILER ERROR at PC46: Confused about usage of register: R2 in 'UnsetPending'
-
-    ;
-    ((uis.InfoAssemblyGrp).Guild_01_Txt).text = (PUtil.get)(108)
-    -- DECOMPILER ERROR at PC53: Confused about usage of register: R2 in 'UnsetPending'
-
-    ;
-    ((uis.InfoAssemblyGrp).BattleNumber_01_Txt).text = (PUtil.get)(60000235)
-    -- DECOMPILER ERROR at PC58: Confused about usage of register: R2 in 'UnsetPending'
-
-    ;
-    ((uis.InfoAssemblyGrp).BattleNumber_02_Txt).text = (ActorInfoWindow.GetTopSixHeroFc)()
-    -- DECOMPILER ERROR at PC65: Confused about usage of register: R2 in 'UnsetPending'
-
-    ;
-    ((uis.InfoAssemblyGrp).PlayerIDTxt).text = (PUtil.get)(111)
-    -- DECOMPILER ERROR at PC71: Confused about usage of register: R2 in 'UnsetPending'
-
-    ;
-    ((uis.InfoAssemblyGrp).PlayerIDNumberTxt).text = (ActorData.GetPlayerIndex)()
-    local plyerLvl = (ActorData.GetLevel)()
-    local curExp = (ActorData.GetExp)()
-    local nextExp = (ActorData.GetNextExp)()
-    local percent = curExp / nextExp
-    -- DECOMPILER ERROR at PC85: Confused about usage of register: R6 in 'UnsetPending'
-
-    ;
-    ((uis.InfoAssemblyGrp).ExpProgressBar).value = percent * 100
-    -- DECOMPILER ERROR at PC97: Confused about usage of register: R6 in 'UnsetPending'
-
-    if MAXLEVEL <= plyerLvl then
-      if nextExp <= curExp then
-        ((uis.InfoAssemblyGrp).ExpNumberTxt).text = (PUtil.get)(20000048)
-      else
-        -- DECOMPILER ERROR at PC105: Confused about usage of register: R6 in 'UnsetPending'
+      do
+        if fashionFrame then
+          local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[fashionFrame]
+          if frameConfig then
+            frameLoader.url = (Util.GetResUrl)(frameConfig.icon_path)
+          end
+        end
+        -- DECOMPILER ERROR at PC66: Confused about usage of register: R4 in 'UnsetPending'
 
         ;
-        ((uis.InfoAssemblyGrp).ExpNumberTxt).text = curExp .. "/" .. nextExp
-      end
-    else
-      -- DECOMPILER ERROR at PC113: Confused about usage of register: R6 in 'UnsetPending'
+        ((uis.InfoAssemblyGrp).Guild_01_Txt).text = (PUtil.get)(108)
+        -- DECOMPILER ERROR at PC73: Confused about usage of register: R4 in 'UnsetPending'
 
-      ;
-      ((uis.InfoAssemblyGrp).ExpNumberTxt).text = curExp .. "/" .. nextExp
+        ;
+        ((uis.InfoAssemblyGrp).BattleNumber_01_Txt).text = (PUtil.get)(60000235)
+        -- DECOMPILER ERROR at PC78: Confused about usage of register: R4 in 'UnsetPending'
+
+        ;
+        ((uis.InfoAssemblyGrp).BattleNumber_02_Txt).text = (ActorInfoWindow.GetTopSixHeroFc)()
+        -- DECOMPILER ERROR at PC85: Confused about usage of register: R4 in 'UnsetPending'
+
+        ;
+        ((uis.InfoAssemblyGrp).PlayerIDTxt).text = (PUtil.get)(111)
+        -- DECOMPILER ERROR at PC91: Confused about usage of register: R4 in 'UnsetPending'
+
+        ;
+        ((uis.InfoAssemblyGrp).PlayerIDNumberTxt).text = (ActorData.GetPlayerIndex)()
+        local plyerLvl = (ActorData.GetLevel)()
+        local curExp = (ActorData.GetExp)()
+        local nextExp = (ActorData.GetNextExp)()
+        local percent = curExp / nextExp
+        -- DECOMPILER ERROR at PC105: Confused about usage of register: R8 in 'UnsetPending'
+
+        ;
+        ((uis.InfoAssemblyGrp).ExpProgressBar).value = percent * 100
+        -- DECOMPILER ERROR at PC117: Confused about usage of register: R8 in 'UnsetPending'
+
+        if MAXLEVEL <= plyerLvl then
+          if nextExp <= curExp then
+            ((uis.InfoAssemblyGrp).ExpNumberTxt).text = (PUtil.get)(20000048)
+          else
+            -- DECOMPILER ERROR at PC125: Confused about usage of register: R8 in 'UnsetPending'
+
+            ;
+            ((uis.InfoAssemblyGrp).ExpNumberTxt).text = curExp .. "/" .. nextExp
+          end
+        else
+          -- DECOMPILER ERROR at PC133: Confused about usage of register: R8 in 'UnsetPending'
+
+          ;
+          ((uis.InfoAssemblyGrp).ExpNumberTxt).text = curExp .. "/" .. nextExp
+        end
+        ;
+        (ActorInfoWindow.InitUIEffect)()
+      end
     end
-    ;
-    (ActorInfoWindow.InitUIEffect)()
   end
 end
 
@@ -328,15 +340,19 @@ ActorInfoWindow.HandleMessage = function(msgId, para, ...)
   if msgId == windowMsgEnum.E_MSG_SETFASHIONHEAD then
     (ActorInfoWindow.RefreshWindow)()
   else
-    -- DECOMPILER ERROR at PC16: Confused about usage of register: R3 in 'UnsetPending'
-
-    if msgId == windowMsgEnum.E_MSG_SET_NEW_NICKNAME then
-      ((uis.InfoAssemblyGrp).ActorNameTxt).text = (ActorData.GetNickName)()
+    if msgId == windowMsgEnum.E_MSG_SETFASHIONFRAME then
+      (ActorInfoWindow.RefreshWindow)()
     else
-      -- DECOMPILER ERROR at PC25: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC22: Confused about usage of register: R3 in 'UnsetPending'
 
-      if msgId == (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_NAME then
-        ((uis.InfoAssemblyGrp).Guild_02_Txt).text = para
+      if msgId == windowMsgEnum.E_MSG_SET_NEW_NICKNAME then
+        ((uis.InfoAssemblyGrp).ActorNameTxt).text = (ActorData.GetNickName)()
+      else
+        -- DECOMPILER ERROR at PC31: Confused about usage of register: R3 in 'UnsetPending'
+
+        if msgId == (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_NAME then
+          ((uis.InfoAssemblyGrp).Guild_02_Txt).text = para
+        end
       end
     end
   end

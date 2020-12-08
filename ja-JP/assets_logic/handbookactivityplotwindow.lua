@@ -36,6 +36,13 @@ HandBookActivityPlotWindow.InitListData = function(...)
       end
     end
   end
+  ;
+  (table.sort)(OpenList, function(a, b, ...)
+    -- function num : 0_1_0
+    do return a.sort < b.sort end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
   return OpenList
 end
 

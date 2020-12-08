@@ -16,6 +16,9 @@ CardLookWindow.OnInit = function(bridgeObj, ...)
   if argTable[1] then
     fashionId = argTable[1]
   end
+  -- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
+
+  Input.multiTouchEnabled = true
   fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   uis = GetCard_CardLookUis(contentPane)
   ;
@@ -40,7 +43,7 @@ CardLookWindow.OnInit = function(bridgeObj, ...)
     (CardLookWindow.SetRotateWindow)()
   end
 )
-  -- DECOMPILER ERROR at PC55: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.SwitchBtn).visible = fashionData.type == 2
@@ -199,11 +202,15 @@ end
 
 CardLookWindow.OnClose = function(...)
   -- function num : 0_5 , upvalues : _ENV, uis, CardLookWindow, isRotate, uniqueEffect, contentPane, bridge, argTable, fashionData, fashionId
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+  Input.multiTouchEnabled = false
+  ;
   (Util.RecycleUIModel)(uis.CardLoader)
   ;
   (UpdateMgr.RemoveUpdateHandler)(CardLookWindow.Update)
   UIMgr:SendWindowMessage("CardChoiceWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_CLOSECARDLOOK, {})
-  -- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
 
   if isRotate then
     (uis.c1Ctr).selectedIndex = 0

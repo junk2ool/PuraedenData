@@ -3,10 +3,12 @@
 require("Equipt_EquiptByName")
 require("Equipt_EquiptPopByName")
 require("DescriptionTips_ItemTipsByName")
-EquipmentWindowType = {Main = 0, Secondary = 1}
-EquipmentSecondaryPageType = {Change = 0, Attribute = 1, Decompose = 2, Identify = 3}
-EquipmentPanelPosType = {Left = 1, Right = 2, Middle = 3}
+local EquipmentWindowType = {Main = 0, Secondary = 1}
+local EquipmentSecondaryPageType = {Change = 0, Attribute = 1, Decompose = 2, Identify = 3, Preset = 4}
+local EquipmentPanelPosType = {Left = 1, Right = 2, Middle = 3}
 local EquipmentNewStatus = {None = 1, NeedShow = 2, Showed = 3}
+local PresetStatus = {Normal = 0, Edit = 1}
+local PresetPanelStatus = {Used = 0, NoUser = 1, NoShow = 2}
 local EquipmentWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
@@ -29,13 +31,18 @@ local _detailUnidentifyPanelGrp, _originUnidentifyPanelYSize, _identifyCostCompo
 local _selectedInBag = 0
 local _selectedInBagItem = nil
 local _slotsEquipInfo = {}
-local _noEquipmentsEffect, _noEquipEffect = nil, nil
+local _slotsEquipInfoForChange, _noEquipmentsEffect, _noEquipEffect = nil, nil, nil
 local _newStatus = EquipmentNewStatus.None
 local _secondEquipInit = false
 local _bgEffect = nil
 local _currentFashionId = 0
 local shutterCount = nil
-local FxManager = require("FxManager")
+local FxManager = (require("FxManager"))
+local _currentChosedPreset, _currentChosedPresetItem = nil, nil
+local _currentEquipmentTypeForPreset = 0
+local _typeFilterForPresetBtn = {}
+local _equipSlotsForPreset = {}
+local _noPresetEffect = nil
 EquipmentWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, EquipmentWindow
   bridgeObj:SetView((WinResConfig.EquipmentWindow).package, (WinResConfig.EquipmentWindow).comName)
@@ -62,25 +69,31 @@ EquipmentWindow.OnInit = function(bridgeObj, ...)
 end
 
 EquipmentWindow.InitTopMenu = function(...)
-  -- function num : 0_1 , upvalues : _ENV, uis, EquipmentWindow
+  -- function num : 0_1 , upvalues : _ENV, uis, EquipmentWindowType, PresetStatus, EquipmentWindow
   local m = {}
   m.windowName = (WinResConfig.EquipmentWindow).name
   m.Tip = (PUtil.get)(20000029)
   m.model = uis.AssetStripGrp
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.EQUIP_EXP}
   m.BackBtnFun = function(...)
-    -- function num : 0_1_0 , upvalues : uis, _ENV, EquipmentWindow
+    -- function num : 0_1_0 , upvalues : uis, EquipmentWindowType, _ENV, PresetStatus, EquipmentWindow
     if (uis.c1Ctr).selectedIndex == EquipmentWindowType.Main then
       UIMgr:CloseWindow((WinResConfig.EquipmentWindow).name)
     else
-      ;
-      (EquipmentWindow.CloseAllDetail)()
-      ;
-      (EquipmentWindow.RefreshEquipmentInfoMain)()
-      ;
-      (LuaSound.PlaySound)(LuaSound.COMMON_PANEL_IN, SoundBank.OTHER)
-      ;
-      (EquipmentWindow.ChangeStatus)(EquipmentWindowType.Main)
+      if (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex == PresetStatus.Edit then
+        (EquipmentWindow.EditCheck)()
+        ;
+        (EquipmentWindow.ClickCancelPresetBtn)()
+      else
+        ;
+        (EquipmentWindow.CloseAllDetail)()
+        ;
+        (EquipmentWindow.RefreshEquipmentInfoMain)()
+        ;
+        (LuaSound.PlaySound)(LuaSound.COMMON_PANEL_IN, SoundBank.OTHER)
+        ;
+        (EquipmentWindow.ChangeStatus)(EquipmentWindowType.Main)
+      end
     end
   end
 
@@ -95,7 +108,7 @@ EquipmentWindow.InitTopMenu = function(...)
 end
 
 EquipmentWindow.InitVariable = function(...)
-  -- function num : 0_2 , upvalues : _detailMainPanelGrp, EquipmentWindow, _detailReplacePanelGrp, _detailUnidentifyPanelGrp, _equipmentSlotsMain, _ENV, uis, _equipmentPartPos, _equipmentSlotsSecondary, _equipmentTypeFilterBtn, _identifyCostComponent
+  -- function num : 0_2 , upvalues : _detailMainPanelGrp, EquipmentWindow, _detailReplacePanelGrp, _detailUnidentifyPanelGrp, _equipmentSlotsMain, _ENV, uis, _equipmentPartPos, EquipmentPanelPosType, _equipmentSlotsSecondary, _equipmentTypeFilterBtn, _typeFilterForPresetBtn, _identifyCostComponent
   _detailMainPanelGrp = (EquipmentWindow.GetDefaultPanelGrp)(_detailMainPanelGrp)
   _detailReplacePanelGrp = (EquipmentWindow.GetDefaultPanelGrp)(_detailReplacePanelGrp)
   _detailUnidentifyPanelGrp = (EquipmentWindow.GetDefaultPanelGrp)(_detailUnidentifyPanelGrp)
@@ -116,6 +129,11 @@ EquipmentWindow.InitVariable = function(...)
   _equipmentTypeFilterBtn[EquiptPartsType.Ring] = (((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptChangeBtnPanelGrp).RingBtn
   _equipmentTypeFilterBtn[EquiptPartsType.Necklace] = (((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptChangeBtnPanelGrp).NecklaceBtn
   _equipmentTypeFilterBtn[EquiptPartsType.All] = (((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptChangeBtnPanelGrp).AllBtn
+  _typeFilterForPresetBtn[EquiptPartsType.Weapon] = ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptChangeBtnPanelGrp).WeaponBtn
+  _typeFilterForPresetBtn[EquiptPartsType.Chest] = ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptChangeBtnPanelGrp).ClothesBtn
+  _typeFilterForPresetBtn[EquiptPartsType.Ring] = ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptChangeBtnPanelGrp).RingBtn
+  _typeFilterForPresetBtn[EquiptPartsType.Necklace] = ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptChangeBtnPanelGrp).NecklaceBtn
+  _typeFilterForPresetBtn[EquiptPartsType.All] = ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptChangeBtnPanelGrp).AllBtn
   _identifyCostComponent = {}
   _identifyCostComponent[1] = {Txt = (((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).Spend_A_Txt, Loader = (((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).Spend_A_Loader}
   _identifyCostComponent[2] = {Txt = (((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).Spend_B_Txt, Loader = (((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).Spend_B_Loader}
@@ -134,80 +152,122 @@ EquipmentWindow.InitText = function(...)
   (((uis.EquiptPanelGrp).EquiptChangeBtn):GetChild("NameTxt")).text = (PUtil.get)(20000029)
   ;
   (((uis.EquiptPanelGrp).AppraisalBtn):GetChild("NameTxt")).text = (PUtil.get)(60000323)
-  -- DECOMPILER ERROR at PC55: Confused about usage of register: R0 in 'UnsetPending'
+  ;
+  (((uis.EquiptPanelGrp).ProgrammeBtn):GetChild("NameTxt")).text = (PUtil.get)(60000561)
+  -- DECOMPILER ERROR at PC66: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).UseBtn).text = (PUtil.get)(60000562)
+  -- DECOMPILER ERROR at PC75: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EditBtn).text = (PUtil.get)(60000563)
+  -- DECOMPILER ERROR at PC84: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).CancelBtn).text = (PUtil.get)(60000567)
+  -- DECOMPILER ERROR at PC93: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).DelBtn).text = (PUtil.get)(60000566)
+  -- DECOMPILER ERROR at PC102: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).KeepBtn).text = (PUtil.get)(60000565)
+  -- DECOMPILER ERROR at PC111: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).NothingTxt).text = (PUtil.get)(60000568)
+  -- DECOMPILER ERROR at PC121: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).ProgrammeInfo_A).WordTxt).text = (PUtil.get)(60000571)
+  -- DECOMPILER ERROR at PC131: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).WordTxt).text = (PUtil.get)(60000570)
+  -- DECOMPILER ERROR at PC139: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.EquiptPanelGrp).EquiptChangeGrp).WordTxt).text = (PUtil.get)(60000319)
-  -- DECOMPILER ERROR at PC63: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC147: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.EquiptPanelGrp).EquiptChangeGrp).AllChoiceTxt).text = (PUtil.get)(60000373)
-  -- DECOMPILER ERROR at PC72: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC156: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptScreenGrp).titilenameTxt).text = (PUtil.get)(60000326)
-  -- DECOMPILER ERROR at PC81: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC165: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptScreenGrp).SureBtn).text = (PUtil.get)(60000069)
-  -- DECOMPILER ERROR at PC89: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC173: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.EquiptPanelGrp).EquiptDetailedGrp).TitleTxt).text = (PUtil.get)(60000054)
-  -- DECOMPILER ERROR at PC98: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC182: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).ResetBtn).text = (PUtil.get)(60000069)
-  -- DECOMPILER ERROR at PC107: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC191: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).titilenameTxt).text = (PUtil.get)(60000326)
-  -- DECOMPILER ERROR at PC115: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC199: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.EquiptPanelGrp).CleanUpGrp).DecomposeBtn).text = (PUtil.get)(60000058)
-  -- DECOMPILER ERROR at PC123: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC207: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceTxt).text = (PUtil.get)(60000335)
-  -- DECOMPILER ERROR at PC132: Confused about usage of register: R0 in 'UnsetPending'
+  (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceTxt).text = (PUtil.get)(20000208)
+  -- DECOMPILER ERROR at PC215: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceTxt).text = (PUtil.get)(60000399)
+  -- DECOMPILER ERROR at PC224: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).CleanUp_01_Txt).text = (PUtil.get)(60000322)
-  -- DECOMPILER ERROR at PC141: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC233: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).SureBtn).text = (PUtil.get)(60000323)
-  -- DECOMPILER ERROR at PC150: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC242: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).titilenameTxt).text = (PUtil.get)(60000485)
-  -- DECOMPILER ERROR at PC159: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC251: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).CleanBtn).text = (PUtil.get)(60000392)
 end
 
 EquipmentWindow.InitUIStatus = function(...)
-  -- function num : 0_4 , upvalues : _ENV, _equipmentSlotsMain, _equipmentTypeFilterBtn, _equipmentSlotsSecondary
+  -- function num : 0_4 , upvalues : _ENV, _equipmentSlotsMain, _equipmentTypeFilterBtn, _typeFilterForPresetBtn, _equipmentSlotsSecondary
   for i = 1, EquiptData.EQUIPMENT_TYPE_COUNT do
     -- DECOMPILER ERROR at PC8: Confused about usage of register: R4 in 'UnsetPending'
 
     ((_equipmentSlotsMain[i]).c4Ctr).selectedIndex = i - 1
     ;
     ((_equipmentTypeFilterBtn[i]):GetController("c1")).selectedIndex = i - 1
-    -- DECOMPILER ERROR at PC18: Confused about usage of register: R4 in 'UnsetPending'
+    ;
+    ((_typeFilterForPresetBtn[i]):GetController("c1")).selectedIndex = i - 1
+    -- DECOMPILER ERROR at PC24: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
     (((_equipmentSlotsSecondary[i]).FrameEffGrp).root).visible = false
   end
   ;
   ((_equipmentTypeFilterBtn[EquiptPartsType.All]):GetController("c1")).selectedIndex = 4
-  -- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
+  ;
+  ((_typeFilterForPresetBtn[EquiptPartsType.All]):GetController("c1")).selectedIndex = 4
+  -- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((_equipmentSlotsSecondary[EquiptPartsType.Chest]).c4Ctr).selectedIndex = 1
-  -- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC49: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((_equipmentSlotsSecondary[EquiptPartsType.Ring]).c4Ctr).selectedIndex = 1
@@ -228,10 +288,22 @@ EquipmentWindow.InitList = function(...)
 
   ;
   (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList).itemRenderer = EquipmentWindow.RefreshDecomposeItem
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).ProgrammeList):SetVirtual()
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).ProgrammeList).itemRenderer = EquipmentWindow.RefreshPresetItem
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptList):SetVirtual()
+  -- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptList).itemRenderer = EquipmentWindow.RefreshPresetEquipItem
 end
 
 EquipmentWindow.InitButtonEvent = function(...)
-  -- function num : 0_6 , upvalues : uis, EquipmentWindow
+  -- function num : 0_6 , upvalues : uis, EquipmentWindow, _ENV, _typeFilterForPresetBtn, _currentEquipmentTypeForPreset
   ((uis.TouchScreenBtn).onClick):Add(EquipmentWindow.ClickBlankBtn)
   ;
   (((uis.EquiptPanelGrp).EquiptDetailedBtn).onClick):Add(EquipmentWindow.ClickDetailBtn)
@@ -241,6 +313,8 @@ EquipmentWindow.InitButtonEvent = function(...)
   (((uis.EquiptPanelGrp).CleanUpBtn).onClick):Add(EquipmentWindow.ClickDecomposePageBtn)
   ;
   (((uis.EquiptPanelGrp).AppraisalBtn).onClick):Add(EquipmentWindow.ClickIdentifyPageBtn)
+  ;
+  (((uis.EquiptPanelGrp).ProgrammeBtn).onClick):Add(EquipmentWindow.ClickPresetPageBtn)
   ;
   (((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).SureBtn).onClick):Add(EquipmentWindow.ClickIdentifyBtn)
   ;
@@ -252,13 +326,43 @@ EquipmentWindow.InitButtonEvent = function(...)
   ;
   (((((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptScreenGrp).SureBtn).onClick):Add(EquipmentWindow.ClickChangeFilterResetBtn)
   ;
-  ((((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).onClick):Add(EquipmentWindow.ClickAllChoseBtn)
+  ((((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).onClick):Add(EquipmentWindow.ClickUnidentifiedBtn)
+  ;
+  ((((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceBtn).onClick):Add(EquipmentWindow.ClickIdentifiedBtn)
   ;
   ((((uis.EquiptPanelGrp).CleanUpGrp).DecomposeBtn).onClick):Add(EquipmentWindow.ClickDecomposeBtn)
   ;
   (((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).SortBtn).onClick):Add(EquipmentWindow.ClickDecomposeSortBtn)
   ;
   (((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).ResetBtn).onClick):Add(EquipmentWindow.ClickDecomposeResetBtn)
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EditBtn).onClick):Set(EquipmentWindow.ClickEditPresetBtn)
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).UseBtn).onClick):Set(EquipmentWindow.ClickUsePresetBtn)
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).KeepBtn).onClick):Set(EquipmentWindow.ClickDeletePresetBtn)
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).DelBtn).onClick):Set(EquipmentWindow.ClickCancelPresetBtn)
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).CancelBtn).onClick):Set(EquipmentWindow.ClickSavePresetBtn)
+  ;
+  ((((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameBtn).onClick):Set(EquipmentWindow.ClickRenamePresetBtn)
+  ;
+  (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).OrderBtn).onClick):Add(EquipmentWindow.ClickPresetSortBtn)
+  for i = 1, EquiptData.EQUIPMENT_TYPE_COUNT + 1 do
+    local index = i
+    do
+      ((_typeFilterForPresetBtn[index]).onClick):Set(function(...)
+    -- function num : 0_6_0 , upvalues : _currentEquipmentTypeForPreset, index, EquipmentWindow
+    if _currentEquipmentTypeForPreset ~= index then
+      (EquipmentWindow.CloseAllDetail)()
+    end
+    ;
+    (EquipmentWindow.ChoseEquipForPresetByType)(index)
+  end
+)
+    end
+  end
 end
 
 EquipmentWindow.BindingUI = function(...)
@@ -315,7 +419,7 @@ EquipmentWindow.OnHide = function(...)
 end
 
 EquipmentWindow.Init = function(...)
-  -- function num : 0_13 , upvalues : _bgEffect, _ENV, uis, _currentRoleIndex, EquipmentWindow, DEFAULT_CHOOSE_INDEX, argTable
+  -- function num : 0_13 , upvalues : _bgEffect, _ENV, uis, _currentRoleIndex, EquipmentWindow, DEFAULT_CHOOSE_INDEX, argTable, EquipmentWindowType, EquipmentSecondaryPageType
   if _bgEffect == nil then
     _bgEffect = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_EQUIPMENT_BG)
     _bgEffect:SetXY((uis.root).width / 2, (uis.root).height / 2)
@@ -348,14 +452,14 @@ EquipmentWindow.Init = function(...)
     (EquipmentWindow.ChoseEquipByType)(EquiptPartsType.Weapon)
     ;
     (EquipmentWindow.RefreshChangePage)()
-    -- DECOMPILER ERROR at PC76: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC74: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     ((uis.EquiptPanelGrp).c1Ctr).selectedIndex = EquipmentSecondaryPageType.Decompose
     ;
     (EquipmentWindow.ClickDecomposePageBtn)()
   else
-    -- DECOMPILER ERROR at PC89: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC86: Confused about usage of register: R0 in 'UnsetPending'
 
     if argTable.Type == EquiptOpenType.Identify then
       ((uis.EquiptPanelGrp).c1Ctr).selectedIndex = EquipmentSecondaryPageType.Identify
@@ -417,21 +521,25 @@ EquipmentWindow.Init = function(...)
 end
 
 EquipmentWindow.OnClose = function(...)
-  -- function num : 0_14 , upvalues : _bgEffect, _ENV, _currentFashionId, _secondEquipInit, _currentRoleIndex, _noEquipmentsEffect, _noEquipEffect, _selectedInBag, _selectedInBagItem, _currentIdentifyEquipmentType, EquipmentWindow, uis, _detailMainPanelGrp, _detailReplacePanelGrp, _detailUnidentifyPanelGrp, _currentChosedSlot, shutterCount, contentPane, _equipmentSlotsMain, _equipmentSlotsSecondary, _slotsEquipInfo
+  -- function num : 0_14 , upvalues : EquipmentWindow, _bgEffect, _noPresetEffect, _ENV, _currentFashionId, _secondEquipInit, _currentRoleIndex, _noEquipmentsEffect, _currentChosedPresetItem, _noEquipEffect, _selectedInBag, _selectedInBagItem, _currentIdentifyEquipmentType, uis, _detailMainPanelGrp, _detailReplacePanelGrp, _detailUnidentifyPanelGrp, _currentChosedSlot, shutterCount, contentPane, _equipmentSlotsMain, _equipmentSlotsSecondary, _slotsEquipInfo
+  (EquipmentWindow.EditCheck)()
   if _bgEffect ~= nil then
     _bgEffect:Dispose()
     _bgEffect = nil
+  end
+  if _noPresetEffect ~= nil then
+    _noPresetEffect = nil
   end
   ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.EquipmentWindow).name)
   ;
   (GuideData.AbolishControlRefer)((WinResConfig.EquipmentWindow).name)
-  -- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.NewEquipments = {}
   ;
   (EquiptData.ResetData)()
-  -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (GRoot.inst).IgnoreItemClick = true
@@ -439,7 +547,7 @@ EquipmentWindow.OnClose = function(...)
   _secondEquipInit = false
   _currentRoleIndex = 0
   _noEquipmentsEffect = nil
-  _notEquiptEquipmentEffect = nil
+  _currentChosedPresetItem = nil
   _noEquipEffect = nil
   _selectedInBag = nil
   _selectedInBagItem = nil
@@ -490,23 +598,36 @@ EquipmentWindow.InitRoleList = function(...)
 end
 
 EquipmentWindow.ChoseRole = function(index, roleData, manualChose, ...)
-  -- function num : 0_17 , upvalues : _currentRoleIndex, _ENV, EquipmentWindow
+  -- function num : 0_17 , upvalues : EquipmentWindow, _currentRoleIndex, _ENV, uis, EquipmentSecondaryPageType, _currentChosedPreset
+  (EquipmentWindow.EditCheck)()
+  ;
+  (EquipmentWindow.ClickCancelPresetBtn)()
   _currentRoleIndex = index
-  -- DECOMPILER ERROR at PC4: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC8: Confused about usage of register: R3 in 'UnsetPending'
 
   if roleData ~= nil then
     EquiptData.CurrentRoleData = roleData
   else
-    -- DECOMPILER ERROR at PC11: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC15: Confused about usage of register: R3 in 'UnsetPending'
 
     EquiptData.CurrentRoleData = ((CardData.GetObtainedCardList)())[index]
   end
+  if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Preset then
+    (EquipmentWindow.RefreshChoesdRolePreset)()
+    ;
+    (EquipmentWindow.RefreshPresetPanel)((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).ProgrammeInfo_B, _currentChosedPreset, (PUtil.get)(60000574), false)
+    -- DECOMPILER ERROR at PC51: Confused about usage of register: R3 in 'UnsetPending'
+
+    ;
+    ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).UseBtn).visible = _currentChosedPreset ~= nil and _currentChosedPreset ~= (EquiptData.CurrentRoleData).equipScheme
+  end
   ;
   (EquipmentWindow.RefreshCurrentRoleInfo)(manualChose)
+  -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
 EquipmentWindow.RefreshCurrentRoleInfo = function(manualChose, ...)
-  -- function num : 0_18 , upvalues : EquipmentWindow, uis, _ENV, _currentFashionId, shutterCount, FxManager
+  -- function num : 0_18 , upvalues : EquipmentWindow, uis, EquipmentWindowType, EquipmentSecondaryPageType, _ENV, _currentFashionId, shutterCount, FxManager
   (EquipmentWindow.CloseAllDetail)()
   if (uis.c1Ctr).selectedIndex == EquipmentWindowType.Main then
     (EquipmentWindow.RefreshEquipmentInfoMain)()
@@ -522,12 +643,15 @@ EquipmentWindow.RefreshCurrentRoleInfo = function(manualChose, ...)
     else
       if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Change then
         (EquiptMgr.AfterFilterChanged)(EquiptSetType.Change)
+      else
       end
     end
   end
-  if _currentFashionId ~= (EquiptData.CurrentRoleData).fashionId then
+  -- DECOMPILER ERROR at PC54: Unhandled construct in 'MakeBoolean' P1
+
+  if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex ~= EquipmentSecondaryPageType.Preset or _currentFashionId ~= (EquiptData.CurrentRoleData).fashionId then
     _currentFashionId = (EquiptData.CurrentRoleData).fashionId
-    -- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC56: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     (uis.CardShowLoader).alpha = 0
@@ -552,7 +676,7 @@ EquipmentWindow.RefreshCurrentRoleInfo = function(manualChose, ...)
 end
 
 EquipmentWindow.ChangeStatus = function(status, ...)
-  -- function num : 0_19 , upvalues : uis, _bgEffect, _ENV
+  -- function num : 0_19 , upvalues : uis, _bgEffect, EquipmentWindowType
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (uis.c1Ctr).selectedIndex = status
@@ -761,7 +885,7 @@ EquipmentWindow.ClickEquipmentMain = function(equipInfo, configData, ...)
 end
 
 EquipmentWindow.ClickBlankBtn = function(...)
-  -- function num : 0_24 , upvalues : uis, _ENV, EquipmentWindow, DEFAULT_CHOOSE_TYPE
+  -- function num : 0_24 , upvalues : uis, EquipmentWindowType, EquipmentWindow, DEFAULT_CHOOSE_TYPE
   if (uis.c1Ctr).selectedIndex == EquipmentWindowType.Main then
     (EquipmentWindow.ClickChangeBtn)(DEFAULT_CHOOSE_TYPE)
   end
@@ -770,8 +894,8 @@ EquipmentWindow.ClickBlankBtn = function(...)
 end
 
 EquipmentWindow.ClickChangeBtn = function(equipType, ...)
-  -- function num : 0_25 , upvalues : uis, _ENV, EquipmentWindow
-  -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
+  -- function num : 0_25 , upvalues : uis, EquipmentSecondaryPageType, EquipmentWindow, _ENV, EquipmentWindowType
+  -- DECOMPILER ERROR at PC3: Confused about usage of register: R1 in 'UnsetPending'
 
   ((uis.EquiptPanelGrp).c1Ctr).selectedIndex = EquipmentSecondaryPageType.Change
   ;
@@ -787,11 +911,12 @@ EquipmentWindow.ClickChangeBtn = function(equipType, ...)
 end
 
 EquipmentWindow.RefreshEquipmentInfoSecondary = function(equipmentType, ...)
-  -- function num : 0_26 , upvalues : _secondEquipInit, _ENV, _slotsEquipInfo, _equipmentSlotsSecondary, EquipmentWindow
+  -- function num : 0_26 , upvalues : _secondEquipInit, _ENV, _slotsEquipInfo, _equipmentSlotsSecondary, EquipmentWindow, _slotsEquipInfoForChange
   _secondEquipInit = true
   local equiped = {}
   local count = #(EquiptData.CurrentRoleData).equipInfo
   _slotsEquipInfo = {}
+  local presetId = nil
   for i = 1, count do
     local eachData = ((EquiptData.CurrentRoleData).equipInfo)[i]
     do
@@ -799,35 +924,50 @@ EquipmentWindow.RefreshEquipmentInfoSecondary = function(equipmentType, ...)
       do
         local slot = _equipmentSlotsSecondary[configData.type]
         _slotsEquipInfo[configData.type] = eachData
-        -- DECOMPILER ERROR at PC27: Confused about usage of register: R10 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC28: Confused about usage of register: R11 in 'UnsetPending'
 
         ;
         (slot.c1Ctr).selectedIndex = 1
-        -- DECOMPILER ERROR at PC30: Confused about usage of register: R10 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC31: Confused about usage of register: R11 in 'UnsetPending'
 
         ;
         (slot.c2Ctr).selectedIndex = configData.intelligence
+        presetId = (EquiptData.EquipBelongTo)[eachData.objectIndex]
+        -- DECOMPILER ERROR at PC44: Confused about usage of register: R11 in 'UnsetPending'
+
+        if presetId and (EquiptData.EquipPresetsIndex)[presetId] then
+          (slot.PlanCtr).selectedIndex = 1
+          -- DECOMPILER ERROR at PC50: Confused about usage of register: R11 in 'UnsetPending'
+
+          ;
+          ((slot.EquiptPlan).PlanNumberTxt).text = (EquiptData.EquipPresetsIndex)[presetId]
+        else
+          -- DECOMPILER ERROR at PC53: Confused about usage of register: R11 in 'UnsetPending'
+
+          ;
+          (slot.PlanCtr).selectedIndex = 0
+        end
         ;
         (slot.StarList):RemoveChildrenToPool()
         for i = 1, configData.star do
           (slot.StarList):AddItemFromPool()
         end
         do
-          -- DECOMPILER ERROR at PC57: Confused about usage of register: R10 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC80: Confused about usage of register: R11 in 'UnsetPending'
 
           if configData.type == EquiptPartsType.Weapon or configData.type == EquiptPartsType.Chest then
             (slot.IconLoader).url = (Util.GetItemUrl)(configData.big_icon)
           else
-            -- DECOMPILER ERROR at PC64: Confused about usage of register: R10 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC87: Confused about usage of register: R11 in 'UnsetPending'
 
             ;
             (slot.IconLoader).url = (Util.GetItemUrl)(configData.icon)
           end
-          -- DECOMPILER ERROR at PC66: Confused about usage of register: R10 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC89: Confused about usage of register: R11 in 'UnsetPending'
 
           ;
           (slot.IconLoader).alpha = 1
-          -- DECOMPILER ERROR at PC68: Confused about usage of register: R10 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC91: Confused about usage of register: R11 in 'UnsetPending'
 
           ;
           (slot.c4Ctr).selectedIndex = 2
@@ -839,12 +979,12 @@ EquipmentWindow.RefreshEquipmentInfoSecondary = function(equipmentType, ...)
     (EquipmentWindow.HandleEquipDetail)(eachData, configData.type, true)
   end
 )
-          -- DECOMPILER ERROR at PC78: Confused about usage of register: R10 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC101: Confused about usage of register: R11 in 'UnsetPending'
 
           if eachData.lock then
             (slot.c3Ctr).selectedIndex = 0
           else
-            -- DECOMPILER ERROR at PC81: Confused about usage of register: R10 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC104: Confused about usage of register: R11 in 'UnsetPending'
 
             ;
             (slot.c3Ctr).selectedIndex = 1
@@ -865,9 +1005,9 @@ EquipmentWindow.RefreshEquipmentInfoSecondary = function(equipmentType, ...)
           end
         end
         do
-          -- DECOMPILER ERROR at PC139: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC162: LeaveBlock: unexpected jumping out DO_STMT
 
-          -- DECOMPILER ERROR at PC139: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC162: LeaveBlock: unexpected jumping out DO_STMT
 
         end
       end
@@ -879,25 +1019,29 @@ EquipmentWindow.RefreshEquipmentInfoSecondary = function(equipmentType, ...)
     local slot = equiped[i]
     if not slot then
       slot = _equipmentSlotsSecondary[i]
-      -- DECOMPILER ERROR at PC160: Confused about usage of register: R10 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC183: Confused about usage of register: R11 in 'UnsetPending'
 
       ;
       (slot.c1Ctr).selectedIndex = 0
-      -- DECOMPILER ERROR at PC162: Confused about usage of register: R10 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC185: Confused about usage of register: R11 in 'UnsetPending'
 
       ;
       (slot.c2Ctr).selectedIndex = 0
-      -- DECOMPILER ERROR at PC167: Confused about usage of register: R10 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC187: Confused about usage of register: R11 in 'UnsetPending'
+
+      ;
+      (slot.PlanCtr).selectedIndex = 0
+      -- DECOMPILER ERROR at PC192: Confused about usage of register: R11 in 'UnsetPending'
 
       if i <= 2 then
         (slot.c4Ctr).selectedIndex = i - 1
       else
-        -- DECOMPILER ERROR at PC172: Confused about usage of register: R10 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC197: Confused about usage of register: R11 in 'UnsetPending'
 
         if i == 3 then
           (slot.c4Ctr).selectedIndex = 1
         else
-          -- DECOMPILER ERROR at PC175: Confused about usage of register: R10 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC200: Confused about usage of register: R11 in 'UnsetPending'
 
           ;
           (slot.c4Ctr).selectedIndex = 0
@@ -914,6 +1058,9 @@ EquipmentWindow.RefreshEquipmentInfoSecondary = function(equipmentType, ...)
       ;
       (RedDotMgr.ProcessRedDot)(RedDotComID.Equipt_Equipment + index, nil, (EquiptData.CheckAvailableParts)(i, (EquiptData.CurrentRoleData).id))
     end
+  end
+  if _slotsEquipInfoForChange ~= nil then
+    _slotsEquipInfoForChange = _slotsEquipInfo
   end
   ;
   (RedDotMgr.RefreshTreeUI)((WinResConfig.EquipmentWindow).name)
@@ -1079,12 +1226,14 @@ EquipmentWindow.RefreshChangePage = function(scrollToTop, notReset, ...)
 end
 
 EquipmentWindow.RefreshEquipmentItem = function(index, item, ...)
-  -- function num : 0_31 , upvalues : _ENV, _selectedInBag, _selectedInBagItem, EquipmentWindow
+  -- function num : 0_31 , upvalues : _ENV, EquipmentWindow, _selectedInBag, _selectedInBagItem
   index = index + 1
   local data = (EquiptData.Equipments)[(EquiptData.Equipments)[(((EquiptData.Filters)[EquiptSetType.Change]).Result)[index]]]
   local config = ((TableData.gTable).BaseEquipData)[data.id]
   ;
   (Util.SetEquipFrame)(item, data)
+  ;
+  (EquipmentWindow.PresetMarkerCheck)(data.objectIndex, item)
   ;
   (item:GetChild("FrameEffGrp")).visible = data.objectIndex == _selectedInBag
   if data.objectIndex == _selectedInBag then
@@ -1143,76 +1292,101 @@ EquipmentWindow.SetEquipInBagSelected = function(id, item, ...)
   _selectedInBag = id
 end
 
-EquipmentWindow.HandleEquipDetail = function(equipInfo, equipType, isWearing, isDecompose, ...)
-  -- function num : 0_34 , upvalues : EquipmentWindow, _ENV, _detailMainPanelGrp, _detailReplacePanelGrp, _equipmentPartPos, _slotsEquipInfo
+EquipmentWindow.HandleEquipDetail = function(equipInfo, equipType, isWearing, isDecompose, isPreset, ...)
+  -- function num : 0_34 , upvalues : EquipmentWindow, EquipmentPanelPosType, _ENV, _detailMainPanelGrp, _detailReplacePanelGrp, _slotsEquipInfo, _equipmentPartPos
   if isDecompose then
     (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.NoButton)
   else
-    -- DECOMPILER ERROR at PC21: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC30: Confused about usage of register: R5 in 'UnsetPending'
 
     if (_detailMainPanelGrp.root).visible and (_detailReplacePanelGrp.root).visible then
-      if isWearing then
+      if isWearing or isPreset and _slotsEquipInfo[equipType] ~= nil and (_slotsEquipInfo[equipType]).objectIndex == equipInfo.objectIndex then
         (_detailReplacePanelGrp.root).visible = false
         ;
-        (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType)
+        (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType, isPreset)
       else
         if _detailMainPanelGrp.EquipType ~= equipType then
-          (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType)
+          (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType, isPreset)
         end
-        ;
-        (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Change)
+        if isPreset and _slotsEquipInfo[equipType] == nil then
+          (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Equip, isPreset)
+        else
+          ;
+          (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Change, isPreset)
+        end
       end
     else
-      -- DECOMPILER ERROR at PC62: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC85: Confused about usage of register: R5 in 'UnsetPending'
 
       if not (_detailMainPanelGrp.root).visible and (_detailReplacePanelGrp.root).visible then
         if isWearing then
           if equipInfo then
             (_detailReplacePanelGrp.root).visible = false
             ;
-            (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType)
+            (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType, isPreset)
           else
             ;
             (EquipmentWindow.CloseAllDetail)()
           end
         else
-          if _slotsEquipInfo[equipType] ~= nil and _detailReplacePanelGrp.EquipType ~= equipType then
-            (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType)
+          -- DECOMPILER ERROR at PC107: Confused about usage of register: R5 in 'UnsetPending'
+
+          if _slotsEquipInfo[equipType] ~= nil and (_slotsEquipInfo[equipType]).objectIndex == equipInfo.objectIndex then
+            (_detailReplacePanelGrp.root).visible = false
+            ;
+            (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType, isPreset)
+          else
+            ;
+            (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType, isPreset)
+            ;
+            (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Equip, isPreset)
           end
-          ;
-          (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Equip)
         end
       else
         if (_detailMainPanelGrp.root).visible and not (_detailReplacePanelGrp.root).visible then
           if isWearing then
             if equipInfo then
-              (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType)
+              (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType, isPreset)
             else
               ;
               (EquipmentWindow.CloseAllDetail)()
             end
           else
+            -- DECOMPILER ERROR at PC177: Unhandled construct in 'MakeBoolean' P1
+
+            if isPreset and _slotsEquipInfo[equipType] ~= nil and (_slotsEquipInfo[equipType]).objectIndex == equipInfo.objectIndex and _detailMainPanelGrp.EquipType ~= equipType then
+              (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType, isPreset)
+            end
+          end
+          ;
+          (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType, isPreset)
+          if isPreset and _slotsEquipInfo[equipType] == nil then
+            (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Equip, isPreset)
+          else
             ;
-            (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType)
-            ;
-            (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Change)
+            (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Change, isPreset)
           end
         else
           if isWearing then
             if equipInfo then
-              (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType)
+              (EquipmentWindow.showWearingDetail)(equipInfo, _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType, isPreset)
             else
               ;
               (EquipmentWindow.CloseAllDetail)()
             end
           else
             if _slotsEquipInfo[equipType] ~= nil then
-              (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType)
-              ;
-              (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Change)
+              if (_slotsEquipInfo[equipType]).objectIndex == equipInfo.objectIndex then
+                (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], _equipmentPartPos[equipType], EquiptDetailPanelType.Disarm, equipType, isPreset)
+              else
+                ;
+                (EquipmentWindow.showWearingDetail)(_slotsEquipInfo[equipType], EquipmentPanelPosType.Left, EquiptDetailPanelType.NoButton, equipType, isPreset)
+                ;
+                (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Change, isPreset)
+              end
             else
               ;
-              (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Equip)
+              (EquipmentWindow.showBagDetail)(equipInfo, EquipmentPanelPosType.Right, EquiptDetailPanelType.Equip, isPreset)
             end
           end
         end
@@ -1226,11 +1400,11 @@ EquipmentWindow.HandleEquipDetail = function(equipInfo, equipType, isWearing, is
   end
 end
 
-EquipmentWindow.showWearingDetail = function(equipInfo, posType, type, equipType, ...)
-  -- function num : 0_35 , upvalues : _detailMainPanelGrp, _ENV, uis, EquipmentWindow, _leftDetailPos, _rightDetailPos
-  -- DECOMPILER ERROR at PC7: Confused about usage of register: R4 in 'UnsetPending'
+EquipmentWindow.showWearingDetail = function(equipInfo, posType, type, equipType, preset, ...)
+  -- function num : 0_35 , upvalues : _detailMainPanelGrp, _ENV, uis, EquipmentWindow, EquipmentPanelPosType, _leftDetailPos, _rightDetailPos
+  -- DECOMPILER ERROR at PC3: Confused about usage of register: R5 in 'UnsetPending'
 
-  if equipInfo == nil and (_detailMainPanelGrp.root).visible then
+  if equipInfo == nil then
     (_detailMainPanelGrp.root).visible = false
     return 
   end
@@ -1248,54 +1422,63 @@ EquipmentWindow.showWearingDetail = function(equipInfo, posType, type, equipType
     (EquipmentWindow.CloseAllDetail)()
   end
 )
-  -- DECOMPILER ERROR at PC37: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC32: Confused about usage of register: R5 in 'UnsetPending'
 
   if posType == EquipmentPanelPosType.Left then
     (_detailMainPanelGrp.root).x = _leftDetailPos
   else
-    -- DECOMPILER ERROR at PC41: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC36: Confused about usage of register: R5 in 'UnsetPending'
 
     ;
     (_detailMainPanelGrp.root).x = _rightDetailPos
   end
-  -- DECOMPILER ERROR at PC51: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC46: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   (_detailMainPanelGrp.root).y = ((uis.EquiptPanelGrp).root).y + (((uis.EquiptPanelGrp).EquiptChangeGrp).root).y
-  -- DECOMPILER ERROR at PC53: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC48: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   (_detailMainPanelGrp.CarryImage).visible = true
   _detailMainPanelGrp.EquipType = equipType
-  -- DECOMPILER ERROR at PC56: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC51: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   (_detailMainPanelGrp.root).visible = true
-  -- DECOMPILER ERROR at PC66: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC61: Confused about usage of register: R5 in 'UnsetPending'
 
   if type == EquiptDetailPanelType.Disarm then
     (_detailMainPanelGrp.ReplaceBtn).text = (PUtil.get)(60000068)
     ;
     ((_detailMainPanelGrp.ReplaceBtn).onClick):Set(function(...)
-    -- function num : 0_35_1 , upvalues : _ENV, equipInfo, EquipmentWindow
-    (EquiptService.ReqPutOnEquip)(equipInfo.objectIndex, (EquiptData.CurrentRoleData).id, 0)
+    -- function num : 0_35_1 , upvalues : preset, _ENV, equipInfo, EquipmentWindow
+    if preset then
+      (EquiptMgr.ChangeEquiptInPresetEdit)(true, equipInfo)
+    else
+      ;
+      (EquiptMgr.PreAutoDeletePreset)({equipInfo.objectIndex}, 60000586, function(...)
+      -- function num : 0_35_1_0 , upvalues : _ENV, equipInfo
+      (EquiptService.ReqPutOnEquip)(equipInfo.objectIndex, (EquiptData.CurrentRoleData).id, 0)
+    end
+)
+    end
     ;
     (EquipmentWindow.CloseAllDetail)()
   end
 )
   end
   ;
-  (EquiptMgr.SetEquipDetailPanel)(_detailMainPanelGrp, equipInfo, nil, type, (EquiptData.CurrentRoleData).id)
+  (EquiptMgr.SetEquipDetailPanel)(_detailMainPanelGrp, equipInfo, nil, type, (EquiptData.CurrentRoleData).id, nil, preset)
 end
 
-EquipmentWindow.showBagDetail = function(equipInfo, posType, type, ...)
-  -- function num : 0_36 , upvalues : _detailReplacePanelGrp, _ENV, uis, EquipmentWindow, _leftDetailPos, _rightDetailPos, _slotsEquipInfo, _currentEquipmentType, _detailMainPanelGrp
+EquipmentWindow.showBagDetail = function(equipInfo, posType, type, preset, ...)
+  -- function num : 0_36 , upvalues : _detailReplacePanelGrp, _ENV, uis, EquipmentWindow, EquipmentPanelPosType, _leftDetailPos, _rightDetailPos, _slotsEquipInfo, _currentEquipmentType, _detailMainPanelGrp
   if _detailReplacePanelGrp.Initiated == false then
     _detailReplacePanelGrp = (EquiptMgr.GetDetailPanel)()
     _detailReplacePanelGrp.Initiated = true
     ;
     (uis.root):AddChild(_detailReplacePanelGrp.root)
-    -- DECOMPILER ERROR at PC21: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC21: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
     (_detailReplacePanelGrp.root).y = ((uis.EquiptPanelGrp).root).y + (((uis.EquiptPanelGrp).EquiptChangeGrp).root).y
@@ -1312,50 +1495,67 @@ EquipmentWindow.showBagDetail = function(equipInfo, posType, type, ...)
 )
   local srcEquiptInfo, equipConfig = nil, nil
   equipConfig = ((TableData.gTable).BaseEquipData)[equipInfo.id]
-  -- DECOMPILER ERROR at PC44: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC43: Confused about usage of register: R6 in 'UnsetPending'
 
   if posType == EquipmentPanelPosType.Left then
     (_detailReplacePanelGrp.root).x = _leftDetailPos
   else
-    -- DECOMPILER ERROR at PC48: Confused about usage of register: R5 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC47: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (_detailReplacePanelGrp.root).x = _rightDetailPos
     srcEquiptInfo = _slotsEquipInfo[equipConfig.type]
   end
-  -- DECOMPILER ERROR at PC52: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC51: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (_detailReplacePanelGrp.CarryImage).visible = false
   _detailReplacePanelGrp.EquipType = equipConfig.type
-  -- DECOMPILER ERROR at PC56: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC55: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (_detailReplacePanelGrp.root).visible = true
-  -- DECOMPILER ERROR at PC66: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC65: Confused about usage of register: R6 in 'UnsetPending'
 
   if type == EquiptDetailPanelType.Change then
     (_detailReplacePanelGrp.ReplaceBtn).text = (PUtil.get)(60000055)
   else
-    -- DECOMPILER ERROR at PC77: Confused about usage of register: R5 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC78: Confused about usage of register: R6 in 'UnsetPending'
 
     if type == EquiptDetailPanelType.Equip then
-      (_detailReplacePanelGrp.ReplaceBtn).text = (PUtil.get)(60000112)
+      if preset then
+        (_detailReplacePanelGrp.ReplaceBtn).text = (PUtil.get)(60000573)
+      else
+        -- DECOMPILER ERROR at PC85: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        (_detailReplacePanelGrp.ReplaceBtn).text = (PUtil.get)(60000112)
+      end
     end
   end
   ;
   ((_detailReplacePanelGrp.ReplaceBtn).onClick):Set(function(...)
-    -- function num : 0_36_1 , upvalues : _ENV, equipInfo, _currentEquipmentType, EquipmentWindow
-    (EquiptMgr.TryChangeEquipment)(equipInfo.objectIndex, (EquiptData.CurrentRoleData).id, _currentEquipmentType)
+    -- function num : 0_36_1 , upvalues : preset, type, _ENV, equipInfo, srcEquiptInfo, _currentEquipmentType, EquipmentWindow
+    if preset then
+      if type == EquiptDetailPanelType.Change then
+        (EquiptMgr.ChangeEquiptInPresetEdit)(false, equipInfo, srcEquiptInfo)
+      else
+        ;
+        (EquiptMgr.ChangeEquiptInPresetEdit)(false, equipInfo)
+      end
+    else
+      ;
+      (EquiptMgr.TryChangeEquipment)(equipInfo.objectIndex, EquiptData.CurrentRoleData, _currentEquipmentType)
+    end
     ;
     (EquipmentWindow.CloseAllDetail)(true)
   end
 )
   if (_detailMainPanelGrp.root).visible then
-    (EquiptMgr.SetEquipDetailPanel)(_detailReplacePanelGrp, equipInfo, equipConfig, type, 0, srcEquiptInfo)
+    (EquiptMgr.SetEquipDetailPanel)(_detailReplacePanelGrp, equipInfo, equipConfig, type, 0, srcEquiptInfo, preset)
   else
     ;
-    (EquiptMgr.SetEquipDetailPanel)(_detailReplacePanelGrp, equipInfo, equipConfig, type, 0)
+    (EquiptMgr.SetEquipDetailPanel)(_detailReplacePanelGrp, equipInfo, equipConfig, type, 0, nil, preset)
   end
 end
 
@@ -1429,21 +1629,7 @@ end
 
 EquipmentWindow.ShowEquipmentAttributes = function(equipInfos, fc, ...)
   -- function num : 0_42 , upvalues : _ENV, uis
-  local attrs = (CardData.GetEquipAddAttrList)(equipInfos)
-  local data = {}
-  for k,v in pairs(attrs) do
-    (table.insert)(data, v)
-  end
-  ;
-  (table.sort)(data, function(x, y, ...)
-    -- function num : 0_42_0
-    if y.value >= x.value then
-      do return x.id ~= y.id end
-      do return x.id < y.id end
-      -- DECOMPILER ERROR: 4 unprocessed JMP targets
-    end
-  end
-)
+  local data = (EquiptData.GetEquipmentAttr)(equipInfos)
   local panel = (((uis.EquiptPanelGrp).EquiptDetailedGrp).DetailedList):AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_ATTRIBUTE_RESOURCE))
   ;
   (panel:GetChild("BattleTxt")).text = (PUtil.get)(60000469)
@@ -1527,12 +1713,14 @@ EquipmentWindow.RefreshDecomposeList = function(...)
 end
 
 EquipmentWindow.RefreshDecomposeItem = function(index, item, ...)
-  -- function num : 0_47 , upvalues : _ENV, _detailUnidentifyPanelGrp, EquipmentWindow, _detailReplacePanelGrp, uis
+  -- function num : 0_47 , upvalues : _ENV, EquipmentWindow, _detailUnidentifyPanelGrp, _detailReplacePanelGrp, uis
   index = index + 1
   local data = (EquiptData.Equipments)[(EquiptData.Equipments)[(((EquiptData.Filters)[EquiptSetType.Decompose]).Result)[index]]]
   local configData = ((TableData.gTable).BaseEquipData)[data.id]
   ;
   (Util.SetEquipFrame)(item, data)
+  ;
+  (EquipmentWindow.PresetMarkerCheck)(data.objectIndex, item)
   ;
   (item:GetController("c1")).selectedIndex = 2
   local choiceBtn = item:GetChild("ChoiceBtn")
@@ -1577,11 +1765,19 @@ EquipmentWindow.RefreshDecomposeItem = function(index, item, ...)
         end
       end
     end
-    -- DECOMPILER ERROR at PC63: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC66: Confused about usage of register: R2 in 'UnsetPending'
 
     if data.lock == false then
-      if choiceBtn.selected == false and (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected then
-        (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected = false
+      if choiceBtn.selected == false then
+        if not data.identify and (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected then
+          (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected = false
+        else
+          -- DECOMPILER ERROR at PC80: Confused about usage of register: R2 in 'UnsetPending'
+
+          if data.identify and (((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceBtn).selected then
+            (((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceBtn).selected = false
+          end
+        end
       end
       ;
       (EquiptMgr.ChangeEquipDecomposeStatue)(data.objectIndex, data.id, choiceBtn.selected)
@@ -1607,27 +1803,41 @@ EquipmentWindow.ClickAllChoseBtn = function(...)
   (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList):RefreshVirtualList()
 end
 
+EquipmentWindow.ClickUnidentifiedBtn = function(...)
+  -- function num : 0_49 , upvalues : _ENV, uis
+  (EquiptMgr.SetUnidentifiedEquipToDecompose)((((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected)
+  ;
+  (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList):RefreshVirtualList()
+end
+
+EquipmentWindow.ClickIdentifiedBtn = function(...)
+  -- function num : 0_50 , upvalues : _ENV, uis
+  (EquiptMgr.SetIdentifiedEquipToDecompose)((((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceBtn).selected)
+  ;
+  (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList):RefreshVirtualList()
+end
+
 EquipmentWindow.ClickDecomposeBtn = function(...)
-  -- function num : 0_49 , upvalues : EquipmentWindow, _ENV
+  -- function num : 0_51 , upvalues : EquipmentWindow, _ENV
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquiptMgr.TryDecomposeEquips)()
 end
 
 EquipmentWindow.ClickDecomposeResetBtn = function(...)
-  -- function num : 0_50 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_52 , upvalues : _ENV, EquipmentWindow
   (EquiptMgr.ResetFilter)(EquiptSetType.Decompose)
   ;
   (EquipmentWindow.RefreshDecomposeFilterPanel)()
 end
 
 EquipmentWindow.ClickDecomposeSortBtn = function(...)
-  -- function num : 0_51 , upvalues : _ENV
+  -- function num : 0_53 , upvalues : _ENV
   (EquiptMgr.ChangeFilterSortType)(EquiptSetType.Decompose)
 end
 
 EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
-  -- function num : 0_52 , upvalues : EquipmentWindow, _equipmentTypeFilterBtn, _currentEquipmentType, _currentIdentifyEquipmentType, uis, _ENV
+  -- function num : 0_54 , upvalues : EquipmentWindow, _equipmentTypeFilterBtn, _currentEquipmentType, _currentIdentifyEquipmentType, uis, _ENV
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquipmentWindow.RefreshEquipmentAmountInfo)()
@@ -1651,7 +1861,7 @@ EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
   end
   ;
   ((((uis.EquiptPanelGrp).EquiptChangeGrp).OrderBtn).onClick):Set(function(...)
-    -- function num : 0_52_0 , upvalues : _ENV
+    -- function num : 0_54_0 , upvalues : _ENV
     (EquiptMgr.ChangeFilterSortType)(EquiptSetType.Identify)
   end
 )
@@ -1659,7 +1869,7 @@ EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
     local index = i
     do
       ((_equipmentTypeFilterBtn[index]).onClick):Set(function(...)
-    -- function num : 0_52_1 , upvalues : EquipmentWindow, index
+    -- function num : 0_54_1 , upvalues : EquipmentWindow, index
     (EquipmentWindow.ChoseUnidentifiedEquipByType)(index)
   end
 )
@@ -1687,20 +1897,20 @@ EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
 end
 
 EquipmentWindow.ChoseUnidentifiedEquipByType = function(type, ...)
-  -- function num : 0_53 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_55 , upvalues : _ENV, EquipmentWindow
   (EquiptMgr.ChangeFilter)(EquiptSetType.Identify, EquiptFilterType.SinglePart, type)
   ;
   (EquipmentWindow.SetIdentifyEquipmentTypeFilterBtn)()
 end
 
 EquipmentWindow.RefreshIdentifyBtnRedDot = function(...)
-  -- function num : 0_54 , upvalues : uis, _ENV
+  -- function num : 0_56 , upvalues : uis, _ENV
   (((uis.EquiptPanelGrp).AppraisalBtn):GetChild("RedDot")).visible = #EquiptData.UnidentifiedEquipments > 0
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 EquipmentWindow.SetIdentifyEquipmentTypeFilterBtn = function(...)
-  -- function num : 0_55 , upvalues : _ENV, _currentIdentifyEquipmentType, _equipmentTypeFilterBtn
+  -- function num : 0_57 , upvalues : _ENV, _currentIdentifyEquipmentType, _equipmentTypeFilterBtn
   local type = (((EquiptData.Filters)[EquiptSetType.Identify]).FilterType)[EquiptFilterType.SinglePart]
   -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -1720,7 +1930,7 @@ EquipmentWindow.SetIdentifyEquipmentTypeFilterBtn = function(...)
 end
 
 EquipmentWindow.ShowReadyToIdentifyEquipments = function(...)
-  -- function num : 0_56 , upvalues : _ENV, uis, _noEquipmentsEffect, _identifyCostComponent, EquipmentWindow
+  -- function num : 0_58 , upvalues : _ENV, uis, _noEquipmentsEffect, _identifyCostComponent, EquipmentWindow
   -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
 
   if #EquiptData.ReadyToIdentify == 0 then
@@ -1746,7 +1956,7 @@ EquipmentWindow.ShowReadyToIdentifyEquipments = function(...)
 end
 
 EquipmentWindow.RefreshReadyToIdentifyEquipments = function(...)
-  -- function num : 0_57 , upvalues : uis, _ENV, _identifyCostComponent
+  -- function num : 0_59 , upvalues : uis, _ENV, _identifyCostComponent
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
 
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).CleanUpList).numItems = #EquiptData.ReadyToIdentify
@@ -1780,9 +1990,9 @@ EquipmentWindow.RefreshReadyToIdentifyEquipments = function(...)
 end
 
 EquipmentWindow.PlayIdentifyEffect = function(callback, ...)
-  -- function num : 0_58 , upvalues : uis, _ENV, EquipmentWindow
+  -- function num : 0_60 , upvalues : uis, _ENV, EquipmentWindow
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).CleanUpList):TraversalItem(function(index, item, ...)
-    -- function num : 0_58_0 , upvalues : _ENV, uis
+    -- function num : 0_60_0 , upvalues : _ENV, uis
     local lod = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_EQUIPMENT_IDENTIFY, true, true)
     item:AddChild(lod)
     lod:SetXY(item.width * 0.5, item.height * 0.5)
@@ -1792,7 +2002,7 @@ EquipmentWindow.PlayIdentifyEffect = function(callback, ...)
 )
   ;
   (SimpleTimer.setTimeout)(1, function(...)
-    -- function num : 0_58_1 , upvalues : EquipmentWindow, callback
+    -- function num : 0_60_1 , upvalues : EquipmentWindow, callback
     (EquipmentWindow.RefreshReadyToIdentifyEquipments)()
     callback()
   end
@@ -1800,7 +2010,7 @@ EquipmentWindow.PlayIdentifyEffect = function(callback, ...)
 end
 
 EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
-  -- function num : 0_59 , upvalues : _ENV, EquipmentWindow, _detailUnidentifyPanelGrp
+  -- function num : 0_61 , upvalues : _ENV, EquipmentWindow, _detailUnidentifyPanelGrp
   index = index + 1
   local data = (EquiptData.Equipments)[(EquiptData.Equipments)[(((EquiptData.Filters)[EquiptSetType.Identify]).Result)[index]]]
   local configData = ((TableData.gTable).BaseEquipData)[data.id]
@@ -1813,7 +2023,7 @@ EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
   local choiceBtn = item:GetChild("ChoiceBtn")
   choiceBtn.selected = (EquiptData.ReadyToIdentify)[data.objectIndex] ~= nil
   local onClick = function(eventContext, ...)
-    -- function num : 0_59_0 , upvalues : _ENV, choiceBtn, data, EquipmentWindow, _detailUnidentifyPanelGrp
+    -- function num : 0_61_0 , upvalues : _ENV, choiceBtn, data, EquipmentWindow, _detailUnidentifyPanelGrp
     eventContext:StopPropagation()
     if (EquiptMgr.CheckIdentifyEquipmentsFull)() and choiceBtn.selected then
       choiceBtn.selected = not choiceBtn.selected
@@ -1834,7 +2044,7 @@ EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
 
   ;
   (item.onClick):Set(function(eventContext, ...)
-    -- function num : 0_59_1 , upvalues : _ENV, choiceBtn, onClick
+    -- function num : 0_61_1 , upvalues : _ENV, choiceBtn, onClick
     if (EquiptMgr.CheckIdentifyEquipmentsFull)() and not choiceBtn.selected then
       (MessageMgr.SendCenterTips)((PUtil.get)(60000374))
       return 
@@ -1849,13 +2059,13 @@ EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
 end
 
 EquipmentWindow.RefreshReadyToIdentifyItem = function(index, item, ...)
-  -- function num : 0_60 , upvalues : _ENV, EquipmentWindow, uis
+  -- function num : 0_62 , upvalues : _ENV, EquipmentWindow, uis
   local data = (EquiptData.ReadyToIdentify)[index + 1]
   ;
   (Util.SetEquipFrame)(item, data)
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_60_0 , upvalues : EquipmentWindow, _ENV, data, uis
+    -- function num : 0_62_0 , upvalues : EquipmentWindow, _ENV, data, uis
     (EquipmentWindow.CheckIdentifyAllChoseBtn)()
     ;
     (EquiptMgr.HandleEquipmentToIdentify)(data, false)
@@ -1866,7 +2076,7 @@ EquipmentWindow.RefreshReadyToIdentifyItem = function(index, item, ...)
 end
 
 EquipmentWindow.CheckIdentifyAllChoseBtn = function(...)
-  -- function num : 0_61 , upvalues : uis
+  -- function num : 0_63 , upvalues : uis
   -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
 
   if (((uis.EquiptPanelGrp).EquiptChangeGrp).AllChoiceBtn).selected then
@@ -1875,19 +2085,19 @@ EquipmentWindow.CheckIdentifyAllChoseBtn = function(...)
 end
 
 EquipmentWindow.ClearIdentifyEquipments = function(...)
-  -- function num : 0_62 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_64 , upvalues : _ENV, EquipmentWindow
   (EquiptMgr.ResetIdentifyData)()
   ;
   (EquipmentWindow.ShowReadyToIdentifyEquipments)()
 end
 
 EquipmentWindow.ClickIdentifyBtn = function(...)
-  -- function num : 0_63 , upvalues : _ENV
+  -- function num : 0_65 , upvalues : _ENV
   (EquiptMgr.TryIdentifyEquips)()
 end
 
 EquipmentWindow.ClickIdentifyAllChoseBtn = function(...)
-  -- function num : 0_64 , upvalues : _ENV, uis, EquipmentWindow
+  -- function num : 0_66 , upvalues : _ENV, uis, EquipmentWindow
   (EquiptMgr.SetAllEquipToIdentifyOrNot)((((uis.EquiptPanelGrp).EquiptChangeGrp).AllChoiceBtn).selected)
   ;
   (((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptList):RefreshVirtualList()
@@ -1897,7 +2107,7 @@ EquipmentWindow.ClickIdentifyAllChoseBtn = function(...)
 end
 
 EquipmentWindow.ClickIdentifyCancelAllBtn = function(...)
-  -- function num : 0_65 , upvalues : EquipmentWindow, uis
+  -- function num : 0_67 , upvalues : EquipmentWindow, uis
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquipmentWindow.ClearIdentifyEquipments)()
@@ -1908,7 +2118,7 @@ EquipmentWindow.ClickIdentifyCancelAllBtn = function(...)
 end
 
 EquipmentWindow.InitEquipmentTypeFilter = function(list, setType, ...)
-  -- function num : 0_66 , upvalues : uis, _ENV, EquipmentWindow
+  -- function num : 0_68 , upvalues : uis, _ENV, EquipmentWindow
   local grp = ((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).CleanUpList):AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_TYPE_FILTER_RESOURCE))
   ;
   (grp:GetChild("NameTxt")).text = (PUtil.get)(60000326)
@@ -1922,14 +2132,14 @@ EquipmentWindow.InitEquipmentTypeFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.InitTypeBtn = function(panel, btnName, nameTxt, equiptType, setType, ...)
-  -- function num : 0_67 , upvalues : _ENV
+  -- function num : 0_69 , upvalues : _ENV
   local btn = panel:GetChild(btnName)
   ;
   (btn:GetChild("NameTxt")).text = nameTxt
   btn.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Type])[equiptType] ~= nil
   ;
   (btn.onClick):Set(function(...)
-    -- function num : 0_67_0 , upvalues : _ENV, setType, equiptType, btn
+    -- function num : 0_69_0 , upvalues : _ENV, setType, equiptType, btn
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Type, equiptType, btn.selected)
   end
 )
@@ -1937,7 +2147,7 @@ EquipmentWindow.InitTypeBtn = function(panel, btnName, nameTxt, equiptType, setT
 end
 
 EquipmentWindow.InitEquipmentPartsFilter = function(list, setType, ...)
-  -- function num : 0_68 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_70 , upvalues : _ENV, EquipmentWindow
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_PARTS_FILTER_RESOURCE))
   ;
   (grp:GetChild("NameTxt")).text = (PUtil.get)(60000336)
@@ -1952,14 +2162,14 @@ EquipmentWindow.InitEquipmentPartsFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshEquipmentPartItem = function(panel, name, equiptPartsType, setType, ...)
-  -- function num : 0_69 , upvalues : _ENV
+  -- function num : 0_71 , upvalues : _ENV
   local item = panel:GetChild(name)
   ;
   (item:GetController("c1")).selectedIndex = equiptPartsType - 1
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.MultiplyParts])[equiptPartsType] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_69_0 , upvalues : _ENV, setType, equiptPartsType, item
+    -- function num : 0_71_0 , upvalues : _ENV, setType, equiptPartsType, item
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.MultiplyParts, equiptPartsType, item.selected)
   end
 )
@@ -1967,7 +2177,7 @@ EquipmentWindow.RefreshEquipmentPartItem = function(panel, name, equiptPartsType
 end
 
 EquipmentWindow.InitEquipmentIntelligenceFilter = function(list, setType, ...)
-  -- function num : 0_70 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_72 , upvalues : _ENV, EquipmentWindow
   (EquiptData.InitMaxIntelligence)()
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_INTELLIGENCE_FILTER_RESOURCE))
   ;
@@ -1986,14 +2196,14 @@ EquipmentWindow.InitEquipmentIntelligenceFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshIntelligenceItem = function(index, item, setType, ...)
-  -- function num : 0_71 , upvalues : _ENV
+  -- function num : 0_73 , upvalues : _ENV
   index = index - 1
   ;
   (item:GetChild("NameTxt")).text = "★" .. tostring(index)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Intelligence])[index] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_71_0 , upvalues : item, _ENV, setType, index
+    -- function num : 0_73_0 , upvalues : item, _ENV, setType, index
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Intelligence, index, item.selected)
@@ -2003,7 +2213,7 @@ EquipmentWindow.RefreshIntelligenceItem = function(index, item, setType, ...)
 end
 
 EquipmentWindow.InitEquipmentAttributeFilter = function(list, setType, ...)
-  -- function num : 0_72 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_74 , upvalues : _ENV, EquipmentWindow
   (EquiptData.InitEquiptAttributes)()
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_FILTER_RESOURCE))
   ;
@@ -2023,7 +2233,7 @@ EquipmentWindow.InitEquipmentAttributeFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshAttributeItem = function(index, item, setType, ...)
-  -- function num : 0_73 , upvalues : _ENV
+  -- function num : 0_75 , upvalues : _ENV
   local data = (EquiptData.Attributes)[index]
   local config = ((TableData.gTable).BaseAttributeData)[data]
   ;
@@ -2031,7 +2241,7 @@ EquipmentWindow.RefreshAttributeItem = function(index, item, setType, ...)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Attributes])[data] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_73_0 , upvalues : item, _ENV, setType, data
+    -- function num : 0_75_0 , upvalues : item, _ENV, setType, data
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Attributes, data, item.selected)
@@ -2041,7 +2251,7 @@ EquipmentWindow.RefreshAttributeItem = function(index, item, setType, ...)
 end
 
 EquipmentWindow.InitEquipmentBuffFilter = function(list, setType, ...)
-  -- function num : 0_74 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_76 , upvalues : _ENV, EquipmentWindow
   (EquiptData.InitEquiptBuff)()
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_FILTER_RESOURCE))
   ;
@@ -2061,14 +2271,14 @@ EquipmentWindow.InitEquipmentBuffFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshBuffItem = function(index, item, setType, ...)
-  -- function num : 0_75 , upvalues : _ENV
+  -- function num : 0_77 , upvalues : _ENV
   local data = (EquiptData.Buffs)[index]
   ;
   (item:GetChild("NameTxt")).text = (PUtil.get)(data)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Buff])[data] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_75_0 , upvalues : item, _ENV, setType, index
+    -- function num : 0_77_0 , upvalues : item, _ENV, setType, index
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Buff, index, item.selected)
@@ -2078,7 +2288,7 @@ EquipmentWindow.RefreshBuffItem = function(index, item, setType, ...)
 end
 
 EquipmentWindow.InitEquipmentAttributeAmountFilter = function(list, setType, ...)
-  -- function num : 0_76 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_78 , upvalues : _ENV, EquipmentWindow
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_FILTER_RESOURCE))
   ;
   (grp:GetChild("NameTxt")).text = (PUtil.get)(60000333)
@@ -2096,12 +2306,12 @@ EquipmentWindow.InitEquipmentAttributeAmountFilter = function(list, setType, ...
 end
 
 EquipmentWindow.RefreshAttributeAmountItem = function(index, item, setType, ...)
-  -- function num : 0_77 , upvalues : _ENV
+  -- function num : 0_79 , upvalues : _ENV
   (item:GetChild("NameTxt")).text = (PUtil.get)(60000334, index)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.AttributeAmount])[index] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_77_0 , upvalues : item, _ENV, setType, index
+    -- function num : 0_79_0 , upvalues : item, _ENV, setType, index
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.AttributeAmount, index, item.selected)
@@ -2110,8 +2320,742 @@ EquipmentWindow.RefreshAttributeAmountItem = function(index, item, setType, ...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
+EquipmentWindow.RefreshPresetPage = function(...)
+  -- function num : 0_80 , upvalues : uis, PresetStatus, EquipmentWindow, _ENV
+  if (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex == PresetStatus.Normal then
+    (EquipmentWindow.RefreshChoosePresetPage)()
+  else
+    ;
+    (EquipmentWindow.RefreshEquipmentsForPreset)()
+  end
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R0 in 'UnsetPending'
+
+  if (((TableData.gTable).BaseFixedData)[EquiptData.MAX_PRESET_AMOUNT]).int_value <= #EquiptData.EquipPresets then
+    ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).ProgrammeList).numItems = (((TableData.gTable).BaseFixedData)[EquiptData.MAX_PRESET_AMOUNT]).int_value
+  else
+    -- DECOMPILER ERROR at PC45: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).ProgrammeList).numItems = #EquiptData.EquipPresets + 1
+  end
+end
+
+EquipmentWindow.RefreshChoosePresetPage = function(...)
+  -- function num : 0_81 , upvalues : _ENV, EquipmentWindow, uis, _noPresetEffect
+  if #EquiptData.EquipPresets == 0 then
+    (EquipmentWindow.ChosePreset)(nil)
+    -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).c1Ctr).selectedIndex = 1
+    -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).UseBtn).visible = false
+    -- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EditBtn).text = (PUtil.get)(60000575)
+    if _noPresetEffect == nil then
+      _noPresetEffect = (Util.SetNotFoundEffect)((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).CardQLoader)
+    end
+  else
+    ;
+    (EquipmentWindow.ChosePreset)(((EquiptData.EquipPresets)[1]).id, true)
+    -- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).c1Ctr).selectedIndex = 0
+    -- DECOMPILER ERROR at PC59: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EditBtn).text = (PUtil.get)(60000563)
+    ;
+    (EquipmentWindow.RefreshChoesdRolePreset)()
+  end
+end
+
+EquipmentWindow.RefreshChoesdRolePreset = function(...)
+  -- function num : 0_82 , upvalues : _ENV, EquipmentWindow, uis
+  if (EquiptData.CurrentRoleData).equipScheme == 0 then
+    (EquipmentWindow.RefreshPresetPanel)((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).ProgrammeInfo_A, 0, (PUtil.get)(60000571), false, nil, true)
+  else
+    ;
+    (EquipmentWindow.RefreshPresetPanel)((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).ProgrammeInfo_A, (EquiptData.CurrentRoleData).equipScheme)
+  end
+end
+
+EquipmentWindow.ChosePreset = function(id, refreshPanel, ...)
+  -- function num : 0_83 , upvalues : _currentChosedPreset, uis, _ENV, EquipmentWindow
+  _currentChosedPreset = id
+  -- DECOMPILER ERROR at PC16: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).UseBtn).visible = _currentChosedPreset ~= nil and _currentChosedPreset ~= (EquiptData.CurrentRoleData).equipScheme
+  if refreshPanel then
+    (EquipmentWindow.RefreshPresetPanel)((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).ProgrammeInfo_B, _currentChosedPreset, (PUtil.get)(60000574), false)
+  end
+  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+end
+
+EquipmentWindow.RefreshPresetPanel = function(panel, id, noWords, haveChangeName, presetData, noShow, ...)
+  -- function num : 0_84 , upvalues : PresetPanelStatus, _ENV, EquipmentWindow
+  if not id then
+    id = 0
+  end
+  -- DECOMPILER ERROR at PC7: Confused about usage of register: R6 in 'UnsetPending'
+
+  if noShow then
+    (panel.c1Ctr).selectedIndex = PresetPanelStatus.NoShow
+    -- DECOMPILER ERROR at PC9: Confused about usage of register: R6 in 'UnsetPending'
+
+    ;
+    (panel.WordTxt).text = noWords
+    -- DECOMPILER ERROR at PC11: Confused about usage of register: R6 in 'UnsetPending'
+
+    ;
+    (panel.WordTxt).visible = true
+  else
+    -- DECOMPILER ERROR at PC18: Confused about usage of register: R6 in 'UnsetPending'
+
+    ;
+    (panel.BattleTxt).text = (PUtil.get)(60000564)
+    if presetData == nil then
+      presetData = (EquiptData.EquipPresets)[(EquiptData.EquipPresetsIndex)[id]]
+      if presetData == nil then
+        loge("！！！！！！！！！！！！！！！套装数据不存在")
+        -- DECOMPILER ERROR at PC34: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        (panel.c1Ctr).selectedIndex = PresetPanelStatus.NoShow
+        -- DECOMPILER ERROR at PC36: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        (panel.WordTxt).text = noWords
+        -- DECOMPILER ERROR at PC38: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        (panel.WordTxt).visible = true
+        return 
+      end
+    end
+    local equipInfo = nil
+    -- DECOMPILER ERROR at PC46: Confused about usage of register: R7 in 'UnsetPending'
+
+    if presetData.cardId ~= 0 then
+      (panel.c1Ctr).selectedIndex = PresetPanelStatus.Used
+      ;
+      (Util.SetHeadFrameById)((panel.HeadFrame).root, presetData.cardId, false, true)
+      ;
+      (((panel.HeadFrame).root):GetChild("IconLoader")).alpha = 1
+      equipInfo = ((CardData.GetCardData)(presetData.cardId)).equipInfo
+    else
+      -- DECOMPILER ERROR at PC69: Confused about usage of register: R7 in 'UnsetPending'
+
+      ;
+      (panel.c1Ctr).selectedIndex = PresetPanelStatus.NoUser
+    end
+    -- DECOMPILER ERROR at PC86: Confused about usage of register: R7 in 'UnsetPending'
+
+    if (Util.StringIsNullOrEmpty)(presetData.schemeName) then
+      (panel.NameTxt).text = (PUtil.get)(60000561) .. #EquiptData.EquipPresets + 1
+    else
+      -- DECOMPILER ERROR at PC90: Confused about usage of register: R7 in 'UnsetPending'
+
+      ;
+      (panel.NameTxt).text = presetData.schemeName
+    end
+    if haveChangeName then
+      local totalFC = (EquiptData.GetEquipmentsPresetEditFC)(presetData.equipIndex)
+      -- DECOMPILER ERROR at PC98: Confused about usage of register: R8 in 'UnsetPending'
+
+      ;
+      (panel.BattleNumberTxt).text = totalFC
+      ;
+      (EquipmentWindow.InitEditPresetDataDetail)(panel.InfoList, presetData, totalFC, equipInfo)
+      -- DECOMPILER ERROR at PC113: Confused about usage of register: R8 in 'UnsetPending'
+
+      if presetData.equipIndex ~= nil and #presetData.equipIndex > 0 then
+        (panel.WordTxt).text = ""
+      else
+        -- DECOMPILER ERROR at PC116: Confused about usage of register: R8 in 'UnsetPending'
+
+        ;
+        (panel.WordTxt).text = noWords
+        -- DECOMPILER ERROR at PC118: Confused about usage of register: R8 in 'UnsetPending'
+
+        ;
+        (panel.WordTxt).visible = true
+      end
+    else
+      do
+        local totalFC = (EquiptData.GetEquipmentsFCById)(presetData.equipIndex, equipInfo)
+        -- DECOMPILER ERROR at PC126: Confused about usage of register: R8 in 'UnsetPending'
+
+        ;
+        (panel.BattleNumberTxt).text = totalFC
+        ;
+        (EquipmentWindow.InitPresetDataDetail)(panel.InfoList, presetData, totalFC, equipInfo)
+      end
+    end
+  end
+end
+
+EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equipInfo, chose, ...)
+  -- function num : 0_85 , upvalues : uis, PresetStatus, _slotsEquipInfo, _ENV, _equipSlotsForPreset, _currentEquipmentTypeForPreset, EquipmentWindow
+  local used = {}
+  local count = 0
+  if equipInfo and (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex ~= PresetStatus.Edit then
+    count = #equipInfo
+  else
+    if presetData.equipIndex ~= nil then
+      count = #presetData.equipIndex
+    end
+  end
+  _slotsEquipInfo = {}
+  local fc, str, percent = nil, nil, nil
+  local totalPercent = 0
+  for i = 1, count do
+    local eachData = nil
+    do
+      if (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex == PresetStatus.Edit then
+        eachData = ((EquiptData.PresetEditEquipments).EquipDetail)[(presetData.equipIndex)[i]]
+        if eachData == nil and equipInfo then
+          local subCount = #equipInfo
+          for j = 1, subCount do
+            if (equipInfo[j]).objectIndex == (presetData.equipIndex)[i] then
+              eachData = equipInfo[j]
+            end
+          end
+        end
+      else
+        do
+          do
+            if equipInfo then
+              eachData = equipInfo[i]
+            else
+              eachData = (EquiptData.Equipments)[(EquiptData.Equipments)[(presetData.equipIndex)[i]]]
+            end
+            if eachData ~= nil then
+              local configData = ((TableData.gTable).BaseEquipData)[eachData.id]
+              local slot = _equipSlotsForPreset[configData.type]
+              if chose then
+                _slotsEquipInfo[configData.type] = eachData
+              end
+              -- DECOMPILER ERROR at PC84: Confused about usage of register: R17 in 'UnsetPending'
+
+              ;
+              (slot.c1Ctr).selectedIndex = 0
+              ;
+              (Util.SetEquipFrame)(slot.EquiptFrame, eachData, not chose or _currentEquipmentTypeForPreset == configData.type)
+              fc = (EquiptData.GetEquipmentsFC)({eachData})
+              percent = (Util.Round)(fc / totalFC * 100)
+              totalPercent = totalPercent + percent
+              if totalPercent > 100 then
+                percent = percent - (totalPercent - 100)
+              end
+              str = percent .. "%"
+              if #eachData.randomBuff > 0 then
+                str = str .. "[color=" .. Const.GreenColor .. "](" .. #eachData.randomBuff .. ")[/color]"
+              end
+              -- DECOMPILER ERROR at PC133: Confused about usage of register: R17 in 'UnsetPending'
+
+              ;
+              (slot.NumberTxt).text = str
+              used[configData.type] = true
+              if chose then
+                ((slot.Root).onClick):Set(function(...)
+    -- function num : 0_85_0 , upvalues : EquipmentWindow, configData, eachData
+    (EquipmentWindow.ChoseEquipForPresetByType)(configData.type)
+    ;
+    (EquipmentWindow.HandleEquipDetail)(eachData, configData.type, true, false, true)
+  end
+)
+              else
+                ((slot.Root).onClick):Clear()
+              end
+            else
+              loge("数据为空")
+            end
+          end
+          -- DECOMPILER ERROR at PC154: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+          -- DECOMPILER ERROR at PC154: LeaveBlock: unexpected jumping out IF_STMT
+
+          -- DECOMPILER ERROR at PC154: LeaveBlock: unexpected jumping out DO_STMT
+
+        end
+      end
+    end
+  end
+  for i = 1, EquiptData.EQUIPMENT_TYPE_COUNT do
+    local index = i
+    local slot = used[i]
+    if not slot then
+      slot = _equipSlotsForPreset[i]
+      -- DECOMPILER ERROR at PC170: Confused about usage of register: R16 in 'UnsetPending'
+
+      if i == EquiptPartsType.Ring then
+        (slot.c1Ctr).selectedIndex = 2
+      else
+        -- DECOMPILER ERROR at PC177: Confused about usage of register: R16 in 'UnsetPending'
+
+        if i == EquiptPartsType.Necklace then
+          (slot.c1Ctr).selectedIndex = 1
+        else
+          -- DECOMPILER ERROR at PC181: Confused about usage of register: R16 in 'UnsetPending'
+
+          (slot.c1Ctr).selectedIndex = i + 2
+        end
+      end
+      -- DECOMPILER ERROR at PC189: Confused about usage of register: R16 in 'UnsetPending'
+
+      ;
+      ((slot.FrameEffGrp).root).visible = _currentEquipmentTypeForPreset == index
+      -- DECOMPILER ERROR at PC191: Confused about usage of register: R16 in 'UnsetPending'
+
+      ;
+      (slot.NumberTxt).text = ""
+      if chose then
+        ((slot.Root).onClick):Set(function(...)
+    -- function num : 0_85_1 , upvalues : EquipmentWindow, index
+    (EquipmentWindow.CloseAllDetail)()
+    ;
+    (EquipmentWindow.ChoseEquipForPresetByType)(index)
+  end
+)
+      else
+        ((slot.Root).onClick):Clear()
+      end
+    end
+  end
+  -- DECOMPILER ERROR: 13 unprocessed JMP targets
+end
+
+EquipmentWindow.InitEquiptSlotsForPreset = function(list, presetData, totalFC, resources, chose, equipInfo, ...)
+  -- function num : 0_86 , upvalues : _ENV, _equipSlotsForPreset, EquipmentWindow
+  local equiptIcons = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, resources))
+  local setter = function(comName, ...)
+    -- function num : 0_86_0 , upvalues : equiptIcons
+    local info = {}
+    info.Root = equiptIcons:GetChild(comName)
+    info.EquiptFrame = (info.Root):GetChild("EquiptIcon")
+    info.c1Ctr = (info.Root):GetController("c1")
+    info.NumberTxt = (info.Root):GetChild("NumberTxt")
+    info.FrameEffGrp = {}
+    -- DECOMPILER ERROR at PC28: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (info.FrameEffGrp).root = (info.EquiptFrame):GetChild("FrameEffGrp")
+    return info
+  end
+
+  _equipSlotsForPreset = {}
+  _equipSlotsForPreset[EquiptPartsType.Weapon] = setter("EquiptIcon_A")
+  _equipSlotsForPreset[EquiptPartsType.Chest] = setter("EquiptIcon_D")
+  _equipSlotsForPreset[EquiptPartsType.Ring] = setter("EquiptIcon_C")
+  _equipSlotsForPreset[EquiptPartsType.Necklace] = setter("EquiptIcon_B")
+  ;
+  (EquipmentWindow.RefreshEquiptSlotsForPreset)(presetData, totalFC, equipInfo, chose)
+end
+
+EquipmentWindow.InitEquiptBuffForPreset = function(list, presetData, resources1, resources2, equipInfo, ...)
+  -- function num : 0_87 , upvalues : _ENV
+  local count = nil
+  if equipInfo then
+    count = #equipInfo
+  else
+    count = #presetData.equipIndex
+  end
+  local subCount, item, wordTxt, data = nil, nil, nil, nil
+  local buffCount = 0
+  for i = 1, count do
+    if equipInfo then
+      data = equipInfo[i]
+    else
+      data = (EquiptData.Equipments)[(EquiptData.Equipments)[(presetData.equipIndex)[i]]]
+    end
+    if data then
+      buffCount = buffCount + #data.randomBuff
+    end
+  end
+  if buffCount > 0 then
+    (EquiptMgr.AddSeperater)(list, 60000447, resources1)
+  end
+  for i = 1, count do
+    if equipInfo then
+      data = equipInfo[i]
+    else
+      data = (EquiptData.Equipments)[(EquiptData.Equipments)[(presetData.equipIndex)[i]]]
+    end
+    if data then
+      subCount = #data.randomBuff
+      for j = 1, subCount do
+        wordTxt = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, resources2))
+        ;
+        (wordTxt:GetChild("WordTxt")).text = (((TableData.gTable).BaseBuffPreBattleData)[(data.randomBuff)[j]]).remark
+      end
+    end
+  end
+end
+
+EquipmentWindow.InitEditPresetDataDetail = function(list, presetData, totalFC, equipInfo, ...)
+  -- function num : 0_88 , upvalues : _ENV, EquipmentWindow
+  list:RemoveChildrenToPool()
+  ;
+  (EquiptMgr.AddSeperater)(list, 60000572, EquiptData.PRESET_LINE_A)
+  ;
+  (EquipmentWindow.InitEquiptSlotsForPreset)(list, presetData, totalFC, EquiptData.PRESET_INFO_A, true, equipInfo)
+  if presetData.equipIndex ~= nil and #presetData.equipIndex > 0 then
+    local attrs = (EquiptData.GetEquipmentPresetEditAttr)(presetData.equipIndex)
+    local count = #attrs
+    if count > 0 then
+      (EquiptMgr.AddSeperater)(list, 60000445, EquiptData.PRESET_LINE_A)
+      local attrList = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.PRESET_ATTR_A))
+      attrList = attrList:GetChild("Edit_CList")
+      attrList:RemoveChildrenToPool()
+      local item, height = nil, nil
+      for i = 1, count do
+        item = attrList:AddItemFromPool()
+        ;
+        (item:GetChild("NameTxt")).text = (((TableData.gTable).BaseAttributeData)[(attrs[i]).id]).display_name
+        ;
+        (item:GetChild("NumberTxt")).text = (attrs[i]).value
+      end
+      height = (math.ceil)(count * 0.5)
+      if height == 1 then
+        height = item.height
+      else
+        height = height * (item.height + attrList.lineGap)
+      end
+      attrList.height = height
+    end
+    do
+      ;
+      (EquipmentWindow.InitEquiptBuffForPreset)(list, presetData, EquiptData.PRESET_LINE_A, EquiptData.PRESET_BUFF_A, equipInfo)
+    end
+  end
+end
+
+EquipmentWindow.InitPresetDataDetail = function(list, presetData, totalFC, equipInfo, ...)
+  -- function num : 0_89 , upvalues : _ENV, EquipmentWindow
+  list:RemoveChildrenToPool()
+  ;
+  (EquiptMgr.AddSeperater)(list, 60000572, EquiptData.LINE_A_RESOURCE)
+  ;
+  (EquipmentWindow.InitEquiptSlotsForPreset)(list, presetData, totalFC, EquiptData.PRESET_INFO_B, false, equipInfo)
+  if (presetData.equipIndex ~= nil and #presetData.equipIndex > 0) or equipInfo then
+    local attrs = (EquiptData.GetEquipmentAttrById)(presetData.equipIndex, equipInfo)
+    local count = #attrs
+    local item = nil
+    if count > 0 then
+      (EquiptMgr.AddSeperater)(list, 60000445, EquiptData.LINE_A_RESOURCE)
+      for i = 1, count do
+        item = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.PRESET_ATTR_B))
+        ;
+        (item:GetChild("NameTxt")).text = (((TableData.gTable).BaseAttributeData)[(attrs[i]).id]).display_name
+        ;
+        (item:GetChild("NumberTxt")).text = (attrs[i]).value
+      end
+    end
+    do
+      ;
+      (EquipmentWindow.InitEquiptBuffForPreset)(list, presetData, EquiptData.LINE_A_RESOURCE, EquiptData.LIST_B_RESOURCE, equipInfo)
+    end
+  end
+end
+
+EquipmentWindow.RefreshEquipmentsForPreset = function(setPos, ...)
+  -- function num : 0_90 , upvalues : uis, _ENV
+  local listPos = nil
+  if setPos then
+    listPos = (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptList).scrollPane).posY
+  end
+  -- DECOMPILER ERROR at PC17: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptList).numItems = #(EquiptData.PresetEditEquipments).Result
+  -- DECOMPILER ERROR at PC25: Confused about usage of register: R2 in 'UnsetPending'
+
+  if listPos then
+    (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptList).scrollPane).posY = listPos
+  end
+end
+
+EquipmentWindow.InitPresetEdit = function(id, ...)
+  -- function num : 0_91 , upvalues : _ENV, uis, PresetStatus, _slotsEquipInfoForChange, _slotsEquipInfo, EquipmentWindow
+  -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
+
+  if not id then
+    EquiptData.EditPreset = {id = 0, New = true, cardId = 0}
+    -- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
+
+    if (EquiptData.CurrentRoleData).equipScheme == 0 and #(EquiptData.CurrentRoleData).equipInfo > 0 then
+      (EquiptData.EditPreset).equipIndex = {}
+      local count = #(EquiptData.CurrentRoleData).equipInfo
+      for i = 1, count do
+        (table.insert)((EquiptData.EditPreset).equipIndex, (((EquiptData.CurrentRoleData).equipInfo)[i]).objectIndex)
+      end
+      -- DECOMPILER ERROR at PC48: Confused about usage of register: R2 in 'UnsetPending'
+
+      ;
+      (EquiptData.EditPreset).cardId = (EquiptData.CurrentRoleData).id
+    end
+  else
+    do
+      -- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
+
+      EquiptData.EditPreset = (Util.Copy)((EquiptData.EquipPresets)[(EquiptData.EquipPresetsIndex)[id]])
+      ;
+      (EquiptData.InitPresetEditEquipments)(EquiptData.EditPreset)
+      -- DECOMPILER ERROR at PC72: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).KeepBtn).visible = not not id
+      -- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex = PresetStatus.Edit
+      -- DECOMPILER ERROR at PC83: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).c1Ctr).selectedIndex = PresetStatus.Edit
+      if _slotsEquipInfoForChange == nil then
+        _slotsEquipInfoForChange = _slotsEquipInfo
+      end
+      ;
+      (EquipmentWindow.ChoseEquipForPresetByType)(EquiptPartsType.All)
+      ;
+      (EquipmentWindow.RefreshPresetPanel)((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit, id, (PUtil.get)(60000570), true, EquiptData.EditPreset)
+      ;
+      (EquipmentWindow.RefreshEquipmentsForPreset)()
+    end
+  end
+end
+
+EquipmentWindow.RefreshPresetItem = function(index, item, ...)
+  -- function num : 0_92 , upvalues : _ENV, EquipmentWindow, _currentChosedPreset, _currentChosedPresetItem
+  index = index + 1
+  local ctrl = item:GetController("c1")
+  local marker = item:GetController("Plan")
+  if #EquiptData.EquipPresets < index then
+    ctrl.selectedIndex = 2
+    marker.selectedIndex = 0
+    item.selected = false
+    ;
+    (item.onClick):Set(function(...)
+    -- function num : 0_92_0 , upvalues : EquipmentWindow
+    (EquipmentWindow.InitPresetEdit)()
+  end
+)
+  else
+    local data = (EquiptData.EquipPresets)[index]
+    do
+      marker.selectedIndex = 1
+      ;
+      ((item:GetChild("EquiptPlan")):GetChild("PlanNumberTxt")).text = index
+      ;
+      (item:GetChild("NameTxt")).text = data.schemeName
+      if (EquiptData.PresetBelongTo)[data.id] then
+        ctrl.selectedIndex = 0
+        ;
+        (Util.SetHeadFrameById)(item:GetChild("HeadFrame"), (EquiptData.PresetBelongTo)[data.id], false, true)
+      else
+        ctrl.selectedIndex = 1
+      end
+      item.selected = data.id == _currentChosedPreset
+      if item.selected then
+        _currentChosedPresetItem = item
+      end
+      ;
+      (item.onClick):Set(function(...)
+    -- function num : 0_92_1 , upvalues : EquipmentWindow, data, _ENV, _currentChosedPresetItem, item
+    (EquipmentWindow.ChosePreset)(data.id, true)
+    if not (Util.IsNil)(_currentChosedPresetItem) then
+      _currentChosedPresetItem.selected = false
+    end
+    _currentChosedPresetItem = item
+    item.selected = true
+  end
+)
+    end
+  end
+  -- DECOMPILER ERROR: 3 unprocessed JMP targets
+end
+
+EquipmentWindow.RefreshPresetEquipItem = function(index, item, ...)
+  -- function num : 0_93 , upvalues : _ENV, EquipmentWindow, _selectedInBag, _selectedInBagItem
+  index = index + 1
+  local data = ((EquiptData.PresetEditEquipments).EquipDetail)[((EquiptData.PresetEditEquipments).Result)[index]]
+  local config = ((TableData.gTable).BaseEquipData)[data.id]
+  ;
+  (Util.SetEquipFrame)(item, data)
+  ;
+  (EquipmentWindow.PresetMarkerCheck)(data.objectIndex, item)
+  ;
+  (item:GetChild("FrameEffGrp")).visible = data.objectIndex == _selectedInBag
+  if data.objectIndex == _selectedInBag then
+    _selectedInBagItem = item
+  end
+  ;
+  (item.onClick):SetFunc(function(...)
+    -- function num : 0_93_0 , upvalues : item, _ENV, data, EquipmentWindow, config
+    local newCompGrp = item:GetChild("NewCompGrp")
+    if newCompGrp.visible then
+      newCompGrp.visible = false
+      -- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      (EquiptData.NewEquipments)[data.objectIndex] = nil
+    end
+    ;
+    (EquipmentWindow.SetEquipInBagSelected)(data.objectIndex, item)
+    ;
+    (EquipmentWindow.HandleEquipDetail)(data, config.type, false, false, true)
+  end
+)
+  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+end
+
+EquipmentWindow.ChoseEquipForPresetByType = function(type, ...)
+  -- function num : 0_94 , upvalues : _currentEquipmentTypeForPreset, _equipSlotsForPreset, _typeFilterForPresetBtn, _ENV
+  -- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
+
+  if _currentEquipmentTypeForPreset ~= 0 then
+    if _equipSlotsForPreset[_currentEquipmentTypeForPreset] ~= nil then
+      (((_equipSlotsForPreset[_currentEquipmentTypeForPreset]).FrameEffGrp).root).visible = false
+    end
+    -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
+
+    if (_typeFilterForPresetBtn[_currentEquipmentTypeForPreset]).selected then
+      (_typeFilterForPresetBtn[_currentEquipmentTypeForPreset]).selected = false
+      ;
+      ((_typeFilterForPresetBtn[_currentEquipmentTypeForPreset]):GetTransition("ChangeBtnOut")):Play()
+    end
+  end
+  _currentEquipmentTypeForPreset = type
+  ;
+  ((_typeFilterForPresetBtn[type]):GetTransition("ChangeBtnIn")):Play()
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (_typeFilterForPresetBtn[type]).selected = true
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+
+  if _equipSlotsForPreset[type] ~= nil then
+    (((_equipSlotsForPreset[type]).FrameEffGrp).root).visible = true
+  end
+  ;
+  (EquiptMgr.ChangePresetEditFilter)(type)
+end
+
+EquipmentWindow.PresetMarkerCheck = function(id, item, ...)
+  -- function num : 0_95 , upvalues : _ENV
+  local presetId = (EquiptData.EquipBelongTo)[id]
+  if presetId and (EquiptData.EquipPresetsIndex)[presetId] ~= nil then
+    (item:GetController("Plan")).selectedIndex = 1
+    ;
+    ((item:GetChild("EquiptPlan")):GetChild("PlanNumberTxt")).text = (EquiptData.EquipPresetsIndex)[presetId]
+  end
+end
+
+EquipmentWindow.EditCheck = function(...)
+  -- function num : 0_96 , upvalues : _ENV, uis, EquipmentWindow
+  if (_G.next)(EquiptData.EditPreset) ~= nil then
+    local status = (EquiptMgr.CheckEditPresetChanged)((((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text)
+    -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
+
+    EquiptData.EditPresetName = (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text
+    if status == EquiptPresetEditStatus.Modified then
+      (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000583, (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text), function(...)
+    -- function num : 0_96_0 , upvalues : EquipmentWindow, _ENV
+    (EquipmentWindow.ClickSavePresetBtn)()
+    -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
+
+    EquiptData.EditPreset = {}
+  end
+, function(...)
+    -- function num : 0_96_1 , upvalues : _ENV
+    -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+    EquiptData.EditPreset = {}
+  end
+)
+    else
+      if status == EquiptPresetEditStatus.New then
+        (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000584, (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text), function(...)
+    -- function num : 0_96_2 , upvalues : EquipmentWindow, _ENV
+    (EquipmentWindow.ClickSavePresetBtn)()
+    -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
+
+    EquiptData.EditPreset = {}
+  end
+, function(...)
+    -- function num : 0_96_3 , upvalues : _ENV
+    -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+    EquiptData.EditPreset = {}
+  end
+)
+      end
+    end
+  end
+end
+
+EquipmentWindow.ClickEditPresetBtn = function(...)
+  -- function num : 0_97 , upvalues : EquipmentWindow, _currentChosedPreset
+  (EquipmentWindow.InitPresetEdit)(_currentChosedPreset)
+end
+
+EquipmentWindow.ClickUsePresetBtn = function(...)
+  -- function num : 0_98 , upvalues : _ENV, _currentChosedPreset
+  (EquiptMgr.UsePreset)(_currentChosedPreset)
+end
+
+EquipmentWindow.ClickDeletePresetBtn = function(...)
+  -- function num : 0_99 , upvalues : EquipmentWindow, _ENV, _currentChosedPreset
+  (EquipmentWindow.CloseAllDetail)()
+  ;
+  (EquiptMgr.DeletePreset)(_currentChosedPreset)
+end
+
+EquipmentWindow.ClickCancelPresetBtn = function(...)
+  -- function num : 0_100 , upvalues : EquipmentWindow, uis, PresetStatus
+  (EquipmentWindow.CloseAllDetail)()
+  -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex = PresetStatus.Normal
+  -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).c1Ctr).selectedIndex = PresetStatus.Normal
+end
+
+EquipmentWindow.ClickSavePresetBtn = function(...)
+  -- function num : 0_101 , upvalues : EquipmentWindow, uis, _ENV
+  (EquipmentWindow.CloseAllDetail)()
+  if uis == nil then
+    (EquiptMgr.UpdateEquipPreset)(EquiptData.EditPreset, EquiptData.EditPresetName)
+  else
+    ;
+    (EquiptMgr.UpdateEquipPreset)(EquiptData.EditPreset, (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text)
+  end
+end
+
+EquipmentWindow.ClickRenamePresetBtn = function(...)
+  -- function num : 0_102 , upvalues : EquipmentWindow, _ENV, uis
+  (EquipmentWindow.CloseAllDetail)()
+  OpenWindow((WinResConfig.EquipmentPresetRenameWindow).name, UILayer.HUD, (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text)
+end
+
+EquipmentWindow.ClickPresetSortBtn = function(...)
+  -- function num : 0_103 , upvalues : _ENV
+  (EquiptMgr.ChangeFilterSortTypeForPreset)()
+end
+
 EquipmentWindow.ShowUnidentifyDetail = function(equipConfig, ...)
-  -- function num : 0_78 , upvalues : _detailUnidentifyPanelGrp, _ENV, uis, _originUnidentifyPanelYSize, EquipmentWindow
+  -- function num : 0_104 , upvalues : _detailUnidentifyPanelGrp, _ENV, uis, _originUnidentifyPanelYSize, EquipmentWindow
   if _detailUnidentifyPanelGrp.Initiated == false then
     UIMgr:LoadPackage((WinResConfig.ItemTipsWindow).package)
     local panel = (UIPackage.CreateObject)("DescriptionTips", "ItemTips")
@@ -2136,7 +3080,7 @@ EquipmentWindow.ShowUnidentifyDetail = function(equipConfig, ...)
   do
     ;
     (GRoot.inst):AddCustomPopups(_detailUnidentifyPanelGrp.root, function(...)
-    -- function num : 0_78_0 , upvalues : EquipmentWindow
+    -- function num : 0_104_0 , upvalues : EquipmentWindow
     (EquipmentWindow.CloseAllDetail)()
   end
 )
@@ -2150,7 +3094,7 @@ EquipmentWindow.ShowUnidentifyDetail = function(equipConfig, ...)
 end
 
 EquipmentWindow.InitUnidentifyPanel = function(config, ...)
-  -- function num : 0_79 , upvalues : _detailUnidentifyPanelGrp, _ENV, _originUnidentifyPanelYSize
+  -- function num : 0_105 , upvalues : _detailUnidentifyPanelGrp, _ENV, _originUnidentifyPanelYSize
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (_detailUnidentifyPanelGrp.c1Ctr).selectedIndex = 2
@@ -2187,7 +3131,7 @@ EquipmentWindow.InitUnidentifyPanel = function(config, ...)
 end
 
 EquipmentWindow.RefreshEquipmentAmountInfo = function(...)
-  -- function num : 0_80 , upvalues : _ENV, uis
+  -- function num : 0_106 , upvalues : _ENV, uis
   -- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
 
   if EquiptData.MaxBagSlots <= #EquiptData.Equipments then
@@ -2201,7 +3145,7 @@ EquipmentWindow.RefreshEquipmentAmountInfo = function(...)
 end
 
 EquipmentWindow.ShowSecondarySlots = function(show, ...)
-  -- function num : 0_81 , upvalues : _ENV, _equipmentSlotsSecondary
+  -- function num : 0_107 , upvalues : _ENV, _equipmentSlotsSecondary
   for i = 1, EquiptData.EQUIPMENT_TYPE_COUNT do
     -- DECOMPILER ERROR at PC7: Confused about usage of register: R5 in 'UnsetPending'
 
@@ -2210,7 +3154,7 @@ EquipmentWindow.ShowSecondarySlots = function(show, ...)
 end
 
 EquipmentWindow.CloseAllDetail = function(notReset, ...)
-  -- function num : 0_82 , upvalues : EquipmentWindow, _ENV, _selectedInBag, _selectedInBagItem, _detailMainPanelGrp, _detailReplacePanelGrp, _detailUnidentifyPanelGrp
+  -- function num : 0_108 , upvalues : EquipmentWindow, _ENV, _selectedInBag, _selectedInBagItem, _detailMainPanelGrp, _detailReplacePanelGrp, _detailUnidentifyPanelGrp
   if not notReset then
     (EquipmentWindow.SetAllEquipmentType)(EquiptPartsType.All)
   end
@@ -2235,7 +3179,7 @@ EquipmentWindow.CloseAllDetail = function(notReset, ...)
 end
 
 EquipmentWindow.RefreshRightPage = function(scrollToTop, notReset, ...)
-  -- function num : 0_83 , upvalues : uis, _ENV, EquipmentWindow
+  -- function num : 0_109 , upvalues : uis, EquipmentSecondaryPageType, EquipmentWindow
   if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Change then
     (EquipmentWindow.RefreshChangePage)(scrollToTop, notReset)
   else
@@ -2247,15 +3191,19 @@ EquipmentWindow.RefreshRightPage = function(scrollToTop, notReset, ...)
       if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Identify then
         (EquipmentWindow.RefreshIdentifyPage)(scrollToTop)
       else
-        ;
-        (EquipmentWindow.RefreshAttributesPanel)()
+        if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Preset then
+          (EquipmentWindow.RefreshEquipmentsForPreset)()
+        else
+          ;
+          (EquipmentWindow.RefreshAttributesPanel)()
+        end
       end
     end
   end
 end
 
 EquipmentWindow.RefreshRightEquipmentList = function(...)
-  -- function num : 0_84 , upvalues : uis, _ENV
+  -- function num : 0_110 , upvalues : uis, EquipmentSecondaryPageType
   if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Change then
     (((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptList):RefreshVirtualList()
   else
@@ -2266,7 +3214,7 @@ EquipmentWindow.RefreshRightEquipmentList = function(...)
 end
 
 EquipmentWindow.CheckNewEquipmentsStatus = function(isChangeBtn, ...)
-  -- function num : 0_85 , upvalues : _newStatus, EquipmentNewStatus, _ENV
+  -- function num : 0_111 , upvalues : _newStatus, EquipmentNewStatus, _ENV
   if isChangeBtn and _newStatus == EquipmentNewStatus.NeedShow then
     _newStatus = EquipmentNewStatus.Showed
   else
@@ -2280,7 +3228,9 @@ EquipmentWindow.CheckNewEquipmentsStatus = function(isChangeBtn, ...)
 end
 
 EquipmentWindow.ClickDetailBtn = function(...)
-  -- function num : 0_86 , upvalues : EquipmentWindow
+  -- function num : 0_112 , upvalues : EquipmentWindow
+  (EquipmentWindow.EditCheck)()
+  ;
   (EquipmentWindow.CheckNewEquipmentsStatus)()
   ;
   (EquipmentWindow.CloseAllDetail)()
@@ -2289,9 +3239,15 @@ EquipmentWindow.ClickDetailBtn = function(...)
 end
 
 EquipmentWindow.ClickChangePageBtn = function(...)
-  -- function num : 0_87 , upvalues : _secondEquipInit, EquipmentWindow, _ENV
+  -- function num : 0_113 , upvalues : EquipmentWindow, _secondEquipInit, _slotsEquipInfoForChange, _slotsEquipInfo, _ENV
+  (EquipmentWindow.EditCheck)()
   if _secondEquipInit == false then
     (EquipmentWindow.RefreshEquipmentInfoSecondary)()
+  else
+    if _slotsEquipInfoForChange ~= nil then
+      _slotsEquipInfo = _slotsEquipInfoForChange
+      _slotsEquipInfoForChange = nil
+    end
   end
   ;
   (EquipmentWindow.CheckNewEquipmentsStatus)(true)
@@ -2304,16 +3260,22 @@ EquipmentWindow.ClickChangePageBtn = function(...)
 end
 
 EquipmentWindow.ClickDecomposePageBtn = function(...)
-  -- function num : 0_88 , upvalues : EquipmentWindow, _ENV, uis
+  -- function num : 0_114 , upvalues : EquipmentWindow, _ENV, uis
+  (EquipmentWindow.EditCheck)()
+  ;
   (EquipmentWindow.CheckNewEquipmentsStatus)()
   ;
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquiptData.ResetDecomposeData)()
-  -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected = false
+  -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceBtn).selected = false
   ;
   (EquiptData.FilteringEquiptSet)(EquiptSetType.Decompose)
   ;
@@ -2321,7 +3283,9 @@ EquipmentWindow.ClickDecomposePageBtn = function(...)
 end
 
 EquipmentWindow.ClickIdentifyPageBtn = function(...)
-  -- function num : 0_89 , upvalues : EquipmentWindow, _ENV
+  -- function num : 0_115 , upvalues : EquipmentWindow, _ENV
+  (EquipmentWindow.EditCheck)()
+  ;
   (EquipmentWindow.CheckNewEquipmentsStatus)()
   ;
   (EquipmentWindow.CloseAllDetail)()
@@ -2331,8 +3295,21 @@ EquipmentWindow.ClickIdentifyPageBtn = function(...)
   (EquipmentWindow.RefreshIdentifyPage)()
 end
 
+EquipmentWindow.ClickPresetPageBtn = function(...)
+  -- function num : 0_116 , upvalues : EquipmentWindow, _ENV
+  (EquipmentWindow.EditCheck)()
+  ;
+  (EquipmentWindow.CloseAllDetail)()
+  ;
+  (EquiptData.FilteringEquiptSet)(EquiptSetType.Preset)
+  ;
+  (EquipmentWindow.ClickCancelPresetBtn)()
+  ;
+  (EquipmentWindow.RefreshPresetPage)()
+end
+
 EquipmentWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_90 , upvalues : _ENV, uis, EquipmentWindow, _newStatus, EquipmentNewStatus
+  -- function num : 0_117 , upvalues : _ENV, uis, EquipmentWindowType, EquipmentWindow, EquipmentSecondaryPageType, PresetStatus, _newStatus, EquipmentNewStatus, _currentRoleIndex
   if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_LOCK_EQUIPMENT then
     if (uis.c1Ctr).selectedIndex == EquipmentWindowType.Main then
       (EquipmentWindow.RefreshEquipmentInfoMain)()
@@ -2341,66 +3318,141 @@ EquipmentWindow.HandleMessage = function(msgId, para, ...)
       (EquipmentWindow.RefreshEquipmentLockInfoSecondary)()
       ;
       (EquipmentWindow.RefreshRightEquipmentList)()
+      if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Preset and (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex == PresetStatus.Edit then
+        ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptList):RefreshVirtualList()
+        local equipInfo = nil
+        if (EquiptData.PresetBelongTo)[(EquiptData.EditPreset).id] then
+          equipInfo = ((CardData.GetCardData)((EquiptData.PresetBelongTo)[(EquiptData.EditPreset).id])).equipInfo
+        end
+        ;
+        (EquipmentWindow.RefreshEquiptSlotsForPreset)(EquiptData.EditPreset, tonumber((((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).BattleNumberTxt).text), equipInfo, true)
+      end
     end
   else
-    if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT then
-      (EquipmentWindow.RefreshEquipmentInfoSecondary)(para)
-      ;
-      (EquipmentWindow.RefreshEquipmentInfoRedDot)()
-      ;
-      (EquipmentWindow.RefreshRightPage)(false, true)
-    else
-      if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT_IN_BAG then
-        (EquipmentWindow.RefreshRightPage)(true)
+    do
+      if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT then
+        (EquipmentWindow.RefreshEquipmentInfoSecondary)(para)
+        ;
+        (EquipmentWindow.RefreshEquipmentInfoRedDot)()
+        ;
+        (EquipmentWindow.RefreshRightPage)(false, true)
       else
-        -- DECOMPILER ERROR at PC51: Confused about usage of register: R2 in 'UnsetPending'
-
-        if msgId == (WindowMsgEnum.Equipt).E_MSG_DISABLE_ALL_DECOMPOSE then
-          (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected = false
+        if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT_IN_BAG then
+          (EquipmentWindow.RefreshRightPage)(true)
         else
-          if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT_TO_IDENTIFY then
-            (EquipmentWindow.ShowReadyToIdentifyEquipments)()
+          -- DECOMPILER ERROR at PC102: Confused about usage of register: R2 in 'UnsetPending'
+
+          if msgId == (WindowMsgEnum.Equipt).E_MSG_DISABLE_ALL_DECOMPOSE then
+            (((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected = false
+            -- DECOMPILER ERROR at PC106: Confused about usage of register: R2 in 'UnsetPending'
+
             ;
-            (EquipmentWindow.RefreshIdentifyBtnRedDot)()
-            ;
-            (EquipmentWindow.RefreshEquipmentInfoRedDot)()
+            (((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceBtn).selected = false
           else
-            if msgId == (WindowMsgEnum.Equipt).E_MSG_PLAY_IDENTIFY_EFFECT then
-              (EquipmentWindow.PlayIdentifyEffect)(para)
+            if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT_TO_IDENTIFY then
+              (EquipmentWindow.ShowReadyToIdentifyEquipments)()
               ;
               (EquipmentWindow.RefreshIdentifyBtnRedDot)()
               ;
               (EquipmentWindow.RefreshEquipmentInfoRedDot)()
             else
-              if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT_TO_DECOMPOSE then
-                (EquipmentWindow.RefreshDecomposeList)()
+              if msgId == (WindowMsgEnum.Equipt).E_MSG_PLAY_IDENTIFY_EFFECT then
+                (EquipmentWindow.PlayIdentifyEffect)(para)
                 ;
                 (EquipmentWindow.RefreshIdentifyBtnRedDot)()
                 ;
                 (EquipmentWindow.RefreshEquipmentInfoRedDot)()
               else
-                if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_ALL_CHOOSE_BTN then
-                  _newStatus = EquipmentNewStatus.NeedShow
+                if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT_TO_DECOMPOSE then
+                  (EquipmentWindow.RefreshDecomposeList)()
                   ;
-                  (EquipmentWindow.CheckIdentifyAllChoseBtn)()
+                  (EquipmentWindow.RefreshIdentifyBtnRedDot)()
+                  ;
+                  (EquipmentWindow.RefreshEquipmentInfoRedDot)()
                 else
-                  -- DECOMPILER ERROR at PC106: Confused about usage of register: R2 in 'UnsetPending'
-
-                  if msgId == (WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok then
-                    EquiptData.Identifying = false
+                  if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_ALL_CHOOSE_BTN then
+                    _newStatus = EquipmentNewStatus.NeedShow
                     ;
-                    (EquiptData.InitFilter)()
-                    ;
-                    (EquiptData.FilteringEquiptSet)(EquiptSetType.Change)
-                    ;
-                    (EquiptData.FilteringEquiptSet)(EquiptSetType.Decompose)
-                    ;
-                    (EquiptData.FilteringEquiptSet)(EquiptSetType.Identify)
-                    if (uis.c1Ctr).selectedIndex == EquipmentWindowType.Main then
-                      (EquipmentWindow.RefreshEquipmentInfoMain)()
-                    else
+                    (EquipmentWindow.CheckIdentifyAllChoseBtn)()
+                  else
+                    if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_PRESET then
+                      ((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).ProgrammeList):RefreshVirtualList()
                       ;
-                      (EquipmentWindow.RefreshRightPage)()
+                      (EquipmentWindow.RefreshChoosePresetPage)()
+                      if (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex == PresetStatus.Edit then
+                        (EquipmentWindow.RefreshEquipmentsForPreset)()
+                      end
+                      ;
+                      (EquipmentWindow.RefreshEquipmentInfoSecondary)()
+                      ;
+                      (EquipmentWindow.RefreshEquipmentInfoRedDot)()
+                    else
+                      if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_PRESET_AFTER_OPREATE then
+                        if para then
+                          (EquipmentWindow.ChosePreset)(nil)
+                        end
+                        if (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex == PresetStatus.Edit then
+                          (EquipmentWindow.ClickCancelPresetBtn)()
+                        end
+                        ;
+                        (EquipmentWindow.RefreshPresetPage)()
+                        ;
+                        (EquipmentWindow.RefreshEquipmentInfoSecondary)()
+                        ;
+                        (EquipmentWindow.RefreshEquipmentInfoRedDot)()
+                        ;
+                        (EquipmentWindow.RefreshRightEquipmentList)()
+                      else
+                        if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_EDIT_PRESET then
+                          (EquipmentWindow.RefreshPresetPanel)((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit, nil, (PUtil.get)(60000570), true, EquiptData.EditPreset)
+                          ;
+                          (EquipmentWindow.RefreshEquipmentsForPreset)(true)
+                        else
+                          -- DECOMPILER ERROR at PC243: Confused about usage of register: R2 in 'UnsetPending'
+
+                          if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_PRESET_NAME then
+                            (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text = para
+                          else
+                            if msgId == (WindowMsgEnum.Equipt).E_MSG_CANCEL_EDIT_PRESET then
+                              (EquipmentWindow.ClickCancelPresetBtn)()
+                            else
+                              -- DECOMPILER ERROR at PC259: Confused about usage of register: R2 in 'UnsetPending'
+
+                              if msgId == (WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok then
+                                EquiptData.Identifying = false
+                                ;
+                                (EquiptData.InitFilter)()
+                                ;
+                                (EquiptData.FilteringEquiptSet)(EquiptSetType.Change)
+                                ;
+                                (EquiptData.FilteringEquiptSet)(EquiptSetType.Decompose)
+                                ;
+                                (EquiptData.FilteringEquiptSet)(EquiptSetType.Identify)
+                                ;
+                                (EquiptData.FilteringEquiptSet)(EquiptSetType.Preset)
+                                if (uis.c1Ctr).selectedIndex == EquipmentWindowType.Main then
+                                  (EquipmentWindow.RefreshEquipmentInfoMain)()
+                                else
+                                  ;
+                                  (CardMgr.RefreshCardList)()
+                                  -- DECOMPILER ERROR at PC300: Confused about usage of register: R2 in 'UnsetPending'
+
+                                  EquiptData.CurrentRoleData = ((CardData.GetObtainedCardList)())[_currentRoleIndex]
+                                  ;
+                                  (EquiptMgr.ReInitializePreset)()
+                                  if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex ~= EquipmentSecondaryPageType.Preset then
+                                    (EquipmentWindow.RefreshRightPage)()
+                                  end
+                                  ;
+                                  (EquipmentWindow.RefreshEquipmentInfoSecondary)()
+                                  ;
+                                  (EquipmentWindow.RefreshEquipmentInfoRedDot)()
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
                     end
                   end
                 end

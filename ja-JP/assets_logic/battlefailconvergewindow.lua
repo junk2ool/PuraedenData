@@ -16,6 +16,32 @@ BattleFailConvergeWindow.OnInit = function(bridgeObj, ...)
   if not winData then
     return 
   end
+  if BattleMgr.endTimer1 then
+    (LeanTween.cancel)((BattleMgr.endTimer1).uniqueId)
+    -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+
+    BattleMgr.endTimer1 = nil
+  end
+  if BattleMgr.endTimer2 then
+    (LeanTween.cancel)((BattleMgr.endTimer2).uniqueId)
+    -- DECOMPILER ERROR at PC41: Confused about usage of register: R1 in 'UnsetPending'
+
+    BattleMgr.endTimer2 = nil
+  end
+  if BattleMgr.endTimer3 then
+    (LeanTween.cancel)((BattleMgr.endTimer3).uniqueId)
+    -- DECOMPILER ERROR at PC53: Confused about usage of register: R1 in 'UnsetPending'
+
+    BattleMgr.endTimer3 = nil
+  end
+  -- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
+
+  if Time.timeScale ~= 1 then
+    Time.timeScale = 1
+  end
+  -- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
+
+  BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
   battleSummarizeData = (BattleResultCount.GetBattleDamageData)()
   uis = GetBattle_BattleFailUis(contentPane)
   ;
@@ -25,7 +51,7 @@ BattleFailConvergeWindow.OnInit = function(bridgeObj, ...)
   LimitData = {}
   ;
   (LuaSound.LoadAndPlayBGM)(1020103)
-  -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC88: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.RewardGrp).FailWordTxt).text = (PUtil.get)(20000456)
@@ -340,18 +366,20 @@ BattleFailConvergeWindow.GetFashionIdByPos = function(pos, ...)
 end
 
 BattleFailConvergeWindow.InitBtn = function(...)
-  -- function num : 0_7 , upvalues : _ENV, battleSummarizeData, BattleFailConvergeWindow, uis, winData
+  -- function num : 0_7 , upvalues : _ENV, battleSummarizeData, winData, BattleFailConvergeWindow, uis
   local btn = {}
   btn.btnTxt = (PUtil.get)(60000066)
   btn.fun = function(...)
-    -- function num : 0_7_0 , upvalues : _ENV, battleSummarizeData
-    (CommonWinMgr.OpenBattleDataWindow)(battleSummarizeData)
+    -- function num : 0_7_0 , upvalues : _ENV, battleSummarizeData, winData
+    (CommonWinMgr.OpenBattleDataWindow)(battleSummarizeData, winData.BattleType)
   end
 
   ;
   (BattleFailConvergeWindow.SetBtn)((uis.RewardGrp).DateBtn, btn)
   ;
   (BattleFailConvergeWindow.SetBtn)((uis.RewardGrp).NextBtn, winData.btn1)
+  ;
+  (BattleFailConvergeWindow.SetBtn)((uis.RewardGrp).RepeatBtn, winData.btn3)
   do
     if not winData.btn2 then
       local m = {}

@@ -70,34 +70,40 @@ end
 
 GuideTipsData.CheckCondition = function(type, arg, ...)
   -- function num : 0_2 , upvalues : _ENV, _condition
-  local controlID = (GuideTipsData.GetControlID)(type, arg)
-  if controlID ~= nil and not (FunctionControlMgr.GetFunctionState)(controlID, false) then
-    return false
+  if type == GuideTipsCheckPoint.GuildBossTimesIncrease then
+    return true
+  else
+    local controlID = (GuideTipsData.GetControlID)(type, arg)
+    if controlID ~= nil and not (FunctionControlMgr.GetFunctionState)(controlID, false) then
+      return false
+    end
   end
-  if arg[1] > (_condition[GuideTipsCheckPoint.AcquireArenaRank]).Max or (_condition[GuideTipsCheckPoint.AcquireArenaRank]).Min > arg[1] then
-    do return type ~= GuideTipsCheckPoint.AcquireArenaRank end
-    do
-      if type == GuideTipsCheckPoint.MergeItem then
-        local config, itemInfo, needAmount, haveAmount = nil, nil, nil, nil
-        if (_condition[type])[(arg[1]).id] then
-          config = ((TableData.gTable).BasePropData)[(arg[1]).id]
-          if config.type == 12 then
-            itemInfo = split(config.effect_value, ":")
-            needAmount = tonumber(itemInfo[2])
-            haveAmount = (ActorData.GetPropsByID)(config.id)
-            if haveAmount < needAmount and needAmount <= haveAmount + (arg[1]).value then
-              return true, (((TableData.gTable).BasePropData)[tonumber(itemInfo[1])]).name
+  do
+    if arg[1] > (_condition[GuideTipsCheckPoint.AcquireArenaRank]).Max or (_condition[GuideTipsCheckPoint.AcquireArenaRank]).Min > arg[1] then
+      do return type ~= GuideTipsCheckPoint.AcquireArenaRank end
+      do
+        if type == GuideTipsCheckPoint.MergeItem then
+          local config, itemInfo, needAmount, haveAmount = nil, nil, nil, nil
+          if (_condition[type])[(arg[1]).id] then
+            config = ((TableData.gTable).BasePropData)[(arg[1]).id]
+            if config.type == 12 then
+              itemInfo = split(config.effect_value, ":")
+              needAmount = tonumber(itemInfo[2])
+              haveAmount = (ActorData.GetPropsByID)(config.id)
+              if haveAmount < needAmount and needAmount <= haveAmount + (arg[1]).value then
+                return true, (((TableData.gTable).BasePropData)[tonumber(itemInfo[1])]).name
+              else
+                return false
+              end
             else
               return false
             end
           else
             return false
           end
-        else
-          return false
         end
+        -- DECOMPILER ERROR: 6 unprocessed JMP targets
       end
-      -- DECOMPILER ERROR: 6 unprocessed JMP targets
     end
   end
 end

@@ -44,13 +44,20 @@ MessageMgr.SendCenterTips = function(msg, ...)
   end
 end
 
+MessageMgr.SendCenterTipsByWordID = function(id, ...)
+  -- function num : 0_5 , upvalues : MessageMgr, _ENV
+  if id > 0 then
+    (MessageMgr.SendCenterTips)((PUtil.get)(id))
+  end
+end
+
 MessageMgr.CenterTipsIsPlay = function(isPlay, ...)
-  -- function num : 0_5 , upvalues : MessageMgr
+  -- function num : 0_6 , upvalues : MessageMgr
   MessageMgr.CenterTipsIsPlaying = isPlay
 end
 
 MessageMgr.PlayWaitTips = function(...)
-  -- function num : 0_6 , upvalues : MessageMgr, _ENV
+  -- function num : 0_7 , upvalues : MessageMgr, _ENV
   if #MessageMgr.CenterTipsWaitContent > 0 then
     MessageMgr.CurrentCenterTips = (MessageMgr.CenterTipsWaitContent)[1]
     OpenWindow((WinResConfig.CenterTipsWindow).name, UILayer.Popup)
@@ -60,7 +67,7 @@ MessageMgr.PlayWaitTips = function(...)
 end
 
 MessageMgr.GetCenterTipsContent = function(...)
-  -- function num : 0_7 , upvalues : MessageMgr
+  -- function num : 0_8 , upvalues : MessageMgr
   return MessageMgr.CurrentCenterTips
 end
 
@@ -68,7 +75,7 @@ local m2 = {}
 local m = {}
 MessageMgr.CurrentSettleData = {}
 MessageMgr.OpenSettleWindow = function(mData, ...)
-  -- function num : 0_8 , upvalues : MessageMgr, _ENV
+  -- function num : 0_9 , upvalues : MessageMgr, _ENV
   MessageMgr.CurrentSettleData = mData
   if mData.isSuccess then
     OpenWindow((WinResConfig.BattleSettleWindow).name, UILayer.HUD)
@@ -76,22 +83,23 @@ MessageMgr.OpenSettleWindow = function(mData, ...)
 end
 
 MessageMgr.GetSettleData = function(...)
-  -- function num : 0_9 , upvalues : MessageMgr
+  -- function num : 0_10 , upvalues : MessageMgr
   return MessageMgr.CurrentSettleData
 end
 
 MessageMgr.OpenFailureSettleWindow = function(fun1, fun2, ...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   OpenWindow((WinResConfig.BattleSettleFailureWindow).name, UILayer.HUD, fun1, fun2)
 end
 
 local m3 = {}
 local m4 = {}
-FormationType = {Basic = 0, Single = 1, Tower = 2, Expedition = 3, CG = 4}
 local m5 = {}
+FormationType = {Basic = 0, Single = 1, Tower = 2, Expedition = 3, CG = 4, GuildBattle = 5}
+local m6 = {}
 MessageMgr.formationData = {}
 MessageMgr.OpenFormationWindow = function(data, ...)
-  -- function num : 0_11 , upvalues : MessageMgr, _ENV
+  -- function num : 0_12 , upvalues : MessageMgr, _ENV
   local formationData = MessageMgr.formationData
   formationData.myselfList = data.myselfList
   formationData.enemyList = data.enemyList
@@ -100,6 +108,7 @@ MessageMgr.OpenFormationWindow = function(data, ...)
   formationData.battleType = data.battleType
   formationData.stageId = data.stageId
   formationData.ExternalData = data.ExternalData
+  formationData.GuildBossExternal = data.GuildBossExternal
   formationData.BtnData = data.BtnData
   formationData.formationType = data.formationType
   formationData.closeFun = data.closeFun
@@ -109,18 +118,19 @@ MessageMgr.OpenFormationWindow = function(data, ...)
   formationData.isSelfClose = data.isSelfClose
   formationData.DetailBtn = data.DetailBtn
   formationData.FCFactor = data.FCFactor
+  formationData.tureEnemyFC = data.tureEnemyFC
   OpenWindow((WinResConfig.FormationWindow).name, UILayer.HUD)
 end
 
 MessageMgr.GetFormationData = function(...)
-  -- function num : 0_12 , upvalues : MessageMgr
+  -- function num : 0_13 , upvalues : MessageMgr
   return MessageMgr.formationData
 end
 
 local _confirmWinPool = {}
 local _confirmStack = {}
 MessageMgr.GetConfirmWin = function(...)
-  -- function num : 0_13 , upvalues : _confirmWinPool, _ENV
+  -- function num : 0_14 , upvalues : _confirmWinPool, _ENV
   if #_confirmWinPool ~= 0 then
     local content = (table.remove)(_confirmWinPool, #_confirmWinPool)
     content.visible = true
@@ -134,7 +144,7 @@ MessageMgr.GetConfirmWin = function(...)
 end
 
 MessageMgr.RecycleConfirmWin = function(content, ...)
-  -- function num : 0_14 , upvalues : _ENV, _confirmWinPool
+  -- function num : 0_15 , upvalues : _ENV, _confirmWinPool
   content.touchable = false
   content.visible = false
   ;
@@ -142,13 +152,13 @@ MessageMgr.RecycleConfirmWin = function(content, ...)
 end
 
 MessageMgr.ClearAll = function(...)
-  -- function num : 0_15 , upvalues : _confirmWinPool, _confirmStack
+  -- function num : 0_16 , upvalues : _confirmWinPool, _confirmStack
   _confirmWinPool = {}
   _confirmStack = {}
 end
 
 MessageMgr.OpenConfirmWindow = function(content, confirmCB, cancelCB, title, confirmTxt, cancelTxt, haveCloseBtn, layer, confirmID, ...)
-  -- function num : 0_16 , upvalues : _ENV, MessageMgr
+  -- function num : 0_17 , upvalues : _ENV, MessageMgr
   if layer == nil then
     layer = UILayer.God
   end
@@ -157,7 +167,7 @@ MessageMgr.OpenConfirmWindow = function(content, confirmCB, cancelCB, title, con
 end
 
 MessageMgr.OpenSoloConfirmWindow = function(content, confirmCB, title, confirmTxt, haveCloseBtn, noMoreTips, layer, confirmID, ...)
-  -- function num : 0_17 , upvalues : _ENV, MessageMgr
+  -- function num : 0_18 , upvalues : _ENV, MessageMgr
   if layer == nil then
     layer = UILayer.God
   end
@@ -166,7 +176,7 @@ MessageMgr.OpenSoloConfirmWindow = function(content, confirmCB, title, confirmTx
 end
 
 MessageMgr.ShowConfirm = function(layer, confirmID, ...)
-  -- function num : 0_18 , upvalues : _ENV, MessageMgr, _confirmStack
+  -- function num : 0_19 , upvalues : _ENV, MessageMgr, _confirmStack
   if UIMgr:IsWindowOpen((WinResConfig.ConfirmWindow).name) == false then
     OpenWindow((WinResConfig.ConfirmWindow).name, layer, true, 0, true, {...})
   end
@@ -185,7 +195,7 @@ MessageMgr.ShowConfirm = function(layer, confirmID, ...)
 end
 
 MessageMgr.IsConfirmShow = function(confirmID, ...)
-  -- function num : 0_19 , upvalues : _confirmStack, _ENV
+  -- function num : 0_20 , upvalues : _confirmStack, _ENV
   if #_confirmStack == 0 then
     return false
   end
@@ -198,7 +208,7 @@ MessageMgr.IsConfirmShow = function(confirmID, ...)
 end
 
 MessageMgr.CloseConfirm = function(confirmID, func, ...)
-  -- function num : 0_20 , upvalues : _confirmStack, _ENV
+  -- function num : 0_21 , upvalues : _confirmStack, _ENV
   if #_confirmStack == 0 then
     return 
   end
@@ -211,7 +221,7 @@ MessageMgr.CloseConfirm = function(confirmID, func, ...)
   if #_confirmStack == 0 then
     (GuideMgr.SetGuideShow)(true)
     UIMgr:CloseWindow((WinResConfig.ConfirmWindow).name, function(...)
-    -- function num : 0_20_0 , upvalues : _ENV, func
+    -- function num : 0_21_0 , upvalues : _ENV, func
     UIMgr:SendWindowMessage((WinResConfig.ConfirmWindow).name, (WindowMsgEnum.MessageWindow).E_Msg_CLOSE_CONFIRM)
     if func ~= nil then
       func()
@@ -228,12 +238,12 @@ MessageMgr.CloseConfirm = function(confirmID, func, ...)
 end
 
 MessageMgr.GetLeftConfirmAmount = function(...)
-  -- function num : 0_21 , upvalues : _confirmStack
+  -- function num : 0_22 , upvalues : _confirmStack
   return #_confirmStack
 end
 
 MessageMgr.OpenCostResConfirmWindow = function(contentID, cost, func, func2, fun3, onlyShowDiamond, ...)
-  -- function num : 0_22 , upvalues : _ENV, MessageMgr
+  -- function num : 0_23 , upvalues : _ENV, MessageMgr
   local enough, costInfo = (Util.CheckCostResources)(cost, func2, fun3)
   if enough == false then
     return 
@@ -252,11 +262,11 @@ MessageMgr.OpenCostResConfirmWindow = function(contentID, cost, func, func2, fun
     totalCost = totalCost + (costInfo[i]).Amount
     haveDiamond = haveDiamond or (costInfo[i]).Id == AssetType.DIAMOND
   end
-  -- DECOMPILER ERROR at PC69: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC73: Unhandled construct in 'MakeBoolean' P3
 
-  -- DECOMPILER ERROR at PC69: Unhandled construct in 'MakeBoolean' P1
+  -- DECOMPILER ERROR at PC73: Unhandled construct in 'MakeBoolean' P1
 
-  if ((count == 1 and (costInfo[1]).Id ~= AssetType.DIAMOND and (costInfo[1]).Id ~= AssetType.DIAMOND_BIND) or not onlyShowDiamond or haveDiamond or not costInfo.OnlyDiamond) and func ~= nil then
+  if ((count == 1 and (costInfo[1]).Id ~= AssetType.DIAMOND and (costInfo[1]).Id ~= AssetType.DIAMOND_BIND and (costInfo[1]).Id ~= 21160001) or not onlyShowDiamond or haveDiamond or not costInfo.OnlyDiamond) and func ~= nil then
     func()
   end
   do return  end
@@ -273,7 +283,7 @@ MessageMgr.OpenCostResConfirmWindow = function(contentID, cost, func, func2, fun
     end
     content = (PUtil.get)(contentID, costStr, ...)
   end
-  -- DECOMPILER ERROR at PC126: Confused about usage of register: R13 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC130: Confused about usage of register: R13 in 'UnsetPending'
 
   if costInfo.OnlyDiamond then
     (costInfo[1]).Id = AssetType.DIAMOND
@@ -283,7 +293,7 @@ MessageMgr.OpenCostResConfirmWindow = function(contentID, cost, func, func2, fun
 end
 
 MessageMgr.GetCostImgHtmlByStr = function(costStr, txtColor, picSize, ...)
-  -- function num : 0_23 , upvalues : _ENV, MessageMgr
+  -- function num : 0_24 , upvalues : _ENV, MessageMgr
   local costInfo = split(costStr, ":")
   local cost = {}
   cost = {Id = tonumber(costInfo[2]), Type = tonumber(costInfo[1]), Amount = tonumber(costInfo[3])}
@@ -291,7 +301,7 @@ MessageMgr.GetCostImgHtmlByStr = function(costStr, txtColor, picSize, ...)
 end
 
 MessageMgr.GetCostImgHtml = function(cost, txtColor, picSize, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   if cost.Amount == 0 then
     return ""
   else
@@ -313,16 +323,22 @@ MessageMgr.GetCostImgHtml = function(cost, txtColor, picSize, ...)
 end
 
 MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, ...)
-  -- function num : 0_25 , upvalues : _ENV, MessageMgr
+  -- function num : 0_26 , upvalues : _ENV, MessageMgr
   if not ((TableData.gTable).BaseAssetData)[id] then
     local config = ((TableData.gTable).BasePropData)[id]
   end
   if (FunctionControlMgr.GetFunctionState)(ControlID.GetWay_GetWay, false) == false then
     (MessageMgr.SendCenterTips)((PUtil.get)(177, config.name))
   else
-    ;
-    (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000037, config.name), function(...)
-    -- function num : 0_25_0 , upvalues : id, _ENV, needAmount, func
+    if id == AssetType.ACTIVITYDUNGEON_COIN then
+      local coinName = (((TableData.gTable).BaseAssetData)[AssetType.ACTIVITYDUNGEON_COIN]).name
+      ;
+      (MessageMgr.SendCenterTips)((PUtil.get)(177, coinName))
+    else
+      do
+        ;
+        (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000037, config.name), function(...)
+    -- function num : 0_26_0 , upvalues : id, _ENV, needAmount, func
     if id == AssetType.GOLD or id == AssetType.EQUIP_EXP then
       (Util.ShowGetWay)(id)
     else
@@ -352,6 +368,8 @@ MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, ...
     end
   end
 , func2)
+      end
+    end
   end
 end
 
@@ -360,13 +378,13 @@ local _leftBuyTime = 0
 local _currentBuyTimesCostInfo, _currentBuyTimeIndex, _currentBuyTime, _currentBuyTimeCost, _currentBuyTimeType, _currentBuyTimeStatus, _maxBuyTime, _maxBuyTimeCost, _maxBuyTimeIndex, _maxBuyTimeStatus, _buyTimeFunction, _boughtTimes, _confirmTips = nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil
 BuyTimesStatue = {Enough = 1, NotEnough = 2, HelpEnough = 3}
 MessageMgr.GetBuyTimesInfo = function(...)
-  -- function num : 0_26 , upvalues : MessageMgr, _buyTimesCosts
+  -- function num : 0_27 , upvalues : MessageMgr, _buyTimesCosts
   (MessageMgr.InitBuyTimesData)()
   return _buyTimesCosts
 end
 
 MessageMgr.OpenBuyTimesWindow = function(type, boughtTimes, func, tips, ...)
-  -- function num : 0_27 , upvalues : MessageMgr, _currentBuyTimesCostInfo, _buyTimesCosts, _currentBuyTimeType, _boughtTimes, _buyTimeFunction, _confirmTips, _ENV, _maxBuyTime, _currentBuyTime, _currentBuyTimeCost, _currentBuyTimeStatus
+  -- function num : 0_28 , upvalues : MessageMgr, _currentBuyTimesCostInfo, _buyTimesCosts, _currentBuyTimeType, _boughtTimes, _buyTimeFunction, _confirmTips, _ENV, _maxBuyTime, _currentBuyTime, _currentBuyTimeCost, _currentBuyTimeStatus
   (MessageMgr.InitBuyTimesData)()
   _currentBuyTimesCostInfo = _buyTimesCosts[type]
   if not (MessageMgr.CheckReachMaxBuyTimes)(_currentBuyTimesCostInfo, boughtTimes) then
@@ -384,7 +402,7 @@ MessageMgr.OpenBuyTimesWindow = function(type, boughtTimes, func, tips, ...)
 end
 
 MessageMgr.InitBuyTimesData = function(...)
-  -- function num : 0_28 , upvalues : _ENV, _buyTimesCosts
+  -- function num : 0_29 , upvalues : _ENV, _buyTimesCosts
   if (_G.next)(_buyTimesCosts) == nil then
     for k,v in pairs((TableData.gTable).BaseBuyTimeData) do
       if _buyTimesCosts[v.type] == nil then
@@ -413,7 +431,7 @@ MessageMgr.InitBuyTimesData = function(...)
     end
     for k,v in pairs(_buyTimesCosts) do
       (table.sort)(v.Costs, function(x, y, ...)
-    -- function num : 0_28_0
+    -- function num : 0_29_0
     if x.Ceil < 0 or y.Ceil < 0 then
       if x.Ceil < 0 and y.Ceil < 0 then
         return false
@@ -436,7 +454,7 @@ MessageMgr.InitBuyTimesData = function(...)
 end
 
 MessageMgr.InitBuyOneTime = function(...)
-  -- function num : 0_29 , upvalues : _currentBuyTime, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _boughtTimes, _ENV, _currentBuyTimeStatus, _currentBuyTimeCost
+  -- function num : 0_30 , upvalues : _currentBuyTime, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _boughtTimes, _ENV, _currentBuyTimeStatus, _currentBuyTimeCost
   _currentBuyTime = 1
   local count = #_currentBuyTimesCostInfo.Costs
   _currentBuyTimeIndex = 1
@@ -475,7 +493,7 @@ MessageMgr.InitBuyOneTime = function(...)
 end
 
 MessageMgr.FindMaxBuyTimes = function(...)
-  -- function num : 0_30 , upvalues : _ENV, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _maxBuyTime, _boughtTimes, _maxBuyTimeCost, _maxBuyTimeStatus
+  -- function num : 0_31 , upvalues : _ENV, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _maxBuyTime, _boughtTimes, _maxBuyTimeCost, _maxBuyTimeStatus
   local defaultCost = split(((_currentBuyTimesCostInfo.Costs)[_currentBuyTimeIndex]).Cost, ":")
   local defaultCostType = tonumber(defaultCost[2])
   local resCount = ((ActorData.GetAssetCount)(defaultCostType))
@@ -528,7 +546,7 @@ MessageMgr.FindMaxBuyTimes = function(...)
 end
 
 MessageMgr.Increase10BuyTime = function(...)
-  -- function num : 0_31 , upvalues : _currentBuyTime, _boughtTimes, _currentBuyTimesCostInfo, MessageMgr, _ENV
+  -- function num : 0_32 , upvalues : _currentBuyTime, _boughtTimes, _currentBuyTimesCostInfo, MessageMgr, _ENV
   if _currentBuyTimesCostInfo.MaxBuyTime <= _currentBuyTime + _boughtTimes and _currentBuyTimesCostInfo.MaxBuyTime ~= -1 then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000043))
     return 
@@ -539,7 +557,7 @@ MessageMgr.Increase10BuyTime = function(...)
 end
 
 MessageMgr.IncreaseBuyTime = function(showTips, ...)
-  -- function num : 0_32 , upvalues : _currentBuyTime, _boughtTimes, _currentBuyTimesCostInfo, MessageMgr, _ENV, _currentBuyTimeIndex, _currentBuyTimeCost, _currentBuyTimeStatus
+  -- function num : 0_33 , upvalues : _currentBuyTime, _boughtTimes, _currentBuyTimesCostInfo, MessageMgr, _ENV, _currentBuyTimeIndex, _currentBuyTimeCost, _currentBuyTimeStatus
   if showTips and _currentBuyTimesCostInfo.MaxBuyTime <= _currentBuyTime + _boughtTimes and _currentBuyTimesCostInfo.MaxBuyTime ~= -1 then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000043))
     return 
@@ -587,7 +605,7 @@ MessageMgr.IncreaseBuyTime = function(showTips, ...)
 end
 
 MessageMgr.DecreaseBuyTime = function(...)
-  -- function num : 0_33 , upvalues : _currentBuyTime, MessageMgr, _ENV, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _boughtTimes, _currentBuyTimeCost, _currentBuyTimeStatus
+  -- function num : 0_34 , upvalues : _currentBuyTime, MessageMgr, _ENV, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _boughtTimes, _currentBuyTimeCost, _currentBuyTimeStatus
   if _currentBuyTime == 1 then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000044))
     return 
@@ -618,7 +636,7 @@ MessageMgr.DecreaseBuyTime = function(...)
 end
 
 MessageMgr.MaxBuyTime = function(...)
-  -- function num : 0_34 , upvalues : _currentBuyTime, _maxBuyTime, MessageMgr, _ENV, _currentBuyTimeCost, _maxBuyTimeCost, _currentBuyTimeIndex, _currentBuyTimesCostInfo, _currentBuyTimeStatus, _maxBuyTimeStatus
+  -- function num : 0_35 , upvalues : _currentBuyTime, _maxBuyTime, MessageMgr, _ENV, _currentBuyTimeCost, _maxBuyTimeCost, _currentBuyTimeIndex, _currentBuyTimesCostInfo, _currentBuyTimeStatus, _maxBuyTimeStatus
   if _currentBuyTime == _maxBuyTime then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000043))
     return 
@@ -633,14 +651,14 @@ MessageMgr.MaxBuyTime = function(...)
 end
 
 MessageMgr.TryBuyTimes = function(...)
-  -- function num : 0_35 , upvalues : _currentBuyTime, MessageMgr, _ENV, _currentBuyTimeStatus, _currentBuyTimeCost, _confirmTips, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _buyTimeFunction
+  -- function num : 0_36 , upvalues : _currentBuyTime, MessageMgr, _ENV, _currentBuyTimeStatus, _currentBuyTimeCost, _confirmTips, _currentBuyTimesCostInfo, _currentBuyTimeIndex, _buyTimeFunction
   if _currentBuyTime == 0 then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000044))
     return false
   end
   if _currentBuyTimeStatus == BuyTimesStatue.NotEnough then
     (MessageMgr.OpenAssetNotEnoughtWindow)((_currentBuyTimeCost[#_currentBuyTimeCost]).Type, function(...)
-    -- function num : 0_35_0 , upvalues : _ENV
+    -- function num : 0_36_0 , upvalues : _ENV
     UIMgr:CloseWindow((WinResConfig.BuyTipsMessageWindow).name)
   end
 )
@@ -648,7 +666,7 @@ MessageMgr.TryBuyTimes = function(...)
   else
     if _currentBuyTimeStatus == BuyTimesStatue.HelpEnough or (_currentBuyTimeCost[1]).Type == AssetType.DIAMOND then
       (MessageMgr.OpenCostResConfirmWindow)(_confirmTips, ((_currentBuyTimesCostInfo.Costs)[_currentBuyTimeIndex]).Cost, function(...)
-    -- function num : 0_35_1 , upvalues : _buyTimeFunction, _currentBuyTime, _ENV
+    -- function num : 0_36_1 , upvalues : _buyTimeFunction, _currentBuyTime, _ENV
     if _buyTimeFunction ~= nil then
       _buyTimeFunction(_currentBuyTime)
     end
@@ -666,7 +684,7 @@ MessageMgr.TryBuyTimes = function(...)
 end
 
 MessageMgr.CheckReachMaxBuyTimes = function(info, boughtTimes, ...)
-  -- function num : 0_36 , upvalues : MessageMgr, _ENV
+  -- function num : 0_37 , upvalues : MessageMgr, _ENV
   if info.HaveLimits and info.MaxBuyTime <= boughtTimes and info.MaxBuyTime ~= -1 then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000043))
     return false
@@ -676,7 +694,7 @@ MessageMgr.CheckReachMaxBuyTimes = function(info, boughtTimes, ...)
 end
 
 MessageMgr.BuyOneTimes = function(type, boughtTimes, func, ...)
-  -- function num : 0_37 , upvalues : MessageMgr, _buyTimesCosts, _ENV
+  -- function num : 0_38 , upvalues : MessageMgr, _buyTimesCosts, _ENV
   (MessageMgr.InitBuyTimesData)()
   local info = _buyTimesCosts[type]
   if not (MessageMgr.CheckReachMaxBuyTimes)(info, boughtTimes) then
@@ -716,7 +734,7 @@ MessageMgr.BuyOneTimes = function(type, boughtTimes, func, ...)
     end
     ;
     (MessageMgr.OpenConfirmWindow)((PUtil.get)(content, (MessageMgr.GetCostImgHtmlByStr)(info.Cost), "[color=" .. Const.GreenColor .. "]" .. gain .. "[/color]", name), function(...)
-    -- function num : 0_37_0 , upvalues : _ENV, info, func
+    -- function num : 0_38_0 , upvalues : _ENV, info, func
     if not (Util.CheckCostResources)(info.Cost) then
       return 
     end
@@ -729,12 +747,12 @@ MessageMgr.BuyOneTimes = function(type, boughtTimes, func, ...)
 end
 
 MessageMgr.OpenRewardShowWindow = function(items, closeFun, ...)
-  -- function num : 0_38 , upvalues : _ENV
+  -- function num : 0_39 , upvalues : _ENV
   OpenWindow((WinResConfig.RewardShowWindow).name, UILayer.HUD1, items, closeFun)
 end
 
 MessageMgr.OpenRewardByStr = function(str, Fun, ...)
-  -- function num : 0_39 , upvalues : _ENV, MessageMgr
+  -- function num : 0_40 , upvalues : _ENV, MessageMgr
   local ext = (Util.ParseConfigStr)(str)
   local items = {}
   for _,v in pairs(ext) do
@@ -750,7 +768,7 @@ MessageMgr.OpenRewardByStr = function(str, Fun, ...)
 end
 
 MessageMgr.OpenRewardByGoods = function(goods, fun, ...)
-  -- function num : 0_40 , upvalues : _ENV, MessageMgr
+  -- function num : 0_41 , upvalues : _ENV, MessageMgr
   local items = {}
   for _,v in ipairs(goods) do
     if v.type <= PropType.TITLE and v.value > 0 then
@@ -767,7 +785,7 @@ MessageMgr.OpenRewardByGoods = function(goods, fun, ...)
 end
 
 MessageMgr.ShowGetGoods = function(goods, equips, showProp, props, ...)
-  -- function num : 0_41 , upvalues : _ENV, MessageMgr
+  -- function num : 0_42 , upvalues : _ENV, MessageMgr
   local items = {}
   local item = {}
   local count = nil
@@ -839,12 +857,12 @@ MessageMgr.ShowGetGoods = function(goods, equips, showProp, props, ...)
 end
 
 MessageMgr.OpenItemBuyTipsWindowBySingle = function(item, ...)
-  -- function num : 0_42 , upvalues : MessageMgr
+  -- function num : 0_43 , upvalues : MessageMgr
   (MessageMgr.OpenItemBuyTipsWindow)({item})
 end
 
 MessageMgr.OpenItemBuyTipsWindow = function(items, ...)
-  -- function num : 0_43 , upvalues : _ENV
+  -- function num : 0_44 , upvalues : _ENV
   if UIMgr:IsWindowOpen((WinResConfig.ItemBuyTipsWindow).name) then
     UIMgr:SendWindowMessage((WinResConfig.ItemBuyTipsWindow).name, 1, items)
   else
@@ -853,7 +871,7 @@ MessageMgr.OpenItemBuyTipsWindow = function(items, ...)
 end
 
 MessageMgr.OpenItemBuyTipsWindowByGoodsObj = function(goodsObjS, ...)
-  -- function num : 0_44 , upvalues : _ENV, MessageMgr
+  -- function num : 0_45 , upvalues : _ENV, MessageMgr
   local itemS = {}
   for _,v in ipairs(goodsObjS) do
     local item = {}
@@ -867,7 +885,7 @@ MessageMgr.OpenItemBuyTipsWindowByGoodsObj = function(goodsObjS, ...)
 end
 
 MessageMgr.OpenItemBuyTipsWindowByStr = function(str, ...)
-  -- function num : 0_45 , upvalues : _ENV, MessageMgr
+  -- function num : 0_46 , upvalues : _ENV, MessageMgr
   local itemS = {}
   local itemStr = (Util.ParseConfigStr)(str)
   for _,v in ipairs(itemStr) do
@@ -882,7 +900,7 @@ MessageMgr.OpenItemBuyTipsWindowByStr = function(str, ...)
 end
 
 MessageMgr.SendNoticeMsg = function(content, replace, ...)
-  -- function num : 0_46 , upvalues : _ENV
+  -- function num : 0_47 , upvalues : _ENV
   if UIMgr:IsWindowOpen((WinResConfig.NoticeWindow).name) then
     UIMgr:SendWindowMessage((WinResConfig.NoticeWindow).name, 1, {content, replace})
   else
@@ -891,22 +909,30 @@ MessageMgr.SendNoticeMsg = function(content, replace, ...)
 end
 
 MessageMgr.OpenMonsterDetailWindow = function(defaultStage, formation, stageCount, setStageItem, stageLockChecker, getStageTip, getMonsterGroups, LockAction, ...)
-  -- function num : 0_47 , upvalues : _ENV
+  -- function num : 0_48 , upvalues : _ENV
   OpenWindow((WinResConfig.MonsterDetailWindow).name, UILayer.HUD, defaultStage, formation, stageCount, setStageItem, stageLockChecker, getStageTip, getMonsterGroups, LockAction)
 end
 
-local IgnoreWindowList = {(WinResConfig.PlotPlayPanelWindow).name, (WinResConfig.LoadingWindow).name, (WinResConfig.PlotChapterFinshWindow).name, (WinResConfig.HandBookCGShowWindow).name, (WinResConfig.PlotChapterBoxGetWindow).name, (WinResConfig.BattleFailConvergeWindow).name, (WinResConfig.CardGetShowWindow).name}
-local CloseAppWindow = {(WinResConfig.LoginWindow).name, (WinResConfig.HomeWindow).name}
+local IgnoreWindowList = {(WinResConfig.LoadingWindow).name, (WinResConfig.PlotChapterFinshWindow).name, (WinResConfig.HandBookCGShowWindow).name, (WinResConfig.PlotChapterBoxGetWindow).name, (WinResConfig.BattleFailConvergeWindow).name, (WinResConfig.CardGetShowWindow).name}
+local CloseAppWindow = {(WinResConfig.LoginWindow).name}
 local mWindowFunc = {}
 MessageMgr.AndroidBackBtnFun = function(winName, ...)
-  -- function num : 0_48 , upvalues : MessageMgr, IgnoreWindowList, _ENV, CloseAppWindow, mWindowFunc
+  -- function num : 0_49 , upvalues : MessageMgr, IgnoreWindowList, _ENV, CloseAppWindow, mWindowFunc
   if not (MessageMgr.IsInSpecialList)(IgnoreWindowList, winName) then
-    if (GuideMgr.IsInMainGuide)() or UIMgr:IsWindowOpen((WinResConfig.GuidePictureWindow).name) then
+    if winName == (WinResConfig.PlotPlayPanelWindow).name then
+      if (PlotPlayMgr.GetIsCanSkip)() and OvertureMgr.isPlaying == false then
+        UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_SKIP_BTN)
+      else
+        UIMgr:SendWindowMessage((WinResConfig.PlotPlayPanelWindow).name, (WindowMsgEnum.PlotPlay).E_MSG_BLANK_BTN)
+      end
+      return 
+    end
+    if OvertureMgr.isPlaying == true or (GuideMgr.IsInMainGuide)() or UIMgr:IsWindowOpen((WinResConfig.GuidePictureWindow).name) then
       return 
     end
     if (MessageMgr.IsInSpecialList)(CloseAppWindow, winName) then
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000521), function(...)
-    -- function num : 0_48_0 , upvalues : _ENV
+    -- function num : 0_49_0 , upvalues : _ENV
     (Application.Quit)()
   end
 , nil, nil, nil, nil, nil, UILayer.HUD1)
@@ -940,20 +966,20 @@ MessageMgr.AndroidBackBtnFun = function(winName, ...)
 end
 
 MessageMgr.OnRegisterBackWinFunc = function(winName, func, ...)
-  -- function num : 0_49 , upvalues : mWindowFunc
-  if winName == nil or func == nil then
+  -- function num : 0_50 , upvalues : mWindowFunc
+  if winName == nil or func == nil or mWindowFunc[winName] ~= nil then
     return 
   end
   mWindowFunc[winName] = func
 end
 
 MessageMgr.SetAndroidBackWaitTime = function(...)
-  -- function num : 0_50
+  -- function num : 0_51
   return 0.3
 end
 
 MessageMgr.IsInSpecialList = function(list, str, ...)
-  -- function num : 0_51 , upvalues : _ENV
+  -- function num : 0_52 , upvalues : _ENV
   for _,v in pairs(list) do
     if v == str then
       return true

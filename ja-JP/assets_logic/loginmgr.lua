@@ -21,9 +21,11 @@ shaojun = {id = 6, url = "http://172.16.1.142:6666", gateServerId = "905", mainS
 ershixiong_linux = {id = 7, url = "http://172.16.1.156:6666", gateServerId = "906", mainServerId = "106", name = "linux二师兄", btnName = "linux二师兄"}
 , 
 cehua = {id = 8, url = "http://172.16.1.143:6666", gateServerId = "915", mainServerId = "115", name = "策划大大的服", btnName = "策划大大的服"}
+, 
+oldDriver = {id = 1, url = "http://172.16.1.25:6666", gateServerId = "901", mainServerId = "101", name = "大师兄服", btnName = "老司机"}
 }
 AnnouncementURL = {List = "http://172.16.1.158:6666/notice/list", Content = "http://172.16.1.158:6666/notice/info", GiftCode = "http://172.16.1.70:6666/giftCode"}
--- DECOMPILER ERROR at PC106: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC114: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.OpenLogin = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -44,7 +46,7 @@ LoginMgr.OpenLogin = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC109: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC117: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.ConnectAuthServer = function(urlInfo, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -160,7 +162,7 @@ LoginMgr.ConnectAuthServer = function(urlInfo, ...)
 )
 end
 
--- DECOMPILER ERROR at PC112: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC120: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.CreateSocket = function(host, port, ...)
   -- function num : 0_2 , upvalues : _ENV
@@ -197,7 +199,7 @@ LoginMgr.CreateSocket = function(host, port, ...)
   end
 end
 
--- DECOMPILER ERROR at PC115: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC123: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.GetRandomUrl = function(...)
   -- function num : 0_3 , upvalues : _ENV
@@ -212,7 +214,7 @@ LoginMgr.GetRandomUrl = function(...)
   return curIpInfo
 end
 
--- DECOMPILER ERROR at PC118: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC126: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.GetServerName = function(...)
   -- function num : 0_4 , upvalues : _ENV
@@ -230,7 +232,7 @@ LoginMgr.GetServerName = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC121: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC129: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.GetChannel = function(...)
   -- function num : 0_5 , upvalues : _ENV
@@ -241,7 +243,7 @@ LoginMgr.GetChannel = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC124: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC132: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.GetTicket = function(...)
   -- function num : 0_6 , upvalues : _ENV
@@ -251,7 +253,7 @@ LoginMgr.GetTicket = function(...)
   return LoginMgr.deviceUniqueIdentifier
 end
 
--- DECOMPILER ERROR at PC127: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC135: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.GetAccount = function(...)
   -- function num : 0_7 , upvalues : _ENV
@@ -261,7 +263,7 @@ LoginMgr.GetAccount = function(...)
   return LoginMgr.deviceUniqueIdentifier
 end
 
--- DECOMPILER ERROR at PC130: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC138: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.GetPlatform = function(...)
   -- function num : 0_8 , upvalues : _ENV
@@ -281,17 +283,26 @@ LoginMgr.GetPlatform = function(...)
   return platform, str
 end
 
--- DECOMPILER ERROR at PC133: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC141: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.GetDeviceUniqueIdentifier = function(text, ...)
   -- function num : 0_9 , upvalues : _ENV
   return SystemInfo.deviceUniqueIdentifier .. text
 end
 
--- DECOMPILER ERROR at PC136: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC144: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.ReturnToLoginWindow = function(...)
   -- function num : 0_10 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+  Net.isReconnectOk = false
+  -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
+
+  LoginMgr.directLogin = false
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
+
+  LoginMgr.canTouch = true
   local MsgWaiterObj = require("MsgWaiter")
   MsgWaiterObj.msgTimeoutFuncList = {}
   ;
@@ -311,7 +322,7 @@ LoginMgr.ReturnToLoginWindow = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC139: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC147: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.DealLogin = function(urlInfo, text, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -323,7 +334,7 @@ LoginMgr.DealLogin = function(urlInfo, text, ...)
   end
 end
 
--- DECOMPILER ERROR at PC142: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC150: Confused about usage of register: R0 in 'UnsetPending'
 
 LoginMgr.StartLogin = function(urlInfo, text, ...)
   -- function num : 0_12 , upvalues : _ENV

@@ -244,7 +244,7 @@ ArenaWindow.Init = function(...)
 end
 
 ArenaWindow.InitCountDown = function(...)
-  -- function num : 0_14 , upvalues : _countdown, _ENV, ArenaWindow
+  -- function num : 0_14 , upvalues : _countdown, _ENV, uis, ArenaWindow
   if _countdown ~= nil then
     _countdown:Stop()
   end
@@ -252,16 +252,36 @@ ArenaWindow.InitCountDown = function(...)
   print("赛季结算时间：" .. (os.date)("%Y/%m/%d/%H:%M:%S", ((ArenaData.BaseData).seasonSettleTime).bTime * 0.001) .. "至" .. (os.date)("%Y/%m/%d/%H:%M:%S", (((ArenaData.BaseData).seasonSettleTime).bTime + ((ArenaData.BaseData).seasonSettleTime).durationTime) * 0.001))
   print("开启时间：" .. (os.date)("%Y/%m/%d/%H:%M:%S", ((ArenaData.BaseData).openTime).bTime * 0.001) .. "至" .. (os.date)("%Y/%m/%d/%H:%M:%S", (((ArenaData.BaseData).openTime).bTime + ((ArenaData.BaseData).openTime).durationTime) * 0.001))
   print("新结算时间：" .. (os.date)("%Y/%m/%d/%H:%M:%S", ((ArenaData.BaseData).settleTime).bTime * 0.001) .. "至" .. (os.date)("%Y/%m/%d/%H:%M:%S", (((ArenaData.BaseData).settleTime).bTime + ((ArenaData.BaseData).settleTime).durationTime) * 0.001))
-  if (ArenaData.CheckSettle)() then
-    (ArenaWindow.DurationSettle)()
+  -- DECOMPILER ERROR at PC120: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.ChallengeListGrp).RefreshBtn).visible = true
+  if (ArenaData.CheckOpen)() == false then
+    if (ArenaData.CheckDayPass)() then
+      (ArenaService.ReqArenaData)(ArenaRefreshDataType.CountDown)
+    else
+      ;
+      (ArenaWindow.DurationNotOpen)()
+      ;
+      (MessageMgr.OpenSoloConfirmWindow)((PUtil.get)(60000541), function(...)
+    -- function num : 0_14_0 , upvalues : _ENV
+    UIMgr:CloseWindow((WinResConfig.ArenaWindow).name)
+  end
+)
+    end
   else
-    if (ArenaData.CheckOpen)() == false then
-      if (ArenaData.CheckDayPass)() then
-        (ArenaService.ReqArenaData)(ArenaRefreshDataType.CountDown)
-      else
-        ;
-        (ArenaWindow.DurationNotOpen)()
-      end
+    -- DECOMPILER ERROR at PC155: Confused about usage of register: R0 in 'UnsetPending'
+
+    if (ArenaData.CheckSettle)() then
+      ((uis.ChallengeListGrp).RefreshBtn).visible = false
+      ;
+      (MessageMgr.OpenSoloConfirmWindow)((PUtil.get)(60000541), function(...)
+    -- function num : 0_14_1 , upvalues : _ENV
+    UIMgr:CloseWindow((WinResConfig.ArenaWindow).name)
+  end
+)
+      ;
+      (ArenaWindow.DurationSettle)()
     else
       if (ArenaData.CheckCD)() then
         (ArenaWindow.DurationCD)()
@@ -339,9 +359,9 @@ end
 
 ArenaWindow.InitSeasonEndTime = function(...)
   -- function num : 0_20 , upvalues : uis, _ENV
-  -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
-  (uis.TimeEndTxt).text = (os.date)("%Y-%m-%d", (((ArenaData.BaseData).seasonSettleTime).bTime + ((ArenaData.BaseData).seasonSettleTime).durationTime) * 0.001)
+  (uis.TimeEndTxt).text = (os.date)("%Y-%m-%d", ((ArenaData.BaseData).seasonSettleTime).bTime * 0.001)
 end
 
 ArenaWindow.InitSelfInfo = function(...)

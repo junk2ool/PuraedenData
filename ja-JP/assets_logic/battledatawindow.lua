@@ -8,15 +8,21 @@ local uis, contentPane = nil, nil
 local argTable = {}
 GTween = FairyGUI.GTween
 local tweenList = {}
+local battleType = nil
 BattleDataWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, tweenList, uis
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, battleType, tweenList, uis
   bridgeObj:SetView((WinResConfig.BattleDataWindow).package, (WinResConfig.BattleDataWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
+  if argTable[2] then
+    battleType = argTable[2]
+  else
+    battleType = (ProtoEnum.E_BATTLE_TYPE).BATTLE_TYPE_UNKNOWN
+  end
   contentPane:Center()
   tweenList = {}
   uis = GetBattleDataCount_BattleDataWindowUis(contentPane)
-  -- DECOMPILER ERROR at PC26: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.WordTxt).text = (PUtil.get)(33)
@@ -27,11 +33,11 @@ BattleDataWindow.OnInit = function(bridgeObj, ...)
     UIMgr:CloseWindow((WinResConfig.BattleDataWindow).name)
   end
 )
-  -- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.Colour_01_Txt).text = (PUtil.get)(20000375)
-  -- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC55: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.Colour_02_Txt).text = (PUtil.get)(20000376)
@@ -79,15 +85,15 @@ BattleDataWindow.CreateSingleSummarize = function(data, ...)
     local selfModel = (Util.GetGroupDate)(singleModel, singleUis.MySelfGrp, i)
     local enemyModel = (Util.GetGroupDate)(singleModel, singleUis.EnemyGrp, i)
     ;
-    (BattleDataWindow.SetCardData)(selfModel, selfData, maxDamage, maxDefense)
+    (BattleDataWindow.SetCardData)(selfModel, selfData, maxDamage, maxDefense, false)
     ;
-    (BattleDataWindow.SetCardData)(enemyModel, enemyData, maxDamage, maxDefense)
+    (BattleDataWindow.SetCardData)(enemyModel, enemyData, maxDamage, maxDefense, true)
   end
   return singleModel
 end
 
-BattleDataWindow.SetCardData = function(model, data, maxDamage, maxDefense, ...)
-  -- function num : 0_3 , upvalues : _ENV, tweenList
+BattleDataWindow.SetCardData = function(model, data, maxDamage, maxDefense, isEnemy, ...)
+  -- function num : 0_3 , upvalues : _ENV, battleType, tweenList
   local CardModel = GetBattleDataCount_RecordBattleDataCardGrpUis(model)
   if data then
     ChangeUIController(model, "c1", 0)
@@ -98,10 +104,11 @@ BattleDataWindow.SetCardData = function(model, data, maxDamage, maxDefense, ...)
       cardInfo.star = ((data.CardData).cardInfo).star
       cardInfo.level = ((data.CardData).cardInfo).level
       local config, isMonster = (CardData.GetBaseConfig)(((data.CardData).cardInfo).id)
+      local isSimple = (isEnemy and battleType == (ProtoEnum.E_BATTLE_TYPE).ACTIVITY) or battleType == (ProtoEnum.E_BATTLE_TYPE).CG
       ;
-      (Util.SetHeadFrame)((CardModel.HeadFrameGrp).root, cardInfo, isMonster)
+      (Util.SetHeadFrame)((CardModel.HeadFrameGrp).root, cardInfo, isMonster, isSimple)
       local cardData = (CardData.GetBaseConfig)(tonumber(((data.CardData).cardInfo).id))
-      -- DECOMPILER ERROR at PC50: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC67: Confused about usage of register: R11 in 'UnsetPending'
 
       ;
       (CardModel.PlayerNameTxt).text = cardData.name
@@ -131,7 +138,7 @@ BattleDataWindow.SetCardData = function(model, data, maxDamage, maxDefense, ...)
 )
       ;
       (table.insert)(tweenList, gt2)
-      -- DECOMPILER ERROR at PC102: Confused about usage of register: R15 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC119: Confused about usage of register: R17 in 'UnsetPending'
 
       ;
       ((CardModel.Order).OrderMyTxt).text = data.Order
@@ -139,7 +146,7 @@ BattleDataWindow.SetCardData = function(model, data, maxDamage, maxDefense, ...)
   else
     ChangeUIController(model, "c1", 1)
   end
-  -- DECOMPILER ERROR: 4 unprocessed JMP targets
+  -- DECOMPILER ERROR: 5 unprocessed JMP targets
 end
 
 BattleDataWindow.GetMaxDamage = function(self, enemy, ...)
@@ -191,7 +198,7 @@ BattleDataWindow.OnClose = function(...)
   -- function num : 0_8 , upvalues : _ENV, tweenList, uis, contentPane
   for _,v in ipairs(tweenList) do
     if v then
-      v:Kill()
+      v:SetPaused()
     end
   end
   uis = nil

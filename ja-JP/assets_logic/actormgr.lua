@@ -63,7 +63,10 @@ ActorMgr.ReqEnterInfo = function(callBack, ...)
     ;
     (ActorMgr.AddNeedLoadMsg)((Proto.MsgName).ResStoryInit, 10)
   end
-  -- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+  ld("Friends")
+  ;
+  (FriendsService.ReqRelations)()
+  -- DECOMPILER ERROR at PC71: Confused about usage of register: R1 in 'UnsetPending'
 
   ActorMgr.msgCompleteCallBack = function(...)
     -- function num : 0_3_0 , upvalues : _ENV

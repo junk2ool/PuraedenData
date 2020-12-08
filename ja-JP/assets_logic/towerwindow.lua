@@ -179,19 +179,14 @@ TowerWindow.OnHide = function(...)
 end
 
 TowerWindow.Init = function(...)
-  -- function num : 0_12 , upvalues : _ENV, _openFromClose, _chosed, uis, TowerWindow
+  -- function num : 0_12 , upvalues : _ENV, _openFromClose, _chosed, TowerWindow, uis
   (LuaSound.LoadAndPlayBGM)(1040011)
   if _openFromClose == false then
     _chosed = -1
   end
-  -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
-
-  if TowerData.PopUpBounsLevel then
-    TowerData.PopUpBounsLevel = false
-    ;
-    (TowerMgr.OpenBounsLevel)()
-  end
-  -- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+  ;
+  (TowerWindow.ShowBounsLevel)()
+  -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((uis.LayerList).scrollPane).touchEffect = not (GuideMgr.IsInMainGuide)()
@@ -203,8 +198,19 @@ TowerWindow.Init = function(...)
   (TowerWindow.RefreshLayer)()
 end
 
+TowerWindow.ShowBounsLevel = function(...)
+  -- function num : 0_13 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
+
+  if TowerData.PopUpBounsLevel and TowerData.HaveBounsLevel then
+    TowerData.PopUpBounsLevel = false
+    ;
+    (TowerMgr.OpenBounsLevel)()
+  end
+end
+
 TowerWindow.RefreshLayer = function(...)
-  -- function num : 0_13 , upvalues : uis, _ENV, _openFromClose, _chosed, TowerWindow
+  -- function num : 0_14 , upvalues : uis, _ENV, _openFromClose, _chosed, TowerWindow
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.LayerList).numItems = #TowerData.TowerLayerData
@@ -227,14 +233,14 @@ TowerWindow.RefreshLayer = function(...)
 end
 
 TowerWindow.RefreshBounsBtn = function(...)
-  -- function num : 0_14 , upvalues : uis, _ENV
+  -- function num : 0_15 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.BattleBtn).visible = TowerData.HaveBounsLevel
 end
 
 TowerWindow.RefreshSwitchLayerBtn = function(...)
-  -- function num : 0_15 , upvalues : _ENV, uis
+  -- function num : 0_16 , upvalues : _ENV, uis
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
   TowerData.CurrentLayer = (TowerData.TowerLayerData)[((uis.LayerList).scrollPane).SpecifyIndex + 1]
@@ -250,7 +256,7 @@ TowerWindow.RefreshSwitchLayerBtn = function(...)
 end
 
 TowerWindow.OnClose = function(...)
-  -- function num : 0_16 , upvalues : _ENV, uis, contentPane, argTable, _bg
+  -- function num : 0_17 , upvalues : _ENV, uis, contentPane, argTable, _bg
   (CommonWinMgr.RemoveAssets)((WinResConfig.TowerWindow).name)
   ;
   (GuideData.AbolishControlRefer)((WinResConfig.TowerWindow).name)
@@ -261,9 +267,9 @@ TowerWindow.OnClose = function(...)
 end
 
 TowerWindow.SetLayerItemSize = function(list, ...)
-  -- function num : 0_17 , upvalues : uis, _chosed, _ENV, _checkDis, BIG_SIZE, SMALL_SIZE, HIGH_NAME_POS, LOW_NAME_POS, BIG_NAME_SIZE, SMALL_NAME_SIZE, _bg, _totalDis, _bgTotalMoveDis
+  -- function num : 0_18 , upvalues : uis, _chosed, _ENV, _checkDis, BIG_SIZE, SMALL_SIZE, HIGH_NAME_POS, LOW_NAME_POS, BIG_NAME_SIZE, SMALL_NAME_SIZE, _bg, _totalDis, _bgTotalMoveDis
   (uis.LayerList):TraversalItem(function(subIndex, subItem, ...)
-    -- function num : 0_17_0 , upvalues : _chosed, uis, _ENV, _checkDis, BIG_SIZE, SMALL_SIZE, HIGH_NAME_POS, LOW_NAME_POS, BIG_NAME_SIZE, SMALL_NAME_SIZE
+    -- function num : 0_18_0 , upvalues : _chosed, uis, _ENV, _checkDis, BIG_SIZE, SMALL_SIZE, HIGH_NAME_POS, LOW_NAME_POS, BIG_NAME_SIZE, SMALL_NAME_SIZE
     if subIndex == _chosed then
       return 
     end
@@ -296,13 +302,13 @@ TowerWindow.SetLayerItemSize = function(list, ...)
 end
 
 TowerWindow.GetLayerItem = function(index, ...)
-  -- function num : 0_18 , upvalues : _ENV
+  -- function num : 0_19 , upvalues : _ENV
   local config = ((TableData.gTable).BaseTowerData)[(TowerData.TowerLayerData)[index + 1]]
   return (Util.GetItemUrl)(config.tower_icon)
 end
 
 TowerWindow.RefreshLayerItem = function(index, item, ...)
-  -- function num : 0_19 , upvalues : _ENV, uis, _chosed, TowerWindow
+  -- function num : 0_20 , upvalues : _ENV, uis, _chosed, TowerWindow
   (item.onClick):Clear()
   local layer = item:GetChild("Layer")
   local layerTitle = item:GetChild("LayerNumber")
@@ -314,7 +320,7 @@ TowerWindow.RefreshLayerItem = function(index, item, ...)
     (layerTitle:GetController("c1")).selectedIndex = 1
     ;
     (item.onClick):Set(function(...)
-    -- function num : 0_19_0 , upvalues : _ENV, index
+    -- function num : 0_20_0 , upvalues : _ENV, index
     (TowerMgr.CheckTowerLayerLockReason)(index + 1)
   end
 )
@@ -330,7 +336,7 @@ TowerWindow.RefreshLayerItem = function(index, item, ...)
     (layerTitle:GetChild("NameLoader")).url = (Util.GetItemUrl)(config.name_icon)
     ;
     (item.onClick):Set(function(...)
-    -- function num : 0_19_1 , upvalues : uis, index, _chosed, TowerWindow
+    -- function num : 0_20_1 , upvalues : uis, index, _chosed, TowerWindow
     if ((uis.LayerList).scrollPane).SpecifyIndex ~= index then
       (uis.LayerList):ScrollToView(index, true)
     else
@@ -346,13 +352,13 @@ TowerWindow.RefreshLayerItem = function(index, item, ...)
 end
 
 TowerWindow.SetChosedItem = function(anim, ...)
-  -- function num : 0_20 , upvalues : uis, TowerWindow
+  -- function num : 0_21 , upvalues : uis, TowerWindow
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   ((uis.LayerList).scrollPane).touchEffect = false
   ;
   (uis.LayerList):TraversalItem(function(subIndex, subItem, ...)
-    -- function num : 0_20_0 , upvalues : anim, TowerWindow
+    -- function num : 0_21_0 , upvalues : anim, TowerWindow
     if anim then
       (TowerWindow.PlayingChosingAnim)(subIndex, subItem, true)
     else
@@ -364,13 +370,13 @@ TowerWindow.SetChosedItem = function(anim, ...)
 end
 
 TowerWindow.PlayingChosingAnim = function(index, item, chose, ...)
-  -- function num : 0_21 , upvalues : _chosed, _playingAnim, _ENV, TowerWindow, uis, _bg, BG_ZOOM_IN_SCALE, BG_MOVE_DOWN_DISTANCE, BIG_SIZE, SMALL_SIZE
+  -- function num : 0_22 , upvalues : _chosed, _playingAnim, _ENV, TowerWindow, uis, _bg, BG_ZOOM_IN_SCALE, BG_MOVE_DOWN_DISTANCE, BIG_SIZE, SMALL_SIZE
   if chose then
     if index == _chosed then
       _playingAnim = true
       ;
       (item:GetTransition("LayerNumberOut")):Play(function(...)
-    -- function num : 0_21_0 , upvalues : _playingAnim
+    -- function num : 0_22_0 , upvalues : _playingAnim
     _playingAnim = false
   end
 )
@@ -379,7 +385,7 @@ TowerWindow.PlayingChosingAnim = function(index, item, chose, ...)
       local layer = item:GetChild("Layer")
       do
         ((layer:TweenScale(Vector2.one, 0.5)):SetEase((FairyGUI.EaseType).QuadOut)):OnUpdate(function(...)
-    -- function num : 0_21_1 , upvalues : layer
+    -- function num : 0_22_1 , upvalues : layer
     layer:InvalidateBatchingState()
   end
 )
@@ -392,7 +398,7 @@ TowerWindow.PlayingChosingAnim = function(index, item, chose, ...)
       do
         ;
         (item:TweenFade(0, 0.33)):OnComplete(function(...)
-    -- function num : 0_21_2 , upvalues : item
+    -- function num : 0_22_2 , upvalues : item
     item.visible = false
   end
 )
@@ -411,7 +417,7 @@ TowerWindow.PlayingChosingAnim = function(index, item, chose, ...)
             _playingAnim = true
             ;
             (item:GetTransition("LayerNumberIn")):Play(function(...)
-    -- function num : 0_21_3 , upvalues : _playingAnim, _chosed, uis
+    -- function num : 0_22_3 , upvalues : _playingAnim, _chosed, uis
     _playingAnim = false
     _chosed = -1
     -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
@@ -425,7 +431,7 @@ TowerWindow.PlayingChosingAnim = function(index, item, chose, ...)
             local layer = item:GetChild("Layer")
             ;
             ((layer:TweenScale(Vector2.one * BIG_SIZE, 0.5)):SetEase((FairyGUI.EaseType).QuadOut)):OnUpdate(function(...)
-    -- function num : 0_21_4 , upvalues : layer
+    -- function num : 0_22_4 , upvalues : layer
     layer:InvalidateBatchingState()
   end
 )
@@ -456,9 +462,9 @@ TowerWindow.PlayingChosingAnim = function(index, item, chose, ...)
 end
 
 TowerWindow.ChosingImmediately = function(index, item, chose, ...)
-  -- function num : 0_22 , upvalues : _chosed, _ENV, TowerWindow, uis, _bg, BG_ZOOM_IN_SCALE, BG_MOVE_DOWN_DISTANCE, BIG_SIZE
+  -- function num : 0_23 , upvalues : _chosed, _ENV, TowerWindow, uis, _bg, BG_ZOOM_IN_SCALE, BG_MOVE_DOWN_DISTANCE, BIG_SIZE
   local setChild = function(name, alpha, ...)
-    -- function num : 0_22_0 , upvalues : item
+    -- function num : 0_23_0 , upvalues : item
     (item:GetChild(name)).alpha = alpha
   end
 
@@ -536,7 +542,7 @@ TowerWindow.ChosingImmediately = function(index, item, chose, ...)
 end
 
 TowerWindow.RefreshLayerDetail = function(index, item, ...)
-  -- function num : 0_23 , upvalues : _ENV, TowerWindow
+  -- function num : 0_24 , upvalues : _ENV, TowerWindow
   index = index + 1
   local count = #(TowerData.TowerStageData)[TowerData.CurrentLayer]
   for i = 1, count do
@@ -545,7 +551,7 @@ TowerWindow.RefreshLayerDetail = function(index, item, ...)
 end
 
 TowerWindow.RefreshStageItem = function(index, item, line, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   local config = ((TableData.gTable).BaseTowerStageData)[((TowerData.TowerStageData)[TowerData.CurrentLayer])[index]]
   local data = ((TowerData.BaseInfo)[TowerData.CurrentLayer])[config.id]
   ;
@@ -556,7 +562,7 @@ TowerWindow.RefreshStageItem = function(index, item, line, ...)
   local tipList = item:GetChild("EquiptIconList")
   tipList:SetVirtual()
   tipList.itemRenderer = function(subIndex, subItem, ...)
-    -- function num : 0_24_0 , upvalues : _ENV, tipsInfo
+    -- function num : 0_25_0 , upvalues : _ENV, tipsInfo
     (subItem:GetChild("n0")).url = (Util.GetItemUrl)(tipsInfo[subIndex + 1])
   end
 
@@ -574,7 +580,7 @@ TowerWindow.RefreshStageItem = function(index, item, line, ...)
     end
     ;
     (item.onClick):Set(function(...)
-    -- function num : 0_24_1 , upvalues : _ENV, config
+    -- function num : 0_25_1 , upvalues : _ENV, config
     (LuaSound.PlaySound)(LuaSound.COMMON_POP_WIN, SoundBank.OTHER)
     OpenWindow((WinResConfig.TowerChallengeWindow).name, UILayer.HUD, config.id)
   end
@@ -586,7 +592,7 @@ TowerWindow.RefreshStageItem = function(index, item, line, ...)
     (line:GetController("c1")).selectedIndex = 2
     ;
     (item.onClick):Set(function(...)
-    -- function num : 0_24_2 , upvalues : _ENV
+    -- function num : 0_25_2 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(60000091))
   end
 )
@@ -594,7 +600,7 @@ TowerWindow.RefreshStageItem = function(index, item, line, ...)
 end
 
 TowerWindow.ClickSkipBtn = function(...)
-  -- function num : 0_25 , upvalues : uis, _ENV
+  -- function num : 0_26 , upvalues : uis, _ENV
   if (uis.ChoiceBtn).selected then
     (Util.SetPlayerSetting)(PlayerPrefsKeyName.TOWER_SKIP_FORMATION, Const.True)
   else
@@ -604,12 +610,12 @@ TowerWindow.ClickSkipBtn = function(...)
 end
 
 TowerWindow.ClickMonsterDetailBtn = function(...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : _ENV
   (TowerMgr.OpenTowerMonsterDetailWindow)()
 end
 
 TowerWindow.ClickLeftBtn = function(...)
-  -- function num : 0_27 , upvalues : _playingAnim, _chosed, _ENV, uis
+  -- function num : 0_28 , upvalues : _playingAnim, _chosed, _ENV, uis
   if _playingAnim or _chosed ~= -1 then
     return 
   end
@@ -619,7 +625,7 @@ TowerWindow.ClickLeftBtn = function(...)
 end
 
 TowerWindow.ClickRightBtn = function(...)
-  -- function num : 0_28 , upvalues : _playingAnim, _chosed, _ENV, uis
+  -- function num : 0_29 , upvalues : _playingAnim, _chosed, _ENV, uis
   if _playingAnim or _chosed ~= -1 then
     return 
   end
@@ -629,14 +635,29 @@ TowerWindow.ClickRightBtn = function(...)
 end
 
 TowerWindow.ClickBounsBtn = function(...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   (TowerMgr.OpenBounsLevel)()
 end
 
 TowerWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_30 , upvalues : _ENV, TowerWindow
+  -- function num : 0_31 , upvalues : _ENV, TowerWindow
   if msgId == (WindowMsgEnum.Tower).E_MSG_REFRESH_BOUNS_STATUS then
     (TowerWindow.RefreshBounsBtn)()
+  else
+    if msgId == (WindowMsgEnum.Tower).E_MSG_SHOW_BOUNS_LEVEL then
+      (TowerWindow.ShowBounsLevel)()
+    else
+      if msgId == (WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok then
+        local configs = (TableData.gTable).BaseTowerStageData
+        for k,v in pairs(configs) do
+          local cost = split(v.cost, ":")
+          if (ActorData.GetGoodsCount)(tonumber(cost[2]), tonumber(cost[1])) < tonumber(cost[3]) then
+            (RedDotMgr.EliminateRedDot)((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Tower)
+          end
+          do break end
+        end
+      end
+    end
   end
 end
 

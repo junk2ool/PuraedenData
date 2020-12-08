@@ -5,6 +5,7 @@ GetHome_ActivityUis = function(ui, ...)
   local uis = {}
   uis.PicList = ui:GetChild("PicList")
   uis.PageNumberList = ui:GetChild("PageNumberList")
+  uis.ClothesCtr = ui:GetController("Clothes")
   uis.root = ui
   return uis
 end

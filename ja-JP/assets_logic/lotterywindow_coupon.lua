@@ -93,12 +93,13 @@ LotteryWindow_Coupon.SetButtonInfo = function(btn, id, freeNum, sound, ...)
   local isKaQuan = excelData.type == 3
   if freeNum > 0 and (((grp.LotteryPanelGrp).GetCha_CouponGrp).TimeTxt).visible == false then
     (btn:GetChild("Number_01_Loader")).visible = false
-    ;
-    (btn:GetChild("FreeNumberTxt")).visible = true
+    if btn:GetChild("FreeNumberTxt") then
+      (btn:GetChild("FreeNumberTxt")).visible = true
+      ;
+      (btn:GetChild("FreeNumberTxt")).text = (PUtil.get)(89, freeNum, excelData.day_free_num)
+    end
     ;
     (btn:GetChild("Number_01_Txt")).text = (PUtil.get)(90)
-    ;
-    (btn:GetChild("FreeNumberTxt")).text = (PUtil.get)(89, freeNum, excelData.day_free_num)
   else
     (btn:GetChild("Number_01_Loader")).visible = true
     if btn:GetChild("FreeNumberTxt") then
@@ -177,7 +178,7 @@ LotteryWindow_Coupon.SetButtonInfo = function(btn, id, freeNum, sound, ...)
     end
   end
 )
-  -- DECOMPILER ERROR: 10 unprocessed JMP targets
+  -- DECOMPILER ERROR: 11 unprocessed JMP targets
 end
 
 -- DECOMPILER ERROR at PC31: Confused about usage of register: R7 in 'UnsetPending'

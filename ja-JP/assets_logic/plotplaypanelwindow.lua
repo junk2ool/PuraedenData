@@ -661,7 +661,7 @@ PlotPlayPanelWindow.ClickSkipBtn = function(...)
     ;
     (PlotPlayMgr.AfterDialogueShowed)(nil, true)
   end
-, nil, (PUtil.get)(60000417), (PUtil.get)(60000418), (PUtil.get)(185))
+, nil, (PUtil.get)(60000417), (PUtil.get)(60000418), (PUtil.get)(185), true, UILayer.HUD1)
 end
 
 PlotPlayPanelWindow.ChangeMenuPopStatue = function(...)
@@ -3289,6 +3289,14 @@ PlotPlayPanelWindow.HandleMessage = function(msgId, para, ...)
 
                         if uis.TalkWordGrp then
                           ((uis.TalkWordGrp).root).visible = false
+                        end
+                      else
+                        if msgId == (WindowMsgEnum.PlotPlay).E_MSG_SKIP_BTN then
+                          (PlotPlayPanelWindow.ClickSkipBtn)()
+                        else
+                          if msgId == (WindowMsgEnum.PlotPlay).E_MSG_BLANK_BTN then
+                            (PlotPlayPanelWindow.ClickBlankBtn)()
+                          end
                         end
                       end
                     end

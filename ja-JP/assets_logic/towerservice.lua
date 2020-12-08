@@ -58,10 +58,7 @@ end
 
 TowerService.RecvEnterTower = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
-  -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
-
-  TowerData.LastReqStageId = 0
-  -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   TowerData.FormationInfo = msg.cardInfo
 end
@@ -110,11 +107,13 @@ TowerService.RecvSettleTower = function(msg, ...)
         if TowerData.HaveBounsLevel ~= msg.triggerEncounter and msg.triggerEncounter then
           TowerData.PopUpBounsLevel = true
         end
-        -- DECOMPILER ERROR at PC70: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
 
-        TowerData.HaveBounsLevel = msg.triggerEncounter
-        loge("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~triggerEncounter:" .. tostring(msg.triggerEncounter))
-        UIMgr:SendWindowMessage((WinResConfig.TowerWindow).name, (WindowMsgEnum.Tower).E_MSG_REFRESH_BOUNS_STATUS)
+        if not TowerData.HaveBounsLevel then
+          TowerData.HaveBounsLevel = msg.triggerEncounter
+          loge("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~triggerEncounter:" .. tostring(msg.triggerEncounter))
+          UIMgr:SendWindowMessage((WinResConfig.TowerWindow).name, (WindowMsgEnum.Tower).E_MSG_REFRESH_BOUNS_STATUS)
+        end
       end
     end
   end

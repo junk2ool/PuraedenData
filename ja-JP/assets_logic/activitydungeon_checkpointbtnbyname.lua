@@ -10,6 +10,7 @@ GetActivityDungeon_CheckpointBtnUis = function(ui, ...)
   uis.NameLoader = ui:GetChild("NameLoader")
   uis.LockImage = ui:GetChild("LockImage")
   uis.FrameEff = GetCommonResource_FrameEffUis(ui:GetChild("FrameEff"))
+  uis.RewardLoader = ui:GetChild("RewardLoader")
   uis.buttonCtr = ui:GetController("button")
   uis.c1Ctr = ui:GetController("c1")
   uis.root = ui

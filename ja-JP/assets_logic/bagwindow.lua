@@ -12,7 +12,8 @@ local listData = {}
 local LeftButtonEnum = {Item = 0, Material = 1, Debris = 2, Equip = 3}
 local selectFrame = nil
 local selectedIndex = 0
-local SelectOffset = Vector2(1, 1)
+local SelectOffset = (Vector2(1, 1))
+local _refreshTimer = nil
 BagWindow.OnInit = function(bridge, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, uis, currentIndex, selectFrame, BagWindow, list
   bridge:SetView((WinResConfig.BagWindow).package, (WinResConfig.BagWindow).comName)
@@ -68,28 +69,68 @@ BagWindow.InitList = function(...)
 end
 
 BagWindow.RefreshList = function(...)
-  -- function num : 0_2 , upvalues : listData, _ENV, currentIndex, LeftButtonEnum, BagWindow, list, selectedIndex
+  -- function num : 0_2 , upvalues : listData, _ENV, currentIndex, _refreshTimer, BagWindow, LeftButtonEnum, list, selectedIndex
   listData = {}
   local propsData = (ActorData.GetPropsData)()
+  local timeStampe = ((LuaTime.GetTimeStamp)())
+  local arenaTicket, duration = nil, nil
   for _,v in ipairs(propsData) do
     local data = ((TableData.gTable).BasePropData)[v.id]
-    if tonumber(data.bag_type) == tonumber(currentIndex + 1) then
-      (table.insert)(listData, v)
-    end
-  end
-  if currentIndex == LeftButtonEnum.Equip then
-    for _,v in ipairs(EquiptData.Equipments) do
-      if not v.identify then
-        (table.insert)(listData, v)
+    -- DECOMPILER ERROR at PC39: Unhandled construct in 'MakeBoolean' P1
+
+    -- DECOMPILER ERROR at PC39: Unhandled construct in 'MakeBoolean' P1
+
+    if tonumber(data.bag_type) == tonumber(currentIndex + 1) and v.id == ARENA_TICKET and v.time ~= nil and timeStampe < v.time + data.time then
+      duration = data.time
+      if arenaTicket == nil then
+        arenaTicket = (Util.Copy)(v)
+      else
+        arenaTicket.count = arenaTicket.count + v.count
+      end
+      if v.time >= arenaTicket.time or not v.time then
+        do
+          arenaTicket.time = arenaTicket.time
+          ;
+          (table.insert)(listData, v)
+          -- DECOMPILER ERROR at PC67: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+          -- DECOMPILER ERROR at PC67: LeaveBlock: unexpected jumping out IF_STMT
+
+          -- DECOMPILER ERROR at PC67: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+          -- DECOMPILER ERROR at PC67: LeaveBlock: unexpected jumping out IF_STMT
+
+        end
       end
     end
   end
-  do
+  if arenaTicket ~= nil then
+    loge("竞技场扫荡券获得时间:" .. arenaTicket.time)
     ;
-    (BagWindow.SetItemDefault)()
-    if currentIndex ~= LeftButtonEnum.Equip then
-      (table.sort)(listData, function(a, b, ...)
-    -- function num : 0_2_0 , upvalues : _ENV
+    (table.insert)(listData, arenaTicket)
+    local time = arenaTicket.time + duration - timeStampe + 1
+    if time > 0 then
+      _refreshTimer = (SimpleTimer.setTimeout)(time, function(...)
+    -- function num : 0_2_0 , upvalues : BagWindow
+    (BagWindow.RefreshList)()
+  end
+)
+    end
+  end
+  do
+    if currentIndex == LeftButtonEnum.Equip then
+      for _,v in ipairs(EquiptData.Equipments) do
+        if not v.identify then
+          (table.insert)(listData, v)
+        end
+      end
+    end
+    do
+      ;
+      (BagWindow.SetItemDefault)()
+      if currentIndex ~= LeftButtonEnum.Equip then
+        (table.sort)(listData, function(a, b, ...)
+    -- function num : 0_2_1 , upvalues : _ENV
     local aData = ((TableData.gTable).BasePropData)[a.id]
     local bData = ((TableData.gTable).BasePropData)[b.id]
     local aSort = aData.sort * 1e+14
@@ -100,10 +141,11 @@ BagWindow.RefreshList = function(...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
+      end
+      list.numItems = #listData
+      ;
+      (BagWindow.RefreshDetail)(selectedIndex + 1)
     end
-    list.numItems = #listData
-    ;
-    (BagWindow.RefreshDetail)(selectedIndex + 1)
   end
 end
 
@@ -303,17 +345,17 @@ BagWindow.RefreshDetail = function(index, ...)
           ;
           (BagWindow.SetDetailSecondBtn)(data)
           ;
-          (Util.SetItemFrame)((uis.ItemFrameGrp).root, data.id, data.count)
+          (Util.SetItemFrame)((uis.ItemFrameGrp).root, data.id, data.count, nil, nil, nil, nil, data.time)
         else
-          -- DECOMPILER ERROR at PC106: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC108: Confused about usage of register: R3 in 'UnsetPending'
 
           if currentIndex == LeftButtonEnum.Debris then
             (uis.CancleBtn).visible = false
-            -- DECOMPILER ERROR at PC108: Confused about usage of register: R3 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC110: Confused about usage of register: R3 in 'UnsetPending'
 
             ;
             (uis.UseBtn).visible = true
-            -- DECOMPILER ERROR at PC114: Confused about usage of register: R3 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC116: Confused about usage of register: R3 in 'UnsetPending'
 
             ;
             (uis.UseBtn).text = (PUtil.get)(20000030)
@@ -330,16 +372,16 @@ BagWindow.RefreshDetail = function(index, ...)
               (Util.SetEquipFrame)((uis.EquiotIcon).root, data)
               ;
               (BagWindow.SetEquipInfo)(data)
-              -- DECOMPILER ERROR at PC142: Confused about usage of register: R3 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC144: Confused about usage of register: R3 in 'UnsetPending'
 
               ;
               (uis.UseBtn).visible = true
-              -- DECOMPILER ERROR at PC151: Confused about usage of register: R3 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC153: Confused about usage of register: R3 in 'UnsetPending'
 
               if data.identify then
                 (uis.UseBtn).text = (PUtil.get)(20000209)
               else
-                -- DECOMPILER ERROR at PC158: Confused about usage of register: R3 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC160: Confused about usage of register: R3 in 'UnsetPending'
 
                 ;
                 (uis.UseBtn).text = (PUtil.get)(20000210)
@@ -358,15 +400,15 @@ BagWindow.RefreshDetail = function(index, ...)
             end
           end
         end
-        -- DECOMPILER ERROR at PC166: Confused about usage of register: R3 in 'UnsetPending'
-
-        ;
-        (uis.ItemNameTxt).text = propData.name
         -- DECOMPILER ERROR at PC168: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
+        (uis.ItemNameTxt).text = propData.name
+        -- DECOMPILER ERROR at PC170: Confused about usage of register: R3 in 'UnsetPending'
+
+        ;
         (uis.WordTxt).UBBEnabled = true
-        -- DECOMPILER ERROR at PC171: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC173: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
         (uis.WordTxt).text = propData.remark
@@ -409,8 +451,8 @@ BagWindow.SetDetailSecondBtn = function(data, ...)
     (uis.UseBtn).text = (PUtil.get)(20000032)
     ;
     ((uis.UseBtn).onClick):Set(function(...)
-    -- function num : 0_9_0 , upvalues : data, propData, _ENV
-    if data.count > 1 and propData.type ~= PropItemType.GIFT_OPTIONAL_BREAK then
+    -- function num : 0_9_0 , upvalues : data, _ENV, propData
+    if data.id ~= ARENA_TICKET and data.count > 1 and propData.type ~= PropItemType.GIFT_OPTIONAL_BREAK then
       OpenWindow((WinResConfig.BagSellAndBuyWindow).name, UILayer.HUD, data.id, 2, data.objectIndex)
     else
       ;
@@ -418,32 +460,45 @@ BagWindow.SetDetailSecondBtn = function(data, ...)
     end
   end
 )
+    -- DECOMPILER ERROR at PC30: Confused about usage of register: R2 in 'UnsetPending'
+
+    if propData.time > 0 then
+      (uis.EquiptTxt).visible = true
+      local str = "[color=" .. Const.WhiteColor .. "]" .. (PUtil.get)(96) .. "[/color]"
+      do
+        str = str .. "[color=" .. Const.GreenColor .. "]" .. (LuaTime.GetLeftTimeStr)(data.time + propData.time, true) .. "[/color]"
+        -- DECOMPILER ERROR at PC56: Confused about usage of register: R3 in 'UnsetPending'
+
+        ;
+        (uis.EquiptTxt).text = str
+      end
+    end
   else
-    -- DECOMPILER ERROR at PC31: Confused about usage of register: R2 in 'UnsetPending'
+    do
+      -- DECOMPILER ERROR at PC62: Confused about usage of register: R2 in 'UnsetPending'
 
-    if propData.go_to_id then
-      (uis.UseBtn).visible = true
-      -- DECOMPILER ERROR at PC37: Confused about usage of register: R2 in 'UnsetPending'
+      if propData.go_to_id then
+        (uis.UseBtn).visible = true
+        -- DECOMPILER ERROR at PC68: Confused about usage of register: R2 in 'UnsetPending'
 
-      ;
-      (uis.UseBtn).text = (PUtil.get)(20000030)
-      ;
-      ((uis.UseBtn).onClick):Set(function(...)
+        ;
+        (uis.UseBtn).text = (PUtil.get)(20000030)
+        ;
+        ((uis.UseBtn).onClick):Set(function(...)
     -- function num : 0_9_1 , upvalues : _ENV, data
     (Util.ShowGetWay)(data.id)
   end
 )
-    else
-      -- DECOMPILER ERROR at PC50: Confused about usage of register: R2 in 'UnsetPending'
+      else
+        -- DECOMPILER ERROR at PC81: Confused about usage of register: R2 in 'UnsetPending'
 
-      if propData.type == PropItemType.COMPOUND_DEBRIS then
-        (uis.UseBtn).visible = true
-        -- DECOMPILER ERROR at PC56: Confused about usage of register: R2 in 'UnsetPending'
+        if propData.type == PropItemType.COMPOUND_DEBRIS then
+          (uis.UseBtn).visible = true
+          -- DECOMPILER ERROR at PC87: Confused about usage of register: R2 in 'UnsetPending'
 
-        ;
-        (uis.UseBtn).text = (PUtil.get)(20000244)
-        local count = (ActorData.GetPropsByID)(data.id)
-        do
+          ;
+          (uis.UseBtn).text = (PUtil.get)(20000244)
+          local count = (ActorData.GetPropsByID)(data.id)
           local baseProp = ((TableData.gTable).BasePropData)[data.id]
           local effect = split(baseProp.effect_value, ":")
           local singleNum = tonumber(effect[2])
@@ -468,13 +523,13 @@ BagWindow.SetDetailSecondBtn = function(data, ...)
     end
   end
 )
-        end
-      else
-        do
-          -- DECOMPILER ERROR at PC94: Confused about usage of register: R2 in 'UnsetPending'
+        else
+          do
+            -- DECOMPILER ERROR at PC125: Confused about usage of register: R2 in 'UnsetPending'
 
-          ;
-          (uis.UseBtn).visible = false
+            ;
+            (uis.UseBtn).visible = false
+          end
         end
       end
     end
@@ -576,7 +631,11 @@ BagWindow.OnClickClose = function(...)
 end
 
 BagWindow.OnClose = function(...)
-  -- function num : 0_16 , upvalues : _ENV, selectedIndex, contentPane, uis, list
+  -- function num : 0_16 , upvalues : _refreshTimer, _ENV, selectedIndex, contentPane, uis, list
+  if _refreshTimer ~= nil then
+    _refreshTimer:stop()
+  end
+  ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.BagWindow).name)
   selectedIndex = 0
   contentPane = nil

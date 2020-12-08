@@ -136,7 +136,7 @@ end
 GuildBuildingWindow.OnClose = function(...)
   -- function num : 0_11 , upvalues : _tweener, _ENV, GuildBuildingWindow, _loopEffect, _waterEffect, uis, contentPane, argTable
   if _tweener ~= nil then
-    _tweener:Kill()
+    _tweener:SetPaused()
   end
   ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.GuildBuildingWindow).name)
@@ -179,15 +179,17 @@ GuildBuildingWindow.RefreshRewards = function(...)
     if _tweener == nil then
       beginPos = WATER_MIN_POS + (WATER_MAX_POS - WATER_MIN_POS) * _showingProgress / maxVigour
     else
-      _tweener:Kill()
+      _tweener:SetPaused()
       beginPos = (_progressCom.localPosition).y
     end
     local endPos = WATER_MIN_POS + (WATER_MAX_POS - WATER_MIN_POS) * vigour / maxVigour
     _tweener = (((FairyGUI.GTween).To)(beginPos, endPos, 0.5)):SetEase((FairyGUI.EaseType).Linear)
     ;
     (_tweener:OnUpdate(function(...)
-    -- function num : 0_12_0 , upvalues : _progressCom, _ENV, _tweener
-    _progressCom.localPosition = Vector3((_progressCom.localPosition).x, (_tweener.value).x, (_progressCom.localPosition).z)
+    -- function num : 0_12_0 , upvalues : _tweener, _progressCom, _ENV
+    if _tweener ~= nil then
+      _progressCom.localPosition = Vector3((_progressCom.localPosition).x, (_tweener.value).x, (_progressCom.localPosition).z)
+    end
   end
 )):OnComplete(function(...)
     -- function num : 0_12_1 , upvalues : _tweener

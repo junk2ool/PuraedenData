@@ -94,6 +94,12 @@ SkillTipsWindow.GetDetailTxt = function(text, ...)
     end
   end
   do
+    if (string.find)(text, "damage_E1") ~= nil then
+      text = (string.gsub)(text, "damage_E1", (SkillTipsWindow.Damage_E)(1))
+    end
+    if (string.find)(text, "damage_E2") ~= nil then
+      text = (string.gsub)(text, "damage_E2", (SkillTipsWindow.Damage_E)(2))
+    end
     return text
   end
 end
@@ -124,13 +130,23 @@ SkillTipsWindow.Damage_C = function(cIndex, ...)
   -- function num : 0_6 , upvalues : _ENV, skillData, skillLevel
   local number = 0
   local attr = (split((split(skillData.add_attr, ","))[cIndex], ":"))[3]
-  number = (math.abs)(attr) * skillLevel
-  local str = ""
-  if number > 0 then
-    str = tostring(number)
+  local extraAttr = 0
+  if skillData.add_attr_type ~= 0 then
+    for key,value in pairs((TableData.gTable).BaseSkillAttrData) do
+      if value.level == skillLevel and value.type == skillData.add_attr_type then
+        extraAttr = tonumber((split(value.add_attr, ":"))[3])
+      end
+    end
   end
-  local final = (string.sub)(str, 1, -3)
-  return final
+  do
+    number = (math.abs)(attr) * skillLevel + extraAttr
+    local str = ""
+    if number > 0 then
+      str = tostring(number)
+    end
+    local final = (string.sub)(str, 1, -3)
+    return final
+  end
 end
 
 SkillTipsWindow.Damage_D = function(buffId, ...)
@@ -147,8 +163,24 @@ SkillTipsWindow.Damage_D = function(buffId, ...)
   return str
 end
 
+SkillTipsWindow.Damage_E = function(index, ...)
+  -- function num : 0_8 , upvalues : _ENV, skillData, cardData
+  local buffId = (split(skillData.star_config_id, ":"))[index]
+  local buffData = (TableData.GetBaseSkillBuffData)(tonumber(buffId))
+  local starConfig = buffData.star_config
+  local starNums = split(starConfig, ":")
+  local number = starNums[cardData.star]
+  number = number * 0.01
+  local str = ""
+  if number > 0 then
+    str = tostring(number)
+  end
+  local final = (string.sub)(str, 1, -3)
+  return final
+end
+
 SkillTipsWindow.RefreshWindow_SKILL = function(...)
-  -- function num : 0_8 , upvalues : uis, _ENV, skillData, skillLevel, cardData, starUrl, SkillTipsWindow
+  -- function num : 0_9 , upvalues : uis, _ENV, skillData, skillLevel, cardData, starUrl, SkillTipsWindow
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.SkillTipsGrp).SkillTypeTxt).text = (PUtil.get)(49)
@@ -180,34 +212,44 @@ SkillTipsWindow.RefreshWindow_SKILL = function(...)
 
           ;
           ((uis.SkillTipsGrp).c2Ctr).selectedIndex = 0
+        else
+          -- DECOMPILER ERROR at PC46: Confused about usage of register: R1 in 'UnsetPending'
+
+          if skillType == 6 then
+            (((uis.SkillTipsGrp).SkillFrameGrp).c1Ctr).selectedIndex = 3
+            -- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
+
+            ;
+            ((uis.SkillTipsGrp).c2Ctr).selectedIndex = 3
+          end
         end
       end
     end
-    -- DECOMPILER ERROR at PC43: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC53: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     ((uis.SkillTipsGrp).SkillNameTxt).text = skillData.name
-    -- DECOMPILER ERROR at PC55: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
 
     if skillLevel > 0 then
       ((uis.SkillTipsGrp).SkillLevelTxt).text = (PUtil.get)(53) .. skillLevel
     else
-      -- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC69: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       ((uis.SkillTipsGrp).SkillLevelTxt).text = ""
     end
-    -- DECOMPILER ERROR at PC66: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC76: Confused about usage of register: R1 in 'UnsetPending'
 
     if skillData.need_star <= cardData.star then
       ((uis.SkillTipsGrp).OpenConditionTxt).text = ""
     else
-      -- DECOMPILER ERROR at PC93: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC103: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       ((uis.SkillTipsGrp).OpenConditionTxt).text = (PUtil.get)(154) .. skillData.need_star .. "<img src=\'" .. starUrl .. "\' " .. "width=\'" .. tostring(26) .. "\' " .. "height=\'" .. tostring(26) .. "\'>" .. (PUtil.get)(171)
     end
-    -- DECOMPILER ERROR at PC101: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC111: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     (((uis.SkillTipsGrp).SkillFrameGrp).SkillLoader).url = (Util.GetResUrl)(skillData.icon_path)
@@ -217,7 +259,7 @@ SkillTipsWindow.RefreshWindow_SKILL = function(...)
 end
 
 SkillTipsWindow.RefreshWindow_TALENT = function(talentInfo, ...)
-  -- function num : 0_9 , upvalues : SkillTipsWindow, _ENV, uis
+  -- function num : 0_10 , upvalues : SkillTipsWindow, _ENV, uis
   (SkillTipsWindow.FreeStylePosition)()
   local talentData = ((TableData.gTable).BaseTalentData)[talentInfo.talentId]
   -- DECOMPILER ERROR at PC14: Confused about usage of register: R2 in 'UnsetPending'
@@ -247,7 +289,7 @@ SkillTipsWindow.RefreshWindow_TALENT = function(talentInfo, ...)
 end
 
 SkillTipsWindow.FreeStylePosition = function(...)
-  -- function num : 0_10 , upvalues : _originYSize, uis, contentPane, _ENV, OffsetNum
+  -- function num : 0_11 , upvalues : _originYSize, uis, contentPane, _ENV, OffsetNum
   _originYSize = ((uis.SkillTipsGrp).TipsImage).height
   local v2 = contentPane:GlobalToLocal(Vector2((Input.mousePosition).x, (Input.mousePosition).y))
   local mHeight = (GRoot.inst).height - v2.y - contentPane.sourceHeight / 2
@@ -276,7 +318,7 @@ SkillTipsWindow.FreeStylePosition = function(...)
 end
 
 SkillTipsWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_11 , upvalues : _ENV, skillData, cardData, skillLevel, isMovePosition, SkillTipsWindow
+  -- function num : 0_12 , upvalues : _ENV, skillData, cardData, skillLevel, isMovePosition, SkillTipsWindow
   local windowMsgEnum = WindowMsgEnum.CardWindow
   if msgId == windowMsgEnum.E_MSG_CARD_SKILLDETAIL then
     skillData = {}
@@ -302,7 +344,7 @@ SkillTipsWindow.HandleMessage = function(msgId, para, ...)
 end
 
 SkillTipsWindow.OnClose = function(...)
-  -- function num : 0_12 , upvalues : cardData, uis, contentPane, skillData, skillLevel, starUrl, isMovePosition
+  -- function num : 0_13 , upvalues : cardData, uis, contentPane, skillData, skillLevel, starUrl, isMovePosition
   cardData = nil
   uis = nil
   contentPane = nil

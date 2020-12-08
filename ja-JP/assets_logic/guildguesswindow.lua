@@ -50,7 +50,7 @@ GuildGuessWindow.OnInit = function(bridgeObj, ...)
   (GuildGuessWindow.InitCups)(true)
   ;
   (GuildGuessWindow.InitBg)()
-  mBg = (uis.root):GetChild("n26")
+  mBg = (uis.root):GetChild("n53")
   ;
   (GuildGuessWindow.SetCurrentReward)()
   -- DECOMPILER ERROR at PC55: Confused about usage of register: R1 in 'UnsetPending'

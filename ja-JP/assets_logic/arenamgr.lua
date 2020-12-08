@@ -8,7 +8,7 @@ ArenaMgr.TryOpenArenaUI = function(callback, ...)
   local interval = (LuaTime.GetTimeStamp)() - ArenaData.LastEnterArenaTimestamp
   -- DECOMPILER ERROR at PC14: Confused about usage of register: R2 in 'UnsetPending'
 
-  if ArenaData.RefreshIntervel < interval then
+  if ArenaData.RefreshIntervel <= interval then
     ArenaData.LastEnterArenaTimestamp = (LuaTime.GetTimeStamp)()
     -- DECOMPILER ERROR at PC16: Confused about usage of register: R2 in 'UnsetPending'
 
@@ -16,8 +16,11 @@ ArenaMgr.TryOpenArenaUI = function(callback, ...)
     ;
     (ArenaService.ReqArenaData)(ArenaRefreshDataType.OpenUI)
   else
-    if (_G.next)(ArenaData.BaseData) ~= nil then
-      (ArenaMgr.OpenArenaUI)()
+    if ArenaData.BaseData ~= nil and ((ArenaData.CheckSettle)() or not (ArenaData.CheckOpen)()) then
+      (MessageMgr.SendCenterTips)((PUtil.get)(60000540))
+    else
+      ;
+      (MessageMgr.SendCenterTips)((PUtil.get)(60000533, (math.ceil)(ArenaData.RefreshIntervel - interval)))
     end
   end
 end
@@ -42,10 +45,15 @@ ArenaMgr.AfterRecvData = function(msg, ...)
   ;
   (ArenaData.InitRewardsStatue)()
   if ArenaData.LastReqOp == ArenaRefreshDataType.OpenUI then
+    if (ArenaData.CheckSettle)() or not (ArenaData.CheckOpen)() then
+      (MessageMgr.SendCenterTips)((PUtil.get)(60000540))
+      return 
+    end
+    ;
     (ArenaMgr.OpenArenaUI)()
     if ArenaData.AfterOpenCallback ~= nil then
       (ArenaData.AfterOpenCallback)()
-      -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC54: Confused about usage of register: R1 in 'UnsetPending'
 
       ArenaData.AfterOpenCallback = nil
     end
@@ -135,11 +143,6 @@ end
 
 ArenaMgr.PreChallengeCheck = function(op, ...)
   -- function num : 0_8 , upvalues : _ENV
-  if (ArenaData.CheckSettle)() then
-    (MessageMgr.SendCenterTips)((PUtil.get)(60000041))
-    UIMgr:SendWindowMessage((WinResConfig.ArenaWindow).name, (WindowMsgEnum.Arena).E_MSG_REFRESH_CHALLENGE_CD)
-    return false
-  end
   if (ArenaData.CheckOpen)() == false then
     if (ArenaData.CheckDayPass)() then
       (ArenaService.ReqArenaData)(op)
@@ -150,6 +153,11 @@ ArenaMgr.PreChallengeCheck = function(op, ...)
       UIMgr:SendWindowMessage((WinResConfig.ArenaWindow).name, (WindowMsgEnum.Arena).E_MSG_REFRESH_CHALLENGE_CD)
       return false
     end
+  end
+  if (ArenaData.CheckSettle)() then
+    (MessageMgr.SendCenterTips)((PUtil.get)(60000041))
+    UIMgr:SendWindowMessage((WinResConfig.ArenaWindow).name, (WindowMsgEnum.Arena).E_MSG_REFRESH_CHALLENGE_CD)
+    return false
   end
   if (ArenaData.BaseData).surNum <= 0 then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000435))

@@ -217,52 +217,62 @@ TowerChallengeWindow.RefreshBasicInfo = function(...)
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.RewardShowGrp).NumberTxt).text = _config.name
-  -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  (((uis.RewardShowGrp).BackImageGrp).ImageLoader).url = (Util.GetItemUrl)((((TableData.gTable).BaseTowerStageData)[argTable.StageId]).battle_banner_show)
-  -- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
+  (((uis.RewardShowGrp).BackImageGrp).ImageLoader).url = (Util.GetItemUrl)(_config.battle_banner_show)
+  -- DECOMPILER ERROR at PC18: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).BackImageGrp).ImageLoader).fill = (FairyGUI.FillType).ScaleNoBorder
   local config = ((TableData.gTable).BaseBuffPreBattleData)[tonumber(_config.buff_id)]
-  -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).BuffGrp).IconLoader).url = (Util.GetItemUrl)(config.icon)
-  -- DECOMPILER ERROR at PC43: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).BuffGrp).NameTxt).text = config.name
-  -- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC43: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).BuffGrp).WordTxt).text = config.remark
-  -- DECOMPILER ERROR at PC53: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).Number_01_Grp).NumberTxt).text = _config.fc
-  -- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).Number_02_Grp).NumberTxt).text = (CardData.GetFormationfc)(TowerData.FormationInfo)
-  -- DECOMPILER ERROR at PC68: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).Reward_02_Tips).LuckNumberTxt).text = TowerData.CurrentLucky
-  -- DECOMPILER ERROR at PC75: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC70: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.RewardShowGrp).BattleNumberTxt).text = (ActorData.GetNumByCost)(_config.cost)
-  -- DECOMPILER ERROR at PC88: Confused about usage of register: R1 in 'UnsetPending'
+  if (((TowerData.BaseInfo)[TowerData.CurrentLayer])[argTable.StageId]).isPass and (FunctionControlMgr.GetFunctionState)(ControlID.TowerDetail_Smash, false) then
+    (((uis.RewardShowGrp).root):GetController("lock")).selectedIndex = 0
+    local sweepCostStr = split(_config.sweep_cost, ":")
+    local count = ((ActorData.GetPropsIDAndNum)(tonumber(sweepCostStr[2]))).count
+    -- DECOMPILER ERROR at PC120: Confused about usage of register: R3 in 'UnsetPending'
 
-  if (((TowerData.BaseInfo)[TowerData.CurrentLayer])[argTable.StageId]).isPass then
-    ((uis.RewardShowGrp).c1Ctr).selectedIndex = 1
+    if count < tonumber(sweepCostStr[3]) then
+      ((uis.RewardShowGrp).SweepNumberTxt).text = "[color=" .. Const.RedColor .. "]" .. count .. "[/color]"
+    else
+      -- DECOMPILER ERROR at PC124: Confused about usage of register: R3 in 'UnsetPending'
+
+      ;
+      ((uis.RewardShowGrp).SweepNumberTxt).text = count
+    end
   else
-    -- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
-
-    ;
-    ((uis.RewardShowGrp).c1Ctr).selectedIndex = 0
+    do
+      ;
+      (((uis.RewardShowGrp).root):GetController("lock")).selectedIndex = 1
+    end
   end
 end
 

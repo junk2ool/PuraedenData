@@ -5,6 +5,8 @@ BasePlayData = {
 , 
 [76000002] = {id = 76000002, type = 2, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", reset_time = "1:0500:MX0", set_speed = 3, double_activity_id = "33000202"}
 , 
+[76000003] = {id = 76000003, type = 101, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", set_speed = 3, double_activity_id = "0"}
+, 
 [76000010] = {id = 76000010, type = 10, cd = "0", cd_cost = "2:21100001:10", free_times = 2, open_time = "7:0000:HX24", win_reward = "0", lose_reward = "0", reset_time = "1:0500:MX0", set_speed = 3, double_activity_id = "33000211:33000212:33000213:33000214"}
 , 
 [76000011] = {id = 76000011, type = 11, cd = "0", cd_cost = "2:21100001:10", free_times = 2, open_time = "7:0000:HX24", win_reward = "0", lose_reward = "0", reset_time = "1:0500:MX0", set_speed = 3, double_activity_id = "33000221:33000222:33000223:33000224"}
@@ -23,7 +25,8 @@ BasePlayData = {
 , 
 [76000070] = {id = 76000070, type = 70, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", set_speed = 3, double_activity_id = "0"}
 , 
-[76000003] = {id = 76000003, type = 101, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", set_speed = 3, double_activity_id = "0"}
+[76000080] = {id = 76000080, type = 80, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", set_speed = 3, double_activity_id = "0"}
+, 
+[76000090] = {id = 76000090, type = 90, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", background_path = "BattleScene_1005", set_speed = 3, double_activity_id = "0"}
 }
-return BasePlayData
 

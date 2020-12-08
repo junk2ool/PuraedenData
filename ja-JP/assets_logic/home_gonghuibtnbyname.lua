@@ -7,6 +7,7 @@ GetHome_GonghuiBtnUis = function(ui, ...)
   uis.RedDot = GetCommonResource_RedDollUis(ui:GetChild("RedDot"))
   uis.buttonCtr = ui:GetController("button")
   uis.lockCtr = ui:GetController("lock")
+  uis.ClothesCtr = ui:GetController("Clothes")
   uis.root = ui
   return uis
 end

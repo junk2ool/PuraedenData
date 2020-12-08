@@ -389,7 +389,7 @@ BaseTaskBoxData = {
 , 
 [31030103] = {id = 31030103, type = 3, group = 2, sort = 3, pre = 31030002, next = 31030004, reset_time = "2:10500:MX0", liveness = 120, reward = "1:21160002:5"}
 , 
-[31030104] = {id = 31030104, type = 3, group = 2, sort = 4, pre = 31030003, next = 31030005, reset_time = "2:10500:MX0", liveness = 200, reward = "1:21500306:1"}
+[31030104] = {id = 31030104, type = 3, group = 2, sort = 4, pre = 31030003, next = 31030005, reset_time = "2:10500:MX0", liveness = 200, reward = "1:21500307:1"}
 , 
 [31030105] = {id = 31030105, type = 3, group = 2, sort = 5, pre = 31030004, next = 31030006, reset_time = "2:10500:MX0", liveness = 220, reward = "2:21100001:50"}
 , 

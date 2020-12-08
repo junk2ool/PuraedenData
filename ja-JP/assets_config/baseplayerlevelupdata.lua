@@ -140,6 +140,13 @@ BasePlayerLevelUpData = {
 [72300069] = {id = 72300069, next_exp = 4765, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 69, reward = "2:21100004:60"}
 , 
 [72300070] = {id = 72300070, next_exp = 5130, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 70, reward = "2:21100004:60"}
+, 
+[72300071] = {id = 72300071, next_exp = 6750, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 71, reward = "2:21100004:60"}
+, 
+[72300072] = {id = 72300072, next_exp = 8100, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 72, reward = "2:21100004:60"}
+, 
+[72300073] = {id = 72300073, next_exp = 9450, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 73, reward = "2:21100004:60"}
+, 
+[72300074] = {id = 72300074, next_exp = 10500, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 74, reward = "2:21100004:60"}
 }
-return BasePlayerLevelUpData
 

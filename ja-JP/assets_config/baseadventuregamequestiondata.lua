@@ -7,7 +7,7 @@ BaseAdventureGameQuestionData = {
 , 
 [76440003] = {id = 76440003, description = "どこから冒険者の突破素材を手に入れますか？", type = 1, open_range = "3:99", answer1 = "ストーリーと様々な冒険", answer2 = "神に祈る", answer3 = "冒険者自分で何とかする", right_answer = "1", event_id = "76420301"}
 , 
-[76440004] = {id = 76440004, description = "冒険者が突破しても変化しないものは何ですか？", type = 1, open_range = "3:99", answer1 = "幸運値", answer2 = "基礎ステータス", answer3 = "戦闘力", right_answer = "1", event_id = "76420301"}
+[76440004] = {id = 76440004, description = "冒険者が突破しても変化しないものは何ですか？", type = 1, open_range = "3:99", answer1 = "性別", answer2 = "基礎ステータス", answer3 = "戦闘力", right_answer = "1", event_id = "76420301"}
 , 
 [76440005] = {id = 76440005, description = "日常討伐で獲得できないものは何ですか？", type = 1, open_range = "20:99", answer1 = "ダイヤ", answer2 = "経験薬剤", answer3 = "金貨", right_answer = "1", event_id = "76420301"}
 , 
@@ -21,7 +21,7 @@ BaseAdventureGameQuestionData = {
 , 
 [76440010] = {id = 76440010, description = "装備の入手方法はなんですか？", type = 1, open_range = "24:99", answer1 = "天の塔に挑戦する", answer2 = "他のプレイヤーに強要する", answer3 = "騎士団の配布を待つ", right_answer = "1", event_id = "76420301"}
 , 
-[76440011] = {id = 76440011, description = "余分の装備をどうやって処理すればいいですか？", type = 1, open_range = "24:99", answer1 = "星の砂に分解する", answer2 = "騎士団に贈る", answer3 = "冒険ギルドに贈る", right_answer = "1", event_id = "76420301"}
+[76440011] = {id = 76440011, description = "余分な装備はどうやって処理すればいいでしょう？", type = 1, open_range = "24:99", answer1 = "星の砂に分解する", answer2 = "騎士団に贈る", answer3 = "冒険ギルドに贈る", right_answer = "1", event_id = "76420301"}
 , 
 [76440012] = {id = 76440012, description = "冒険者の幸運値にはどんな役割がありますか？", type = 1, open_range = "24:99", answer1 = "天の塔でのドロップ率を上げる", answer2 = "募集の確率を上げる", answer3 = "会心の確率を上げる", right_answer = "1", event_id = "76420301"}
 , 
@@ -33,7 +33,7 @@ BaseAdventureGameQuestionData = {
 , 
 [76440016] = {id = 76440016, description = "どうやって冒険者の好感度を上げますか？", type = 1, open_range = "20:99", answer1 = "贈り物をする", answer2 = "毎日10回告白する", answer3 = "良い装備を着用する", right_answer = "1", event_id = "76420301"}
 , 
-[76440017] = {id = 76440017, description = "冒険者の好感度を上げるとどんなメリットがありますか？", type = 1, open_range = "20:99", answer1 = "幕間物語が解放される", answer2 = "冒険者の戦闘力が上がる", answer3 = "新しい立ち絵が入手できる", right_answer = "1", event_id = "76420301"}
+[76440017] = {id = 76440017, description = "冒険者の好感度を上げるとどんなメリットがありますか？", type = 1, open_range = "20:99", answer1 = "幕間物語が解放される", answer2 = "特にないです", answer3 = "新しい立ち絵が入手できる", right_answer = "1", event_id = "76420301"}
 , 
 [76440018] = {id = 76440018, description = "1日に何回遠征できますか？", type = 1, open_range = "30:99", answer1 = "一回", answer2 = "五回", answer3 = "無限回", right_answer = "1", event_id = "76420301"}
 , 
@@ -79,7 +79,7 @@ BaseAdventureGameQuestionData = {
 , 
 [76440039] = {id = 76440039, description = "何度も誘拐されたフラワーは、どんな性格ですか？", type = 1, open_range = "45:99", answer1 = "優しい、慈愛", answer2 = "冷たい、暗い", answer3 = "誘惑、魅力的", right_answer = "1", event_id = "76420301"}
 , 
-[76440040] = {id = 76440040, description = "以下からエヴァンテの興味ではないものを選んで下さい。", type = 1, open_range = "30:99", answer1 = "仕事", answer2 = "ゲーム", answer3 = "漫画を読む", right_answer = "1", event_id = "76420301"}
+[76440040] = {id = 76440040, description = "以下からエヴァンテの趣味ではないものを選んで下さい。", type = 1, open_range = "30:99", answer1 = "仕事", answer2 = "ゲーム", answer3 = "漫画を読む", right_answer = "1", event_id = "76420301"}
 , 
 [76440041] = {id = 76440041, description = "エヴァンテは女神を担当している時、主な仕事は何ですか？", type = 1, open_range = "3:99", answer1 = "転生", answer2 = "教え諭す", answer3 = "芸術創造", right_answer = "1", event_id = "76420301"}
 , 

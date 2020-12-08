@@ -37,7 +37,7 @@ HeroDungeonMainWindow.OnInit = function(bridge, ...)
   ;
   ((uis.SweepBtn).onClick):Set(function(...)
     -- function num : 0_0_0 , upvalues : _ENV
-    OpenWindow((WinResConfig.FastSweepWindow).name, UILayer.HUD)
+    OpenWindow((WinResConfig.FastSweepWindow).name, UILayer.HUD, DungeonType.HeroDungeon)
   end
 )
   ;

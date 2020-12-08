@@ -8,7 +8,12 @@ loge = (CS.Debugger).LogError
 logw = (CS.Debugger).LogWarning
 ;
 (math.randomseed)((os.time)())
-Game = {resolutionRatioMax = 10000, resolutionRatioMin = 5500, defaultBattleFrame = "0", defaultPlotCharacterType = 2, lua_name = ".lua", testPackage = true, enableGM = false, jumpOverture = false, jumpNewHand = false, ruleAndPrivacy = "RuleAndPrivacy1", timeZone = 9}
+require("GameConfig")
+require("IosReviewConfig")
+Game = GameConfig
+-- DECOMPILER ERROR at PC29: Confused about usage of register: R3 in 'UnsetPending'
+
+Game.ruleAndPrivacy = "RuleAndPrivacy2"
 local Game = Game
 DesignScreen = {width = 1334, height = 750}
 ld = function(folder_name, callBack, ...)
@@ -88,6 +93,18 @@ local LoadScript = function(...)
   CommonWinMgr = require("CommonWinMgr")
   EventHelper = require("EventHelper")
   Json = require("Json")
+  -- DECOMPILER ERROR at PC55: Confused about usage of register: R0 in 'UnsetPending'
+
+  if IsIOSReview == true then
+    if ((TableData.gTable).BaseCardData)[11202008] then
+      (((TableData.gTable).BaseCardData)[11202008]).open_time = "1636512216"
+    end
+    -- DECOMPILER ERROR at PC66: Confused about usage of register: R0 in 'UnsetPending'
+
+    if ((TableData.gTable).BaseCardData)[11300011] then
+      (((TableData.gTable).BaseCardData)[11300011]).open_time = "1636512216"
+    end
+  end
 end
 
 local InitSound = function(...)
@@ -164,6 +181,8 @@ local LoadLuaScript = function(...)
   UIMgr:LoadPackage("UIBackground990x450")
   UIMgr:LoadPackage("Message")
   UIMgr:LoadPackage("LotteryLines")
+  UIMgr:LoadPackage("Title")
+  UIMgr:LoadPackage("CardHeadFrame")
   local wh = Screen.width / Screen.height
   Game.isPad = wh < 1.35
   Game.useSDK = SDKUtil.useSDK
@@ -188,7 +207,7 @@ end
 
 local isAlreadyPlayVoice = false
 local LoadAfterLoginShow = function(...)
-  -- function num : 0_6 , upvalues : LoadCSVar, LoadScript, LoadLuaScript, InitSound, InitCamera, Game, _ENV, isAlreadyPlayVoice
+  -- function num : 0_6 , upvalues : LoadCSVar, LoadScript, LoadLuaScript, InitSound, InitCamera, Game, _ENV
   LoadCSVar()
   LoadScript()
   LoadLuaScript()
@@ -203,13 +222,6 @@ local LoadAfterLoginShow = function(...)
     (ActorService.OnInitDirtyWordData)()
   end
 )
-  if isAlreadyPlayVoice ~= true then
-    local delayTime = tonumber((((TableData.gTable).BaseFixedData)[72010050]).array_value)
-    if delayTime then
-      (LeanTween.delayedCall)(delayTime / 1000, ActorMgr.PlayEnterSound)
-      isAlreadyPlayVoice = true
-    end
-  end
 end
 
 local OpenLoginWindow = function(...)
@@ -233,13 +245,18 @@ local OpenLoginWindow = function(...)
       end
 , "お知らせ", "予約へ")
       end
-      ld("RedDot")
-      ld("Activity")
-      ld("Announcement", function(...)
+      UIMgr:SendWindowMessage((WinResConfig.LoginWindow).name, (WindowMsgEnum.LoginWindow).E_MSG_REFRESH_EFFECT, function(...)
         -- function num : 0_7_0_0_1 , upvalues : _ENV
-        (AnnouncementMgr.OpenAnnouncement)(true)
+        ld("RedDot")
+        ld("Activity")
+        ld("Announcement", function(...)
+          -- function num : 0_7_0_0_1_0 , upvalues : _ENV
+          (AnnouncementMgr.OpenAnnouncement)(true)
+        end
+)
       end
 )
+      ld("Friends")
     end
 )
     ;
@@ -252,6 +269,9 @@ local Init = function(...)
   -- function num : 0_8 , upvalues : _ENV, OpenLoginWindow
   InitScreenResolution()
   OpenLoginWindow()
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
+
+  Input.multiTouchEnabled = false
 end
 
 Game.EnlargeTextTexture = function(...)

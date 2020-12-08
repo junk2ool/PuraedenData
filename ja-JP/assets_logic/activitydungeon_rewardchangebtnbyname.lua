@@ -11,6 +11,7 @@ GetActivityDungeon_RewardChangeBtnUis = function(ui, ...)
   uis.RedDot = GetCommonResource_RedDollUis(ui:GetChild("RedDot"))
   uis.n12 = GetActivityDungeon_LineUis(ui:GetChild("n12"))
   uis.buttonCtr = ui:GetController("button")
+  uis.c1Ctr = ui:GetController("c1")
   uis.root = ui
   return uis
 end

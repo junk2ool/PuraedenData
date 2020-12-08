@@ -171,6 +171,8 @@ AdventureGameWindow.Init = function(...)
   -- function num : 0_13 , upvalues : _ENV, AdventureGameWindow
   (LuaSound.LoadAndPlayBGM)(1010005)
   ;
+  (AdventureGameWindow.InitMultiPlayBtn)()
+  ;
   (AdventureGameWindow.InitMap)((AdventureData.CurrentMapConfig).id)
   ;
   (AdventureGameWindow.InitRole)(AdventureData.CurrentNode)
@@ -249,8 +251,25 @@ AdventureGameWindow.SetCharacterPosition = function(pos, ...)
   _shadow:InvalidateBatchingState()
 end
 
+AdventureGameWindow.InitMultiPlayBtn = function(...)
+  -- function num : 0_18 , upvalues : _ENV, uis
+  local times = (math.ceil)((ActorData.GetAssetCount)(AssetType.ENDURANCE) / (AdventureData.CurrentMapConfig).dice_cost)
+  local playedTimes = (Util.GetIntPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_MOVE_TIMES)
+  -- DECOMPILER ERROR at PC26: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  (uis.TenTimeBtn).visible = times ~= 0 and AdventureData.FIXED_MOVE_TIMES <= playedTimes
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  (uis.TenTimeBtn).touchable = true
+  ;
+  ((uis.TenTimeBtn):GetChild("NumberTxt")).text = times
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+end
+
 AdventureGameWindow.InitMap = function(mapId, ...)
-  -- function num : 0_18 , upvalues : _nodes, _map, _startEffect, uis, _finishEffect, _currentMapPkg, _ENV, _mapLimit, MAP_EXTRA_DISTANCE, _swipe, contentPane, AdventureGameWindow, DRAG_MAP_STOP_DURATION, _currentDragStatue, _shadow
+  -- function num : 0_19 , upvalues : _nodes, _map, _startEffect, uis, _finishEffect, _currentMapPkg, _ENV, _mapLimit, MAP_EXTRA_DISTANCE, _swipe, contentPane, AdventureGameWindow, DRAG_MAP_STOP_DURATION, _currentDragStatue, _shadow
   if _nodes.MapId == mapId then
     return 
   end
@@ -282,15 +301,15 @@ AdventureGameWindow.InitMap = function(mapId, ...)
   contentPane.disableSound = true
   ;
   (_swipe.onMove):Add(function(...)
-    -- function num : 0_18_0 , upvalues : AdventureGameWindow, _swipe
+    -- function num : 0_19_0 , upvalues : AdventureGameWindow, _swipe
     (AdventureGameWindow.MoveMap)(_swipe.delta)
   end
 )
   ;
   (_swipe.onEnd):Add(function(...)
-    -- function num : 0_18_1 , upvalues : _ENV, _map, AdventureGameWindow, _swipe, DRAG_MAP_STOP_DURATION
+    -- function num : 0_19_1 , upvalues : _ENV, _map, AdventureGameWindow, _swipe, DRAG_MAP_STOP_DURATION
     (LeanTween.value)((_map.displayObject).gameObject, function(value, ...)
-      -- function num : 0_18_1_0 , upvalues : AdventureGameWindow
+      -- function num : 0_19_1_0 , upvalues : AdventureGameWindow
       (AdventureGameWindow.MoveMap)(value)
     end
 , Vector2((_swipe.velocity).x, (_swipe.velocity).y) * 0.01, Vector2.zero, DRAG_MAP_STOP_DURATION)
@@ -306,7 +325,7 @@ AdventureGameWindow.InitMap = function(mapId, ...)
 end
 
 AdventureGameWindow.ChangeMap = function(mapId, NodeId, callback, ...)
-  -- function num : 0_19 , upvalues : uis, _shadow, AdventureGameWindow
+  -- function num : 0_20 , upvalues : uis, _shadow, AdventureGameWindow
   (uis.root):AddChild(_shadow)
   ;
   (uis.root):AddChild(uis.CardLoader)
@@ -324,7 +343,7 @@ AdventureGameWindow.ChangeMap = function(mapId, NodeId, callback, ...)
 end
 
 AdventureGameWindow.PlayMapNameAnim = function(mapId, ...)
-  -- function num : 0_20 , upvalues : uis, _ENV, _mapNameAnim
+  -- function num : 0_21 , upvalues : uis, _ENV, _mapNameAnim
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
   (((uis.SceneCutMove).SceneCut).c1Ctr).selectedIndex = (((TableData.gTable).BaseAdventureMapData)[mapId]).type
@@ -333,7 +352,7 @@ AdventureGameWindow.PlayMapNameAnim = function(mapId, ...)
   ;
   ((uis.SceneCutMove).root).visible = true
   _mapNameAnim:Play(function(...)
-    -- function num : 0_20_0 , upvalues : uis
+    -- function num : 0_21_0 , upvalues : uis
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.SceneCutMove).root).visible = false
@@ -342,12 +361,12 @@ AdventureGameWindow.PlayMapNameAnim = function(mapId, ...)
 end
 
 AdventureGameWindow.MoveMap = function(delta, ...)
-  -- function num : 0_21 , upvalues : AdventureGameWindow, _map
+  -- function num : 0_22 , upvalues : AdventureGameWindow, _map
   (AdventureGameWindow.SetMapPos)(_map.x + delta.x, _map.y + delta.y)
 end
 
 AdventureGameWindow.SetMapPos = function(posX, posY, ...)
-  -- function num : 0_22 , upvalues : _map, _mapLimit
+  -- function num : 0_23 , upvalues : _map, _mapLimit
   if _map == nil then
     return 
   end
@@ -371,7 +390,7 @@ AdventureGameWindow.SetMapPos = function(posX, posY, ...)
 end
 
 AdventureGameWindow.InitNode = function(index, config, suffix, ...)
-  -- function num : 0_23 , upvalues : _nodes, _map, _ENV, AdventureGameWindow, _startEffect, _finishEffect
+  -- function num : 0_24 , upvalues : _nodes, _map, _ENV, AdventureGameWindow, _startEffect, _finishEffect
   local spot = nil
   while 1 do
     while 1 do
@@ -389,11 +408,15 @@ AdventureGameWindow.InitNode = function(index, config, suffix, ...)
 
       ;
       (_nodes[config.id]).Effect = ((_nodes[config.id]).Node):GetChild("Position")
-      -- DECOMPILER ERROR at PC43: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC48: Confused about usage of register: R4 in 'UnsetPending'
+
+      ;
+      (_nodes[config.id]).EffectCtrl = ((_nodes[config.id]).Effect):GetController("c1")
+      -- DECOMPILER ERROR at PC52: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       ((_nodes[config.id]).Effect).visible = false
-      -- DECOMPILER ERROR at PC52: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC61: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (_nodes[config.id]).Anim = ((_nodes[config.id]).Effect):GetTransition("in")
@@ -409,9 +432,9 @@ AdventureGameWindow.InitNode = function(index, config, suffix, ...)
             index = subIndex
           end
         end
-        -- DECOMPILER ERROR at PC92: LeaveBlock: unexpected jumping out IF_THEN_STMT
+        -- DECOMPILER ERROR at PC101: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-        -- DECOMPILER ERROR at PC92: LeaveBlock: unexpected jumping out IF_STMT
+        -- DECOMPILER ERROR at PC101: LeaveBlock: unexpected jumping out IF_STMT
 
       end
     end
@@ -435,9 +458,9 @@ AdventureGameWindow.InitNode = function(index, config, suffix, ...)
     if config.type ~= AdventureNodeType.ForkEnd then
       index = index + 1
       config = ((TableData.gTable).BaseAdventureNodeData)[tonumber(config.next)]
-      -- DECOMPILER ERROR at PC195: LeaveBlock: unexpected jumping out IF_THEN_STMT
+      -- DECOMPILER ERROR at PC204: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-      -- DECOMPILER ERROR at PC195: LeaveBlock: unexpected jumping out IF_STMT
+      -- DECOMPILER ERROR at PC204: LeaveBlock: unexpected jumping out IF_STMT
 
     end
   end
@@ -445,7 +468,7 @@ AdventureGameWindow.InitNode = function(index, config, suffix, ...)
 end
 
 AdventureGameWindow.InitObstacles = function(...)
-  -- function num : 0_24 , upvalues : _obstacles, _map, _ENV
+  -- function num : 0_25 , upvalues : _obstacles, _map, _ENV
   _obstacles = {}
   local obstacle = nil
   local index = 1
@@ -463,13 +486,13 @@ AdventureGameWindow.InitObstacles = function(...)
 end
 
 AdventureGameWindow.InitRole = function(nodeId, ...)
-  -- function num : 0_25 , upvalues : _ENV, AdventureGameWindow, _nodes, _role, uis
+  -- function num : 0_26 , upvalues : _ENV, AdventureGameWindow, _nodes, _role, uis
   loge("初始位置:" .. tostring(nodeId))
   ;
   (AdventureGameWindow.SetCharacterPosition)((AdventureGameWindow.GetCharPosAtNode)(_nodes[nodeId]))
   if _role == nil then
     (Util.CreateSelfMiniModel)(uis.CardLoader, function(model, ...)
-    -- function num : 0_25_0 , upvalues : _role, AdventureGameWindow, nodeId
+    -- function num : 0_26_0 , upvalues : _role, AdventureGameWindow, nodeId
     _role = model
     ;
     (AdventureGameWindow.SetDefaultCharacterDirection)(nodeId)
@@ -479,12 +502,12 @@ AdventureGameWindow.InitRole = function(nodeId, ...)
 end
 
 AdventureGameWindow.GetCharPosAtNode = function(nodeInfo, ...)
-  -- function num : 0_26 , upvalues : _roleOffset
+  -- function num : 0_27 , upvalues : _roleOffset
   return {x = (nodeInfo.Node).x + (nodeInfo.Offset).x - _roleOffset.X, y = (nodeInfo.Node).y + (nodeInfo.Offset).y - _roleOffset.Y}
 end
 
 AdventureGameWindow.SetRoleLayer = function(belowObstacle, obstacle, ...)
-  -- function num : 0_27 , upvalues : _map, _shadow, uis
+  -- function num : 0_28 , upvalues : _map, _shadow, uis
   if belowObstacle then
     local index = _map:GetChildIndex(obstacle)
     _map:SetChildIndex(_shadow, index)
@@ -498,7 +521,7 @@ AdventureGameWindow.SetRoleLayer = function(belowObstacle, obstacle, ...)
 end
 
 AdventureGameWindow.DealEventIconLayer = function(compnent, ...)
-  -- function num : 0_28 , upvalues : AdventureGameWindow, _map
+  -- function num : 0_29 , upvalues : AdventureGameWindow, _map
   local obstacle = (AdventureGameWindow.GetInteractObstacles)(compnent)
   if obstacle ~= nil then
     local index = _map:GetChildIndex(obstacle)
@@ -511,7 +534,7 @@ AdventureGameWindow.DealEventIconLayer = function(compnent, ...)
 end
 
 AdventureGameWindow.GetInteractObstacles = function(component, ...)
-  -- function num : 0_29 , upvalues : _obstacles, AdventureGameWindow
+  -- function num : 0_30 , upvalues : _obstacles, AdventureGameWindow
   local count = #_obstacles
   local target = {}
   target.x = component.x + component.width * 0.5
@@ -526,7 +549,7 @@ AdventureGameWindow.GetInteractObstacles = function(component, ...)
 end
 
 AdventureGameWindow.CheckSingleObstacle = function(target, obstacle, ...)
-  -- function num : 0_30 , upvalues : _ENV
+  -- function num : 0_31 , upvalues : _ENV
   local obstacleCenter = {}
   obstacleCenter.x = obstacle.x + obstacle.width * 0.5
   obstacleCenter.y = obstacle.y + obstacle.height * 0.5
@@ -535,7 +558,7 @@ AdventureGameWindow.CheckSingleObstacle = function(target, obstacle, ...)
 end
 
 AdventureGameWindow.RefreshUndoneEventBtnStatue = function(...)
-  -- function num : 0_31 , upvalues : uis, _ENV
+  -- function num : 0_32 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.EventBtn).visible = #AdventureData.UndoneEvent > 0
@@ -543,7 +566,7 @@ AdventureGameWindow.RefreshUndoneEventBtnStatue = function(...)
 end
 
 AdventureGameWindow.OnClose = function(...)
-  -- function num : 0_32 , upvalues : _ENV, AdventureGameWindow, uis, _currentDragStatue, _lastObstacle, _role, contentPane, argTable, _map, _nodes, _obstacles, _themeCardDes, _currentMapPkg, _startEffect, _finishEffect
+  -- function num : 0_33 , upvalues : _ENV, AdventureGameWindow, uis, _currentDragStatue, _lastObstacle, _role, contentPane, argTable, _map, _nodes, _obstacles, _themeCardDes, _currentMapPkg, _startEffect, _finishEffect
   (GuideData.AbolishControlRefer)((WinResConfig.AdventureGameWindow).name)
   ;
   (RedDotMgr.RemoveUIRefer)((WinResConfig.AdventureGameWindow).name)
@@ -584,7 +607,7 @@ AdventureGameWindow.OnClose = function(...)
 end
 
 AdventureGameWindow.ChangeDiceBtnStatue = function(enable, ...)
-  -- function num : 0_33 , upvalues : uis
+  -- function num : 0_34 , upvalues : uis
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (uis.OnceBtn).touchable = enable
@@ -595,22 +618,22 @@ AdventureGameWindow.ChangeDiceBtnStatue = function(enable, ...)
 end
 
 AdventureGameWindow.ClickPlayBtn = function(...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_35 , upvalues : _ENV
   (AdventureMgr.TryPlaySingleDice)()
 end
 
 AdventureGameWindow.ClickMultiPlayBtn = function(...)
-  -- function num : 0_35 , upvalues : _ENV
-  (AdventureMgr.TryPlayMultiDice)()
+  -- function num : 0_36 , upvalues : _ENV, uis
+  (AdventureMgr.TryPlayMultiDice)(tonumber(((uis.TenTimeBtn):GetChild("NumberTxt")).text))
 end
 
 AdventureGameWindow.ClickBuildingBtn = function(...)
-  -- function num : 0_36 , upvalues : _ENV
+  -- function num : 0_37 , upvalues : _ENV
   (AdventureMgr.TryOpenBuildingShow)()
 end
 
 AdventureGameWindow.ClickThemeCardBtn = function(cardId, ...)
-  -- function num : 0_37 , upvalues : _ENV
+  -- function num : 0_38 , upvalues : _ENV
   if AdventureData.LeftStep > 0 then
     return 
   end
@@ -620,36 +643,47 @@ AdventureGameWindow.ClickThemeCardBtn = function(cardId, ...)
 end
 
 AdventureGameWindow.ClickCtrlDiceBtn = function(...)
-  -- function num : 0_38 , upvalues : _ENV
+  -- function num : 0_39 , upvalues : _ENV
   (AdventureMgr.TryCtrlDice)()
 end
 
 AdventureGameWindow.ClickWishPointBtn = function(...)
-  -- function num : 0_39 , upvalues : _ENV
+  -- function num : 0_40 , upvalues : _ENV
   (AdventureMgr.EnterMakeWish)()
 end
 
 AdventureGameWindow.ClickUndoneEventBtn = function(...)
-  -- function num : 0_40 , upvalues : _ENV
+  -- function num : 0_41 , upvalues : _ENV
   if AdventureData.LeftStep > 0 then
     return 
   end
+  ;
+  (table.sort)(AdventureData.UndoneEvent, function(x, y, ...)
+    -- function num : 0_41_0
+    if x.eventId == y.eventId then
+      return false
+    else
+      return x.eventId < y.eventId
+    end
+    -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  end
+)
   OpenWindow((WinResConfig.UnMakeEventWindow).name, UILayer.HUD)
 end
 
 AdventureGameWindow.ClickTarotBtn = function(...)
-  -- function num : 0_41 , upvalues : _ENV
+  -- function num : 0_42 , upvalues : _ENV
   (AdventureMgr.OpenTarotUI)()
 end
 
 AdventureGameWindow.ChangeDragStatue = function(enable, ...)
-  -- function num : 0_42 , upvalues : _swipe, _currentDragStatue
+  -- function num : 0_43 , upvalues : _swipe, _currentDragStatue
   _swipe:Enable(enable)
   _currentDragStatue = enable
 end
 
 AdventureGameWindow.SetDefaultCharacterDirection = function(nodeId, ...)
-  -- function num : 0_43 , upvalues : _ENV, AdventureGameWindow
+  -- function num : 0_44 , upvalues : _ENV, AdventureGameWindow
   if nodeId == nil then
     nodeId = AdventureData.CurrentNode
   end
@@ -660,7 +694,7 @@ AdventureGameWindow.SetDefaultCharacterDirection = function(nodeId, ...)
 end
 
 AdventureGameWindow.SetCharacterDirection = function(nodeId, ...)
-  -- function num : 0_44 , upvalues : _nodes, uis, _ENV, _role
+  -- function num : 0_45 , upvalues : _nodes, uis, _ENV, _role
   local c = ((_nodes[nodeId]).Node).x
   if ((_nodes[nodeId]).Node).x < (uis.CardLoader).x then
     (SkeletonAnimationUtil.SetFlip)(_role, true, false)
@@ -671,7 +705,7 @@ AdventureGameWindow.SetCharacterDirection = function(nodeId, ...)
 end
 
 AdventureGameWindow.MoveToNode = function(nodeId, callBack, ...)
-  -- function num : 0_45 , upvalues : AdventureGameWindow, _nodes, uis, MOVE_TO_NEXT_BLOCK_COST_TIME, _ENV, _mapYOffset
+  -- function num : 0_46 , upvalues : AdventureGameWindow, _nodes, uis, MOVE_TO_NEXT_BLOCK_COST_TIME, _ENV, _mapYOffset
   (AdventureGameWindow.SetCharacterDirection)(nodeId)
   local destinationInfo = (AdventureGameWindow.GetCharPosAtNode)(_nodes[nodeId])
   destinationInfo.width = (uis.CardLoader).width
@@ -679,11 +713,11 @@ AdventureGameWindow.MoveToNode = function(nodeId, callBack, ...)
   local pos = (AdventureGameWindow.GetCharPosAtNode)(_nodes[nodeId])
   ;
   ((((uis.CardLoader):TweenMove(pos, MOVE_TO_NEXT_BLOCK_COST_TIME)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_45_0 , upvalues : AdventureGameWindow, _ENV, uis, _mapYOffset
+    -- function num : 0_46_0 , upvalues : AdventureGameWindow, _ENV, uis, _mapYOffset
     (AdventureGameWindow.SetMapPos)(ResolutionHandler.Width * 0.5 - (uis.CardLoader).width * 0.5 - (uis.CardLoader).x, ResolutionHandler.Height * 0.5 - (uis.CardLoader).height * 0.5 - (uis.CardLoader).y - _mapYOffset)
   end
 )):OnComplete(function(...)
-    -- function num : 0_45_1 , upvalues : _ENV, AdventureGameWindow, _nodes, nodeId, callBack
+    -- function num : 0_46_1 , upvalues : _ENV, AdventureGameWindow, _nodes, nodeId, callBack
     (LuaSound.PlaySound)(LuaSound.ADVENTURE_STEP, SoundBank.OTHER)
     ;
     (AdventureGameWindow.StopNodeAnim)(_nodes[nodeId])
@@ -693,40 +727,68 @@ AdventureGameWindow.MoveToNode = function(nodeId, callBack, ...)
 end
 
 AdventureGameWindow.ShowDestination = function(show, ...)
-  -- function num : 0_46 , upvalues : _ENV, _nodes
-  local count = #AdventureData.PassingNode
-  local node = nil
-  for i = 1, count do
-    node = _nodes[(AdventureData.PassingNode)[i]]
-    -- DECOMPILER ERROR at PC15: Confused about usage of register: R7 in 'UnsetPending'
+  -- function num : 0_47 , upvalues : _ENV, _nodes
+  local index = 0
+  local currentNode = AdventureData.CurrentMoveNode
+  local config, node = nil, nil
+  local leftChange = AdventureData.TotalChangeMapTimes - AdventureData.LeftChangeMapTimes
+  local setter = function(...)
+    -- function num : 0_47_0 , upvalues : config, _ENV, currentNode, index, node, _nodes, leftChange
+    config = ((TableData.gTable).BaseAdventureNodeData)[currentNode]
+    index = index + 1
+    node = _nodes[config.id]
+    -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
 
-    if node ~= nil then
-      do
-        (node.Effect).visible = true
-        ;
-        (node.Anim):Play(-1, 0.1 * (i - 1), nil)
-        -- DECOMPILER ERROR at PC23: LeaveBlock: unexpected jumping out IF_THEN_STMT
+    ;
+    (node.Effect).visible = true
+    ;
+    (node.Anim):Play(-1, 0.1 * (index - 1), nil)
+    -- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
 
-        -- DECOMPILER ERROR at PC23: LeaveBlock: unexpected jumping out IF_STMT
+    if (AdventureData.StopByNodes)[currentNode] ~= nil and ((AdventureData.StopByNodes)[currentNode])[leftChange] then
+      (node.EffectCtrl).selectedIndex = 1
+      -- DECOMPILER ERROR at PC43: Confused about usage of register: R0 in 'UnsetPending'
 
+      ;
+      ((AdventureData.StopByNodes)[currentNode])[leftChange] = nil
+      -- DECOMPILER ERROR at PC56: Confused about usage of register: R0 in 'UnsetPending'
+
+      if (_G.next)((AdventureData.StopByNodes)[currentNode]) == nil then
+        (AdventureData.StopByNodes)[currentNode] = nil
       end
+    else
+      -- DECOMPILER ERROR at PC59: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (node.EffectCtrl).selectedIndex = 0
     end
   end
+
+  repeat
+    -- DECOMPILER ERROR at PC25: Unhandled construct in 'MakeBoolean' P1
+
+    if AdventureData.LeftChangeMapTimes <= 0 and currentNode ~= AdventureData.TargetNode then
+      currentNode = tonumber((((TableData.gTable).BaseAdventureNodeData)[currentNode]).next)
+      setter()
+    end
+  until config.id == AdventureData.TargetNode
+  repeat
+    currentNode = tonumber((((TableData.gTable).BaseAdventureNodeData)[currentNode]).next)
+    setter()
+  until config.type == AdventureNodeType.End
 end
 
 AdventureGameWindow.StopNodeAnim = function(node, ...)
-  -- function num : 0_47 , upvalues : _ENV
+  -- function num : 0_48
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (node.Effect).visible = false
   ;
   (node.Anim):Stop()
-  ;
-  (table.remove)(AdventureData.PassingNode, 1)
 end
 
 AdventureGameWindow.ChangeRoleStatue = function(run, ...)
-  -- function num : 0_48 , upvalues : _ENV, _role
+  -- function num : 0_49 , upvalues : _ENV, _role
   local sa = (SkeletonAnimationUtil.GetSkeletonAnimation)(_role)
   if run then
     if sa.AnimationName == BattleCardState.RUN then
@@ -744,7 +806,7 @@ AdventureGameWindow.ChangeRoleStatue = function(run, ...)
 end
 
 AdventureGameWindow.PlayNodeAnim = function(nodeId, callback, ...)
-  -- function num : 0_49 , upvalues : _ENV, _map, uis, _nodes
+  -- function num : 0_50 , upvalues : _ENV, _map, uis, _nodes
   local config = ((TableData.gTable).BaseAdventureNodeData)[nodeId]
   if config.event_id ~= 0 then
     local icon = tonumber(config.note_icon) + 1
@@ -758,13 +820,13 @@ AdventureGameWindow.PlayNodeAnim = function(nodeId, callback, ...)
 end
 
 AdventureGameWindow.FocusOnCharacter = function(tween, callBack, ...)
-  -- function num : 0_50 , upvalues : _ENV, uis, _mapYOffset, _map, AdventureGameWindow, MAP_TWEEN_SPEED
+  -- function num : 0_51 , upvalues : _ENV, uis, _mapYOffset, _map, AdventureGameWindow, MAP_TWEEN_SPEED
   if tween then
     local target = Vector2(ResolutionHandler.Width * 0.5 - (uis.CardLoader).width * 0.5 - (uis.CardLoader).x, ResolutionHandler.Height * 0.5 - (uis.CardLoader).height * 0.5 - (uis.CardLoader).y - _mapYOffset)
     local dis = (math.abs)(_map.x - target.x) + (math.abs)(_map.y - target.y)
     ;
     ((LeanTween.value)((_map.displayObject).gameObject, function(value, ...)
-    -- function num : 0_50_0 , upvalues : AdventureGameWindow
+    -- function num : 0_51_0 , upvalues : AdventureGameWindow
     (AdventureGameWindow.SetMapPos)(value.x, value.y)
   end
 , Vector2(_map.x, _map.y), target, dis / MAP_TWEEN_SPEED)):setOnComplete(callBack)
@@ -777,14 +839,14 @@ AdventureGameWindow.FocusOnCharacter = function(tween, callBack, ...)
 end
 
 AdventureGameWindow.ShowChooseFork = function(nodes, ...)
-  -- function num : 0_51 , upvalues : _forkNodes, _ENV, _nodes
+  -- function num : 0_52 , upvalues : _forkNodes, _ENV, _nodes
   _forkNodes = nodes
   local count = #_forkNodes
   for i = 1, count do
     local nodeId = tonumber(_forkNodes[i])
     do
       (((_nodes[nodeId]).Node).onClick):Add(function(...)
-    -- function num : 0_51_0 , upvalues : count, _nodes, nodeId, _ENV
+    -- function num : 0_52_0 , upvalues : count, _nodes, nodeId, _ENV
     for i = 1, count do
       (((_nodes[nodeId]).Node).onClick):Clear()
     end
@@ -797,7 +859,7 @@ AdventureGameWindow.ShowChooseFork = function(nodes, ...)
 end
 
 AdventureGameWindow.PlayDiceAnim = function(number, remote, callback, ...)
-  -- function num : 0_52 , upvalues : _dice, _ENV, uis, DICE_MODEL, _map
+  -- function num : 0_53 , upvalues : _dice, _ENV, uis, DICE_MODEL, _map
   local dice = nil
   if _dice == nil then
     _dice = {}
@@ -824,7 +886,7 @@ AdventureGameWindow.PlayDiceAnim = function(number, remote, callback, ...)
     sa:ClearState()
     ;
     (SkeletonAnimationUtil.SetAnimation)(dice.Model, 0, tostring(number), false, function(...)
-    -- function num : 0_52_0 , upvalues : dice, callback
+    -- function num : 0_53_0 , upvalues : dice, callback
     -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
     (dice.Loader).visible = false
@@ -837,7 +899,7 @@ AdventureGameWindow.PlayDiceAnim = function(number, remote, callback, ...)
 end
 
 AdventureGameWindow.RecycleDice = function(...)
-  -- function num : 0_53 , upvalues : _remoteDice, _dice
+  -- function num : 0_54 , upvalues : _remoteDice, _dice
   if _remoteDice ~= nil then
     (_remoteDice.Loader):Dispose()
     _remoteDice = nil
@@ -849,7 +911,7 @@ AdventureGameWindow.RecycleDice = function(...)
 end
 
 AdventureGameWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_54 , upvalues : _ENV, AdventureGameWindow, _nodes
+  -- function num : 0_55 , upvalues : _ENV, AdventureGameWindow, _nodes
   if msgId == (WindowMsgEnum.Adventure).E_MSG_CHANGE_STATUE then
     (AdventureGameWindow.ChangeRoleStatue)(para.Move)
     if para.SetDir then
@@ -893,7 +955,13 @@ AdventureGameWindow.HandleMessage = function(msgId, para, ...)
                       if msgId == (WindowMsgEnum.Adventure).E_MSG_FINISH_NODE_ANIM then
                         (AdventureGameWindow.StopNodeAnim)(_nodes[AdventureData.CurrentMoveNode])
                       else
+                        -- DECOMPILER ERROR at PC136: Confused about usage of register: R2 in 'UnsetPending'
+
                         if msgId == (WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok then
+                          if not (GRoot.inst).touchable then
+                            (GRoot.inst).touchable = true
+                          end
+                          ;
                           (AdventureMgr.TryRefreshData)()
                         else
                           if msgId == (WindowMsgEnum.Adventure).E_MSG_REFRESH then
@@ -916,7 +984,8 @@ AdventureGameWindow.HandleMessage = function(msgId, para, ...)
       end
     end
   end
-  if msgId == (WindowMsgEnum.Adventure).E_MSG_REFRESH_BUILDING_STATUE then
+  if msgId ~= (WindowMsgEnum.Adventure).E_MSG_REFRESH_BUILDING_STATUE or msgId == (WindowMsgEnum.Adventure).E_MSG_REFRESH_MULTINUMBER then
+    (AdventureGameWindow.InitMultiPlayBtn)()
   end
 end
 

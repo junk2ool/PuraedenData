@@ -11,6 +11,7 @@ GetLand_LandUis = function(ui, ...)
   uis.SetBtn = ui:GetChild("SetBtn")
   uis.ServiceBtn = ui:GetChild("ServiceBtn")
   uis.CopyrightTxt = ui:GetChild("CopyrightTxt")
+  uis.VideoLoader = ui:GetChild("VideoLoader")
   uis.root = ui
   return uis
 end

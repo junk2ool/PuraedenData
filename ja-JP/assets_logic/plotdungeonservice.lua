@@ -50,7 +50,11 @@ PlotDungeonService.OnResStoryInfo = function(msg, ...)
         else
           do
             if msg.type == DungeonType.ActivityDungeon then
-              OpenWindow((WinResConfig.ActivityDungeonMainWindow).name, UILayer.HUD)
+              local storyChapter = msg.chapterInfo
+              ;
+              (PlotDungeonMgr.GetActivityDungeonPlayerFc)((storyChapter[1]).playerActivityFc)
+              local activityFirstOpen = (storyChapter[1]).activityFirstOpen
+              OpenWindow((WinResConfig.ActivityDungeonMainWindow).name, UILayer.HUD, activityFirstOpen)
             end
           end
         end

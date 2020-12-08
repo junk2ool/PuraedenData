@@ -36,7 +36,7 @@ Const.TaskBlueColorRGB = Color(0.23921568627451, 1, 0.74117647058824)
 Const.DefaultUIScale = 0.01333333
 Const.CostImgSize = 33
 Const.MaxEquipStar = 6
-Const.AdvanceEquipIntelligence = 6
+Const.AdvenceEquipStar = 5
 Const.NoShowAmount = 9999
 Const.GrayRColor = 150
 Const.GrayRGB = Color(Const.GrayRColor / 255, Const.GrayRColor / 255, Const.GrayRColor / 255)
@@ -72,5 +72,12 @@ Const.LowFramerate = 40
 Const.HighFramerate = 60
 Const.QualityColorStr = {"White", "Green", "Blue", "Purple", "Orange", "Red"}
 Const.GuideDelayTime = 0.5
+Const.GuildBossTalentMax = 72002073
+Const.GuildBossActivityMax = 72002071
+Const.GuildBossSupportReward = 72002072
+Const.GuildBossCycleMax = 72002080
+Const.GuildBossMaxSupport = 72002086
+Const.GuildBossMaxRank = 72002087
+Const.MaxFriendsNum = 72000020
 return Const
 

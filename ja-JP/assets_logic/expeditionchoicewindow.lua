@@ -10,7 +10,7 @@ local currentIndex = 0
 local bgSfxName = {"FX_ui_yuanzhengrukou_1", "FX_ui_yuanzhengrukou_2", "FX_ui_yuanzhengrukou_3"}
 local mHolder = nil
 ExpeditionChoiceWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, mHolder, uis, ExpeditionChoiceWindow, OpenExpedition, currentIndex, mData
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, mHolder, uis, ExpeditionChoiceWindow, OpenExpedition, mData, currentIndex
   bridgeObj:SetView((WinResConfig.ExpeditionChoiceWindow).package, (WinResConfig.ExpeditionChoiceWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
@@ -19,20 +19,34 @@ ExpeditionChoiceWindow.OnInit = function(bridgeObj, ...)
   ;
   (ExpeditionChoiceWindow.InitAssetStrip)()
   OpenExpedition = argTable[1]
-  currentIndex = 0
-  -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
+  mData = (ExpeditionChoiceWindow.InitExpedition)()
+  currentIndex = (ExpeditionChoiceWindow.GetInitIndex)()
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
-  (uis.c1Ctr).selectedIndex = 0
-  mData = (ExpeditionChoiceWindow.InitExpedition)()
+  (uis.c1Ctr).selectedIndex = currentIndex
   ;
   (ExpeditionChoiceWindow.SetBgSfxAndName)()
   ;
   (ExpeditionChoiceWindow.InitBtnEvent)()
 end
 
+ExpeditionChoiceWindow.GetInitIndex = function(...)
+  -- function num : 0_1 , upvalues : ExpeditionChoiceWindow, mData, _ENV
+  for i = 1, 3 do
+    local index = 3 - i
+    if (ExpeditionChoiceWindow.GetSweepTime)((mData[index + 1]).id) then
+      local sweepNum = (Util.CheckCondition)((mData[index + 1]).open_condition, true)
+    end
+    if sweepNum then
+      return index
+    end
+  end
+  return 0
+end
+
 ExpeditionChoiceWindow.SetBgSfxAndName = function(...)
-  -- function num : 0_1 , upvalues : bgSfxName, currentIndex, _ENV, mHolder, uis
+  -- function num : 0_2 , upvalues : bgSfxName, currentIndex, _ENV, mHolder, uis
   local sfxName = bgSfxName[currentIndex + 1]
   ;
   (LuaEffect.DestroyEffect)(mHolder)
@@ -56,9 +70,9 @@ ExpeditionChoiceWindow.SetBgSfxAndName = function(...)
 end
 
 ExpeditionChoiceWindow.InitBtnEvent = function(...)
-  -- function num : 0_2 , upvalues : uis, ExpeditionChoiceWindow, currentIndex, _ENV, mData
+  -- function num : 0_3 , upvalues : uis, ExpeditionChoiceWindow, currentIndex, _ENV, mData
   ((uis.RightBtn).onClick):Set(function(...)
-    -- function num : 0_2_0 , upvalues : ExpeditionChoiceWindow, currentIndex, uis, _ENV
+    -- function num : 0_3_0 , upvalues : ExpeditionChoiceWindow, currentIndex, uis, _ENV
     if (ExpeditionChoiceWindow.CheckIsUnlock)(true) then
       currentIndex = currentIndex + 1
       -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
@@ -74,7 +88,7 @@ ExpeditionChoiceWindow.InitBtnEvent = function(...)
 )
   ;
   ((uis.LeftBtn).onClick):Set(function(...)
-    -- function num : 0_2_1 , upvalues : ExpeditionChoiceWindow, currentIndex, uis, _ENV
+    -- function num : 0_3_1 , upvalues : ExpeditionChoiceWindow, currentIndex, uis, _ENV
     if (ExpeditionChoiceWindow.CheckIsUnlock)(false) then
       currentIndex = currentIndex - 1
       -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
@@ -90,21 +104,23 @@ ExpeditionChoiceWindow.InitBtnEvent = function(...)
 )
   ;
   ((uis.EffectLoader).onClick):Set(function(...)
-    -- function num : 0_2_2 , upvalues : _ENV, mData, currentIndex
+    -- function num : 0_3_2 , upvalues : _ENV, mData, currentIndex
     OpenWindow((WinResConfig.ExpeditionEnterWindow).name, UILayer.HUD, (mData[currentIndex + 1]).id, currentIndex + 1)
   end
 )
 end
 
 ExpeditionChoiceWindow.CheckIsUnlock = function(right, ...)
-  -- function num : 0_3 , upvalues : currentIndex, ExpeditionChoiceWindow, mData, _ENV
+  -- function num : 0_4 , upvalues : currentIndex, ExpeditionChoiceWindow, mData, _ENV
   local index = currentIndex
   if right then
     index = index + 1
   else
     index = index - 1
   end
-  local sweepNum = (ExpeditionChoiceWindow.GetSweepTime)((mData[index + 1]).id)
+  if (ExpeditionChoiceWindow.GetSweepTime)((mData[index + 1]).id) then
+    local sweepNum = (Util.CheckCondition)((mData[index + 1]).open_condition, true)
+  end
   if sweepNum then
     return true
   else
@@ -115,7 +131,7 @@ ExpeditionChoiceWindow.CheckIsUnlock = function(right, ...)
 end
 
 ExpeditionChoiceWindow.InitFunctionControl = function(...)
-  -- function num : 0_4 , upvalues : _ENV, uis
+  -- function num : 0_5 , upvalues : _ENV, uis
   local winName = (WinResConfig.ExpeditionChoiceWindow).name
   local RegisterGuideAndControl = GuideData.RegisterGuideAndControl
   local ControlID = ControlID
@@ -123,7 +139,7 @@ ExpeditionChoiceWindow.InitFunctionControl = function(...)
 end
 
 ExpeditionChoiceWindow.InitExpedition = function(...)
-  -- function num : 0_5 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV
   local ExpeditionData = (TableData.gTable).BaseExpeditionData
   local Data = {}
   for _,v in pairs(ExpeditionData) do
@@ -131,7 +147,7 @@ ExpeditionChoiceWindow.InitExpedition = function(...)
   end
   ;
   (table.sort)(Data, function(a, b, ...)
-    -- function num : 0_5_0
+    -- function num : 0_6_0
     do return a.id < b.id end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -140,7 +156,7 @@ ExpeditionChoiceWindow.InitExpedition = function(...)
 end
 
 ExpeditionChoiceWindow.GetSweepTime = function(id, ...)
-  -- function num : 0_6 , upvalues : _ENV, OpenExpedition
+  -- function num : 0_7 , upvalues : _ENV, OpenExpedition
   for _,v in pairs(OpenExpedition) do
     if v.expeditionId == tonumber(id) then
       return v.sweepNum
@@ -150,7 +166,7 @@ ExpeditionChoiceWindow.GetSweepTime = function(id, ...)
 end
 
 ExpeditionChoiceWindow.ItemRenderer = function(index, obj, ...)
-  -- function num : 0_7 , upvalues : _ENV, mData, ExpeditionChoiceWindow
+  -- function num : 0_8 , upvalues : _ENV, mData, ExpeditionChoiceWindow
   local model = GetExpedition_ChoiceTipsUis(obj)
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R3 in 'UnsetPending'
 
@@ -172,7 +188,7 @@ ExpeditionChoiceWindow.ItemRenderer = function(index, obj, ...)
     (model.SweepNumberTxt).text = (PUtil.get)(20000105, sweepNum)
     ;
     (obj.onClick):Set(function(...)
-    -- function num : 0_7_0 , upvalues : _ENV, data, index
+    -- function num : 0_8_0 , upvalues : _ENV, data, index
     OpenWindow((WinResConfig.ExpeditionEnterWindow).name, UILayer.HUD, data.id, index + 1)
   end
 )
@@ -189,15 +205,15 @@ ExpeditionChoiceWindow.ItemRenderer = function(index, obj, ...)
 end
 
 ExpeditionChoiceWindow.OnShown = function(...)
-  -- function num : 0_8
-end
-
-ExpeditionChoiceWindow.OnHide = function(...)
   -- function num : 0_9
 end
 
+ExpeditionChoiceWindow.OnHide = function(...)
+  -- function num : 0_10
+end
+
 ExpeditionChoiceWindow.OnClose = function(...)
-  -- function num : 0_10 , upvalues : _ENV, contentPane, argTable, OpenExpedition, mData
+  -- function num : 0_11 , upvalues : _ENV, contentPane, argTable, OpenExpedition, mData
   (CommonWinMgr.RemoveAssets)((WinResConfig.ExpeditionChoiceWindow).name)
   contentPane = nil
   argTable = {}
@@ -206,7 +222,7 @@ ExpeditionChoiceWindow.OnClose = function(...)
 end
 
 ExpeditionChoiceWindow.InitAssetStrip = function(...)
-  -- function num : 0_11 , upvalues : _ENV, uis
+  -- function num : 0_12 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.ExpeditionChoiceWindow).name
   m.Tip = (PUtil.get)(20000104)
@@ -219,7 +235,7 @@ ExpeditionChoiceWindow.InitAssetStrip = function(...)
 end
 
 ExpeditionChoiceWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_12
+  -- function num : 0_13
 end
 
 return ExpeditionChoiceWindow

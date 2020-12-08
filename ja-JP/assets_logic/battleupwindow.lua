@@ -72,21 +72,21 @@ BattleUpWindow.PlayNumChange = function(cardId, ...)
     if not curValue then
       curValue = tonumber(fcChangeInfo.preFc)
       if numTween then
-        numTween:Kill()
+        numTween:SetPaused()
       end
       if closeTween then
-        closeTween:Kill()
+        closeTween:SetPaused()
       end
       -- DECOMPILER ERROR at PC39: Confused about usage of register: R2 in 'UnsetPending'
 
       ;
       (uis.NumberTxt).scale = Vector2(1, 1)
       numTween = (((GTween.To)(curValue, targetValue, 0.7)):OnUpdate(function(...)
-    -- function num : 0_2_0 , upvalues : uis, _ENV, numTween, curValue
-    if uis and uis.NumberTxt then
+    -- function num : 0_2_0 , upvalues : uis, numTween, _ENV, curValue
+    if uis and uis.NumberTxt and numTween ~= nil then
       local num = (math.ceil)((numTween.value).x)
       curValue = num
-      -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       (uis.NumberTxt).text = num
@@ -173,11 +173,11 @@ BattleUpWindow.OnClose = function(...)
   ;
   (BattleUpWindow.StopSound)()
   if numTween then
-    numTween:Kill()
+    numTween:SetPaused()
     numTween = nil
   end
   if closeTween then
-    closeTween:Kill()
+    closeTween:SetPaused()
     closeTween = nil
   end
   if closeTrans then

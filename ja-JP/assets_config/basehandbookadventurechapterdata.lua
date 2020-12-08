@@ -81,9 +81,20 @@ BaseHandbookAdventureChapterData = {
 , 
 [51100040] = {id = 51100040, type = 1, activity_type = 0, name = (PUtil.get)(85110040), remark = (PUtil.get)(85110040), record_ids = "52104001:52104003:52104004:52104005", sort = 40}
 , 
+[51100041] = {id = 51100041, type = 1, activity_type = 0, name = (PUtil.get)(85110041), remark = (PUtil.get)(85110041), record_ids = "52104101:52104102:52104103:52104104:52104105", sort = 41}
+, 
+[51100042] = {id = 51100042, type = 1, activity_type = 0, name = (PUtil.get)(85110042), remark = (PUtil.get)(85110042), record_ids = "52104201:52104202:52104203:52104205", sort = 42}
+, 
 [51200001] = {id = 51200001, type = 2, activity_type = 0, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52200101:52200102:52200103:52200104:52200105:52200106", sort = 1}
 , 
 [51410001] = {id = 51410001, type = 3, activity_type = 301, name = (PUtil.get)(85180100), remark = (PUtil.get)(85180100), record_ids = "52500103:52500106:52500109:52500112:52500115", sort = 1}
+, 
+[51410002] = {id = 51410002, type = 3, activity_type = 302, name = (PUtil.get)(85180200), remark = (PUtil.get)(85180200), record_ids = "52500203:52500206:52500209:52500211:52500213:52500215", sort = 2}
+, 
+[51410003] = {id = 51410003, type = 3, activity_type = 303, name = (PUtil.get)(85180300), remark = (PUtil.get)(85180300), record_ids = "52500303:52500306:52500309:52500312:52500315", sort = 3}
+, 
+[51410004] = {id = 51410004, type = 3, activity_type = 304, name = (PUtil.get)(85180400), remark = (PUtil.get)(85180400), record_ids = "52500403:52500406:52500409:52500412:52500415", sort = 4}
+, 
+[51410005] = {id = 51410005, type = 3, activity_type = 305, name = (PUtil.get)(85180500), remark = (PUtil.get)(85180500), record_ids = "52500503:52500506:52500509:52500512:52500515", sort = 5}
 }
-return BaseHandbookAdventureChapterData
 

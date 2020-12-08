@@ -4,7 +4,7 @@ require("AdventureGame_GoldGameByName")
 local AdventureGame_GoldGame = {}
 local uis, contentPane = nil, nil
 local argTable = {}
-local nodeId = nil
+local nodeId, uid = nil, nil
 local dropGrps = {}
 local randomDropPos = {}
 local dropGoodsId = {}
@@ -34,11 +34,12 @@ local DROPPOSIMIN = -200
 local DROPPOSIMAX = 200
 local DROPCONSTY, swipe, dropTimer, timerL, timerR = nil, nil, nil, nil, nil
 AdventureGame_GoldGame.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, nodeId, uis, DROPPOSIMIN, DROPPOSIMAX, DROPCONSTY, AdventureGame_GoldGame
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, nodeId, uid, uis, DROPPOSIMIN, DROPPOSIMAX, DROPCONSTY, AdventureGame_GoldGame
   bridgeObj:SetView((WinResConfig.AdventureGame_GoldGame).package, (WinResConfig.AdventureGame_GoldGame).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
   nodeId = argTable[1]
+  uid = argTable[2]
   uis = GetAdventureGame_GoldGameUis(contentPane)
   DROPPOSIMIN = (math.floor)((((uis.RefreshGrp).root):GetChild("Refresh_01_Image")).x + ((uis.RefreshGrp).root).x)
   DROPPOSIMAX = (math.floor)((((uis.RefreshGrp).root):GetChild("Refresh_07_Image")).x + ((uis.RefreshGrp).root).x)
@@ -436,8 +437,8 @@ AdventureGame_GoldGame.MoveItems = function(item, index, mData, ...)
 end
 
 AdventureGame_GoldGame.OnGameOver = function(...)
-  -- function num : 0_11 , upvalues : _ENV, nodeId, getRewards
-  (AdventureService.ReqAdventureEventReward)(nodeId, AdventureEventType.Goldmine, false, getRewards)
+  -- function num : 0_11 , upvalues : _ENV, nodeId, getRewards, uid
+  (AdventureService.ReqAdventureEventReward)(nodeId, AdventureEventType.Goldmine, false, getRewards, uid)
   ;
   (AdventureMgr.AfterShowResult)()
 end

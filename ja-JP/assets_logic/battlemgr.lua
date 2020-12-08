@@ -11,16 +11,22 @@ local selfTxt, enemyTxt = nil, nil
 
 BattleMgr.InitBattle = function(...)
   -- function num : 0_0 , upvalues : _ENV, self
-  -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
-  if IsBattleServer == nil then
+  if IsBattleServer == nil and BattleData.skipBattle ~= true then
+    BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
+    -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
+
     BattleMgr.startRecord = false
     ;
     (BattleConfig.UpdateCurFrameRate)()
     ClearHurtNum()
-    -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
 
     BattleMgr.BossInited = false
+    -- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
+
+    BattleMgr.displaySKillCard = false
     ;
     (UpdateMgr.AddFixedUpdateHandler)(self.FixedUpdate)
     local battleCamera = Game.battleCamera
@@ -84,7 +90,7 @@ BattleMgr.DealPreEvent = function(...)
 
   ;
   (((BattleData.battleData).battleProcessData)[BattleData.curWave]).preBattleEventInfo = BattleData.curPreBattleEventInfo
-  if IsBattleServer == nil then
+  if IsBattleServer == nil and BattleData.skipBattle ~= true then
     (BattleData.SetBattleState)(BattleState.PRE_EVENT_ING)
     ;
     (BattlePlay.PlayBuffPreBattle)(function(...)
@@ -103,7 +109,7 @@ end
 BattleMgr.ShowBattleWave = function(...)
   -- function num : 0_3 , upvalues : _ENV, BattleState, UIMgr
   (BattleData.SetBattleState)(BattleState.WAVE_SHOW_ING)
-  if IsBattleServer == nil then
+  if IsBattleServer == nil and BattleData.skipBattle ~= true then
     UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_WAVE_START, BattleData.enemyCurWave)
     UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_WAVE, BattleData.enemyCurWave .. "/" .. BattleData.enemyMaxWave)
     print("当前波数：", BattleData.enemyCurWave)
@@ -135,11 +141,20 @@ end
 BattleMgr.ShowBossTips = function(...)
   -- function num : 0_5 , upvalues : _ENV, BattleState, UIMgr
   (BattleData.SetBattleState)(BattleState.BOSS_SHOW_ING)
-  if BattleData.curWaveBossId > 0 then
-    UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_BOSS_COME)
+  local bossId = BattleData.curWaveBossId
+  if bossId > 0 then
+    local bossData = (BattleData.GetCardInfoById)(bossId, BattleCardCamp.RIGHT)
+    if bossData and bossData:GetHp() > 0 then
+      UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_BOSS_COME)
+    else
+      ;
+      (BattleData.SetBattleState)(BattleState.ROUND_START)
+    end
   else
-    ;
-    (BattleData.SetBattleState)(BattleState.ROUND_START)
+    do
+      ;
+      (BattleData.SetBattleState)(BattleState.ROUND_START)
+    end
   end
 end
 
@@ -187,7 +202,7 @@ attackInfo = {}
     -- DECOMPILER ERROR at PC95: Confused about usage of register: R2 in 'UnsetPending'
 
     BattleData.curRoundData = (BattleData.allRoundData)[BattleData.roundIndex]
-    if IsBattleServer == nil then
+    if IsBattleServer == nil and BattleData.skipBattle ~= true then
       UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_ROUND, BattleData.roundIndex)
       ;
       (BattleData.SetBattleState)(BattleState.PRE_ROUND_PLAY)
@@ -287,7 +302,7 @@ BattleMgr.StartToAtkPlayBack = function(...)
       (GuideMgr.PlayGuide)(atkInfo.guideFirst)
       return 
     end
-    if IsBattleServer ~= true then
+    if IsBattleServer ~= true and BattleData.skipBattle ~= true then
       UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_ORDER_LINE)
     end
     local atkCardUid = (attackInfo[1]).atkCardUid
@@ -304,7 +319,7 @@ BattleMgr.StartToAtkPlayBack = function(...)
     end
     do
       do
-        -- DECOMPILER ERROR at PC69: Confused about usage of register: R5 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC73: Confused about usage of register: R5 in 'UnsetPending'
 
         BattleAtk.curAtkInfo = atkInfo
         ;
@@ -333,7 +348,7 @@ BattleMgr.StartToAtk = function(...)
       BattleData.forceNextAttackFunc = nil
       forceFunc()
     else
-      if IsBattleServer ~= true then
+      if IsBattleServer ~= true and BattleData.skipBattle ~= true then
         UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_ORDER_LINE)
       end
       atkCard:SetIsAlreadyAtk(true)
@@ -415,7 +430,7 @@ BattleMgr.TurnToNextWave = function(...)
   (BattleData.InitCardData)(true)
   ;
   (BattleData.ClearAtkFlag)()
-  if IsBattleServer == nil then
+  if IsBattleServer == nil and BattleData.skipBattle ~= true then
     (BattleBackground.CreateBackground)(true)
     ;
     (BattlePlay.CreateAllCard)()
@@ -463,6 +478,12 @@ BattleMgr.CloseBattle = function(force, callback, noLoading, ...)
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R5 in 'UnsetPending'
 
   Time.timeScale = 1
+  -- DECOMPILER ERROR at PC7: Confused about usage of register: R5 in 'UnsetPending'
+
+  BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
+  -- DECOMPILER ERROR at PC9: Confused about usage of register: R5 in 'UnsetPending'
+
+  BattleMgr.displaySKillCard = false
   if IsBattleServer == nil then
     local clearFunc = function(...)
     -- function num : 0_14_0 , upvalues : _ENV, self, Util, Game, selfTxt, enemyTxt, BattleState
@@ -610,8 +631,12 @@ end
 -- DECOMPILER ERROR at PC55: Confused about usage of register: R7 in 'UnsetPending'
 
 BattleMgr.FixedUpdate = function(...)
-  -- function num : 0_15 , upvalues : _ENV, self, BattleState
+  -- function num : 0_15 , upvalues : _ENV, BattleState, self
   if IsBattleServer == true then
+    return 
+  end
+  if BattleData.skipBattle == true and (BattleData.GetBattleState)() == BattleState.BUFF_AFTER_ATTACK_END then
+    (BattleData.SetBattleState)(BattleState.CHANGE_ATTACK)
     return 
   end
   if (self.IsAllAtkComplete)() == true and (BattleData.GetBattleState)() == BattleState.BUFF_AFTER_ATTACK_END then
@@ -739,7 +764,7 @@ BattleMgr.PlayBattleState = function(curState, ...)
 , [BattleState.CHANGE_WAVE] = function(...)
     -- function num : 0_20_10 , upvalues : _ENV, BattleState, self
     (BattleData.SetBattleState)(BattleState.CHANGE_WAVEING)
-    if IsBattleServer == nil then
+    if IsBattleServer == nil and BattleData.skipBattle ~= true then
       (SimpleTimer.setTimeout)(0.5, function(...)
       -- function num : 0_20_10_0 , upvalues : self
       (self.TurnToNextWave)()
@@ -756,10 +781,17 @@ BattleMgr.PlayBattleState = function(curState, ...)
 
     if IsBattleServer == nil then
       Time.timeScale = 1
+      -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
+
+      BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
       ;
       (BattleData.SetBattleState)(BattleState.SEND_BATTLE_END_MSG)
       ;
       (UpdateMgr.RemoveFixedUpdateHandler)(self.FixedUpdate)
+      if BattleData.skipBattle == true then
+        (self.DealBattleOver)()
+        return 
+      end
       local callBack = function(...)
       -- function num : 0_20_11_0 , upvalues : _ENV, self
       OpenPlotPlay(BattleData.stageId, PlotPlayTriggerType.BEFORE_VICTORY, function(...)
@@ -839,7 +871,7 @@ end
 BattleMgr.DealBattleOver = function(...)
   -- function num : 0_21 , upvalues : _ENV, ipairs, self
   do
-    if IsBattleServer == nil and OvertureMgr.isPlaying == true then
+    if IsBattleServer == nil and OvertureMgr.isPlaying == true and BattleData.skipBattle ~= true then
       local callback = BattleData.endCallback
       if callback then
         callback()
@@ -859,6 +891,10 @@ BattleMgr.DealBattleOver = function(...)
     battleCompleteData.allTeamCardState = BattleData.allBattleTeamCardState
     if battleType == E_BATTLE_TYPE.EXPEDITION and IsBattleServer ~= true then
       battleCompleteData.expeditionBattleData = {changeFc = (ExpeditionMgr.GetExpeditionChangeFc)(), selfMaxFc = (ExpeditionMgr.GetExpeditionSelfMaxFc)(), stageId = (ExpeditionMgr.GetCurrentStage)()}
+    else
+      if battleType == E_BATTLE_TYPE.ACTIVITY and IsBattleServer ~= true then
+        battleCompleteData.expeditionBattleData = {changeFc = (PlotDungeonMgr.GetActivityDungeonPlayerFc)() - (PlotDungeonMgr.ActivityDungeonEnemyFc)(), selfMaxFc = (PlotDungeonMgr.GetActivityDungeonPlayerFc)(), stageId = BattleData.stageId}
+      end
     end
     local saveErrorLog = false
     if BattleData.receiveAllTeamCardState and (table.equal)(BattleData.receiveAllTeamCardState, BattleData.allBattleTeamCardState) == false then
@@ -873,11 +909,11 @@ BattleMgr.DealBattleOver = function(...)
     do
       if battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP then
         local totalDamage, totalHp = (BattleResultCount.GetRealTotalDamage)()
-        -- DECOMPILER ERROR at PC100: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC128: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (battleCompleteData.damageData).totalEnemyHp = totalHp
-        -- DECOMPILER ERROR at PC102: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC130: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (battleCompleteData.damageData).totalSelfDamage = totalDamage
@@ -887,7 +923,7 @@ BattleMgr.DealBattleOver = function(...)
         if IsBattleTest == true then
           for waveNum,data in ipairs((BattleData.battleData).battleProcessData) do
             local roundData = data.roundData
-            -- DECOMPILER ERROR at PC125: Confused about usage of register: R10 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC153: Confused about usage of register: R10 in 'UnsetPending'
 
             BattleTestResult.roundCount = BattleTestResult.roundCount + #roundData
           end
@@ -895,7 +931,7 @@ BattleMgr.DealBattleOver = function(...)
           print("是否获胜：", BattleResultCount.isBattleWin, "总回合数：", BattleTestResult.roundCount)
           return 
         end
-        -- DECOMPILER ERROR at PC154: Confused about usage of register: R4 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC182: Confused about usage of register: R4 in 'UnsetPending'
 
         if (battleType == E_BATTLE_TYPE.STORY or battleType == E_BATTLE_TYPE.HERO or battleType == E_BATTLE_TYPE.ACTIVITY) and PlotDungeonService then
           PlotDungeonMgr.saveStageId = battleCompleteData.id
@@ -934,6 +970,16 @@ BattleMgr.DealBattleOver = function(...)
                     else
                       if battleType == E_BATTLE_TYPE.CG then
                         (HandBookService.OnReqSettleCGCopyStage)(battleCompleteData)
+                      else
+                        if battleType == E_BATTLE_TYPE.GUILD_WAR then
+                          (GuildBossService.ReqSettleGuildWar)(battleCompleteData)
+                        else
+                          if battleType == E_BATTLE_TYPE.FRIEND_PK then
+                            ld("Guild")
+                            ;
+                            (GuildMgr.AfterBattle)({success = battleCompleteData.success})
+                          end
+                        end
                       end
                     end
                   end
@@ -946,22 +992,22 @@ BattleMgr.DealBattleOver = function(...)
                 ;
                 ((CS.FileManager).WriteFile)("BattleResult/BattleResult" .. (LuaTime.GetStampStr)(BattleData.curBattleTime) .. ".txt", str)
               end
-              -- DECOMPILER ERROR at PC271: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC320: Confused about usage of register: R4 in 'UnsetPending'
 
               BattleData.serverBattleData = battleCompleteData
-              -- DECOMPILER ERROR at PC283: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC332: Confused about usage of register: R4 in 'UnsetPending'
 
               if IsBattleTest == true then
                 if BattleResultCount.isBattleWin == true then
                   BattleTestResult.winCount = BattleTestResult.winCount + 1
                 else
-                  -- DECOMPILER ERROR at PC289: Confused about usage of register: R4 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC338: Confused about usage of register: R4 in 'UnsetPending'
 
                   BattleTestResult.failCount = BattleTestResult.failCount + 1
                 end
                 for waveNum,data in ipairs((BattleData.battleData).battleProcessData) do
                   local roundData = data.roundData
-                  -- DECOMPILER ERROR at PC302: Confused about usage of register: R10 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC351: Confused about usage of register: R10 in 'UnsetPending'
 
                   BattleTestResult.roundCount = BattleTestResult.roundCount + #roundData
                 end
@@ -1128,10 +1174,36 @@ BattleMgr.GetPreBattleEvent = function(battleType, stageId, battleData, ...)
             end
           end
           do
-            if IsBattleTest == true then
-              eventTable = battleData.preBattleEvent
+            if battleType == E_BATTLE_TYPE.GUILD_WAR then
+              if IsBattleServer == true then
+                eventTable = battleData.preBattleEvent
+              else
+                ld("GuildBoss")
+                local preBattleEvent = GuildBossData.ActiveSkillInfo
+                if preBattleEvent then
+                  for id,level in pairs(preBattleEvent) do
+                    local config = (TableData.GetGuildTalentConfig)(R12_PC177, level)
+                    if config then
+                      R12_PC177 = split
+                      R12_PC177 = R12_PC177(config.buff, ":")
+                      local buffStr = nil
+                      for _,v in ipairs(buffStr) do
+                        (table.insert)(eventTable, {eventId = tonumber(v)})
+                        ;
+                        (table.insert)((BattleData.battleData).preBattleEvent, {eventId = tonumber(v)})
+                      end
+                    end
+                  end
+                end
+              end
+            else
+              do
+                if IsBattleTest == true then
+                  eventTable = battleData.preBattleEvent
+                end
+                return eventTable
+              end
             end
-            return eventTable
           end
         end
       end

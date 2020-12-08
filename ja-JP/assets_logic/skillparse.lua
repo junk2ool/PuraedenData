@@ -34,7 +34,7 @@ SkillParse.Init = function(atkEndCallBack, skillShowConfig, ...)
   for _,defCardInfo in ipairs(atkInfo.defCardsInfo) do
     local defCardUid = defCardInfo.defCardUid
     local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
-    if defCardInfo.isCounter == false then
+    if defCardInfo.isCounter == false and defCardUid ~= atkCard:GetCardUid() and defCardInfo.isSkillTarget == true then
       (table.insert)(defCards, defCard)
     end
   end
@@ -78,7 +78,19 @@ SkillParse.Init = function(atkEndCallBack, skillShowConfig, ...)
             for i,v in ipairs(hurtSectionTable) do
               totalCount = totalCount + v
             end
-            hurtTableList = (BattleUtil.SplitHurt)(atkInfo.defCardsInfo, count, hurtSectionTable, totalCount)
+            local defCardsInfo = {}
+            for _,v in ipairs(atkInfo.defCardsInfo) do
+              if v.isCounter == false and v.defCardUid == atkCard:GetCardUid() then
+                do
+                  (table.insert)(defCardsInfo, v)
+                  -- DECOMPILER ERROR at PC164: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC164: LeaveBlock: unexpected jumping out IF_STMT
+
+                end
+              end
+            end
+            hurtTableList = (BattleUtil.SplitHurt)(defCardsInfo, count, hurtSectionTable, totalCount)
           end
         end
       end
@@ -288,19 +300,21 @@ RotationAtkCard = function(delayTime, rotation, ...)
 end
 
 local GetDefPositionOff = function(targetPosition, ...)
-  -- function num : 0_11 , upvalues : defCards, _ENV
+  -- function num : 0_11 , upvalues : defCards, _ENV, atkCard
   if defCards then
     local minDis, card = nil, nil
     local startX, startZ = 0, 0
     for _,v in ipairs(defCards) do
-      local pos = v.position
-      if minDis == nil then
-        minDis = pos.x - startX ^ 2 + pos.z - startZ ^ 2
-        card = v
-      else
-        if pos.x - startX ^ 2 + pos.z - startZ ^ 2 < minDis then
+      if v:GetPosIndex() ~= atkCard:GetPosIndex() then
+        local pos = v.position
+        if minDis == nil then
           minDis = pos.x - startX ^ 2 + pos.z - startZ ^ 2
           card = v
+        else
+          if pos.x - startX ^ 2 + pos.z - startZ ^ 2 < minDis then
+            minDis = pos.x - startX ^ 2 + pos.z - startZ ^ 2
+            card = v
+          end
         end
       end
     end
@@ -311,7 +325,7 @@ local GetDefPositionOff = function(targetPosition, ...)
 end
 
 MoveDefCard = function(delayTime, position, interval, ...)
-  -- function num : 0_12 , upvalues : _ENV, defCards, GetDefPositionOff, setTimeout
+  -- function num : 0_12 , upvalues : _ENV, defCards, GetDefPositionOff, atkCard, setTimeout
   if not delayTime then
     delayTime = 0
   end
@@ -322,13 +336,13 @@ MoveDefCard = function(delayTime, position, interval, ...)
     position = position + BattleConfig.cardPositionOff
   end
   local callback = function(...)
-    -- function num : 0_12_0 , upvalues : defCards, GetDefPositionOff, position, _ENV, interval
+    -- function num : 0_12_0 , upvalues : defCards, GetDefPositionOff, position, _ENV, atkCard, interval
     if defCards then
       local posOff = GetDefPositionOff(position)
       for _,card in ipairs(defCards) do
         if position == nil and card:GetCampFlag() == BattleCardCamp.LEFT then
           if not interval then
-            (Util.MoveTo)(card:GetModel(), card:GetFlipPosition(), not card or 0.4)
+            (Util.MoveTo)(card:GetModel(), card:GetFlipPosition(), not card or card:GetPosIndex() == atkCard:GetPosIndex() or 0.4)
             local ratio = 1
             if card:GetPosIndex() < 100 then
               ratio = -1
@@ -342,13 +356,13 @@ MoveDefCard = function(delayTime, position, interval, ...)
               end
               ;
               (Util.MoveTo)(card:GetModel(), targetPosition, interval or 0.4)
-              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -365,7 +379,7 @@ MoveDefCard = function(delayTime, position, interval, ...)
 end
 
 MoveDefCardFront = function(delayTime, position, interval, ...)
-  -- function num : 0_13 , upvalues : _ENV, defCards, setTimeout
+  -- function num : 0_13 , upvalues : _ENV, defCards, atkCard, setTimeout
   if not delayTime then
     delayTime = 0
   end
@@ -376,10 +390,10 @@ MoveDefCardFront = function(delayTime, position, interval, ...)
     position = BattleConfig.positionZero
   end
   local callback = function(...)
-    -- function num : 0_13_0 , upvalues : defCards, _ENV, position, interval
+    -- function num : 0_13_0 , upvalues : defCards, _ENV, atkCard, position, interval
     if defCards then
       for _,card in ipairs(defCards) do
-        if card then
+        if card and card:GetPosIndex() ~= atkCard:GetPosIndex() then
           local ratio = 1
           if card:GetPosIndex() < 100 then
             ratio = -1
@@ -389,13 +403,13 @@ MoveDefCardFront = function(delayTime, position, interval, ...)
               (Util.MoveTo)(card:GetModel(), card:GetCampFrontPosition(true) - Vector3(position.x * ratio, position.y, position.z), card:GetCampFlag() ~= BattleCardCamp.LEFT or 0.4)
               ;
               (Util.MoveTo)(card:GetModel(), card:GetCampFrontPosition() + Vector3(position.x * ratio, position.y, position.z), interval or 0.4)
-              -- DECOMPILER ERROR at PC59: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC66: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC59: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC66: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC59: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC66: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC59: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC66: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -435,6 +449,7 @@ end
 
 SetDefCardsActive = function(delayTime, active, notIncludeAtkCard, ...)
   -- function num : 0_15 , upvalues : defCards, _ENV, atkCard, setTimeout
+  notIncludeAtkCard = true
   if not delayTime then
     delayTime = 0
   end
@@ -465,13 +480,46 @@ SetDefCardsActive = function(delayTime, active, notIncludeAtkCard, ...)
   end
 end
 
-HideUICamera = function(delayTime, ...)
-  -- function num : 0_16 , upvalues : _ENV, setTimeout
+ChangeDefCardLayer = function(delayTime, layer, notIncludeAtkCard, ...)
+  -- function num : 0_16 , upvalues : defCards, _ENV, atkCard, ChangeLayer, setTimeout
+  notIncludeAtkCard = true
+  if not delayTime then
+    delayTime = 0
+  end
   if delayTime > 100 then
     delayTime = delayTime / 1000
   end
   local callback = function(...)
-    -- function num : 0_16_0 , upvalues : _ENV
+    -- function num : 0_16_0 , upvalues : defCards, _ENV, notIncludeAtkCard, atkCard, ChangeLayer, layer
+    if defCards then
+      for _,defCard in ipairs(defCards) do
+        if notIncludeAtkCard == true and defCard:GetPosIndex() == atkCard:GetPosIndex() then
+          do
+            ChangeLayer((defCard:GetModel()).transform, layer)
+            -- DECOMPILER ERROR at PC24: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+            -- DECOMPILER ERROR at PC24: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
+        end
+      end
+    end
+  end
+
+  if delayTime == 0 then
+    callback()
+  else
+    setTimeout(delayTime or 0, callback)
+  end
+end
+
+HideUICamera = function(delayTime, ...)
+  -- function num : 0_17 , upvalues : _ENV, setTimeout
+  if delayTime > 100 then
+    delayTime = delayTime / 1000
+  end
+  local callback = function(...)
+    -- function num : 0_17_0 , upvalues : _ENV
     (Util.SetCameraActive)(Game.uiCamera, false)
   end
 
@@ -483,7 +531,7 @@ HideUICamera = function(delayTime, ...)
 end
 
 ShowUICamera = function(delayTime, ...)
-  -- function num : 0_17 , upvalues : _ENV, setTimeout
+  -- function num : 0_18 , upvalues : _ENV, setTimeout
   if not delayTime then
     delayTime = 0
   end
@@ -491,7 +539,7 @@ ShowUICamera = function(delayTime, ...)
     delayTime = delayTime / 1000
   end
   local callback = function(...)
-    -- function num : 0_17_0 , upvalues : _ENV
+    -- function num : 0_18_0 , upvalues : _ENV
     (Util.SetCameraActive)(Game.uiCamera, true)
   end
 
@@ -503,7 +551,7 @@ ShowUICamera = function(delayTime, ...)
 end
 
 local PlayEffect = function(card, effectName, ...)
-  -- function num : 0_18 , upvalues : _ENV, LayerMaskNames, setTimeout
+  -- function num : 0_19 , upvalues : _ENV, LayerMaskNames, setTimeout
   if card and effectName then
     local eff = (ResHelper.InstantiateEffect)(effectName)
     do
@@ -524,7 +572,7 @@ local PlayEffect = function(card, effectName, ...)
       (SortingHelper.SetOrderInLayer)(eff, card.sortingOrder)
       local time = (LuaEffect.GetEffectDuration)(eff)
       setTimeout(time, function(...)
-    -- function num : 0_18_0 , upvalues : _ENV, eff, card
+    -- function num : 0_19_0 , upvalues : _ENV, eff, card
     if (BattleMgr.IsInBattle)() == false then
       return 
     end
@@ -542,7 +590,7 @@ local PlayEffect = function(card, effectName, ...)
 end
 
 PlayAtkEffect = function(delayTime, effectName, ...)
-  -- function num : 0_19 , upvalues : PlayEffect, atkCard, setTimeout
+  -- function num : 0_20 , upvalues : PlayEffect, atkCard, setTimeout
   if not delayTime then
     delayTime = 0
   end
@@ -553,7 +601,7 @@ PlayAtkEffect = function(delayTime, effectName, ...)
     PlayEffect(atkCard, effectName)
   else
     setTimeout(delayTime or 0, function(...)
-    -- function num : 0_19_0 , upvalues : PlayEffect, atkCard, effectName
+    -- function num : 0_20_0 , upvalues : PlayEffect, atkCard, effectName
     PlayEffect(atkCard, effectName)
   end
 )
@@ -561,7 +609,7 @@ PlayAtkEffect = function(delayTime, effectName, ...)
 end
 
 PlayADefEffect = function(delayTime, effectName, ...)
-  -- function num : 0_20 , upvalues : _ENV, defCards, PlayEffect, setTimeout
+  -- function num : 0_21 , upvalues : _ENV, defCards, PlayEffect, setTimeout
   if not delayTime then
     delayTime = 0
   end
@@ -575,7 +623,7 @@ PlayADefEffect = function(delayTime, effectName, ...)
   else
     do
       setTimeout(delayTime or 0, function(...)
-    -- function num : 0_20_0 , upvalues : _ENV, defCards, PlayEffect, effectName
+    -- function num : 0_21_0 , upvalues : _ENV, defCards, PlayEffect, effectName
     for _,card in ipairs(defCards) do
       PlayEffect(card, effectName)
     end
@@ -586,7 +634,7 @@ PlayADefEffect = function(delayTime, effectName, ...)
 end
 
 local IsJoinAttack = function(card, ...)
-  -- function num : 0_21 , upvalues : atkCard, assistAtkCards, _ENV, defCards
+  -- function num : 0_22 , upvalues : atkCard, assistAtkCards, _ENV, defCards
   if card then
     local position = card:GetPosIndex()
     if atkCard and position == atkCard:GetPosIndex() then
@@ -615,7 +663,7 @@ local IsJoinAttack = function(card, ...)
 end
 
 local UpdateAllCardHpBarVisible = function(visible, ...)
-  -- function num : 0_22 , upvalues : atkCard, _ENV
+  -- function num : 0_23 , upvalues : atkCard, _ENV
   if atkCard then
     local allCard = (BattleData.GetAllCardList)()
     for _,card in ipairs(allCard) do
@@ -627,7 +675,7 @@ local UpdateAllCardHpBarVisible = function(visible, ...)
 end
 
 local UpdateAllCardFlip = function(visible, ...)
-  -- function num : 0_23 , upvalues : atkCard, _ENV, SkillParse
+  -- function num : 0_24 , upvalues : atkCard, _ENV, SkillParse
   if atkCard:GetCampFlag() ~= BattleCardCamp.RIGHT or SkillParse.isUniqueSkill ~= true then
     local needFlip = not atkCard
     local allCard = (BattleData.GetAllCardList)()
@@ -641,7 +689,7 @@ local UpdateAllCardFlip = function(visible, ...)
 end
 
 local UpdateAllCardColor = function(visible, ...)
-  -- function num : 0_24 , upvalues : atkCard, _ENV
+  -- function num : 0_25 , upvalues : atkCard, _ENV
   if atkCard then
     local allCard = (BattleData.GetAllCardList)()
     for _,card in ipairs(allCard) do
@@ -658,7 +706,7 @@ local UpdateAllCardColor = function(visible, ...)
 end
 
 local ChangeCardsLayer = function(layer, alpha, ...)
-  -- function num : 0_25 , upvalues : LayerMaskNames, UpdateAllCardHpBarVisible, UpdateAllCardFlip, UpdateAllCardColor, _ENV, ChangeLayer, atkCard, assistAtkCards, defCards
+  -- function num : 0_26 , upvalues : LayerMaskNames, UpdateAllCardHpBarVisible, UpdateAllCardFlip, UpdateAllCardColor, _ENV, ChangeLayer, atkCard, assistAtkCards, defCards
   if layer == LayerMaskNames.SKILL_HIGHLIGHT then
     UpdateAllCardHpBarVisible(false)
     UpdateAllCardFlip(false)
@@ -711,7 +759,7 @@ end
 
 local curAlpha = 0
 DisplaySkillMask = function(delayTime, alpha, ...)
-  -- function num : 0_26 , upvalues : SkillParse, _ENV, curAlpha, ChangeCardsLayer, LayerMaskNames, setTimeout
+  -- function num : 0_27 , upvalues : SkillParse, _ENV, curAlpha, ChangeCardsLayer, LayerMaskNames, setTimeout
   if not delayTime then
     delayTime = 0
   end
@@ -719,7 +767,7 @@ DisplaySkillMask = function(delayTime, alpha, ...)
     delayTime = delayTime / 1000
   end
   local callback = function(...)
-    -- function num : 0_26_0 , upvalues : SkillParse, _ENV, alpha, curAlpha, ChangeCardsLayer, LayerMaskNames
+    -- function num : 0_27_0 , upvalues : SkillParse, _ENV, alpha, curAlpha, ChangeCardsLayer, LayerMaskNames
     if SkillParse.isDisplayMask == true then
       return 
     end
@@ -747,11 +795,11 @@ DisplaySkillMask = function(delayTime, alpha, ...)
           local maskMat = (skillMask.gameObject):GetComponent(typeof((CS.UnityEngine).Renderer))
           ;
           ((LeanTween.value)(skillMask.gameObject, function(value, ...)
-      -- function num : 0_26_0_0 , upvalues : maskMat
+      -- function num : 0_27_0_0 , upvalues : maskMat
       ((maskMat.sharedMaterials)[0]):SetFloat("_Alpha", value)
     end
 , 0, targetAlpha, time)):setOnComplete(function(...)
-      -- function num : 0_26_0_1 , upvalues : SkillParse
+      -- function num : 0_27_0_1 , upvalues : SkillParse
       SkillParse.isDisplayMask = false
     end
 )
@@ -772,7 +820,7 @@ DisplaySkillMask = function(delayTime, alpha, ...)
 end
 
 ClearSkillMask = function(delayTime, isCloseBattle, lastTime, timelineEndCall, ...)
-  -- function num : 0_27 , upvalues : SkillParse, _ENV, curAlpha, ChangeCardsLayer, LayerMaskNames, setTimeout
+  -- function num : 0_28 , upvalues : SkillParse, _ENV, curAlpha, ChangeCardsLayer, LayerMaskNames, setTimeout
   if not delayTime then
     delayTime = 0
   end
@@ -780,7 +828,7 @@ ClearSkillMask = function(delayTime, isCloseBattle, lastTime, timelineEndCall, .
     delayTime = delayTime / 1000
   end
   local callback = function(...)
-    -- function num : 0_27_0 , upvalues : SkillParse, isCloseBattle, _ENV, lastTime, curAlpha, ChangeCardsLayer, LayerMaskNames, timelineEndCall
+    -- function num : 0_28_0 , upvalues : SkillParse, isCloseBattle, _ENV, lastTime, curAlpha, ChangeCardsLayer, LayerMaskNames, timelineEndCall
     if SkillParse.isClearMask == true and isCloseBattle ~= true then
       return 
     end
@@ -798,7 +846,7 @@ ClearSkillMask = function(delayTime, isCloseBattle, lastTime, timelineEndCall, .
             end
             ;
             (LeanTween.value)(skillMask.gameObject, function(value, ...)
-      -- function num : 0_27_0_0 , upvalues : _ENV
+      -- function num : 0_28_0_0 , upvalues : _ENV
       local allCard = (BattleData.GetAllCardList)()
       for _,card in ipairs(allCard) do
         if card:IsDisplayAlive() == true then
@@ -814,11 +862,11 @@ ClearSkillMask = function(delayTime, isCloseBattle, lastTime, timelineEndCall, .
             local maskMat = (skillMask.gameObject):GetComponent(typeof((CS.UnityEngine).Renderer))
             ;
             ((LeanTween.value)(skillMask.gameObject, function(value, ...)
-      -- function num : 0_27_0_1 , upvalues : maskMat
+      -- function num : 0_28_0_1 , upvalues : maskMat
       ((maskMat.sharedMaterials)[0]):SetFloat("_Alpha", value)
     end
 , curAlpha, 0, lastTime or 0.3)):setOnComplete(function(...)
-      -- function num : 0_27_0_2 , upvalues : _ENV, ChangeCardsLayer, LayerMaskNames, SkillParse, skillMask, timelineEndCall
+      -- function num : 0_28_0_2 , upvalues : _ENV, ChangeCardsLayer, LayerMaskNames, SkillParse, skillMask, timelineEndCall
       (Util.SetCameraActive)(Game.skillCamera, false)
       ChangeCardsLayer(LayerMaskNames.MODEL)
       SkillParse.isClearMask = false

@@ -294,12 +294,23 @@ end
 -- DECOMPILER ERROR at PC69: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.GetBuffDataByDetailId = function(buffId, posIndex, timeStamp, ...)
-  -- function num : 0_17 , upvalues : self, ipairs
-  local buffList = (self.GetBuffList)()
-  for _,v in ipairs(buffList) do
-    local buffData = v:GetBuffInfo()
-    if v:GetBuffId() == buffId and v:GetCurDefPos() == posIndex and buffData.buffTimeStamp == timeStamp then
-      return v
+  -- function num : 0_17 , upvalues : _ENV, self, ipairs
+  if BattleConfig.isPlayBack == true then
+    local buffList = (self.GetBuffPlayBackList)()
+    for _,v in ipairs(buffList) do
+      if v.buffId == buffId and v.curDefPos == posIndex and v.buffTimeStamp == timeStamp then
+        return v
+      end
+    end
+  else
+    do
+      local buffList = (self.GetBuffList)()
+      for _,v in ipairs(buffList) do
+        local buffData = v:GetBuffInfo()
+        if v:GetBuffId() == buffId and v:GetCurDefPos() == posIndex and buffData.buffTimeStamp == timeStamp then
+          return v
+        end
+      end
     end
   end
 end
@@ -307,7 +318,7 @@ end
 -- DECOMPILER ERROR at PC72: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.DealClearBuff = function(targetCard, newBuff, ...)
-  -- function num : 0_18 , upvalues : _ENV, ipairs
+  -- function num : 0_18 , upvalues : _ENV, ipairs, t_insert
   local BattleBuffDeductionRoundType = BattleBuffDeductionRoundType
   local BattleDataCount = BattleDataCount
   local clone = Util.Copy
@@ -320,22 +331,41 @@ BattleBuffMgr.DealClearBuff = function(targetCard, newBuff, ...)
         local isClear, clearCount = (BattleBuffMgr.CleanBuffGroup)(targetCard, clean_buff_group, newBuff)
         if isClear and clean_add_buff and clean_add_buff ~= "0" and clean_add_buff ~= "" then
           print("清除buff，数量：", clearCount, "清除后新增buff：", clean_add_buff)
-          local newBuffTable = (BattleSkill.GetAllBuffByBuffList)(nil, {}, clean_add_buff)
+          local atkPos = newBuff.atkPos
+          local atkCard = (BattleData.GetCardInfoByPos)(atkPos)
+          local newBuffTable = (BattleSkill.GetAllBuffByBuffList)(atkCard, {}, clean_add_buff)
           for _,buff in ipairs(newBuffTable) do
-            local targetCards = newBuff:GetTargetCard(buff.targetId)
-            for _,card in ipairs(targetCards) do
-              if card and card:IsDead() ~= true then
-                local buffClone = clone(buff)
-                buffClone:SetClearCount(clearCount)
-                buffClone:SetCurDefPos(card:GetPosIndex())
-                buffClone.atkPos = newBuff.atkPos
-                local canAdd = (BattleDataCount.DealAddBuff)(card, buffClone)
-                if canAdd == true then
-                  local deductionRoundType = buffClone:GetDeductionRoundType()
-                  if deductionRoundType == BattleBuffDeductionRoundType.NOW then
-                    (BattleDataCount.RealUpdateBuffCount)(buffClone, nil, true)
+            local targetId = buff.targetId
+            local targetCards = {}
+            if targetId == 1001 or targetId == 1002 then
+              targetCards = newBuff:GetTargetCard(buff.targetId)
+            else
+              local targetPosTable = buff:GetTargetPosTable()
+              for _,pos in ipairs(targetPosTable) do
+                t_insert(targetCards, (BattleData.GetCardInfoByPos)(pos))
+              end
+            end
+            do
+              for _,card in ipairs(targetCards) do
+                if card and card:IsDead() ~= true then
+                  local buffClone = clone(buff)
+                  buffClone:SetClearCount(clearCount)
+                  buffClone:SetCurDefPos(card:GetPosIndex())
+                  buffClone.atkPos = newBuff.atkPos
+                  local canAdd = (BattleDataCount.DealAddBuff)(card, buffClone)
+                  if canAdd == true then
+                    local deductionRoundType = buffClone:GetDeductionRoundType()
+                    if deductionRoundType == BattleBuffDeductionRoundType.NOW then
+                      (BattleDataCount.RealUpdateBuffCount)(buffClone, nil, true)
+                    end
+                    ;
+                    (BattleDataCount.DealEquipBuff)(card, buffClone)
                   end
                 end
+              end
+              do
+                -- DECOMPILER ERROR at PC123: LeaveBlock: unexpected jumping out DO_STMT
+
               end
             end
           end

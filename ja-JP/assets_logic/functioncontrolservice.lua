@@ -26,6 +26,7 @@ FunctionControlService.OnResOpenFunction = function(msg, ...)
     ;
     (FunctionControlMgr.OpenFunction)(v)
   end
+  UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_BANNER)
 end
 
 ;

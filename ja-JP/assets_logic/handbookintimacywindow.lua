@@ -517,7 +517,7 @@ HandBookIntimacyWindow.CardListRenderer = function(index, obj, ...)
     -- function num : 0_14_0 , upvalues : cardID, currentID, isCanClickItem, gtAni, HandBookIntimacyWindow
     if cardID ~= currentID and isCanClickItem then
       if gtAni then
-        gtAni:Kill()
+        gtAni:SetPaused()
       end
       ;
       (HandBookIntimacyWindow.OnClickHead)(cardID)

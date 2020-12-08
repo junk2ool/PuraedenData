@@ -49,45 +49,43 @@ ItemTipsWindow.OnShown = function(...)
     print("未找到" .. itemID .. "数据")
     return 
   end
-  -- DECOMPILER ERROR at PC24: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC20: Confused about usage of register: R4 in 'UnsetPending'
 
-  if propType == PropType.ITEM or propType == PropType.ASSET then
-    (uis.HaveNumberGrp).visible = true
-    ;
-    (ItemTipsWindow.ShowItem)(data, itemNum, propType)
-  else
-    -- DECOMPILER ERROR at PC36: Confused about usage of register: R4 in 'UnsetPending'
-
-    if propType == PropType.EQUIP then
-      (uis.HaveNumberGrp).visible = false
-      local equipData = nil
-      if data.is_identify == 0 then
-        equipData = {}
-        equipData.id = data.id
-        equipData.identify = true
-        equipData.level = data.star
-        local attrs = split(data.fixed_attribute, ":")
-        local buffs = split(data.fixed_buff, ":")
-        local attr = {}
-        local buff = {}
-        for _,v in ipairs(attrs) do
-          (table.insert)(attr, tonumber(v))
-        end
-        for _,v in ipairs(buffs) do
-          (table.insert)(buff, tonumber(v))
-        end
-        equipData.randomAttrId = attr
-        equipData.randomBuff = buff
-        equipData.lock = false
-      else
+  if propType == PropType.EQUIP then
+    (uis.HaveNumberGrp).visible = false
+    local equipData = nil
+    if data.is_identify == 0 then
+      equipData = {}
+      equipData.id = data.id
+      equipData.identify = true
+      equipData.level = data.star
+      local attrs = split(data.fixed_attribute, ":")
+      local buffs = split(data.fixed_buff, ":")
+      local attr = {}
+      local buff = {}
+      for _,v in ipairs(attrs) do
+        (table.insert)(attr, tonumber(v))
+      end
+      for _,v in ipairs(buffs) do
+        (table.insert)(buff, tonumber(v))
+      end
+      equipData.randomAttrId = attr
+      equipData.randomBuff = buff
+      equipData.lock = false
+    else
+      do
         do
-          do
-            equipData = argTable[3]
-            ;
-            (ItemTipsWindow.ShowEquipment)(data, equipData)
-            ;
-            (ItemTipsWindow.SetWindowPos)()
-          end
+          equipData = argTable[3]
+          ;
+          (ItemTipsWindow.ShowEquipment)(data, equipData)
+          -- DECOMPILER ERROR at PC79: Confused about usage of register: R4 in 'UnsetPending'
+
+          ;
+          (uis.HaveNumberGrp).visible = true
+          ;
+          (ItemTipsWindow.ShowItem)(data, itemNum, propType)
+          ;
+          (ItemTipsWindow.SetWindowPos)()
         end
       end
     end
@@ -104,7 +102,7 @@ ItemTipsWindow.IsInConfig = function(id, ...)
 end
 
 ItemTipsWindow.ShowItem = function(data, itemNum, propType, ...)
-  -- function num : 0_3 , upvalues : uis, _ENV, ItemTipsWindow, _originYSize
+  -- function num : 0_3 , upvalues : uis, _ENV, ItemTipsWindow, argTable, _originYSize
   local grp = (uis.root):GetChild("LvUse")
   if propType == PropType.ITEM then
     local limitLv = data.use_level
@@ -174,14 +172,54 @@ ItemTipsWindow.ShowItem = function(data, itemNum, propType, ...)
         ;
         (uis.BuyGrp).visible = false
       end
-      -- DECOMPILER ERROR at PC119: Confused about usage of register: R4 in 'UnsetPending'
+      if data.time and data.time > 0 then
+        if argTable[4] ~= nil then
+          local timeStamp = (LuaTime.GetTimeStamp)()
+          if timeStamp < argTable[4] + data.time then
+            grp.visible = true
+            -- DECOMPILER ERROR at PC136: Confused about usage of register: R5 in 'UnsetPending'
 
-      ;
-      (uis.ItemWordTxt).text = data.remark
-      -- DECOMPILER ERROR at PC122: Confused about usage of register: R4 in 'UnsetPending'
+            ;
+            (uis.LvUseTxt).visible = true
+            local str = "[color=" .. Const.WhiteColor .. "]" .. (PUtil.get)(96) .. "[/color]"
+            str = str .. "[color=" .. Const.GreenColor .. "]" .. (LuaTime.GetLeftTimeStr)(data.time + argTable[4], true) .. "[/color]"
+            -- DECOMPILER ERROR at PC162: Confused about usage of register: R6 in 'UnsetPending'
 
-      ;
-      (uis.TipsImage).height = _originYSize
+            ;
+            (uis.LvUseTxt).text = str
+          end
+        else
+          do
+            grp.visible = true
+            -- DECOMPILER ERROR at PC166: Confused about usage of register: R4 in 'UnsetPending'
+
+            ;
+            (uis.LvUseTxt).visible = true
+            do
+              local str = "[color=" .. Const.WhiteColor .. "]" .. (PUtil.get)(96) .. "[/color]"
+              str = str .. "[color=" .. Const.GreenColor .. "]" .. (LuaTime.GetLeftTimeString)(data.time, true) .. "[/color]"
+              -- DECOMPILER ERROR at PC190: Confused about usage of register: R5 in 'UnsetPending'
+
+              ;
+              (uis.LvUseTxt).text = str
+              -- DECOMPILER ERROR at PC205: Confused about usage of register: R4 in 'UnsetPending'
+
+              if propType == PropType.TITLE or propType == PropType.HEAD_ICON or propType == PropType.HEAD_FRAME then
+                (uis.ItemWordTxt).text = data.des
+              else
+                -- DECOMPILER ERROR at PC209: Confused about usage of register: R4 in 'UnsetPending'
+
+                ;
+                (uis.ItemWordTxt).text = data.remark
+              end
+              -- DECOMPILER ERROR at PC212: Confused about usage of register: R4 in 'UnsetPending'
+
+              ;
+              (uis.TipsImage).height = _originYSize
+            end
+          end
+        end
+      end
     end
   end
 end

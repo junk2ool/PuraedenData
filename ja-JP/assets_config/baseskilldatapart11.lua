@@ -171,7 +171,7 @@ BaseSkillDataPart11 = {
 , 
 [43214214] = {id = 43214214, remark = (PUtil.get)(81670001, (PUtil.get)(81670125)), type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46192141:1000:10000", show_id = 43111013, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
-[43214215] = {id = 43214215, remark = (PUtil.get)(81670001, (PUtil.get)(81670103)), type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46192151:1000:10000", show_id = 43111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+[43214215] = {id = 43214215, remark = (PUtil.get)(81670001, (PUtil.get)(81670106)), type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46192151:1000:10000", show_id = 43111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [43214216] = {id = 43214216, remark = (PUtil.get)(81670007, (PUtil.get)(81670114)), type = 3, targetType = 2141, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46192161:1000:10000", show_id = 43111010, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
@@ -556,6 +556,26 @@ BaseSkillDataPart11 = {
 [43215365] = {id = 43215365, type = 3, targetType = 3011, damage = 0, damage_up = 10000, damage_rate = -14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203651:1000:10000,2:46203652:1000:10000,3:46203653:1000:10000", show_id = 43003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [43215366] = {id = 43215366, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203661:1000:10000,2:46203662:3001:3333,2:46203663:3001:3333,2:46203664:3001:3334", show_id = 43002201, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215371] = {id = 43215371, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14100, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203711:3001:10000,2:46203712:3001:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215372] = {id = 43215372, type = 3, targetType = 2007, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 43111008, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215373] = {id = 43215373, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 20300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 43111013, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215374] = {id = 43215374, type = 3, targetType = 3011, damage = 0, damage_up = 10000, damage_rate = -13800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203741:3001:10000,2:46203742:3001:10000", show_id = 43112001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215375] = {id = 43215375, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 13700, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203751:3006:10000,2:46203752:3005:10000", show_id = 43111013, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215381] = {id = 43215381, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14400, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203811:1000:10000,2:46203812:1000:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215382] = {id = 43215382, type = 3, targetType = 2141, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 43001101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215383] = {id = 43215383, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203831:1000:10000", show_id = 43111001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215384] = {id = 43215384, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14700, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203841:1000:5000,2:46203842:3006:6000", show_id = 43111015, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[43215385] = {id = 43215385, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14100, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46203851:1000:10000", show_id = 43001101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [43216001] = {id = 43216001, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46220011:3001:10000", show_id = 43111008, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 

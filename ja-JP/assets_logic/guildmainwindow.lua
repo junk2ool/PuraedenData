@@ -21,6 +21,9 @@ GuildMainWindow.OnInit = function(bridgeObj, ...)
   bridgeObj:SetView((WinResConfig.GuildMainWindow).package, (WinResConfig.GuildMainWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
+  if bridgeObj.OpenFromClose then
+    (GuildService.ReqGuildDetailInfo)(false)
+  end
   uis = GetGuild_GuildMainUis(contentPane)
   ;
   (GuildMainWindow.InitTopMenu)()
@@ -38,6 +41,8 @@ GuildMainWindow.OnInit = function(bridgeObj, ...)
   (GuildMainWindow.BindingUI)()
   ;
   (GuildMainWindow.InitFunctionControl)()
+  ;
+  (GuildMainWindow.SetGuildBossShow)()
 end
 
 GuildMainWindow.InitFunctionControl = function(...)
@@ -59,6 +64,7 @@ GuildMainWindow.BindingUI = function(...)
   BindingUI(winName, RedDotComID.Guild_Construction, uis.BuildBtn)
   BindingUI(winName, RedDotComID.Guild_Guess, uis.GuessBtn)
   BindingUI(winName, RedDotComID.Guild_Gift, uis.LuckyBagBtn)
+  BindingUI(winName, RedDotComID.Guild_Main_Boss, uis.GuildBossBtn)
   ;
   (RedDotMgr.RefreshTreeUI)(winName)
 end
@@ -109,18 +115,20 @@ GuildMainWindow.InitButtonEvent = function(...)
   ;
   ((uis.GuessBtn).onClick):Add(GuildMainWindow.ClickMiniGameBtn)
   ;
+  ((uis.GuildBossBtn).onClick):Set(GuildMainWindow.OnClickGuildBoss)
+  ;
   ((((uis.ChatGrp).ChatFrameGrp).SwitchBtn).onClick):Set(GuildMainWindow.ClickSwitchChatStatusBtn)
   ;
   ((((uis.ChatGrp).ChatFrameGrp).EmojiBtn).onClick):Set(GuildMainWindow.ClickEmojiBtn)
-  -- DECOMPILER ERROR at PC41: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  (((uis.ChatGrp).ChatFrameGrp).SureBtn).text = (PUtil.get)(20000179)
   -- DECOMPILER ERROR at PC46: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  ((((uis.ChatGrp).ChatFrameGrp).InputTxt).inputTextField).RestrictRow = 9
+  (((uis.ChatGrp).ChatFrameGrp).SureBtn).text = (PUtil.get)(20000179)
   -- DECOMPILER ERROR at PC51: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((((uis.ChatGrp).ChatFrameGrp).InputTxt).inputTextField).RestrictRow = 9
+  -- DECOMPILER ERROR at PC56: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   ((((uis.ChatGrp).ChatFrameGrp).InputTxt).inputTextField).ForbidSpace = false
@@ -506,10 +514,46 @@ GuildMainWindow.InitList = function(...)
   _chatList.itemProvider = GuildMainWindow.GetChatItemUrl
 end
 
+GuildMainWindow.SetGuildBossShow = function(...)
+  -- function num : 0_30 , upvalues : _ENV, uis
+  if (GuildData.GuildBossSummaryInfo).status == (ProtoEnum.GUILD_WAR_STATUS).DEFAULT_STATUS or (GuildData.GuildBossSummaryInfo).status == (ProtoEnum.GUILD_WAR_STATUS).SETTLE then
+    ((uis.GuildBossBtn):GetController("c1")).selectedIndex = 0
+  else
+    ;
+    ((uis.GuildBossBtn):GetController("c1")).selectedIndex = 1
+    local time = ((uis.GuildBossBtn):GetChild("BossState")):GetChild("TimeTxt")
+    time.text = (PUtil.get)(20000546)
+  end
+  do
+    if (GuildData.GuildBossSummaryInfo).status ~= (ProtoEnum.GUILD_WAR_STATUS).CHALLENGE then
+      (RedDotMgr.EliminateRedDot)((WinResConfig.GuildBossMainWindow).name, RedDotComID.GuildBoss_Rem)
+      ;
+      (RedDotMgr.EliminateRedDot)((WinResConfig.GuildBossMainWindow).name, RedDotComID.GuildBoss_Rwd)
+      ;
+      (RedDotMgr.EliminateRedDot)((WinResConfig.GuildBossMainWindow).name, RedDotComID.GuildBoss_Rup)
+    end
+  end
+end
+
+GuildMainWindow.OnClickGuildBoss = function(...)
+  -- function num : 0_31 , upvalues : _ENV
+  if (GuildData.GuildBossSummaryInfo).status == (ProtoEnum.GUILD_WAR_STATUS).DEFAULT_STATUS then
+    (MessageMgr.SendCenterTipsByWordID)(20000528)
+  else
+    ld("GuildBoss")
+    ;
+    (GuildBossService.ReqGuildBattleInfo)()
+  end
+end
+
 GuildMainWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_30 , upvalues : _ENV, GuildMainWindow
+  -- function num : 0_32 , upvalues : _ENV, GuildMainWindow
   if msgId == (WindowMsgEnum.Guild).E_MSG_INIT_GUILD_CHAT then
     (GuildMainWindow.RefreshChatList)()
+  else
+    if msgId == (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_WAR then
+      (GuildMainWindow.SetGuildBossShow)()
+    end
   end
 end
 

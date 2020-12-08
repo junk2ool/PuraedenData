@@ -24,13 +24,14 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   -- function num : 0_0 , upvalues : _ENV, BattleCardCamp, WinResConfig, WindowMsgEnum, min, math, ChangeController, ipairs, GetResUrl, abs
   local headInfo = {}
   local totalBuffCount = 6
-  local headObject, hpGreenProgressBar, hpYellowProgressBar, rageProgressBar, defenseProgressBar, hpEliteProgressBar, hpBossProgressBar, uiPanel, buffIcon1Grp, buffIcon2Grp, buffIcon3Grp, controller, orderTxt, attackOrder, percentageTxt, buffIconList, talk = nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil
+  local headObject, hpGreenProgressBar, hpYellowProgressBar, rageProgressBar, defenseProgressBar, hpEliteProgressBar, hpBossProgressBar, uiPanel, buffIcon1Grp, buffIcon2Grp, buffIcon3Grp, controller, orderTxt, attackOrder, percentageTxt, buffIconList, headInfoObj, talk, originParent = nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil
   headInfo.Init = function(self, battleCard, ...)
-    -- function num : 0_0_0 , upvalues : uiPanel, _ENV, headObject, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, hpYellowProgressBar, rageProgressBar, defenseProgressBar, buffIcon1Grp, buffIcon2Grp, buffIcon3Grp, controller, attackOrder, orderTxt, percentageTxt, buffIconList, talk
-    local headInfo = (((battleCard:GetModel()).transform):Find("HeadInfo")).gameObject
-    if headInfo then
-      headInfo:SetActive(true)
-      uiPanel = (headInfo.transform):GetComponent(typeof(FairyGUI.UIPanel))
+    -- function num : 0_0_0 , upvalues : originParent, headInfoObj, uiPanel, _ENV, headObject, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, hpYellowProgressBar, rageProgressBar, defenseProgressBar, buffIcon1Grp, buffIcon2Grp, buffIcon3Grp, controller, attackOrder, orderTxt, percentageTxt, buffIconList, talk
+    originParent = battleCard:GetModel()
+    headInfoObj = (((battleCard:GetModel()).transform):Find("HeadInfo")).gameObject
+    if headInfoObj then
+      headInfoObj:SetActive(true)
+      uiPanel = (headInfoObj.transform):GetComponent(typeof(FairyGUI.UIPanel))
       headObject = uiPanel.ui
       self.lastHp = battleCard:GetHp()
       self.lastDander = battleCard:GetDander()
@@ -59,15 +60,31 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
     end
   end
 
+  headInfo.SetHeadInfoParent = function(self, parent, ...)
+    -- function num : 0_0_1 , upvalues : _ENV, headInfoObj
+    if (Util.IsNil)(headInfoObj) or (Util.IsNil)(parent) then
+      return 
+    end
+    ;
+    (headInfoObj.transform):SetParent(parent)
+  end
+
+  headInfo.RevertParent = function(self, ...)
+    -- function num : 0_0_2 , upvalues : originParent, _ENV, headInfoObj
+    if originParent and not (Util.IsNil)(originParent) and (headInfoObj.transform).parent ~= originParent.transform then
+      (headInfoObj.transform):SetParent(originParent.transform)
+    end
+  end
+
   headInfo.SetMonsterType = function(self, type, ...)
-    -- function num : 0_0_1 , upvalues : headObject, _ENV
+    -- function num : 0_0_3 , upvalues : headObject, _ENV
     if headObject then
       ChangeUIController(headObject, "c2", type)
     end
   end
 
   headInfo.UpdateShield = function(self, curShield, totalShield, ...)
-    -- function num : 0_0_2 , upvalues : _ENV, defenseProgressBar, BattleCardCamp, WinResConfig, WindowMsgEnum
+    -- function num : 0_0_4 , upvalues : _ENV, defenseProgressBar, BattleCardCamp, WinResConfig, WindowMsgEnum
     if curShield and totalShield then
       local card = (BattleData.GetCardInfoByPos)(self.posIndex)
       local visible = false
@@ -93,7 +110,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.UpdateHp = function(self, battleCard, hurtHp, ...)
-    -- function num : 0_0_3 , upvalues : min, _ENV, hpYellowProgressBar, percentageTxt, math, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, BattleCardCamp, WinResConfig, WindowMsgEnum
+    -- function num : 0_0_5 , upvalues : min, _ENV, hpYellowProgressBar, percentageTxt, math, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, BattleCardCamp, WinResConfig, WindowMsgEnum
     local _lastHP = self.lastHp
     local _nowHp = battleCard:GetHp()
     local maxHp = battleCard:GetMaxHp()
@@ -109,7 +126,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
     end
     if _nowHp < _lastHP then
       ((LeanTween.value)(hpYellowProgressBar.value, targetValue, 0.5)):setOnUpdate(function(value, ...)
-      -- function num : 0_0_3_0 , upvalues : percentageTxt, math
+      -- function num : 0_0_5_0 , upvalues : percentageTxt, math
       if percentageTxt then
         local num = (math.ceil)(value)
         percentageTxt.text = num .. "%"
@@ -123,7 +140,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
     else
       if _lastHP < _nowHp then
         ((LeanTween.value)(hpYellowProgressBar.value, targetValue, 0.5)):setOnUpdate(function(value, ...)
-      -- function num : 0_0_3_1 , upvalues : percentageTxt, math
+      -- function num : 0_0_5_1 , upvalues : percentageTxt, math
       if percentageTxt then
         local num = (math.ceil)(value)
         percentageTxt.text = num .. "%"
@@ -153,7 +170,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.UpdateDander = function(self, battleCard, dander, removeFullRage, ...)
-    -- function num : 0_0_4 , upvalues : min, math, rageProgressBar, _ENV, BattleCardCamp, WindowMsgEnum
+    -- function num : 0_0_6 , upvalues : min, math, rageProgressBar, _ENV, BattleCardCamp, WindowMsgEnum
     local _lastDander = self.lastDander
     local _nowDander = battleCard:GetDander()
     if dander then
@@ -173,14 +190,14 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.UpdateVisible = function(self, visible, ...)
-    -- function num : 0_0_5 , upvalues : headObject
+    -- function num : 0_0_7 , upvalues : headObject
     if headObject then
       headObject.visible = visible
     end
   end
 
   headInfo.UpdateAttackVisible = function(self, visible, ...)
-    -- function num : 0_0_6 , upvalues : attackOrder, _ENV, headObject
+    -- function num : 0_0_8 , upvalues : attackOrder, _ENV, headObject
     attackOrder.visible = visible
     if visible == true then
       ChangeUIController(headObject, "c3", 0)
@@ -190,17 +207,17 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.UpdateHpVisible = function(self, visible, ...)
-    -- function num : 0_0_7 , upvalues : percentageTxt
+    -- function num : 0_0_9 , upvalues : percentageTxt
     percentageTxt.visible = visible
   end
 
   headInfo.UpdateBuffVisible = function(self, visible, ...)
-    -- function num : 0_0_8 , upvalues : buffIconList
+    -- function num : 0_0_10 , upvalues : buffIconList
     buffIconList.visible = visible
   end
 
   headInfo.UpdateAtkFlag = function(self, isAtk, isNext, ...)
-    -- function num : 0_0_9 , upvalues : ChangeController, controller
+    -- function num : 0_0_11 , upvalues : ChangeController, controller
     if isAtk == true then
       ChangeController(controller, 2)
     else
@@ -213,20 +230,20 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.UpdateAtkOrderTxt = function(self, num, ...)
-    -- function num : 0_0_10 , upvalues : orderTxt
+    -- function num : 0_0_12 , upvalues : orderTxt
     if orderTxt then
       orderTxt.text = num
     end
   end
 
   headInfo.UpdateSortingOrder = function(self, sortingOrder, ...)
-    -- function num : 0_0_11 , upvalues : headObject
+    -- function num : 0_0_13 , upvalues : headObject
     if headObject then
     end
   end
 
   headInfo.UpdateBuff = function(self, saveEffectTable, ...)
-    -- function num : 0_0_12 , upvalues : _ENV, ipairs, totalBuffCount, buffIconList, GetResUrl
+    -- function num : 0_0_14 , upvalues : _ENV, ipairs, totalBuffCount, buffIconList, GetResUrl
     local url = (Util.GetResUrl)("Battle:BuffIcon")
     local GetBuffDataByDetailId = BattleBuffMgr.GetBuffDataByDetailId
     self:ClearAllBuff()
@@ -243,21 +260,25 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
               buffIconLoader.url = GetResUrl(v.effectPath)
             end
             if loaderTxt then
-              loaderTxt.text = buff:GetTotalCount() - buff:GetActiveCount()
+              if BattleConfig.isPlayBack == true then
+                loaderTxt.text = buff.totalCount - buff.activeCount
+              else
+                loaderTxt.text = buff:GetTotalCount() - buff:GetActiveCount()
+              end
             end
           end
           do
             do
               buffIconList:AddChild(buffIcon)
-              -- DECOMPILER ERROR at PC51: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC51: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC51: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC51: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC51: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -267,7 +288,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.Flip = function(self, flip, ...)
-    -- function num : 0_0_13 , upvalues : headObject, abs
+    -- function num : 0_0_15 , upvalues : headObject, abs
     if headObject then
       if flip then
         headObject.scaleX = -abs(headObject.scaleX)
@@ -278,7 +299,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.ShowTalk = function(self, txt, ...)
-    -- function num : 0_0_14 , upvalues : talk
+    -- function num : 0_0_16 , upvalues : talk
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R2 in 'UnsetPending'
 
     if talk then
@@ -291,7 +312,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.RemoveTalk = function(self, ...)
-    -- function num : 0_0_15 , upvalues : talk
+    -- function num : 0_0_17 , upvalues : talk
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
     if talk then
@@ -304,17 +325,18 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.ClearAllBuff = function(self, ...)
-    -- function num : 0_0_16 , upvalues : buffIconList
+    -- function num : 0_0_18 , upvalues : buffIconList
     if buffIconList then
       buffIconList:RemoveChildrenToPool()
     end
   end
 
   headInfo.Destroy = function(self, ...)
-    -- function num : 0_0_17 , upvalues : headObject, _ENV, buffIconList, headInfo, uiPanel, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, hpYellowProgressBar, rageProgressBar, percentageTxt, controller, attackOrder, orderTxt, defenseProgressBar, talk
+    -- function num : 0_0_19 , upvalues : headObject, _ENV, headInfo, buffIconList, uiPanel, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, hpYellowProgressBar, rageProgressBar, percentageTxt, controller, attackOrder, orderTxt, defenseProgressBar, talk, originParent
     if headObject then
       ChangeUIController(headObject, "c2", 0)
     end
+    headInfo:RevertParent()
     if buffIconList then
       self:ClearAllBuff()
       ;
@@ -338,6 +360,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
     buffIconList = nil
     defenseProgressBar = nil
     talk = nil
+    originParent = nil
   end
 
   headInfo:Init(battleCard)

@@ -86,7 +86,7 @@ LotteryWindow_Activity4.PreLoadFxMain = function(uis, ...)
           -- DECOMPILER ERROR at PC174: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
-          ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 1
+          ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 4
           for index,value in ipairs(split(excelShowData.card_ids, ":")) do
             local cardId = tonumber(value)
             local curCardData = ((TableData.gTable).BaseCardData)[cardId]
@@ -163,12 +163,13 @@ LotteryWindow_Activity4.SetButtonInfo = function(btn, id, freeNum, dayLottery, s
   local isKaQuan = excelData.type == 3
   if freeNum > 0 and (((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).TimeTxt).visible == false then
     (btn:GetChild("Number_01_Loader")).visible = false
-    ;
-    (btn:GetChild("FreeNumberTxt")).visible = true
+    if btn:GetChild("FreeNumberTxt") then
+      (btn:GetChild("FreeNumberTxt")).visible = true
+      ;
+      (btn:GetChild("FreeNumberTxt")).text = (PUtil.get)(89, freeNum, excelData.day_free_num)
+    end
     ;
     (btn:GetChild("Number_01_Txt")).text = (PUtil.get)(90)
-    ;
-    (btn:GetChild("FreeNumberTxt")).text = (PUtil.get)(89, freeNum, excelData.day_free_num)
   else
     (btn:GetChild("Number_01_Loader")).visible = true
     if btn:GetChild("FreeNumberTxt") then
@@ -245,10 +246,14 @@ LotteryWindow_Activity4.SetButtonInfo = function(btn, id, freeNum, dayLottery, s
             (LotteryData.SaveCurCostMode)(CostType.Ticket)
           end
           ;
-          (LotteryService.ReqLotteryDraw)(id)
-          if sound ~= nil then
-            (LuaSound.PlaySound)(sound, SoundBank.OTHER)
-          end
+          (MessageMgr.OpenCostResConfirmWindow)(224, excelData.first_cost, function(...)
+      -- function num : 0_4_0_0 , upvalues : _ENV, id, sound
+      (LotteryService.ReqLotteryDraw)(id)
+      if sound ~= nil then
+        (LuaSound.PlaySound)(sound, SoundBank.OTHER)
+      end
+    end
+)
         else
           loge("消耗绑钻或者非绑钻   " .. tostring(id))
           if id == LotteryCardId.day then
@@ -259,7 +264,7 @@ LotteryWindow_Activity4.SetButtonInfo = function(btn, id, freeNum, dayLottery, s
               local bindId = tonumber((split(excelData.cost, ":"))[2])
               if bind then
                 (MessageMgr.OpenCostResConfirmWindow)(224, excelData.cost, function(...)
-      -- function num : 0_4_0_0 , upvalues : _ENV, id, sound
+      -- function num : 0_4_0_1 , upvalues : _ENV, id, sound
       (LotteryService.ReqLotteryDraw)(id)
       if sound ~= nil then
         (LuaSound.PlaySound)(sound, SoundBank.OTHER)
@@ -279,7 +284,7 @@ LotteryWindow_Activity4.SetButtonInfo = function(btn, id, freeNum, dayLottery, s
                 (LotteryData.SaveCurCostMode)(CostType.Diamond)
                 ;
                 (MessageMgr.OpenCostResConfirmWindow)(224, excelData.cost, function(...)
-      -- function num : 0_4_0_1 , upvalues : _ENV, id, sound
+      -- function num : 0_4_0_2 , upvalues : _ENV, id, sound
       (LotteryService.ReqLotteryDraw)(id)
       if sound ~= nil then
         (LuaSound.PlaySound)(sound, SoundBank.OTHER)
@@ -294,7 +299,7 @@ LotteryWindow_Activity4.SetButtonInfo = function(btn, id, freeNum, dayLottery, s
     end
   end
 )
-  -- DECOMPILER ERROR: 15 unprocessed JMP targets
+  -- DECOMPILER ERROR: 16 unprocessed JMP targets
 end
 
 -- DECOMPILER ERROR at PC40: Confused about usage of register: R9 in 'UnsetPending'

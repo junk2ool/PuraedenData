@@ -24,6 +24,7 @@ AssetStripWindow.Init = function(params, ...)
   local isSelfClose = params.isSelfClose
   local activityId = params.activityId
   local activityIds = params.activityIds
+  local explainFunc = params.explainFunc
   openWindowList[windowName] = params
   assetList[windowName] = moneyTypes
   if model.BackBtn then
@@ -32,15 +33,15 @@ AssetStripWindow.Init = function(params, ...)
   if model.CloseBtn then
     (LuaSound.SetClickSound)(model.CloseBtn, LuaSound.COMMON_WIN_CLOSE)
   end
-  -- DECOMPILER ERROR at PC35: Confused about usage of register: R13 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC36: Confused about usage of register: R14 in 'UnsetPending'
 
   ;
   ((model.Double_01_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC38: Confused about usage of register: R13 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC39: Confused about usage of register: R14 in 'UnsetPending'
 
   ;
   ((model.Double_02_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC41: Confused about usage of register: R13 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R14 in 'UnsetPending'
 
   ;
   ((model.Double_03_Grp).root).visible = false
@@ -54,7 +55,6 @@ AssetStripWindow.Init = function(params, ...)
     if activityIds and #activityIds > 0 then
       do
         for index,value in ipairs(activityIds) do
-          print("***************value", value)
           local isActive = (ActivityMgr.GetActivityIsOpenByID)(value)
           if isActive then
             (ActivityService.OnReqActivityInfo)(nil, 1, value)
@@ -90,7 +90,7 @@ AssetStripWindow.Init = function(params, ...)
       local wordID = (AssetStripWindow.GetFunctionRuleIdByName)(windowName)
       if wordID and wordID > 0 then
         local ruleDes = (PUtil.get)(tonumber(wordID))
-        -- DECOMPILER ERROR at PC101: Confused about usage of register: R15 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC98: Confused about usage of register: R16 in 'UnsetPending'
 
         ;
         (model.ExplainBtn).visible = true
@@ -102,15 +102,22 @@ AssetStripWindow.Init = function(params, ...)
 )
       else
         do
-          -- DECOMPILER ERROR at PC110: Confused about usage of register: R14 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC107: Confused about usage of register: R15 in 'UnsetPending'
 
           ;
           (model.ExplainBtn).visible = false
+          -- DECOMPILER ERROR at PC111: Confused about usage of register: R15 in 'UnsetPending'
+
+          if explainFunc ~= nil then
+            (model.ExplainBtn).visible = true
+            ;
+            (AssetStripWindow.inItButton)(model.ExplainBtn, explainFunc)
+          end
           ;
           (AssetStripWindow.inItCloseBtn)(model.CloseBtn, openName, CloseBtnFun, isShowConfirm, ConfirmContent, isSelfClose, windowName)
           ;
           (AssetStripWindow.inItAsset)(params, moneyTypes)
-          -- DECOMPILER ERROR at PC125: Confused about usage of register: R14 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC130: Confused about usage of register: R15 in 'UnsetPending'
 
           ;
           (model.FunctionNameTxt).text = Tip
@@ -326,13 +333,14 @@ AssetStripWindow.UpdateAsset = function(info, modifyType, value, ...)
 
       if v == AssetType.ENDURANCE then
         (((info.AssetPanel)[v]).NumberTxt).text = (ActorData.GetSpecifyFormatText)(AssetType.ENDURANCE)
+        UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_MULTINUMBER)
       else
-        -- DECOMPILER ERROR at PC56: Confused about usage of register: R8 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC65: Confused about usage of register: R8 in 'UnsetPending'
 
         if (Util.IsInParticularAssetConfig)(v) then
           (((info.AssetPanel)[v]).NumberTxt).text = (ActorData.GetPropsByID)(v)
         else
-          -- DECOMPILER ERROR at PC65: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC74: Confused about usage of register: R8 in 'UnsetPending'
 
           ;
           (((info.AssetPanel)[v]).NumberTxt).text = (ActorData.GetAssetText)(v)

@@ -140,6 +140,13 @@ BaseBattleFailRateMaxData = {
 [69] = {id = 69, level = 69, card_level_max = 69, card_quality_max = 17, card_star_max = 7, card_skill_level_max = 69, equipment_level_max = 80, talent_level_max = 71303700}
 , 
 [70] = {id = 70, level = 70, card_level_max = 70, card_quality_max = 18, card_star_max = 7, card_skill_level_max = 70, equipment_level_max = 80, talent_level_max = 71303700}
+, 
+[71] = {id = 71, level = 71, card_level_max = 70, card_quality_max = 19, card_star_max = 7, card_skill_level_max = 70, equipment_level_max = 80, talent_level_max = 71303700}
+, 
+[72] = {id = 72, level = 72, card_level_max = 70, card_quality_max = 19, card_star_max = 7, card_skill_level_max = 70, equipment_level_max = 80, talent_level_max = 71303700}
+, 
+[73] = {id = 73, level = 73, card_level_max = 70, card_quality_max = 19, card_star_max = 7, card_skill_level_max = 70, equipment_level_max = 80, talent_level_max = 71303700}
+, 
+[74] = {id = 74, level = 74, card_level_max = 70, card_quality_max = 19, card_star_max = 7, card_skill_level_max = 70, equipment_level_max = 80, talent_level_max = 71303700}
 }
-return BaseBattleFailRateMaxData
 

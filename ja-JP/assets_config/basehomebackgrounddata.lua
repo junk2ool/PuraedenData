@@ -8,6 +8,7 @@ BaseHomeBackgroundData = {
 [3] = {id = 3, path_ab = "92200004", path_ui = "HomeBg:HomeBg_001", sort = 2, is_open = 1, effect_back = "FX_ui_mainbg_92200004_back"}
 , 
 [4] = {id = 4, path_ab = "92200001", path_ui = "HomeBg:HomeBg_003", sort = 4, is_open = 1, effect_back = "FX_ui_mainbg_92200001_back"}
+, 
+[5] = {id = 5, path_ab = "92200100", path_ui = "HomeBg:HomeBg_100", sort = 5, is_open = 1, effect_back = "FX_ui_mainbg_92200006_back", begin_time = 1606679999, end_time = 1609426800}
 }
-return BaseHomeBackgroundData
 

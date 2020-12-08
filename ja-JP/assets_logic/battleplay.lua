@@ -200,7 +200,7 @@ local totalDamage = 0
 BattlePlay.PlayBuffBeforeAtk = function(...)
   -- function num : 0_8 , upvalues : _ENV, BattleState, self, BattleBuffDeductionRoundType, BattleBuffSettleRoundType
   (BattleData.SetBattleState)(BattleState.BUFF_BEFORE_ATTACK_ING)
-  if IsBattleServer == nil then
+  if IsBattleServer == nil and BattleData.skipBattle ~= true then
     local atkInfo = BattleAtk.curAtkInfo
     local skillType = atkInfo.skillType
     local atkCard = (BattleData.GetCardInfoByUid)(atkInfo.atkCardUid)
@@ -229,9 +229,9 @@ end
 -- DECOMPILER ERROR at PC52: Confused about usage of register: R14 in 'UnsetPending'
 
 BattlePlay.PlayBuffAfterAtk = function(...)
-  -- function num : 0_9 , upvalues : _ENV, BattleState, self, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, math, BattleConfig
+  -- function num : 0_9 , upvalues : _ENV, BattleState, self, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, math, BattleConfig, UIMgr
   (BattleData.SetBattleState)(BattleState.BUFF_AFTER_ATTACK_ING)
-  if IsBattleServer == nil then
+  if IsBattleServer == nil and BattleData.skipBattle ~= true then
     loge("处理出手后buff结算")
     self.AssistCameraMove = false
     ;
@@ -245,6 +245,8 @@ BattlePlay.PlayBuffAfterAtk = function(...)
     else
       updateBuffCount = (self.PlayBuff)(atkInfo, atkCard, BattleBuffDeductionRoundType.AFTER_ATTACK, BattleBuffSettleRoundType.AFTER_ATTACK)
     end
+    ;
+    (self.PlayBuff)(atkInfo, nil, BattleBuffDeductionRoundType.AFTER_DAMAGE, BattleBuffSettleRoundType.AFTER_DAMAGE)
     local time = (math.min)(updateBuffCount * 0.1, 0.3) + BattleConfig.nextAttackWaitTime
     loge("处理出手后buff结算时间：" .. time)
     ;
@@ -252,10 +254,16 @@ BattlePlay.PlayBuffAfterAtk = function(...)
     -- function num : 0_9_0 , upvalues : _ENV, BattleState
     loge("处理出手后buff结算   完成")
     if (BattleMgr.IsInBattle)() == true then
-      (BattleData.SetBattleState)(BattleState.BUFF_AFTER_ATTACK_END)
+      if BattleData.skipBattle == true then
+        (BattleData.SetBattleState)(BattleState.PLAY_ATTACK)
+      else
+        ;
+        (BattleData.SetBattleState)(BattleState.BUFF_AFTER_ATTACK_END)
+      end
     end
   end
 )
+    UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_GUILD_BOSS_SCORE)
   else
     do
       ;
@@ -277,6 +285,9 @@ BattlePlay.PlayAtk = function(...)
   local atkInfo = BattleAtk.curAtkInfo
   ;
   (BattleData.SetBattleState)(BattleState.PLAY_ATTACK_ING)
+  if atkInfo == nil then
+    return 
+  end
   local atkCard = (BattleData.GetCardInfoByUid)(atkInfo.atkCardUid)
   if atkCard == nil then
     loge("战斗异常，找不到攻击者")
@@ -285,7 +296,7 @@ BattlePlay.PlayAtk = function(...)
   print("攻击位：", atkInfo.atkPos)
   ;
   (BattleResultCount.UpdateDamageDataAtk)(atkInfo)
-  if IsBattleServer == true then
+  if IsBattleServer == true or BattleData.skipBattle == true then
     (BattleData.SetBattleState)(BattleState.CHANGE_ATTACK)
     return 
   end
@@ -425,7 +436,7 @@ local curAssistIndex = 0
 -- DECOMPILER ERROR at PC61: Confused about usage of register: R15 in 'UnsetPending'
 
 BattlePlay.PlayAssistAtk = function(attackType, atkCard, defCard, atkInfo, atkEndCallBack, allEndCallBack, ...)
-  -- function num : 0_11 , upvalues : curAssistIndex, totalDamage, _ENV, self, UIMgr
+  -- function num : 0_11 , upvalues : curAssistIndex, totalDamage, _ENV, self, BattleConfig, UIMgr
   local assistAtkInfo = atkInfo.assistAtkInfo
   local defCardInfo = (atkInfo.defCardsInfo)[1]
   curAssistIndex = 1
@@ -435,7 +446,13 @@ BattlePlay.PlayAssistAtk = function(attackType, atkCard, defCard, atkInfo, atkEn
   local _, moveType = (self.GetNextAttackTime)(nextAssistAtkInfo, card, defCard)
   ;
   (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
-    -- function num : 0_11_0 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
+    -- function num : 0_11_0 , upvalues : _ENV, BattleConfig, self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
+    -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+    BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedMax
+    -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
+
+    Time.timeScale = Time.timeScale * BattlePlay.assistSpeed
     self.AssistCameraMove = true
     ;
     (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
@@ -447,7 +464,7 @@ end
 -- DECOMPILER ERROR at PC64: Confused about usage of register: R15 in 'UnsetPending'
 
 BattlePlay.PlayOneAssistAtk = function(attackType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack, ...)
-  -- function num : 0_12 , upvalues : curAssistIndex, _ENV, totalDamage, self, BattleCardFloatUpState, BattleAttackType, UIMgr
+  -- function num : 0_12 , upvalues : curAssistIndex, _ENV, totalDamage, self, BattleCardFloatUpState, BattleAttackType, BattleConfig, UIMgr
   local info = assistAtkInfo[curAssistIndex]
   local assistAtkCard = (BattleData.GetCardInfoByUid)(info.atkCardUid)
   local defCardInfo = (info.defCardsInfo)[1]
@@ -478,10 +495,20 @@ BattlePlay.PlayOneAssistAtk = function(attackType, atkCard, defCard, assistAtkIn
     end
     ;
     (self.StartPlay)(attackType, assistAtkCard, {defCard}, info, function(...)
-    -- function num : 0_12_0 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
+    -- function num : 0_12_1 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
     (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
   end
-, (((curAssistIndex == #assistAtkInfo and atkEndCallBack) or curAssistIndex == #assistAtkInfo) and allEndCallBack))
+, (((curAssistIndex == #assistAtkInfo and function(...)
+    -- function num : 0_12_0 , upvalues : _ENV, BattleConfig, atkEndCallBack
+    -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
+
+    Time.timeScale = Time.timeScale / BattlePlay.assistSpeed
+    -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
+
+    BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
+    atkEndCallBack()
+  end
+) or curAssistIndex == #assistAtkInfo) and allEndCallBack))
     UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = assistAtkCard, skillType = info.skillType})
     curAssistIndex = curAssistIndex + 1
     -- DECOMPILER ERROR: 2 unprocessed JMP targets
@@ -628,7 +655,7 @@ end
 -- DECOMPILER ERROR at PC76: Confused about usage of register: R15 in 'UnsetPending'
 
 BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack, ...)
-  -- function num : 0_16 , upvalues : self, BattleAttackType, _ENV
+  -- function num : 0_16 , upvalues : self, BattleAttackType, _ENV, ipairs
   atkCard:SetAtkInfo(atkInfo)
   atkCard:SetAttackType(attackType)
   atkCard:SetMovePosType(atkInfo.movePosType)
@@ -672,6 +699,12 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
   end
 )
       else
+        local defCardsInfo = atkInfo.defCardsInfo
+        for _,v in ipairs(defCardsInfo) do
+          if v.isCounter == false and v.defCardUid == atkCard:GetCardUid() then
+            atkCard:ChangeHp({hurt = v.hpDef, absorb = 0}, atkInfo)
+          end
+        end
         atkCard:PlayUniqueSkillEffect(skillId, callBack, atkEndCallBack, allEndCallBack, defCards)
       end
     end
@@ -784,6 +817,8 @@ BattlePlay.PlayPreRoundInfo = function(...)
   end
   ;
   (self.PlayBuff)(playBuffInfo, nil, BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY, BattleBuffSettleRoundType.BEFORE_ROUND)
+  ;
+  (self.PlayBuff)(playBuffInfo, nil, BattleBuffDeductionRoundType.AFTER_DAMAGE, BattleBuffSettleRoundType.AFTER_DAMAGE)
   if updateCount > 0 then
     (SimpleTimer.setTimeout)(0.8, function(...)
     -- function num : 0_19_0 , upvalues : _ENV, BattleState
@@ -818,7 +853,7 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
   local updateBuffCount = 0
   local deductionRoundType2, deductionRoundType3, settleRoundType2, card = nil, nil, nil, nil
   local noVerificationCard = false
-  if deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_BATTLE or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND_3 or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY then
+  if deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_BATTLE or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND_3 or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY or deductionRoundType == BattleBuffDeductionRoundType.AFTER_DAMAGE then
     noVerificationCard = true
   end
   if deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK then
@@ -859,22 +894,22 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
       if settleRoundType then
         local buffConfig = (TableData.GetBaseSkillBuffData)(buffData.buffId)
         local play_settle_round_type = buffConfig.play_settle_round_type
-        -- DECOMPILER ERROR at PC93: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC96: Unhandled construct in 'MakeBoolean' P1
 
         if type == BattleBuffOprType.NEW and (playSettleRoundType == nil or play_settle_round_type == playSettleRoundType) and (buffData.settleRoundType == settleRoundType or buffData.settleRoundType == settleRoundType2) then
           local curDefPos = buffData.curDefPos
           local card = (BattleData.GetCardInfoByPos)(curDefPos)
-          if card then
+          if card and card:GetDisPlayHp() > 0 then
             v.isDeal = true
             ;
-            (BattleBuff.PlayBuffActive)(card, buffData)
-            ;
             (BattleBuffMgr.AddBuffToPlayBackList)(buffData)
+            ;
+            (BattleBuff.PlayBuffActive)(card, buffData)
           end
         end
       end
       do
-        -- DECOMPILER ERROR at PC121: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC128: Unhandled construct in 'MakeBoolean' P1
 
         if type == BattleBuffOprType.IMMUNE and (buffData.settleRoundType == settleRoundType or buffData.settleRoundType == settleRoundType2) then
           local curDefPos = buffData.curDefPos
@@ -913,14 +948,22 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                         else
                           if buffData.settleRoundType == BattleBuffSettleRoundType.BEFORE_ROUND then
                             tempDeductionRoundType = BattleBuffDeductionRoundType.BEFORE_ROUND
+                          else
+                            if buffData.settleRoundType == BattleBuffSettleRoundType.AFTER_DAMAGE then
+                              tempDeductionRoundType = BattleBuffDeductionRoundType.AFTER_DAMAGE
+                            end
                           end
                         end
                       end
                     end
                   end
-                  -- DECOMPILER ERROR at PC228: Unhandled construct in 'MakeBoolean' P3
+                  -- DECOMPILER ERROR at PC254: Unhandled construct in 'MakeBoolean' P3
 
-                  if tempDeductionRoundType == deductionRoundType or ((buffData.settleRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK) or buffData.settleRoundType == BattleBuffDeductionRoundType.AFTER_ACTION and (deductionRoundType == BattleBuffDeductionRoundType.AFTER_ATTACK or deductionRoundType == BattleBuffDeductionRoundType.AFTER_SKILL)) then
+                  -- DECOMPILER ERROR at PC254: Unhandled construct in 'MakeBoolean' P3
+
+                  -- DECOMPILER ERROR at PC254: Unhandled construct in 'MakeBoolean' P3
+
+                  if tempDeductionRoundType == deductionRoundType or ((buffData.settleRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK) or buffData.settleRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or buffData.settleRoundType == BattleBuffDeductionRoundType.AFTER_DAMAGE and (deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND or deductionRoundType == BattleBuffDeductionRoundType.AFTER_ATTACK or deductionRoundType == BattleBuffDeductionRoundType.AFTER_SKILL)) then
                     local tempCard = (BattleData.GetCardInfoByPos)(buffData.curDefPos)
                     if tempCard then
                       v.isDeal = true
@@ -944,7 +987,7 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                               ;
                               (BattleBuff.PlayBuffUpdate)(card, buffData)
                             end
-                            if noVerificationCard == true then
+                            if noVerificationCard == true and deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_DAMAGE then
                               card:DealAfterAtk(true)
                             end
                             if type == BattleBuffOprType.DELETE then
@@ -961,11 +1004,15 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                                     else
                                       if buffData.settleRoundType == BattleBuffSettleRoundType.AFTER_SKILL then
                                         tempDeductionRoundType = BattleBuffDeductionRoundType.AFTER_SKILL
+                                      else
+                                        if buffData.settleRoundType == BattleBuffSettleRoundType.BEFORE_ROUND then
+                                          tempDeductionRoundType = BattleBuffDeductionRoundType.BEFORE_ROUND
+                                        end
                                       end
                                     end
                                   end
                                 end
-                                -- DECOMPILER ERROR at PC334: Unhandled construct in 'MakeBoolean' P3
+                                -- DECOMPILER ERROR at PC369: Unhandled construct in 'MakeBoolean' P3
 
                                 if tempDeductionRoundType == deductionRoundType or ((buffData.settleRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK) or buffData.settleRoundType == BattleBuffDeductionRoundType.AFTER_ACTION and (deductionRoundType == BattleBuffDeductionRoundType.AFTER_ATTACK or deductionRoundType == BattleBuffDeductionRoundType.AFTER_SKILL)) then
                                   local tempCard = (BattleData.GetCardInfoByPos)(buffData.curDefPos)
@@ -993,65 +1040,65 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                                             ;
                                             (BattleBuff.PlayBuffRemove)(card, buffData)
                                           end
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC382: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
 
                                         end
                                       end
@@ -1159,7 +1206,7 @@ end
 
 BattlePlay.PlaySkillSound = function(soundStr, hitCardList, ...)
   -- function num : 0_27 , upvalues : _ENV, math, ipairs
-  if IsBattleServer == true then
+  if IsBattleServer == true or BattleData.skipBattle == true then
     return 
   end
   if soundStr and hitCardList then
@@ -1206,15 +1253,15 @@ BattlePlay.PlaySkillSound = function(soundStr, hitCardList, ...)
           do
             do
               callback(play_frame, path, bank)
-              -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC80: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end

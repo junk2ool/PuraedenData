@@ -46,7 +46,7 @@ end
 
 -- DECOMPILER ERROR at PC43: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.InitCardAttr = function(card, cardData, battleType, battleAttrData, ...)
+CardData.InitCardAttr = function(card, cardData, battleType, battleAttrData, isSelfCard, cardDetailInfo, ...)
   -- function num : 0_1 , upvalues : self, _ENV, pairs, ipairs, ceil
   local cardId = cardData.id
   local cardConfig, isMonster = (self.GetBaseConfig)(cardId)
@@ -93,117 +93,147 @@ CardData.InitCardAttr = function(card, cardData, battleType, battleAttrData, ...
                                 card.intimacyLv = card.intimacyLv
                                 if not cardData.lastStageId then
                                   card.lastStageId = card.lastStageId
-                                  if isMonster then
-                                    local add_attr_ratio = cardConfig.add_attr_ratio
-                                    if not cardData.spd then
-                                      card.spd = card.spd
-                                      if needAddPercent == true and battleType and battleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION and IsBattleTest ~= true then
-                                        (self.AddExpeditionAttrPercent)(card, add_attr_ratio)
+                                  do
+                                    if isSelfCard == false and cardDetailInfo ~= nil then
+                                      local fc = nil
+                                      for _,attrTable in ipairs(cardDetailInfo.attr) do
+                                        local id = attrTable.id
+                                        local value = attrTable.value
+                                        if id and value and id ~= 81050001 then
+                                          local attrConfig = baseAttributeData[id]
+                                          if card[attrConfig.name] then
+                                            card[attrConfig.name] = card[attrConfig.name] + value
+                                          else
+                                            card[attrConfig.name] = value
+                                          end
+                                          fc = fc + value * attrConfig.fc_base / 10000
+                                        end
                                       end
-                                      if cardData.posIndex and battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
-                                        card.max_hp = card.hp
-                                      end
-                                      if not card.hp then
-                                        do
+                                      card.fc = ceil(fc)
+                                      return 
+                                    end
+                                    if isMonster then
+                                      local add_attr_ratio = cardConfig.add_attr_ratio
+                                      if not cardData.spd then
+                                        card.spd = card.spd
+                                        if needAddPercent == true and battleType and IsBattleTest ~= true then
+                                          if battleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION then
+                                            (self.AddExpeditionAttrPercent)(card, add_attr_ratio)
+                                          else
+                                            if battleType == (ProtoEnum.E_BATTLE_TYPE).ACTIVITY then
+                                              (self.AddActivityAttrPercent)(card, add_attr_ratio)
+                                            end
+                                          end
+                                        end
+                                        if cardData.posIndex and battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
+                                          card.max_hp = card.hp
+                                        end
+                                        if battleType == (ProtoEnum.E_BATTLE_TYPE).ACTIVITY then
                                           card.hp = card.max_hp
-                                          do return  end
-                                          if not cardData.level then
-                                            local cardLevelConfig = (self.GetCardLevelUpConfig)(cardConfig.grow_type, card.level)
-                                            if not cardData.star then
-                                              local cardStarConfig = (self.GetCardStarUpConfig)(cardConfig.id, card.star)
-                                              if not cardData.quality then
-                                                local cardQualityConfig = (self.GetCardQualityUpConfig)(cardConfig.id, card.quality)
-                                                local levelUpAddAttrs = (self.GetAddAttrList)(cardLevelConfig.add_attr)
-                                                local starUpToLevelUpAddAttrs = (self.GetAddAttrList)(cardStarConfig.add_levelup_attr)
-                                                local starUpAddAttrs = (self.GetAddAttrList)(cardStarConfig.add_attr)
-                                                local stageUpAddAttrs = (self.GetAddAttrList)(cardQualityConfig.add_attr)
-                                                local skillUpAddAttrs = (self.GetSkillAddAttrList)(card.skillInfo)
-                                                local fc = 0
-                                                local equipAddAttrs = (self.GetEquipAddAttrList)(card.equipInfo)
-                                                PrintTable(equipAddAttrs, "装备属性加成：")
-                                                local talentAttr = {}
-                                                ld("Talent")
-                                                local talentAllAttr = nil
-                                                if cardData.posIndex and (not battleAttrData or not battleAttrData.talentAllAttr) then
-                                                  talentAllAttr = {}
-                                                  talentAllAttr = TalentData.talentAllAttr
-                                                  if not talentAllAttr then
-                                                    for _,v in ipairs({}) do
-                                                      talentAttr[v.id] = v.value
-                                                    end
-                                                    local intimacyAttrTable = nil
-                                                    if cardData.posIndex and (not battleAttrData or not battleAttrData.intimacyAttrTable) then
-                                                      intimacyAttrTable = {}
-                                                      intimacyAttrTable = ActorData.intimacyAttrTable
-                                                      local cardStarTeamAttrTable = nil
-                                                      if CardData.testStarTeamAttr then
-                                                        cardStarTeamAttrTable = CardData.testStarTeamAttr
-                                                      else
-                                                        if cardData.posIndex and (not battleAttrData or not battleAttrData.cardStarTeamAttrTable) then
-                                                          cardStarTeamAttrTable = {}
-                                                          cardStarTeamAttrTable = ActorData.cardStarTeamAttrTable
-                                                          local fetterTeamAttrTable = nil
-                                                          if cardData.posIndex and (not battleAttrData or not battleAttrData.fetterTeamAttrTable) then
-                                                            fetterTeamAttrTable = {}
-                                                            fetterTeamAttrTable = ActorData.fetterTeamAttrTable
-                                                            for _,v in pairs(baseAttributeData) do
-                                                              local id = v.id
-                                                              if id ~= 81050001 and card[v.name] then
-                                                                local attr_v = nil
-                                                                if cardData.posIndex and id == 81050021 then
-                                                                  attr_v = card[v.name]
-                                                                else
-                                                                  if cardData.posIndex and id == 81050002 and battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
-                                                                    attr_v = card.hp
-                                                                  else
-                                                                    attr_v = card[v.name] * (1 + (levelUpAddAttrs[id] and (levelUpAddAttrs[id]).value or 0) / 10000) * (1 + (starUpToLevelUpAddAttrs[id] and (starUpToLevelUpAddAttrs[id]).value or 0) / 10000) + (stageUpAddAttrs[id] and (stageUpAddAttrs[id]).value or 0) + (starUpAddAttrs[id] and (starUpAddAttrs[id]).value or 0) + (skillUpAddAttrs[id] and (skillUpAddAttrs[id]).value or 0) + (equipAddAttrs[id] and (equipAddAttrs[id]).value or 0) + (talentAttr[id] or 0) + (intimacyAttrTable[id] and (intimacyAttrTable[id]).value or 0) + (cardStarTeamAttrTable[id] and (cardStarTeamAttrTable[id]).value or 0) + (fetterTeamAttrTable[id] and (fetterTeamAttrTable[id]).value or 0)
-                                                                  end
-                                                                end
-                                                                card[v.name] = ceil(attr_v)
-                                                                if v.fc_base and cardData.posIndex == nil then
-                                                                  fc = fc + (attr_v) * v.fc_base / 10000
-                                                                end
-                                                              end
-                                                            end
-                                                            if IsBattleTest == true and cardData.addAttr then
-                                                              for _,attrTable in ipairs(cardData.addAttr) do
-                                                                local id = attrTable.id
-                                                                local value = attrTable.value
-                                                                if id and value then
-                                                                  local attrConfig = baseAttributeData[id]
-                                                                  if card[attrConfig.name] then
-                                                                    card[attrConfig.name] = card[attrConfig.name] + value
-                                                                  else
-                                                                    card[attrConfig.name] = value
-                                                                  end
-                                                                  fc = fc + value * attrConfig.fc_base / 10000
-                                                                end
-                                                              end
-                                                            end
-                                                            do
-                                                              card.equipAddAttrs = equipAddAttrs
-                                                              if cardData.posIndex == nil then
-                                                                fc = fc + (self.GetSkillFc)(card.skillInfo)
-                                                                fc = ceil(fc)
-                                                                card.fc = fc
-                                                              end
-                                                              if needAddPercent == true and battleType and IsBattleTest ~= true then
-                                                                if battleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION then
-                                                                  (self.AddExpeditionAttrPercent)(card)
-                                                                else
-                                                                  if battleType == (ProtoEnum.E_BATTLE_TYPE).ADVENTURE then
-                                                                    (self.AddAdventureAttrPercent)(card)
-                                                                  else
-                                                                    if battleType == (ProtoEnum.E_BATTLE_TYPE).TOWER_ENCOUNTER then
-                                                                      (self.AddTowerEncounterAttrPercent)(card)
+                                        else
+                                          if not card.hp then
+                                            do
+                                              card.hp = card.max_hp
+                                              do return  end
+                                              if not cardData.level then
+                                                local cardLevelConfig = (self.GetCardLevelUpConfig)(cardConfig.grow_type, card.level)
+                                                if not cardData.star then
+                                                  local cardStarConfig = (self.GetCardStarUpConfig)(cardConfig.id, card.star)
+                                                  if not cardData.quality then
+                                                    local cardQualityConfig = (self.GetCardQualityUpConfig)(cardConfig.id, card.quality)
+                                                    local levelUpAddAttrs = (self.GetAddAttrList)(cardLevelConfig.add_attr)
+                                                    local starUpToLevelUpAddAttrs = (self.GetAddAttrList)(cardStarConfig.add_levelup_attr)
+                                                    local starUpAddAttrs = (self.GetAddAttrList)(cardStarConfig.add_attr)
+                                                    local stageUpAddAttrs = (self.GetAddAttrList)(cardQualityConfig.add_attr)
+                                                    local skillUpAddAttrs = (self.GetSkillAddAttrList)(card.skillInfo)
+                                                    local fc = 0
+                                                    local equipAddAttrs = (self.GetEquipAddAttrList)(card.equipInfo)
+                                                    PrintTable(equipAddAttrs, "装备属性加成：")
+                                                    local talentAttr = {}
+                                                    ld("Talent")
+                                                    local talentAllAttr = nil
+                                                    if cardData.posIndex and (not battleAttrData or not battleAttrData.talentAllAttr) then
+                                                      talentAllAttr = {}
+                                                      talentAllAttr = TalentData.talentAllAttr
+                                                      if not talentAllAttr then
+                                                        for _,v in ipairs({}) do
+                                                          talentAttr[v.id] = v.value
+                                                        end
+                                                        local intimacyAttrTable = nil
+                                                        if cardData.posIndex and (not battleAttrData or not battleAttrData.intimacyAttrTable) then
+                                                          intimacyAttrTable = {}
+                                                          intimacyAttrTable = ActorData.intimacyAttrTable
+                                                          local cardStarTeamAttrTable = nil
+                                                          if CardData.testStarTeamAttr then
+                                                            cardStarTeamAttrTable = CardData.testStarTeamAttr
+                                                          else
+                                                            if cardData.posIndex and (not battleAttrData or not battleAttrData.cardStarTeamAttrTable) then
+                                                              cardStarTeamAttrTable = {}
+                                                              cardStarTeamAttrTable = ActorData.cardStarTeamAttrTable
+                                                              local fetterTeamAttrTable = nil
+                                                              if cardData.posIndex and (not battleAttrData or not battleAttrData.fetterTeamAttrTable) then
+                                                                fetterTeamAttrTable = {}
+                                                                fetterTeamAttrTable = ActorData.fetterTeamAttrTable
+                                                                for _,v in pairs(baseAttributeData) do
+                                                                  local id = v.id
+                                                                  if id ~= 81050001 and card[v.name] then
+                                                                    local attr_v = nil
+                                                                    if cardData.posIndex and id == 81050021 then
+                                                                      attr_v = card[v.name]
+                                                                    else
+                                                                      if cardData.posIndex and id == 81050002 and battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
+                                                                        attr_v = card.hp
+                                                                      else
+                                                                        attr_v = card[v.name] * (1 + (levelUpAddAttrs[id] and (levelUpAddAttrs[id]).value or 0) / 10000) * (1 + (starUpToLevelUpAddAttrs[id] and (starUpToLevelUpAddAttrs[id]).value or 0) / 10000) + (stageUpAddAttrs[id] and (stageUpAddAttrs[id]).value or 0) + (starUpAddAttrs[id] and (starUpAddAttrs[id]).value or 0) + (skillUpAddAttrs[id] and (skillUpAddAttrs[id]).value or 0) + (equipAddAttrs[id] and (equipAddAttrs[id]).value or 0) + (talentAttr[id] or 0) + (intimacyAttrTable[id] and (intimacyAttrTable[id]).value or 0) + (cardStarTeamAttrTable[id] and (cardStarTeamAttrTable[id]).value or 0) + (fetterTeamAttrTable[id] and (fetterTeamAttrTable[id]).value or 0)
+                                                                      end
+                                                                    end
+                                                                    card[v.name] = ceil(attr_v)
+                                                                    if v.fc_base and cardData.posIndex == nil then
+                                                                      fc = fc + (attr_v) * v.fc_base / 10000
                                                                     end
                                                                   end
                                                                 end
-                                                              end
-                                                              if not card.hp then
-                                                                card.hp = card.max_hp
-                                                                if IsBattleTest == true then
-                                                                  card.hp = card.max_hp
+                                                                if IsBattleTest == true and cardData.addAttr then
+                                                                  for _,attrTable in ipairs(cardData.addAttr) do
+                                                                    local id = attrTable.id
+                                                                    local value = attrTable.value
+                                                                    if id and value then
+                                                                      local attrConfig = baseAttributeData[id]
+                                                                      if card[attrConfig.name] then
+                                                                        card[attrConfig.name] = card[attrConfig.name] + value
+                                                                      else
+                                                                        card[attrConfig.name] = value
+                                                                      end
+                                                                      fc = fc + value * attrConfig.fc_base / 10000
+                                                                    end
+                                                                  end
+                                                                end
+                                                                do
+                                                                  card.equipAddAttrs = equipAddAttrs
+                                                                  if cardData.posIndex == nil then
+                                                                    fc = fc + (self.GetSkillFc)(card.skillInfo)
+                                                                    fc = ceil(fc)
+                                                                    card.fc = fc
+                                                                  end
+                                                                  if needAddPercent == true and battleType and IsBattleTest ~= true then
+                                                                    if battleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION then
+                                                                      (self.AddExpeditionAttrPercent)(card)
+                                                                    else
+                                                                      if battleType == (ProtoEnum.E_BATTLE_TYPE).ADVENTURE then
+                                                                        (self.AddAdventureAttrPercent)(card)
+                                                                      else
+                                                                        if battleType == (ProtoEnum.E_BATTLE_TYPE).TOWER_ENCOUNTER then
+                                                                          (self.AddTowerEncounterAttrPercent)(card)
+                                                                        end
+                                                                      end
+                                                                    end
+                                                                  end
+                                                                  if not card.hp then
+                                                                    card.hp = card.max_hp
+                                                                    if IsBattleTest == true then
+                                                                      card.hp = card.max_hp
+                                                                    end
+                                                                  end
                                                                 end
                                                               end
                                                             end
@@ -264,7 +294,7 @@ CardData.AddExpeditionAttrPercent = function(card, add_attr_ratio, ...)
       changeFc = (ExpeditionMgr.GetExpeditionChangeFc)()
       selfMaxFc = (ExpeditionMgr.GetExpeditionSelfMaxFc)()
       ;
-      (CardData.AddAttrWithFc)(changeFc, selfMaxFc, card, add_attr_ratio)
+      (CardData.AddAttrWithFc)(changeFc, selfMaxFc, card, add_attr_ratio, (ProtoEnum.E_BATTLE_TYPE).EXPEDITION)
       local stageId = nil
       if IsBattleServer == true then
         local expeditionBattleData = BattleData.expeditionBattleData
@@ -286,8 +316,44 @@ end
 
 -- DECOMPILER ERROR at PC52: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.AddAdventureAttrPercent = function(card, ...)
+CardData.AddActivityAttrPercent = function(card, add_attr_ratio, ...)
   -- function num : 0_4 , upvalues : _ENV
+  local changeFc, selfMaxFc = nil, nil
+  if IsBattleServer == true then
+    local expeditionBattleData = BattleData.expeditionBattleData
+    if expeditionBattleData then
+      changeFc = expeditionBattleData.changeFc
+      selfMaxFc = expeditionBattleData.selfMaxFc
+    end
+  else
+    do
+      selfMaxFc = (PlotDungeonMgr.GetActivityDungeonPlayerFc)()
+      changeFc = selfMaxFc - (PlotDungeonMgr.ActivityDungeonEnemyFc)()
+      ;
+      (CardData.AddAttrWithFc)(changeFc, selfMaxFc, card, add_attr_ratio, (ProtoEnum.E_BATTLE_TYPE).ACTIVITY)
+      local stageId = nil
+      if IsBattleServer == true then
+        local expeditionBattleData = BattleData.expeditionBattleData
+        if expeditionBattleData then
+          stageId = expeditionBattleData.stageId
+        end
+      else
+        do
+          stageId = (PlotDungeonMgr.GetSelectDungeon)()
+          local stageConfig = ((TableData.gTable).BaseStageData)[stageId]
+          if stageConfig then
+            (CardData.AddAttr)(card, stageConfig.attr_power)
+          end
+        end
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC55: Confused about usage of register: R7 in 'UnsetPending'
+
+CardData.AddAdventureAttrPercent = function(card, ...)
+  -- function num : 0_5 , upvalues : _ENV
   local stageId = BattleData.stageId
   local stageConfig = ((TableData.gTable).BaseAdventureGameBattleData)[stageId]
   if stageConfig then
@@ -295,10 +361,10 @@ CardData.AddAdventureAttrPercent = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC55: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC58: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.AddTowerEncounterAttrPercent = function(card, ...)
-  -- function num : 0_5 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV
   local stageId = BattleData.stageId
   local stageConfig = ((TableData.gTable).BaseTowerData)[stageId]
   if stageConfig then
@@ -306,10 +372,10 @@ CardData.AddTowerEncounterAttrPercent = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC58: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC61: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.AddAttr = function(card, attr_power, ...)
-  -- function num : 0_6 , upvalues : _ENV, self, pairs, ceil
+  -- function num : 0_7 , upvalues : _ENV, self, pairs, ceil
   local baseAttributeData = (TableData.gTable).BaseAttributeData
   local attr_power = (self.GetAddAttrList)(attr_power)
   for _,v in pairs(baseAttributeData) do
@@ -321,10 +387,10 @@ CardData.AddAttr = function(card, attr_power, ...)
   end
 end
 
--- DECOMPILER ERROR at PC61: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC64: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.AddAttrWithFc = function(changeFc, selfMaxFc, card, add_attr_ratio, ...)
-  -- function num : 0_7 , upvalues : split, ipairs, tonumber, _ENV, self, pairs
+CardData.AddAttrWithFc = function(changeFc, selfMaxFc, card, add_attr_ratio, battleType, ...)
+  -- function num : 0_8 , upvalues : split, ipairs, tonumber, _ENV, self, pairs
   if changeFc and selfMaxFc and changeFc > 0 then
     local ratio = {}
     if add_attr_ratio then
@@ -335,7 +401,7 @@ CardData.AddAttrWithFc = function(changeFc, selfMaxFc, card, add_attr_ratio, ...
       end
     end
     do
-      local config = (TableData.GetExpeditionMonsterConfig)(selfMaxFc)
+      local config = (TableData.GetMonsterFcConfig)(selfMaxFc, battleType)
       if config then
         local baseAttributeData = (TableData.gTable).BaseAttributeData
         local addAttr = config.add_attr
@@ -345,9 +411,9 @@ CardData.AddAttrWithFc = function(changeFc, selfMaxFc, card, add_attr_ratio, ...
           if not ratio[id] then
             do
               card[v.name] = card[v.name] + (not attrTable[id] or 10000) * (attrTable[id]).value * changeFc / config.fc_unit / 10000
-              -- DECOMPILER ERROR at PC67: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC68: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC67: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC68: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -357,10 +423,10 @@ CardData.AddAttrWithFc = function(changeFc, selfMaxFc, card, add_attr_ratio, ...
   end
 end
 
--- DECOMPILER ERROR at PC64: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC67: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetEquipAddAttrList = function(equipInfo, ...)
-  -- function num : 0_8 , upvalues : ipairs, self, _ENV, pairs
+  -- function num : 0_9 , upvalues : ipairs, self, _ENV, pairs
   local addAttrList = {}
   if equipInfo then
     for _,info in ipairs(equipInfo) do
@@ -391,10 +457,10 @@ CardData.GetEquipAddAttrList = function(equipInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC67: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC70: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetAddAttrById = function(addAttrList, attrId, ...)
-  -- function num : 0_9 , upvalues : _ENV, self
+  -- function num : 0_10 , upvalues : _ENV, self
   if attrId and addAttrList then
     local equipAttrConfig = ((TableData.gTable).BaseEquipAttributeData)[attrId]
     if equipAttrConfig then
@@ -405,10 +471,10 @@ CardData.GetAddAttrById = function(addAttrList, attrId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC70: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC73: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.MergeAttrList = function(addAttrList, tempAttrList, ...)
-  -- function num : 0_10 , upvalues : pairs
+  -- function num : 0_11 , upvalues : pairs
   for id,info in pairs(tempAttrList) do
     -- DECOMPILER ERROR at PC12: Confused about usage of register: R7 in 'UnsetPending'
 
@@ -420,10 +486,10 @@ CardData.MergeAttrList = function(addAttrList, tempAttrList, ...)
   end
 end
 
--- DECOMPILER ERROR at PC73: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC76: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetSkillFc = function(skillInfo, ...)
-  -- function num : 0_11 , upvalues : ipairs, _ENV, self
+  -- function num : 0_12 , upvalues : ipairs, _ENV, self
   local fc = 0
   if skillInfo then
     for _,info in ipairs(skillInfo) do
@@ -448,10 +514,10 @@ CardData.GetSkillFc = function(skillInfo, ...)
   return fc
 end
 
--- DECOMPILER ERROR at PC76: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC79: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetSkillAddAttrList = function(skillInfos, ...)
-  -- function num : 0_12 , upvalues : _ENV, ipairs, self, pairs
+  -- function num : 0_13 , upvalues : _ENV, ipairs, self, pairs
   local attrList = {}
   do
     if skillInfos then
@@ -510,10 +576,10 @@ CardData.GetSkillAddAttrList = function(skillInfos, ...)
   end
 end
 
--- DECOMPILER ERROR at PC79: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC82: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.UpdateCardLevelInfo = function(levelInfo, ...)
-  -- function num : 0_13 , upvalues : self
+  -- function num : 0_14 , upvalues : self
   local id = levelInfo.id
   local level = levelInfo.level
   local exp = levelInfo.exp
@@ -526,10 +592,10 @@ CardData.UpdateCardLevelInfo = function(levelInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC82: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC85: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SaveAllCard = function(cardInfoList, ...)
-  -- function num : 0_14 , upvalues : ipairs, self, t_insert, _ENV
+  -- function num : 0_15 , upvalues : ipairs, self, t_insert, _ENV
   local cardList = {}
   for _,v in ipairs(cardInfoList) do
     local oneCard = (self.InitOneCard)(v)
@@ -537,7 +603,7 @@ CardData.SaveAllCard = function(cardInfoList, ...)
   end
   ;
   (table.sort)(cardList, function(a, b, ...)
-    -- function num : 0_14_0
+    -- function num : 0_15_0
     do return b.fc < a.fc end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -547,10 +613,10 @@ CardData.SaveAllCard = function(cardInfoList, ...)
   (self.SaveNotObtainCardList)()
 end
 
--- DECOMPILER ERROR at PC85: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC88: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetCardData = function(cardId, ...)
-  -- function num : 0_15 , upvalues : ipairs, self
+  -- function num : 0_16 , upvalues : ipairs, self
   for _,v in ipairs(self.cardList) do
     if v.id == cardId then
       return v
@@ -558,10 +624,10 @@ CardData.GetCardData = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC88: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC91: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetCardIndexByCardId = function(cardId, ...)
-  -- function num : 0_16 , upvalues : ipairs, self
+  -- function num : 0_17 , upvalues : ipairs, self
   local index = 1
   for i,v in ipairs(self.cardList) do
     if v.id ~= cardId then
@@ -577,10 +643,10 @@ CardData.GetCardIndexByCardId = function(cardId, ...)
   return index
 end
 
--- DECOMPILER ERROR at PC91: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC94: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.ObtainNewCard = function(cardInfo, ...)
-  -- function num : 0_17 , upvalues : self, t_insert, _ENV
+  -- function num : 0_18 , upvalues : self, t_insert, _ENV
   local oneCard = (self.InitOneCard)(cardInfo)
   t_insert(self.cardList, oneCard)
   ;
@@ -592,10 +658,10 @@ CardData.ObtainNewCard = function(cardInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC94: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC97: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SaveNotObtainCardList = function(...)
-  -- function num : 0_18 , upvalues : _ENV, pairs, self, t_insert
+  -- function num : 0_19 , upvalues : _ENV, pairs, self, tonumber, t_insert
   local canMergeCardList = {}
   local notObtainCardList = {}
   local allCardConfig = (TableData.gTable).BaseCardData
@@ -604,27 +670,58 @@ CardData.SaveNotObtainCardList = function(...)
       local pieceInfo = (ActorData.GetCardPieceInfo)(id)
       if pieceInfo then
         if pieceInfo.haveNum < pieceInfo.needNum then
-          t_insert(notObtainCardList, v)
-        else
-          t_insert(canMergeCardList, v)
+          local configTime = v.open_time
+          local isSatisfy = true
+          do
+            do
+              do
+                if configTime then
+                  local serverTime = (LuaTime.GetTimeStamp)()
+                  isSatisfy = tonumber(configTime) <= tonumber(serverTime)
+                end
+                if isSatisfy then
+                  t_insert(notObtainCardList, v)
+                end
+                t_insert(canMergeCardList, v)
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out DO_STMT
+
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out DO_STMT
+
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out IF_STMT
+
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out IF_STMT
+
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                -- DECOMPILER ERROR at PC55: LeaveBlock: unexpected jumping out IF_STMT
+
+              end
+            end
+          end
         end
       end
     end
   end
   self.canMergeCardList = canMergeCardList
   self.notObtainCardList = notObtainCardList
+  -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC97: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC100: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.InitOneCard = function(cardInfo, ...)
-  -- function num : 0_19 , upvalues : self
+  -- function num : 0_20 , upvalues : self
   local oneCardData = {}
   ;
   (self.InitCardAttr)(oneCardData, cardInfo)
   oneCardData.hp = oneCardData.max_hp
+  oneCardData.equipScheme = cardInfo.equipScheme
   oneCardData.GetEquipAddAttrByType = function(self, type, ...)
-    -- function num : 0_19_0
+    -- function num : 0_20_0
     if self == nil or self.equipAddAttrs == nil then
       return 0
     end
@@ -638,17 +735,17 @@ CardData.InitOneCard = function(cardInfo, ...)
   return oneCardData
 end
 
--- DECOMPILER ERROR at PC100: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC103: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetObtainedCardList = function(...)
-  -- function num : 0_20 , upvalues : self
+  -- function num : 0_21 , upvalues : self
   return self.cardList
 end
 
--- DECOMPILER ERROR at PC103: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC106: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetObtainedRankingList = function(num, ...)
-  -- function num : 0_21 , upvalues : self, t_insert, _ENV
+  -- function num : 0_22 , upvalues : self, t_insert, _ENV
   if not num then
     num = 18
   end
@@ -662,32 +759,32 @@ CardData.GetObtainedRankingList = function(num, ...)
   return list
 end
 
--- DECOMPILER ERROR at PC106: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC109: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetObtainedRankAllList = function(...)
-  -- function num : 0_22 , upvalues : self
+  -- function num : 0_23 , upvalues : self
   local cardList = self.cardList
   return cardList
 end
 
--- DECOMPILER ERROR at PC109: Confused about usage of register: R7 in 'UnsetPending'
-
-CardData.GetNotObtainedCardList = function(...)
-  -- function num : 0_23 , upvalues : self
-  return self.notObtainCardList
-end
-
 -- DECOMPILER ERROR at PC112: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.GetCanMergeCardList = function(...)
+CardData.GetNotObtainedCardList = function(...)
   -- function num : 0_24 , upvalues : self
-  return self.canMergeCardList
+  return self.notObtainCardList
 end
 
 -- DECOMPILER ERROR at PC115: Confused about usage of register: R7 in 'UnsetPending'
 
+CardData.GetCanMergeCardList = function(...)
+  -- function num : 0_25 , upvalues : self
+  return self.canMergeCardList
+end
+
+-- DECOMPILER ERROR at PC118: Confused about usage of register: R7 in 'UnsetPending'
+
 CardData.IsObtained = function(cardId, ...)
-  -- function num : 0_25 , upvalues : self, ipairs
+  -- function num : 0_26 , upvalues : self, ipairs
   local obtainCardList = (self.GetObtainedCardList)()
   for _,v in ipairs(obtainCardList) do
     if v.id == cardId then
@@ -697,10 +794,10 @@ CardData.IsObtained = function(cardId, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC118: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC121: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetAddAttrList = function(add_attr, ...)
-  -- function num : 0_26 , upvalues : split, ipairs, tonumber
+  -- function num : 0_27 , upvalues : split, ipairs, tonumber
   local attrList = {}
   if add_attr then
     local addAttrTable = split(add_attr, ",")
@@ -728,10 +825,10 @@ CardData.GetAddAttrList = function(add_attr, ...)
   end
 end
 
--- DECOMPILER ERROR at PC121: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC124: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetCardLevelUpConfig = function(type, level, ...)
-  -- function num : 0_27 , upvalues : _ENV, pairs
+  -- function num : 0_28 , upvalues : _ENV, pairs
   local levelUpConfig = (TableData.gTable).BaseCardLevelUpData
   for _,v in pairs(levelUpConfig) do
     if v.type == type and v.level == level then
@@ -741,10 +838,10 @@ CardData.GetCardLevelUpConfig = function(type, level, ...)
   return {}
 end
 
--- DECOMPILER ERROR at PC124: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC127: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetCardStarUpConfig = function(id, star, ...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   do
     if id and star then
       local starUpConfig = (TableData.gTable).BaseCardStarUpData
@@ -754,10 +851,10 @@ CardData.GetCardStarUpConfig = function(id, star, ...)
   end
 end
 
--- DECOMPILER ERROR at PC127: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC130: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetCardQualityUpConfig = function(id, quality, ...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   do
     if id and quality then
       local qualityUpConfig = (TableData.gTable).BaseCardQualityUpData
@@ -767,41 +864,45 @@ CardData.GetCardQualityUpConfig = function(id, quality, ...)
   end
 end
 
--- DECOMPILER ERROR at PC130: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC133: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.GetFashionConfig = function(cardInfo, ...)
-  -- function num : 0_30 , upvalues : _ENV, self
+CardData.GetFashionConfig = function(cardInfo, notUseFashionID, ...)
+  -- function num : 0_31 , upvalues : _ENV, self
   local id = cardInfo.id
   local quality = cardInfo.quality
-  local fashionId = cardInfo.fashionId
-  if fashionId and fashionId ~= 0 then
-    return ((TableData.gTable).BaseFashionData)[fashionId]
-  end
-  if id and quality then
-    local cardConfig, isMonster = (self.GetBaseConfig)(id)
-    if cardConfig == nil then
-      return 
+  do
+    if not notUseFashionID then
+      local fashionId = cardInfo.fashionId
+      if fashionId and fashionId ~= 0 then
+        return ((TableData.gTable).BaseFashionData)[fashionId]
+      end
     end
-    if isMonster then
-      return ((TableData.gTable).BaseFashionData)[cardConfig.unlock_fashion_id]
-    end
-    local qualityUpConfig = (TableData.gTable).BaseCardQualityUpData
-    for i = id * 100 + quality, id * 100, -1 do
-      local curConfig = qualityUpConfig[i]
-      if curConfig then
-        local unlock_fashion_id = curConfig.unlock_fashion_id
-        if unlock_fashion_id and unlock_fashion_id ~= 0 then
-          return ((TableData.gTable).BaseFashionData)[unlock_fashion_id]
+    if id and quality then
+      local cardConfig, isMonster = (self.GetBaseConfig)(id)
+      if cardConfig == nil then
+        return 
+      end
+      if isMonster then
+        return ((TableData.gTable).BaseFashionData)[cardConfig.unlock_fashion_id]
+      end
+      local qualityUpConfig = (TableData.gTable).BaseCardQualityUpData
+      for i = id * 100 + quality, id * 100, -1 do
+        local curConfig = qualityUpConfig[i]
+        if curConfig then
+          local unlock_fashion_id = curConfig.unlock_fashion_id
+          if unlock_fashion_id and unlock_fashion_id ~= 0 then
+            return ((TableData.gTable).BaseFashionData)[unlock_fashion_id]
+          end
         end
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC133: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC136: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetAttrRemarkById = function(id, ...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_32 , upvalues : _ENV
   if id then
     local tableData = (TableData.gTable).BaseAttributeData
     local config = tableData[id]
@@ -811,10 +912,10 @@ CardData.GetAttrRemarkById = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC136: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC139: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetAttrIdByName = function(name, ...)
-  -- function num : 0_32 , upvalues : _ENV, pairs
+  -- function num : 0_33 , upvalues : _ENV, pairs
   if name then
     local tableData = (TableData.gTable).BaseAttributeData
     for _,v in pairs(tableData) do
@@ -825,39 +926,39 @@ CardData.GetAttrIdByName = function(name, ...)
   end
 end
 
--- DECOMPILER ERROR at PC139: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC142: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SaveCurClickCardID = function(id, ...)
-  -- function num : 0_33 , upvalues : _ENV, self
+  -- function num : 0_34 , upvalues : _ENV, self
   print("储存当前点击卡片ID", id)
   self.curClickedID = id
 end
 
--- DECOMPILER ERROR at PC142: Confused about usage of register: R7 in 'UnsetPending'
-
-CardData.ReturnCardID = function(...)
-  -- function num : 0_34 , upvalues : self
-  return self.curClickedID or 0
-end
-
 -- DECOMPILER ERROR at PC145: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.SaveCurClickCardIndex = function(index, ...)
+CardData.ReturnCardID = function(...)
   -- function num : 0_35 , upvalues : self
-  self.curClickedIndex = index
+  return self.curClickedID or 0
 end
 
 -- DECOMPILER ERROR at PC148: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.GetCardIndex = function(...)
+CardData.SaveCurClickCardIndex = function(index, ...)
   -- function num : 0_36 , upvalues : self
-  return self.curClickedIndex or 1
+  self.curClickedIndex = index
 end
 
 -- DECOMPILER ERROR at PC151: Confused about usage of register: R7 in 'UnsetPending'
 
+CardData.GetCardIndex = function(...)
+  -- function num : 0_37 , upvalues : self
+  return self.curClickedIndex or 1
+end
+
+-- DECOMPILER ERROR at PC154: Confused about usage of register: R7 in 'UnsetPending'
+
 CardData.SetCardDataLevel = function(cID, level, ...)
-  -- function num : 0_37 , upvalues : ipairs, self
+  -- function num : 0_38 , upvalues : ipairs, self
   for _,v in ipairs(self.cardList) do
     if v.id == cID then
       v.level = level
@@ -868,10 +969,10 @@ CardData.SetCardDataLevel = function(cID, level, ...)
   end
 end
 
--- DECOMPILER ERROR at PC154: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC157: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SetCardDataExp = function(cID, exp, ...)
-  -- function num : 0_38 , upvalues : ipairs, self
+  -- function num : 0_39 , upvalues : ipairs, self
   for _,v in ipairs(self.cardList) do
     if v.id == cID then
       v.exp = exp
@@ -880,10 +981,10 @@ CardData.SetCardDataExp = function(cID, exp, ...)
   end
 end
 
--- DECOMPILER ERROR at PC157: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC160: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SetCardDataFc = function(cID, fc, ...)
-  -- function num : 0_39 , upvalues : ipairs, self
+  -- function num : 0_40 , upvalues : ipairs, self
   for _,v in ipairs(self.cardList) do
     if v.id == cID then
       v.fc = fc
@@ -892,10 +993,10 @@ CardData.SetCardDataFc = function(cID, fc, ...)
   end
 end
 
--- DECOMPILER ERROR at PC160: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC163: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SetCardDataQuality = function(cID, quality, ...)
-  -- function num : 0_40 , upvalues : ipairs, self
+  -- function num : 0_41 , upvalues : ipairs, self
   for _,v in ipairs(self.cardList) do
     if v.id == cID then
       v.quality = quality
@@ -906,56 +1007,56 @@ CardData.SetCardDataQuality = function(cID, quality, ...)
   end
 end
 
--- DECOMPILER ERROR at PC163: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC166: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SaveHowManySkillGetFromQ = function(skillTable, ...)
-  -- function num : 0_41 , upvalues : self, _ENV
+  -- function num : 0_42 , upvalues : self, _ENV
   self.qualitySkillList = {}
   self.qualitySkillList = skillTable
   print("技能个数:", #self.qualitySkillList)
 end
 
--- DECOMPILER ERROR at PC166: Confused about usage of register: R7 in 'UnsetPending'
-
-CardData.SubHowManySkillGetFromQ = function(...)
-  -- function num : 0_42 , upvalues : _ENV, self
-  (table.remove)(self.qualitySkillList, 1)
-end
-
 -- DECOMPILER ERROR at PC169: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.GetHowManySkillGetFromQ = function(...)
-  -- function num : 0_43 , upvalues : self
-  return self.qualitySkillList
+CardData.SubHowManySkillGetFromQ = function(...)
+  -- function num : 0_43 , upvalues : _ENV, self
+  (table.remove)(self.qualitySkillList, 1)
 end
 
 -- DECOMPILER ERROR at PC172: Confused about usage of register: R7 in 'UnsetPending'
 
+CardData.GetHowManySkillGetFromQ = function(...)
+  -- function num : 0_44 , upvalues : self
+  return self.qualitySkillList
+end
+
+-- DECOMPILER ERROR at PC175: Confused about usage of register: R7 in 'UnsetPending'
+
 CardData.SaveHowManyFashionGetFromQ = function(fashionTable, ...)
-  -- function num : 0_44 , upvalues : self, _ENV
+  -- function num : 0_45 , upvalues : self, _ENV
   self.qualityFashionList = {}
   self.qualityFashionList = fashionTable
   print("立绘个数:", #self.qualityFashionList)
 end
 
--- DECOMPILER ERROR at PC175: Confused about usage of register: R7 in 'UnsetPending'
-
-CardData.SubHowManyFashionGetFromQ = function(...)
-  -- function num : 0_45 , upvalues : _ENV, self
-  (table.remove)(self.qualityFashionList, 1)
-end
-
 -- DECOMPILER ERROR at PC178: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.GetHowManyFashionGetFromQ = function(...)
-  -- function num : 0_46 , upvalues : self
-  return self.qualityFashionList
+CardData.SubHowManyFashionGetFromQ = function(...)
+  -- function num : 0_46 , upvalues : _ENV, self
+  (table.remove)(self.qualityFashionList, 1)
 end
 
 -- DECOMPILER ERROR at PC181: Confused about usage of register: R7 in 'UnsetPending'
 
+CardData.GetHowManyFashionGetFromQ = function(...)
+  -- function num : 0_47 , upvalues : self
+  return self.qualityFashionList
+end
+
+-- DECOMPILER ERROR at PC184: Confused about usage of register: R7 in 'UnsetPending'
+
 CardData.SaveUpSkills = function(cID, skills, ...)
-  -- function num : 0_47 , upvalues : ipairs, self, pairs, t_insert
+  -- function num : 0_48 , upvalues : ipairs, self, pairs, t_insert
   for _,v in ipairs(self.cardList) do
     if v.id == cID then
       for n,m in pairs(skills) do
@@ -978,10 +1079,10 @@ CardData.SaveUpSkills = function(cID, skills, ...)
   end
 end
 
--- DECOMPILER ERROR at PC184: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC187: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetSkillLevel = function(cID, skillID, ...)
-  -- function num : 0_48 , upvalues : ipairs, self, pairs
+  -- function num : 0_49 , upvalues : ipairs, self, pairs
   for _,v in ipairs(self.cardList) do
     if v.id == cID then
       for k,l in pairs(v.skillInfo) do
@@ -999,10 +1100,10 @@ CardData.GetSkillLevel = function(cID, skillID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC187: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC190: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SaveFashionID = function(cardID, fashionID, ...)
-  -- function num : 0_49 , upvalues : ipairs, self
+  -- function num : 0_50 , upvalues : ipairs, self
   for _,v in ipairs(self.cardList) do
     if v.id == cardID then
       v.fashionId = fashionID
@@ -1011,10 +1112,10 @@ CardData.SaveFashionID = function(cardID, fashionID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC190: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC193: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.GetFashionID = function(cardID, ...)
-  -- function num : 0_50 , upvalues : ipairs, self
+  -- function num : 0_51 , upvalues : ipairs, self
   local fashionID = 0
   for _,v in ipairs(self.cardList) do
     if v.id == cardID then
@@ -1027,10 +1128,10 @@ CardData.GetFashionID = function(cardID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC193: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC196: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.UpdateCardQualityrInfo = function(id, quality, ...)
-  -- function num : 0_51 , upvalues : self, _ENV
+  -- function num : 0_52 , upvalues : self, _ENV
   local cardData = (self.GetCardData)(id)
   local oldData = (Util.Copy)(cardData)
   if cardData then
@@ -1041,10 +1142,10 @@ CardData.UpdateCardQualityrInfo = function(id, quality, ...)
   return oldData
 end
 
--- DECOMPILER ERROR at PC196: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC199: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.SaveCardIntimacyLevel = function(cardID, intimacyLevel, ...)
-  -- function num : 0_52 , upvalues : ipairs, self, _ENV
+  -- function num : 0_53 , upvalues : ipairs, self, _ENV
   for _,v in ipairs(self.cardList) do
     if v.id == cardID then
       v.intimacyLv = intimacyLevel
@@ -1059,28 +1160,28 @@ CardData.SaveCardIntimacyLevel = function(cardID, intimacyLevel, ...)
   end
 end
 
--- DECOMPILER ERROR at PC199: Confused about usage of register: R7 in 'UnsetPending'
-
-CardData.SaveCardStarLeve = function(...)
-  -- function num : 0_53 , upvalues : _ENV, self
-  (ActorData.SaveCardStarTeamAttrTable)()
-  ;
-  (self.UpdateAllCardAttr)()
-end
-
 -- DECOMPILER ERROR at PC202: Confused about usage of register: R7 in 'UnsetPending'
 
-CardData.SaveFetter = function(...)
+CardData.SaveCardStarLeve = function(...)
   -- function num : 0_54 , upvalues : _ENV, self
-  (ActorData.SaveFetterAttrTable)()
+  (ActorData.SaveCardStarTeamAttrTable)()
   ;
   (self.UpdateAllCardAttr)()
 end
 
 -- DECOMPILER ERROR at PC205: Confused about usage of register: R7 in 'UnsetPending'
 
+CardData.SaveFetter = function(...)
+  -- function num : 0_55 , upvalues : _ENV, self
+  (ActorData.SaveFetterAttrTable)()
+  ;
+  (self.UpdateAllCardAttr)()
+end
+
+-- DECOMPILER ERROR at PC208: Confused about usage of register: R7 in 'UnsetPending'
+
 CardData.UpdateCardStageID = function(cardID, StageID, ...)
-  -- function num : 0_55 , upvalues : ipairs, self
+  -- function num : 0_56 , upvalues : ipairs, self
   for _,v in ipairs(self.cardList) do
     if v.id == cardID and v.lastStageId < StageID then
       v.lastStageId = StageID
@@ -1089,16 +1190,16 @@ CardData.UpdateCardStageID = function(cardID, StageID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC207: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC210: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.CurrentCardInfo = nil
--- DECOMPILER ERROR at PC212: Confused about usage of register: R7 in 'UnsetPending'
-
-CardData.CurrentUpgradeStarCost = {pieces = 0, currency = 0}
 -- DECOMPILER ERROR at PC215: Confused about usage of register: R7 in 'UnsetPending'
 
+CardData.CurrentUpgradeStarCost = {pieces = 0, currency = 0}
+-- DECOMPILER ERROR at PC218: Confused about usage of register: R7 in 'UnsetPending'
+
 CardData.UpdateCardStarInfo = function(id, star, ...)
-  -- function num : 0_56 , upvalues : self, _ENV
+  -- function num : 0_57 , upvalues : self, _ENV
   local cardData = (self.GetCardData)(id)
   local oldData = (Util.Copy)(cardData)
   if cardData and star ~= cardData.star then
@@ -1109,10 +1210,10 @@ CardData.UpdateCardStarInfo = function(id, star, ...)
   return oldData
 end
 
--- DECOMPILER ERROR at PC218: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC221: Confused about usage of register: R7 in 'UnsetPending'
 
 CardData.UpdateCardInfo = function(cID, data, ...)
-  -- function num : 0_57 , upvalues : ipairs, self, pairs
+  -- function num : 0_58 , upvalues : ipairs, self, pairs
   for _,v in ipairs(self.cardList) do
     if v.id == cID then
       local preFc = v.fc
@@ -1140,10 +1241,10 @@ self.CardPiecesToUpgrade = 0
 self.CurrentPieceID = 0
 self.CurrentCardPieceInfo = nil
 self.WildCardAmount = 0
--- DECOMPILER ERROR at PC232: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC235: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.SetWildCardId = function(cardId, ...)
-  -- function num : 0_58 , upvalues : self, _ENV, SR_WILD_CARD, WILD_CARD, tonumber
+  -- function num : 0_59 , upvalues : self, _ENV, SR_WILD_CARD, WILD_CARD, tonumber
   if self.SRWildCard == nil then
     self.SRWildCard = ((TableData.gTable).BasePropData)[SR_WILD_CARD]
     self.WildCard = ((TableData.gTable).BasePropData)[WILD_CARD]
@@ -1160,10 +1261,10 @@ CardData.SetWildCardId = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC235: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC238: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetNextStarCardData = function(cardData, ...)
-  -- function num : 0_59 , upvalues : _ENV, self
+  -- function num : 0_60 , upvalues : _ENV, self
   local newOne = {}
   cardData.star = cardData.star + 1
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R2 in 'UnsetPending'
@@ -1178,10 +1279,10 @@ CardData.GetNextStarCardData = function(cardData, ...)
   return newOne
 end
 
--- DECOMPILER ERROR at PC238: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC241: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckExchangeAmount = function(...)
-  -- function num : 0_60 , upvalues : _ENV, self
+  -- function num : 0_61 , upvalues : _ENV, self
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
 
   CardData.CardPiecesToUpgrade = CardData.CurrentCardPiecesNeed - (CardData.CurrentCardPieceInfo).haveNum
@@ -1190,10 +1291,10 @@ CardData.CheckExchangeAmount = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC241: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC244: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.SetToMaxExchange = function(...)
-  -- function num : 0_61 , upvalues : _ENV, self, WILD_CARD
+  -- function num : 0_62 , upvalues : _ENV, self, WILD_CARD
   local wildCardCount = (ActorData.GetGoodsCount)(self.WildCardId, PropType.ITEM)
   if self.CardPiecesToUpgrade < wildCardCount then
     if self.CardPiecesToUpgrade == self.CurrentExchangePieces then
@@ -1222,10 +1323,10 @@ CardData.SetToMaxExchange = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC244: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC247: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.ChangeExchangePieces = function(change, ...)
-  -- function num : 0_62 , upvalues : self, _ENV
+  -- function num : 0_63 , upvalues : self, _ENV
   if self.CurrentExchangePieces == 0 and change < 0 then
     return 
   end
@@ -1245,10 +1346,10 @@ CardData.ChangeExchangePieces = function(change, ...)
   UIMgr:SendWindowMessage((WinResConfig.StarDebrisChangeGrpWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_PIECE_EXCHANGE_COUNT)
 end
 
--- DECOMPILER ERROR at PC247: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC250: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.ResetCardData = function(cardData, ...)
-  -- function num : 0_63 , upvalues : self
+  -- function num : 0_64 , upvalues : self
   local newOne = {}
   cardData.hp = nil
   ;
@@ -1257,10 +1358,10 @@ CardData.ResetCardData = function(cardData, ...)
   (self.UpdateCardInfo)(cardData.id, newOne)
 end
 
--- DECOMPILER ERROR at PC250: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC253: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetMaxStarCards = function(...)
-  -- function num : 0_64 , upvalues : self, _ENV, t_insert
+  -- function num : 0_65 , upvalues : self, _ENV, t_insert
   local maxStarCards = {}
   local count = #self.cardList
   for i = 1, count do
@@ -1271,10 +1372,10 @@ CardData.GetMaxStarCards = function(...)
   return maxStarCards
 end
 
--- DECOMPILER ERROR at PC253: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC256: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetBaseSkillAttrData = function(sType, level, ...)
-  -- function num : 0_65 , upvalues : pairs, _ENV
+  -- function num : 0_66 , upvalues : pairs, _ENV
   local data = nil
   for k,v in pairs((TableData.gTable).BaseSkillAttrData) do
     if v.type == sType and v.level == level then
@@ -1284,10 +1385,10 @@ CardData.GetBaseSkillAttrData = function(sType, level, ...)
   return data
 end
 
--- DECOMPILER ERROR at PC256: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC259: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckUpSixHeroRedPoint = function(...)
-  -- function num : 0_66 , upvalues : self
+  -- function num : 0_67 , upvalues : self
   local homeRedDot = false
   local allHeroList = (self.GetObtainedRankAllList)()
   for i = 1, 6 do
@@ -1309,10 +1410,10 @@ CardData.CheckUpSixHeroRedPoint = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC259: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC262: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckIsSixHeroId = function(id, ...)
-  -- function num : 0_67 , upvalues : self
+  -- function num : 0_68 , upvalues : self
   local isSix = false
   local allHeroList = (self.GetObtainedRankAllList)()
   for i = 1, 6 do
@@ -1327,22 +1428,35 @@ CardData.CheckIsSixHeroId = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC262: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC265: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckUpAllHeroRedPoint = function(...)
-  -- function num : 0_68 , upvalues : self
+  -- function num : 0_69 , upvalues : self
   self.redPointInfo = {}
 end
 
--- DECOMPILER ERROR at PC265: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC268: Confused about usage of register: R9 in 'UnsetPending'
+
+CardData.GetTrueMaxLevel = function(a, b, ...)
+  -- function num : 0_70
+  local tmp = a
+  if b < a then
+    tmp = b
+  end
+  return tmp
+end
+
+-- DECOMPILER ERROR at PC271: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckAllHeroLevelUpRedPoint = function(cardId, ...)
-  -- function num : 0_69 , upvalues : _ENV, self, pairs
+  -- function num : 0_71 , upvalues : _ENV, self, pairs
   if (FunctionControlMgr.GetFunctionState)(ControlID.Card_Strength, false) ~= true then
     return false
   end
   local cardData = (self.GetCardData)(cardId)
-  if (ActorData.GetLevel)() <= cardData.level then
+  local MAX_LEVEL = (((TableData.gTable).BaseFixedData)[Const.MAX_CARDLEVEL]).int_value
+  local tmpMax = (CardData.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
+  if tmpMax <= cardData.level then
     return false
   end
   local expPool = 0
@@ -1378,10 +1492,10 @@ CardData.CheckAllHeroLevelUpRedPoint = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC268: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC274: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetCurCardIsHaveLevelUpRedDot = function(cardId, ...)
-  -- function num : 0_70 , upvalues : ipairs, self
+  -- function num : 0_72 , upvalues : ipairs, self
   for i,v in ipairs((self.redPointInfo).levelUpInfo) do
     if v.cardId == cardId then
       return v.lvlUpRedDot
@@ -1389,10 +1503,10 @@ CardData.GetCurCardIsHaveLevelUpRedDot = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC271: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC277: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckAllHeroStageUpRedPoint = function(cardId, ...)
-  -- function num : 0_71 , upvalues : _ENV, self, split, ipairs, tonumber
+  -- function num : 0_73 , upvalues : _ENV, self, split, ipairs, tonumber
   if (FunctionControlMgr.GetFunctionState)(ControlID.Card_Break, false) ~= true then
     return false
   end
@@ -1447,10 +1561,10 @@ CardData.CheckAllHeroStageUpRedPoint = function(cardId, ...)
   -- DECOMPILER ERROR: 10 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC274: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC280: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetCurCardIsHaveStageUpRedDot = function(cardId, ...)
-  -- function num : 0_72 , upvalues : ipairs, self
+  -- function num : 0_74 , upvalues : ipairs, self
   for i,v in ipairs((self.redPointInfo).stageUpInfo) do
     if v.cardId == cardId then
       return v.stageUpRedDot
@@ -1458,10 +1572,10 @@ CardData.GetCurCardIsHaveStageUpRedDot = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC277: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC283: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckAllHeroStarUpRedPoint = function(cardId, ...)
-  -- function num : 0_73 , upvalues : _ENV, self, split, ipairs, tonumber
+  -- function num : 0_75 , upvalues : _ENV, self, split, ipairs, tonumber
   if (FunctionControlMgr.GetFunctionState)(ControlID.Card_Wake, false) ~= true then
     return false
   end
@@ -1511,10 +1625,10 @@ CardData.CheckAllHeroStarUpRedPoint = function(cardId, ...)
   -- DECOMPILER ERROR: 8 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC280: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC286: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetCurCardIsHaveStarUpRedDot = function(cardId, ...)
-  -- function num : 0_74 , upvalues : ipairs, self
+  -- function num : 0_76 , upvalues : ipairs, self
   for i,v in ipairs((self.redPointInfo).starUpInfo) do
     if v.cardId == cardId then
       return v.starUpRedDot
@@ -1522,10 +1636,10 @@ CardData.GetCurCardIsHaveStarUpRedDot = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC283: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC289: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.CheckAllHeroSkillUpRedPoint = function(cardId, ...)
-  -- function num : 0_75 , upvalues : _ENV, self, pairs, ipairs, tonumber, split
+  -- function num : 0_77 , upvalues : _ENV, self, pairs, ipairs, tonumber, split
   if (FunctionControlMgr.GetFunctionState)(ControlID.Card_Talent, false) ~= true then
     return false
   end
@@ -1644,10 +1758,10 @@ CardData.CheckAllHeroSkillUpRedPoint = function(cardId, ...)
   -- DECOMPILER ERROR: 12 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC286: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC292: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetCurCardIsHaveSkillUpRedDot = function(cardId, ...)
-  -- function num : 0_76 , upvalues : ipairs, self
+  -- function num : 0_78 , upvalues : ipairs, self
   for i,v in ipairs((self.redPointInfo).skillUpInfo) do
     if v.cardId == cardId then
       return v.skillUpRedDot
@@ -1655,10 +1769,10 @@ CardData.GetCurCardIsHaveSkillUpRedDot = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC289: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC295: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetFormationLucky = function(formation, ...)
-  -- function num : 0_77 , upvalues : pairs, self
+  -- function num : 0_79 , upvalues : pairs, self
   local lucky = 0
   local cardData = nil
   for k,v in pairs(formation) do
@@ -1670,10 +1784,10 @@ CardData.GetFormationLucky = function(formation, ...)
   return lucky
 end
 
--- DECOMPILER ERROR at PC292: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC298: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.GetFormationfc = function(formation, ...)
-  -- function num : 0_78 , upvalues : pairs, self
+  -- function num : 0_80 , upvalues : pairs, self
   local fc = 0
   local cardData = nil
   for k,v in pairs(formation) do

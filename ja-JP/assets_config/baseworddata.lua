@@ -107,6 +107,20 @@ BaseWordData = {
 , 
 [81013010] = {id = 81013010, name = "シェリー"}
 , 
+[81012111] = {id = 81012111, name = "ツバキ"}
+, 
+[81012208] = {id = 81012208, name = "ハーミット"}
+, 
+[81013011] = {id = 81013011, name = "ルルリカ"}
+, 
+[81013012] = {id = 81013012, name = "ミア"}
+, 
+[81013014] = {id = 81013014, name = "ロール"}
+, 
+[81013016] = {id = 81013016, name = "TEST"}
+, 
+[81013024] = {id = 81013024, name = "TEST"}
+, 
 [81031001] = {id = 81031001, name = "リルス"}
 , 
 [81031002] = {id = 81031002, name = "コニー"}
@@ -216,6 +230,16 @@ BaseWordData = {
 [81033009] = {id = 81033009, name = "クラウディア"}
 , 
 [81033010] = {id = 81033010, name = "ゲラルト"}
+, 
+[81033011] = {id = 81033011, name = "ストーンジャイアント"}
+, 
+[81033012] = {id = 81033012, name = "遺跡守衛"}
+, 
+[81033013] = {id = 81033013, name = "溶岩の巨像"}
+, 
+[81034001] = {id = 81034001, name = "パトローラー"}
+, 
+[81034002] = {id = 81034002, name = "ワイルドハンター"}
 , 
 [81040001] = {id = 81040001, name = "ブロンズ"}
 , 
@@ -337,7 +361,21 @@ BaseWordData = {
 , 
 [81041052] = {id = 81041052, name = "小倉 唯"}
 , 
-[81041053] = {id = 81041053, name = "TEST"}
+[81041053] = {id = 81041053, name = "能登 麻美子"}
+, 
+[81041054] = {id = 81041054, name = "佐藤 聡美"}
+, 
+[81041055] = {id = 81041055, name = "日高 里菜"}
+, 
+[81041056] = {id = 81041056, name = "川澄 綾子"}
+, 
+[81041057] = {id = 81041057, name = "戸松 遥"}
+, 
+[81041058] = {id = 81041058, name = "田中 美海"}
+, 
+[81041059] = {id = 81041059, name = "TEST"}
+, 
+[81041060] = {id = 81041060, name = "TEST"}
 , 
 [81041501] = {id = 81041501, name = "CV  斎藤 千和"}
 , 
@@ -389,6 +427,10 @@ BaseWordData = {
 , 
 [81042114] = {id = 81042114, name = "スキルコピー"}
 , 
+[81042115] = {id = 81042115, name = "威嚇"}
+, 
+[81042116] = {id = 81042116, name = "雪だるま"}
+, 
 [81042201] = {id = 81042201, name = "シールド"}
 , 
 [81042202] = {id = 81042202, name = "戦術防守"}
@@ -403,6 +445,12 @@ BaseWordData = {
 , 
 [81042207] = {id = 81042207, name = "守護"}
 , 
+[81042208] = {id = 81042208, name = "暗影庇護"}
+, 
+[81042209] = {id = 81042209, name = "外殻強化"}
+, 
+[81042210] = {id = 81042210, name = "信念"}
+, 
 [81042301] = {id = 81042301, name = "デバフ"}
 , 
 [81042302] = {id = 81042302, name = "防御DOWN"}
@@ -413,6 +461,8 @@ BaseWordData = {
 , 
 [81042305] = {id = 81042305, name = "会心DOWN"}
 , 
+[81042306] = {id = 81042306, name = "ガードDOWN"}
+, 
 [81042401] = {id = 81042401, name = "治療"}
 , 
 [81042402] = {id = 81042402, name = "吸血"}
@@ -420,6 +470,8 @@ BaseWordData = {
 [81042403] = {id = 81042403, name = "SP回復"}
 , 
 [81042404] = {id = 81042404, name = "欣快"}
+, 
+[81042405] = {id = 81042405, name = "ライフリンク"}
 , 
 [81042501] = {id = 81042501, name = "ブレーク"}
 , 
@@ -472,6 +524,12 @@ BaseWordData = {
 [81042525] = {id = 81042525, name = "コーラス"}
 , 
 [81042526] = {id = 81042526, name = "陶酔"}
+, 
+[81042527] = {id = 81042527, name = "暴走"}
+, 
+[81042528] = {id = 81042528, name = "屍毒"}
+, 
+[81042529] = {id = 81042529, name = "理性喪失"}
 , 
 [81042601] = {id = 81042601, name = "召喚"}
 , 
@@ -705,6 +763,30 @@ BaseWordData = {
 , 
 [81211107] = {id = 81211107, name = "独占ショー"}
 , 
+[81213010] = {id = 81213010, name = "決断の刻"}
+, 
+[81213009] = {id = 81213009, name = "海浜の主"}
+, 
+[81212112] = {id = 81212112, name = "気を抜いちゃダメよ！"}
+, 
+[81212111] = {id = 81212111, name = "忘却の踊り"}
+, 
+[81212208] = {id = 81212208, name = "特別な趣味"}
+, 
+[81213011] = {id = 81213011, name = "血湧き肉躍る"}
+, 
+[81213012] = {id = 81213012, name = "輝いてるミアだよ！"}
+, 
+[81212209] = {id = 81212209, name = "トリックオアトリート"}
+, 
+[81213013] = {id = 81213013, name = "キョンシー参上"}
+, 
+[81213014] = {id = 81213014, name = "ロールは最高だ！"}
+, 
+[81212210] = {id = 81212210, name = "仕事の流儀"}
+, 
+[81213015] = {id = 81213015, name = "メリークリスマス♪"}
+, 
 [81221001] = {id = 81221001, name = "受付嬢さんの自信"}
 , 
 [81221002] = {id = 81221002, name = "幻剣術"}
@@ -809,6 +891,30 @@ BaseWordData = {
 , 
 [81221107] = {id = 81221107, name = "集結ラッパ"}
 , 
+[81223010] = {id = 81223010, name = "シャドウストライク"}
+, 
+[81223009] = {id = 81223009, name = "波の誘い"}
+, 
+[81222112] = {id = 81222112, name = "水噴射"}
+, 
+[81222111] = {id = 81222111, name = "縛り舞姫"}
+, 
+[81222208] = {id = 81222208, name = "デマを粉砕せよ！"}
+, 
+[81223011] = {id = 81223011, name = "女優の多面性"}
+, 
+[81223012] = {id = 81223012, name = "おしゃれの達人"}
+, 
+[81222209] = {id = 81222209, name = "ハロウィン·ジャッジ"}
+, 
+[81223013] = {id = 81223013, name = "キョンシーお札"}
+, 
+[81223014] = {id = 81223014, name = "奇跡よおこれ！"}
+, 
+[81222210] = {id = 81222210, name = "クリスマスプレゼント"}
+, 
+[81223015] = {id = 81223015, name = "サンタ·ジャッジ"}
+, 
 [81231001] = {id = 81231001, name = "協擊"}
 , 
 [81240101] = {id = 81240101, name = "生命の元"}
@@ -863,6 +969,20 @@ BaseWordData = {
 , 
 [81240704] = {id = 81240704, name = "マナ爆発"}
 , 
+[81253009] = {id = 81253009, name = "クール・サマー"}
+, 
+[81252112] = {id = 81252112, name = "夏を楽しもう！"}
+, 
+[81252209] = {id = 81252209, name = "お菓子配り"}
+, 
+[81253013] = {id = 81253013, name = "東の妖怪"}
+, 
+[81253014] = {id = 81253014, name = "意地でも希望を持って！"}
+, 
+[81252210] = {id = 81252210, name = "正義を貫くサンタ"}
+, 
+[81253015] = {id = 81253015, name = "情熱的なサンタ"}
+, 
 [81311001] = {id = 81311001, name = "うん！賞金のためなら、ちょっと頑張ってみても損はしない～"}
 , 
 [81311002] = {id = 81311002, name = "オリヴィアの得意な剣技は、姿が優雅で、剣勢も華やかだ。"}
@@ -903,7 +1023,7 @@ BaseWordData = {
 , 
 [81312008] = {id = 81312008, name = "ショコラは美味しいお菓子を相手の口に突っ込んで、いっぱいにしてあげる～"}
 , 
-[81312101] = {id = 81312101, name = "ウィチタが最强であることを認めないやつからお菓子を全部奪ってしまえ！"}
+[81312101] = {id = 81312101, name = "ウィチタが最強であることを認めないやつからお菓子を全部奪ってしまえ！"}
 , 
 [81312102] = {id = 81312102, name = "汚れの発生元を処理しないと、本当に汚れを消し去ることはできない！"}
 , 
@@ -943,7 +1063,7 @@ BaseWordData = {
 , 
 [81313003] = {id = 81313003, name = "アロエは恐怖の毒素を放出し、周囲の目標の体に隠された毒性をすべて引き出す！"}
 , 
-[81313004] = {id = 81313004, name = "仲间に対してはフラワーは優しく気をかけている！フラワー敵に対してはフラワーは全力で戦う！"}
+[81313004] = {id = 81313004, name = "仲間に対してはフラワーは優しく気をかけている！フラワー敵に対してはフラワーは全力で戦う！"}
 , 
 [81313005] = {id = 81313005, name = "完璧なメイドになる秘密は、バッサリと万事をこなすこと！"}
 , 
@@ -951,7 +1071,7 @@ BaseWordData = {
 , 
 [81313007] = {id = 81313007, name = "モニカが真剣に仕事をしている時、誰もが彼女の矢から逃げることはできない。"}
 , 
-[81313101] = {id = 81313101, name = "ラヴィはスーパー強い爱の力を解き放ち、目標全員が彼女の虜になる！"}
+[81313101] = {id = 81313101, name = "ラヴィはスーパー強い愛の力を解き放ち、目標全員が彼女の虜になる！"}
 , 
 [81313102] = {id = 81313102, name = "ご主人様の命令はウルスラの意志！主人が必要とする限り、ウルスラは決して尻込みしない！"}
 , 
@@ -967,9 +1087,33 @@ BaseWordData = {
 , 
 [81311107] = {id = 81311107, name = "パロネスの独占ショー！始まるぞ！"}
 , 
+[81313010] = {id = 81313010, name = "目標を達成するために命かけてもかまわない！"}
+, 
+[81313009] = {id = 81313009, name = "私の言うことを聞かないやつらは、全部海に投げ込むわ！"}
+, 
+[81312112] = {id = 81312112, name = "相手が気づかないうちに水鉄砲で水を噴き出して撃ち、相手の目を潰す。"}
+, 
+[81312111] = {id = 81312111, name = "喝采を一時的に忘れ、踊りに集中してこそ、より人の心を捉える。"}
+, 
+[81312208] = {id = 81312208, name = "豪邸に深い興味持つハーミットは、理想の豪邸を見つけたら何としても手に入れる！"}
+, 
+[81313011] = {id = 81313011, name = "血を見て暴走するルルリカには恐ろしい力を持っている！"}
+, 
+[81313012] = {id = 81313012, name = "どこにいても、人の目を惹く可愛いミア。今日のミアも輝いてるんですけど！"}
+, 
+[81312209] = {id = 81312209, name = "せっかくのハロウィン、楽しまないとぉ。"}
+, 
+[81313013] = {id = 81313013, name = "ぴょんっとまいり、キョンシー·ショウでござる。"}
+, 
+[81313014] = {id = 81313014, name = "良い子でかわいいロールのこと、たーっくさん注目してね！"}
+, 
+[81312210] = {id = 81312210, name = "サンタとしても掃除人としても、両立させていただきます。"}
+, 
+[81313015] = {id = 81313015, name = "せっかくのクリスマスなんだから、楽しまないとね。"}
+, 
 [81321001] = {id = 81321001, name = "冒険ギルドの受付嬢であるシャノンは、様々なハプニングを対応できる自信を持っている。"}
 , 
-[81321002] = {id = 81321002, name = "オリヴィアが幼い顷から修行してきた剣术には强い威力を持っている。"}
+[81321002] = {id = 81321002, name = "オリヴィアが幼い頃から修行してきた剣術には強い威力を持っている。"}
 , 
 [81321003] = {id = 81321003, name = "エイプリルちゃんと一緒に遊ぼう！"}
 , 
@@ -977,7 +1121,7 @@ BaseWordData = {
 , 
 [81321005] = {id = 81321005, name = "一人で図書館を守るため、フランは多くの能力を身につけた。"}
 , 
-[81321006] = {id = 81321006, name = "仲间のためなら、イヴリンはこの上なく强い勇気を出すことができる！"}
+[81321006] = {id = 81321006, name = "仲間のためなら、イヴリンはこの上なく強い勇気を出すことができる！"}
 , 
 [81321101] = {id = 81321101, name = "一般人に無視されるのはともかく、敵にまで無視されるなんて！ソフィアがムカつく！"}
 , 
@@ -1007,9 +1151,9 @@ BaseWordData = {
 , 
 [81322008] = {id = 81322008, name = "ショコラはケーキを相手に次々と押し込んで、相手に喋られるチャンスをあげない。"}
 , 
-[81322101] = {id = 81322101, name = "ウィチタの可爱さを認めないやつは全員逮捕しろ！"}
+[81322101] = {id = 81322101, name = "ウィチタの可愛さを認めないやつは全員逮捕しろ！"}
 , 
-[81322102] = {id = 81322102, name = "ネネルは汚れた存在を许さない！"}
+[81322102] = {id = 81322102, name = "ネネルは汚れた存在を許さない！"}
 , 
 [81322103] = {id = 81322103, name = "チェルシーは恋愛相談で聞いた他人の悩みを相手に分かち合うことで、気持ちを楽にした～"}
 , 
@@ -1063,13 +1207,37 @@ BaseWordData = {
 , 
 [81323104] = {id = 81323104, name = "天界を離れたとしても、エヴァンテは相変わらず強い神力を使いこなせる。"}
 , 
-[81323105] = {id = 81323105, name = "ユエ一族に伝わった剣术には強烈な威力がある！"}
+[81323105] = {id = 81323105, name = "ユエ一族に伝わった剣術には強烈な威力がある！"}
 , 
 [81323106] = {id = 81323106, name = "メイはいつも熱心で、周囲の人の面倒を見ている。"}
 , 
 [81323008] = {id = 81323008, name = "コンサートなら一人じゃダメ！仲間と一緒に歌うことにしよう！"}
 , 
 [81321107] = {id = 81321107, name = "メンバーを集め、いっしょに盛り上がれ！"}
+, 
+[81323010] = {id = 81323010, name = "完璧な偽装のおかげで、任務に失敗したことはない。"}
+, 
+[81323009] = {id = 81323009, name = "熱くて暴れるヤツは、海の中で頭を冷やしなさい！"}
+, 
+[81322112] = {id = 81322112, name = "水鉄砲で目標に水を大量に噴射する。"}
+, 
+[81322111] = {id = 81322111, name = "踊り狂って、ひらりと風に舞うリボンが観客を絡めてしまう。"}
+, 
+[81322208] = {id = 81322208, name = "変な噂を早い段階で打ち消しておかなければならない！それがマネージャーの仕事の一つだから！"}
+, 
+[81323011] = {id = 81323011, name = "観客を虜にするために、ルルリカは一生懸命に様々な役をこなしてきた。"}
+, 
+[81323012] = {id = 81323012, name = "おしゃれの達人として、ミアの一挙一動はファンを熱狂させる。"}
+, 
+[81322209] = {id = 81322209, name = "いい子だったら、お菓子をあげる。悪い子には、お仕置だよ。"}
+, 
+[81323013] = {id = 81323013, name = "額に貼ることで、相手の力を抑え込めるというお札。"}
+, 
+[81323014] = {id = 81323014, name = "奇跡の力、見せてあげる！"}
+, 
+[81322210] = {id = 81322210, name = "忘れられない一夜になるよう、プレゼントのご用意をいたしましょう。"}
+, 
+[81323015] = {id = 81323015, name = "良い子にはプレゼントをあげるけど、悪い子には…ふふ"}
 , 
 [81340101] = {id = 81340101, name = "冒険者にとって、基礎のトレーニングは必須科目！"}
 , 
@@ -1122,6 +1290,20 @@ BaseWordData = {
 [81340703] = {id = 81340703, name = "冒険者にとって、最強の力は自分の意志そのもの！"}
 , 
 [81340704] = {id = 81340704, name = "体内の力を出し切って、神様のような威力を手に入れる!"}
+, 
+[81353009] = {id = 81353009, name = "この夏、海辺でゆっくり楽しましょう！"}
+, 
+[81352112] = {id = 81352112, name = "暑い夏はみんなを誘って海で遊びましょう！"}
+, 
+[81352209] = {id = 81352209, name = "お菓子を欲しがったら言ってね、たくさん用意してあるの。"}
+, 
+[81353013] = {id = 81353013, name = "東方に伝わるキョンシーは強くて恐ろしい力を持っている！"}
+, 
+[81353014] = {id = 81353014, name = "どんな状況であっても、希望を持って前に進んでいかなくちゃ！"}
+, 
+[81352210] = {id = 81352210, name = "プレゼントの配達の邪魔はさせません。邪魔者はわたくしが排除いたしますから。"}
+, 
+[81353015] = {id = 81353015, name = "あなたのために熱いクリスマスを作りましょう。"}
 , 
 [81392001] = {id = 81392001, name = "对敌方前排造成伤害。"}
 , 
@@ -1199,213 +1381,21 @@ BaseWordData = {
 , 
 [81393019] = {id = 81393019, name = "背景描述测试字段_莫伊拉"}
 , 
-[81611001] = {id = 81611001, name = "[color=#919bb0]うん！賞金目当てなら、ちょっと頑張ってみてもダメではない~[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、確率で以下の効果から一つ発動：\n▪目標を[color=#3cbcff]２[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n▪目標を[color=#3cbcff]１[/color]行動ターン[color=#3cbcff]睡眠[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」\n「睡眠：行動できない、攻撃を受けると睡眠状態が解除される」[/color][/color]"}
+[81603009] = {id = 81603009, name = "「サマー」\n自身が受けるダメージが[color=#3cbcff]5%%[/color]増加し、非水着敵に与えるダメージを[color=#3cbcff]10%%[/color]アップさせる。\n\n「クール」\n自身と同じ横列にいる味方が奥義を発動して敵を攻撃する時、敵の[color=#3cbcff]SP[/color]は回復しない。」"}
 , 
-[81611002] = {id = 81611002, name = "[color=#919bb0]オリヴィアの得意剣技は、姿が優雅で、剣勢も華やかだ。[/color]\n\n[color=#e2ecff]敵縦列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]2[/color]ターンの間、攻撃を[color=#3cbcff]16%%[/color]低下させる。[/color]"}
+[81602112] = {id = 81602112, name = "「サマー」\n自身が受けるダメージが[color=#3cbcff]5%%[/color]増加し、非水着敵に与えるダメージを[color=#3cbcff]10%%[/color]アップさせる。\n\n「クリーニング」\n攻撃（協撃を除く）する毎に敵のゲイン効果を[color=#3cbcff]1[/color]つリセットする。"}
 , 
-[81611003] = {id = 81611003, name = "[color=#919bb0]これはエイプリルちゃんが丹念に用意した悪戯だよ！楽しんでね~[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、会心が[color=#3cbcff]60%%[/color]アップ。[/color]"}
+[81602209] = {id = 81602209, name = "「お菓子配り」\n毎ターン開始時、ランダムで味方[color=#3cbcff]1[/color]名に以下の効果を与える。\n1．シールドを[color=#3cbcff]2[/color]行動ターンの間張り、[color=#3cbcff]（攻撃*150%%）[/color]点のダメージを吸収する。\n2．ガード効果を[color=#3cbcff]1[/color]行動ターンの間付与し、効果持続期間中に必ず攻撃をガードする。"}
 , 
-[81611004] = {id = 81611004, name = "[color=#919bb0]リリーは正義の味方であり、だから、リリーの正義の心を感じよう！[/color]\n\n[color=#e2ecff]敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]2[/color]重の[color=#3cbcff]決裁[/color]効果を付与する。\n\n[color=#ffac26]「決裁：毎ターン攻撃の10%%分ダメージを与える（重複可能）。最大3ラウンドまで持続、10回まで重複可能」[/color][/color]"}
+[81603013] = {id = 81603013, name = "「キョンシーの力」\nラウンド[color=#3cbcff]1、2[/color]開始時、[color=#3cbcff]1[/color]行動ターンの間、自身の攻撃を[color=#3cbcff]10%%[/color]アップさせる。\n\n「屍毒拡散」\n戦闘開始時、最もSPが高い敵[color=#3cbcff]1[/color]名に屍毒効果を付与する。各ラウンド開始時、屍毒効果は強くなり、ターン開始時に最もSPが高い敵[color=#3cbcff]1[/color]名に転移する；その目標が死亡すると、蓄積された屍毒効果は生き残った敵の中で最もSPが高い者に転移する。\n\n「屍毒：屍毒状態にある目標は受けるダメージがアップし、回復効果が低下する。冒険者自身の覚醒レベルが高いほど効果が強くなる。\n[color=#3cbcff]★3/★5/★7[/color]：屍毒状態にある目標が受けるダメージは[color=#3cbcff]10%%/15%%/25%%[/color]アップし、[color=#3cbcff]2[/color]ラウンド目から各ラウンド開始前に追加で[color=#3cbcff]5%%/7%%/10%%[/color]アップする；回復効果が[color=#3cbcff]40%%/60%%/100%%[/color]低下する。」"}
 , 
-[81611005] = {id = 81611005, name = "[color=#919bb0]フランは、身につけている知識が十分にあれば、自分は十分に強くなると信じる！[/color]\n\n[color=#e2ecff]HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復する。[/color]"}
+[81603014] = {id = 81603014, name = "「信念」\n冒険者自身のHPが[color=#3cbcff]20%%[/color]以下の場合、[color=#3cbcff]50%%[/color]の確率でランダムで自身よりHPが高い敵[color=#3cbcff]1[/color]名とHPを交換する（第[color=#3cbcff]1[/color]回目のみ）。[color=#3cbcff]1[/color]回の戦闘につき[color=#3cbcff]1[/color]回のみ発動する。（ギルド戦&日常討伐で発動不可）\n\n「不屈」\n冒険者自身が死亡すると、[color=#3cbcff]1%%[/color]の確率で[color=#3cbcff]1[/color]点のHPを残したまま生き残る（デッドが無効になる）。[color=#3cbcff]1[/color]ラウンド持続。"}
 , 
-[81611006] = {id = 81611006, name = "[color=#919bb0]全力で出撃したイヴリンは限りない強さを見せ、ターゲットを驚かせる！[/color]\n\n[color=#e2ecff]ランダムで敵後列[color=#3cbcff]2[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、协撃に参加しない」[/color][/color]"}
+[81602210] = {id = 81602210, name = "「正義」\nギルド戦以外の戦闘では自身の攻撃を[color=#3cbcff]5%%[/color]上昇させる；ギルド戦では自身の攻撃を[color=#3cbcff]15%%[/color]上昇させる。\n\n「プレゼント」\nラウンド毎に追加で[color=#3cbcff]100[/color]点のSPを回復する。"}
 , 
-[81611101] = {id = 81611101, name = "[color=#919bb0]無視されている感じに飽きたソフィアは、ターゲットを探し、しっかりチャットして！[/color]\n\n[color=#e2ecff]防御が最も高い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標の防御を[color=#3cbcff]20%%〜60%%[/color]無視する。[/color]"}
+[81603015] = {id = 81603015, name = "「熱意」\nラウンド毎に最大HP[color=#3cbcff]5%%[/color]分のHPを回復する。\n\n「お返し」\n攻撃を[color=#3cbcff]4[/color]回受けるたびに（協撃を除く）、敵全体のSPを[color=#3cbcff]100[/color]点減少させ、さらに[color=#3cbcff]2[/color]ラウンドの間、防御（重複不可）を[color=#3cbcff]30%%[/color]ダウンさせる。"}
 , 
-[81611102] = {id = 81611102, name = "[color=#919bb0]リッタは商人の信念を守り抜き、多くのものを客に売る努力をしている！[/color]\n\n[color=#e2ecff]敵縦列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]35%%[/color]を吸収し、自身のHPに転化させ、目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]重傷[/color]させる。\n\n[color=#ffac26]「重傷：あらゆるHP回復手段が無効になる」[/color][/color]"}
-, 
-[81611103] = {id = 81611103, name = "[color=#919bb0]ノンノはとてもやり手で、お客さんへの挨拶と同時に、仲間の面倒も丁寧にケアしてくれる。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、味方全体の攻撃を[color=#3cbcff]5%%[/color]上昇させ（[color=#3cbcff]2[/color]行動ターン）、ランダムで味方[color=#3cbcff]1[/color]名に浄化効果を付与する。\n\n[color=#ffac26]「浄化：すべてのデバフを解除する」[/color][/color]"}
-, 
-[81611104] = {id = 81611104, name = "[color=#919bb0]すごいスクープが足りないなら、一緒に作ってみよう！[/color]\n\n[color=#e2ecff]十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]45%%[/color]の確率で[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、协撃に参加しない」[/color][/color]"}
-, 
-[81611105] = {id = 81611105, name = "[color=#919bb0]ヌエットが幸運の女神は自分を加護すると信じて、強大な勢を見せて、ターゲットを脅かす。[/color]\n\n[color=#e2ecff]敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]25%%[/color]の確率で[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させ、[color=#3cbcff]２[/color]行動ターンの間自分のガードを[color=#3cbcff]15%%[/color]上昇させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color][/color]"}
-, 
-[81611106] = {id = 81611106, name = "[color=#919bb0]料理作りの楽しさが、シエラをさらに強くなった！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、味方後列の攻撃を[color=#3cbcff]10%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。[/color]"}
-, 
-[81612001] = {id = 81612001, name = "[color=#919bb0]海には未知のリスクがたくさん隠されており、エマのフィッシュガンも同じだ！[/color]\n\n[color=#e2ecff]敵縦列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]２[/color]ラウンドの間[color=#3cbcff]攻撃窃取[/color]を行う。\n\n[color=#ffac26]「攻撃窃取：目標の攻撃を10%%低下させ、自身の攻撃を10%%上昇させる」[/color][/color]"}
-, 
-[81612002] = {id = 81612002, name = "[color=#919bb0]コゼットは武力よりも合理的なことを好み、ターゲットを納得させるができる。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与えた上で、防御を[color=#3cbcff]60%%[/color]低下させ（[color=#3cbcff]2[/color]行動ターン）、[color=#3cbcff]380[/color]点のSPを減少する。[/color]"}
-, 
-[81612003] = {id = 81612003, name = "[color=#919bb0]ニコリータの優美な舞姿に客様が魅了され、みんなが美酒と音楽に合わせて踊っている。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]2[/color]行動ターンの間会心を[color=#3cbcff]25%%[/color]低下させ、且つ[color=#3cbcff]50%%[/color]の確率で[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color][/color]"}
-, 
-[81612004] = {id = 81612004, name = "[color=#919bb0]ミエルは美食で仲間をもてなし、みんなにすべてを忘れさせて、美食の幸せに浸っている！[/color]\n\n[color=#e2ecff][color=#3cbcff]2[/color]ラウンドの間、HPが最も低い味方にシールドを張り、[color=#3cbcff]（攻撃*328%%damage_D46020041）[/color]点のダメージを吸収し、[color=#3cbcff]浄化[/color]効果を付与する。\n\n[color=#ffac26]「浄化：すべてのデバフを解除する」[/color][/color]"}
-, 
-[81612005] = {id = 81612005, name = "[color=#919bb0]女の子同士の恋愛、知ってみませんか？！イルダは自分の物語を推薦し続けている！[/color]\n\n[color=#e2ecff]敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]45%%[/color]の確率で目標を[color=#3cbcff]１[/color]行動ターン[color=#3cbcff]魅了[/color]させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない、通常攻撃の目標が味方のランダム１名、协撃が発動しない」[/color]"}
-, 
-[81612006] = {id = 81612006, name = "[color=#919bb0]フィナはいつまでも止まらず穴を掘って……常に罠の中から新しい罠が掘り出されている……[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]3[/color]ラウンドの間[color=#3cbcff]多重トラップ[/color]に嵌めさせる。目標がトラップに陥った状態であれば，トラップが即爆発し、[color=#3cbcff]（攻撃*40%%）[/color]点の追加ダメージを与える。\n\n[color=#ffac26]「多重トラップ：毎ターン最大HPの4%%分HPを失う」[/color][/color]"}
-, 
-[81612007] = {id = 81612007, name = "[color=#919bb0]甘美な少女がそっと祈り、戦いのカーテンコールを願掛けします。[/color]\n\n[color=#e2ecff]敵横列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、味方後列の攻撃を[color=#3cbcff]10%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。[/color]"}
-, 
-[81612008] = {id = 81612008, name = "[color=#919bb0]ショコラは美味しいお菓子をターゲットにあげて、ターゲットの口をいっぱいにする~[/color]\n\n[color=#e2ecff]敵横列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]25%%[/color]の確率で目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color][/color]"}
-, 
-[81612101] = {id = 81612101, name = "[color=#919bb0]ウィチタ最强を认めないやつのお菓子を全部奪う！[/color]\n\n[color=#e2ecff]HPが最も低い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標のHPが[color=#3cbcff]50%%[/color]以下の場合、自分の攻撃を[color=#3cbcff]30%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。[/color]"}
-, 
-[81612102] = {id = 81612102, name = "[color=#919bb0]汚れの源を処理してこそ、本当に汚れを取り除くことができる！[/color]\n\n[color=#e2ecff]敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]リセット[/color]を発動する。\n\n[color=#ffac26]「リセット：すべてのバフを解除する」[/color][/color]"}
-, 
-[81612103] = {id = 81612103, name = "[color=#919bb0]チェルシーは恋愛マスターの姿を見せ、恋愛解答を与え、ターゲットを感心させる！[/color]\n\n[color=#e2ecff]十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、、[color=#3cbcff]25%%[/color]の確率で目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color][/color]"}
-, 
-[81612104] = {id = 81612104, name = "[color=#919bb0]食べ物のために、アイリス何も怖くない、誰が来ても全然怖くない！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自分のHPの[color=#3cbcff]8%%[/color]が失う代わりに、自身の最大HPの[color=#3cbcff]15%%[/color]分ダメージを与える（自分のHPが[color=#3cbcff]8%%[/color]以下の場合、直接にダメージを与える）。自分のHPが[color=#3cbcff]50%%[/color]以下の場合、自身のダメージ減を[color=#3cbcff]30%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。[/color]"}
-, 
-[81612105] = {id = 81612105, name = "[color=#919bb0]全員が天才歌姫の完璧な歌唱に浸っている。[/color]\n\n[color=#e2ecff]敵前列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、ランダムで味方にバフを付与する。バフ：\n▪味方後列の攻撃を[color=#3cbcff]10%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。\n▪味方後列の会心を[color=#3cbcff]15%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。\n▪味方後列の防御を[color=#3cbcff]65%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。\n▪味方前列のガードを[color=#3cbcff]15%%[/color]を上昇させる（[color=#3cbcff]2[/color]行動ターン）[/color]"}
-, 
-[81612106] = {id = 81612106, name = "[color=#919bb0]苦労するたびに、宝石の輝きを見れば、キキは全身に力が満ちているような気がする！[/color]\n\n[color=#e2ecff]敵縦列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。自身のHPが[color=#3cbcff]40%%[/color]以下の場合、[color=#3cbcff]（攻撃*250%%）[/color]点の追加ダメージを与える。[/color]"}
-, 
-[81612107] = {id = 81612107, name = "[color=#919bb0]すばらしい演技はすべての人を驚嘆させ，ほとんど拍手を忘れてしまった……[/color]\n\n[color=#e2ecff]敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]30%%[/color]の確率で相手を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]気絶[/color]させる。\n\n[color=#ffac26]「気絶：行動できない、ガードもできない」[/color][/color]"}
-, 
-[81612108] = {id = 81612108, name = "[color=#919bb0]ドミニクは、後輩たちに何が本物の“冒険家”なのかをしっかりと見せろう！[/color]\n\n[color=#e2ecff]HPが最も高い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、味方後列に[color=#3cbcff]HP抑圧[/color]効果を[color=#3cbcff]2[/color]行動ターン付与する。\n\n[color=#ffac26]「HP抑圧：敵のHPが50%%以上の場合、（攻撃*25%%）点の追加ダメージを与える」[/color][/color]"}
-, 
-[81612109] = {id = 81612109, name = "[color=#919bb0]優れた道探しの技術で、どんな状況でもアリシアは速達を正確に届けられ、皆が信頼されている！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]35%%[/color]を吸収し、自身のHPに転化する。目標が撃破されると、自分のSPを[color=#3cbcff]270[/color]点回復する。[/color]"}
-, 
-[81612110] = {id = 81612110, name = "[color=#919bb0]ベロニカは絵筆を振り回し、誰もが考え込んでしまうような絵を描いた！[/color]\n\n[color=#e2ecff]敵横列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]重傷[/color]させる。\n\n[color=#ffac26]「重傷：あらゆるHP回復が無効になる」[/color][/color]"}
-, 
-[81612201] = {id = 81612201, name = "[color=#919bb0]ティーネは感動的な楽章を弾き、リスナーたちに備えを下ろし、心身を和ませる。[/color]\n\n[color=#e2ecff]敵全体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与えた上で、[color=#3cbcff]2[/color]ラウンドの間[color=#3cbcff]（攻撃*10%%）[/color]持続ダメージを与える。自分のSPを[color=#3cbcff]225[/color]点回復する。[/color]"}
-, 
-[81612202] = {id = 81612202, name = "[color=#919bb0]マルタは自分の力にとても自信があって、全身の力を凝縮して、ターゲットに衝撃を与える！[/color]\n\n[color=#e2ecff]敵後列にランダムで[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージを[color=#3cbcff]100%%[/color]吸収して、自身のHPに転化する。[/color]"}
-, 
-[81612203] = {id = 81612203, name = "[color=#919bb0]ノエルの強さ魅力はファンを熱狂させる![/color]\n\n[color=#e2ecff]敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標の数が少ないほどダメージが高くなり（目標が[color=#3cbcff]2[/color]人生存している時に[color=#3cbcff]攻撃*37%%[/color]の追加ダメージを与える。目標が[color=#3cbcff]1[/color]人生存している時に[color=#3cbcff]攻撃*146%%[/color]の追加ダメージを与える）、[color=#3cbcff]30%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]魅了[/color]させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない、通常攻撃の目標が味方のランダム1名、协撃が発動しない」[/color][/color]"}
-, 
-[81612204] = {id = 81612204, name = "[color=#919bb0]クインは神様の力を借りて、ターゲットの運命を修正することができる。[/color]\n\n[color=#e2ecff]敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]60%%[/color]の確率で[color=#3cbcff]（攻撃*335%%）[/color]点の追加ダメージを与える。[/color]"}
-, 
-[81612205] = {id = 81612205, name = "[color=#919bb0]なるべく血を見ないように、治療のたびにケイトは能力を使って急速に治療を行う。[/color]\n\n[color=#e2ecff]HPが最も低い味方[color=#3cbcff]3[/color]名にHPを[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点回復させ、[color=#3cbcff]2[/color]ラウンドの間HP[color=#3cbcff]（攻撃*35%%）[/color]持続回復効果を付与する。[/color]"}
-, 
-[81612206] = {id = 81612206, name = "[color=#919bb0]臣従しなさい！感心しなさい！この天地の中で最も強大な深淵の主を仰望しろう！[/color]\n\n[color=#e2ecff]敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標のHPが[color=#3cbcff]50%%[/color]以下の場合、[color=#3cbcff]（攻撃*135%%）[/color]点の追加ダメージを与える。[/color]"}
-, 
-[81612207] = {id = 81612207, name = "[color=#919bb0]ユーナは弱小さを助けるのが好きで、人が困っているのを見るたびに勇敢に立ち向かう！[/color]\n\n[color=#e2ecff]敵横列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身と味方後列の会心を[color=#3cbcff]15%%[/color]上昇させる（[color=#3cbcff]2[/color]行動ターン）。[/color]"}
-, 
-[81613001] = {id = 81613001, name = "[color=#919bb0]正义のためなら、たとえ自分一人に残っても、グローリアは谛めない！[/color]\n\n[color=#e2ecff]敵縦列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。自身に[color=#3cbcff]戦術防衛[/color]効果を[color=#3cbcff]2[/color]行動ターン付与し、目標のSPを[color=#3cbcff]100[/color]点削減する。目標のSPが[color=#3cbcff]500[/color]点以下の場合、[color=#3cbcff]2[/color]行動ターンの間[color=#3cbcff]重傷[/color]状態になる。\n\n[color=#ffac26]「戦術防衛：効果持続期間中に必ず攻撃をガードし、自身の攻撃を20%%低下させる」\n「重傷：あらゆるHP回復手段が無効になる」[/color][/color]"}
-, 
-[81613002] = {id = 81613002, name = "[color=#919bb0]ブリジットの拳を止められるものは何もない！[/color]\n\n[color=#e2ecff]ランダムで敵[color=#3cbcff]3[/color]人に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]60%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン挑発する。\n\n[color=#ffac26]「挑発：相手が奥義を使用できなくなり、相手の通常攻撃/特技を自身に集中させる」[/color][/color]"}
-, 
-[81613003] = {id = 81613003, name = "[color=#919bb0]アロエは恐怖の毒素を放出し、周囲のターゲットに隠された毒性をすべて励起する！[/color]\n\n[color=#e2ecff]敵全体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標の体中の[color=#3cbcff]毒素[/color]を発生させる。\n\n[color=#ffac26]「毒素発生：発動した後、毒素が消失する。自身の攻撃の20%%分ダメージを与える。」[/color][/color]"}
-, 
-[81613004] = {id = 81613004, name = "[color=#919bb0]仲间に対して、フラワーが優しくて世话になる！敵に対して、フラワーは全力で戦う！[/color]\n\n[color=#e2ecff]ランダムで敵[color=#3cbcff]3[/color]人に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、ダメージの[color=#3cbcff]42%%[/color]を味方全体のHPに転化し、決裁[/color]効果を付与する。\n\n[color=#ffac26]「決裁：毎ターン攻撃の10%%分ダメージを与える。ダメージ重複可能、3行動ターン持続、10回まで重複可能」[/color][/color]"}
-, 
-[81613005] = {id = 81613005, name = "[color=#919bb0]完璧なメイドになるの秘密は、きれいにすべてを解決することだ！[/color]\n\n[color=#e2ecff]敵横列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与えた上で、SPを最大[color=#3cbcff]90[/color]点吸収する。[/color]"}
-, 
-[81613006] = {id = 81613006, name = "[color=#919bb0]ベルの最強オリジナルの剣技は、相手を黙らせようとするたびに使う。[/color]\n\n[color=#e2ecff]十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージ、[color=#3cbcff]2[/color]ラウンドの間追加で[color=#3cbcff]（攻撃*10%%）[/color]の持続ダメージを与える。[color=#3cbcff]30%%[/color]の確率で目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color][/color]"}
-, 
-[81613007] = {id = 81613007, name = "[color=#919bb0]モニカが真剣に仕事をしている時、誰も彼女の矢から逃げることができない。[/color]\n\n[color=#e2ecff]HPが最も低い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標のHPが[color=#3cbcff]20%%[/color]以上の場合、[color=#3cbcff]（攻撃*390%%）[/color]点の追加ダメージを与える。目標のHPが[color=#3cbcff]20%%[/color]以下の場合、即座に目標を[color=#3cbcff]デッド[/color]する。目標が撃破されると、自分のSPが[color=#3cbcff]100[/color]点回復する。\n\n[color=#ffac26]「デッド：シールドを無視し、直ちに目標を撃破する」[/color][/color]"}
-, 
-[81613101] = {id = 81613101, name = "[color=#919bb0]ラヴィは超强い爱を解放し、すべてのターゲットは彼女の魅力に征服される！[/color]\n\n[color=#e2ecff]敵全体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、会心が[color=#3cbcff]16%%[/color]上昇。[/color]"}
-, 
-[81613102] = {id = 81613102, name = "[color=#919bb0]ご主人様の命令は自分の意志だ！主人が必要とする限り、ウルスラは決して尻込みしない！[/color]\n\n[color=#e2ecff]敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身のSPを[color=#3cbcff]200[/color]点回復する。目標のSPが[color=#3cbcff]500[/color]点以下の場合、[color=#3cbcff]SP抑圧[/color]効果を発動する；目標を撃破した場合、追加で自身のSPを[color=#3cbcff]150[/color]点回復する。\n\n[color=#ffac26]「SP抑圧：敵に（攻撃*15%%）点の追加ダメージを与える」[/color][/color]"}
-, 
-[81613103] = {id = 81613103, name = "[color=#919bb0]勝利の快感にイザベラはたまらず、バトルごとに全力を尽くす！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、防御を[color=#3cbcff]2[/color]行動ターンダウンさせ（[color=#3cbcff]55%%[/color]ダウン）、味方後列の会心を[color=#3cbcff]2[/color]行動ターンアップさせる（[color=#3cbcff]8%%[/color]アップ）。同時に、猩紅の嵐を発動し、[color=#3cbcff]（攻撃*50%%）[/color]の追加ダメージを与える。[/color]"}
-, 
-[81613104] = {id = 81613104, name = "[color=#919bb0]エヴァンテの力はすべての人を驚かせた！強いからこそ、神力と言えるでしょう。[/color]\n\n[color=#e2ecff]HPが最も低い敵2名に[color=#3cbcff]2[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標のHPが低いほど、与えたダメージが高くなる（目標のHPが[color=#3cbcff]10%%[/color]下がる度に、与えたダメージが[color=#3cbcff]5%%[/color]上昇させる）。[/color]"}
-, 
-[81613105] = {id = 81613105, name = "[color=#919bb0]ユエの剣術秘技は、全身のエネルギーを集中でき、壊滅的な威能を解放する。[/color]\n\n[color=#e2ecff]十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]23%%[/color]を自分のHPに転化する上で、目標の攻撃を[color=#3cbcff]2[/color]行動ターン低下させる（[color=#3cbcff]5%%[/color]ダウン）。味方が[color=#3cbcff]1[/color]人陣没する度に[color=#3cbcff]10%%[/color]の追加ダメージを与える。[/color]"}
-, 
-[81613106] = {id = 81613106, name = "[color=#919bb0]メイは本当の王族が自分たちの民を守り、すべての人が幸せになれると信じている！[/color]\n\n[color=#e2ecff]HPが最も高い敵[color=#3cbcff]3[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、HPが最も低い味方に[color=#3cbcff]（攻撃*120%%）[/color]点のHPを回復し、[color=#3cbcff]１[/color]ラウンドの間[color=#3cbcff]守護[/color]効果を付与する。\n\n[color=#ffac26]「守護：攻撃を受けた時、最低1点のHPを残したままで、撃破されることはない。デードスキルを防ぐことができない」[/color][/color]"}
-, 
-[81613008] = {id = 81613008, name = "[color=#919bb0]誰もが聞きほれる潮汐のような美しい歌声である。[/color]\n\n[color=#e2ecff]最も攻撃が高い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]陶酔[/color]を[color=#3cbcff]2[/color]ラウンドの間付与する。目標が死亡した場合、[color=#3cbcff]浸透[/color]効果を発動させる。\n\n[color=#ffac26]「陶酔：目標が受けたダメージを25%%アップさせる」\n「浸透：ランダムで目標の周囲の敵1名に拘束を1行動ターン付与する。[/color][/color]"}
-, 
-[81611107] = {id = 81611107, name = "[color=#919bb0]パロネスの独占ショー！始まるぞ！[/color]\n\n[color=#e2ecff]前の味方が放った奥義を[color=#3cbcff]コピー[/color]して即時発動する。コピーレベル[color=#3cbcff]damage_B[/color]。\n\n[color=#ffac26]「スキルコピー：味方の奥義目標と付加効果をコピーする。コピーレベルが高いほど効果が強い。味方が奥義を放てない場合、発動することができない」[/color][/color]"}
-, 
-[81621001] = {id = 81621001, name = "[color=#919bb0]冒険ギルドの受付嬢であるシャノンは、さまざまなハプニングに十分な自信を持つ。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]混乱[/color]させる。\n\n[color=#ffac26]「混乱：奥義と特技を使用できない、通常攻撃の目標はランダムであり、協擊を発動しない」[/color][/color]"}
-, 
-[81621002] = {id = 81621002, name = "[color=#919bb0]オリヴィアが幼い顷から修行してきた剣术は、强い威力を持っている。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身にシールドを[color=#3cbcff]2[/color]行動ターン付与し、[color=#3cbcff]（攻撃*100%%damage_D46110021）[/color]点のダメージを吸収する。[/color]"}
-, 
-[81621003] = {id = 81621003, name = "[color=#919bb0]エイプリルちゃんと一緒に遊ぼう！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、会心が[color=#3cbcff]40%%[/color]上昇。[/color]"}
-, 
-[81621004] = {id = 81621004, name = "[color=#919bb0]フン！リリーの裁判を受けろう！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]30%%[/color]の確率で目標を[color=#3cbcff]１[/color]行動ターン失明させ、自身のSPを[color=#3cbcff]25〜75[/color]点回復する。\n\n[color=#ffac26]「失明：すべての攻撃は目標に命中できない」[/color][/color]"}
-, 
-[81621005] = {id = 81621005, name = "[color=#919bb0]一人で図書館を守る必要があっため、フランは多くの能力を身につける。[/color]\n\n[color=#e2ecff]HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復し、SPを[color=#3cbcff]25〜75[/color]点回復する。[/color]"}
-, 
-[81621006] = {id = 81621006, name = "[color=#919bb0]仲间のために、イヴリンはこの上なく强い勇気を出すことができる！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]3[/color]行動ターンの間追加で[color=#3cbcff]（攻撃*25%%）[/color]の持続ダメージを付与する。[/color]"}
-, 
-[81621101] = {id = 81621101, name = "[color=#919bb0]一般人に無視されるのはともかく、敵まで無視するなんて！ソフィアがムカつく！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標の防御を[color=#3cbcff]10%%〜30%%[/color]無視する。[/color]"}
-, 
-[81621102] = {id = 81621102, name = "[color=#919bb0]商人にとって、どんな小さな商売はすべて心を使う必要がある！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]10%%[/color]を吸収し、自身のHPに転化する。[color=#3cbcff]２[/color]ラウンド間目標に[color=#3cbcff]攻撃窃取[/color]効果を発動する。\n\n[color=#ffac26]「攻撃窃取：目標の攻撃を４%%低下させ、自身の攻撃を４%%上昇させる」[/color][/color]"}
-, 
-[81621103] = {id = 81621103, name = "[color=#919bb0]ノンノは温泉を使って客をもてなし、気持ちよさ雰囲気で、客はうとうとと眠気を催す。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]30%%[/color]の確率で[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]睡眠[/color]させる。\n\n[color=#ffac26]「睡眠：行動できない、攻撃を受けると睡眠状態が解除される」[/color][/color]"}
-, 
-[81621104] = {id = 81621104, name = "[color=#919bb0]スクープやネタがある限り、シルヴィは何とかして第一現場に向かう！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]60%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、协撃に参加しない」[/color][/color]"}
-, 
-[81621105] = {id = 81621105, name = "[color=#919bb0]「ヌエットがそう言ったのは今日も１５回目だ。」[/color]\n\n[color=#e2ecff]HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復し、[color=#3cbcff]1[/color]ラウンドの間[color=#3cbcff]援護[/color]効果を付与する上で、自身のダメージ減を[color=#3cbcff]1[/color]行動ターン上昇させる（[color=#3cbcff]30%%[/color]アップ）。\n\n[color=#ffac26]「援護：目標が受けた50%%のダメージを分担する。複数冒険者が同じ目標に対して効果を発動した場合、最初に発動した方のみ有効になる」[/color][/color]"}
-, 
-[81621106] = {id = 81621106, name = "[color=#919bb0]シエラは焼きたての『シエラグルメ』をターゲットにあげる。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[/color]"}
-, 
-[81622001] = {id = 81622001, name = "[color=#919bb0]小さい頃から漁村で育ちましたので、エマは魚を捕まえる技術にとても自信がある！[/color]\n\n[color=#e2ecff]攻撃が最も高い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]1[/color]ラウンドの間目標に[color=#3cbcff]攻撃窃取[/color]を発動する。\n\n[color=#ffac26]「攻撃窃取：目標の攻撃を10%%低下させ、自身の攻撃を10%%上昇させる」[/color][/color]"}
-, 
-[81622002] = {id = 81622002, name = "[color=#919bb0]コゼットは一生懸命働いて、リスクをすべて消して、非常に頼もしい！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]200[/color]点のSPを低下させる。[/color]"}
-, 
-[81622003] = {id = 81622003, name = "[color=#919bb0]ニコリータは熱心にターゲットにお酒を誘う。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]60%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color][/color]"}
-, 
-[81622004] = {id = 81622004, name = "[color=#919bb0]ミエルはいつも仲間の口当りが分かりやすい、皆はお昼に何を食べるのか悩む必要はない。[/color]\n\n[color=#e2ecff]HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復し、自身のHPを[color=#3cbcff]（攻撃*20%%）[/color]点回復し、自身の防御を[color=#3cbcff]1[/color]行動ターン上昇させる（[color=#3cbcff]110%%[/color]アップ）。[/color]"}
-, 
-[81622005] = {id = 81622005, name = "[color=#919bb0]みんなと一緒に行動する時、イルダはいつも無限のアイデアが生まれる！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、、目標の攻撃を[color=#3cbcff]1[/color]行動ターン低下させ（[color=#3cbcff]15%%[/color]ダウン）、自身のSPを[color=#3cbcff]75[/color]点回復する。[/color]"}
-, 
-[81622006] = {id = 81622006, name = "[color=#919bb0]フィナは穴を掘るのが大好きで、知らないうちに罠を仕掛けしている。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]1[/color]ラウンド間[color=#3cbcff]トラップ配置[/color]を発動する。\n\n[color=#ffac26]「トラップ配置：毎ターン最大HPの4%%分HPを失う」[/color][/color]"}
-, 
-[81622007] = {id = 81622007, name = "[color=#919bb0]凛々とした王子さまが戦いの幕を開けろ！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]1[/color]ラウンドの間味方後列の会心を[color=#3cbcff]12%%[/color]上昇させる。[/color]"}
-, 
-[81622008] = {id = 81622008, name = "[color=#919bb0]ショコラは熱心にケーキをターゲットに食べさせ、ターゲットは話すことすえができない。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color][/color]"}
-, 
-[81622101] = {id = 81622101, name = "[color=#919bb0]ウィチタの可爱さを認めない奴を全員逮捕しろ！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身のHPが[color=#3cbcff]50%%[/color]以上の場合、[color=#3cbcff]1[/color]行動ターンの間、自身の攻撃を[color=#3cbcff]35%%[/color]、会心を[color=#3cbcff]16%%[/color]上昇させる。[/color]"}
-, 
-[81622102] = {id = 81622102, name = "[color=#919bb0]ネネルは汚れた存在を许さない！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標を[color=#3cbcff]1[/color]ラウンド[color=#3cbcff]ブレイク[/color]し、[color=#3cbcff]マーク[/color]をつける。自身にシールドを[color=#3cbcff]2[/color]行動ターン付与し、[color=#3cbcff]（攻撃*30%%）[/color]点のダメージを吸収する。\n\n[color=#ffac26]「ブレイク：目標が持つシールドをブレイクする」「マーク：マークされた目標が受けたダメージを18%%上昇させる」[/color][/color]"}
-, 
-[81622103] = {id = 81622103, name = "[color=#919bb0]チェルシーは恋愛相談で出会った悩みはターゲットに共有し、気持ちが楽になった~[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。決裁効果を[color=#3cbcff]１[/color]重付与し、[color=#3cbcff]2[/color]ラウンドの間自身が受けた欣快を上昇させる。\n\n[color=#ffac26]「決裁：毎ターン攻撃の10%%分ダメージを与え、ダメージ重複可能、３ラウンドの間持続、10回まで重複可能」「欣快：HPが回復した際、追加で（発動側の攻撃*50%%）点のHPを回復する」[/color][/color]"}
-, 
-[81622104] = {id = 81622104, name = "[color=#919bb0]飢えたアイリスは目の前の食べ物を攻撃するのを待ちきれない！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自分に最大HPの[color=#3cbcff]5%%[/color]分HPを回復する（自身のHPが[color=#3cbcff]50%%[/color]以下の場合、自身に最大HPの[color=#3cbcff]14%%[/color]分HPを回復する）。[/color]"}
-, 
-[81622105] = {id = 81622105, name = "[color=#919bb0]ら～ら～ら🎵アイリーンの甘い歌声に陶酔しよう~[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、ランダムでデバフを付与する。デバフ：\n▪[color=#3cbcff]2[/color]ラウンドの間、攻撃を[color=#3cbcff]12%%[/color]低下させる。\n▪[color=#3cbcff]2[/color]ラウンドの間、防御を[color=#3cbcff]75%%[/color]低下させる。\n▪SPを[color=#3cbcff]200[/color]点減少する。[/color]"}
-, 
-[81622106] = {id = 81622106, name = "[color=#919bb0]どんな硬い宝石でも、キキはそれを磨いて輝くことができる。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]2[/color]ラウンドの間自身の防御を[color=#3cbcff]75%%[/color]上昇させる。[/color]"}
-, 
-[81622107] = {id = 81622107, name = "[color=#919bb0]すべての公演前に、コンチータは心を込めて準備した。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]1[/color]ラウンドの間、味方後列の貫通を[color=#3cbcff]6%%[/color]上昇させ、味方前列の抵抗を[color=#3cbcff]6%%[/color]上昇させる。[/color]"}
-, 
-[81622108] = {id = 81622108, name = "[color=#919bb0]ドミニクは自分の子供体型を利用して、ターゲットが油断したうちに攻撃を開始する。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標のHPが[color=#3cbcff]50%%[/color]以上の場合、[color=#3cbcff]（攻撃*90%%）[/color]点の追加ダメージを与える。[/color]"}
-, 
-[81622109] = {id = 81622109, name = "[color=#919bb0]速達を郵便する道には多くの問題があったが、優秀な郵便屋さんにとっては問題ではない。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]35%%[/color]を吸収し、自身のHPに転化する。[color=#3cbcff]1[/color]行動ターン間自身の防御と攻撃を[color=#3cbcff]10%%[/color]上昇させる。[/color]"}
-, 
-[81622110] = {id = 81622110, name = "[color=#919bb0]ベロニカは絵筆の絵の具を振って、ターゲットの身に違う色を描く~[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、会心が[color=#3cbcff]30%%[/color]上昇。[/color]"}
-, 
-[81622201] = {id = 81622201, name = "[color=#919bb0]ティーネは深く弾き語り、すべての聴衆は自分の音律の中で心酔させる。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]３[/color]ラウンドの間、追加で[color=#3cbcff]（攻撃*15%%）[/color]の持続ダメージを与え、自分のSPを[color=#3cbcff]50～150[/color]点回復する。[/color]"}
-, 
-[81622202] = {id = 81622202, name = "[color=#919bb0]持ち前の力が強いので、ごく普通の攻撃でも意表を突く効果がある！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]35%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]気絶[/color]させる。\n\n[color=#ffac26]「気絶：行動できない、ガードすることもできない」[/color][/color]"}
-, 
-[81622203] = {id = 81622203, name = "[color=#919bb0]男の子？女の子？ノエルだ！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]2[/color]ラウンドの間、追加で[color=#3cbcff]（攻撃*40%%）[/color]持続ダメージを与える。[/color]"}
-, 
-[81622204] = {id = 81622204, name = "[color=#919bb0]クインの導く力は、ターゲットの運命がずれさせている。[/color]\n\n[color=#e2ecff]敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]2[/color]重の[color=#3cbcff]決裁[/color]効果を付与し、[color=#3cbcff]40%%[/color]の確率で追加で[color=#3cbcff]（攻撃*100%%）[/color]点の追加ダメージを与える。\n\n[color=#ffac26]「決裁：毎ターン攻撃の10%%分ダメージを与え、ダメージ重複可能、３ラウンドの間持続、10回まで重複可能」[/color][/color]"}
-, 
-[81622205] = {id = 81622205, name = "[color=#919bb0]怪我人を早く回復させるために、ケイトは即効薬剤を調合する。[/color]\n\n[color=#e2ecff]HPが最も低い味方にHPを[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点回復し、SPを[color=#3cbcff]75[/color]点増やす。[color=#3cbcff]2[/color]ラウンドの間、[color=#3cbcff]（攻撃*60%%）[/color]の継続HP回復効果を付与する。[/color]"}
-, 
-[81622206] = {id = 81622206, name = "[color=#919bb0]冥夜の堕天使の强い力の前で、飛散のほこりとなろう！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標のHPが[color=#3cbcff]50%%[/color]以下の場合、追加で[color=#3cbcff]（攻撃*150%%）[/color]点の追加ダメージを付与する。[/color]"}
-, 
-[81622207] = {id = 81622207, name = "[color=#919bb0]お店の面倒、家族の世話。ユーナは素晴らしい厄介処理能力を身につけた。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身の会心を[color=#3cbcff]40%%[/color]上昇させる（[color=#3cbcff]1[/color]行動ターン）。[/color]"}
-, 
-[81623001] = {id = 81623001, name = "[color=#919bb0]心の正義を守るために、どんな敵に対してもグローリアは何も恐れない！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、SPを[color=#3cbcff]120[/color]点減少する。HPが最も低い味方[color=#3cbcff]3[/color]名にシールドを[color=#3cbcff]2[/color]ラウンドの間張り、[color=#3cbcff]（攻撃*135%%）[/color]点のダメージを吸収する。[/color]"}
-, 
-[81623002] = {id = 81623002, name = "[color=#919bb0]メイが最も信頼する者として、ブリジットの拳はメイの最も信頼の守護だ！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]1[/color]行動ターンの間、[color=#3cbcff]60%%[/color]の確率で目標を[color=#3cbcff]挑発[/color]し、自分のガードを[color=#3cbcff]25%%[/color]上昇させる。\n\n[color=#ffac26]「挑発：目標が奥義を発動できなくなり、目標の通常攻撃/特技を発動者に集中させる」[/color][/color]"}
-, 
-[81623003] = {id = 81623003, name = "[color=#919bb0]アロエが調合した秘伝の毒は、恐ろしい伝染性を持つ！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]3[/color]ラウンドの間敵全体に毒素を放出する。\n\n[color=#ffac26]「毒素：受けたダメージが5%%上昇し、重複可能」[/color][/color]"}
-, 
-[81623004] = {id = 81623004, name = "[color=#919bb0]純潔で無垢なフラワーは天使のように仲間の心を癒す。[/color]\n\n[color=#e2ecff]HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復させ、HPが低いほど効果が強くなる（HPが[color=#3cbcff]10%%[/color]低下する度に、HP回復効果を[color=#3cbcff]5%%[/color]上昇させる）。[color=#3cbcff]2[/color]行動ターンの間、攻撃を[color=#3cbcff]10%%[/color]、防御を[color=#3cbcff]18%%[/color]上昇させる。[/color]"}
-, 
-[81623005] = {id = 81623005, name = "[color=#919bb0]お客様に満足できるサービスを提供するのは、普通のメイドの最も基本的な接客マナだ。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]25%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン気絶させ、自身のSPを[color=#3cbcff]60[/color]点回復する。\n\n[color=#ffac26]「気絶：行動できない、ガードすることもできない」[/color][/color]"}
-, 
-[81623006] = {id = 81623006, name = "[color=#919bb0]ベルの最強オリジナルの剣技は、誰かのご褒美が欲しいたびに使う。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で[color=#3cbcff]（攻撃*35%%）[/color]点の追加ダメージを付与する。[color=#3cbcff]60%%[/color]の確率で味方後列の攻撃を[color=#3cbcff]10%%[/color]上昇させる（[color=#3cbcff]1[/color]行動ターン）。[/color]"}
-, 
-[81623007] = {id = 81623007, name = "[color=#919bb0]モニカにとってはターゲットに当たらないことは本当にとても困難なことだ！[/color]\n\n[color=#e2ecff]HPが最も低い敵を攻撃し、[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。自身のSPを[color=#3cbcff]75[/color]点回復する。目標の攻撃が自身の攻撃より低い場合、[color=#3cbcff]攻撃抑圧[/color]を行う。\n\n[color=#ffac26]「攻撃抑圧：目標に（攻撃*45%%）点の追加ダメージを付与する」[/color][/color]"}
-, 
-[81623101] = {id = 81623101, name = "[color=#919bb0]ラヴィの愛の追求を阻止するものは何もない！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]40%%[/color]の確率で[color=#3cbcff]（攻撃*20%%）[/color]点の追加ダメージを付与する。[color=#3cbcff]１[/color]ラウンドの間、防御を[color=#3cbcff]35%%[/color]低下させ、味方後列の会心を[color=#3cbcff]8%%[/color]上昇させる（[color=#3cbcff]1[/color]行動ターン）。[/color]"}
-, 
-[81623102] = {id = 81623102, name = "[color=#919bb0]ウルスラの槍は迷わず、彷徨うこともなく、さらに恐怖や怖さもない！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身のSPを[color=#3cbcff]75[/color]点回復する。自身のSPが目標より高い場合、[color=#3cbcff]（攻撃*20%%）[/color]点の追加ダメージを付与する。[/color]"}
-, 
-[81623103] = {id = 81623103, name = "[color=#919bb0]イザベラは戦いに飢えて、全身から発する熱狂的な戦意に敵を震え上がらせる。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻击*damage_A%%damage_B）[/color]点のダメージを与える。自身に猩紅の嵐効果を付与する。\n\n[color=#ffac26]「猩紅の嵐：攻撃を受ける度に、自身の攻撃が10%%アップ」[/color][/color]"}
-, 
-[81623104] = {id = 81623104, name = "[color=#919bb0]天界を離れたが、エヴァンテは依然として強い神力を使られる。[/color]\n\n[color=#e2ecff]HPが最低の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身に聖佑効果を[color=#3cbcff]2[/color]回付与する。\n\n[color=#ffac26]「聖佑：受けたダメージを100%%減少する」[/color][/color]"}
-, 
-[81623105] = {id = 81623105, name = "[color=#919bb0]ユエ家に伝わる剣术は、强い限りの威能を持つ！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]1[/color]行動ターン間目標の攻撃を[color=#3cbcff]15%%[/color]低下させる。味方が[color=#3cbcff]1[/color]人陣没する度に、追加で[color=#3cbcff]15%%[/color]のダメージを追加する。[/color]"}
-, 
-[81623106] = {id = 81623106, name = "[color=#919bb0]メイは熱心で、彼女はいつもそばの人を優しく助けてと世話する。[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、HPが最も低い味方に[color=#3cbcff]茨[/color]を[color=#3cbcff]1[/color]ラウンドの間放つ。\n\n[color=#ffac26]「茨：自分が受けたダメージの30%%を相手に反射する」[/color][/color]"}
-, 
-[81623008] = {id = 81623008, name = "[color=#919bb0]コンサートなら一人じゃダメ！仲間と一緒に歌うことにしよう！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、同じ縦列の味方に[color=#3cbcff]コーラス[/color]を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「コーラス：所持者は次に通常攻撃・スキルを発動する時、追加で連撃を1回行う」[/color][/color]"}
-, 
-[81621107] = {id = 81621107, name = "[color=#919bb0]メンバーを集め、いっしょに盛り上がれ！[/color]\n\n[color=#e2ecff]敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、ランダムで味方にバフを付与する。バフ：\n▪[color=#3cbcff]1[/color]行動ターン、味方後列の攻撃を[color=#3cbcff]10%%[/color]上昇させる。\n▪[color=#3cbcff]1[/color]行動ターン、味方前列の防御を[color=#3cbcff]25%%[/color]上昇させる。[/color]"}
+[81610001] = {id = 81610001, name = "[color=#919bb0]%s[/color]\n\n[color=#e2ecff]%s[/color]"}
 , 
 [81640101] = {id = 81640101, name = "[color=#919bb0]%s[/color]\n\n[color=#e2ecff]%s+[/color][color=#3cbcff]damage_C1[/color]"}
 , 
@@ -1413,7 +1403,7 @@ BaseWordData = {
 , 
 [81640103] = {id = 81640103, name = "[color=#919bb0]%s[/color]\n\n[color=#e2ecff]%s+[color=#3cbcff]damage_C1[/color]、%s+[color=#3cbcff]damage_C2[/color]、%s+[color=#3cbcff]damage_C3[/color]、%s+[color=#3cbcff]damage_C4[/color][/color]"}
 , 
-[81640201] = {id = 81640201, name = "[color=#858a94]\n\n%d級初期SPをアンロック：初期SPが%d点增加[/color]"}
+[81640201] = {id = 81640201, name = "[color=#858a94]\n\nLv.%dで解除：初期SPが%d点增加[/color]"}
 , 
 [81651001] = {id = 81651001, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、確率で以下の効果から一つ発動：\n▪目標を[color=#3cbcff]２[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n▪目標を[color=#3cbcff]１[/color]行動ターン[color=#3cbcff]睡眠[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」\n「睡眠：行動できない、攻撃を受けると睡眠状態が解除される」[/color]"}
 , 
@@ -1425,7 +1415,7 @@ BaseWordData = {
 , 
 [81651005] = {id = 81651005, name = "HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復する。"}
 , 
-[81651006] = {id = 81651006, name = "ランダムで敵後列[color=#3cbcff]2[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、协撃に参加しない」[/color]"}
+[81651006] = {id = 81651006, name = "ランダムで敵後列[color=#3cbcff]2[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、協撃に参加しない」[/color]"}
 , 
 [81651101] = {id = 81651101, name = "防御が最も高い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標の防御を[color=#3cbcff]20%%〜60%%[/color]無視する。"}
 , 
@@ -1433,7 +1423,7 @@ BaseWordData = {
 , 
 [81651103] = {id = 81651103, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、味方全体の攻撃を[color=#3cbcff]5%%[/color]上昇させ（[color=#3cbcff]2[/color]行動ターン）、ランダムで味方[color=#3cbcff]1[/color]名に浄化効果を付与する。\n\n[color=#ffac26]「浄化：すべてのデバフを解除する」[/color]"}
 , 
-[81651104] = {id = 81651104, name = "十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]45%%[/color]の確率で[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、协撃に参加しない」[/color]"}
+[81651104] = {id = 81651104, name = "十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]45%%[/color]の確率で[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、協撃に参加しない」[/color]"}
 , 
 [81651105] = {id = 81651105, name = "敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]25%%[/color]の確率で[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させ、[color=#3cbcff]２[/color]行動ターンの間自分のガードを[color=#3cbcff]15%%[/color]上昇させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
 , 
@@ -1447,7 +1437,7 @@ BaseWordData = {
 , 
 [81652004] = {id = 81652004, name = "[color=#3cbcff]2[/color]ラウンドの間、HPが最も低い味方にシールドを張り、[color=#3cbcff]（攻撃*328%%damage_D46020041）[/color]点のダメージを吸収し、[color=#3cbcff]浄化[/color]効果を付与する。\n\n[color=#ffac26]「浄化：すべてのデバフを解除する」[/color]"}
 , 
-[81652005] = {id = 81652005, name = "敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]45%%[/color]の確率で目標を[color=#3cbcff]１[/color]行動ターン[color=#3cbcff]魅了[/color]させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない、通常攻撃の目標が味方のランダム１名、协撃が発動しない」"}
+[81652005] = {id = 81652005, name = "敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]45%%[/color]の確率で目標を[color=#3cbcff]１[/color]行動ターン[color=#3cbcff]魅了[/color]させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない。協撃を発動せず、ランダムで味方１名に通常攻撃をする。」"}
 , 
 [81652006] = {id = 81652006, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]3[/color]ラウンドの間[color=#3cbcff]多重トラップ[/color]に嵌めさせる。目標がトラップに陥った状態であれば，トラップが即爆発し、[color=#3cbcff]（攻撃*40%%）[/color]点の追加ダメージを与える。\n\n[color=#ffac26]「多重トラップ：毎ターン最大HPの4%%分HPを失う」[/color]"}
 , 
@@ -1479,7 +1469,7 @@ BaseWordData = {
 , 
 [81652202] = {id = 81652202, name = "敵後列にランダムで[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージを[color=#3cbcff]100%%[/color]吸収して、自身のHPに転化する。"}
 , 
-[81652203] = {id = 81652203, name = "敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標の数が少ないほどダメージが高くなり（目標が[color=#3cbcff]2[/color]人生存している時に[color=#3cbcff]攻撃*37%%[/color]の追加ダメージを与える。目標が[color=#3cbcff]1[/color]人生存している時に[color=#3cbcff]攻撃*146%%[/color]の追加ダメージを与える）、[color=#3cbcff]30%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]魅了[/color]させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない、通常攻撃の目標が味方のランダム1名、协撃が発動しない」[/color]"}
+[81652203] = {id = 81652203, name = "敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標の数が少ないほどダメージが高くなり（目標が[color=#3cbcff]2[/color]人生存している時に[color=#3cbcff]攻撃*37%%[/color]の追加ダメージを与える。目標が[color=#3cbcff]1[/color]人生存している時に[color=#3cbcff]攻撃*146%%[/color]の追加ダメージを与える）、[color=#3cbcff]30%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]魅了[/color]させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない。協撃を発動せず、ランダムで味方１名に通常攻撃をする。」[/color]"}
 , 
 [81652204] = {id = 81652204, name = "敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]60%%[/color]の確率で[color=#3cbcff]（攻撃*335%%）[/color]点の追加ダメージを与える。"}
 , 
@@ -1509,15 +1499,39 @@ BaseWordData = {
 , 
 [81653103] = {id = 81653103, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、防御を[color=#3cbcff]2[/color]行動ターンダウンさせ（[color=#3cbcff]55%%[/color]ダウン）、味方後列の会心を[color=#3cbcff]2[/color]行動ターンアップさせる（[color=#3cbcff]8%%[/color]アップ）。同時に、猩紅の嵐を発動し、[color=#3cbcff]（攻撃*50%%）[/color]の追加ダメージを与える。"}
 , 
-[81653104] = {id = 81653104, name = "HPが最も低い敵2名に[color=#3cbcff]2[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標のHPが低いほど、与えたダメージが高くなる（目標のHPが[color=#3cbcff]10%%[/color]下がる度に、与えたダメージが[color=#3cbcff]5%%[/color]上昇させる）。"}
+[81653104] = {id = 81653104, name = "HPが最も低い敵[color=#3cbcff]2[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標のHPが低いほど、与えたダメージが高くなる（目標のHPが[color=#3cbcff]10%%[/color]下がる度に、与えたダメージが[color=#3cbcff]5%%[/color]上昇させる）。"}
 , 
 [81653105] = {id = 81653105, name = "十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]23%%[/color]を自分のHPに転化する上で、目標の攻撃を[color=#3cbcff]2[/color]行動ターン低下させる（[color=#3cbcff]5%%[/color]ダウン）。味方が[color=#3cbcff]1[/color]人陣没する度に[color=#3cbcff]10%%[/color]の追加ダメージを与える。"}
 , 
-[81653106] = {id = 81653106, name = "HPが最も高い敵[color=#3cbcff]3[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、HPが最も低い味方に[color=#3cbcff]（攻撃*120%%）[/color]点のHPを回復し、[color=#3cbcff]１[/color]ラウンドの間[color=#3cbcff]守護[/color]効果を付与する。\n\n[color=#ffac26]「守護：攻撃を受けた時、最低1点のHPを残したままで、撃破されることはない。デードスキルを防ぐことができない」[/color]"}
+[81653106] = {id = 81653106, name = "HPが最も高い敵[color=#3cbcff]3[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、HPが最も低い味方に[color=#3cbcff]（攻撃*120%%）[/color]点のHPを回復し、[color=#3cbcff]１[/color]ラウンドの間[color=#3cbcff]守護[/color]効果を付与する。\n\n[color=#ffac26]「守護：攻撃を受けた時、最低1点のHPを残したままで、撃破されることはない。デッドスキルを防ぐことができない」[/color]"}
 , 
 [81653008] = {id = 81653008, name = "最も攻撃が高い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]陶酔[/color]を[color=#3cbcff]2[/color]ラウンドの間付与する。目標が死亡した場合、[color=#3cbcff]浸透[/color]効果を発動させる。\n\n[color=#ffac26]「陶酔：目標が受けたダメージを25%%アップさせる」\n「浸透：ランダムで目標の周囲の敵1名に拘束を1行動ターン付与する。[/color]"}
 , 
 [81651107] = {id = 81651107, name = "前の味方が放った奥義を[color=#3cbcff]コピー[/color]して即時発動する。コピーレベル[color=#3cbcff]damage_B[/color]。\n\n[color=#ffac26]「スキルコピー：味方の奥義目標と付加効果をコピーする。コピーレベルが高いほど効果が強い。味方が奥義を放てない場合、発動することができない」[/color]"}
+, 
+[81653010] = {id = 81653010, name = "敵縦列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身より素早さが低い味方の中にいる素早さが最も高い者に[color=#3cbcff]SPを300[/color]点回復する。\n[color=#3cbcff]SPが100%%[/color]未満の時でも発動することができる。[color=#3cbcff]※60%%≤SP≤100%%[/color]\n[color=#3cbcff]SPが100%%[/color]になった状態で奥義を発動する場合、自身のHPが減少しない。\n[color=#3cbcff]SPが60%%≤SP<100%%[/color]になった状態で奥義を発動する場合、自身の最大HPの[color=#3cbcff]10%%[/color]を失う。\n※HPが足りない場合は発動不可。"}
+, 
+[81653009] = {id = 81653009, name = "敵全体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、SPを[color=#3cbcff]150[/color]点減少させる。さらに[color=#3cbcff]1[/color]行動ターンの間、敵のHP回復効果を[color=#3cbcff]35%%[/color]ダウンさせる。"}
+, 
+[81652112] = {id = 81652112, name = "敵縦列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で失明を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「失明：すべての攻撃は目標に命中できない」[/color]"}
+, 
+[81652111] = {id = 81652111, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、応援を発動して自身のHPに転換する。応援するごとにライフリンク効果を持っている各味方に[color=#3cbcff]（攻撃*20%%）[/color]のHPを回復する。"}
+, 
+[81652208] = {id = 81652208, name = "最も防御が高い敵[color=#3cbcff]3[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与える。[color=#3cbcff]2[/color]行動ターンの間、目標の防御を[color=#3cbcff]50%%[/color]低下させ、自身の防御を[color=#3cbcff]50%%[/color]上昇させる。"}
+, 
+[81653011] = {id = 81653011, name = "最も攻撃が高い敵[color=#3cbcff]3[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、目標人数が少ないほど、各単体に与えるダメージが高くなる。目標に[color=#3cbcff]威嚇[/color]を[color=#3cbcff]1[/color]行動ターンの間付与し、攻撃を[color=#3cbcff]20%%[/color]低下させる（[color=#3cbcff]2[/color]ターン持続）。\n\n[color=#ffac26]「威嚇：効果持続期間中、通常攻撃と特技による基礎SP回復はできない。攻撃されてもSP回復はできない」[/color]"}
+, 
+[81653012] = {id = 81653012, name = "敵前列に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、[color=#3cbcff]1[/color]行動ターンの間、[color=#3cbcff]20%%[/color]の確率で目標を気絶させ（自身の最大HPが[color=#3cbcff]5%%[/color]軽減ごとに、追加で気絶の発生確率を[color=#3cbcff]2%%[/color]アップさせる）、[color=#3cbcff]理性喪失[/color]を[color=#3cbcff]2[/color]大ラウンドの間付与する。さらに目標のSPを[color=#3cbcff]100[/color]点減少させ、自身に[color=#3cbcff]100[/color]点のSPを回復する。\n\n[color=#ffac26]「気絶：行動不能となる。ガードすることもできない」\n「理性喪失：毎ターン最大HPの6%%分失う」[/color]"}
+, 
+[81652209] = {id = 81652209, name = "敵全体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、ランダムで[color=#3cbcff]トリート[/color]か[color=#3cbcff]トリック[/color]効果を付与する。\n\n[color=#ffac26]「トリート：1行動ターンの間、味方全体の攻撃を10%%アップし、防御を20%%アップする。即座に（攻撃*20%%）のHPを回復する」\n「トリック：1行動ターンの間、敵全体の攻撃を10%%、防御を20%%ダウンさせる。1ラウンドの間（攻撃*20%%）点の持続ダメージを与える」[/color]"}
+, 
+[81653013] = {id = 81653013, name = "屍毒状態にある敵[color=#3cbcff]1[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、SPを[color=#3cbcff]200[/color]点減少させる。目標を撃破すると、追加で自身に[color=#3cbcff]150[/color]点のSPを回復する。"}
+, 
+[81653014] = {id = 81653014, name = "最も攻撃が高い敵[color=#3cbcff]4[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で[color=#3cbcff]1[/color]行動ターン相手を[color=#3cbcff]挑発[/color]する。さらに自身に[color=#3cbcff]リフレクション[/color]を付与し、[color=#3cbcff]2[/color]行動ターンの間最もHPが低い味方にシールドを張り、[color=#3cbcff]（攻撃*80%%）[/color]のダメージを吸収する。\n\n[color=#ffac26]「挑発：目標が奥義を使用できない；目標の通常攻撃/特技を自身に集中させる」\n「リフレクション：行動ダメージを受けると、相手に（攻撃*80%%）のダメージを与える。最大4回まで。」[/color]"}
+, 
+[81652210] = {id = 81652210, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、自身にSPを[color=#3cbcff]200[/color]点回復する。"}
+, 
+[81653015] = {id = 81653015, name = "ランダムで敵[color=#3cbcff]3[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与える。\n1．自身のHPが[color=#3cbcff]50%%[/color]以下の場合、自身に最大HP[color=#3cbcff]10%%[/color]分のHPを回復し、[color=#3cbcff]50%%[/color]の確率で相手に[color=#3cbcff]雪だるま[/color]を付与する。\n2．自身のHPが[color=#3cbcff]50%%[/color]以上の場合、自身に[color=#3cbcff]リフレクション[/color]を付与し、[color=#3cbcff]50%%[/color]の確率で相手に[color=#3cbcff]拘束[/color]を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「雪だるま：相手を雪だるまにする。効果持続期間中、行動及びガードができなくなり、防御が100%%ダウンする。1行動ターン持続。浄化不可」\n「リフレクション：行動ダメージを受けると、目標に（攻撃*80%%）のダメージを与える。最大2回まで」\n「拘束：通常攻撃と特技が使用できない。協撃に参加しない」[/color]"}
 , 
 [81661001] = {id = 81661001, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]混乱[/color]させる。\n\n[color=#ffac26]「混乱：奥義と特技を使用できない、通常攻撃の目標はランダムであり、協擊を発動しない」[/color]"}
 , 
@@ -1537,7 +1551,7 @@ BaseWordData = {
 , 
 [81661103] = {id = 81661103, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]30%%[/color]の確率で[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]睡眠[/color]させる。\n\n[color=#ffac26]「睡眠：行動できない、攻撃を受けると睡眠状態が解除される」[/color]"}
 , 
-[81661104] = {id = 81661104, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]60%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、协撃に参加しない」[/color]"}
+[81661104] = {id = 81661104, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]60%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]拘束[/color]させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、協撃に参加しない」[/color]"}
 , 
 [81661105] = {id = 81661105, name = "HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復し、[color=#3cbcff]1[/color]ラウンドの間[color=#3cbcff]援護[/color]効果を付与する上で、自身のダメージ減を[color=#3cbcff]1[/color]行動ターン上昇させる（[color=#3cbcff]30%%[/color]アップ）。\n\n[color=#ffac26]「援護：目標が受けた50%%のダメージを分担する。複数冒険者が同じ目標に対して効果を発動した場合、最初に発動した方のみ有効になる」[/color]"}
 , 
@@ -1551,7 +1565,7 @@ BaseWordData = {
 , 
 [81662004] = {id = 81662004, name = "HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復し、自身のHPを[color=#3cbcff]（攻撃*20%%）[/color]点回復し、自身の防御を[color=#3cbcff]1[/color]行動ターン上昇させる（[color=#3cbcff]110%%[/color]アップ）。"}
 , 
-[81662005] = {id = 81662005, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、、目標の攻撃を[color=#3cbcff]1[/color]行動ターン低下させ（[color=#3cbcff]15%%[/color]ダウン）、自身のSPを[color=#3cbcff]75[/color]点回復する。"}
+[81662005] = {id = 81662005, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、、目標の攻撃を[color=#3cbcff]1[/color]行動ターン低下させ（[color=#3cbcff]15%%[/color]ダウン）、自身のSPを[color=#3cbcff]100[/color]点回復する。"}
 , 
 [81662006] = {id = 81662006, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]1[/color]ラウンド間[color=#3cbcff]トラップ配置[/color]を発動する。\n\n[color=#ffac26]「トラップ配置：毎ターン最大HPの4%%分HPを失う」[/color]"}
 , 
@@ -1587,17 +1601,17 @@ BaseWordData = {
 , 
 [81662204] = {id = 81662204, name = "敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]2[/color]重の[color=#3cbcff]決裁[/color]効果を付与し、[color=#3cbcff]40%%[/color]の確率で追加で[color=#3cbcff]（攻撃*100%%）[/color]点の追加ダメージを与える。\n\n[color=#ffac26]「決裁：毎ターン攻撃の10%%分ダメージを与え、ダメージ重複可能、３ラウンドの間持続、10回まで重複可能」[/color]"}
 , 
-[81662205] = {id = 81662205, name = "HPが最も低い味方にHPを[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点回復し、SPを[color=#3cbcff]75[/color]点増やす。[color=#3cbcff]2[/color]ラウンドの間、[color=#3cbcff]（攻撃*60%%）[/color]の継続HP回復効果を付与する。"}
+[81662205] = {id = 81662205, name = "HPが最も低い味方にHPを[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点回復し、SPを[color=#3cbcff]100[/color]点増やす。[color=#3cbcff]2[/color]ラウンドの間、[color=#3cbcff]（攻撃*60%%）[/color]の継続HP回復効果を付与する。"}
 , 
 [81662206] = {id = 81662206, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標のHPが[color=#3cbcff]50%%[/color]以下の場合、追加で[color=#3cbcff]（攻撃*150%%）[/color]点の追加ダメージを付与する。"}
 , 
 [81662207] = {id = 81662207, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身の会心を[color=#3cbcff]40%%[/color]上昇させる（[color=#3cbcff]1[/color]行動ターン）。"}
 , 
-[81663001] = {id = 81663001, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、SPを[color=#3cbcff]120[/color]点減少する。HPが最も低い味方[color=#3cbcff]3[/color]名にシールドを[color=#3cbcff]2[/color]ラウンドの間張り、[color=#3cbcff]（攻撃*135%%）[/color]点のダメージを吸収する。"}
+[81663001] = {id = 81663001, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、SPを[color=#3cbcff]120[/color]点減少させる。[color=#3cbcff]2[/color]ラウンドの間、味方前列にシールドを張り（味方前列全員が陣没した場合、味方後列にシールドを付与する）、[color=#3cbcff]（攻撃*135%%）[/color]点のダメージを吸収する。"}
 , 
 [81663002] = {id = 81663002, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]1[/color]行動ターンの間、[color=#3cbcff]60%%[/color]の確率で目標を[color=#3cbcff]挑発[/color]し、自分のガードを[color=#3cbcff]25%%[/color]上昇させる。\n\n[color=#ffac26]「挑発：目標が奥義を発動できなくなり、目標の通常攻撃/特技を発動者に集中させる」[/color]"}
 , 
-[81663003] = {id = 81663003, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]3[/color]ラウンドの間敵全体に毒素を放出する。\n\n[color=#ffac26]「毒素：受けたダメージが5%%上昇し、重複可能」[/color]"}
+[81663003] = {id = 81663003, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]3[/color]ラウンドの間敵全体に毒素を放出する。ラウンド開始時、毒素が入っている敵は[color=#3cbcff]500[/color]点のダメージを受ける(重複可能)。\n\n[color=#ffac26]「毒素：受けたダメージが5%%上昇し、重複可能」[/color]"}
 , 
 [81663004] = {id = 81663004, name = "HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復させ、HPが低いほど効果が強くなる（HPが[color=#3cbcff]10%%[/color]低下する度に、HP回復効果を[color=#3cbcff]5%%[/color]上昇させる）。[color=#3cbcff]2[/color]行動ターンの間、攻撃を[color=#3cbcff]10%%[/color]、防御を[color=#3cbcff]18%%[/color]上昇させる。"}
 , 
@@ -1611,7 +1625,7 @@ BaseWordData = {
 , 
 [81663102] = {id = 81663102, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身のSPを[color=#3cbcff]75[/color]点回復する。自身のSPが目標より高い場合、[color=#3cbcff]（攻撃*20%%）[/color]点の追加ダメージを付与する。"}
 , 
-[81663103] = {id = 81663103, name = "敵単体に[color=#3cbcff]（攻击*damage_A%%damage_B）[/color]点のダメージを与える。自身に猩紅の嵐効果を付与する。\n\n[color=#ffac26]「猩紅の嵐：攻撃を受ける度に、自身の攻撃が10%%アップ」[/color]"}
+[81663103] = {id = 81663103, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。自身に猩紅の嵐効果を付与する。\n\n[color=#ffac26]「猩紅の嵐：攻撃を受ける度に、自身の攻撃が10%%アップ」[/color]"}
 , 
 [81663104] = {id = 81663104, name = "HPが最低の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身に聖佑効果を[color=#3cbcff]2[/color]回付与する。\n\n[color=#ffac26]「聖佑：受けたダメージを100%%減少する」[/color]"}
 , 
@@ -1619,9 +1633,33 @@ BaseWordData = {
 , 
 [81663106] = {id = 81663106, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、HPが最も低い味方に[color=#3cbcff]茨[/color]を[color=#3cbcff]1[/color]ラウンドの間放つ。\n\n[color=#ffac26]「茨：自分が受けたダメージの30%%を相手に反射する」[/color]"}
 , 
-[81663008] = {id = 81663008, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、同じ縦列の味方に[color=#3cbcff]コーラス[/color]を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「コーラス：所持者は次に通常攻撃・スキルを発動する時、追加で連撃を1回行う」[/color]"}
+[81663008] = {id = 81663008, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、同じ縦列の味方に[color=#3cbcff]コーラス[/color]を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「コーラス：所持者は次に通常攻撃・特技を発動する時、追加で連撃を1回行う」[/color]"}
 , 
 [81661107] = {id = 81661107, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、ランダムで味方にバフを付与する。バフ：\n▪[color=#3cbcff]1[/color]行動ターン、味方後列の攻撃を[color=#3cbcff]10%%[/color]上昇させる。\n▪[color=#3cbcff]1[/color]行動ターン、味方前列の防御を[color=#3cbcff]25%%[/color]上昇させる。"}
+, 
+[81663010] = {id = 81663010, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身に[color=#3cbcff]暗影庇護を1[/color]行動ターン付与する。[color=#3cbcff]1[/color]ラウンドの間、自身に持続回復効果を付与し、自身の最大HPの[color=#3cbcff]10%%[/color]を回復する。\n\n[color=#ffac26]「暗影庇護：効果持続期間中に必ず攻撃をガードする」[/color]"}
+, 
+[81663009] = {id = 81663009, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、SPを[color=#3cbcff]150[/color]点減少させる。"}
+, 
+[81662112] = {id = 81662112, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。"}
+, 
+[81662111] = {id = 81662111, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、[color=#3cbcff]2[/color]ラウンドの間、自身のいる横列及び自身の前か後にいる味方にライフリンクを付与する。\n\n[color=#ffac26]「ライフリンク：行動ダメージを受けた時、この効果を持っている味方にdamage_E1%%のダメージを分担させる。追加ダメージを受けた時、この効果を持っている味方にdamage_E2%%のダメージを分担させる。ダメージを受けるたびに、自身に応援を1つ付与する。」\n※自身の覚醒レベルが高いほど、ライフリンク発動時の効果がアップする。覚醒するごとに味方が分担する行動ダメージの割合が5%%アップし、追加ダメージの割合が10%%アップする。\n※行動ダメージ：通常攻撃、奥義、特技、協撃による直接的ダメージ 。\n※追加ダメージ：通常攻撃、奥義、特技、協撃により追加で与える直接的ダメージ。[/color]"}
+, 
+[81662208] = {id = 81662208, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、自身に[color=#3cbcff]外殻強化[/color]を[color=#3cbcff]1[/color]回付与する。\n\n[color=#ffac26]「外殻強化：効果持続期間中、必ず攻撃をガードする」[/color]"}
+, 
+[81663011] = {id = 81663011, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B) [/color]点のダメージを与える上に、[color=#3cbcff]（攻撃*115%%）[/color]の追加ダメージを与え、[color=#3cbcff]2[/color]ラウンド目から自身が[color=#3cbcff]暴走[/color]状態になる。\n\n[color=#ffac26]「暴走：与ダメージ及び被ダメージが10%%上昇する」[/color]"}
+, 
+[81663012] = {id = 81663012, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、[color=#3cbcff]35%%[/color]の確率で[color=#3cbcff]気絶[/color]を[color=#3cbcff]1[/color]行動ターン付与し、[color=#3cbcff]理性喪失[/color]を[color=#3cbcff]2[/color]大ラウンドの間付与する。\n\n[color=#ffac26]「気絶：行動不能となる。ガードすることもできない」\n「理性喪失：毎ターン最大HPの8%%分失う」[/color]"}
+, 
+[81662209] = {id = 81662209, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、最もHPが低い味方に[color=#3cbcff]茨[/color]を[color=#3cbcff]1[/color]行動ターンの間放出する。\n\n[color=#ffac26]「茨：自分が受けたダメージの30%%を相手に反射する」[/color]"}
+, 
+[81663013] = {id = 81663013, name = "屍毒状態にある敵[color=#3cbcff]1[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、[color=#3cbcff]2[/color]行動ターンの間、相手の防御を[color=#3cbcff]50%%[/color]ダウンさせる。"}
+, 
+[81663014] = {id = 81663014, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B) [/color]点のダメージを与え、[color=#3cbcff]1[/color]行動ターンで自身の抵抗を[color=#3cbcff]25%%[/color]上昇させ、ランダムで以下のシールドを付与する。\n1．[color=#3cbcff]3%%[/color]の確率で[color=#3cbcff]（攻撃*300%%）[/color]のダメージを吸収する。[color=#3cbcff]2[/color]ラウンド持続。\n2．[color=#3cbcff]17%%[/color]の確率で[color=#3cbcff]（攻撃*100%%）[/color]のダメージを吸収する。[color=#3cbcff]2[/color]ラウンド持続。\n3．[color=#3cbcff]80%%[/color]の確率で[color=#3cbcff]（攻撃*50%%）[/color]のダメージを吸収する。[color=#3cbcff]2[/color]ラウンド持続。"}
+, 
+[81662210] = {id = 81662210, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、相手に[color=#3cbcff]マーク[/color]を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「マーク：マークされた目標が受けたダメージを20%%上昇させる」[/color]"}
+, 
+[81663015] = {id = 81663015, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、[color=#3cbcff]1[/color]行動ターンの間、自身にダメージ減を[color=#3cbcff]30%%[/color]アップさせ、治療を受けた際、その効果が[color=#3cbcff]50%%[/color]上昇する。"}
 , 
 [81670001] = {id = 81670001, name = "敵単体にダメージを与え%s"}
 , 
@@ -1699,7 +1737,7 @@ BaseWordData = {
 , 
 [81670113] = {id = 81670113, name = "、確率で自身の聖佑を発動させる。"}
 , 
-[81670114] = {id = 81670114, name = "、目標を直接にデードする。"}
+[81670114] = {id = 81670114, name = "、目標を直接にデッドする。"}
 , 
 [81670115] = {id = 81670115, name = "、沈黙を1行動ターン付与する。"}
 , 
@@ -1875,6 +1913,16 @@ BaseWordData = {
 , 
 [81685030] = {id = 81685030, name = "适当时机对敌方施加减益状态。"}
 , 
+[81690001] = {id = 81690001, name = "[color=#3cbcff]奥義[/color]：敵単体にダメージを与え、自身にシールドを[color=#3cbcff]2[/color]行動ターンの間付与する。\n[color=#3cbcff]特技[/color]：最もHPが高い敵にダメージを与え、自身にガードを[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「免疫：デッド、多重トラップ、トラップ配置、茨などの妨害効果」[/color]\nギルド戦では敵はほとんどのデバフ効果に対して免疫を持っている。\n「理性喪失」に対して敵は耐性を持っているが、[color=#3cbcff]0.15%%[/color]のダメージを受けるようになっている。"}
+, 
+[81690002] = {id = 81690002, name = "[color=#3cbcff]奥義[/color]：敵後列にダメージを与え、目標による攻撃を[color=#3cbcff]20%%[/color]ダウンさせる（[color=#3cbcff]1[/color]行動ターン）。\n[color=#3cbcff]特技[/color]：最も攻撃が高い敵にダメージを与える。さらに[color=#3cbcff]1[/color]行動ターンの間、目標を魅了状態にする。\n\n[color=#ffac26]「免疫：デッド、多重トラップ、トラップ配置、茨などの妨害効果」[/color]\nギルド戦では敵はほとんどのデバフ効果に対して免疫を持っている。\n「理性喪失」に対して敵は耐性を持っているが、[color=#3cbcff]0.15%%[/color]のダメージを受けるようになっている。"}
+, 
+[81690003] = {id = 81690003, name = "[color=#3cbcff]奥義[/color]：敵縦列にダメージを与え、[color=#3cbcff]1[/color]ラウンドの間、自身が弱体状態になる。弱体状態で受けたダメージが[color=#3cbcff]20%%[/color]アップする。\n[color=#3cbcff]特技[/color]：敵単体にダメージを与え、自身に聖佑を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「免疫：デッド、多重トラップ、トラップ配置、茨などの妨害効果」[/color]\nギルド戦では敵はほとんどのデバフ効果に対して免疫を持っている。\n「理性喪失」に対して敵は耐性を持っているが、[color=#3cbcff]0.15%%[/color]のダメージを受けるようになっている。"}
+, 
+[81690004] = {id = 81690004, name = "[color=#3cbcff]奥義[/color]：敵縦列にダメージを与える。\n[color=#3cbcff]特技[/color]：敵単体にダメージを与える。\n\n[color=#ffac26]「免疫：デッド、多重トラップ、トラップ配置、茨などの妨害効果」[/color]\nギルド戦では敵はほとんどのデバフ効果に対して免疫を持っている。\n「理性喪失」に対して敵は耐性を持っているが、[color=#3cbcff]0.15%%[/color]のダメージを受けるようになっている。"}
+, 
+[81690005] = {id = 81690005, name = "[color=#3cbcff]奥義[/color]：敵前列にダメージを与え、混乱を[color=#3cbcff]1[/color]行動ターン付与する。\n[color=#3cbcff]特技[/color]：敵単体にダメージを与え、睡眠を[color=#3cbcff]1[/color]行動ターン付与する。\n\n[color=#ffac26]「免疫：デッド、多重トラップ、トラップ配置、茨などの妨害効果」[/color]\nギルド戦では敵はほとんどのデバフ効果に対して免疫を持っている。\n「理性喪失」に対して敵は耐性を持っているが、[color=#3cbcff]0.15%%[/color]のダメージを受けるようになっている。"}
+, 
 [81810001] = {id = 81810001, name = "通常攻撃"}
 , 
 [81810002] = {id = 81810002, name = "特技"}
@@ -1943,6 +1991,232 @@ BaseWordData = {
 , 
 [81820024] = {id = 81820024, name = "敵前列にダメージを与える"}
 , 
+[81820025] = {id = 81820025, name = "味方縦列にHPを回復する"}
+, 
+[81830001] = {id = 81830001, name = "敵単体にダメージを与え、確率で以下の効果から一つ発動： \n1. 目標を２行動ターン沈黙させる。 \n2. 目標を１行動ターン睡眠させる。 \n \n[color=#ffac26]「沈黙：奥義を使用できない」 \n「睡眠：行動できない。攻撃を受けると睡眠状態が解除」[/color]"}
+, 
+[81830002] = {id = 81830002, name = "敵縦列にダメージを与え、攻撃を2行動ターンの間低下させる。"}
+, 
+[81830003] = {id = 81830003, name = "敵単体にダメージを与え、会心が一定割合上昇する。"}
+, 
+[81830004] = {id = 81830004, name = "敵後列にダメージを与え、2重の決裁効果を付与する。\n\n[color=#ffac26]「決裁：毎ターン追加でダメージを与える（重複可能）。最大3ラウンドまで持続、10回まで重複可能」[/color]"}
+, 
+[81830005] = {id = 81830005, name = "最もHPが低い味方にHPを回復する。"}
+, 
+[81830006] = {id = 81830006, name = "ランダムで敵後列2名にダメージを与え、目標を1行動ターン拘束させる。 \n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない、协撃に参加しない」[color=#ffac26]"}
+, 
+[81830007] = {id = 81830007, name = "防御が最も高い敵にダメージを与え、目標の防御を一部無視する。"}
+, 
+[81830008] = {id = 81830008, name = "敵縦列にダメージを与え、与えたダメージの一定割合を吸収して、自分のHPに変換させ、さらに目標を２行動ターンの間重傷させる。\n\n[color=#ffac26]「重傷：あらゆるHP回復手段が無効になる」[/color]"}
+, 
+[81830009] = {id = 81830009, name = "0"}
+, 
+[81830010] = {id = 81830010, name = "十字列の敵にダメージを与え、確率で目標を１行動ターン拘束させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない。協撃に参加しない」[/color]"}
+, 
+[81830011] = {id = 81830011, name = "敵後列にダメージを与え、2行動ターンの間、確率で目標を沈黙させ、さらに自身のガードを上昇させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[81830012] = {id = 81830012, name = "敵単体にダメージを与え、味方後列の攻撃を2行動ターン上昇させる。"}
+, 
+[81830013] = {id = 81830013, name = "敵縦列にダメージを与え、2行動ターンの間、攻撃窃取を行う。\n\n[color=#ffac26]「攻撃窃取：目標の攻撃を低下させ、自身の攻撃を上昇させる」[/color]"}
+, 
+[81830014] = {id = 81830014, name = "敵単体にダメージを与えた上で、防御を2行動ターンの間低下させ、さらに380点のSPを減少させる。"}
+, 
+[81830015] = {id = 81830015, name = "敵単体にダメージを与え、2行動ターンの間、会心を一定割合低下させ、さらに確率で目標を沈黙させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[81830016] = {id = 81830016, name = "2ラウンドの間、最もHPが低い味方にシールドを張り、ダメージを一定割合吸収し、さらに浄化効果を付与する。\n\n[color=#ffac26]「浄化：全てのデバフを解除する」[/color]"}
+, 
+[81830017] = {id = 81830017, name = "敵後列の単体にダメージを与え、確率で目標を１行動ターン魅了させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない。協撃を発動せず、ランダムで味方１名に通常攻撃をする。」[/color]"}
+, 
+[81830018] = {id = 81830018, name = "敵単体にダメージを与え、3ラウンドの間多重トラップに嵌めさせる。目標がトラップに陥った状態であれば、トラップが即爆発し、追加でダメージを与える。\n\n[color=#ffac26]「多重トラップ：毎ターンHPを一定割合失う」[/color]"}
+, 
+[81830019] = {id = 81830019, name = "敵横列にダメージを与え、味方後列の攻撃を2行動ターン上昇させる。"}
+, 
+[81830020] = {id = 81830020, name = "敵横列にダメージを与え、確率で目標を2行動ターン沈黙させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[81830021] = {id = 81830021, name = "0"}
+, 
+[81830022] = {id = 81830022, name = "敵後列にダメージを与え、リセットを発動する。\n\n[color=#ffac26]「リセット：すべてのバフを解除する」[/color]"}
+, 
+[81830023] = {id = 81830023, name = "十字列の敵にダメージを与え、確率で目標を2行動ターン沈黙させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[81830024] = {id = 81830024, name = "敵単体にダメージを与え、自分のHPが減る代わりに、自身の最大HPの15%%分ダメージを与える（自分のHPが8%%以下の場合、直接にダメージを与える）。自分のHPが50%%以下の場合、自身のダメージ減が一定割合上昇させる（2行動ターン）。"}
+, 
+[81830025] = {id = 81830025, name = "敵前列にダメージを与え、ランダムで味方にバフを付与する。バフ：\n▪味方後列の攻撃を10%%上昇させる（2行動ターン）。\n▪味方後列の会心を15%%上昇させる（2行動ターン）。\n▪味方後列の防御を65%%上昇させる（2行動ターン）。\n▪味方前列のガードを15%%を上昇させる（2行動ターン）。"}
+, 
+[81830026] = {id = 81830026, name = "敵縦列にダメージを与える。自身のHPが40%%以下の場合、追加ダメージを与える。"}
+, 
+[81830027] = {id = 81830027, name = "敵後列にダメージを与え、確率で相手を1行動ターン気絶させる。\n\n[color=#ffac26]「気絶：行動できない。ガードもできない」[/color]"}
+, 
+[81830028] = {id = 81830028, name = "HPが最も高い敵にダメージを与え、味方後列にHP抑圧効果を2行動ターン付与する。\n\n[color=#ffac26]「HP抑圧：敵のHPが50%%以上の場合、追加でダメージを与える」[/color]"}
+, 
+[81830029] = {id = 81830029, name = "敵単体にダメージを与え、与えたダメージの一定割合を吸収して、自分のHPに変換する。目標が撃破されると、自身のSPを回復する。"}
+, 
+[81830030] = {id = 81830030, name = "敵横列にダメージを与え、目標を2行動ターン重傷させる。\n\n[color=#ffac26]「重傷：あらゆるHP回復手段が無効になる」[/color]"}
+, 
+[81830031] = {id = 81830031, name = "敵全体にダメージを与えた上で、2大ラウンドで割合な継続ダメージを与え、且つ自分にSPを回復する。"}
+, 
+[81830032] = {id = 81830032, name = "0"}
+, 
+[81830033] = {id = 81830033, name = "敵後列にダメージを与える。目標の数が少ないほどダメージが高くなり、確率で目標を1行動ターン魅了させる。\n\n[color=#ffac26]「魅了：奥義と特技を使用できない。協撃を発動せず、ランダムで味方１名に通常攻撃をする。」[/color]"}
+, 
+[81830034] = {id = 81830034, name = "敵後列の単体にダメージを与え、確率で追加ダメージを与える。"}
+, 
+[81830035] = {id = 81830035, name = "最もHPが低い味方3名にHPを回復させ、2大ラウンドの間、HP持続回復効果を付与する。"}
+, 
+[81830036] = {id = 81830036, name = "敵後列にダメージを与える。目標のHPが50%%以下の場合、追加でダメージを与える。"}
+, 
+[81830037] = {id = 81830037, name = "敵横列にダメージを与え、2行動ターンで自身と味方後列の会心を15%%上昇させる。"}
+, 
+[81830038] = {id = 81830038, name = "敵縦列にダメージを与える。自身に戦術防衛効果を2行動ターン付与し、目標のSPを減少させる。目標のSPが500点以下の場合、2行動ターンの間重傷状態になる。\n\n[color=#ffac26]「戦術防衛：効果持続期間中に必ず攻撃をガードし、自身の攻撃を低下させる」\n「重傷：あらゆるHP回復手段が無効になる」[/color]"}
+, 
+[81830039] = {id = 81830039, name = "ランダムで敵3人にダメージを与え、確率で目標を1行動ターン挑発する。\n\n[color=#ffac26]「挑発：相手が奥義を使用できなくなり、相手の通常攻撃/特技を自身に集中させる」[/color]"}
+, 
+[81830040] = {id = 81830040, name = "敵全体にダメージを与え、目標の体中の毒素を発生させる。\n\n[color=#ffac26]「毒素発生：発動した後、毒素が消失する。自身の攻撃の20%%分ダメージを与える。」[/color]"}
+, 
+[81830041] = {id = 81830041, name = "ランダムで敵3人にダメージを与え、与えたダメージの一定割合を味方全体のHPに転化し、決裁効果を付与する。\n\n[color=#ffac26]「決裁：毎ターン追加でダメージを与える。ダメージ重複可能、3大ラウンド継続、10回まで重複可能」[/color]"}
+, 
+[81830042] = {id = 81830042, name = "敵横列にダメージを与え、SPを吸収して自身に転化させる。"}
+, 
+[81830043] = {id = 81830043, name = "0"}
+, 
+[81830044] = {id = 81830044, name = "HPが最も低い敵にダメージを与える。目標のHPが20%%以上の場合、追加でダメージを与える。目標のHPが20%%以下の場合、即座に目標をデッドする。目標が撃破されると、自分のSPを回復する。\n\n[color=#ffac26]「デッド：シールドを無視し、直ちに目標を撃破する」[/color]"}
+, 
+[81830045] = {id = 81830045, name = "敵全体にダメージを与え、会心が上昇する。"}
+, 
+[81830046] = {id = 81830046, name = "敵後列にダメージを与え、自身のSPを200点回復する。目標のSPが500点以下の場合、SP抑圧効果を発動する；目標を撃破した場合、追加で自身のSPを150点回復する。 \n\n[color=#ffac26]「SP抑圧：敵に追加ダメージを与える」[/color]"}
+, 
+[81830047] = {id = 81830047, name = "敵単体にダメージを与え、防御を2行動ターンダウンさせ、味方後列の会心を2行動ターンアップさせる。同時に、猩紅の嵐を発動し、追加ダメージを与える。"}
+, 
+[81830048] = {id = 81830048, name = "HPが最も低い敵2名にダメージを与える。目標のHPが低いほど、与えたダメージが高くなる。"}
+, 
+[81830049] = {id = 81830049, name = "十字列の敵にダメージを与え、与えたダメージの23%%を自分のHPに転化する上で、目標の攻撃を2行動ターン低下させる。味方が1人陣没する度に追加ダメージを与える。"}
+, 
+[81830050] = {id = 81830050, name = "HPが最も高い敵3名にダメージを与え、HPが最も低い味方にHPを回復し、さらに１ラウンドの間守護効果を付与する。[color=#ffac26]「守護：攻撃を受けた時、最低1点のHPを残したままで、撃破されることはない。デッドスキルを防ぐことができない」[/color]"}
+, 
+[81830051] = {id = 81830051, name = "最も攻撃が高い敵にダメージを与え、陶酔を2ラウンドの間付与する。目標が死亡した場合、浸透効果を発動させる。「陶酔：目標が受けたダメージを25%%アップさせる」「浸透：ランダムで目標の周囲の敵1名に拘束を1行動ターン付与する。"}
+, 
+[81830052] = {id = 81830052, name = "0"}
+, 
+[81830053] = {id = 81830053, name = "0"}
+, 
+[81830054] = {id = 81830054, name = "0"}
+, 
+[81830055] = {id = 81830055, name = "0"}
+, 
+[81830056] = {id = 81830056, name = "0"}
+, 
+[81831001] = {id = 81831001, name = "敵単体にダメージを与え、確率で目標を1行動ターン混乱させる。  \n \n[color=#ffac26]「混乱：奥義と特技を使用できない。協撃を発動せず、ランダムな目標（味方含め）を通常攻撃で攻撃する。」[/color]"}
+, 
+[81831002] = {id = 81831002, name = "敵単体にダメージを与え、自身にシールドを2行動ターン付与し、ダメージを吸収する。"}
+, 
+[81831003] = {id = 81831003, name = "敵単体にダメージを与え、会心が上昇する。"}
+, 
+[81831004] = {id = 81831004, name = "敵単体にダメージを与え、確率で目標を１行動ターン失明させ、自身のSPを回復する。\n\n[color=#ffac26]「失明：すべての攻撃は目標に命中できない」[/color]"}
+, 
+[81831005] = {id = 81831005, name = "HPが最も低い味方にHPを回復し、さらにSPを回復させる。"}
+, 
+[81831006] = {id = 81831006, name = "敵単体にダメージを与え、3行動ターンの間、持続ダメージを付与する。"}
+, 
+[81831007] = {id = 81831007, name = "敵単体にダメージを与え、目標の防御を一部無視する。"}
+, 
+[81831008] = {id = 81831008, name = "敵単体にダメージを与え、与えたダメージの一定割合を吸収して、自身のHPに転化する。２ラウンドの間、目標に攻撃窃取効果を発動する。\n\n[color=#ffac26]「攻撃窃取：目標の攻撃を低下させ、自身の攻撃を上昇させる」[/color]"}
+, 
+[81831009] = {id = 81831009, name = "0"}
+, 
+[81831010] = {id = 81831010, name = "敵単体にダメージを与え、確率で目標を1行動ターン拘束させる。\n\n[color=#ffac26]「拘束：通常攻撃と特技を使用できない。協撃に参加しない」[/color]"}
+, 
+[81831011] = {id = 81831011, name = "HPが最も低い味方にHPを回復し、援護を1ラウンド付与し、さらに自身に一定割合のダメージ減を1行動ターン上昇させる。\n\n[color=#ffac26]「援護：目標が受けたダメージの一定割合を分担する。同じ目標に対して複数の効果を発動した場合、最初に発動した方のみ有効になる」[/color]"}
+, 
+[81831012] = {id = 81831012, name = "敵単体にダメージを与える。"}
+, 
+[81831013] = {id = 81831013, name = "攻撃が最も高い敵にダメージを与え、1ラウンドの間、目標に攻撃窃取を発動する。\n\n[color=#ffac26]「攻撃窃取：目標の攻撃を低下させ、自身の攻撃を上昇させる」[/color]"}
+, 
+[81831014] = {id = 81831014, name = "敵単体にダメージを与え、200点のSPを低下させる。"}
+, 
+[81831015] = {id = 81831015, name = "敵単体にダメージを与え、確率で目標を1行動ターン沈黙させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[81831016] = {id = 81831016, name = "HPが最も低い味方にHPを回復させ、自身のHPを回復し、さらに自身に一定割合の防御を1行動ターン上昇させる。"}
+, 
+[81831017] = {id = 81831017, name = "敵単体にダメージを与え、目標の攻撃を1行動ターン低下させ、自身のSPを回復する。"}
+, 
+[81831018] = {id = 81831018, name = "敵単体にダメージを与え、1ラウンドの間トラップ配置を発動する。\n\n[color=#ffac26]「トラップ配置：毎ターンHPを一定割合失う」[/color]"}
+, 
+[81831019] = {id = 81831019, name = "敵単体にダメージを与え、1大ラウンドの間、味方後列の会心を上昇させる。"}
+, 
+[81831020] = {id = 81831020, name = "敵単体にダメージを与え、確率で目標を1行動ターン沈黙させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[81831021] = {id = 81831021, name = "0"}
+, 
+[81831022] = {id = 81831022, name = "敵単体にダメージを与え、1大ラウンドの間、目標をブレイクし、マークをつける。自身にシールドを2行動ターン付与し、ダメージを吸収する。\n\n[color=#ffac26]「ブレイク：目標が持つシールドをブレイクする」\n「マーク：マークされた目標が受けたダメージを上昇させる」[/color]"}
+, 
+[81831023] = {id = 81831023, name = "敵単体にダメージを与え、決裁効果を１重付与し、自身が受けた欣快効果を2ラウンドの間上昇させる。\n\n[color=#ffac26]「決裁：毎ターンダメージを与え、ダメージ重複可能、３ラウンドの間持続、10回まで重複可能」\n\n「欣快：HPが回復した際、追加でHPを回復する」[/color]"}
+, 
+[81831024] = {id = 81831024, name = "敵単体にダメージを与え、自分に最大HPの5%%分HPを回復する（自身のHPが50%%以下の場合、自身に最大HPの14%%分HPを回復する）。"}
+, 
+[81831025] = {id = 81831025, name = "敵単体にダメージを与え、ランダムでデバフを付与する。デバフ：\n▪2ラウンドの間、攻撃を12%%低下させる。\n▪2ラウンドの間、防御を75%%低下させる。\n▪SPを200点減少する。"}
+, 
+[81831026] = {id = 81831026, name = "敵単体にダメージを与え、2大ラウンドの間、自身の防御を上昇させる。"}
+, 
+[81831027] = {id = 81831027, name = "敵単体にダメージを与え、１ラウンドの間、味方後列の貫通を6%%上昇させ、味方前列の抵抗を上昇させる。"}
+, 
+[81831028] = {id = 81831028, name = "敵単体にダメージを与え、目標のHPが50%%以上の場合、追加でダメージを与える。"}
+, 
+[81831029] = {id = 81831029, name = "敵単体にダメージを与え、与えたダメージの一定割合を吸収して、自身のHPに転化する。1行動ターンで自身の防御と攻撃を一定割合上昇させる。"}
+, 
+[81831030] = {id = 81831030, name = "敵単体にダメージを与え、会心が上昇する。"}
+, 
+[81831031] = {id = 81831031, name = "敵単体にダメージを与え、３大ラウンドの間、追加で一定割合の持続ダメージを与え、自分のSPを回復する。"}
+, 
+[81831032] = {id = 81831032, name = "0"}
+, 
+[81831033] = {id = 81831033, name = "敵単体にダメージを与え、2大ラウンドの間、追加で一定割合の持続ダメージを与える。"}
+, 
+[81831034] = {id = 81831034, name = "敵後列の単体にダメージを与え、2重の決裁効果を付与する上で、確率で追加ダメージを与える。\n\n[color=#ffac26]「決裁：毎ターンダメージを一定割合与え、ダメージ重複可能、３ラウンドの間持続、10回まで重複可能」[/color]"}
+, 
+[81831035] = {id = 81831035, name = "HPが最も低い味方にHPを回復し、SPを回復させ、さらに2大ラウンドの間、継続HP回復効果を付与する。"}
+, 
+[81831036] = {id = 81831036, name = "敵単体にダメージを与え、目標のHPが50%%以下の場合、追加でダメージを与える。"}
+, 
+[81831037] = {id = 81831037, name = "敵単体にダメージを与え、自身の会心を1行動ターン上昇させる。"}
+, 
+[81831038] = {id = 81831038, name = "敵単体にダメージを与え、SPを減少させる。2大ラウンドの間、味方前列にシールドを張り、ダメージを吸収する。"}
+, 
+[81831039] = {id = 81831039, name = "敵単体にダメージを与え、1行動ターンの間、確率で目標を挑発し、自分のガードを上昇させる。\n\n[color=#ffac26]「挑発：目標が奥義を発動できなくなり、目標の通常攻撃/特技を発動者に集中させる」[/color]"}
+, 
+[81831040] = {id = 81831040, name = "敵単体にダメージを与え、3ラウンドの間、敵全体に毒素を放出する。ラウンド開始時、毒素が入っている敵は500点のダメージを受ける(重複可能)。\n\n[color=#ffac26]「毒素：受けたダメージが5%%上昇し、重複可能」[/color]"}
+, 
+[81831041] = {id = 81831041, name = "HPが最も低い味方にHPを回復させ、HPが低いほど効果が強くなる。2行動ターンの間、攻撃と防御を上昇させる。"}
+, 
+[81831042] = {id = 81831042, name = "敵単体にダメージを与え、確率で目標を1行動ターン気絶させ、自身のSPを回復する。\n\n[color=#ffac26]「気絶：行動できない。ガードすることもできない」[/color]"}
+, 
+[81831043] = {id = 81831043, name = "0"}
+, 
+[81831044] = {id = 81831044, name = "HPが最も低い敵にダメージを与え、自身のSPを回復する。目標の攻撃が自身の攻撃より低い場合、攻撃抑圧を行う。\n\n[color=#ffac26]「攻撃抑圧：目標に追加ダメージを与える」[/color]"}
+, 
+[81831045] = {id = 81831045, name = "敵単体にダメージを与え、確率で追加ダメージを与える。防御を１ラウンドの間低下させ、味方後列の会心を1行動ターン上昇させる。"}
+, 
+[81831046] = {id = 81831046, name = "敵単体にダメージを与え、自身のSPを75点回復する。自身のSPが目標より高い場合、追加ダメージを与える。"}
+, 
+[81831047] = {id = 81831047, name = "敵単体にダメージを与え、自身に猩紅の嵐効果を付与する。\n\n[color=#ffac26]「猩紅の嵐：攻撃を受ける度に、自身の攻撃がアップ」[/color]"}
+, 
+[81831048] = {id = 81831048, name = "HPが最低の敵にダメージを与え、自身に聖佑効果を2回付与する。\n\n[color=#ffac26]「聖佑：受けたダメージを100%%減少する」[/color]"}
+, 
+[81831049] = {id = 81831049, name = "敵単体にダメージを与え、目標の攻撃を1行動ターン低下させる。味方が1人陣没する度に追加ダメージを与える。"}
+, 
+[81831050] = {id = 81831050, name = "敵単体にダメージを与え、HPが最も低い味方に茨を1大ラウンドの間放つ。\n\n[color=#ffac26]「茨：自分が受けたダメージの一部を相手に反射する」[/color]"}
+, 
+[81831051] = {id = 81831051, name = "敵単体にダメージを与え、同じ縦列の味方にコーラスを1行動ターン付与する。「コーラス：所持者は次に通常攻撃・スキルを発動する時、追加で連撃を1回行う」"}
+, 
+[81831052] = {id = 81831052, name = "0"}
+, 
+[81831053] = {id = 81831053, name = "0"}
+, 
+[81831054] = {id = 81831054, name = "0"}
+, 
+[81831055] = {id = 81831055, name = "0"}
+, 
+[81831056] = {id = 81831056, name = "0"}
+, 
 [82100001] = {id = 82100001, name = "ダイヤ"}
 , 
 [82100002] = {id = 82100002, name = "ダイヤ（有償）"}
@@ -1978,6 +2252,14 @@ BaseWordData = {
 [82100017] = {id = 82100017, name = "好感度"}
 , 
 [82100018] = {id = 82100018, name = "リッタのギフト券"}
+, 
+[82100019] = {id = 82100019, name = "天賦ポイント"}
+, 
+[82100020] = {id = 82100020, name = "ジンジャーブレッドマン"}
+, 
+[82100022] = {id = 82100022, name = "TEST"}
+, 
+[82100024] = {id = 82100024, name = "TEST"}
 , 
 [82110001] = {id = 82110001, name = "初級経験薬剤"}
 , 
@@ -2095,7 +2377,33 @@ BaseWordData = {
 , 
 [82121107] = {id = 82121107, name = "パロネスの欠片"}
 , 
-[82123010] = {id = 82123010, name = "TEST"}
+[82123010] = {id = 82123010, name = "シェリーの欠片"}
+, 
+[82123009] = {id = 82123009, name = "イザベラ(水着)の欠片"}
+, 
+[82122112] = {id = 82122112, name = "ノンノ(水着)の欠片"}
+, 
+[82122111] = {id = 82122111, name = "ツバキの欠片"}
+, 
+[82122208] = {id = 82122208, name = "ハーミットの欠片"}
+, 
+[82123011] = {id = 82123011, name = "ルルリカの欠片"}
+, 
+[82123012] = {id = 82123012, name = "ミアの欠片"}
+, 
+[82122209] = {id = 82122209, name = "クインの欠片"}
+, 
+[82123013] = {id = 82123013, name = "ショウの欠片"}
+, 
+[82123014] = {id = 82123014, name = "ロールの欠片"}
+, 
+[82122210] = {id = 82122210, name = "ネネルの欠片"}
+, 
+[82123015] = {id = 82123015, name = "サラの欠片"}
+, 
+[82123016] = {id = 82123016, name = "TEST"}
+, 
+[82123024] = {id = 82123024, name = "TEST"}
 , 
 [82130001] = {id = 82130001, name = "花輪ブレスレット"}
 , 
@@ -2205,6 +2513,10 @@ BaseWordData = {
 , 
 [82160006] = {id = 82160006, name = "角色十连券"}
 , 
+[82160007] = {id = 82160007, name = "闘技場挑戦券"}
+, 
+[82160008] = {id = 82160008, name = "TEST券"}
+, 
 [82170001] = {id = 82170001, name = "能量药剂"}
 , 
 [82500001] = {id = 82500001, name = "一般冒険者宝箱"}
@@ -2235,7 +2547,9 @@ BaseWordData = {
 , 
 [82500403] = {id = 82500403, name = "冒険者記録"}
 , 
-[82500404] = {id = 82500404, name = "商店活跃礼包"}
+[82500404] = {id = 82500404, name = "ディリーご褒美パック"}
+, 
+[82500405] = {id = 82500405, name = "突破応援箱"}
 , 
 [82500501] = {id = 82500501, name = "SSR冒険者選択箱"}
 , 
@@ -2249,7 +2563,35 @@ BaseWordData = {
 , 
 [82500602] = {id = 82500602, name = "ランダム突破素材"}
 , 
+[82500603] = {id = 82500603, name = "TEST3"}
+, 
+[82500604] = {id = 82500604, name = "TEST4"}
+, 
+[82500605] = {id = 82500605, name = "TEST5"}
+, 
+[82500606] = {id = 82500606, name = "TEST6"}
+, 
+[82500607] = {id = 82500607, name = "TEST7"}
+, 
+[82500608] = {id = 82500608, name = "TEST8"}
+, 
+[82500609] = {id = 82500609, name = "TEST9"}
+, 
+[82500610] = {id = 82500610, name = "TEST-S"}
+, 
 [82610100] = {id = 82610100, name = "デフォルト"}
+, 
+[82700001] = {id = 82700001, name = "TEST"}
+, 
+[82700002] = {id = 82700002, name = "TEST"}
+, 
+[82700003] = {id = 82700003, name = "TEST"}
+, 
+[82700004] = {id = 82700004, name = "TEST"}
+, 
+[82700005] = {id = 82700005, name = "TEST"}
+, 
+[82700006] = {id = 82700006, name = "TEST"}
 , 
 [82800001] = {id = 82800001, name = "购买钻石1"}
 , 
@@ -2279,11 +2621,25 @@ BaseWordData = {
 , 
 [82802006] = {id = 82802006, name = "每月冒険者パック"}
 , 
+[82802007] = {id = 82802007, name = "天の塔掃討パック"}
+, 
 [82803001] = {id = 82803001, name = "ディリーご褒美パック"}
 , 
 [82803002] = {id = 82803002, name = "覚醒・証明書パック"}
 , 
-[82803003] = {id = 82803003, name = "冒険者補給パック"}
+[82803003] = {id = 82803003, name = "毎月スペシャルパック"}
+, 
+[82803004] = {id = 82803004, name = "募集支援パック"}
+, 
+[82803005] = {id = 82803005, name = "中級突破支援パック"}
+, 
+[82803006] = {id = 82803006, name = "初級突破支援パック"}
+, 
+[82803007] = {id = 82803007, name = "上級突破支援パック"}
+, 
+[82803008] = {id = 82803008, name = "経験薬剤パック"}
+, 
+[82803009] = {id = 82803009, name = "秋のダイヤパック　"}
 , 
 [82810001] = {id = 82810001, name = "初回チャージ6円以上、「」を送る"}
 , 
@@ -2353,13 +2709,21 @@ BaseWordData = {
 , 
 [82900814] = {id = 82900814, name = "エデンノヴァ"}
 , 
-[82900911] = {id = 82900911, name = "アポカリプス"}
+[82900911] = {id = 82900911, name = "壊滅の槌"}
 , 
-[82900912] = {id = 82900912, name = "カタストロフィ"}
+[82900912] = {id = 82900912, name = "壊滅の鎧"}
 , 
-[82900913] = {id = 82900913, name = "ジェネシスライト"}
+[82900913] = {id = 82900913, name = "ルーインリング"}
 , 
-[82900914] = {id = 82900914, name = "エデンノヴァ"}
+[82900914] = {id = 82900914, name = "破滅の鎖"}
+, 
+[82901011] = {id = 82901011, name = "神々への賛歌"}
+, 
+[82901012] = {id = 82901012, name = "神使のローブ"}
+, 
+[82901013] = {id = 82901013, name = "祈祷リング"}
+, 
+[82901014] = {id = 82901014, name = "祈祷クリスタル"}
 , 
 [83100001] = {id = 83100001, name = "ゲーム内の貴重な通貨で、重要な用途を持つ。"}
 , 
@@ -2397,6 +2761,14 @@ BaseWordData = {
 , 
 [83100018] = {id = 83100018, name = "リッタが発行した特別ギフト券。イベントショップでギフトを抽選できる。"}
 , 
+[83100019] = {id = 83100019, name = "ギルド戦における天賦のレベルアップに使用する。"}
+, 
+[83100020] = {id = 83100020, name = "イベントのショップで様々な突破素材と交換できる。"}
+, 
+[83100022] = {id = 83100022, name = "TEST"}
+, 
+[83100024] = {id = 83100024, name = "TEST"}
+, 
 [83110001] = {id = 83110001, name = "[color=#3dffbd]%d[/color]点の冒険者経験値を増やす。"}
 , 
 [83120000] = {id = 83120000, name = "すべての冒険者を覚醒させる欠片。"}
@@ -2421,11 +2793,15 @@ BaseWordData = {
 , 
 [83160003] = {id = 83160003, name = "「一般募集」で使用、引くチャンスを[color=#3dffbd]1[/color]回獲得。"}
 , 
-[83160004] = {id = 83160004, name = "天の塔の中でクリアしたコピーを掃討できる。"}
+[83160004] = {id = 83160004, name = "クリアした天の塔ステージを掃討できる。"}
 , 
 [83160005] = {id = 83160005, name = "神秘的な図案が描かれている古びた契約書。\n初心者ガチャで冒険者を[color=#3dffbd]1[/color]回募集できる。"}
 , 
 [83160006] = {id = 83160006, name = "将获得[color=#3dffbd]1[/color]次钻石十连的机会。"}
+, 
+[83160007] = {id = 83160007, name = "使用すると、中央闘技場の挑戦回数を5回増加。"}
+, 
+[83160008] = {id = 83160008, name = "TEST"}
 , 
 [83170001] = {id = 83170001, name = "使用可获得[color=#3dffbd]60[/color]点スタミナ。"}
 , 
@@ -2441,9 +2817,11 @@ BaseWordData = {
 , 
 [83500402] = {id = 83500402, name = "冒険者ギルドが仕事を募集するために配った証明書。\n使用後、[color=#3dffbd]ダイヤモンド募集券欠片[/color]、或いは[color=#3dffbd]一般募集券[/color]を獲得する。"}
 , 
-[83500403] = {id = 83500403, name = "冒険者達の個人情報が記載されている。\n購入後、[color=#3dffbd]冒険者の欠片[/color]を獲得する。"}
+[83500403] = {id = 83500403, name = "冒険者達の個人情報が記載されている。\n使用すると、[color=#3dffbd]冒険者の欠片[/color]を獲得できる。"}
 , 
 [83500404] = {id = 83500404, name = "商店活跃礼包"}
+, 
+[83500405] = {id = 83500405, name = "使用すると、リーダーレベルに応じた突破素材の中から任意で1つ選択することができる。"}
 , 
 [83500501] = {id = 83500501, name = "先行プレイをご利用いただくリーダーさんのための特別体験用パックを用意いたします。\n12名のSSRキャラの中でお気に入りのキャラを1名選んで、冒険の旅を始めよう！\n[color=#3dffbd]公式版に保存されませんので、ご承知の程よろしくお願いします[/color]。"}
 , 
@@ -2456,6 +2834,22 @@ BaseWordData = {
 [83500601] = {id = 83500601, name = "リーダーレベルに相応する限界突破素材をランダムで獲得。"}
 , 
 [83500602] = {id = 83500602, name = "ランダムで冒険者の限界突破素材を入手する。"}
+, 
+[83500603] = {id = 83500603, name = "TEST"}
+, 
+[83500604] = {id = 83500604, name = "TEST"}
+, 
+[83500605] = {id = 83500605, name = "TEST"}
+, 
+[83500606] = {id = 83500606, name = "TEST"}
+, 
+[83500607] = {id = 83500607, name = "TEST"}
+, 
+[83500608] = {id = 83500608, name = "TEST"}
+, 
+[83500609] = {id = 83500609, name = "TEST"}
+, 
+[83500610] = {id = 83500610, name = "TEST"}
 , 
 [83610100] = {id = 83610100, name = "角色1时装1_描述"}
 , 
@@ -2487,6 +2881,18 @@ BaseWordData = {
 , 
 [83610502] = {id = 83610502, name = "角色5时装3_描述"}
 , 
+[83700001] = {id = 83700001, name = "TEST"}
+, 
+[83700002] = {id = 83700002, name = "TEST"}
+, 
+[83700003] = {id = 83700003, name = "TEST"}
+, 
+[83700004] = {id = 83700004, name = "TEST"}
+, 
+[83700005] = {id = 83700005, name = "TEST"}
+, 
+[83700006] = {id = 83700006, name = "TEST"}
+, 
 [83900111] = {id = 83900111, name = "普通のライバルなら…大丈夫ですよね？"}
 , 
 [83900112] = {id = 83900112, name = "この服を着れば、冒険者になれるだろう！"}
@@ -2497,7 +2903,7 @@ BaseWordData = {
 , 
 [83900211] = {id = 83900211, name = "このランスはあたしの手作りだな。試作品だが、強いよ。——ユーナ"}
 , 
-[83900212] = {id = 83900212, name = "立派そうな铠、身につければオーラが出る。"}
+[83900212] = {id = 83900212, name = "立派そうな鎧、身につければオーラが出る。"}
 , 
 [83900213] = {id = 83900213, name = "指に嵌めるとかっこよく見える。"}
 , 
@@ -2531,9 +2937,9 @@ BaseWordData = {
 , 
 [83900612] = {id = 83900612, name = "炎のような形をしているが、涼しい着心地。"}
 , 
-[83900613] = {id = 83900613, name = "「奉献！希望！栄光！」——ネックレスに妙な言葉が刻まれている"}
+[83900613] = {id = 83900613, name = "この指輪をつけている者は皆情熱的になっていくらしい！——ある情熱的な冒険者"}
 , 
-[83900614] = {id = 83900614, name = "この指輪をつけている者は皆情熱的になっていくらしい！——ある情熱的な冒険者"}
+[83900614] = {id = 83900614, name = "「奉献！希望！栄光！」——ネックレスに妙な言葉が刻まれている"}
 , 
 [83900711] = {id = 83900711, name = "ククク……吾辈「冥夜の堕天使」と共に、常世の神話を作り上げようぞ！——カノン"}
 , 
@@ -2545,19 +2951,27 @@ BaseWordData = {
 , 
 [83900811] = {id = 83900811, name = "この剣はあまりにも輝き過ぎて、戦闘中では相手が目を開けられない！"}
 , 
-[83900812] = {id = 83900812, name = "この铠は盤石ように、どんな攻撃にも耐えられます！——謎の商人"}
+[83900812] = {id = 83900812, name = "この鎧は盤石ように、どんな攻撃にも耐えられます！——謎の商人"}
 , 
 [83900813] = {id = 83900813, name = "この指輪を手に嵌めれば、神様にも負けりゃしない！"}
 , 
 [83900814] = {id = 83900814, name = "この品物はどこかで見たことがあるような気がする……まあ、思い出せない。——エヴァンテ"}
 , 
-[83900911] = {id = 83900911, name = "この剣はあまりにも輝き過ぎて、戦闘中では相手が目を開けられない！"}
+[83900911] = {id = 83900911, name = "極めて鋭い切れ味以外、必要なのはあらゆるものを破壊できるほどの重さだ！"}
 , 
-[83900912] = {id = 83900912, name = "この铠は盤石ように、どんな攻撃にも耐えられます！——謎の商人"}
+[83900912] = {id = 83900912, name = "威風堂々たる鎧だが、かなり重いので、長時間着ていると背が伸びなくなる恐れがある。"}
 , 
-[83900913] = {id = 83900913, name = "この指輪を手に嵌めれば、神様にも負けりゃしない！"}
+[83900913] = {id = 83900913, name = "ある王族や神に属するものだったかもしれないが、今は力の強い者に与えられるべきだ。"}
 , 
-[83900914] = {id = 83900914, name = "この品物はどこかで見たことがあるような気がする……まあ、思い出せない。——エヴァンテ"}
+[83900914] = {id = 83900914, name = "「女王様、御誕生日おめでとうございます」――裏にこのような言葉が刻まれている。"}
+, 
+[83901011] = {id = 83901011, name = "様々な神への祈祷文が記載されているが、その多くは宣教師たちが自作したものだという。"}
+, 
+[83901012] = {id = 83901012, name = "走るにはちょっと不便があるが、それ以外ほとんど非の打ち所がない。"}
+, 
+[83901013] = {id = 83901013, name = "かつて教会が裕福だった頃に敬虔な信者に与えた指輪。今ではめったに見られなくなったものだ。"}
+, 
+[83901014] = {id = 83901014, name = "とてもきれいなペンダント！軽く叩くだけで美しい音が聞こえる。"}
 , 
 [83990010] = {id = 83990010, name = "[2件套]效果:%s+%d"}
 , 
@@ -2593,7 +3007,97 @@ BaseWordData = {
 , 
 [84013103] = {id = 84013103, name = "審判刻印"}
 , 
+[84110000] = {id = 84110000, name = "防御"}
+, 
+[84110001] = {id = 84110001, name = "ダメージ減"}
+, 
+[84110002] = {id = 84110002, name = "ダメージ増"}
+, 
+[84110003] = {id = 84110003, name = "5%%"}
+, 
+[84110004] = {id = 84110004, name = "4%%"}
+, 
+[84110005] = {id = 84110005, name = "3%%"}
+, 
+[84110006] = {id = 84110006, name = "2%%"}
+, 
+[84110007] = {id = 84110007, name = "1%%"}
+, 
+[84110008] = {id = 84110008, name = "15%%"}
+, 
+[84110009] = {id = 84110009, name = "12%%"}
+, 
+[84110010] = {id = 84110010, name = "9%%"}
+, 
+[84110011] = {id = 84110011, name = "6%%"}
+, 
 [84111001] = {id = 84111001, name = "先行プレイ参加・イベント特典"}
+, 
+[84111002] = {id = 84111002, name = "ギルド戦 1 位の専用称号です。"}
+, 
+[84111003] = {id = 84111003, name = "ギルド戦 2 位の専用称号です。"}
+, 
+[84111004] = {id = 84111004, name = "ギルド戦 3～50 位のギルドに贈られる称号です。"}
+, 
+[84111005] = {id = 84111005, name = "ギルド戦 51～225 位のギルドに贈られる称号です。"}
+, 
+[84111006] = {id = 84111006, name = "ギルド戦 226～500 位のギルドに贈られる称号です。"}
+, 
+[84111007] = {id = 84111007, name = "ギルド戦 501～2500 位のギルドに贈られる称号です。"}
+, 
+[84111008] = {id = 84111008, name = "ギルド戦 2501～5000 位のギルドに贈られる称号です。"}
+, 
+[84111009] = {id = 84111009, name = "ギルド戦 5001～15000 位のギルドに贈られる称号です。"}
+, 
+[84111101] = {id = 84111101, name = "测试称号名称"}
+, 
+[84111102] = {id = 84111102, name = "エデンの征服者"}
+, 
+[84111103] = {id = 84111103, name = "ターミネーター"}
+, 
+[84111104] = {id = 84111104, name = "恐れを知らぬ討伐者"}
+, 
+[84111105] = {id = 84111105, name = "ヘッドハンター"}
+, 
+[84111106] = {id = 84111106, name = "チャレンジャー"}
+, 
+[84111107] = {id = 84111107, name = "レンジャー"}
+, 
+[84111108] = {id = 84111108, name = "チェイサー"}
+, 
+[84111109] = {id = 84111109, name = "エクササイザー"}
+, 
+[84111201] = {id = 84111201, name = "先行プレイ参加・イベント特典"}
+, 
+[84111202] = {id = 84111202, name = "エデンを征服し、あらゆる相手を打ち負かす覇者の証。"}
+, 
+[84111203] = {id = 84111203, name = "すべてを終わらせて、新しい伝説を作る者に贈られる称号。"}
+, 
+[84111204] = {id = 84111204, name = "何も恐れず挑戦し、最強への道に向かって勇敢に前進し続ける者に贈られる称号。"}
+, 
+[84111205] = {id = 84111205, name = "強者に挑み、栄光を追い求める者に贈られる称号。"}
+, 
+[84111206] = {id = 84111206, name = "強くなるためにより一層勇敢に戦う者に贈られる称号。"}
+, 
+[84111207] = {id = 84111207, name = "どんな苦境に立たされても、諦めずに戦う者に贈られる称号。"}
+, 
+[84111208] = {id = 84111208, name = "全力を尽くして、勇敢に挑戦する者に贈られる称号。"}
+, 
+[84111209] = {id = 84111209, name = "試練に耐える強い意志を持つ者に贈られる称号。"}
+, 
+[84121001] = {id = 84121001, name = "好感度が Lv%d に到達"}
+, 
+[84122001] = {id = 84122001, name = "リーダーが Lv%d に到達、「成長任務」で獲得"}
+, 
+[84122002] = {id = 84122002, name = "リーダー戦力が 100万 に到達、「成長任務」で獲得"}
+, 
+[84124001] = {id = 84124001, name = "新人リーダー"}
+, 
+[84124002] = {id = 84124002, name = "努力家リーダー"}
+, 
+[84124003] = {id = 84124003, name = "ベテランリーダー"}
+, 
+[84124004] = {id = 84124004, name = "戦力100万達成"}
 , 
 [85011001] = {id = 85011001, name = "前列防御貫通  Lv.%d"}
 , 
@@ -2785,7 +3289,7 @@ BaseWordData = {
 , 
 [85022001] = {id = 85022001, name = "戦闘終了後、キャラが疲労状態になり、次の戦闘では出陣できない。"}
 , 
-[85022002] = {id = 85022002, name = "敵と死闘を缲り返し、戦闘に参加したチームのキャラは全部敗北する"}
+[85022002] = {id = 85022002, name = "敵と死闘を繰り広げ、戦闘に参加した冒険者は全滅扱いにされる。"}
 , 
 [85022200] = {id = 85022200, name = "味方全体の治療効果+%d%%"}
 , 
@@ -3201,15 +3705,15 @@ BaseWordData = {
 , 
 [85023198] = {id = 85023198, name = "「清水の力」ラウンド開始する度に、100%%の確率で着用者のデバフを１つクリアする。"}
 , 
-[85023199] = {id = 85023199, name = "「セカンドラッパ」敵を撃破すると、ランダムで味方１名の攻撃を6%%・防御を40%%・会心を10%%・ガードを10%%上昇させ、1行動ターン持続。"}
+[85023199] = {id = 85023199, name = "「セカンドラッパ」敵を撃破すると、下記からランダムで１つの効果を発動する。味方１名の攻撃を6%%・防御を40%%・会心を10%%・ガードを10%%上昇させる。1行動ターン持続。"}
 , 
-[85023200] = {id = 85023200, name = "「セカンドラッパ」敵を撃破すると、ランダムで味方１名の攻撃を10%%・防御を60%%・会心を15%%・ガードを10%%上昇させ、1行動ターン持続。"}
+[85023200] = {id = 85023200, name = "「セカンドラッパ」敵を撃破すると、下記からランダムで１つの効果を発動する。味方１名の攻撃を10%%・防御を60%%・会心を15%%・ガードを15%%上昇させる。1行動ターン持続。"}
 , 
-[85023201] = {id = 85023201, name = "「セカンドラッパ」敵を撃破すると、ランダムで味方１名の攻撃を16%%・防御を100%%・会心を25%%・ガードを10%%上昇させ、1行動ターン持続。"}
+[85023201] = {id = 85023201, name = "「セカンドラッパ」敵を撃破すると、下記からランダムで１つの効果を発動する。味方１名の攻撃を16%%・防御を100%%・会心を25%%・ガードを25%%上昇させる。1行動ターン持続。"}
 , 
-[85023202] = {id = 85023202, name = "「セカンドラッパ」敵を撃破すると、ランダムで味方１名の攻撃を22%%・防御を135%%・会心を35%%・ガードを10%%上昇させ、1行動ターン持続。"}
+[85023202] = {id = 85023202, name = "「セカンドラッパ」敵を撃破すると、下記からランダムで１つの効果を発動する。味方１名の攻撃を22%%・防御を135%%・会心を35%%・ガードを35%%上昇させる。1行動ターン持続。"}
 , 
-[85023203] = {id = 85023203, name = "「セカンドラッパ」敵を撃破すると、ランダムで味方１名の攻撃を32%%・防御を195%%・会心を50%%・ガードを10%%上昇させ、1行動ターン持続。"}
+[85023203] = {id = 85023203, name = "「セカンドラッパ」敵を撃破すると、下記からランダムで１つの効果を発動する。味方１名の攻撃を32%%・防御を195%%・会心を50%%・ガードを50%%上昇させる。1行動ターン持続。"}
 , 
 [85023204] = {id = 85023204, name = "「霊魂の波」自分が陣没した場合、30%%の確率で味方全体のHPを（攻撃*20%%）点回復する。"}
 , 
@@ -3345,6 +3849,10 @@ BaseWordData = {
 , 
 [85110040] = {id = 85110040, name = "狂気のモイラ"}
 , 
+[85110041] = {id = 85110041, name = "謎の占い師"}
+, 
+[85110042] = {id = 85110042, name = "脱獄大作戦"}
+, 
 [85120001] = {id = 85120001, name = "始まりの森"}
 , 
 [85120002] = {id = 85120002, name = "巨石の谷"}
@@ -3355,9 +3863,13 @@ BaseWordData = {
 , 
 [85120005] = {id = 85120005, name = "幽暗の堡塁"}
 , 
+[85120006] = {id = 85120006, name = "古代の遺跡"}
+, 
 [85130101] = {id = 85130101, name = "%d-%d"}
 , 
 [85130102] = {id = 85130102, name = "%s  %d-%d"}
+, 
+[85130103] = {id = 85130103, name = "%s"}
 , 
 [85140101] = {id = 85140101, name = "熱心な獣耳少女"}
 , 
@@ -3759,6 +4271,26 @@ BaseWordData = {
 , 
 [85144005] = {id = 85144005, name = "モイラを捕縛"}
 , 
+[85144101] = {id = 85144101, name = "監獄城に収監されて"}
+, 
+[85144102] = {id = 85144102, name = "謎の占い師"}
+, 
+[85144103] = {id = 85144103, name = "「因縁」の再会"}
+, 
+[85144104] = {id = 85144104, name = "思わぬ災難"}
+, 
+[85144105] = {id = 85144105, name = "監獄城での生活"}
+, 
+[85144201] = {id = 85144201, name = "収監された理由"}
+, 
+[85144202] = {id = 85144202, name = "イザベラの挑戦"}
+, 
+[85144203] = {id = 85144203, name = "脱獄計画"}
+, 
+[85144204] = {id = 85144204, name = "脱獄計画"}
+, 
+[85144205] = {id = 85144205, name = "監獄城からの脱出"}
+, 
 [85160101] = {id = 85160101, name = "謎の人チャレンジ"}
 , 
 [85160102] = {id = 85160102, name = "謎の贈物"}
@@ -3786,6 +4318,58 @@ BaseWordData = {
 [85180104] = {id = 85180104, name = "特別な友達"}
 , 
 [85180105] = {id = 85180105, name = "初ライブ"}
+, 
+[85180200] = {id = 85180200, name = "集客！波乱のサマー"}
+, 
+[85180201] = {id = 85180201, name = "海の家がピンチ！"}
+, 
+[85180202] = {id = 85180202, name = "開店準備"}
+, 
+[85180203] = {id = 85180203, name = "不測の事態"}
+, 
+[85180204] = {id = 85180204, name = "水着コンテスト"}
+, 
+[85180205] = {id = 85180205, name = "イザベラの計略"}
+, 
+[85180206] = {id = 85180206, name = "洞窟探検"}
+, 
+[85180207] = {id = 85180207, name = "ハッピー·サマー"}
+, 
+[85180300] = {id = 85180300, name = "密着！ビッグスターの裏顔"}
+, 
+[85180301] = {id = 85180301, name = "新しいメンバー"}
+, 
+[85180302] = {id = 85180302, name = "オリヴィアの推測"}
+, 
+[85180303] = {id = 85180303, name = "ルルリカ暴走！"}
+, 
+[85180304] = {id = 85180304, name = "ルルリカを救おう！"}
+, 
+[85180305] = {id = 85180305, name = "友達として"}
+, 
+[85180400] = {id = 85180400, name = "ハロウィン  WRAITH BANQUET"}
+, 
+[85180401] = {id = 85180401, name = "ハロウィン開催！"}
+, 
+[85180402] = {id = 85180402, name = "お菓子を求める方法"}
+, 
+[85180403] = {id = 85180403, name = "クインの秘密"}
+, 
+[85180404] = {id = 85180404, name = "村でお祭りをやろう"}
+, 
+[85180405] = {id = 85180405, name = "『お別れ』"}
+, 
+[85180500] = {id = 85180500, name = "クリスマス・正義を貫くサンタ"}
+, 
+[85180501] = {id = 85180501, name = "クリスマス・イブ"}
+, 
+[85180502] = {id = 85180502, name = "モニカ捕獲作戦"}
+, 
+[85180503] = {id = 85180503, name = "プレゼント配り"}
+, 
+[85180504] = {id = 85180504, name = "アイリスの失踪"}
+, 
+[85180505] = {id = 85180505, name = "戦うサンタ"}
 , 
 [85220001] = {id = 85220001, name = "急襲盗賊団"}
 , 
@@ -3883,6 +4467,16 @@ BaseWordData = {
 , 
 [85903006] = {id = 85903006, name = "晨曦の教会"}
 , 
+[85904001] = {id = 85904001, name = "%d-%d  をクリア"}
+, 
+[85904002] = {id = 85904002, name = "%d周目  をクリア"}
+, 
+[85904003] = {id = 85904003, name = "「%d」位"}
+, 
+[85904004] = {id = 85904004, name = "「%d~%d」位"}
+, 
+[85904005] = {id = 85904005, name = "「%d」位以降"}
+, 
 [87110101] = {id = 87110101, name = "ストーリー"}
 , 
 [87110201] = {id = 87110201, name = "冒険者修行"}
@@ -3907,9 +4501,11 @@ BaseWordData = {
 , 
 [87111201] = {id = 87111201, name = "潜在力アップ"}
 , 
+[87111301] = {id = 87111301, name = "リーダー戦力"}
+, 
 [87120001] = {id = 87120001, name = "募集"}
 , 
-[87120002] = {id = 87120002, name = "ストーリー"}
+[87120002] = {id = 87120002, name = "メイン＆イベントステージ"}
 , 
 [87120003] = {id = 87120003, name = "冒険者修行"}
 , 
@@ -3935,7 +4531,7 @@ BaseWordData = {
 , 
 [87120014] = {id = 87120014, name = "毎日サインイン"}
 , 
-[87130001] = {id = 87130001, name = "ストーリー"}
+[87130001] = {id = 87130001, name = "メイン＆イベントステージ"}
 , 
 [87130002] = {id = 87130002, name = "冒険者修行"}
 , 
@@ -3991,9 +4587,11 @@ BaseWordData = {
 , 
 [87211201] = {id = 87211201, name = "潜在力をLv.[color=#a5ff93]%d[/color]までアップする"}
 , 
+[87211301] = {id = 87211301, name = "リーダー戦力が[color=#a5ff93]100万[/color]に到達"}
+, 
 [87220001] = {id = 87220001, name = "任意の募集を[color=#a5ff93]%d回[/color]完了"}
 , 
-[87220002] = {id = 87220002, name = "ストーリーを[color=#a5ff93]%d回[/color]クリア"}
+[87220002] = {id = 87220002, name = "メインまたはイベントステージを[color=#a5ff93]%d回[/color]クリア"}
 , 
 [87220003] = {id = 87220003, name = "冒険者修行を[color=#a5ff93]%d回[/color]クリア"}
 , 
@@ -4003,7 +4601,7 @@ BaseWordData = {
 , 
 [87220006] = {id = 87220006, name = "「天の塔」を[color=#a5ff93]%d回[/color]クリア"}
 , 
-[87220007] = {id = 87220007, name = "「遠征」を[color=#a5ff93]%d回[/color]クリア"}
+[87220007] = {id = 87220007, name = "「遠征」で任意のステージをクリアする。"}
 , 
 [87220008] = {id = 87220008, name = "冒険者才能訓練を[color=#a5ff93]%d回[/color]行う"}
 , 
@@ -4019,7 +4617,7 @@ BaseWordData = {
 , 
 [87220014] = {id = 87220014, name = "毎日サインイン"}
 , 
-[87230001] = {id = 87230001, name = "ストーリーを[color=#a5ff93]%d回[/color]クリア"}
+[87230001] = {id = 87230001, name = "メインまたはイベントステージを[color=#a5ff93]%d回[/color]クリア"}
 , 
 [87230002] = {id = 87230002, name = "冒険者修行を[color=#a5ff93]%d回[/color]クリア"}
 , 
@@ -4049,9 +4647,21 @@ BaseWordData = {
 , 
 [87300001] = {id = 87300001, name = "冒険団の依頼"}
 , 
+[87300005] = {id = 87300005, name = "08/10 05:00 - 08/07 23:59 测试1"}
+, 
+[87300006] = {id = 87300006, name = "08/10 05:00 - 08/07 23:59 测试2"}
+, 
 [87300101] = {id = 87300101, name = "イベントステージ"}
 , 
 [87300102] = {id = 87300102, name = "王国音楽祭を控え、歌手デビュー志望のリサはオーディションに向けて準備中。しかし、こんな時に街を騒がせる者が現れ…"}
+, 
+[87300103] = {id = 87300103, name = "閉店危機に陥ったリッタから招待を受け、ノンノたちが店を立て直す策を講じる。モンスター殲滅よりも身内に突っかかることを好むイザベラの協力で事態は更なるカオスへ…"}
+, 
+[87300104] = {id = 87300104, name = "役作りのため、人気女優ルルリカはしばらくプライドに加入することに。しかし、舞台上とはまるで別人のように振る舞うルルリカは知られざる一面を見せ始め…"}
+, 
+[87300105] = {id = 87300105, name = "秋のイベント「ハロウィン」をリーダーから教わって、ノリノリでパーティーの準備をするエイプリルたち。そんな中、いつもと様子が違うクインが気になり尾行したところ、一行はとある廃れた村まで導かれた…"}
+, 
+[87300106] = {id = 87300106, name = "子どもたちにプレゼントを配る「クリスマス」の手伝いに呼ばれたネネルとサラ。プレゼントの配達中に、荒れた屋敷を見つけ掃除の衝動を抑えきれないネネルだが、サラは他のものに気を引かれ…"}
 , 
 [87300201] = {id = 87300201, name = "ダブルボーナス－ストーリー"}
 , 
@@ -4067,11 +4677,21 @@ BaseWordData = {
 , 
 [87300207] = {id = 87300207, name = "ダブルボーナス－遠征冒険"}
 , 
+[87300241] = {id = 87300241, name = "奖励翻倍-资源月卡"}
+, 
+[87300242] = {id = 87300242, name = "奖励翻倍-钻石月卡"}
+, 
 [87300401] = {id = 87300401, name = "デイリーチャージ"}
 , 
 [87300501] = {id = 87300501, name = "累計チャージ"}
 , 
 [87300601] = {id = 87300601, name = "活动扭蛋UP"}
+, 
+[87300701] = {id = 87300701, name = "扭蛋免费十连"}
+, 
+[87300801] = {id = 87300801, name = "累计登陆"}
+, 
+[87300901] = {id = 87300901, name = "一番赏"}
 , 
 [87310001] = {id = 87310001, name = "1日目"}
 , 
@@ -4201,6 +4821,30 @@ BaseWordData = {
 , 
 [88200012] = {id = 88200012, name = "「届け！遠海よりの唄」で獲得"}
 , 
+[88200013] = {id = 88200013, name = "「シェリー　ピックアップガチャ」で獲得する"}
+, 
+[88200014] = {id = 88200014, name = "イベント 「集客!波乱のサマー」で獲得する"}
+, 
+[88200015] = {id = 88200015, name = "「集客！波乱のサマー」で獲得する"}
+, 
+[88200016] = {id = 88200016, name = "「忘却の舞姫」で獲得する"}
+, 
+[88200017] = {id = 88200017, name = "イベント 「密着！ビッグスターの裏顔」で獲得する"}
+, 
+[88200018] = {id = 88200018, name = "「密着！ビッグスターの裏顔」で獲得する"}
+, 
+[88200019] = {id = 88200019, name = "「夜を照らすflamma」で獲得する"}
+, 
+[88200020] = {id = 88200020, name = "イベント 「WRAITH BANQUET」で獲得する"}
+, 
+[88200021] = {id = 88200021, name = "「WRAITH BANQUET」で獲得する"}
+, 
+[88200022] = {id = 88200022, name = "「ゆきんこSnow White」で獲得する"}
+, 
+[88200023] = {id = 88200023, name = "イベント 「クリスマス 正義を貫くサンタ」で獲得する"}
+, 
+[88200024] = {id = 88200024, name = "「クリスマス 正義を貫くサンタ」で獲得する"}
+, 
 [88301003] = {id = 88301003, name = "$$[color=#009fa9]「詳細を見る」[/color]::一部の解放された立ち絵をその冒険者の着用イメージに設定できる。::すべての解放された立ち絵をホーム画面のイメージに設定できる。::一部の立ち絵は静止又は動態効果しか持たない。"}
 , 
 [88301020] = {id = 88301020, name = "$$[color=#009fa9]「ショップ」[/color]::ショップには、冒険ショップ、不思議屋、雑貨屋と勇者ショップがある。::リーダーレベルが上がると、冒険ショップと勇者ショップを開放。::雑貨屋の商品が毎日[color=#3dffbd]「15:00」[/color]と[color=#3dffbd]「05:00」[/color]に自動的に更新される。::不思議屋、冒険ショップと勇者ショップの商品が毎日[color=#3dffbd]「05:00」[/color]に自動的に更新される。::不思議屋には商品を手動で更新することができる。更新回数は毎日[color=#3dffbd]「05:00」[/color]にリセット。"}
@@ -4213,9 +4857,9 @@ BaseWordData = {
 , 
 [88302001] = {id = 88302001, name = "$$[color=#009fa9]「冒険者リスト」[/color]::すべての冒険者を確認することができる。::獲得済み冒険者のアイコンをタップして詳細情報を確認でき、成長させることができる。::未獲得冒険者をタップして入手方法をチェックすることができる。"}
 , 
-[88302002] = {id = 88302002, name = "$$[color=#009fa9]「冒険者成長」[/color]::冒険者強化：経験薬剤を[color=#3dffbd]長押し[/color]又は[color=#3dffbd]タップ[/color]してレベルアップする。長押しで連続使用できる。::冒険者突破：素材を集めて冒険者を突破させる。突破完了後、[color=#3dffbd]新しい立ち絵[/color]を獲得できる。::冒険者覚醒：冒険者の欠片を集め、冒険者を覚醒させる。覚醒成功後、[color=#3dffbd]新しい才能を解放[/color]。::才能訓練：金貨を消費して冒険者の才能を鍛える。"}
+[88302002] = {id = 88302002, name = "$$[color=#009fa9]「冒険者成長」[/color]::冒険者強化：経験薬剤を[color=#3dffbd]長押し[/color]又は[color=#3dffbd]タップ[/color]してレベルアップする。長押しで連続使用できる。::冒険者突破：素材を集めて冒険者を突破させる。突破完了後、[color=#3dffbd]新しい立ち絵[/color]を獲得できる。::冒険者覚醒：冒険者の欠片を集め、冒険者を覚醒させる。覚醒成功後、[color=#3dffbd]新しい才能を解放できる[/color]。::才能訓練：金貨を消費して冒険者の才能を鍛える。"}
 , 
-[88302003] = {id = 88302003, name = "$$[color=#009fa9]「冒険者詳細」[/color]::冒険者のステータス詳細を確認することができる。::冒険者にコメント、お気に入りの冒険者を設定することができる。"}
+[88302003] = {id = 88302003, name = "$$[color=#009fa9]「冒険者詳細」[/color]::冒険者のステータス詳細を確認することができる。::冒険者にコメントをつけたり、お気に入りの冒険者を設定することができる。::[color=#3dffbd]「HP」[/color]: 自身が耐えられるダメージ量::[color=#3dffbd]「攻撃力」[/color]: 攻撃する際に実際のダメージに関係する::[color=#3dffbd]「防御力」[/color]: 敵の攻撃によるダメージを減らす::[color=#3dffbd]「素早さ」[/color]: ターンにおける行動の順番に影響する::[color=#3dffbd]「幸運」[/color]: 天の塔でのラッキードロップに影響する::[color=#3dffbd]「会心」[/color]: 攻撃する際、会心の発生確率に影響する::[color=#3dffbd]「抵抗」[/color]: 攻撃を受けた際、自身に与えられる会心の発生確率に影響する::[color=#3dffbd]「ガード」[/color]: 攻撃を受けた際、ガードの発生確率に影響する。ガードでダメージが大幅に軽減する::[color=#3dffbd]「貫通」[/color]: 攻撃する際、相手がガードを発動する確率に影響する::[color=#3dffbd]「会心力」[/color]: 相手に与える会心ダメージ量を上昇させる::[color=#3dffbd]「抵抗力」[/color]: 相手から受ける会心ダメージ量を減少させる::[color=#3dffbd]「ガード力」[/color]: 自身が攻撃を受けた際、ガードにより軽減したダメージに影響する::[color=#3dffbd]「貫通力」[/color]: 攻撃する際、相手がガードにより軽減したダメージに影響する::[color=#3dffbd]「攻撃強化」[/color]: 与えたダメージを増やす::[color=#3dffbd]「防御強化」[/color]: 受けたダメージを減らす"}
 , 
 [88302101] = {id = 88302101, name = "$$[color=#009fa9]「装備」[/color]::装備には、武器、衣装、指輪やネックレスの四つ部分に分けられる。::初期状態は[color=#3dffbd]未鑑定[/color]。::鑑定完了後、ステータスをランダムに獲得する。::鑑定された装備のみを冒険者に着用することができる。::着用中の装備をタップして詳細を確認できる。"}
 , 
@@ -4223,7 +4867,7 @@ BaseWordData = {
 , 
 [88302301] = {id = 88302301, name = "$$[color=#009fa9]「手帳」[/color]::冒険記録であらゆるストーリーを確認することができる。::好感度を上げると、幕間物語のサブイベントを開放。::記憶アルバムで集めた冒険の記憶を確認できる。"}
 , 
-[88302303] = {id = 88302303, name = "$$[color=#009fa9]「幕間の物語」[/color]::幕間物語には、戦闘とストーリの二つのステージがある。::戦闘ステージで、指定された冒険者のみを使用して挑戦できる。::指定された冒険者のステータスは育成ステータスに影響されない。"}
+[88302303] = {id = 88302303, name = "$$[color=#009fa9]「幕間の物語」[/color]::幕間物語には、戦闘とストーリーの二つのステージがある。::戦闘ステージで、指定された冒険者のみを使用して挑戦できる。::指定された冒険者のステータスは育成ステータスに影響されない。"}
 , 
 [88302306] = {id = 88302306, name = "$$[color=#009fa9]「好感度」[/color]::好感度アイテムを[color=#3dffbd]長押[/color]し又は[color=#3dffbd]タップ[/color]して、好感度経験値を上げる。::好感度レベルが上がると、より多くの[color=#3dffbd]個人情報[/color]、[color=#3dffbd]音声記録[/color]や[color=#3dffbd]幕間物語のステージ[/color]を開放。::個人情報で冒険者の基礎情報や伝記を確認できる。"}
 , 
@@ -4233,21 +4877,25 @@ BaseWordData = {
 , 
 [88303030] = {id = 88303030, name = "$$[color=#009fa9]「日常冒険」[/color]::日常討伐には、急襲盗賊団、首領討伐戦と秘法師挑戦の三つのステージがある。::リーダーが指定レベルに達すると、よりハードなステージを解放。::日常討伐の挑戦回数は毎日[color=#3dffbd]「05:00」[/color]にリセット。::"}
 , 
-[88303040] = {id = 88303040, name = "$$[color=#009fa9]「中央闘技場」[/color]::自分より順位が高いプレイヤーに勝利するとお互いに[color=#3dffbd]順位が入れ替わる[/color]。::闘技場では防衛陣容を編成でき、他のプレイヤーに挑戦されると防衛陣容で自動応戦。::毎晩[color=#3dffbd]「21:30~22:00」[/color]ランク精算、精算期間で挑戦不可。::[color=#3dffbd]毎月「1」日[/color]から[color=#3dffbd]翌月「1」日[/color]までの1か月を「シーズン」としている。::シーズン中、初回目新たなランクに到達する際に「生涯ボーナス」を受け取ることができる。::当シーズン全てのランキングデータはシーズン終了時にリセット。"}
+[88303040] = {id = 88303040, name = "$$[color=#009fa9]「中央闘技場」[/color]::自分より順位が高いプレイヤーに勝利するとお互いに[color=#3dffbd]順位が入れ替わる[/color]。::闘技場では防衛陣容を編成でき、他のプレイヤーに挑戦されると防衛陣容で自動応戦。::[color=#3dffbd]毎月「1」日[/color]から[color=#3dffbd]翌月「1」日[/color]までの1か月を「シーズン」としている。::毎晩[color=#3dffbd]「21:30~22:00」[/color]デイリーランク精算、精算期間で挑戦不可。::每月[color=#3dffbd]「1日21:30」～「２日05:00」[/color]シーズン精算、精算期間で挑戦不可。::シーズン中、初回目新たなランクに到達する際に「生涯ボーナス」を受け取ることができる。::当シーズン全てのランキングデータはシーズン終了時にリセット。"}
 , 
 [88303050] = {id = 88303050, name = "$$[color=#009fa9]「天の塔」[/color]::ステージに挑戦するのは挑戦回数を消費する。挑戦が勝利すると大量の装備を獲得できる。::出陣冒険者の幸運値によって追加ドロップやドロップ装備の資質を上げることができる。::幸運値は冒険者突破、冒険者才能や幸運ステータスがある装備を着用することで獲得。::戦闘速度は[color=#3dffbd]「3」[/color]段目速にすることができる。::挑戦回数は毎日[color=#3dffbd]「05:00」[/color]にリセット。"}
 , 
-[88303060] = {id = 88303060, name = "$$[color=#009fa9]「遠征」[/color]::遠征は一日一回のみ挑戦可能。一つのエリアを選択すると他のエリアに挑戦不可となる。::ステージに挑戦して勝利すると、冒険者は戦闘終了時のSPやHPを維持する。::冒険者は戦闘で陣没後、後続の遠征ステージで出陣ができない。::幽暗の穴で、苦戦ステージに挑戦する冒険者は、次の戦闘には出陣できない。::荒涼たる谷で、全滅ステージに挑戦する冒険者は、後続のステージで出陣ができない。::指定されたステージをクリアすると、[color=#3dffbd]祭壇事件[/color]、[color=#3dffbd]宝箱事件[/color]や[color=#3dffbd]商人事件[/color]を触発する。::祭壇事件で異なるステータス付加を選択できる。ステータスには、今回の挑戦のみ有効となる。::挑戦回数や冒険者状態は毎日[color=#3dffbd]「05:00」[/color]にリセット。::前日のクリア進捗によって、本日掃討可能のステージが変わる。::前日に1個目～6個目のステージにおいて任意のステージをクリアした場合、本日は1個目のステージを掃討することができる。::前日に7個目～10個目のステージにおいて任意のステージをクリアした場合、本日は2個目のステージまで掃討することができる。::前日に11個目～14個目のステージにおいて任意のステージをクリアした場合、本日は4個目のステージまで掃討することができる。::前日にステージを全部クリアした場合、本日は5個目のステージまで掃討することができる。"}
+[88303060] = {id = 88303060, name = "$$[color=#009fa9]「遠征」[/color]::遠征は一日一回のみ挑戦可能。一つのエリアを選択すると他のエリアに挑戦不可となる。::ステージに挑戦して勝利すると、冒険者は戦闘終了時のSPやHPを維持する。::冒険者は戦闘で陣没後、後続の遠征ステージで出陣ができない。::幽暗の穴で、苦戦ステージに挑戦する冒険者は、次の戦闘には出陣できない。::荒涼たる谷で、全滅ステージに挑戦する冒険者は、後続のステージで出陣ができない。::指定されたステージをクリアすると、[color=#3dffbd]祭壇事件[/color]、[color=#3dffbd]宝箱事件[/color]や[color=#3dffbd]商人事件[/color]を触発する。::祭壇事件で異なるステータス付加を選択できる。ステータスには、今回の挑戦のみ有効となる。::挑戦回数や冒険者状態は毎日[color=#3dffbd]「05:00」[/color]にリセット。::ステージのクリア進捗によって、掃討可能なステージが変わる。::1個目～6個目のステージまでクリアした場合、掃討可能なステージは1個目のステージのみ。::7個目～10個目のステージまでクリアした場合、2個目のステージまで掃討可能。::11個目～14個目のステージまでクリアした場合、4個目のステージまで掃討可能。::ステージを全部クリアした場合、5個目のステージまで掃討可能。"}
 , 
-[88303070] = {id = 88303070, name = "$$[color=#009fa9]「秘境冒険」[/color]::毎日[color=#3dffbd]「10」[/color]回投擲すると冒険運勢を占え、願掛けポイントを[color=#3dffbd]「1」[/color]点獲得。::願掛けポイントが[color=#3dffbd]「3」[/color]点と[color=#3dffbd]「7」[/color]点に達すると、願掛けができる。::キャンプ中の建築は、最大[color=#3dffbd]「3」[/color]名の冒険者を派遣して管理することができる。::冒険者の戦力の和が高いほど、建築の産出が上がる。::[color=#3dffbd]「20」[/color]分ごとに投擲回数を[color=#3dffbd]「1」[/color]点回復。"}
+[88303070] = {id = 88303070, name = "$$[color=#009fa9]「秘境冒険」[/color]::毎日[color=#3dffbd]「10」[/color]回投擲すると冒険運勢を占え、願掛けポイントを[color=#3dffbd]「1」[/color]点獲得。::願掛けポイントが[color=#3dffbd]「3」[/color]点と[color=#3dffbd]「7」[/color]点に達すると、願掛けができる。::キャンプ中の建築は、最大[color=#3dffbd]「3」[/color]名の冒険者を派遣して管理することができる。::冒険者の戦力の和が高いほど、建築の産出が上がる。::[color=#3dffbd]「20」[/color]分ごとに投擲回数を[color=#3dffbd]「1」[/color]点回復。::未完成イベントは翌日[color=#3dffbd]「5：00」[/color]にリセットされる。"}
 , 
 [88304001] = {id = 88304001, name = "$$[color=#009fa9]「ギルドホール」[/color]::ギルドホールで、ギルド情報やギルドメンバーの情報を確認できる。::管理者権限を持つギルドメンバーには、ギルドに操作権限を管理することができる。::ギルドから脱退後[color=#3dffbd]「8」[/color]時間経過するまでは他のギルドに加入申請は出せない。"}
 , 
 [88304002] = {id = 88304002, name = "$$[color=#009fa9]「ギルド整理」[/color]::長押しでギルドを整理することができる。::1日に[color=#3dffbd]「3」[/color]回整理可能、整理成功すると一定確率で少量の[color=#3dffbd]無料ダイヤ[/color]を獲得できる。::整理回数は毎日[color=#3dffbd]「05:00」[/color]にリセット。"}
 , 
-[88304003] = {id = 88304003, name = "$$[color=#009fa9]「ギルド祈り」[/color]::お祈りごとに[color=#3dffbd]「9」[/color]個の天灯があり、任意の天灯をタップしてお祈りを行うことができる。::天灯をタップするたびに、お祈りボーナスを受け取ることができる。::2個目から、お祈りをするたびにダイヤが消費される。::天灯を飛ばし尽くすと、必ず[color=#3dffbd]モニカの欠片[/color]を獲得。::ダイヤの消費数は選択した天灯の数によって増減する。::天灯を飛ばしたら、1個目以降のお祈りをリセットできる。リセットすると、新たなお祈りを開始できる。::1日に[color=#3dffbd]「5」[/color]回お祈りができる。翌日[color=#3dffbd]「05:00」[/color]にお祈り回数がリセット。"}
+[88304003] = {id = 88304003, name = "$$[color=#009fa9]「ギルド祈り」[/color]::お祈りごとに[color=#3dffbd]「9」[/color]個の天灯があり、任意の天灯をタップしてお祈りを行うことができる。::天灯をタップするたびに、お祈りボーナスを受け取ることができる。::2個目から、お祈りをするたびにダイヤが消費される。::「9」個の天灯に[color=#3dffbd]モニカの欠片[/color]が一つだけ隠されている。::ダイヤの消費数は選択した天灯の数によって増減する。::天灯を飛ばしたら、1個目以降のお祈りをリセットできる。リセットすると、新たなお祈りを開始できる。::1日に[color=#3dffbd]「5」[/color]回お祈りができる。翌日[color=#3dffbd]「05:00」[/color]にお祈り回数がリセット。"}
 , 
-[88304004] = {id = 88304004, name = "$$[color=#009fa9]「ギルド建設」[/color]::ギルドメンバーには、1人につき1日に[color=#3dffbd]「5」[/color]回建設可能。::建設には、[color=#3dffbd]「3」[/color]つの方法があり、金貨やダイヤを消費する。::建設成功すると、ギルドレベルの経験値を上げ、メンバーは冒険徽章を獲得できる。::ギルドレベルが上がると、ギルドメンバー人数の上限を増やせる。::建設回数は毎日[color=#3dffbd]「05:00」[/color]にリセット。"}
+[88304004] = {id = 88304004, name = "$$[color=#009fa9]「ギルド建設」[/color]::ギルドメンバーには、1人につき1日に[color=#3dffbd]「5」[/color]回建設可能。::建設には、[color=#3dffbd]「3」[/color]つの方法があり、金貨やダイヤを消費する。::建設成功すると、ギルドレベルの経験値を上げ、メンバーは冒険徽章を獲得できる。::ギルドレベルが上がると、ギルドメンバー人数の上限とお祈りの回数上限が増加する。::建設回数は毎日[color=#3dffbd]「05:00」[/color]にリセット。"}
+, 
+[88304005] = {id = 88304005, name = "$$[color=#009fa9]参加条件[/color]::ギルドに加入しているプレイヤーだけが参加することができます。\n\n[color=#009fa9]期間とは[/color]::ギルド戦には、[color=#3dffbd]「準備期間」[/color]、[color=#3dffbd]「挑戦期間」[/color]、[color=#3dffbd]「集計期間」[/color]の3つの期間が設けられます。::挑戦期間において、ギルドの脱退や除名、解散はできません。\n\n[color=#009fa9]本戦ルール[/color]::本戦では、挑戦するたびに挑戦回数を消費します。::デイリー任務を達成することで挑戦回数を獲得できます。挑戦回数は毎日[color=#3dffbd]「05:00」[/color]にリセットされます。::本日の活躍度を[color=#3dffbd]「40」[/color]点獲得するたびに、挑戦回数が[color=#3dffbd]「1」[/color]回増加します。\n\n[color=#009fa9]模擬戦モード[/color]::模擬戦では、挑戦回数を消費せずに、本戦に挑戦できるボスを相手にバトル練習を行うことができます。::模擬戦では、編成できる冒険者やサポート冒険者の使用制限はありません。::模擬戦では、サポート冒険者が使用されても報酬を獲得できません。\n\n[color=#009fa9]サポート[/color]::ギルド戦では、ギルドメンバーがサポートに設定した冒険者をチームに編成できます。最大[color=#3dffbd]2[/color]名の冒険者を設定できます。::1回の挑戦につき、チームに編成できるサポート冒険者は[color=#3dffbd]1[/color]名のみ。::ギルドメンバーがサポート冒険者を使用してポイントを獲得した場合、ダイヤを「」個獲得できます。現在受取可能なダイヤの上限が[color=#3dffbd]「50」[/color]個であり、受取上限とサポート回数は翌日[color=#3dffbd]「05:00」[/color]にリセットされます。\n\n[color=#009fa9]冒険者の制限[/color]::本戦で使用した冒険者およびサポート冒険者に、当日中に「使用制限」と表示され、チームに再編成できません。「使用制限」は、翌日[color=#3dffbd]「05:00」[/color]にリセットされます。::模擬戦で使用した冒険者は、本戦で使用しない限り、何度でも使用することができます。::チームに編成した冒険者と重複したサポート冒険者を使用することができません。\n\n[color=#009fa9]ポイントランキング[/color]::ギルドランキング：各ギルドが本戦で獲得した合計ポイントで順位が決まります。模擬戦では、ポイントを獲得できません。::ギルドメンバーランキング：ギルド内で各ギルドメンバーが本戦で獲得した合計ポイントで順位が決まります。模擬戦では、ポイントを獲得できません。::ランキングは[color=#3dffbd]「5」[/color]分おきに集計し、自動更新します。::挑戦の度に実際に与えたダメージ（オーバーダメージ除く）に応じて、ポイントが加算されます。::周回数が多ければ多いほど、同じダメージで獲得できるポイントが少なくなります。\n\n[color=#009fa9]報酬[/color]::挑戦報酬：挑戦するたびに報酬を獲得できます（固定報酬）。::初回撃破報酬：[color=#3dffbd]「1」[/color]周目で各ボスを撃破すると、ギルドメンバー全員が報酬を獲得できます。「シーズン報酬」画面から手動で受領する必要があります。::周回数報酬：指定された周回数をクリアすると、ギルドメンバー全員が報酬を獲得できます。「シーズン報酬」画面から手動で受領する必要があります。::シーズン報酬：挑戦期間終了後、ギルドランキングによってギルドメンバー全員に報酬が配布されます。メールにて受領可能。::未受領の撃破報酬や周回数報酬がある場合、挑戦期間終了後、メールにて配布します。\n\n[color=#009fa9]ギルド天賦[/color]::ギルド戦の戦闘準備期間において、以下のクエストを完了すると天賦ポイントを獲得できます。\nギルド建設：建設するごとに天賦ポイントを[color=#3dffbd]１[/color]ポイント獲得できます。\nギルド整理：整理するごとに天賦ポイントを[color=#3dffbd]１[/color]ポイント獲得できます。\nギルドお祈り：お祈りごとに一個目の天灯をタップすると天賦ポイントを[color=#3dffbd]1[/color]ポイント獲得できます。::ギルド戦準備期間及び挑戦期間において、ギルド天賦を無料でリセットできます。リセットするとセットしていた天賦ポイントが全部還元され、セットし直すことができます。::ギルド天賦は、ギルド戦のバトルでのみ効果が発生します。\n\n [color=#009fa9]注意：[/color]:: [color=#3dffbd]１、複数のギルドメンバーが同時にバトルを行った場合[/color]\n自分が本戦のバトルを行っている間にほかのメンバーが先に同じバトルを終了した場合、そのメンバーの与えたダメージを差し引いて、残りのボスHPから自分の与えたダメージが減算されます。:: [color=#3dffbd]２、ボスがほかのメンバーに撃破された場合[/color]\n本戦では、自分が挑戦しているボスがほかのメンバーに撃破された場合、今回の戦闘が無効となり、挑戦回数が返却されます。ポイントや報酬を獲得できません。:: [color=#3dffbd]3、本戦が中断された場合[/color]\n本戦を行っている最中にログアウト/タイムアウトによって戦闘を完了できなかった場合、今回の戦闘が無効となり、挑戦回数が返却されます。ポイントや報酬を獲得できません。"}
+, 
+[88304006] = {id = 88304006, name = "$$[color=#009fa9]「冒険者交換募集」[/color]:::募集するごとに、交換ptを[color=#3dffbd]「1」[/color]点獲得できます。10回募集すると[color=#3dffbd]「10」[/color]ptを獲得できる。::交換ptは交換ラインナップでのみ使用できる。::交換Ptが300に達すると、交換Ptを[color=#3dffbd]「300」[/color]消費して対象冒険者の中から1名をメンバーにすることできます。::すでに冒険団に加入している冒険者はその対応の冒険者欠片に変換されます。::交換ptの所持上限が[color=#3dffbd]「300」[/color]ptであり、300ptに達するとそれ以降は加算しません。::開催期間終了後、所持している交換ptは「[color=#3dffbd]「0」[/color]ptにリセットされます。1ptごとに[color=#3dffbd]「金貨*20000」[/color]に変換され、メールにて配布します。"}
 , 
 [88400001] = {id = 88400001, name = "デイリー任務報酬"}
 , 
@@ -4271,6 +4919,12 @@ BaseWordData = {
 , 
 [88400024] = {id = 88400024, name = "ギルド解散"}
 , 
+[88400025] = {id = 88400025, name = "ギルド戦ランク報酬"}
+, 
+[88400026] = {id = 88400026, name = "ギルド戦参加報酬"}
+, 
+[88400027] = {id = 88400027, name = "ギルド戦サポート報酬"}
+, 
 [88400031] = {id = 88400031, name = "冒険団依頼報酬"}
 , 
 [88400032] = {id = 88400032, name = "冒険団依頼報酬"}
@@ -4286,6 +4940,8 @@ BaseWordData = {
 [88410005] = {id = 88410005, name = "追加報酬再配布"}
 , 
 [88410006] = {id = 88410006, name = "アイテム補填"}
+, 
+[88410007] = {id = 88410007, name = "「{0}」ポイント交換"}
 , 
 [88500001] = {id = 88500001, name = "中央闘技場"}
 , 
@@ -4321,6 +4977,12 @@ BaseWordData = {
 , 
 [88600024] = {id = 88600024, name = "「{0}」ギルドは解散しました。"}
 , 
+[88600025] = {id = 88600025, name = "リーダーさん、あなたの冒険団は今シーズンのギルド戦で第[color=#3dffbd]{0}[/color]位を獲得しました。おめでとうございます！以下のアイテムをお送りしますので、どうぞお受け取りください。"}
+, 
+[88600026] = {id = 88600026, name = "リーダーさん、今シーズンのギルド戦はすでに終了しましたが、未受領の報酬をメールにて再配布させていただきます。どうぞお受け取りください。"}
+, 
+[88600027] = {id = 88600027, name = "リーダーさん、未受領のサポート報酬をメールにて再配布させていただきます。どうぞお受け取りください。"}
+, 
 [88600031] = {id = 88600031, name = "勇敢なリーダーさん、クエスト受付所からの冒険団依頼クエストを解決してくれてありがとうございます。感謝のため、以下のボーナスをお送りします、お受け取りください！"}
 , 
 [88600032] = {id = 88600032, name = "勇敢なリーダーさん、冒険団の依頼クエストを完了しました。未受領の報酬をメールにて配布させていただきます、お受け取りください！"}
@@ -4336,6 +4998,8 @@ BaseWordData = {
 [88610005] = {id = 88610005, name = "リーダーさん、「{0}」を購入した時、バッグがMAX状態になりました。追加ボーナスをお送りしますので、お受け取りください。"}
 , 
 [88610006] = {id = 88610006, name = "リーダー様へ\n\n　ご購入されたアイテムが反映されていない件をご確認させていただきました。\n　この度、ご迷惑をおかけしまして誠に申し訳ございません。\n　ご購入されたアイテムをアカウントに反映致しましたので、ご確認ください。\n　引続きよろしくお願い申し上げます。"}
+, 
+[88610007] = {id = 88610007, name = "リーダー様、「{0}」イベントは終了いたしました。残した「{1}」ポイントが以下の報酬に変換されましたので、どうぞお受け取りください！"}
 , 
 [88800100] = {id = 88800100, name = "%s"}
 , 
@@ -4401,6 +5065,8 @@ BaseWordData = {
 , 
 [88803200] = {id = 88803200, name = "一括訓練"}
 , 
+[88803300] = {id = 88803300, name = "ギルド戦"}
+, 
 [88810100] = {id = 88810100, name = "冒険団に加入"}
 , 
 [88810200] = {id = 88810200, name = "%sに昇格しました"}
@@ -4464,6 +5130,8 @@ BaseWordData = {
 [88813100] = {id = 88813100, name = "首領討伐戦"}
 , 
 [88813200] = {id = 88813200, name = "才能一括訓練機能解放"}
+, 
+[88813300] = {id = 88813300, name = "ギルド戦の挑戦回数＋１"}
 , 
 [88900001] = {id = 88900001, name = "投擲の点数によって移動し、位置次第に色々な面白いミニゲームを楽しめる。"}
 , 
@@ -4657,6 +5325,8 @@ BaseWordData = {
 , 
 [89003042] = {id = 89003042, name = "「ギルド整理」Lv.%dで開放"}
 , 
+[89003043] = {id = 89003043, name = "「仲間」Lv.%dで開放"}
+, 
 [89004001] = {id = 89004001, name = "%d開放"}
 , 
 [89005001] = {id = 89005001, name = "ショートケーキ"}
@@ -4694,6 +5364,44 @@ BaseWordData = {
 [89007008] = {id = 89007008, name = "ラヴィPUガチャ"}
 , 
 [89007009] = {id = 89007009, name = "アロエPUガチャ"}
+, 
+[89007010] = {id = 89007010, name = "グローリアPUガチャ"}
+, 
+[89007011] = {id = 89007011, name = "気高き暗殺者"}
+, 
+[89007012] = {id = 89007012, name = "エヴァンテPUガチャ"}
+, 
+[89007013] = {id = 89007013, name = "イザベラPUガチャ"}
+, 
+[89007014] = {id = 89007014, name = "集客！波乱のサマー"}
+, 
+[89007015] = {id = 89007015, name = "忘却の舞姫"}
+, 
+[89007016] = {id = 89007016, name = "メイPUガチャ"}
+, 
+[89007017] = {id = 89007017, name = "ブリジットPUガチャ"}
+, 
+[89007018] = {id = 89007018, name = "純情な旅人"}
+, 
+[89007019] = {id = 89007019, name = "密着！ビッグスターの裏顔"}
+, 
+[89007020] = {id = 89007020, name = "ソルジャーの栄光"}
+, 
+[89007021] = {id = 89007021, name = "夜を照らすflamma"}
+, 
+[89007022] = {id = 89007022, name = "囚われのドール"}
+, 
+[89007023] = {id = 89007023, name = "WRAITH BANQUET"}
+, 
+[89007024] = {id = 89007024, name = "悠々たる風来坊"}
+, 
+[89007025] = {id = 89007025, name = "ゆきんこSnow White"}
+, 
+[89007026] = {id = 89007026, name = "執着と献身"}
+, 
+[89007027] = {id = 89007027, name = "クリスマス 正義を貫くサンタ"}
+, 
+[89007028] = {id = 89007028, name = "舞姫とお姫様"}
 , 
 [89008001] = {id = 89008001, name = "1回募集"}
 , 
@@ -4747,7 +5455,7 @@ BaseWordData = {
 , 
 [89020307] = {id = 89020307, name = "今天找谁玩呢"}
 , 
-[89020401] = {id = 89020401, name = "冒险什么的请交给别人吧！"}
+[89020401] = {id = 89020401, name = "冒険什么的请交给别人吧！"}
 , 
 [89020402] = {id = 89020402, name = "欢迎回来，没什么事的话我先告辞了"}
 , 
@@ -4795,11 +5503,11 @@ BaseWordData = {
 , 
 [89030103] = {id = 89030103, name = "[color=#ffdd81]出現可能なSSR冒険者[/color]"}
 , 
-[89030104] = {id = 89030104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3%%[/color]】"}
+[89030104] = {id = 89030104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/17[/color]となります）"}
 , 
 [89030105] = {id = 89030105, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
 , 
-[89030106] = {id = 89030106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]"}
+[89030106] = {id = 89030106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/25[/color]となります）\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]、[color=#ae58fd]エマ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/12[/color]となります）\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]\n\n※出現率：1回募集を実施した場合、該当レア度の出現率。\n※排出割合：同じレア度における該当冒険者の排出割合。"}
 , 
 [89030107] = {id = 89030107, name = "[color=#ffdd81]他の出現可能の冒険者欠片[/color]"}
 , 
@@ -4811,7 +5519,7 @@ BaseWordData = {
 , 
 [89031103] = {id = 89031103, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
 , 
-[89031104] = {id = 89031104, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 20%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】\n[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]シエラ[/color]"}
+[89031104] = {id = 89031104, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 20%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/10[/color]となります）\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/6[/color]となります）\n[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]シエラ[/color]\n\n※出現率：1回募集を実施した場合、該当レア度の出現率。\n※排出割合：同じレア度における該当冒険者の排出割合。"}
 , 
 [89031105] = {id = 89031105, name = "[color=#ffdd81]他の出現可能の冒険者欠片[/color]"}
 , 
@@ -4819,55 +5527,67 @@ BaseWordData = {
 , 
 [89032101] = {id = 89032101, name = "[color=#ffdd81]出現可能の冒険者[/color]"}
 , 
-[89032102] = {id = 89032102, name = "【出現率[color=#3dffbd] 3%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]、[color=#058be9]ミエル[/color]"}
+[89032102] = {id = 89032102, name = "【出現率[color=#3dffbd] 3%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]、[color=#ae58fd]エマ[/color]\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]、[color=#058be9]ミエル[/color]"}
 , 
 [89032103] = {id = 89032103, name = "[color=#ffdd81]他の入手可能の物資[/color]"}
 , 
-[89032104] = {id = 89032104, name = "【出現率[color=#3dffbd] 97%%[/color]】\n[color=#ffaa06]ショウの欠片[/color]、[color=#ffaa06]ブリジットの欠片[/color]、[color=#ffaa06]アロエの欠片[/color]、[color=#ffaa06]フラワーの欠片[/color]、[color=#ffaa06]サラの欠片[/color]、[color=#ffaa06]ノエルの欠片[/color]\n[color=#ae58fd]コゼットの欠片[/color]、[color=#ae58fd]ニコリータの欠片[/color]、[color=#ae58fd]ノンノの欠片[/color]、[color=#ae58fd]イルダの欠片[/color]、[color=#ae58fd]リッタの欠片[/color]、[color=#ae58fd]ジュリアンの欠片[/color]、[color=#ae58fd]ショコラの欠片[/color]、[color=#ae58fd]アイリーンの欠片[/color]、[color=#ae58fd]キキの欠片[/color]、[color=#ae58fd]コンチータの欠片[/color]、[color=#ae58fd]ドミニクの欠片[/color]、[color=#ae58fd]アリシアの欠片[/color]、[color=#ae58fd]ベロニカの欠片[/color]、[color=#ae58fd]ティーネの欠片[/color]、[color=#ae58fd]マルタの欠片[/color]、[color=#ae58fd]ベルの欠片[/color]、[color=#ae58fd]クインの欠片[/color]、[color=#ae58fd]ケイトの欠片[/color]、[color=#ae58fd]カノンの欠片[/color]、[color=#ae58fd]ユーナの欠片[/color]、[color=#ae58fd]ウィチタの欠片[/color]、[color=#ae58fd]ネネルの欠片[/color]、[color=#ae58fd]チェルシーの欠片[/color]、[color=#ae58fd]アイリスの欠片[/color]、[color=#ae58fd]冒险者突破宝箱[/color]、[color=#ae58fd]突破素材[/color]\n[color=#058be9]シャノンの欠片[/color]、[color=#058be9]オリヴィアの欠片[/color]、[color=#058be9]エイプリルの欠片[/color]、[color=#058be9]リリーの欠片[/color]、[color=#058be9]フランチェスカの欠片[/color]、[color=#058be9]イヴリンの欠片[/color]、[color=#058be9]ソフィアの欠片[/color]、[color=#058be9]フィナの欠片[/color]、[color=#058be9]ミエルの欠片[/color]、[color=#058be9]シルヴィの欠片[/color]、[color=#058be9]ヌエットの欠片[/color]、[color=#058be9]シエラの欠片[/color]"}
+[89032104] = {id = 89032104, name = "【出現率[color=#3dffbd] 97%%[/color]】\n[color=#ffaa06]ショウの欠片[/color]、[color=#ffaa06]ブリジットの欠片[/color]、[color=#ffaa06]アロエの欠片[/color]、[color=#ffaa06]フラワーの欠片[/color]、[color=#ffaa06]サラの欠片[/color]、[color=#ffaa06]ノエルの欠片[/color]\n[color=#ae58fd]コゼットの欠片[/color]、[color=#ae58fd]ニコリータの欠片[/color]、[color=#ae58fd]ノンノの欠片[/color]、[color=#ae58fd]イルダの欠片[/color]、[color=#ae58fd]リッタの欠片[/color]、[color=#ae58fd]ジュリアンの欠片[/color]、[color=#ae58fd]ショコラの欠片[/color]、[color=#ae58fd]アイリーンの欠片[/color]、[color=#ae58fd]キキの欠片[/color]、[color=#ae58fd]コンチータの欠片[/color]、[color=#ae58fd]ドミニクの欠片[/color]、[color=#ae58fd]アリシアの欠片[/color]、[color=#ae58fd]ベロニカの欠片[/color]、[color=#ae58fd]ティーネの欠片[/color]、[color=#ae58fd]マルタの欠片[/color]、[color=#ae58fd]ベルの欠片[/color]、[color=#ae58fd]クインの欠片[/color]、[color=#ae58fd]ケイトの欠片[/color]、[color=#ae58fd]カノンの欠片[/color]、[color=#ae58fd]ユーナの欠片[/color]、[color=#ae58fd]ウィチタの欠片[/color]、[color=#ae58fd]ネネルの欠片[/color]、[color=#ae58fd]チェルシーの欠片[/color]、[color=#ae58fd]アイリスの欠片[/color]、[color=#ae58fd]エマの欠片[/color]、[color=#ae58fd]冒険者突破宝箱[/color]、[color=#ae58fd]突破素材[/color]\n[color=#058be9]シャノンの欠片[/color]、[color=#058be9]オリヴィアの欠片[/color]、[color=#058be9]エイプリルの欠片[/color]、[color=#058be9]リリーの欠片[/color]、[color=#058be9]フランチェスカの欠片[/color]、[color=#058be9]イヴリンの欠片[/color]、[color=#058be9]ソフィアの欠片[/color]、[color=#058be9]フィナの欠片[/color]、[color=#058be9]ミエルの欠片[/color]、[color=#058be9]シルヴィの欠片[/color]、[color=#058be9]ヌエットの欠片[/color]、[color=#058be9]シエラの欠片[/color]"}
 , 
 [89033101] = {id = 89033101, name = "[color=#ffdd81]出現可能なSSR冒険者[/color]"}
 , 
-[89033102] = {id = 89033102, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3%%[/color]】"}
+[89033102] = {id = 89033102, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/12[/color]となります）"}
 , 
 [89033103] = {id = 89033103, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
 , 
-[89033104] = {id = 89033104, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]"}
+[89033104] = {id = 89033104, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/25[/color]となります）\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]、[color=#ae58fd]エマ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/12[/color]となります）\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]\n\n※出現率：1回募集を実施した場合、該当レア度の出現率。\n※排出割合：同じレア度における該当冒険者の排出割合。"}
 , 
 [89034101] = {id = 89034101, name = "[color=#ffdd81]ピックアップ对象[/color]"}
 , 
-[89034102] = {id = 89034102, name = "【[color=#ffaa06]SSR[/color]冒険者排出時、[color=#3dffbd] 1/2[/color]の確率で [color=#ffaa06]リサ[/color] が出現する】"}
+[89034102] = {id = 89034102, name = "【[color=#ffaa06]アロエ[/color]出現率[color=#3dffbd] 0.75%%[/color]、[color=#ffaa06]ウルスラ[/color]出現率[color=#3dffbd] 0.75%%[/color]】"}
 , 
-[89034103] = {id = 89034103, name = "[color=#ffdd81]出現可能なSSR冒険者[/color]"}
+[89034103] = {id = 89034103, name = "[color=#ffdd81]他の出現可能なSSR冒険者[/color]"}
 , 
-[89034104] = {id = 89034104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3%%[/color]】"}
+[89034104] = {id = 89034104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 1.5%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/15[/color]となります）"}
 , 
 [89034105] = {id = 89034105, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
 , 
-[89034106] = {id = 89034106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]"}
+[89034106] = {id = 89034106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/25[/color]となります）\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]、[color=#ae58fd]エマ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/12[/color]となります）\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]\n\n※出現率：1回募集を実施した場合、該当レア度の出現率。\n※排出割合：同じレア度における該当冒険者の排出割合。"}
 , 
 [89035101] = {id = 89035101, name = "[color=#ffdd81]ピックアップ对象[/color]"}
 , 
-[89035102] = {id = 89035102, name = "【[color=#ffaa06]SSR[/color]冒険者排出時、[color=#3dffbd] 1/2[/color]の確率で [color=#ffaa06]ラヴィ[/color] が出現する】"}
+[89035102] = {id = 89035102, name = "【[color=#ffaa06]サラ[/color]出現率[color=#3dffbd] 1.5%%[/color]】"}
 , 
-[89035103] = {id = 89035103, name = "[color=#ffdd81]出現可能なSSR冒険者[/color]"}
+[89035103] = {id = 89035103, name = "[color=#ffdd81]他の出現可能なSSR冒険者[/color]"}
 , 
-[89035104] = {id = 89035104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3%%[/color]】"}
+[89035104] = {id = 89035104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 1.5%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/17[/color]となります）"}
 , 
 [89035105] = {id = 89035105, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
 , 
-[89035106] = {id = 89035106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]"}
+[89035106] = {id = 89035106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/25[/color]となります）\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]、[color=#ae58fd]エマ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/12[/color]となります）\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]\n\n※出現率：1回募集を実施した場合、該当レア度の出現率。\n※排出割合：同じレア度における該当冒険者の排出割合。"}
 , 
 [89036101] = {id = 89036101, name = "[color=#ffdd81]ピックアップ对象[/color]"}
 , 
-[89036102] = {id = 89036102, name = "【[color=#ffaa06]SSR[/color]冒険者排出時、[color=#3dffbd] 1/2[/color]の確率で [color=#ffaa06]アロエ[/color] が出現する】"}
+[89036102] = {id = 89036102, name = "【[color=#ffaa06]ツバキ[/color]出現率[color=#3dffbd] 0.75%%[/color]、[color=#ffaa06]メイ[/color]出現率[color=#3dffbd] 0.75%%[/color]】"}
 , 
-[89036103] = {id = 89036103, name = "[color=#ffdd81]出現可能なSSR冒険者[/color]"}
+[89036103] = {id = 89036103, name = "[color=#ffdd81]他の出現可能なSSR冒険者[/color]"}
 , 
-[89036104] = {id = 89036104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3%%[/color]】"}
+[89036104] = {id = 89036104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 1.5%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/15[/color]となります）"}
 , 
 [89036105] = {id = 89036105, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
 , 
-[89036106] = {id = 89036106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]"}
+[89036106] = {id = 89036106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/25[/color]となります）\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]、[color=#ae58fd]エマ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/12[/color]となります）\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]\n\n※出現率：1回募集を実施した場合、該当レア度の出現率。\n※排出割合：同じレア度における該当冒険者の排出割合。"}
+, 
+[89037101] = {id = 89037101, name = "[color=#ffdd81]ピックアップ对象[/color]"}
+, 
+[89037102] = {id = 89037102, name = "【[color=#ffaa06]ロール[/color]出現率[color=#3dffbd] 1.5%%[/color]】"}
+, 
+[89037103] = {id = 89037103, name = "[color=#ffdd81]他の出現可能なSSR冒険者[/color]"}
+, 
+[89037104] = {id = 89037104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 1.5%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/17[/color]となります）"}
+, 
+[89037105] = {id = 89037105, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
+, 
+[89037106] = {id = 89037106, name = "【[color=#ae58fd]SR[/color]出現率[color=#3dffbd] 17%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/25[/color]となります）\n[color=#ae58fd]コゼット[/color]、[color=#ae58fd]ニコリータ[/color]、[color=#ae58fd]ノンノ[/color]、[color=#ae58fd]イルダ[/color]、[color=#ae58fd]リッタ[/color]、[color=#ae58fd]ジュリアン[/color]、[color=#ae58fd]ショコラ[/color]、[color=#ae58fd]アイリーン[/color]、[color=#ae58fd]キキ[/color]、[color=#ae58fd]コンチータ[/color]、[color=#ae58fd]ドミニク[/color]、[color=#ae58fd]アリシア[/color]、[color=#ae58fd]ベロニカ[/color]、[color=#ae58fd]ティーネ[/color]、[color=#ae58fd]マルタ[/color]、[color=#ae58fd]ベル[/color]、[color=#ae58fd]クイン[/color]、[color=#ae58fd]ケイト[/color]、[color=#ae58fd]カノン[/color]、[color=#ae58fd]ユーナ[/color]、[color=#ae58fd]ウィチタ[/color]、[color=#ae58fd]ネネル[/color]、[color=#ae58fd]チェルシー[/color]、[color=#ae58fd]アイリス[/color]、[color=#ae58fd]エマ[/color]\n\n【[color=#058be9]R[/color]出現率[color=#3dffbd] 80%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/12[/color]となります）\n[color=#058be9]シャノン[/color]、[color=#058be9]オリヴィア[/color]、[color=#058be9]エイプリル[/color]、[color=#058be9]リリー[/color]、[color=#058be9]フランチェスカ[/color]、[color=#058be9]イヴリン[/color]、[color=#058be9]ソフィア[/color]、[color=#058be9]フィナ[/color]、[color=#058be9]ミエル[/color]、[color=#058be9]シルヴィ[/color]、[color=#058be9]ヌエット[/color]、[color=#058be9]シエラ[/color]\n\n※出現率：1回募集を実施した場合、該当レア度の出現率。\n※排出割合：同じレア度における該当冒険者の排出割合。"}
 , 
 [89040001] = {id = 89040001, name = "突破をすることによって冒険者のステータスを上げ、新しい立ち絵もゲットできます！"}
 , 
@@ -4879,13 +5599,61 @@ BaseWordData = {
 , 
 [89050001] = {id = 89050001, name = "デフォルト"}
 , 
+[89061001] = {id = 89061001, name = "体力強化"}
+, 
+[89061002] = {id = 89061002, name = "奥義突破"}
+, 
+[89061003] = {id = 89061003, name = "神の庇護"}
+, 
+[89061011] = {id = 89061011, name = "戦闘の術"}
+, 
+[89061012] = {id = 89061012, name = "防御強化"}
+, 
+[89061013] = {id = 89061013, name = "断固たる抵抗"}
+, 
+[89061021] = {id = 89061021, name = "リアルハンター"}
+, 
+[89061022] = {id = 89061022, name = "進撃の合図"}
+, 
+[89061023] = {id = 89061023, name = "クイックヒット"}
+, 
+[89061031] = {id = 89061031, name = "意志強化"}
+, 
+[89061032] = {id = 89061032, name = "勇気の絆"}
+, 
+[89061033] = {id = 89061033, name = "魔力循環"}
+, 
+[89071011] = {id = 89071011, name = "ギルド戦のバトルで、味方のHPが%d%%上昇する。"}
+, 
+[89071021] = {id = 89071021, name = "ギルド戦のバトルで、味方の奥義ダメージが%d%%上昇する。"}
+, 
+[89071031] = {id = 89071031, name = "ギルド戦のバトルで、味方が攻撃を受けた際、ダメージを15%%軽減する。"}
+, 
+[89071111] = {id = 89071111, name = "ギルド戦のバトルで、味方のガードが%d%%上昇する。"}
+, 
+[89071121] = {id = 89071121, name = "ギルド戦のバトルで、味方の防御が%d%%上昇する。"}
+, 
+[89071131] = {id = 89071131, name = "ギルド戦のバトルで、味方が攻撃を受けた際、ランダムな敵に（基礎防御*40%%）のダメージを与える。"}
+, 
+[89071211] = {id = 89071211, name = "ギルド戦のバトルで、味方前列の会心が%d%%上昇する。"}
+, 
+[89071221] = {id = 89071221, name = "ギルド戦のバトルで、味方前列の攻撃が%d%%上昇する。"}
+, 
+[89071231] = {id = 89071231, name = "ギルド戦のバトルで、毎ターン追加で味方前列のSPを100点増やす。"}
+, 
+[89071311] = {id = 89071311, name = "ギルド戦のバトルで、味方後列の会心が%d%%上昇する。"}
+, 
+[89071321] = {id = 89071321, name = "ギルド戦のバトルで、味方後列の攻撃が%d%%上昇する。"}
+, 
+[89071331] = {id = 89071331, name = "ギルド戦のバトルで、毎ターン追加で味方後列のSPを100点増やす。"}
+, 
 [89100001] = {id = 89100001, name = "首充档次1"}
 , 
 [89101001] = {id = 89101001, name = "累充档次1"}
 , 
 [89102001] = {id = 89102001, name = "$$[color=#ffed75]特定商取引法に基づく表示[/color]::販売事業者名::YOUZU (SINGAPORE) PTE. LTD.\n::所在地::60 PAYA LEBAR ROAD, SINGAPORE\n::お問い合わせ先::Mail：puraede.cs.yoozoo@gmail.com\n::販売価格::購入画面に記載（表示価格は消費税を含みます）。\n::お支払い方法::ご利用のスマートフォン端末によって、お支払いの方法が異なります。\n::iPhoneをご利用の方：App Storeでのお支払いになります。\n::Androidをご利用の方：Googleウォレットでのお支払いになります。\n::販売価格以外にご負担いただく費用::アプリをご利用いただくために必要なインターネット接続環境、ソフトウェア、通信料::金等はお客様の負担となります。\n::支払時期::購入ボタンを押した時点\n::送料::インターネット上の商品のため、送料は発生いたしません。\n::商品等の引渡、デジタルコンテンツ等の利用が可能になる時期::購入に関するページに特別な定めを置いている場合を除き、購入取引完了後、直ちにご利用いただけます。\n::お支払い方法::詳細は、各商品および各サービスのページをご確認ください。\n::キャンセル・返品::デジタルアイテム等購入後のお客様のご都合によるキャンセルは、お受けできません。\n::免責事項::弊社は、サーバトラブル、ネットワークトラブルその他不可抗力により生じたサービス・商品の提供不能、中断等については一切その責任を負わないものとします。\n::特別条件　販売条件::ご購入者様が未成年者の場合は、保護者の方の同意を得てからご購入ください。"}
 , 
-[89102002] = {id = 89102002, name = "$$[color=#ffed75]プライバシーポリシー[/color]\n::YOUZU (SINGAPORE) PTE. LTD.（以下「当社」）は、以下のとおり個人情報保護方針を定め、個人情報保護の仕組みを構築し、全従業員に個人情報保護の重要性の認識と取組みを徹底させることにより、個人情報の保護を推進致します。\n::個人情報の管理\n::当社は、お客さまの個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持・管理体制の整備・社員教育の徹底等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。\n::個人情報の利用目的\n::お客さまからお預かりした個人情報は、当社からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。\n::個人情報の第三者への開示・提供の禁止\n::当社は、お客さまよりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。\n::お客さまの同意がある場合::お客さまが希望されるサービスを行なうために当社が業務を委託する業者に対して開示する場合::法令に基づき開示することが必要である場合::個人情報の安全対策\n::当社は、個人情報の正確性及び安全性確保のために、セキュリティに万全の対策を講じています。\n::ご本人の照会\n::お客さまがご本人の個人情報の照会・修正・削除などをご希望される場合には、ご本人であることを確認の上、対応させていただきます。\n::法令、規範の遵守と見直し\n::当社は、保有する個人情報に関して適用される日本の法令、その他規範を遵守するとともに、本ポリシーの内容を適宜見直し、その改善に努めます。\n::お問い合せ\n::当社の個人情報の取扱に関するお問い合せは下記までご連絡ください。\n::YOUZU (SINGAPORE) PTE. LTD.::60 PAYA LEBAR ROAD, SINGAPORE::Mail: puraede.cs.yoozoo@gmail.com"}
+[89102002] = {id = 89102002, name = "$$[color=#ffed75]プライバシーポリシー[/color]\n::YOUZU (SINGAPORE) PTE. LTD.（以下「当社」という）は、以下のとおり個人情報保護方針を定め、個人情報保護の仕組みを構築し、全従業員に個人情報保護の重要性の認識と取組みを徹底させることにより、個人情報の保護を推進致します。\n::個人情報の管理\n::当社は、お客さまの個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持・管理体制の整備・社員教育の徹底等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。\n::個人情報の収集\n::行動ターゲティング広告（お客さまの興味・関心および属性等に応じて適切な広告を配信する広告）配信等のため、当社は、本サービス内に、MobTech社から指定されたＳＤＫ（以下、「本ＳＤＫ」という）を組み込んでいます。MobTech社は、本ＳＤＫを用いて、お客様の位置情報等を収集いたします。MobTech社は、お客さまから収集した情報をMobTech社の利用規約およびプライバシーポリシーに基づき使用し、管理します。詳細については、MobTech社ホームページ（www.mob.com）でご確認ください。参考：MobTech社プライバシーポリシー（www.mob.com/about/policy）\n::個人情報の利用目的\n::お客さまからお預かりした個人情報は、当社からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。\n::個人情報の第三者への開示・提供の禁止\n::当社は、お客さまよりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。\n::お客さまの同意がある場合::お客さまが希望されるサービスを行なうために当社が業務を委託する業者に対して開示する場合::法令に基づき開示することが必要である場合::個人情報の安全対策\n::当社は、個人情報の正確性及び安全性確保のために、セキュリティに万全の対策を講じています。\n::ご本人の照会\n::お客さまがご本人の個人情報の照会・修正・削除などをご希望される場合には、ご本人であることを確認の上、対応させていただきます。\n::法令、規範の遵守と見直し\n::当社は、保有する個人情報に関して適用される日本の法令、その他規範を遵守するとともに、本ポリシーの内容を適宜見直し、その改善に努めます。\n::お問い合せ\n::当社の個人情報の取扱に関するお問い合せは下記までご連絡ください。\n::YOUZU (SINGAPORE) PTE. LTD.::60 PAYA LEBAR ROAD, SINGAPORE::Mail: support_jp@yoozoo.com"}
 , 
 [89102003] = {id = 89102003, name = "$$[color=#ffed75]資金決済法に基づく表示[/color]\n::発行事業者\n::YOUZU (SINGAPORE) PTE. LTD.60 PAYA LEBAR ROAD, SINGAPORE\n::ご相談窓口\n::puraede.cs.yoozoo@gmail.com\n::支払可能金額等\n::支払可能金額の上限はございません。\n::販売価格\n::購入画面に記載（表示価格は消費税を含みます）。\n::使用場所\n::ダイヤ：「 レッド：プライドオブエデン」サービス内でご利用いただけます。\n::キャンセル\n::デジタルアイテム等購入後のお客様のご都合によるキャンセルは、お受けできません。\n::未使用残高の確認方法\n::アプリ内でご覧いただけます。\n::利用規約\n::サービス利用規約をご覧ください。"}
 , 
@@ -4911,11 +5679,21 @@ BaseWordData = {
 , 
 [90000001] = {id = 90000001, name = "%s ロック中"}
 , 
+[90100001] = {id = 90100001, name = "「届け！遠海よりの唄」"}
+, 
+[90100002] = {id = 90100002, name = "「集客！波乱のサマー」"}
+, 
+[90100003] = {id = 90100003, name = "「密着！ビッグスターの裏顔」"}
+, 
+[90100004] = {id = 90100004, name = "「ハロウィン  WRAITH BANQUET」"}
+, 
+[90100005] = {id = 90100005, name = "「クリスマス   正義を貫くサンタ」"}
+, 
 [91001001] = {id = 91001001, name = "動物遺伝子:ホルスタイン・フリーシアン,レッドとしての能力:寒さに強い,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:お金、公正な商取引,嫌いなもの・嫌いな場所:貧しい生活"}
 , 
-[91001002] = {id = 91001002, name = "動物遺伝子:ジャーマン・シェパード・ドッグ,レッドとしての能力:敏感な聴力と嗅覚,危険度:低い,アンレッドに対する友好度:友好的,好きなもの・好きな場所:午後のお茶会、可愛いもの（または人）,嫌いなもの・嫌いな場所:偏見"}
+[91001002] = {id = 91001002, name = "動物遺伝子:ジャーマン・シェパード・ドッグ,レッドとしての能力:敏感な聴力と嗅覚,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:午後のお茶会、可愛いもの（または人）,嫌いなもの・嫌いな場所:偏見"}
 , 
-[91001003] = {id = 91001003, name = "動物遺伝子:アビシニアン,レッドとしての能力:軽快な行動力,危険度:低い,アンレッドに対する友好度:友好的,好きなもの・好きな場所:笑わせること、いたずら、あらゆる楽しいこと,嫌いなもの・嫌いな場所:面倒なこと"}
+[91001003] = {id = 91001003, name = "動物遺伝子:アビシニアン,レッドとしての能力:軽快な行動力,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:笑わせること、いたずら、あらゆる楽しいこと,嫌いなもの・嫌いな場所:面倒なこと"}
 , 
 [91001004] = {id = 91001004, name = "動物遺伝子:サバクツノトカゲ,レッドとしての能力:普通の人より、血液の生成が早い,危険度:低い,アンレッドに対する友好度:親密,好きなもの・好きな場所:人助け、騎士団,嫌いなもの・嫌いな場所:あらゆる不正"}
 , 
@@ -4925,15 +5703,15 @@ BaseWordData = {
 , 
 [91001101] = {id = 91001101, name = "動物遺伝子:ハツカネズミ,レッドとしての能力:存在感を消す,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:注目されること、人と一緒に何かをすること,嫌いなもの・嫌いな場所:普通、地味"}
 , 
-[91001102] = {id = 91001102, name = "動物遺伝子:シマリス,レッドとしての能力:地下貯蔵庫を作り、その場所を正しく記憶する,危険度:低い,アンレッドに対する友好度:友好的,好きなもの・好きな場所:商売、宝を貯める,嫌いなもの・嫌いな場所:商売能力が疑われること、在庫が盗まれること"}
+[91001102] = {id = 91001102, name = "動物遺伝子:シマリス,レッドとしての能力:地下貯蔵庫を作り、その場所を正しく記憶する,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:商売、宝を貯める,嫌いなもの・嫌いな場所:商売能力が疑われること、在庫が盗まれること"}
 , 
 [91001103] = {id = 91001103, name = "動物遺伝子:白色レグホン,レッドとしての能力:疲れ知らずで、長く働ける,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:温泉、他人を癒すこと,嫌いなもの・嫌いな場所:苦いお茶"}
 , 
-[91001104] = {id = 91001104, name = "動物遺伝子:ミーアキャット,レッドとしての能力:太陽を直視できるほど高い視力,危険度:低い,アンレッドに対する友好度:友好的,好きなもの・好きな場所:最新のネタ,嫌いなもの・嫌いな場所:寒いところ"}
+[91001104] = {id = 91001104, name = "動物遺伝子:ミーアキャット,レッドとしての能力:太陽を直視できるほど高い視力,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:最新のネタ,嫌いなもの・嫌いな場所:寒いところ"}
 , 
 [91001105] = {id = 91001105, name = "動物遺伝子:ヨツユビハリネズミ,レッドとしての能力:怯えると身体から針が生える,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:ギャンブル、一攫千金という言葉の響き,嫌いなもの・嫌いな場所:働かなければ生きられないという現実"}
 , 
-[91001106] = {id = 91001106, name = "動物遺伝子:クアッカワラビー,レッドとしての能力:完璧な微笑みを見せる,危険度:低い,アンレッドに対する友好度:友好的,好きなもの・好きな場所:新鮮な様々な食材,嫌いなもの・嫌いな場所:夏の猛暑"}
+[91001106] = {id = 91001106, name = "動物遺伝子:クアッカワラビー,レッドとしての能力:完璧な微笑みを見せる,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:新鮮な様々な食材,嫌いなもの・嫌いな場所:夏の猛暑"}
 , 
 [91002001] = {id = 91002001, name = "動物遺伝子:コウテイペンギン,レッドとしての能力:高い水泳能力,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:みんなが抱っこしている時、真ん中にいること,嫌いなもの・嫌いな場所:ひとりぼっち"}
 , 
@@ -4949,7 +5727,7 @@ BaseWordData = {
 , 
 [91002007] = {id = 91002007, name = "動物遺伝子:サラブレッド,レッドとしての能力:いくら演技をしても疲れを感じない,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:劇場、演劇,嫌いなもの・嫌いな場所:劇団や友人がバカにされること"}
 , 
-[91002008] = {id = 91002008, name = "動物遺伝子:アラスカラッコ,レッドとしての能力:満腹状態から10個のケーキを間食する,危険度:高い（女性にのみ）,アンレッドに対する友好度:友好,好きなもの・好きな場所:お菓子、お菓子を人にあげること,嫌いなもの・嫌いな場所:太ることを気にしすぎる人"}
+[91002008] = {id = 91002008, name = "動物遺伝子:アラスカラッコ,レッドとしての能力:満腹状態から10個のケーキを完食する,危険度:高い（女性にのみ）,アンレッドに対する友好度:友好,好きなもの・好きな場所:お菓子、お菓子を人にあげること,嫌いなもの・嫌いな場所:太ることを気にしすぎる人"}
 , 
 [91002101] = {id = 91002101, name = "動物遺伝子:シャム猫,レッドとしての能力:寒いとき髪が黒くなり、温かいときは白くなる,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:尊敬されること,嫌いなもの・嫌いな場所:子供扱いされること"}
 , 
@@ -4973,7 +5751,7 @@ BaseWordData = {
 , 
 [91002201] = {id = 91002201, name = "動物遺伝子:ケープキリン,レッドとしての能力:立ったままでも眠れる、睡眠一日二十分程度で問題ない,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:面白い物語を聞くこと、教会,嫌いなもの・嫌いな場所:インスピレーションある時に邪魔される"}
 , 
-[91002202] = {id = 91002202, name = "動物遺伝子:フレミッシュジャイアント,レッドとしての能力:怪力,危険度:中,アンレッドに対する友好度:友好的,好きなもの・好きな場所:みんなの笑顔、食べること,嫌いなもの・嫌いな場所:素晴らしい世界を壊す人や出来事"}
+[91002202] = {id = 91002202, name = "動物遺伝子:フレミッシュジャイアント,レッドとしての能力:怪力,危険度:中,アンレッドに対する友好度:友好,好きなもの・好きな場所:みんなの笑顔、食べること,嫌いなもの・嫌いな場所:素晴らしい世界を壊す人や出来事"}
 , 
 [91002203] = {id = 91002203, name = "動物遺伝子:シロウサギウミウシ,レッドとしての能力:ペットと心を通わせることができる,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:平和に日々を過ごすこと、平和な生活,嫌いなもの・嫌いな場所:無意味な争い"}
 , 
@@ -4981,9 +5759,9 @@ BaseWordData = {
 , 
 [91002205] = {id = 91002205, name = "動物遺伝子:フェレット,レッドとしての能力:優れた暗視能力,危険度:高い,アンレッドに対する友好度:友好,好きなもの・好きな場所:困っている人を救うこと、弁当を作ること,嫌いなもの・嫌いな場所:血塗れの戦い（血が流れるような戦い）"}
 , 
-[91002206] = {id = 91002206, name = "動物遺伝子:ミヤマガラス,レッドとしての能力:どんなに髪を染めようとしても黒髪になる,危険度:低い,アンレッドに対する友好度:友好的,好きなもの・好きな場所:自身と周りのあらゆるものを中二病設定にすること、神秘的で格好良いあらゆる物事,嫌いなもの・嫌いな場所:つまらない現実"}
+[91002206] = {id = 91002206, name = "動物遺伝子:ミヤマガラス,レッドとしての能力:どんなに髪を染めようとしても黒髪になる,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:自身と周りのあらゆるものを中二病設定にすること、神秘的で格好良いあらゆる物事,嫌いなもの・嫌いな場所:つまらない現実"}
 , 
-[91002207] = {id = 91002207, name = "動物遺伝子:イッカク,レッドとしての能力:温度と圧力を感知する,危険度:低い,アンレッドに対する友好度:友好的,好きなもの・好きな場所:強い武具,嫌いなもの・嫌いな場所:褒められすぎること"}
+[91002207] = {id = 91002207, name = "動物遺伝子:イッカク,レッドとしての能力:温度と圧力を感知する,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:強い武具,嫌いなもの・嫌いな場所:褒められすぎること"}
 , 
 [91003001] = {id = 91003001, name = "動物遺伝子:タイリクオオカミ,レッドとしての能力:身体能力を短時間、大幅に向上させる,危険度:中,アンレッドに対する友好度:友好,好きなもの・好きな場所:手紙書くこと、交換日記、平和,嫌いなもの・嫌いな場所:争い"}
 , 
@@ -4995,7 +5773,7 @@ BaseWordData = {
 , 
 [91003005] = {id = 91003005, name = "動物遺伝子:黒ヒョウ,レッドとしての能力:短時間、自分の気配を完全に消せる,危険度:中,アンレッドに対する友好度:中立,好きなもの・好きな場所:お嬢とお嬢の母、紅茶、メイドの仕事,嫌いなもの・嫌いな場所:過去の記憶"}
 , 
-[91003006] = {id = 91003006, name = "動物遺伝子:イリオモテヤマネコ,レッドとしての能力:虫なんて怖くない！,危険度:友好,アンレッドに対する友好度:友好的,好きなもの・好きな場所:お宝,嫌いなもの・嫌いな場所:人が多いところ"}
+[91003006] = {id = 91003006, name = "動物遺伝子:イリオモテヤマネコ,レッドとしての能力:虫なんて怖くない！,危険度:高い,アンレッドに対する友好度:友好,好きなもの・好きな場所:お宝,嫌いなもの・嫌いな場所:人が多いところ"}
 , 
 [91003007] = {id = 91003007, name = "動物遺伝子:イヌワシ,レッドとしての能力:千里眼、高い射撃精度,危険度:中,アンレッドに対する友好度:中立,好きなもの・好きな場所:修道院、自由、報酬,嫌いなもの・嫌いな場所:不平等のこと"}
 , 
@@ -5014,6 +5792,30 @@ BaseWordData = {
 [91003008] = {id = 91003008, name = "動物遺伝子:シャチ,レッドとしての能力:超音波と1/fゆらぎをまとった歌声（ただし、緊張していない時に限る）,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:歌、アイリーン（憧れ）、海,嫌いなもの・嫌いな場所:孤独、自分のヘタレなところ"}
 , 
 [91001107] = {id = 91001107, name = "動物遺伝子:クルマサカオウム,レッドとしての能力:他人の声を完璧にマネできる,危険度:低い,アンレッドに対する友好度:普通,好きなもの・好きな場所:イタズラ、主人公、グローリア、アイリス、構ってもらうこと,嫌いなもの・嫌いな場所:静寂、孤独、無視されること"}
+, 
+[91003010] = {id = 91003010, name = "動物遺伝子:ラグドール,レッドとしての能力:音を立てずに行動する,危険度:高い,アンレッドに対する友好度:敵対,好きなもの・好きな場所:あの方,嫌いなもの・嫌いな場所:気遣われること"}
+, 
+[91003009] = {id = 91003009, name = "動物遺伝子:キングコブラ,レッドとしての能力:どんなに大怪我をしても平気,危険度:高い,アンレッドに対する友好度:中立,好きなもの・好きな場所:強者との闘い、殺戮,嫌いなもの・嫌いな場所:戦えないこと"}
+, 
+[91002112] = {id = 91002112, name = "動物遺伝子:白色レグホン,レッドとしての能力:疲れ知らずで、長く働ける,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:温泉、他人を癒すこと,嫌いなもの・嫌いな場所:苦いお茶"}
+, 
+[91002111] = {id = 91002111, name = "動物遺伝子:和金,レッドとしての能力:高い水泳能力,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:誰かとお話しすること,嫌いなもの・嫌いな場所:冷たい水"}
+, 
+[91002208] = {id = 91002208, name = "動物遺伝子:イシダタミヤドカリ,レッドとしての能力:どんな仮住まいでも住める,危険度:低い,アンレッドに対する友好度:普通,好きなもの・好きな場所:豪邸,嫌いなもの・嫌いな場所:融通の利かない人"}
+, 
+[91003011] = {id = 91003011, name = "動物遺伝子:ホオジロザメ,レッドとしての能力:血を見ると性格が豹変する,危険度:高い,アンレッドに対する友好度:友好,好きなもの・好きな場所:演劇、ハーミット,嫌いなもの・嫌いな場所:血、舞台以外で人と話すこと"}
+, 
+[91003012] = {id = 91003012, name = "動物遺伝子:ベニイロフラミンゴ,レッドとしての能力:決して足が疲れない,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:オシャレの研究、ハーミット,嫌いなもの・嫌いな場所:誰にもかわいい自分を見てもらえないこと"}
+, 
+[91002209] = {id = 91002209, name = "動物遺伝子:ベニクラゲ,レッドとしての能力:占いを通して過去と未来を知る,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:夢、予測できない運命,嫌いなもの・嫌いな場所:占いを邪魔されること"}
+, 
+[91003013] = {id = 91003013, name = "動物遺伝子:シロクチアオハブ,レッドとしての能力:生きていくのにほとんど食事を必要としない,危険度:低い,アンレッドに対する友好度:中立,好きなもの・好きな場所:睡眠（特に木の上などの変わった場所で寝ること）、竹,嫌いなもの・嫌いな場所:自分のペースを崩されること"}
+, 
+[91003014] = {id = 91003014, name = "動物遺伝子:タテゴトアザラシ,レッドとしての能力:人に愛される。昼寝しても危険な目には合わない,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:ひなたぼっこ。目立つこと・遊んでもらうこと,嫌いなもの・嫌いな場所:ひとりぼっち"}
+, 
+[91002210] = {id = 91002210, name = "動物遺伝子:アライグマ,レッドとしての能力:素早い手さばき,危険度:低い,アンレッドに対する友好度:友好,好きなもの・好きな場所:綺麗な場所、掃除,嫌いなもの・嫌いな場所:綺麗な物や場所が汚されること"}
+, 
+[91003015] = {id = 91003015, name = "動物遺伝子:黒ヒョウ,レッドとしての能力:短時間、自分の気配を完全に消せる,危険度:中,アンレッドに対する友好度:中立,好きなもの・好きな場所:お嬢とお嬢の母、紅茶、メイドの仕事,嫌いなもの・嫌いな場所:過去の記憶"}
 , 
 [92100011] = {id = 92100011, name = "\nアビシニアンは赤っぽい毛で、黄色または緑色のアーモンド形の目を持つ猫である。その目の周りには、まるで濃いアイラインが引かれているように美しい模様が入っている。\n\n歴史ある猫の一種で、もとはエジプト人が崇拝していたエジプト猫の子孫だという伝説もある。また、つま先立ちで歩く姿が美しいことから『バレエキャット』とも呼ばれ、身軽そのものである。\n\n好奇心旺盛で、いたずらが好きでもある。そして明るく穏やかな性格で感情豊かなため、人類と良い友になれるだろう。"}
 , 
@@ -5073,7 +5875,7 @@ BaseWordData = {
 , 
 [92100064] = {id = 92100064, name = "\nいつからか、ノエルは「自分を受け入れてくれる場所を見つけたい」という思いと、「いっそのこと一人で生きた方がいいのでは？」という考えの狭間で悩むようになっていた。\nそんな苦しい日々の中で、彼の唯一の心のよりどころとなったのがペットの存在だった。\n\nはじめは故郷から昔馴染みのペットを一匹連れてきていただけだったが…ノエルの魅力はペットにも通じたため、様々な場所でペットと触れ合うことが増えたのだ。それがノエルにとって救いになった。\n\nペットたちは落ち込むノエルを慰めるようにすり寄ってくる者もいれば、お腹を空かせて鳴く者もいた。\nまるで自分に呼びかけるような、そんなペットの鳴き声を聞くとノエルはほっとして、撫でたり食事を与えた。\n\n自分の行動に素直に喜ぶペット達は、決してそれ以上を求めないことがありがたかった。\nそしてペットのために「落ち込んでる暇なんてない、ペット達のために頑張ろう」と自分を元気づけることができたのだ。\n\nつまりノエルにとってペットは家族であり、日々を生きるための原動力だった。\n\n\nやがてノエルはペット達の面倒を見るようになり、自然とその習性を深く調べるようになった。\nやがてその知識欲があらゆるペットにまで及び、いつしか街の人々は「ペットのことで何かわからないことがあれば、ノエルに聞け」と言うほどの専門家になっていた。\n\nノエルは人にペットの温かさや可愛さを伝えたり、飼い主の留守のとき代わりに面倒を見たり、はたまた病気になった際の診療まで手がけたり…ペットのためなら、なんでもした。\n\nそんなノエルは決して「ギルドクラッシャー」ではないことに、彼自身が気づく日がくるのもきっとそう遠いことではないだろう。"}
 , 
-[92100065] = {id = 92100065, name = "\n目撃者からの報告\n\n◆目って正直なのよ。あんた、ノエルがペットを抱いている様子を見たことがある？　女神様なんてのが、本当にいるとは思ってないけど…もしいたら、ああいう目をしてるのかなって、思っちゃうくらいの優しい目をしてるの。…いや本気で。すごいんだから。（アイリス）\n\n◆ノエルが私にペットを紹介してくれたのです。あの感じ…あれは、なんと表現すればいいのでしょう。ペットは人間ではないのに、不思議と彼らの善意や感情を感じることができるんです。あの感覚は、私にとって覚えておくべきものなのでしょうか。ただ…ペットをもっと撫でたり、抱きしめたりしてみたいと思います。想像するだけで、胸の奥が柔らかく、温かくて…。…ノエルさんの優しさに振れたときも、同じようになります。私もペットにかこまれたら　（ウルスラ）"}
+[92100065] = {id = 92100065, name = "\n目撃者からの報告\n\n◆目って正直なのよ。あんた、ノエルがペットを抱いている様子を見たことがある？　女神様なんてのが、本当にいるとは思ってないけど…もしいたら、ああいう目をしてるのかなって、思っちゃうくらいの優しい目をしてるの。…いや本気で。すごいんだから。（アイリス）\n\n◆ノエルが私にペットを紹介してくれたのです。あの感じ…あれは、なんと表現すればいいのでしょう。ペットは人間ではないのに、不思議と彼らの善意や感情を感じることができるんです。あの感覚は、私にとって覚えておくべきものなのでしょうか。ただ…ペットをもっと撫でたり、抱きしめたりしてみたいと思います。想像するだけで、胸の奥が柔らかく、温かくて…。…ノエルさんの優しさに触れたときも、同じようになります。 （ウルスラ）"}
 , 
 [92100071] = {id = 92100071, name = "\nメリノはさまざまな種を科学的に交配し、開発された種である。主にオーストラリアと南アフリカ共和国で飼われていた。\n\n羊の中で最も白い毛色や、非常に細い毛質から、芸術的品種とさえ呼ばれる。高い強度や染色の容易さもあって、衣服に多く用いられる。\n\n臆病な性格のため近づきにくいが、人間を攻撃するような行動はしない。\n\nそして草のみを食べる。"}
 , 
@@ -5121,7 +5923,7 @@ BaseWordData = {
 , 
 [92100113] = {id = 92100113, name = "\n目撃者からの報告\n\n◆サラ様とは一度、リーダーのお住まいを共に掃除させていただいたことがございますが…素晴らしいものでございました。一見するとサラ様のやり方は適当にも見えますが…まず天井など上から掃除を始め、棚の上の埃を落とし、最後に埃がたまった床は木目に沿って掃き…素材に合わせて掃除方法を変えることもしていらっしゃいます。「こんなところかな」などと軽くおっしゃいますが、見事な掃除でございます。わたくしが手を出さずともこれだけ行えるなんて…相当のやり手でございます。（ネネル）\n\n◆サラさんはとても大人で、素敵な人だと思います。ただ、その…たまに、「一緒にシャワーを浴びよう」みたいに誘われるときは、冗談でも困ります…。ボクがおろおろしていると、「そんなに可愛いと食べたくなってしまうな」なんて言われて…。うう、だからサラさんの前だと、いつも顔が赤い気がします…。サラさんの冗談は、どうやって返したらいいんでしょう…？（ノエル）\n\n◆サラはエマが初めて会ったメイドだ。メイドがあんなに強いなんて知らなかったから、驚いたぞ！　きっとご主人様を守るために鍛えてるんだろうなぁ。サラは偉いなぁと思ったから、サラに会ったときにそう言ったんだ！　そしたら頭を撫でながら、「お嬢達にもこんな純粋で可愛い頃があったな。…いや、なかったかもしれないな」ってブツブツつぶやいていたぞ。たぶんエマは褒められたから、ちゃんとお礼を言っておいたぞ！（エマ）"}
 , 
-[92100114] = {id = 92100114, name = "\nサラは生まれてすぐに貧民達が集まる無法地帯に捨てられた。だから物心つく前から多くの非道徳的な行為をして生きることに慣れていた。周囲も彼女と同じだった。\n\nしかしごみを食べるたびに、サラは考えた。自分の人生が何のために存在するのか、なぜこれほど苦しんでまで生きているのか。…わからなかった。\nただ、辺りにいる虫が這い、飛んでいるような死体のようになるのは嫌だったから、とりあえず生き続けてみよう、と思った。\n\nやがて成長し、大人達からわけもわからぬ仕事を与えられてこなしているうちに十一歳を迎えた。するとさらに『ヒョウ』のレッドの能力が表れた。\n今までにない強大な力をサラはすぐに身につけると、周囲の大人達から新しい仕事を与えられた。「人を殺してこい」と。\n\nサラは大人達の期待に応え、初めてとは思えないほど鮮やかに殺してみせた。\nそれからさらに仕事は舞い込み、そのたびに高い評価を得て、裏社会でその名をとどろかせるようになった。子供の頃、死ぬほど欲しかった金も食事も好きなだけ手に入るようになったのだ。\n\nしかし、そんな生活は突然終わりを告げた。仕事をくれていた犯罪組織は派閥争いで目まぐるしく変化し、やがて数年にわたる内部闘争で瓦解した。\nサラは大人になり、ひとりでも仕事ができるようになったため一向に構わなかったが、サラへの報復を願う人々にとっては良い機会となった。彼らは手を組み、サラを暗殺し返そうとした。\n\nサラは上手く逃れて続けていたが、ある日、一瞬の気のゆるみをつかれて危うく命を落としかけた。だが幸運にも、犯罪組織の動静に貴族達が驚いて呼んだ騎士団が現れたため、サラはなんとか生き残った。\n\nだが、サラは重傷を負っていた。金こそあるが、行くべき場所は思いつかなかった。――そうだ、自分に行く場所なんてないのだ。結局、子供の頃と同じように。この人生に、意味はないのだ。\n\nそう考えながら意識を失ったサラは、次に目覚めると見知らぬ館の中にいた。そして横では甲斐甲斐しくサラの世話をしていた貴族らしい女がいた。目覚めたサラと目が合うと、そっと微笑みかけた。\n\n\n彼女こそ現在のサラの雇い主であり、娘達の母親だった。彼女は自分の娘達を保護する任務とメイドの職をサラに与えてくれた。\n人殺しばかりしていた自分に、こんな仕事が向いているわけがないとサラは考えていたが、そんなことはなかった。サラは何気ない生活の素晴らしさを徐々に感じるようになり、世界は暗闇だけではないことを知った。\n\nそれを教えてくれた雇い主にサラは感謝し、今の生活を大事に思っている。彼女の生活を一部でも壊そうとすれば、排除すべき敵として認識されるだろう。そんな時ばかりは、前のサラが戻ってくるかもしれない。"}
+[92100114] = {id = 92100114, name = "\nサラは生まれてすぐに貧民達が集まる無法地帯に捨てられた。だから物心つく前から多くの非道徳的な行為をして生きることに慣れていた。周囲も彼女と同じだった。\n\nしかしごみを食べるたびに、サラは考えた。自分の人生が何のために存在するのか、なぜこれほど苦しんでまで生きているのか。…わからなかった。\nただ、辺りにいる虫が這い回る死体のようになるのは嫌だったから、とりあえず生き続けてみよう、と思った。\n\nやがて成長し、大人達からわけもわからぬ仕事を与えられてこなしているうちに十一歳を迎えた。するとさらに『ヒョウ』のレッドの能力が表れた。\n今までにない強大な力をサラはすぐに身につけると、周囲の大人達から新しい仕事を与えられた。「人を殺してこい」と。\n\nサラは大人達の期待に応え、初めてとは思えないほど鮮やかに殺してみせた。\nそれからさらに仕事は舞い込み、そのたびに高い評価を得て、裏社会でその名をとどろかせるようになった。子供の頃、死ぬほど欲しかった金も食事も好きなだけ手に入るようになったのだ。\n\nしかし、そんな生活は突然終わりを告げた。仕事をくれていた犯罪組織は派閥争いで目まぐるしく変化し、やがて数年にわたる内部闘争で瓦解した。\nサラは大人になり、ひとりでも仕事ができるようになったため一向に構わなかったが、サラへの報復を願う人々にとっては良い機会となった。彼らは手を組み、サラを暗殺し返そうとした。\n\nサラは上手く逃れて続けていたが、ある日、一瞬の気のゆるみをつかれて危うく命を落としかけた。だが幸運にも、犯罪組織の動静に貴族達が驚いて呼んだ騎士団が現れたため、サラはなんとか生き残った。\n\nだが、サラは重傷を負っていた。金こそあるが、行くべき場所は思いつかなかった。――そうだ、自分に行く場所なんてないのだ。結局、子供の頃と同じように。この人生に、意味はないのだ。\n\nそう考えながら意識を失ったサラは、次に目覚めると見知らぬ館の中にいた。そして横では甲斐甲斐しくサラの世話をしていた貴族らしい女がいた。目覚めたサラと目が合うと、そっと微笑みかけた。\n\n\n彼女こそ現在のサラの雇い主であり、娘達の母親だった。彼女は自分の娘達を保護する任務とメイドの職をサラに与えてくれた。\n人殺しばかりしていた自分に、こんな仕事が向いているわけがないとサラは考えていたが、そんなことはなかった。サラは何気ない生活の素晴らしさを徐々に感じるようになり、世界は暗闇だけではないことを知った。\n\nそれを教えてくれた雇い主にサラは感謝し、今の生活を大事に思っている。彼女の生活を一部でも壊そうとすれば、排除すべき敵として認識されるだろう。そんな時ばかりは、前のサラが戻ってくるかもしれない。"}
 , 
 [92100115] = {id = 92100115, name = "\n目撃者からの報告\n\n◆私達はサラの過去に興味はありませんし、重要でもありません。今彼女はメイドで、私とルナの面倒を見てくれているだけです。それだけをみんなが知っていればいいんです。母の言うとおり、彼女は本当に素晴らしい人ですから。（リナ）\n\n◆サラさんほど頼りがいのあるメイドは、他で見たことがないわね。でも、戦うこともできるなんて最近知ったわ。悪い人が襲い掛かってくる、なんてことはめったにないからだろうけど…いえ、ちょっと待って。昔ルナとリナ、三人で肝試しで始まりの森へ行ったとき、そういえばモンスターが一匹たりとも出てこなかったわ。始まりの森でそんなの、ありえないわよね？　あの時、どうしても行くっていうルナに逆らわないで、サラさんは普通に見送って普通に迎えてくれて「何にもいなかったでしょう？　面白くない場所ですよ」って言ってたけど…もしかして先回りして、モンスターを全部倒してたんじゃ…。…サラさんも、実は苦労が多いのね。（オリヴィア）\n\n◆あら。彼女に会ったとき見間違えかと思ったけど…やっぱりサラだったのね。ええ、いろんなところで名前を聞くぐらい、とても評判の暗殺者だったわ。私も一戦、交えたことがあるけど、あのときは…ああ！　思い出してもたまらないぐらい、とても楽しかった…！　また戦いたいところだけど…今のサラは興味ないわね。メイドになってから、顔つきが穏やかになってしまったもの。「今は戦いよりも、お嬢の世話で忙しくてね」なんて言って…。昔の殺気が戻ってきたら…ふふ、すぐにでも戦いを申し込まなくちゃね。（イザベラ）"}
 , 
@@ -5129,9 +5931,9 @@ BaseWordData = {
 , 
 [92100122] = {id = 92100122, name = "\nケイトが「貧しい人々の聖人」だということは、同じ町に住む誰もが知っていた。\n\nプライドに加入する前、彼女は教会都市で医者として働いていた。その貧しい人々ばかりが住む町には不似合いなほど医療技術が非常に高く、どんな人間であっても救うための努力を惜しまなかった。\nそして彼女は、決して見返りを求めることはなかった。どんなお礼も素っ気なく断り、無理やり押し付けられれば怒りさえした。しかし、それゆえに人々は彼女を尊敬した。\n\n\nケイトは何か抵抗感でもあったのか、「フェレット」のレッドとして能力を見せることはほとんどなかった。そして一人でいることを好み、治療で必要なこと以外の話もほとんどしなかった。\n最初は不愛想に思うのだが、一度治療を受ければ、彼女がいかに優しく気遣いにあふれているのかはすぐにわかった。それゆえに人々は彼女を慕うのだが、ケイトにはそれが理解できないでいた。"}
 , 
-[92100123] = {id = 92100123, name = "\n目撃者からの報告\n\n◆ぼく達はお金も何も持ってないから、誰も気にかけてくれないんだ。生きてても死んでても…誰も…。でも…ケイトさんだけは違うんだ。ぼく達がどんな育ちでも馬鹿にしないし、見返りも求めないで怪我を治してくれるんだ。だからぼく、ケイトさんが大好き！　将来、ケイトさんみたいなお医者さんになるんだ！（町の子供）\n\n◆ケイトさんはある冬、突然この町にやってきてねぇ…。当時はひどい流行り病が広がっていたのを聞いて、薬を持ってきてくれたんだ。自分だって、その病にかかるかもしれないのに…。けど、彼女はそんなこと気にせず治療を続けて…。次の春には流行り病が収まったんだけどね、なぜかずっと、この町に住んでくれてるよ。（ケイトの隣人）\n\n◆ケイトはとても忙しいから、私に薬を作るよう、よく依頼してくるわ。いつもお金を惜しまず、上質の薬草を使うように言って、ね。同じ医術を学ぶものとして、彼女がどれほど気高いかはよくわかってる。…ふふ。こうして褒められるのを、ケイトはすごく嫌がるんだけどね。（アロエ）\n\n◆もちろん古い友人だから、ケイトのことはなんでも知っているわ。でもなぜかケイトは、私と話したがらないの…。そのとっても素晴らしい医療技術はお金を稼ぐ良い手段だから、美味しい話をいっぱい持っていくのに、家にも入れてくれなくて…。ほんと、冷たい人よね？（シャノン）\n※ミカガミより：上記話者不明だったため、シャノンと新しい話に置き換えました。"}
+[92100123] = {id = 92100123, name = "\n目撃者からの報告\n\n◆ぼく達はお金も何も持ってないから、誰も気にかけてくれないんだ。生きてても死んでても…誰も…。でも…ケイトさんだけは違うんだ。ぼく達がどんな育ちでも馬鹿にしないし、見返りも求めないで怪我を治してくれるんだ。だからぼく、ケイトさんが大好き！　将来、ケイトさんみたいなお医者さんになるんだ！（町の子供）\n\n◆ケイトさんはある冬、突然この町にやってきてねぇ…。当時はひどい流行り病が広がっていたのを聞いて、薬を持ってきてくれたんだ。自分だって、その病にかかるかもしれないのに…。けど、彼女はそんなこと気にせず治療を続けて…。次の春には流行り病が収まったんだけどね、なぜかずっと、この町に住んでくれてるよ。（ケイトの隣人）\n\n◆ケイトはとても忙しいから、私に薬を作るよう、よく依頼してくるわ。いつもお金を惜しまず、上質の薬草を使うように言って、ね。同じ医術を学ぶものとして、彼女がどれほど気高いかはよくわかってる。…ふふ。こうして褒められるのを、ケイトはすごく嫌がるんだけどね。（アロエ）\n\n◆もちろん古い友人だから、ケイトのことはなんでも知っているわ。でもなぜかケイトは、私と話したがらないの…。そのとっても素晴らしい医療技術はお金を稼ぐ良い手段だから、美味しい話をいっぱい持っていくのに、家にも入れてくれなくて…。ほんと、冷たい人よね？（シャノン）"}
 , 
-[92100124] = {id = 92100124, name = "\n十年前、とある地方で争いが起きた。人間同士によるもので利権争いの末に起こったと言う。その被害は大きく、多くの血が流れた。\n\nそんな戦いを止めたのは、突然現れたとあるレッドだった。命こそ決して奪わないが、争う人間たちには容赦はしなかった。やがてレッドを恐れて戦いが止むと、そのレッドも二度と現れなくなった。\n\n\nそのレッドについて、とある町医者夫婦の娘によく似ていたという証言がある。\n恥ずかしがり屋かつ人見知りで、夫婦にべったりの娘だったらしい。だが、夫婦は戦いに巻き込まれて亡くなり、その娘は同時に行方不明になっていた。その娘の名は「ケイト」と言った。\n\n\nケイトはシャノンと出会った孤児院以外の過去は認めないため、定かではない。ただ、やけに古い医療道具だけが彼女の手元に置いてある。\n\n\n※ミカガミより：元案がかなりハードだったのですが、理由があってもケイトがモンスターや人を殺すことにユーザーは好感を抱きにくいと判断し、上記のとおりに調整させていただきました。"}
+[92100124] = {id = 92100124, name = "\n十年前、とある地方で争いが起きた。人間同士によるもので利権争いの末に起こったと言う。その被害は大きく、多くの血が流れた。\n\nそんな戦いを止めたのは、突然現れたとあるレッドだった。命こそ決して奪わないが、争う人間たちには容赦はしなかった。やがてレッドを恐れて戦いが止むと、そのレッドも二度と現れなくなった。\n\n\nそのレッドについて、とある町医者夫婦の娘によく似ていたという証言がある。\n恥ずかしがり屋かつ人見知りで、夫婦にべったりの娘だったらしい。だが、夫婦は戦いに巻き込まれて亡くなり、その娘は同時に行方不明になっていた。その娘の名は「ケイト」と言った。\n\n\nケイトはシャノンと出会った孤児院以外の過去は認めないため、定かではない。ただ、やけに古い医療道具だけが彼女の手元に置いてある。"}
 , 
 [92100125] = {id = 92100125, name = "\n目撃者からの報告\n\n◆あのレッドが現れたとき、俺は偶然近くにいたんだが…仲間がやられるのは、一瞬だった。それを見て俺は、武器を置いてすぐに逃げたよ。彼女は俺に気づいていたと思うが…追ってはこなかった。相手は女の子だってのに、人生で一番恐ろしい時間だったよ。（引退した兵士）\n\n◆彼女が医者になったのは、誰のためだと思う？　自分のため、両親のため、傷ついた人のため、傷つけた人のため…？　優しすぎるっていうのも大変だよね…ってケイトに言ったら、額を指ではじかれちゃった。それは手当てしてくれなかったよぉ…ふわぁ。（クイン）\n\n◆ケイトさんはとってもいい人だと思いますっ！　だってリリーが怪我したりするたびに、すぐに手当してくれますしっ！　言葉はトゲトゲッとしてますけど、優しいんですよ！　怒られたのは…あのときぐらいです！　手当のお礼を言うとき、吹き出した血を顔にかけちゃったとき！　「びっくりさせるな！」って、赤かったり青かったりする顔で震えてて、申し訳なかったですっ！（リリー）"}
 , 
@@ -5187,7 +5989,7 @@ BaseWordData = {
 , 
 [92100181] = {id = 92100181, name = "\nキングコブラは長さ三、四メートル、最長で六メートルにもなる世界一長い蛇である。他のコブラと比べて凶暴かつ反応が機敏であり、毒性が強く一噛みで象をも殺せるほど、危険である。\n\n単独行動を好み、また縄張り意識がとても高い。領地へ入ったすべての動物を攻撃する。\n\nキングコブラの捕食対象は主に他の蛇であることから、『スネークキラー』とも呼ばれる。\n\n知力も高く、彼らは他の蛇類を殺す時は相手に毒性があるかどうかで攻撃方法を決める。例えば毒性のない蛇と戦う場合、毒を使わず、巻きついて殺したりする。"}
 , 
-[92100182] = {id = 92100182, name = "\nイザベラの出身は謎に満ちている。\n\n例え両親のいない孤児であっても、多少ならその経歴を追えるのだが、彼女だけはそうした資料はほとんどなかった。生まれてから今に至るまで、ただ強者を求めて戦い続けていること以外、誰も知らないのだ。\n\nだがある日、フランチェスカが大図書館より、異国で十年前、突然消えたある一族の資料を見つけた。その一族はイザベラをすぐに思い出させるほど、力を追い求めていた。\n\n資料によれば、その一族は“力こそすべて”として、強肉強食をそのまま家訓として扱っていた。依頼があればどんな仕事でもしてみせ、そしてそれは大概、人の命を奪うものだった。\n\n十歳になった子どもには、かならず試練が与えられた。ひとり危険なモンスターがはびこる森林奥地に置いて行かれ、生き残った者のみが一族の一員として認められるのだ。\n\nある年、少女がひとり認められた。その技術は素晴らしく、十年に一度――いや、百年に一度の才能だとして、一族の誇りのように扱われた。だが十二歳を迎え、『キングコブラ』のレッドを覚醒した少女は、一族全員を――。\n\n時期とレッドから判断するならば、その少女こそイザベラである可能性は高いだろう。その資料を残した筆者は「家系に抗おうとしたのではないか」と推測しているが…今のイザベラを見る限り、おそらくその推測は間違っているだろう。"}
+[92100182] = {id = 92100182, name = "\nイザベラの出身は謎に満ちている。\n\n例え両親のいない孤児であっても、多少ならその経歴を追えるのだが、彼女だけはそうした資料はほとんどなかった。生まれてから今に至るまで、ただ強者を求めて戦い続けていること以外、誰も知らないのだ。\n\nだがある日、フランチェスカが大図書館より、異国で十年前、突然消えたある一族の資料を見つけた。その一族はイザベラをすぐに思い出させるほど、力を追い求めていた。\n\n資料によれば、その一族は“力こそすべて”として、弱肉強食をそのまま家訓として扱っていた。依頼があればどんな仕事でもしてみせ、そしてそれは大概、人の命を奪うものだった。\n\n十歳になった子どもには、かならず試練が与えられた。ひとり危険なモンスターがはびこる森林奥地に置いて行かれ、生き残った者のみが一族の一員として認められるのだ。\n\nある年、少女がひとり認められた。その技術は素晴らしく、十年に一度――いや、百年に一度の才能だとして、一族の誇りのように扱われた。だが十二歳を迎え、『キングコブラ』のレッドを覚醒した少女は、一族全員を――。\n\n時期とレッドから判断するならば、その少女こそイザベラである可能性は高いだろう。その資料を残した筆者は「家系に抗おうとしたのではないか」と推測しているが…今のイザベラを見る限り、おそらくその推測は間違っているだろう。"}
 , 
 [92100183] = {id = 92100183, name = "\n目撃者からの報告\n\n◆うちの国だけではなく、様々な国がイザベラを指名手配しています。彼女は本当に厄介ですね…何せ他の犯罪者と違って金のためではなく、ただ戦うためだけに暴れまわっているんですから。もちろん、騎士団でもお構いなしです！　もっとも強い団員を間違いなく見抜いて、決闘を申し込んで…。自分がそう強くないことに、これだけ安心感を覚えるのは初めてでしたよ。（とある騎士団員）\n\n◆うちの村は、ひどい領主のせいでめちゃくちゃだったんだ。でも、あのお姉さんが現れて…領主が雇ってる、強い傭兵達をあっという間に倒しちゃったんだ。みんなでお礼を言ったんだけど「あなた達のためじゃない」って言って、それがすごく格好良くて…僕もお姉さんみたいに強くなってみせるよ！（とある少年）\n\n◆イザベラはよく俺の特訓に付き合ってくれるぞ！　アイツは実戦に慣れてるとかで、それはもう良い腕してるんだ！　しかも、たまに首とか心臓とか狙ってくる本格派の特訓なんだ！　リーダーも興味あるなら、三人で一緒に特訓しような！（ブリジット）"}
 , 
@@ -5203,7 +6005,7 @@ BaseWordData = {
 , 
 [92100194] = {id = 92100194, name = "\n戦士として、その技の冴えはすでに達人の域に達しているブリジットだが――対照的にその考え方や思考は極めて単純だった。\n悪い意味で人が良く、他人が悪意を持って嘘を吐くことなどは考えもしない。\n騙されやすさという点は、野生の勘が働かない限り…ヌエットと同程度である。それがブリジットのもう一面の姿だ。\n\nブリジットの残念な人の良さを示す話は事欠かない。\n\n例えば――ブリジットはレッドの力の影響で、戦闘態勢に入ると全身の機能が激しく活性化し、血液循環が加速もし、体から大量の熱気を発する。\nそのせいでブリジットの身につける衣服の消耗は非常に早く、常に多くの装備のストックを必要とする事情があった。\n幸い、ブリジットには王家は護衛として武器や鎧を購入するための補助金が支給されていたので、資金面で困ることはなかったのだが――問題はそんな彼女に、多くの商人が武具の押し売りを迫ってきたことだった。\n\n一流の戦士でありながら、武器の実用性にはほとんど関心を見せず、商人達の売り込みにころりと騙されるブリジットは、彼らにとって絶好の「カモ」だったと言っていい。\n\nそんなある日、メイの前にブリジットが、なんとも頼りないビキニアーマーを身につけて現れた。\nメイがそれはどういう効果のある鎧なのかと聞くと、ブリジットは商人のセールストークそのままに、上機嫌にこんなことを話したと言う。\n\n「聞いてくれよ、メイ！　ナポレオンとかいう古代最強の武人は、この鎧で世界の半分を征服したんだってよ！」\n\n――結果として、その鎧もたいして保つことなく壊れてしまったのだが、ブリジットは特に気にした様子ではなかったという。\n結局、ブリジットにとってどんな武器や防具を使うのかは、さほど重要なことではないのだ。"}
 , 
-[92100195] = {id = 92100195, name = "\n目撃者からの報告\n\n◆ふふ。ブリジットったら、すぐ変なものを買ってしまうんです。でも、ブリジットは信じやすいところが悪いところでもあり、良いところでもありますから。たとえその武具の効果が嘘だとしても、それを信じたブリジットはちゃんと強くなるんです。痛いの痛いの飛んでいけ、と言っただけでも、「本当に痛くなくなった、メイはそんな力を持っていたのか」なんて驚かれてしまいましたから。ふふ…本当に愉快な友人を持てて、わたくしは幸せ者です。（メイ）\n\n◆おやおや…ブリジットさんは相変わらず常識を知らないようですね。しかたありません、ここはヌエットさんが一肌脱いで、あげるとしましょう。人に騙されないためには、まずこちらが騙す側になればいいんですよ！　弱肉強食、（ヌエット）\n\n◆ブリジットはたまに壊れた武具を持ち込んでくるよ。けど…どれもこれも、よく集めたなって言いたくなるぐらい、粗悪なものばかりで…。なんとか説き伏せて、うちの店のものを着るようになったんだけど、「こりゃいいな！　今までの伝説的な武具より何より強いぞ！　ユーナは伝説越えだな！」なんて軽く笑って…でも、変な商人には今でもやっぱり引っかかってる見たいだけな。やれやれ。（ユーナ）"}
+[92100195] = {id = 92100195, name = "\n目撃者からの報告\n\n◆ふふ。ブリジットったら、すぐ変なものを買ってしまうんです。でも、ブリジットは信じやすいところが悪いところでもあり、良いところでもありますから。たとえその武具の効果が嘘だとしても、それを信じたブリジットはちゃんと強くなるんです。痛いの痛いの飛んでいけ、と言っただけでも、「本当に痛くなくなった、メイはそんな力を持っていたのか」なんて驚かれてしまいましたから。ふふ…本当に愉快な友人を持てて、わたくしは幸せ者です。（メイ）\n\n◆おやおや…ブリジットさんは相変わらず常識を知らないようですね。しかたありません、ここはヌエットさんが一肌脱いで、あげるとしましょう。人に騙されないためには、まずこちらが騙す側になればいいんですよ！　弱肉強食。（ヌエット）\n\n◆ブリジットはたまに壊れた武具を持ち込んでくるよ。けど…どれもこれも、よく集めたなって言いたくなるぐらい、粗悪なものばかりで…。なんとか説き伏せて、うちの店のものを着るようになったんだけど、「こりゃいいな！　今までの伝説的な武具より何より強いぞ！　ユーナは伝説越えだな！」なんて軽く笑って…でも、変な商人には今でもやっぱり引っかかってるみたいだけどな。やれやれ。（ユーナ）"}
 , 
 [92100201] = {id = 92100201, name = "\nソマリは尻尾が太く、まるで王者のような風格をした猫である。\n\nあるとき、純粋なアビシニアンから突然生まれた長毛の猫のため、アビシニアンとよく似ている。しかしアビシニアンよりも独占欲は弱い。\n\n聡明かつ穏やかで、まるで人の心を理解しているように見える。適度に活発で、生命力が強く、感情が豊かで、主人の関心を強く求める。"}
 , 
@@ -5231,7 +6033,7 @@ BaseWordData = {
 , 
 [92100223] = {id = 92100223, name = "\n目撃者からの報告\n\n◆なぜなのかわかりませんが、ショウ様を見ていると、とても奇妙な感覚を覚えるんです。どこか、お父様やお母様の前に立った時のような…いったいなぜなのでしょう？（メイ）\n\n◆あれは、私が隣町まで買い物に行った時だったかしらね。街道の脇の林の中で、女の子がひとり倒れているのを見つけたの。最初、近くの町の孤児かと思ったんだけど、なんだか変わった、高そうな服を着てるからこれは行き倒れた旅人かしらと思い直してね。とにかくお腹を空かしてるようだったから、持っていた食べ物と水を渡してあげたわ。そうしたらその子、ろくにお礼も言わずに食べ物だけ取って、逃げ去ってしまったの。\nその時は、まあなんて恩知らずな娘なんだろう、って思ったんだけどね…それから何日かあと、私、街道でモンスターに襲われてね。そこでもうダメだーって思った時、あの林で会った娘が現れたの。それから、見たこともない武器であっという間にモンスターをやっつけると、何も言わずにその場を静かに去っていったのよ。（農婦）\n◆あ、あのですね…実は、時々私が掘った穴の中で、寝ているショウさんが見つけることがあるんです。いったい、どうやって私のトンネルを見つけてるんでしょう？　ええと、お昼寝のために掘った場所でもなくて…はうぅ。（フィナ）"}
 , 
-[92100224] = {id = 92100224, name = "\nショウはプライド加入後しばらくして、秘められた彼女の背景とレッドの能力が判明する日がやってきた。\nすべてはシルヴィの野次馬根性――ではなく、仲間のことをちゃんと知りたいという切なる想い（本人談）の成果だった。\nまずシルヴィは、ショウの服装と外見でショウはエデン大陸の外の出身だと推測、そこから調査を広げ、自分なりに結論を出すと、ついにショウにその真偽を問い詰めた。\nそうしてシルヴィの調査結果を見たショウは――「おおー、よく調べたでござるな」といった、思いの他あっさりと自分の正体を明かしてみせたのだった。\n\nショウは、古代のはるか東方の生息していた「シロクチアオハブ」というレッドだった。\nしかし何より、プライドの仲間たちを驚かせたのは、その能力ではなく、ショウの秘められた出自であった。彼女は、その出身である東方の国の王位後継者――すなわち、王女だったのである。\n\nシルヴィが調べ、のちに本人に確認をとったところによると、事情は以下のような内容だった。\n\n東方の国の王室に生まれたショウはある時、レッドとして覚醒した。\n両親はそれを容認したのだが、かつてレッドの起こした戦争を知っていた太后――つまり、彼女の祖母はそんな孫娘を認めることができなかったという。\nそして両親と祖母はショウの待遇を問題にして、対立するようになってしまった。その争いを間近で見ることになってしまったショウは、ある日決心を旨に、ひとり祖母の前に現れる。\n\n「……拙者たちには、少し時間が必要なのかもしれないでござるな」\n\nその言葉を最後にショウは故郷を飛び出し、そしてエデン大陸に渡ったのだった。\n\nショウは自分の家族から離れ、旅をすることで人生の新しい意味を探していた。\nその途中、出会ったのがリーダーの率いるプライドだった。レッドと人間が共存するこの組織の中でならば、あるいは探す答えが見つかるかもしれない――そう、ショウは思ったのだ。"}
+[92100224] = {id = 92100224, name = "\nショウはプライド加入後しばらくして、秘められた彼女の背景とレッドの能力が判明する日がやってきた。\nすべてはシルヴィの野次馬根性――ではなく、仲間のことをちゃんと知りたいという切なる想い（本人談）の成果だった。\nまずシルヴィは、ショウの服装と外見でショウはエデン大陸の外の出身だと推測、そこから調査を広げ、自分なりに結論を出すと、ついにショウにその真偽を問い詰めた。\nそうしてシルヴィの調査結果を見たショウは――「おおー、よく調べたでござるな」といった、思いの他あっさりと自分の正体を明かしてみせたのだった。\n\nショウは、古代のはるか東方に生息していた「シロクチアオハブ」というレッドだった。\nしかし何より、プライドの仲間たちを驚かせたのは、その能力ではなく、ショウの秘められた出自であった。彼女は、その出身である東方の国の王位後継者――すなわち、王女だったのである。\n\nシルヴィが調べ、のちに本人に確認をとったところによると、事情は以下のような内容だった。\n\n東方の国の王室に生まれたショウはある時、レッドとして覚醒した。\n両親はそれを容認したのだが、かつてレッドの起こした戦争を知っていた太后――つまり、彼女の祖母はそんな孫娘を認めることができなかったという。\nそして両親と祖母はショウの待遇を問題にして、対立するようになってしまった。その争いを間近で見ることになってしまったショウは、ある日決心を旨に、ひとり祖母の前に現れる。\n\n「……拙者たちには、少し時間が必要なのかもしれないでござるな」\n\nその言葉を最後にショウは故郷を飛び出し、そしてエデン大陸に渡ったのだった。\n\nショウは自分の家族から離れ、旅をすることで人生の新しい意味を探していた。\nその途中、出会ったのがリーダーの率いるプライドだった。レッドと人間が共存するこの組織の中でならば、あるいは探す答えが見つかるかもしれない――そう、ショウは思ったのだ。"}
 , 
 [92100225] = {id = 92100225, name = "\n目撃者からの報告\n\n◆ショウの服装や傘、それに何よりあの刀に使われてる素材…あれは東方しかないもので、ここでは手には入らない。だからきっとショウは東方出身だ。…ああ、間違いない。（フランチェスカ）\n\n◆じ、実は王女ってどういうことですか！　そんな話ありですか！　生まれた瞬間から目立てて、うらやましすぎます！　…い、いえ、王女様は王女様で大変なことがいろいろあるとは思いますが…。うう…でもやっぱりうらやましい…。私もリーダーさんみたいに転生とか別の世界に行くとかできるなら、メイさんやショウさんみたいなお姫様になりたいです…。もううらやましすぎて死にそう――はっ！？　いっそ死ねば生まれ変われるのでは…！？（ソフィア）\n\n◆ショウのあの武器、いつかちゃんと調べてみたいんだよな。――ああ、そうさ。認めたくはないけどよ…正直、あの一振りは今のあたしには打てる気がしねえ。あれを打ったのは、きっととんでもねえ鍛冶師さ。…まったく、東方の国ってのはどうなってるんだろうな。（ユーナ）"}
 , 
@@ -5409,7 +6211,7 @@ BaseWordData = {
 , 
 [92100402] = {id = 92100402, name = "\nイヴリンは背が小さく、とても痩せている。性格は非常に憶病で、喋る声はいつも小さく、すぐに緊張してしまう。\n予想外が起きればすぐにしどろもどろになり、泣きそうになることも。その姿はまるで、まるでか弱い小動物のようだ。\n\nそして彼女はけなげだった。役に立とうといつも自ら雑用を申し出た。だが、上手くいったことはあまりない。彼女は不器用だったため、皿を割り、トイレを詰まらせ、水をぶちまけた。そして周囲に何度も涙ながらに頭を下げた。\n\nプライドの仲間はイヴリンが頑張って役に立とうとしていることを知っているため、優しく許してくれるのだが、イヴリンはむしろ恐縮するように身を縮めるばかりだった。彼女が自信を持てる日はいつになるだろうか。"}
 , 
-[92100403] = {id = 92100403, name = "\n目撃者からの報告\n\n◆イヴリンちゃんはとってもがんばり屋さんなんだ！　いつも「お仕事しなくちゃ」って言っててね。…でも、たまにはイヴリンちゃんと遊びたいなぁ。（ノンノ）\n\n◆イヴリンちゃんはひどいことしてきた人が本当に許せないよ！　こんなにかわいい子、幸せにしてあげなくちゃ罰があたるんだから！（コゼット）\n\n◆私の使命は、彼女のような悲劇を二度と起こさせないことだ。（グローリア）"}
+[92100403] = {id = 92100403, name = "\n目撃者からの報告\n\n◆イヴリンちゃんはとってもがんばり屋さんなんだ！　いつも「お仕事しなくちゃ」って言っててね。…でも、たまにはイヴリンちゃんと遊びたいなぁ。（ノンノ）\n\n◆イヴリンちゃんにひどいことしてきた人が本当に許せないよ！　こんなにかわいい子、幸せにしてあげなくちゃ罰があたるんだから！（コゼット）\n\n◆私の使命は、彼女のような悲劇を二度と起こさせないことだ。（グローリア）"}
 , 
 [92100404] = {id = 92100404, name = "\nイヴリンの一番古い記憶は、周囲が輪を作って笑っているが、自分だけその輪からはみ出ている…というものだった。\n結局それは大きくなっても同じで、どうしてもその輪に入れないらしかった。彼女の生まれた貧民街では誰もが生きるだけで必死だろうから、イヴリンを気に掛ける余裕がなかったことはたしかだろう。\n\nしかし、イヴリンはそれを自分のせいだと思ってしまった。自分がいても場の楽しそうな雰囲気を壊し、そのせいでみんなに嫌われてしまうだろうと思い込んだ。だからせめて、周囲の言うことを聞き、自分にできることで役に立とうとしては、上手くいかなかった。\n\nそれでもイヴリンは、誰かの手を借りれずには生きていけなかった。レッドに目覚めたときも動揺し、誰かに助けてもらおうとして気づけばキャストレッドの組織に入っていた。\n\n組織の様々な雑用を任され、いつも出来損ないだと叱られた。ただイヴリンが出来損ないだったからこそ、誰かにひどいことはするような命令はされずにすんだ。\n\n組織に入ったことは後悔しているが、おかげで今ここにいれるのは嬉しいとイヴリンは言う。プライドの仲間たちと出会い、初めて輪の中には入れ、家族のような温かさや優しさを知れたのだと。\nプライドに入れて欲しいと勇気を出して言ったことは、自分でほとんど決めたことがない人生で、何よりも正しい選択だったとイヴリンは断言する。\n\nイヴリンは近頃、よく一人で高い山に登る。誰もいない崖では、彼女は誰かに好かれるために頑張らなくていい。ただ山下の景色を眺めればいいその時間は、イヴリンが何の緊張もしなくてよかった。\n\nプライドの仲間たちと一緒にいられるときも、ひとりでいられるときも、イヴリンは心から幸せだと感じる。"}
 , 
@@ -5535,6 +6337,126 @@ BaseWordData = {
 , 
 [92100525] = {id = 92100525, name = "\n目撃者からの報告\n\n◆大人たちは、パロネスには困ったものだ、早く大人になってイタズラをやめてほしい、って言ってるけど、あれは本心じゃないと思うね。だってさ、もし本当にパロネスがイタズラやめちゃったら毎日がどうなるか、想像してみなよ。こんなに退屈なことはないと思うんだ。（孤児院の少年）\n\n◆パロネスでしょ？　うん、あの子はなかなか見所あるよねー。ずばり！　イタズラの極意とは、相手を本気で怒らせない、そのギリギリのラインを攻めるところにあるのだよ。あの子は、なんというかその微妙な線をちゃんと心得てる感じ。だから、なんだかんだでみんなに嫌われないんだろうね。……え、そういうお前はどうなんだって？　…あはは～、今はわたしのことはどうでもよくない、ね？（エイプリル）\n\n◆どうやら、パロネスが貴君に迷惑をかけたようだな。申し訳なかった。彼女には私から厳しく言っておくから、どうかここは丸く収めてやってほしい。…それと、これは勝手な頼みだが、あまりパロネスのことを疎まないでいてくれると助かる。あの子はまだ幼い頃に両親を失った関係で、自分の気持ちを正しい術で伝える方法を知らないだけなんだ。いつかパロネスがその術を身につけたなら…貴君にも、あの子の本心を理解してもらえると思う。（グローリア）"}
 , 
+[92100531] = {id = 92100531, name = "ラグドールは猫の中でも長毛で、かなり大型の種類だ。\nしかし、体格に反して性格は非常に穏やかで優しく、その名前にはぬいぐるみの人形という意味が込められているほど。\n\nまた、おとなしくて我慢強く、粗相をすることもあまりない。猫同士だけでなく、他の動物にとっても良き友となれる存在である。"}
+, 
+[92100532] = {id = 92100532, name = "\n彼女が歩くだけで人々は目を奪われ、貴族か、あるいは王族だろうと勝手に信じ込んだ。\n\nそれだけシェリーの物腰も立ち居振る舞いも、高貴であり完璧だった。\n\nプライドに入ってからもそれは変わらず、どんなクエストでも冒険でも彼女は決して隙を見せることはなくこなして見せた。\n\n\nだが、彼女は他のメンバー達と異なり、戦うことに慣れすぎている節があった。\n\nあるクエスト中、他国にて見知らぬ市民達に道を阻まれたことがあった。彼らはレッドを処刑すべきだと言ってはばからず、こちらの話を一切聞く様子もなかった。\n\n「レッドの血は汚れている」。ひとりがそう言った瞬間、シェリーは細剣を抜いて、相手の首に突き付けた。シェリーが逆上したのか、と周囲は驚いた。\nだがシェリーはいつもの完璧な微笑みを崩してはいなかった。そして、穏やかにこう言った。\n\n「どうか、この道を通してください。私の願いは、それだけです」。ごく丁寧に、相手の命を人質に取ったのだ。\n\nその穏やかな声色と釣り合わない状況に市民達は恐怖し、黙って道を開けた。\n「ありがとうございます、とても助かります」。\nシェリーはそう言って、細剣をしまった。そしてまた、何事もなかったかのように歩き出すのだ。そんなときも彼女もやはり、人々の目を奪うのだった。\n\n\nシェリーはそもそも貴族だったらしい。だが、その地位はとうの昔に捨てたという。\n\n曰く、旧習にとらわれた両親は娘がレッドとなったことを大いに恥じ、シェリーを監禁しようと試みたのだ。だからシェリーは、レッドの力を使わざるを得なかった。\n\n両親の手を逃れ、ひとりで生きることにした彼女だったが、取り巻く環境はさほど変わらなかった。人々からの差別、迫害…あるいはその見目麗しさから、さらわれかけたこともあったという。\n\n\n「レッドの力が私を追い詰め、レッドの力が私を助けるたびに考えるの。この力は罪なのか、罰なのか、それとも救いなのか――」。\n\nそんな風に呟くシェリーは何かを思い出すように、どこか遠くを見ていた。"}
+, 
+[92100533] = {id = 92100533, name = "\n目撃者からの報告\n\n◆彼女のことなら、もちろん調べましたよ！　シェリーみたいにミステリアスな美人なんて、誰だって気になるでしょう？　これはきっと良い特集記事ができるはず…とこっそり密着取材もしたのですが…いろいろあって、記事の執筆と掲載は中止になりました。その事情については…お、お伝え出来ません！　――はぁ。一瞬で密着がバレた後のことは…うう、思い出したくもない。（シルヴィ）\n\n◆その…この前、お掃除のお水を運んでいたら、うっかり転んで、シェリーさんの服にこぼしちゃって…。もちろん謝ったんですけど、シェリーさんは全然怒らなくて…むしろ私のことを心配してくれて…。そのとき、すごくいい匂いもして…。あの、何を食べたら、シェリーさんみたいになれるんでしょうか…？（イヴリン）\n\n◆城のパーティに来てた貴族より、貴族らしいやつだよな。けど時々、あいつの目からは獲物を狙ってるみたいな鋭さを感じるんだ。あれは絶対、強―い奴の目だぜ。機会があったら戦ってみてーなぁ！（ブリジット）"}
+, 
+[92100534] = {id = 92100534, name = "\nシェリーはレッドの力を使って戦い続けた。だが、ひとりだった。\n\nそのため、ある日多勢に無勢とばかりに、とうとう反レッドの集団に殺されかけてしまう。だがそこへ、レッドの楽園を作ろうとしていた■■■が現れたのだ。\n\nシェリーは■■■に保護され、その庇護下で暮らすことになるが、度重なる迫害で人そのものを信じられず、当初周囲と打ち解けることは全くなかった。\n\nしかし、■■■に従うレッドたちは、かつて自分が■■■や仲間たちからそうされたように、シェリーにも辛抱強く手を差し出し続けた。\nさらには手のかかる子供として■■■からも目をかけられた。そのときシェリーは、レッドとなってから――あるいはそれ以前も――知ることのなかった、他者という存在の温かさに触れたのだ。\n\n同胞であるレッドたちの温もりを感じる中、彼女がそれを大切に思うまでに、それほど時間はかからなかった。同胞たちを疎む、卑小なアンレッドを排除したいと願うようになるのも……。\n\nその願いを叶えるべく、最も効率的にアンレッドと戦う方法を考えた時――シェリーはためらうことなく、■■■のため、レッドのために働く暗殺者となったのだ。\n\n\n仲間たちの温もりを受け入れ、■■■や組織を守ろうと考えてはいても、シェリーが目に見えて誰かと打ち解けることはなかった。\n話しかければきちんと反応はするし、年下の子供たちの面倒を見ることもあったが、それでも彼女は一定以上他人に踏み込むことをしなかった。\n\nしかし仲間たちが集まる時は、彼女は必ずその場にいた。決して集まりの中心に来ることはなかったものの、彼女が集まりの隅で仲間たちを見守っている光景は、村での日常だった。\nただ時々、そんなシェリーに■■■がちょっかいをかければ、彼女は普段よりも少しだけあどけない表情で怒ることもあったという。\n\nプライドでも彼女がそうした姿を見せてくれるよう、努力しなければならないだろう。"}
+, 
+[92100535] = {id = 92100535, name = "\n目撃者からの報告2\n\n◆美人だし、かっこいいし、仕事できるし…シェリーはすごいんだよ！　でもあたしが「いつかシェリーみたいになりたい」って言ったら、シェリーは「私みたいになってはダメよ」って言うんだ。なんでだろ？（組織の村の少女）\n\n◆シェリーはね、優しいの。フラワーや他の人たちが困ってると、絶対に助けてくれるんだー。でも、シェリーはいつも大変そうで、すごく疲れてるみたいだから…フラワーね、「よしよし」ってしてあげるの。いつもは、「やめて」って言われちゃうんだけど…たまに黙ってね。そのままいるときがあるの。だから、もっと「よしよし」してあげるんだ。ふふ。（フラワー）\n\n◆あの子はかわいい子や。自分から距離取ってるくせに、でも遠くからこっちをじいっと見てな……。それでウチがちょっかいかけると、いつもええ反応を返してくれてなぁ。あんたもあの子と仲良くなりたいんなら、自分から近づいてみるとええかもな。（■■■）"}
+, 
+[92100541] = {id = 92100541, name = "\nキングコブラの生活圏はかなり広く、地上はもちろん、樹上や水上、水中でも活動する。泳ぎが得意なのは、他のヘビを好んで捕食する、独自の生態が関係しているようだ。\n\n危険で凶暴なイメージの強いキングコブラだが、攻撃の前には鎌首を持ち上げ威嚇を行い、そこで離れた相手にはむやみに攻撃しない、慈悲深い面も持っている。\n\nまた、産卵のために巣を作り、とぐろを巻いて卵を守るのは、ヘビ類の中でキングコブラのみが持つ特性である。\n\nただし、この時期に巣に近づく者に対しては、激しく威嚇し、容赦なく攻撃する。敵対すれば非情で恐ろしいキングコブラだが、味方にとっては頼もしい存在と言えるだろう。"}
+, 
+[92100542] = {id = 92100542, name = "\nこの日の海は、彼女のためにあるのではないか。そう思えるほど、海を訪れたイザベラは終始、人々の目を引いていた。\n突然、人気のなかった海辺に水着を着た謎の美女が現れれば、それもそうなるだろう。彼女につられた男達は、あっという間に群がった。\n\n\nだが当然、彼女達の中身が変わったわけではない。イザベラは言い寄る男達の言葉をどうでもよさそうに聞き、それでもあきらめない男は遠慮なくなぎ倒した。\n男達が逃げていくと、イザベラは代わりとばかりに砂浜に現れたモンスター達を狙い始めた。彼女の姿はとても眩しく、心から状況を楽しんでいるように見えた。\n表情だけ見れば、海と夏を楽しむ女性だった。いや…決して間違いではないのだが。\n\n\n男もモンスターもいなくなったイザベラが持て余していると、エイプリル達がボール遊びを持ち掛けた。\n「ボールを落としたら負けだよ」と、いわゆるビーチバレーのようなものだった。イザベラがそんな遊びを珍しく了承したかと思ったが…やはり、イザベラはイザベラだった。\n\n隙のない構え、身も凍るような威圧感。そして圧倒的な瞬発力でイザベラはボールを手にすると、時に激しく、時にしなやかな動きで打ち返す。だが、さすがの他のメンバー達も見事に対応していく。\n\n気付けばウィチタとフィナが組み、イザベラとノンノが組んでコンビ対決になっていた。\n\n戦いは徐々に過熱していき、しばらくみんな熱中して続いていたのだが――ふと、イザベラが手を止めてボールを落とした。他のメンバー達が首を傾げると、イザベラは微笑んだ。\n「このまま遊んでいたら、殺したいほど戦いたくなっちゃう。だからここまで。また遊びましょう」。\n拍子抜けしたメンバー達だが、その後立ち去ったイザベラの足跡のように、モンスター達が点々と倒れているのを見て、彼女の本気を知るのだった。"}
+, 
+[92100543] = {id = 92100543, name = "\n目撃者からの報告\n\n◆軽い気持ちで声をかけたのに、まさかこんなことになるなんて…。たしかに、危険な香りのする美女だとは思っていたけど、襲い掛かられたときは心臓が止まるかと思ったよ。でも、戦うときの彼女はさらに美人に見えて…つい「殺されてもいい…」とも思えたね。いやー、また見かけたらついつい声をかけちゃうだろうなぁ。（ナンパ男）\n\n◆イザベラがスイカ割りを楽しんでくれるおかげで、イザベラ目当ての男性客がみーんなスイカを買っていって、おかげで商売大繁盛です！　ただ、みんな気付かないですかね？　スイカを見つめるイザベラの目が、完全に獲物を見つめる目をしてるのを…。真っ赤に濡れる、瑞々しいスイカから、イザベラが何を連想しているのか…まぁ、リッタは売れれば何でもいいですが。（リッタ）\n\n◆はぁ…はぁ…。今回は俺様とフィナの負け…いや、引き分けだったな、実質！　一対一なら間違いなく俺様が勝ってたんだが、誤算だったのはノンノだな。イザベラとノンノと協力して戦うなんて思ってもいなかったしな…いやしかしそもそも、最初はチーム対決だとかじゃなかったはずなんだが…いつの間にああなったんだ？　まぁ、細かいことはよしとするか。（ウィチタ）"}
+, 
+[92100544] = {id = 92100544, name = "\n\n夜を迎えてもなお暑さが残る浜辺で、海の家だけがにぎやかだった。毎晩のように、プライドのメンバー達が集まって打ち上げのようなことをしていた。\n食事をする者もいれば、酒を飲む者もいて…にぎやかにしている中で、イザベラだけはそこから離れて、ひとり海を眺めていた。\n\nいつになく大人しいイザベラを気にした誰かが声をかけるが、「あくまでモンスターが出てこないかと待っていただけだ」とイザベラは言い切るばかりだ。\nいつものイザベラだと安堵し、人は離れる。それからイザベラはまたひとりで、波の音を聞いている。\n\nイザベラは静寂が好きだという。ずっと昔から何度も味わって来た、相手が地に伏し、戦いが終わった後と同じだからだ。\n自分の血の流れと胸の鼓動が大きく聞こえ、他では味わえない快感に満ちたあのときは、何物にも代えがたいのだと。だから現実でも、たとえ夢でも戦い続けてきたはずが――昨日は、夢を見なかったらしい。\n\n「何が原因で変わったのかしら。やっぱり…リーダー、あなたのせい？」と、ふいにイザベラはこちらの首をつかむ。だが、すぐに手離す。\n「こんなこと、意味がないってわかってるわ。ちっとも…興奮しないから」。\n\nそこへ海の家からメンバー達がぞろぞろと現れる。どうやら流星群が見られる日だったらしい。多くの星が流れる中、メンバー達はそれぞれ願い事をしていく。そこでノンノが明るくイザベラに何をお願い事するのか問う。\n\nもちろんイザベラは決して星に願いをかけたりしない。\n「死んでもいいぐらい、最高の戦いをするために必要なのは…自分と最強の敵だけだもの」。\nじゃあイザベラさんの代わりに史上最強の敵が現れるように祈っておくねと軽く言うエイプリルを、フランチェスカが本の角で殴りつけたのだが、イザベラは小さく微笑んでいたような気がするのだった。"}
+, 
+[92100545] = {id = 92100545, name = "\n目撃者からの報告\n\n◆ふ、普段は…すごく、怖いけど…たまにすごく…優しく見えるときがある…。あ、えっと…！　わ、悪口、とかじゃなくて…！　あ、あんまり…たくさんの人と仲良くするとか…しないけど…でも、周りを見てないわけじゃ、なくて…。その…むしろ、すごくよく、人を見てて…。わ、わかりやすく人を、助けるわけじゃないけど…導いてくれる感じ、っていうか…。…よ、よくわかんないこと言って、ごめんなさい…。で、でも…表面だけじゃ、わからないところが多い、人なんだと思う…。（コンチータ）\n\n◆リーダーとイザベラが夜の海でふたりで話しているから何かと思ったけど、一瞬、首を絞められてたような…い、いえ、気のせいよね。さすがのイザベラもそんなことをするわけないわよね。でも…リーダー達の関係は特殊だから、私が口を出すようなことじゃないと思っているけど、心配でイザベラに何をしていたのか聞いたの。そしたら頬を撫でられて「大人の話よ」って言われて…ううっ…可愛いもの好きの私のはずが、美人に釣られそうになるなんて…！！（オリヴィア）"}
+, 
+[92100551] = {id = 92100551, name = "\n鶏は高いコミュニケーション能力を持っており、その能力は霊長類と同等ともされる。\n\n白色レグホンも例外ではない。仲間の危機には感情移入し、子供の窮地には急いで駆けつけ、自分より体の大きな捕食者を撃退することもある。\n\n母親は子供を愛し、子供は常に母について回り、すべての生き方を学ぶ。\n\nちなみに、水遊びより砂遊びを好み、天気がいい日には穴を掘ってそこに埋まる。"}
+, 
+[92100552] = {id = 92100552, name = "\n水着に着替え終わったノンノは、すぐさま「か、可愛いすぎるっ…」「見せて見せて～」と、他のメンバー達に取り囲まれた。\nノンノはアイドルのように笑顔で答え、その場でくるりと回ってみせた。ノンノも水着をかなり気に入ったらしい。\n\n「お父さんお母さんにも見せたいな～」と言うノンノに、水着で入れる温泉を見たことがあると伝えると、ノンノ以上にリッタやシャノンの興味を引いたようだ。\n良い商売になりそうだと頭の中で計算を始めたふたりの隣で、ノンノが「リーダーやみんなも水着を着て、温泉で泳げたら楽しそう」と無邪気に言った。\n\n\nノンノは海の家の手伝いをするときにも、素晴らしい働きを見せた。実家の温泉宿での経験を活かし、調理に集客、片づけにゴミ拾い…いずれも手慣れた様子で働き続けた。\n\nそして閑散としていた海の家がにぎやかになっていく様子を見ると、ノンノは機嫌良くなりさらに働いた。\nノンノが働けば働くほどまた客の数は増えていき、そうして増えた客の分だけ、ノンノは笑顔を振りまき続けた。\n\nそれほど働いて大丈夫か、無理をしていないかと声をかけると、ノンノはやはり笑顔で応えた。\n「みんなが楽しそうにしてて嬉しいから、大丈夫だよ！　リーダーこそ疲れてない？　大丈夫？　ノンノにぜーんぶ任せてね！」"}
+, 
+[92100553] = {id = 92100553, name = "\n目撃者からの報告\n\n◆ここに店があったことさえ知らなかったけど、来て驚いたよ。可愛い女の子達がたくさんいて、しかもこんなに涼しい服を着てる子もいて…！　ノンノちゃんだっけ、彼女なんか本当に目を惹かれるね。この暑い中であんなに明るく、懸命に接客してくれて…こっちまで元気になっちゃうよ。でも彼女達みんな、あくまで臨時だって？　もったいないなあ。ノンノちゃん達がいつもいてくれるなら、冬の海にだって来るんだけどね。（海の家の客）\n\n◆さすがノンノ…という感じね。迷子になっていた子を見つけて、お母様と合流できるまで、面倒を見ていたの。海の家に来たお客さんひとりひとりに、「子供を探しているお母さんがいたら、この海の家まで来るように言って欲しい」って伝えたんだとか。おかげでお母様もすぐに海の家に来て再会できてたわ。しっかりしすぎて、ちょっと心配なぐらいよ。…ああ、でも本当に、水着のノンノはまさに天使よね…！（オリヴィア）\n\n◆ふっふっふ、今回のことで確信したです！　雑務も気配りも申し分なし…ノンノはやはり接客の天才です！　ああ、海の家だけじゃなくてうちの店でも勤めてくれたら、どれだけ儲か――じゃなくて、どれだけ助かることか。うちの店という体ではなく、プライドの店という体にすればあるいは…？　リーダー、後で作戦会議をするですよ！（リッタ）"}
+, 
+[92100554] = {id = 92100554, name = "\nノンノが海の家で働きはじめてから、休む間もなく目まぐるしく働き続けていたが、お昼時にはもちろん休憩した。\n\nせっかく水着で海にいるんだから、少しは泳いでくるといいです。そんな風にリッタに勧められて海の家を離れていったノンノだったが、海岸にも海の中にも、彼女の姿は見当たらなかった。\nどこに行ったのか探していると、「リーダー、リーダー！」と足元から声が聞こえてきた。\n\n見れば、ノンノは砂の中からその顔だけを覗かせていた。\n\n誰かの悪戯で埋められたのかと思い、慌てて砂を掘り起こしていくと、ノンノは「くすぐったいよ～」と無邪気に笑うだけ。\n白色レグホンのレッドに目覚めたこともあり、ノンノは泳ぎが少し苦手なのだとか。その分、砂遊びは得意らしく、砂浜の中にも器用に自分の力で埋まったらしい。\n\n「砂の中って、涼しくてとっても気持ちいいんだよ」と笑うノンノの周りに、気づけば他のメンバー達も集まってきて、砂浜で一緒に遊ぶことになった。\n\nそうしてみんなで大きな砂の城を作ろうとしていると、ノンノの視線が海へと注がれていることに気が付く。どうやら水が苦手なだけで、海に興味がないわけではないらしい。\n\nみんなに誘われ、波打ち際に立ったノンノは、恐る恐る海水に足をつけようとする。ノンノが意を決したその時、波のほうからノンノの足元を迎えに来て、その冷たさに驚いたノンノは尻もちをついて笑った。\n\nそのままみんなで、海辺で水をかけあって遊んでいると、海の家から悲鳴が響く。余裕の表情でノンノを送り出したリッタだったが、ひとりでは客をさばき切れないらしい。\n\n「ノンノ、手伝ってくるね！」と言うが早いが、羽ばたくように両手を広げて走り出す。海で遊ぶのも店で働くのも、ノンノは同じくらい楽しいのだろう。"}
+, 
+[92100555] = {id = 92100555, name = "\n目撃者からの報告\n\n◆夏は涼しく冬は暖かいもの…それは穴。どんなときでも主を優しく迎えてくれる、快適で住みやすい最高の都…それが穴！　どうやらノンノさんにも、穴掘りの魅力がわかっていただけるようですっ…。彼女と隣り合って穴に埋まり、穴掘りについて語り合った時間は、私にとって至福の時間でした。温泉には砂風呂なんてものもあるらしいですから、今度ぜひ行ってみたいですね～。ただ、温泉も勧められたんですがそっちはちょっと…。昔、穴を掘ってたら温泉が出てきて、とんでもないことになっちゃったんですよね…。（フィナ）\n\n◆ノンノはどんな料理も美味しそうに食べてくれるから、作りがいがあるというものだね。昨日も店に出すわけでもない食事をついつい作りすぎてしまったよ。「ミエルさんとシエラさんの手は、神様みたいにすごい手だね！」なんて言われて…ううっ。リーダー、どうかノンノを肥えさせる前に、喜びのあまり料理を作り続けてしまう手を止めてくれ。自分じゃ止められそうにないんだ…！（ミエル）\n\n◆適材適所っていうのかしら。こうやって平和に過ごす時間は、私は苦手。その分、今日はお嬢ちゃんの独擅場だったわね。…まぁ、そのこと自体は別にいいんだけど、リーダーからも、私を巻き込むのはやめなさいって言ってくれないかしら？　私は一人で過ごしたいのに、いちいち声をかけに来て…。気を遣ってるつもりか知らないけど、不要だって言ってるのにまだ声をかけてくるんだもの。本当に…厄介な子だわ。（イザベラ）"}
+, 
+[92100561] = {id = 92100561, name = "\n和金は金魚の一種であり、すべての金魚のルーツとして知られている。美しい紅色の身体を持つことから観賞用として好まれており、とある地域では夏の風物詩といえば和金と言われるほど。\n鑑賞魚を取り扱う店だけではなく、金魚すくいでも入手可能であり、飼育環境次第で容易に飼うことができる。\n\n身体のサイズが近ければ別の魚とも共存できるものの、その一方で急激な水温変化に弱いという一面を持つ。１℃や２℃の差も彼らにとって、命を脅かす大きな変化となる。"}
+, 
+[92100562] = {id = 92100562, name = "\nツバキ以上に物忘れがひどい少女はいないだろう。\n\n彼女は何度話したことがあっても、「初めまして」とまるで初対面のように接する。\n\nたとえ素晴らしい功績を見せても、数秒後には「…私、何をしていたんでしたっけ？」と首を傾げてしまう。この忘れっぽい性質はレッドとしての能力ではなく、ただ単に彼女本来の気質である。\n\n\n彼女はレッドとして覚醒する前から、いくつもの国を渡り歩き、旅をしていた。\n\nその理由は当然不明。何故なら、彼女自身がその理由を忘れてしまっているためである。\n\n時には過激なレッドが目を光らせる治安の悪い街を訪れることもあったが…不思議と、今まで危険な目に合ったことはなかった。\n\nその穏やかさからは想像がつかない鋭い勘で脅威を事前に感知し、危険な場所を避けるのだ。\nもしも彼女が外出にいい顔をせず、部屋の中でじっとしていたがるなら、無理に外へ出ないほうがいい。数時間後には空が陰り、激しい雷雨がやってくるだろう。"}
+, 
+[92100563] = {id = 92100563, name = "\n目撃者からの報告\n\n◆記憶をすぐになくすのは仕方がない。だがアイツは…俺様と会うたびにお菓子を差し出して、「大丈夫、すぐにあなたのお母さんを見つけてあげますからね」となぜか迷子だと勘違いしてくるんだ！　ふんっ、お菓子だけは受け取ってやるがな…このウィチタ様をあまり舐めるなよ！（ウィチタ）\n\n◆ツバキちゃんはとってもいい子ですよ。書類の処理に追われているときも、いつも手伝ってくれるんです。しかも手際もいいし、勘もいいし…うちのクエスト受付所でも、あれだけ仕事ができる人はなかなかいませんよ。あ、でもたまに「これは何のお仕事でしたっけ…？」と途中で忘れちゃうことがあるので、教えてあげなくちゃですけどね。ふふ。（シャノン）\n\n◆ツバキなら、少し前に質屋の前で見かけたわ。店主さんが、ツバキの持っている扇に目をつけて、売ってくれないかって頼んでいたのよ。あの子ったら、自分が持つ物にどんな価値があるか分からないみたいで…あやうく売る寸前までいったの。けど、店主さんに扇を渡すところで、「あれ？　私、何をしてましたっけ？」って首を傾げてね。それでまた店主さんの説明に逆戻り。だんだん店主さんが可哀想になってきたから、助けに入ってあげたわ…。（オリヴィア）"}
+, 
+[92100564] = {id = 92100564, name = "\n呆れるほど忘れっぽい彼女にも、覚えていることがひとつある。\n\nそれは、両親を失った記憶である。\n\n\nヴァクヴァクで生まれた彼女は、小さな貿易商を営む両親とともに異国の人々と交流を行っていた。いろんな国の話を聞いていく中で、ツバキは各地を旅することに憧れを募らせていった。\n\nある日、ツバキは両親とともに大きな都市に出掛けた。この日はツバキの誕生日であった。両親は外に対して憧れを持つ娘に、村とは違う世界を見せてあげようと彼女を連れ立った。\n\nツバキにとって、何もかもが新鮮な場所で、大好きな両親と過ごす時間はとても幸せだった。\n\nだが、その夜。村に戻る馬車へ乗り込もうとしたところ――彼女は、両親とともに何者かに襲われてしまう。襲撃者は顔を隠していたものの、フードでは隠しきれない大きな耳を持っていた。\n\nツバキが次に目を覚ました時、そこは馬車の中だった。馬車の御者は、ツバキに対して「村についたよ」と話す。たしかに自分の住む村だった。しかし、自分の隣に両親はいない。\n\nツバキは御者に、父と母はどこに行ったのかと尋ねた。御者は「最初から君ひとりしかいなかったよ」と不思議そうに答えるだけだった。\nそんなはずはない――ツバキは父と母の特徴を説明し、再び尋ねようとした。だがその時、ツバキは父と母がどんな顔をしていたのか、どんな声をしていたのか、うまく思い出せなかった。\n途方に暮れた彼女は家に戻り、両親の帰りを待った。けれど、いつまで経っても両親が戻ってくることはなかった。\n\n両親は死んだのか、それとも単に記憶だけをレッドの異能力で奪われてしまったのか。\n\nあるいは襲われたショックで記憶を失ってしまったのか…彼女にはわからなかった。\n\n\n「両親に会いたいんです。会えなくてもいい、いないならいないと知りたいんです。だからその記憶を求めて、私は旅を始めたのですが――いないものをいないとわかる日が、果たして来るんでしょうか？」。"}
+, 
+[92100565] = {id = 92100565, name = "\n目撃者からの報告\n\n◆ツバキさんとヌエットちゃんとね、カードゲームしたんだ！　伏せたカードをめくって覚えて、同じ柄を揃えるの。それで、ヌエットちゃんは「ふふん、ツバキさん。参加したこと、後悔しないでくださいよ…！」って言ってたんだけど…ヌエットちゃんもノンノも、負けちゃったんだ！　ツバキさん、「運が良かったみたいです」って言ってたけど…十連続で同じ柄のカードめくれるなんて、すごいよねっ。ノンノも運良くなりたいなー！（ノンノ）\n\n◆ツバキさんは旅人だったというので、何かネタになりそうなことはなかったかと聞いたのですが、やはりあまり覚えていないらしく…。困らせてすみませんと立ち去ろうとしたら、急に手を握られたんですっ…。驚いていたら、「心細いとき、知らないおばあさんがこうして手を包んでくれたんです。そのあたたかさや安心感だけは…よく覚えているんです」って言ってくれて…。お、思わずドキドキしちゃいましたが…おかげで、良い原稿が書けそうですっ！　よーし、次は年の差ものですよ！（イルダ）\n\n◆ツバキの記憶喪失は、少し気になってるよ。たまに、どこかできすぎてるように感じて…ちょっと心配なんだ。彼女がああいう風でいるのには、何か理由があるわけだろう？　それを言えないでひとりで抱え込んでいるのは、つらくないかと思ってね…。いつか、誰かにはすべてを話せるといいね。（ドミニク）"}
+, 
+[92100571] = {id = 92100571, name = "\nイシダタミヤドカリは巻貝の貝殻にその赤い身体を収め、移動するときも背負ったまま生活する。\n全身には棘と剛毛が生えており、両手はハサミ状をしている。そのハサミは左手のほうが小さく、右手のほうが一回り大きい。\n\nまた、ホンヤドカリ科は自分の子供か否かを問わず、卵を持つメスをオスがハサミでつかみ、離れることなく生活する。その強引さはすべて、産卵後のメスと即座に交尾をするためである。"}
+, 
+[92100572] = {id = 92100572, name = "\nハーミットは感情表現豊かな子どもだ。\n\n時には笑い、時には涙し、舌足らずな言葉づかいで大人に甘えることもある。そんな純粋無垢で愛らしく、子どもらしい子どもは――いずれも、偽りの姿だった。\n\n「偽りの姿なんてとんでもない。これも本当のあたしが本気でやってる…立派な演技だよ♪」\n\n\nハーミットは幼くして舞台女優ルルリカの専属マネージャーである。\n\n彼女はルルリカが舞台に立つためなら、手段を選ばない。舞台の演出家や脚本家が気に入ったり目にかけてもらえるよう、いくらでもお世辞を言い、欲しがるものをプレゼントし、時にはありもしない話をでっちあげたりした。\n\nハーミット曰く安定して人気の作り話は、「戦争で両親を失ったハーミットとルルリカ。ふたりは孤児同士で助け合いながら暮らし、しかし夢を捨てずに生きてきた」というものらしい。\n\n「老若男女、やっぱりこういう話が好きなんだよねぇ」\n\n\nそれほどまでにハーミットが必死になってルルリカの仕事を探すのは、すべては自分の夢のため、豪邸のためだった。\n\nハーミットは自分が生まれた家のように、大きな家を手に入れたいと思っていた。\n\nその家はとてつもなく大きかったという。初めて見る者が王族が住まうところか何かかと勘違いするほどだった。\n数えきれないほどの部屋があり、どこにでも豪華な家具が並べられ、繊細な装飾は至るところに施されていた。\n窓からはいつだって明るい光が柔らかに差していた。そんな家を毎日、姉達と駆け回って、父と母に笑われた。\n\nほとんど赤ん坊だったハーミットは細かいことを覚えているわけじゃない。だが本当に、そんな家が好きだったとハーミットは言う。\n\n「…いつの日か、また必ず手に入れてみせるよ。あたしはあきらめたりしないから♪」"}
+, 
+[92100573] = {id = 92100573, name = "\n目撃者からの報告\n\n◆ハーミットか…。あの子は、ひどくかわいそうな子なんだよ。何せ赤ん坊の頃に両親に捨てられて、ひとりでなんとか生きてきたらしい。そんな中で、ルルリカに出会って救われて…今でも出会った日のことを覚えているよ。劇場の前に晴れだろうが雨だろうが立ち続けて、「ルルリカおねえちゃんはすごい女優なんだ！　だから、役をちょうだい！」なんて、涙で瞳を潤ませて、舌足らずにそう言って…どうにか力になってやりたいと思って、ルルリカを舞台に立たせたんだ。実際にルルリカの実力は間違いなかった。だから今となっては、彼女たちの事情は関係なしに出演を頼んでいるよ。（とある劇団団長）\n\n◆ハーミットったら、本当に我が家に押し掛けてくるんだから困ったものだわ。…まぁ、代わりにルルリカの秘蔵ブロマイドをもらったのだけど…それはさておき！　家の隅から隅まで眺められたわ。私のクローゼットの中まで…ブロマイドを人質に…くっ。まぁ、ハーミットも嬉しそうだったし…お互い得したってことで、いいとするわ…。（オリヴィア）\n\n◆ハーミットちゃんは、プライドで誰よりもお金にきっちりしている子ね～。お金の計算も早いし、正確だし、もしお仕事がなければうちのクエスト受付所で雇いたかったところだわ～。でも、お仕事がなくても断られちゃうかしら？　前も「勘違いしないで欲しいんだけど、あたしはあんたのお金大好き仲間じゃないよ。あたしが好きなのは金じゃなくて豪邸だから」なーんて言われちゃったし…。ううん、でも私は信じるわ。豪邸もお金があってこそ手に入れられるものだもの。やっぱりハーミットちゃんは、お金大好き仲間～♪（シャノン）"}
+, 
+[92100574] = {id = 92100574, name = "\nハーミットの家族は仲睦まじいものだったが、三女の姉がレッドになったことをきっかけに変わってしまった。受け入れられない父と三女の姉をかばう母は口喧嘩が絶えず、姉達も不安になって毎日泣き喚いた。\nそして三女の姉は責任を感じて、自ら命を絶とうとしたが…なんとか乳母に助けられた。\n\nそれから家族は「このままではいけない」と気付いた。そして三女の姉はこれまでと変わりないのだから喧嘩はやめよう、以前のように幸せに暮らそうと誓い合った。\n\n「めでたしめでたし…ってなったと思うでしょ？」\n\nひとりのメイドは、それを許さなかった。レッドは死ぬべきだとして、ハーミットの家に火をつけた。そして父と母と乳母、それからメイドが何人か死んだ。\n犯人のメイドはキャストレッドに村を焼かれ、故郷を失くしたために、住み込みで働き始めたばかりだった。そして彼女もまた、火の手から逃れられずに死んでしまった。\n\n「…ま、全部お姉ちゃん達から聞いた話で、あたしはよく覚えてないけどね。ちゃんと記憶に残ってるのは、焼け落ちた立派な豪邸だけ。あたたかい家族の物語の、悲惨な結末だけなんだから…」\n\n\nそれからハーミットは、姉達に連れられて新たな家に移り住んだ。\n\n姉達が苦労して手に入れた小さくて古い家は、これまでとまるで違った。わがままを言ってはいけない、と思って言わなかったが、毎晩のように昔の豪邸に住む夢を見た。\n両親も乳母も生きていて、姉達とあいかわらず駆け回って…けれど夢の最後は、いつも燃やされて終わってしまった。\n\n\nハーミットは六歳になって、家を出た。\n\n自分は子どもだが、頭の回転が速いことは自覚していた。なんとか金を稼いで、元の家のような、立派な豪邸を手に入れたいと考えていた。そうすればきっと人生はすべて上手くいくように思えたからだ。\n\nだが、子どもが金を稼げる方法にそう簡単にありつけるわけがない。ハーミットは蔑まれ、ろくな仕事に就けず、毎日一食でも食事が取れればいい方だった。\nしかしどこかに、きっと手がかりはあるはずだと、ハーミットは決してあきらめなかった。そのうちレッドになり、身体が丈夫になって、生き長らえやすくなった。\nならばそれを活かして、仕事でもするか――と考えていたところで、ハーミットはひとりのレッドと出会う。\n\n彼女は誰もいない海を望む崖で、ひとり泣いていた。「どうしてルリは、レッドになっちゃったんだろう」。その美しさと儚さに胸打たれると同時に、ハーミットにとある記憶がよみがえった。\n家族で行った、大きな劇場の舞台だ。まばゆい衣装や大道具に、舞台が終わってからも人々に囲まれる女優達を。\n\nそしてハーミットは飛び降りようとしたその少女の腕をつかんだ。それが自分の運命を変えることを、知ってか知らずか、迷うことなく――。\n\n「あんた、女優になりなよ。あたし、なんでもするからさ」。"}
+, 
+[92100575] = {id = 92100575, name = "\n目撃者からの報告\n\n◆モニカみたいに何考えるかわかんないけど…やたら懐いて来るのよね。てっきり、草を集める仲間が欲しいのかと思ってちょっと分けてあげたんだけど、断るし…。だから、どうしてあたしに近づくのって聞いたら、きょとんとして「お姉ちゃん思い出すからかな」って言って…。そしたら急にこっちも教会の子ども達みたいに見えて、つい頭を撫でちゃったわ。ハーミットは「ちょっと、子ども扱いしてんの？」なんて言ってたけど、嬉しそうだった。…まったく、時々は仕事のこととか忘れて、家に帰ったり遊んだりすればいいのにね。（アイリス）\n\n◆ルルリカは素晴らしい女優だけど…ハーミットも間違いなく、素晴らしい女優だと思うよ。ああ、舞台関係者へのアタックが素晴らしいと言うのもあるけどね。僕が観客として見た舞台で、子役が急に体調不良で出られなくなったとき、代わりにハーミットが舞台に上がったんだよ。ルルリカと台本の読み合わせをしていたからとは言え、あの演技は素晴らしかったな。指先にまで気を遣っていたし、ルルリカとの呼吸も抜群で…なんでもない場面のはずだが、舞台の中でもっとも良い場面になっていて…。ハーミットにまた舞台に立ってくれって頼んだけど、断られたよ。「あたしの演技には限界があるけど、ルルリカはまだまだ伸びるから。あたしよりルルリカに役をちょうだい♪」なんて返されてね。ふふ、何よりもハーミットこそ、ルルリカの演技にほれ込んでいるんだろうね。（ジュリアン）\n\n◆ハ、ハミィは…命の恩人です。死のうとしてたわたしを引き留めてくれたから、今のわたしがいるんです。ふふ…ハミィと出会ってからのこと、全部覚えていますよ。初めて舞台のオーディションを受けることになった日も、嬉しかったな…。「身綺麗にしないと、受かるものも受からない」って言われて、お風呂に入れてくれて…。でも、わたしは全然自信がなくて…。わたしなんかやっぱりだめだって、うじうじしてたんですけど…。ハミィが言ってくれたんです。「あんたは綺麗で可愛いんだから、自信持ちな」って。そう言ってもらえて嬉しくて頑張ったら、オーディションに受かったんです。…でも、ハミィったらあれ以来、わたしのこと「可愛い」って、お願いしても言ってくれなくて…どうしてでしょう？　ルリ、可愛くなくなっちゃったのかな…？（ルルリカ）"}
+, 
+[92100581] = {id = 92100581, name = "\nホオジロザメは、巨大な体と大きな顎、そして鋭い歯を持っている。\n\n泳ぎも速く、獲物の探知に優れているなど捕食者としての能力の高さから、世界で最も危険なサメの一種だと考えられている。\n\nまた、その嗅覚も鋭く、血の匂いを嗅ぎつけて獲物を襲うと言われており、人々から「人食いザメ」と呼ばれ、恐れられている。"}
+, 
+[92100582] = {id = 92100582, name = "\nエデン大陸において、レッドの社会的地位はお世辞にも高いとは言えない。\n\n地域差はあるものの、基本的にはいまだレッドは普通の人間たちから疎まれる存在であり、どこへ行っても手放しで歓迎されることはないのだが――新進気鋭の舞台女優ルルリカは、そんなエデン大陸において、数少ない例外となる、人間からも大人気のレッドであった。\n\nルルリカのデビューは実は最近のこと。はじめはレッドの女優ということで観客から白い目で見られたものだが、その可憐な容姿と抜群の演技力は、すぐにそんなつまらない偏見など吹き飛ばした。\n\n特定の劇団に所属せず、フリーの女優として各地の劇場を転々とする彼女は、あっという間に大陸中で名前を知られ、今では次代の舞台演劇を担う女優として、多くのファンから注目されるようになっている。\n\n\nそれだけの人気女優でありながら、基本的にルルリカは舞台以外でファンと交流することはほとんどない。厳しいマネージャーがいるから…\nというせいもあるが、本人がそれを望んでいないらしいということは、誰もが知っていた。\n\nだがそう言われると、彼女をさらに見たくなり、知りたくなる。そして彼女の浮世離れした可憐さを際立たせ、ファンを増やすことに一役買っていた。\n\n――もちろんファンたちは、ルルリカがプライベートで人に会おうとしない理由が、彼女が極度の人見知りの恥ずかしがり屋だから、などとは知るよしもなかったのだが。"}
+, 
+[92100583] = {id = 92100583, name = "\n目撃者からの報告\n\n◆…そうだね、ルルリカは演劇の世界に颯爽と現れた、穢れなき可憐な花さ。僕と異なるタイプの役者だけど、だからこそ共演することに意味がある。次の舞台では、ぜひ僕とルルリカの生み出す美しきコラボレーションを期待してくれ！（ジュリアン）\n\n◆ああ…ルルリカちゃん、今日も綺麗だったなぁ。明日の千秋楽も楽しみだよ。…え、俺がレッドを嫌ってたはずだって？　バカだな！　そんなくだらない気持ちなんて、ルルリカちゃんを観たら吹っ飛んじまったよ！（熱烈なファン）\n\n◆まさか、あのルルリカがうちのプライドに入ってくれるなんて…！　ああ、嬉しすぎて、もはや吐き気がするわ…うぅ…。でも本当に驚いたのは、彼女があそこまで内気だったことね。舞台じゃ、あんなに堂々と演技しているのに…。ああ、でもそういうところがまた可愛くてたまらないのよね…！　はぁ…！（オリヴィア）"}
+, 
+[92100584] = {id = 92100584, name = "\n実のところ、ルルリカは自ら望んで女優になったわけではない。\n\n元々、演芸が盛んなエディア帝国の一般的な家庭に生まれたこともあり、家族で舞台を観に行くことはあった。\n\nそれゆえ演劇のすばらしさは知っていたし、華々しい役者への憧れもあったが、当時から恥ずかしがり屋でおとなしい性格だった彼女は、将来自分がそこに立つなどとは、想像すらしたことはなかったのである。\n\nそんな彼女の転機となったのは、十二歳の頃にホオジロザメのレッドに目覚めたこと。\n\n以来、血の匂いを嗅ぐと己が制御できなくなってしまった彼女は、ある日凶暴化した際に家族を傷つけてしまった。\n\nその時、家族から注がれた恐怖の視線は、幼い頃から何不自由なく満たされ、誰からも愛されてきた少女にとっては、とても堪えられるものではなかった。\n\nそしてルルリカは、思い悩んだ末に、もう誰も傷つけたくないと家を飛び出してしまう。\n\n彼女の旅は、人を傷つける怪物になってしまった自分の死に場所を探すためのものだった。\n\n誰かと仲良くなれば、その人をまた傷つけてしまうかもしれない。それを恐れて、ルルリカは誰とも必要以上に近づくことなく、ひとり静かに死ねる場所を探したのである。\n\n\nだが、ルルリカが死ぬべき場所は見つからなかった。どこが相応しい場所なのか、そもそも幸せに暮らしてきた少女に思いつくはずもなかったのだ。\n\nもうどこでもいい、どこででも死のうと思ったルルリカは、海を臨む崖に立った。下を見れば、荒い海が岩壁に打ちつけていて、足が震えた。呼吸も浅くなるのを必死に止めて、目をつむった。\n\n――ここで飛び降りれば、楽になる。すべてを終わらせることができるんだ。\n\nだが、覚悟を決めて飛び降りようとしたまさにその時、誰かがルルリカの腕をつかんだ。彼女が、その後の人生を決める出会いを果たしたのは――ハーミットと会ったのはそんな時だった。\n\n突然、自分に女優になれと言った変なレッドの子どもに、ルルリカは泣きながら自らのことを話した。いつ人を傷つけてもおかしくない自分が、生きてはいけない、と。\n\nだが、ハーミットは頷かなかった。\n\n「このまま死ぬくらいなら、その命をあたしに預けな！　大丈夫、あたしがそばにいる限り、もう誰も傷つけさせたりしないから！」\n\nルルリカはそのとき、幼き日に観た華やかな舞台のことをふいに思い出した。彼女がいれば、自分はまた夢にあこがれる少女に戻れるのかもしれない、と思えた。\n\n一時の気の迷いだとも思ったが、ハーミットの瞳は嘘をついていないように見えた。だからルルリカは――ハーミットの誘いに乗った。\n\n新進気鋭の舞台女優ルルリカの名前が大陸中に知れ渡るのは、それから少し先のことである。"}
+, 
+[92100585] = {id = 92100585, name = "\n目撃者からの報告\n\n◆もちろん、ルルリカを忘れたことなどありません。ですが……だからこそ、今私が現れて、舞台女優としてがんばるあの子を惑わすようなことはするべきではないと思っています。観客席から、あの子の成長した姿を見られるなら、今はそれで充分なんです。（エディア帝国に暮らすとある女性）\n\n◆ルルリカちゃん、すごいんだよー！　恥ずかしがり屋なのが可愛くて面白くて、ついついからかっちゃうんだけど…丘にひとりでいるルルリカちゃんを見つけて声かけたら、「近づくな、無礼者！　この私を何者か知っての狼藉か！」ってすごい剣幕でキッて睨みつけられて…いやー、腰が抜けるところだったよ。その後、すぐにいつものルルリカちゃんに戻って、「練習してたんです」って謝ってくれたんだけどさ。でも演じてるときのルルリカちゃんも格好良かったなー！　また舞台行こーっと！（エイプリル）\n\n◆ルリはあたしの大事な金の成る木だよ♪　だから仕事の世話をするし、危険があれば守ってあげる。寂しいなら相手してあげるし、甘えたいなら甘やかしてあげる。でも甘えたがりになりすぎないよう、時には厳しくする。ご飯が食べたければ作ってあげるし、ひとりで怖くてトイレに行けないなら、ついて行ってあげる。今となっては、あたしがいないとダメダメなんだから、まったく。――とにかく、いい？　ルリに変なことするのは、絶対許さないから。だってあの子はあたしの――大事な金の成る木なんだからね。（ハーミット）"}
+, 
+[92100591] = {id = 92100591, name = "\nベニイロフラミンゴは、フラミンゴの中でも最大の種類の一つだ。独特なくちばしで餌となるものをこしとって食べ、そこに含まれる藍藻類の色素により、羽の色が紅色に染まる。\n何らかの理由で色素を摂取できなくなると、最終的に身体の色は白色になってしまう。\n\n寿命が四十年に達する長寿の種で、鳥類の中では最も長く生きるものの一つでもある。"}
+, 
+[92100592] = {id = 92100592, name = "\nミアという少女は、間違いなく幸せに生きてきた。\nとある大陸の財閥令嬢として生まれ、そして一人娘であったことから、両親から惜しまれることなく愛を注がれて育ったのだ。\n向けられる愛情は両親だけに留まらず、祖父母や乳母、執事、メイドたち、周囲の人々からもお姫様のように大切にされてミアは育った。その恵まれた愛情は幼少期から彼女に自信を持たせた。\n\n幼い頃から、ミアは黙っていてもかわいらしい女の子だったという。そして、ミアもそのことを自覚していた。\nミアを溺愛する両親たちは、当然彼女のかわいさをほめ、ミアに似合う服を着せてくれた。それだけでもミアはうれしかったが、その経験は彼女にファッションへの興味を抱かせる契機となった。\n\n彼女は誰かに服を着せてもらうのではなく、自分で自分のかわいさを引き立てるべく、コーディネイトを考え、時には自ら新しい服を作った（ただしその服を縫うのは、仲の良いメイドたちなのだが）。\nそして見事にどの発想も成功し、ミアの愛らしさを引き立て、また周囲から称賛を浴びた。そしてミア自身も、自分のかわいらしさに目を奪われた。\n\n\nかわいい自分をもっとかわいく着飾る喜び、そして、より多くの人からほめられる快感を覚えたミアは、もとから興味を持っていたこともあり、ファッションの世界にのめりこんだ。\nその熱意は自分自身に向くのみならず、たびたび友人たちをオシャレに着飾らせる方向にも注がれた。時にはミアを差し置いて、着飾らせた友人たちが人目を集めることもあった。\nだがミアは自分のファッションが間違っていないことを喜びこそすれ、友人たちに嫉妬の気持ちを覚えることはまるでなかった。\n\n\nミアがレッドとなってからも、レッドという存在が受け入れられる土地だったこともあり、彼女の生活は特に変わらなかった。\n\nむしろ、レッドになったのならどう着飾ればオシャレになるかと、ミアの探究心は深まるばかりだった。\n\nやがて、その探究心は生まれ育った地を超え、まだ見ぬ世界のファッションやオシャレを研究したいという欲求につながっていく。\n\n資産家の両親や、親しい友人たちも彼女の挑戦を後押しし、ミアは熱意とともにエデン大陸行きの船へと乗り込んだ。"}
+, 
+[92100593] = {id = 92100593, name = "\n目撃者からの報告\n\n◆ミアさんのことならもちろん知ってますよ！　『他人の身ぐるみを剥がして生きる人』だって…！　たぶん、借金取りあたりがお仕事なんでしょうね。ふふふ、アタシも日々学習してますから。そういう人には近づかないようにしますから、安心してください！　…ん、なんですかその顔は。何か言いたいことでもあるんですか？（ヌエット）\n\n◆彼女の美意識はとても素晴らしいね！　知識も情熱も見習いたいものだ。近頃は舞台の衣装について悩んだとき、彼女に相談しているよ。すぐに先進的な案を出してくれて、大助かりだ。しかし、たまに「とにかくかわいくなんですけど！」と言って、やりすぎることもあるけど…それはご愛敬、というところかな。（ジュリアン）\n\n◆ミアのところに届く手紙は、他の人たちよりも明らかに多いのよね。ご家族から週に10通も手紙が届いたりすることもあって…ミアはよく嬉しそうに、その手紙を読んでるわ。そういうときのミアも、とってもかわいいのよ？（オリヴィア）"}
+, 
+[92100594] = {id = 92100594, name = "\n他の大陸へと到着したミアは、それまでの彼女の人生と同様、自信を持って大地に降り立った。\nいろんな人たちから愛情を注がれて育った結果、何もなくとも堂々としていられるミアだったが、そんなミアの在り方は、ファッション探究の旅では必ずしも効果的ではなかった。\n\n生まれ故郷にいるのとは違い、様々な国や大陸を旅するミアは異邦人。磨き上げてきた彼女のオシャレは、他の国々では時に常識から外れているものとして扱われてしまった。\n\n新しい場所でもきっとほめてもらえると考えていたミアは、他人から怪訝なまなざしで見られ続けた。それでもミアは各地のオシャレを学び、新しいかわいさを追求することで、人々を何度も驚嘆させた。\n\n\nプライドでは、しばしばミアのファッションショーが行われている。\nメンバー達にミアの私物の中から選び抜いたコーディネイトを着せて、ミアがうっとりする…という会だ。メンバー達も恥ずかしがったりしながらも、喜んでいる。\n\nだが、ミアはもっとオシャレに浸かりたいらしい。そのせいで、しばしば無茶なことを言ってみせた。「ミア、ウエディングドレスとかも扱いたいかも！　だから、ねぇリーダー。\n誰かと今すぐ結婚して！」。そしてオリヴィアは面倒なことにならないよう、ラヴィに絶対聞かせるなとミアに強く言うのだった。"}
+, 
+[92100595] = {id = 92100595, name = "\n目撃者からの報告\n\n◆この間、「お願いだから、この服を着て！」って言って、ボクにかわいいワンピースをプレゼントしてくれました。本当にかわいかったんですよ。普通の布に、透ける素材を重ねて縫われてて…でも、ひとつだけ気になることがあって。その、丈がかなり短くて…。脚が見えすぎて恥ずかしいので、下に何か履きたいって言ったんですが、ミアさん許してくれなくて…。だから恥ずかしくて、人前じゃ着れないんです…（ノエル）\n\n◆ベロちゃんの絵を気に入ってくれて、たくさん褒めてくれる人れすねぇ。「こんなセンスいい子が、エデン大陸にいるなんて！」…とかなんとか。だからベロちゃんが絵を描いてるときも、たまに後ろでじーーーーーーっと見てるんれす。そのまま終わるまで何度もうなずいてる時もあれば、「なるほど！」なんて言って走り去っていく時もあるんれすよね。どっちにしても、楽しそうなので何よりれす。（ベロニカ）\n\n◆この前、たまたま考え事してるミアちゃんと見つけたんだ。で、エイプリルちゃんが声かけたら、急にわたしの耳をつかんできて…びっくりして「何々！？」ってさわいでたら、「この耳ちょうだい！」って言うんだ。どうもミアちゃんが考えてたファッションに、ちょうど似合いそうな猫耳がやって来たから興奮しちゃったんだって。もー、さすがのエイプリルちゃんもビビっちゃったよ！（エイプリル）"}
+, 
+[92100601] = {id = 92100601, name = "\n普通のクラゲは一年程度で死に、溶けて消えてしまう。だがベニクラゲは何百年もの寿命を持つ。\nそれは成熟した状態から幼生期に退行し、そして幼生期に戻った後、再び成熟した状態へと成長する――いわゆる『若返り』をするためだ。それはまるで、過去と未来を行き来するように。"}
+, 
+[92100602] = {id = 92100602, name = "\nいつも悠々自適に暮らしているクインだが、秋を迎えて少し様子が異なっていた。\n\n普段から眠そうにしているものの、今はいつ眠りについてもおかしくないほどに瞼を閉じて、寝言のように曖昧にしゃべった。\n体調でも悪いのかとメンバー達は気を遣っていたが、クインは自身に気を遣うことはなかった。\n「やることがあるの」。クインはそう言って眠そうに外に出かけてワインや食材を買い込み、そして眠そうに台所に立ち、菓子や料理を作り始めた。\n…そしてしばしば途中で眠り込んでしまい、クッキーや鍋を焦がしかけ、メンバー達を慌てさせた。\n\nそれにしてもいつになく眠そうで、なのにいつになくやる気にあるクインは一体どうしたのだろうか。何故、いきなり積極的になったのか。\nその理由を探るべく、ウィチタやブリジット、アリシアは好奇心からクインを尾行することにした。\n\n\nハロウィン当日でもないのにお菓子のカゴを抱えたクインは、国を出て人気のない街へと向かっていった。これは怪しい、とウィチタ達はわくわくしたが、その後はなんてことはない。\n眠気からふらついてこそいるが、せいぜい時おり現れる子供達にお菓子を配るばかりだった。クインはその後も街の中をさまよって菓子を配り、結局陽が沈む頃にクインのカゴが空っぽになっただけだった。\n\n…きっとクインは、ハロウィンのことを菓子を配る祭りだとでも勘違いしているのだろう。そう考えたウィチタ達はがっかりして帰ろうとしたが、誰かが言った。\n「クインじゃなくて、子供達を追いかければ何かわかるかもしれない」と。\n\n視点を変えたその言葉に一同は賛成し、菓子をもらった子供達の後を追いかけることにした。街は入り組んでいたが、見失うことは決してなかった。\nだが…たどり着いた先は行き止まり、後をつけていたはずの子供の姿すら消えていた。\n\nあの子供はどこに…。皆で辺りを見回していると、遠くで子供達の笑い声が聞こえた。また誰かが言った。\n「あの声を追いかけよう」。だが、その言葉に返答するより先に――「こんなところで何してるのかなぁ？」といつの間にかそばにいたクインに声をかけられた。\n\n大きな声を上げて驚くウィチタ達に、クインはいくらか眠気が取れた様子で微笑んだ。「悪戯もいいけど、ほどほどにね～。\n遠くへ連れて行かれちゃうこともありうるから」。それからウィチタ達はクインに導かれ、国へ戻ることになった。\n\n\n結局何の成果もなかった、と話すウィチタ達はふと気づく。そういえば子供を追いかけようと言ったのは一体誰だったか…。そのことに気づいた一同は、その日眠れない夜を過ごしたのだった。"}
+, 
+[92100603] = {id = 92100603, name = "\n目撃者からの報告\n\n◆クインが作るお菓子は、決してめずらしいものじゃないけれど…心を込めて作った温かみを感じるし、その素朴な味付けが良くて「毎日でも食べたくなる」と多くの子供達から人気を集めているようだ。色んな子に食べてもらうお菓子として素晴らしいね。ふふ、私も後でいただくとするよ。（ミエル）\n\n◆クインの奴にシスター服を着せたのは俺様だ。ハロウィンに行くのに仮装して行かないのは良くないからな、フィナやノンノを巻き込んで着せ替えてやったんだ。クインは「祭りには行かないよ～」なんて言っていたが、食べ物も飲み物も沢山持っていこうとしてたんだぞ？　ふふん、楽しみでしょうがないのがバレバレだ！　本当は人ならざる者らしい化粧もしてやろうと思ったんだが、気付いたらするりと逃げられていた。ああまったく、俺様はなんて気が使える良い奴なんだ。（ウィチタ）"}
+, 
+[92100604] = {id = 92100604, name = "\nハロウィンの祭りも終わって静まり返ったその日の夜…クインはシスター服の姿のまま、声をかけてきた。\nどこへ行くのかとたずねると教えてはくれなかったが、少し考えた後「今のリーダーなら視えるかも」と呟き、手を引かれた。\n\nそして導かれた先は、町を一望できる丘だった。「ほら、ちょうどもうすぐだよ」とクインが言うのを合図にしたように、町のいたるところからぼんやりと球状に光るものが浮かび上がってきた。\n「魂が還っていくところだよ。世界のどこでも毎年、今晩だけ視えるの」。本当に視えるだけで、何かできたりするわけではないが、なんとなくいつも眺めているらしい。\n\nそれからクインはその魂達が空へ還っていくさまを見ながら、ぽつりぽつりと語った。自分は過去も未来も視ることができるからか、過去の気配が濃密になるこの時期だけ、死んだ者の魂が見えるらしい。\n「死んだ魂は、過去のものだから…だと思う。ワタシも、よくわかってないけど」。でも決して救えたりするわけではない、というクインは、「だから…あの子達を救えたのは、リーダーとみんなのおかげだよ」と微笑む。\n\n最後の魂が空へ還るとき、クインが顔を近づけてきて耳元でささやいた。この景色は、今まで自分にしか視えたことがなかった。\nしかし、このハロウィンを乗り越えたリーダーなら視ることができるかもしれない。そう思って誘ったのだというクインは、嬉しそうにはにかんだ。\n「とっても綺麗だったでしょう？　だから、リーダーと一緒に視れて良かった。また次の年も、視れるといいね」。"}
+, 
+[92100605] = {id = 92100605, name = "\n目撃者からの報告\n\n◆むぅ、クインが作るお菓子…あれには商売の可能性を感じるですね！　だってクッキーの中から、今日の運勢を占った紙が出てくるですよ！？　なんて面白いお菓子ですか！　イベントごとのときでも普段でも、間違いなく売れる商品になるです！　ふふふ…こうと決まれば、シャノンに目をつけられる前に、クインとショコラにすぐに相談するですよー！（リッタ）\n◆ハロウィンのお祭りが始まっているって言うのに、リーダーさんやクインさん達が町の外れへ行くのを見たんです。これはきっと…お祭りのために目立つ隠し芸か何か仕込むに違いない、私もその話に乗りたい、と思って追いかけまして！　まぁ私はいつもどおり気付かれず尾行できたんですが、たどりついたのが廃村で…何にもないのに、なぜか皆さん楽しそうにしてるんです！　誰もいないのに、誰かと話してるみたいだったし！　それで怖くて帰っちゃったんですが、あれなんだったんでしょう？　もしかして…「私が気づかれない」の逆パターンで、「私が気づいていない」何かがありました…！？　ああっ、真実は言わなくていいですっ…何がどうあれ、恐ろしいので…。（ソフィア）\n◆まったく、死んだ者の魂を癒すなんて…どんな事情であれ、ああいったものに関わるべきではないわ。彼らは既に終わった存在で、現世に生きる子達とはまったく別物だもの。クインだって理解していたはずよ。私だって、「こんなことはやめておけ」って何度も説得したのに…でも、クインは言うことを聞かなかったわ。「何もできないかもしれないけど、放っておくのは嫌だから」って…でも…本当にあの子があきらめなかったおかげで、彼女達は解放された…。…ふんっ。でもたまたまリーダー達みたいな変なヤツらが集まったから解決できた、特殊なこと。認めはするけど…たまたまなんだから。（カノン？）"}
+, 
+[92100611] = {id = 92100611, name = "\nシロクチアオハブの黄緑色の身体は、森や木の上で生活する際には保護色となり天敵や獲物から見えにくいという性質を持つ。\nシロクチアオハブは蛇の中では珍しい胎生であり、春になると三十匹以上の子供を産むとされている。"}
+, 
+[92100612] = {id = 92100612, name = "\nショウが仮装しているキョンシーは、呪術で操られている死体という東洋の怪物である。もちろん、アララト王国で馴染みがあるはずもない。\n他のハロウィン参加者達は初めてということもあり、大抵が仮面をかぶったり、せいぜい大きな布を被るぐらい仮装しかしていない中、そんな見慣れぬ怪物が突然現れれば…驚きもするだろう。\n\n\nショウは案外と凝り性だったらしい。「完璧なキョンシーになるでござる」と瞳を輝かせながら、両手を前に突き出し、足首だけで高く跳ねながら移動する光景は、ショウの気概に相応しく悪夢のようだった。\n子供だけではなく、大人ですら悲鳴を上げて、ショウから逃げまどった。\n\n余りにも怖がられ過ぎたショウだったが、その完成度が素晴らしいことには違いなかった。評判を聞いた怖いもの見たさの者や、見慣れてきた者達が現れたおかげで、少しずつ受け入れだした。\n\n特に受け入れられるきっかけとなったのは、ノンノだった。ショウの仮装を面白がったノンノがショウの真似を始めて、ぴょんぴょんと飛び跳ね始めたのだ。\nそれが楽しそうに見えたのか子供達はどんどんと集まり、キョンシーは増え続け…やがて町のいたるところにキョンシーのマネをする子供達が飛び跳ねるようになった。\nもちろん、ショウの熱いキョンシー指導のおかげもあっただろう。「むっ、膝の関節を曲げてはいけないでござるよ。キョンシーは身体が固まってしまっている死体でござるからな。\nだからこう、足首だけで思い切り、ぴょんぴょんと――」。そしてキョンシーの存在はアララト王国内外に広まっていった。\n\nおかげでハロウィンが終わった後も、「アララトにはキョンシーという怪物が現れる」という噂が広まり、旅人や行商人が減ったという噂もあるが…。"}
+, 
+[92100613] = {id = 92100613, name = "\n目撃者からの報告\n\n◆シ、ショウさんが凄いのは…衣装だけじゃない…。人前に出る時は…ほ、本に書いてあるとおり…キョンシーらしく、ぴょんぴょん跳ねながら近づくんだけど…絶対に、瞬きしないようにしてるんだって…。「死者は瞬きをするはずがないでござる」って言って…。な、なんでそんなに本気なのかって聞いたら…「お菓子をもらうためでござる」って…やっぱり瞬きしないで言ってて…。ほ、本当にすごいって思う…。さ、細部が素晴らしい芸は…完成度が高い…。初心に戻って…あの迫真さ、見習わなくちゃ…。（コンチータ）\n\n◆この間、フィナと歩いていたら木の上に死体が引っかかってるのを見つけたんだ。ひどく驚いたが…医者として何があったか調べないとと思って近づいたよ。幸い、血も出てない死体だったしな…。けど、よく見てみたらただ仮装して死んだように寝てたショウだったんだ。なんでもお菓子を食べたら眠くなって、木の上で昼寝をしてたはずが落ちてしまったんだと。まったく人騒がせな奴だ。もし気付かれなかったら、フィナが慌てて掘った穴に埋められるところだったぞ。しかし、医者をだませるほど完璧な死体だった…とは言えるだろう。（ケイト）\n\n◆うぅ、てっきり新種のモンスター誕生のスクープだと思ったのに、ただ仮装してるショウさんだったなんて…。しかも、最初は私も興奮しちゃってショウさんだと気付かなくて、言葉を理解して喋って動く死体だと信じて、ロングインタビューなんてしちゃって…。ショウさんもキョンシーにすっかりなりきってるから、ちゃんと受け答えしてくれちゃって…。どうしようかなぁ、この記事…いえ、でもこのキョンシー熱を見るに、読者も意外と読みたいかも…！？　みんなのキョンシー熱が収まる前に、早く記事を仕上げないとー！（シルヴィ）"}
+, 
+[92100614] = {id = 92100614, name = "\nショウは本来、食事をあまり必要としないレッドではある。だが今は一人では到底食べきれないほどのお菓子を抱え込んでいた。\nハロウィンとキョンシーの仮装のおかげで、ひたすらおひねりのように人々から菓子をもらい続けていたからだ。少しずつ食べていくのだろうかと思っていたところに、木の上にいたショウから声をかけられた。\n\n「おや、リーダー殿。ちょうどいいでござる、一緒に菓子などどうでござるか」\n\nショウの誘いに乗ってなんとか木に登れば、周りの枝にはお菓子の入った籠がいくつもぶら下げられていた。\n本当はプライドのメンバー達に分ける予定だったらしいのだが、先にリーダーに会えたのだから好きなものを選ぶといいとショウは微笑む。\n\n\n「ハロウィンは終わったでござるが、こうしてるとまだ祭りの中にいるみたいでござるな」\n\nと楽しげに話すショウに、何故これほどにお菓子を欲したのかと尋ねれば「祭りを心底楽しみたかったからでござる、拙者は祭りが好きでござるからな」といつもどおりひょうひょうと言う。\n\n祭りとは不思議なものだ、とショウは言う。ひとりでも楽しむ者がいれば、他も釣られて楽しむ。そうして盛り上がると、さらに大勢がさらに楽しくなる。…これほど容易に皆が幸せになれるものは、他にはそうない、と。\n\n「しかし、祭りを作り上げる存在がまず必要で、そこはさすがのエイプリルとリーダー、と言ったところでござる。大勢を巻き込むのに手慣れている」。\n\n拙者の故郷でも、ふたりのような存在がいれば…とショウは言ったが、「いや、これは高望み…良くないでござるな」と呟いた。\n\n高望みをすると大抵、手元にあったものさえ離れてしまう。だが、リーダー達とは決して離れたくない、とショウはまっすぐと前を見つめる。\n「またこのような催し物があったときは、共に楽しむでござる。拙者は…それだけで充分、幸せござるから」。\nそうショウは微笑み、とっておきのお菓子だという大きなキャンディを握らせてくれるのだった。"}
+, 
+[92100615] = {id = 92100615, name = "\n目撃者からの報告\n\n◆ショウさんは普段あまり目立とうとしないんですが、ここぞという時は凄く目立つんですよ。しかも、気取ったように目立つんじゃなくて、自然体のままいきなり存在感が増すんです！　キョンシーなんてまさにですよ、やりたいことやったら町中の話題を独り占めしちゃって…！　だから私もキョンシーの弟子にさせてくださいって思わず頼んだのに、ショウさんったら「キョンシーとはなるものではない…なっているものでござる」なんて真剣に言って断って…ううっ、私もショウさんみたいに自然に目立てるような存在になりたいだけなのに～！（ソフィア）\n◆前々から東の国の文化には興味があったんだけど、なかなか冒険へ行く機会がなくてね。でも、ショウのキョンシーを見たらとても興味深くて、やっぱり次の冒険では必ず行こうって決めたんだ。ショウにもそれを言ったら、「拙者の知る前人未到の地を紹介するでござるよ」「しかし、本物のキョンシーには気を付けるでござるよ。あやつはいつどこに現れてもおかしくないでござる」なんて笑って言って…ふふ。万が一キョンシー・ドミニクが誕生したときには、ショウと一緒に楽しく跳ねるとするよ。ふふ、ぴょんぴょん♪（ドミニク）\n◆ハロウィンのショウちゃん、凄く楽しそうだったね。それでぽそっと聞いちゃったんだけど、今日みたいに平和で楽しい日が続けばいいのでござるが…って言ってたんだ。エイプリルちゃんもそう思うよ！　お祭りみたいに楽しい日がずっと続くといいよね！　よーし、ショウちゃんの国でも面白いお祭りないか聞いて来よーっと♪（エイプリル）"}
+, 
+[92100621] = {id = 92100621, name = "\nタテゴトアザラシは流氷上で生まれ、その後はほぼ海の中で暮らすアザラシである。\n生まれたばかりのときはイエローコートと呼ばれる黄色い毛並みをしているが、数日でシルバーコートと呼ばれる白色になり、徐々に灰色の毛並みへと変化する。\nその幼獣時の真っ白な色は、流氷の上では保護色として機能する。\nそして数週間も経てば、親元を離れて独り立ちする。"}
+, 
+[92100622] = {id = 92100622, name = "\n街中を歩いて、通りすがりの人々みんなに愛想をまく、白くてふわふわした少女を見つけたら、それは間違いなくロールだろう。\n初対面であったとしても、まるで血縁のように慣れ親しみ、何一つためらいのない笑顔を向けるロールには、大抵の者がつられて微笑んでしまっていた。\n\n\nロールはひとりが嫌いなため、暇さえあればそうして街を練り歩いた。\n\nだが、寂しがりというだけなのではなく、あくまで誰の注目も集めていない状況が嫌なのだ。\n\n注目を浴びれば人々は可愛がってくれるのだから、注目を浴びれば浴びるほどかわいがってもらえて嬉しい、という無邪気な考えからだった。\n\n実際、そんな無邪気さから人々はついロールを可愛がってしまい、ロールの考えは毎日のように強固にされていった。\n\n\nかと言って、ロールもまだ子供である。\n\nはしゃいでいたかと思えば、突然眠気に負けて眠ってしまうのだ。\n家に帰る余裕もないせいで、ロールが道端で倒れるように眠ったり、お店の隅でこっそり眠ったり、場所を構うこともない。だが、それでトラブルになることはまずない。\n\nむしろその愛らしい寝顔に周囲は癒され、もし傷つけるものがいれば守らなければとさえ思わせる。\nそれが本人の性質なのかレッドとしての能力なのかは、まったくの不明である。\n\n\nとにかくロールはプライドにも入ったこともあり、毎日を楽しく幸せに過ごしている。"}
+, 
+[92100623] = {id = 92100623, name = "\n目撃者からの報告\n\n◆うんっ、ロールちゃんとはよく遊んでいるよ！　私のところによく来て、故郷の国のアクセサリーを見せてくれたり、覚えたての新しい技を披露してくれたりするの。いつも楽しそうだから、見てるこっちまでついうれしくなっちゃうんだ！　ふふっ、私もロールちゃんが喜んでくれるような技とか覚えられるよう頑張ろうっと！（コゼット）\n\n◆ロ、ロールさんには、いつもお世話になってます。その…ちょっとでも皆さんの役に立てたらと思って特訓をしてるときに、よく来てくれて…あんまり上手くいかないときとか、つい落ち込んじゃうんですけど…そんな時、ロールさんはかならず「すごかった」って励ましてくれるんです。その後も一緒に特訓してくれたりして、いつの間にか自分も元気になるんです。…ふふ、だから最近は特訓してると、ついロールさん来てくれないかな、なんて待ち遠しくなります。ロールさんには本当に、感謝してます。（イヴリン）\n\n◆…大図書館で、たまに寝ているのを見かける。静かだから眠くなるのだろうが――まぁ、大抵はそのまま放っておいている。別に大人しく、幸せそうに寝てるだけなら害はないし…それに、あいつは起きたときのほうがやかましいからな。（フランチェスカ）"}
+, 
+[92100624] = {id = 92100624, name = "\nロールの故郷は、エデン大陸を離れた北の小国だった。その小さな村では人気者だった。持ち前の人懐っこさから村人たちの人気者だった。\n\n優しい両親もいて、ロールは幸せな日々を送っていた。\n\n\nだがある日、ロールがレッドに覚醒した頃、両親が突然外国へ働きに出かけた。\n\n不愛想な隣人が「お前だけでは、ここで生活はできない。だからエデン大陸へ行くといい。お前の両親が、そこに親戚がいると言っていたからな」と言い、金とエデン大陸へ連れて行ってくれる見知らぬ大人を紹介してくれた。\n\nそしてロールは大きな船に長い間乗り、エデン大陸の地へ降り立ったのだ。\n\n\nそれがロールの知る自らの境遇だが、決して真実だけではない。\n\nそのロールの言う見知らぬ大人は、笑って言った。「ロールが住む国じゃ、レッドを不吉なものと忌み嫌われていたんだ」。\n\n早くロールを処刑すべきだと声高に叫ぶ者もいれば、「どうしてこんないい子が」「かわいそうに」と嘆く者がいたが、結局は処刑には反対していなかった。ロールの死を信じていたからこそ、哀れんでいたにすぎないのだ。\n\n\nやがて短い村の会議で、ロールの処刑を決定された。両親達は抵抗したが、その罰として村には二度と帰れなかった。\n\nそしてもう次の朝には、ロールの命はなくなると決まった村人達はほっとして、自らの家に帰って行った。そして不愛想な隣人だけが残り、ロールがいる彼女の家へと訪れた。\nロールを助けられるのは、今だけだと。だからちょうど村に泊まっていた旅人に金を払って頼み込み、ロールを連れ去ってくれと頼んだのだ。\n\n「俺に優しく笑いかけてくれるのは、あの子だけだったんだ」。\n\n小さな声で言う不愛想な隣人に、旅人はうなずいた。そしてロールの小さな手を取った。\n\n\nしかし、なぜ旅人はロールを人買いのもとへ連れて行かなかったのか。エデン大陸へ行かずとも、誰にもわかることはないというのに。\n\nそんな質問に、旅人は煙草をふかしながら笑って言った。\n\n「あの子の笑顔を見たら、娘を思い出したんだ。それだけ…ただ、それだけさ」"}
+, 
+[92100625] = {id = 92100625, name = "\n目撃者からの報告\n\n◆ロールはイタズラ友達だ！　パロネスのイタズラを見て、いつもすごいすごいって言ってくれるし、一緒にイタズラ仕掛けてもくれるからな！　それに…うん。パロネスもロールの気持ちは、なんとなくわかる気がするんだ。何の気持ちかって聞かれたら、答えられないけど…うん、でも、わかるんだ！（パロネス）\n\n◆うちの店にも、よく遊びに来るよ。店に置いてある武器だと防具だのを見て、いろいろ質問を飛ばしたり、試そうとするばっかりなんだけど…でも、アイツがすごいのはそれだけじゃなくて、周りを巻き込むんだよな。たまたま来た客が、ロールに正しい防具の着方を教えるために着たのを「かっこいい、ロールも欲しい」って褒めて買わせたり、別の客には「すごい技を覚えたいから教えて」って甘えて新しい武器を買わせたり…ほんと、アイツが店に来ると怖いぐらい武具が売れるんだよな。…これが嬉しい悲鳴ってやつなのかな？（ユーナ）\n\n◆ロールさんのことは、とっても見習いたいって思ってます。うちのお店にもよく来て、お客さん達といろいろお話をしてるんですが…よく聞いたら、お客さん全員の顔や名前をちゃんと覚えているんです。どうしてそんなに覚えられるのかつい聞いたら、「ロールも覚えていてもらえたら嬉しいから、覚えてるだけ！　それに名前呼ぶと、すっごく褒められるから」なんて元気に言われて…ふふ、本当にすごいですよね、ロールさんは。（ノエル）"}
+, 
+[92100631] = {id = 92100631, name = "\nアライグマは冬になっても冬眠はせず活動を続ける。\n\nだが寒い地方に住むアライグマの場合、特に気温の低い日には寒さに耐えるため、穴に籠ってしまう。\n冬眠をするわけではないが、活動自体は大幅に減少する傾向にはある。\n\nクリスマスにもそうなるのかは…確かめてみなければ、わからないだろう。"}
+, 
+[92100632] = {id = 92100632, name = "\nネネルはサンタ服を着ていても、やはりいつものネネルだった。\n\nプライドメンバー達がパーティ会場の飾りつけをする前に、ネネルはそれを止めた。「まずは掃除をすべきでございます」。\nネネルがいるならそういう話にもなるだろう、そして掃除をしなければ許されないだろうと理解していた一同はすぐに了承した。\nそしてネネルの指示のもと、パーティ会場となるカフェを隅から隅までを、そして飾りつけの道具を一つ一つさえもネネルは念入りに掃除した。\n\n掃除を終えて飾りつけを再開したとき、メンバー達は驚いた。ちょっとした飾りつけをしただけのはずが、カフェがいつもとは違う場所のように輝いて見えたのだ。\n「埃や汚れを取り払ったのですから、綺麗に見えるのは当然でございます」と言うネネルは、どこか誇らしげに胸を張っているように見えた。\n\n\nだが、その日のネネルの活躍はそれだけには留まらなかった。\n\n「ネネルちゃんなら、綺麗に飾りつけられそうな場所がわかるんじゃない？」というエイプリルの軽い一言で、ネネルが飾りつけの指示もすることになったのだ。\nネネルはあくまで自分は掃除人であるという態度でいたが、求められたことには応じて指示をしてみれば、パーティ会場はより見栄えが良くなった。\n「ものを正しい場所に置くことこそ、整理整頓の秘訣であり、掃除の基本でございますから」と語るネネルが気づけば中心となり、パーティ会場の設営は行われた。\n\nそしてパーティ本番、クリスマスパーティはいつも以上に清潔できらびやかなカフェで行われ、メンバー達を満足させた。だが何より嬉しそうにしていたのは…やはり、サンタ服を着たネネルに違いない。"}
+, 
+[92100633] = {id = 92100633, name = "\n目撃者からの報告\n\n◆あのね、あのね、朝起きたらお部屋がぴっかぴっかになってたの！　お父さんになんでって聞いたら、ちょっと不思議そうにね、「サンタさんがやってくれたみたいだ」って教えてくれたんだ！　サンタさんって、そんなことまでしてくれるなんて知らなかったよー！　良い子にしてたらサンタさん、また来年もお部屋掃除してくれるかな？　そうだと嬉しいなぁー！（子供）\n◆彼女が掃除に長けた素晴らしい女性だということは知っていたけれど、まさかあそこまで飾り付けもできるとは思っていなかったよ。もし彼女が掃除人でなかったなら、うちの劇団の大道具や小道具係にスカウトするところさ。いや、しかし…あのサンタ服姿の愛らしさも、非常に魅力的だったし、女優としても捨てがたい…！　そうだ、彼女を主役にしたクリスマスの舞台なんてどうだろう！？　きっと素晴らしい舞台になるよ！　…だけど、もう今年のクリスマスは終わっているから…声をかけるのは、次の年になってしまうかな…？（ジュリアン）\n◆ネネルにサンタの手伝いを頼んで、本当に正解だったわね。まぁ正直、サンタと掃除人を両立させるって言った時はちょっと不安だったけど…それも上手いこといったわけだし。そういえばプライドのクリスマスパーティでもプレゼント交換会があったんだけど、ネネルが大きな袋をかついでプレゼントを配っていたのは…ふふ、みんなもネネルも楽しそうにしてたわ。…とにかく、結果良ければ全て良し、ね。（アイリス）"}
+, 
+[92100634] = {id = 92100634, name = "\nサンタ服を着たネネルは、いつもどおり、なんてことないという表情をしていた。だが、やはりその短いスカートでは寒かったのだろう。\n\n外に出たばかりのときは白い息を吐き、鼻のあたりが赤くなり、少し寒そうな姿を見せた。「冬がそう得意ではないのです。\nと言っても、今はまだましになったほうでございます。幼い頃は寒いだけでなく、空気が乾いているせいで咳が止まらず、弱ったものですから」。\n\nどこか遠くを見るようなネネルだったが、やがてこちらをまっすぐと見やった。そして、幼い頃を思えば、不思議と今はそう寒くはない気がするのでございます、と呟いた。\n\n「おそらく寒さとは…空気の冷たさだけではなく、孤独から来るものではないかと考えております」。\nベッドでひとり咳をし、曇りが多く日が差さない窓の外しか見れず、病気を移さないようにとほとんど誰ともしゃべらない日は心細く、いつになく寒く思えたという。\n\n「ですが、クリスマスにはメイドなどが付き添って、ケーキを食べさせてくれたりした日には…気持ちがずいぶん和らぎました」。\n\nそれを思うと、今となってはサラやアイリス、モニカ、ヌエットなどのようにプライドのメンバー達が側にいるのだ。「そして…リーダー様、あなたも」。\nこれほど大勢に囲まれているから、どこか寒くない気がするし、寒いと言っては失礼な気さえする、とネネルは言う。\n\n「…時間がないのに、長話をしてしまいました。ですが話していただけなのに…やはり、あたたかくなれた気がいたします」。\n\n気のせいに決まっているのですがと自分の言葉をごまかすようにネネルは言って、歩き出す。「さぁ。サンタとして、プレゼントの配達へまいりましょう」。ネネルはそう言って、優しく微笑んで見せるのだった。"}
+, 
+[92100635] = {id = 92100635, name = "\n目撃者からの報告\n\n◆…私はパーティに興味はない。だから、あのアホ…エイプリルに誘われても大図書館に居残った。それで終わりだと思っていたのに…サンタ服のネネルが、プレゼントを持ってやって来たんだ。「今宵はクリスマス。フランチェスカ様にもプレゼントをと思い、お持ちいたしました」と言っていた。中身はおそらくショコラが作ったんだろう、クリスマスらしい絵が描いてあるクッキーの詰め合わせだった。それを渡したら、あっという間に去っていった。…いつもどおりのショコラのクッキーだと思う。でも…いつもより美味しかった気がするんだ。（フランチェスカ）\n◆ネネルはやっぱりネネルだったよー。クリスマスプレゼントを袋に詰めるとき、まずは袋を掃除するところから始めたんだ。それからプレゼントも綺麗にほこりを払ったら、袋にそれはそれは綺麗に詰めるんだ。プレゼントなんてもらえるだけ嬉しいから、みんなそんな細かいこと気にしないだろうにー。お金ももらってないのにあれだけ尽くせるなんて、アーク教会のシスターになれるよー。実際ネネルにそう言ったら、「わたくしはあくまで自己満足のためにやっているだけでございます」ってはっきり言われちゃった。うーん、アイリスもネネルもいい人すぎるぐらい、いい人だよねー。（モニカ）\n◆これは雪が降り積もったばかりの日の話でござる。日差しはあたたかいからと拙者は森の木の上でのんびりしていたでござるが…突然、大きく木が揺れたでござる。てっきりモンスターか何かと思ったでござるが…見てみれば、ネネル殿が真剣な表情で山に積もったすべての雪を片付けようとしていたでござる。話しかければ「街に雪が降り積もったときに備えてでございます」と返されたでござる。山の中で修業とはネネル殿も気合いが入っていると感心したでござるよ。と言っても、実際に街に雪が降り積もったときには、子供達が雪遊びができなくなると皆に止められたようでござるが…。…その後サンタになれたのは幸いだったでござるな。街の屋敷を掃除できたわけでござるし、やっと気持ちが落ち着いたに違いないでござろう。（ショウ）"}
+, 
+[92100641] = {id = 92100641, name = "\n黒ヒョウは全身、真っ黒な毛並みをしている。\n\nだが実はよく見ればしっかりとヒョウ柄模様で、光の加減によって確認しやすくなる。また、幼児期は色が薄い部分があるため、ヒョウ柄模様がよりわかりやすい。\n\nいずれにしても、闇の中ならばその身はすっかり溶け込んでしまう。「クリスマスの夜にプレゼントを配る」なんてときには、きっとぴったりだろう。"}
+, 
+[92100642] = {id = 92100642, name = "\n無事にプレゼントの配達を終えたサラはプレゼント風にラッピングした姿のまま、プライドのクリスマスパーティに参加した。そして…メンバー達に大きな衝撃を与えた。\n\nその挑発的すぎる姿には、リーダーに好意を持つ者からは危険視され、そんな服を着る勇気のない者からは恐れおののかれ、心優しい者からは風邪を引くんじゃないかと心配された。\n\nグローリアなど真面目な何人かは実際、その過激な服装をやめるように進言したが、軽くいなして逃げるサラには勝てなかった。\n\n言葉で無理ならば腕ずくで、とアロエやラヴィは手を出そうとした。\n「逆転の発想よ。着せるのが無理なら、いっそすべて脱がしてしまえば…」「なるほど！　嫌でも別の服を着るはず…！」。\n\nだが、そんな目論見もサラの前では無力だった。ふたりがあらゆる手を使ってリボンをほどこうとするのを、ひらりひらりとサラは華麗にかわし続けた。\nそれでもめげずに追い詰めたかと思いきや、ただサラは微笑んで言った。「もし私が着る服がなくなったときには…きっと、優しいリーダーが放ってはおかないだろうね」「涙目で裸の私がリーダーに寄り添ったら、ああ、どうなることやら」。\n\nアロエとラヴィは悲鳴をあげて、「…そのままで！」「いてください！」とむしろサラのリボンをきつく結び直し、サラはただ楽し気に微笑んで見せるのだった。"}
+, 
+[92100643] = {id = 92100643, name = "\n目撃者からの報告\n\n◆クリスマスは大切な人にプレゼントを贈る日だということはもちろん知っていましたが…まさか、好きな方に自分を贈るだなんて思いもよりませんでした。とても興味深かったのでサラ様にどう思いついたかなどお話を伺ったら、「必要なのは、気持ちだけだよ」と教えてくださいました。ですから、いつかわたくしも挑戦してみたいと思います。ふふ、楽しみです。（メイ）\n◆ううっ、サラさんはずるいですっ！　こう、自然体だけどものすごく色っぽくて、見てるだけで誘われてる気分になるって言うか…。なのにクリスマスだからって、あーんな格好までしちゃって…！　いやらしい、ハレンチです、許せません！　っていうかラヴィだってリーダーさんがいれば、立派にサンタを務め上げたのにー！　とにかくリーダーさんっ、あの色香に惑わされちゃいけませんよ！（ラヴィ）\n◆サラさんは常日頃、私に沢山のネタをくれる方です。でもまさか、クリスマスにこんな特大のネタをくれるなんて…！　何も知らない純粋な女の子が、プレゼントとなったサラさんのリボンを不慣れながらも解こうとして…でも突然サラさんは相手の細い手首をつかみ、愛しげな視線を向けながら、ためらう指先に口づけを――ああっ、たまりませんっ…！！　サンタさん、最高のクリスマスプレゼントをありがとうございます…！（イルダ）"}
+, 
+[92100644] = {id = 92100644, name = "\nサラは幼い頃、『クリスマス』というものを過ごしたことがなかった。\n\nもちろん冬は毎年越していたが、当時のサラには特別なことをする余裕などなかったからだ。ただクリスマスというものは、ケーキを食べたりプレゼントをあげたりもらったりするという知識だけがあり、ほとんどおとぎ話と同じだった。\nしかし、おとぎ話も興味のない彼女は、「うらやましい」と思ったことはなかったという。\n\n\nしかしメイドになってからは、クリスマスはむしろ避けては通れないものとなった。\n\nサラがついている主人やその娘達はそうしたイベントが大好きだったから、決まって華やかなパーティを開いて、大きなケーキとプレゼント、そしてめいっぱい飾り付けられたもみの木を用意した。\n\nメイドなのだから、準備の手伝いをするのは当然だ。だが、はじめの年はいつも気の利くサラがめずらしくぎこちなかったため、すぐにクリスマスに不慣れだと気付かれたという。\nだが主人達は決して笑うことはなく、優しくサラを導き、クリスマスがどういうものなのかを教えてみせた。\n\n\n特に思い出深いことがある、とサラは言う。\n\n初めて飾りつけしたもみの木を前にして、双子のお嬢様が言うのだ。\n「これじゃあまだまだよ」「うん、まだ完成してないみたい」。\n\nしかし、もう手元に飾りもなかったし、何が足りないのかサラにはわからない。そこで双子のお嬢様は顔を見合わせて微笑み合い、背中に隠していた大きな星の飾りを差し出した。\n\n「最後は、サラがもみの木のてっぺんにお星さまを飾るのよ」「そうよ、それで完成なんだから」。\n\nいたずらっぽく微笑むふたりがくれた星の飾りは、なんだかほんのりとあたたかい気がしたのだ。\n\n\n――それから飲み込みの早いサラは、次の年にはもうすっかり主人達を頼ることはなくなった。ひとりでプレゼントの用意も、パーティの取りまわしも問題なくこなしてみせる。\n今年こそ、お嬢様たちが休みをくれたから仕事は少なかったが…それでもたった一つだけ、譲らない仕事があった。\n\nそれはやはり、もみの木のてっぺんに大きな星を飾ることだった。覚えているのかいないのか、「サラはお星さまが本当にお気に入りね」「そういうところは子どもっぽいのね」などと微笑むお嬢達を見て、サラは思う。\n私の幸福は、きっとお星さまの形をしている、と。"}
+, 
+[92100645] = {id = 92100645, name = "\n目撃者からの報告\n\n◆いつもどおりクールに見えるけど、クリスマスのサラさんはとっても楽しそうなのよ。仕事をするにも鼻歌を歌ったり、嬉しそうに微笑んだり…。そうそう、私なんかはリナとルナのプレゼントの相談を毎年されるわ。でも変なのが、サラさんは「ふたりは何を欲しがってる？」じゃなくて、「ふたりに何をあげたい？」って私に聞くの。私があげたいものをあげてもしょうがないんじゃって思って言い返したこともあるんだけど、「大丈夫だ。これで何の問題もない」って言い切られて…うーん、それならいい…のかしら？（オリヴィア）\n◆…サラさんは、私にはできないことをなさる方です。日常でも、戦いでも。ですが、あの服装については私も解釈が難しく…。何より、この寒い時期にあのような格好をしては凍えてしまうのではないかと、少々心配で…。ですから、いらぬ世話だとは思いながらも、毛布をご用意してお渡ししました。サラさんはお礼を言ってくださって、それから「いい子だね」と頭も撫でていただきました。…サラさんが何を考えていらっしゃるか私にはわかりませんが、とてもお優しい方だと思います。（ウルスラ）\n◆サンタとして共に働かせていただきました。クロヒョウのレッドとは言え、本当に大変身軽で、いっそわたくしよりもサンタらしくいらっしゃいました。あとは…そうでございますね、思っていた方とは少々異なりました。てっきり周りのことを気にしない自由奔放な方かと思っていたのですが、まずプレゼントを扱う手つきがとても丁寧でいらっしゃいました。それにプレゼントのリボンが緩んでいたら結び直して、落ちてしまったもみの木の飾りをつけ直して…と細かいところにとても気を配って…。それについてサラ様は、「些細なことこそ、幸福につながるものだよ」とおっしゃっていました。サラ様が繊細な方だと知れたのは、良い機会になったかと思います。（ネネル）"}
+, 
 [93100101] = {id = 93100101, name = "呀哈罗！这里是埃普丽尔酱，人见人爱的埃普丽尔酱！有好好的记住吗？那个那个…请多多关照啦！"}
 , 
 [93100102] = {id = 93100102, name = "哦呀哦呀，团长，今天也要一起开心的恶作剧哦！"}
@@ -5547,7 +6469,7 @@ BaseWordData = {
 , 
 [93100106] = {id = 93100106, name = "有问题就找埃普丽尔酱，当然时帮时不帮！哈哈哈，这句台词很帅气吧？！"}
 , 
-[93100107] = {id = 93100107, name = "哦呀~埃普丽尔酱又变强了呢！"}
+[93100107] = {id = 93100107, name = "哦呀~埃普丽尔酱又变強了呢！"}
 , 
 [93100108] = {id = 93100108, name = "锵锵！埃普丽尔酱闪亮登场！有被埃普丽尔酱帅气的英姿迷倒么？呵呵呵。"}
 , 
@@ -5599,7 +6521,7 @@ BaseWordData = {
 , 
 [93100132] = {id = 93100132, name = "奥利维亚酱也在啊……还是去找诺埃尔酱玩吧！"}
 , 
-[94000001] = {id = 94000001, name = "团长大人：\n敬启    团长近来可好，是否已经习惯了这个世界的生活？久疏问候，还请多多见谅。\n    从给您寄送匿名信件算起，至今已过许多时日。请务必让我再一次为那时的不成熟道歉！多亏了奥利维亚她们，让我学会了更加真诚的面对您。\n    不过，据书上所说“匿名时可以让人交流更坦诚”，难道是我买的书写错了么…不管如何，这份想要与您更加亲密的心意是绝对的。\n    从初次相遇到现在，与您之间的交换日记已经放满了半个书架…第一次与一个人一起坚持了这么久…真的非常感谢您对我的关照。每次翻阅这些日记时，我总是会忍不住想“如果当初没有遇到团长，现在的我会是什么样呢？”想了很久我也没法得出一个答案，不过，不管会怎样，肯定不会比现在更让我觉得开心吧。\n    很幸运能够遇到您，也很幸运遇到的是您。这么长时间以来，总是对我不遗余力的支持和鼓励，让我变得更加强大，更加成熟…这一切，都是您的功劳！这样的我，想必能够为了我们所期待的明天做更多的事吧？真想那一天能够快点到来啊…与您一同见证RED和人类和平相处的那天。\n    那时，我一定可以有勇气，与您在漫天星光下，畅聊心中的愿望吧。"}
+[94000001] = {id = 94000001, name = "团长大人：\n敬启    团长近来可好，是否已经习惯了这个世界的生活？久疏问候，还请多多见谅。\n    从给您寄送匿名信件算起，至今已过许多时日。请务必让我再一次为那时的不成熟道歉！多亏了奥利维亚她们，让我学会了更加真诚的面对您。\n    不过，据书上所说“匿名时可以让人交流更坦诚”，难道是我买的书写错了么…不管如何，这份想要与您更加亲密的心意是绝对的。\n    从初次相遇到现在，与您之间的交换日记已经放满了半个书架…第一次与一个人一起坚持了这么久…真的非常感谢您对我的关照。每次翻阅这些日记时，我总是会忍不住想“如果当初没有遇到团长，现在的我会是什么样呢？”想了很久我也没法得出一个答案，不过，不管会怎样，肯定不会比现在更让我觉得开心吧。\n    很幸运能够遇到您，也很幸运遇到的是您。这么长时间以来，总是对我不遗余力的支持和鼓励，让我变得更加強大，更加成熟…这一切，都是您的功劳！这样的我，想必能够为了我们所期待的明天做更多的事吧？真想那一天能够快点到来啊…与您一同见证RED和人类和平相处的那天。\n    那时，我一定可以有勇气，与您在漫天星光下，畅聊心中的愿望吧。"}
 , 
 [95000001] = {id = 95000001, name = "メンバー募集"}
 , 
@@ -6011,7 +6933,7 @@ BaseWordData = {
 , 
 [97031053] = {id = 97031053, name = "高い木を知らぬか？高いところの空気を吸いたくての……しかして仮眠するでござる。"}
 , 
-[97031054] = {id = 97031054, name = "ゴクゴク～（飲む音）はぁーー　一緒にどうでごぞるか？ あはは、いやいや、酒にはござらんて。お茶でござる。"}
+[97031054] = {id = 97031054, name = "ゴクゴク～はぁーー　一緒にどうでござるか？ あはは、いやいや、酒にはござらんて。お茶でござる。"}
 , 
 [97031061] = {id = 97031061, name = "皆様のためなら、わたくしはなんでもしたいと思っているのです。皆様の幸せを見守り、皆様の期待に応えることこそ、わたくしの喜びなのです。"}
 , 
@@ -6036,6 +6958,86 @@ BaseWordData = {
 [97011073] = {id = 97011073, name = "勉強は嫌いだー。でもリーダーが褒めてくれるなら、ちょっと頑張れる気がするぞ。"}
 , 
 [97011074] = {id = 97011074, name = "エイプリルはイタズラのシショーだ！それなりにソンケーしてるぞっ！"}
+, 
+[97030101] = {id = 97030101, name = "リーダーはレッドに優しいわね。あなたみたいな人ばかりだといいのだけれど。"}
+, 
+[97030102] = {id = 97030102, name = "ええと……今は何をしているの？リーダーは瞑想がお好きなのかしら。"}
+, 
+[97030103] = {id = 97030103, name = "にらめっこをご要望なら、他の子達に声をかけてちょうだい。"}
+, 
+[97030104] = {id = 97030104, name = "ひとりの時間が好きなの。だから、あなたも気にせず他の場所へ行くといいわ。"}
+, 
+[97030091] = {id = 97030091, name = "こんな姿で戦うと、相手は私を傷つけやすいと勘違いするみたい。ふふ、本当に無防備なのはどちらか…教えてあげなくちゃ。"}
+, 
+[97030092] = {id = 97030092, name = "リーダーものんびり日焼けタイム？それよりも…もっと熱くなれることをしましょう。とっておきの刺激的な戦いを…ね？"}
+, 
+[97030093] = {id = 97030093, name = "本当に強い者はどんな場所でもどんな格好でも、実力は変わらないわ。さぁリーダー、私の力を試してみない？"}
+, 
+[97030094] = {id = 97030094, name = "水中戦の経験は多くないけど、とっても好きなの。満足に息ができない中で、命を賭けて戦うあの瞬間…ああ、危険すぎて最高ね…！"}
+, 
+[97021121] = {id = 97021121, name = "もし暑いなら、ノンノがいつでも扇ぐよ！パタパタってするの、すっごく上手なんだからっ。"}
+, 
+[97021122] = {id = 97021122, name = "この前ね、シエラさんが夏バテ解消用の料理を作ってくれたんだ！ちょっと酸っぱくて、とっても美味しかったよ～！"}
+, 
+[97021123] = {id = 97021123, name = "海を見ながら入れる温泉も気持ち良さそうだなぁ。海水浴で疲れたみーんな、きっとゆっくりできて癒せるよねっ！"}
+, 
+[97021124] = {id = 97021124, name = "お日様の下にずっといるとね、だんだんお肌がピリピリってなっちゃうんだよ。リーダーも日焼けのしすぎには気をつけてね！"}
+, 
+[97021111] = {id = 97021111, name = "あなたのお名前はもちろん、覚えていますよ。えーっと…なんでしたっけ？"}
+, 
+[97021112] = {id = 97021112, name = "こんなに私を見つめるということは…リーダーさんも、なかなか人の顔を覚えられないタイプですか？"}
+, 
+[97021113] = {id = 97021113, name = "記憶に残るような刺激的なことには惹かれますが…こうしたのんびりとした時間も、大事にしなくちゃですよね。"}
+, 
+[97021114] = {id = 97021114, name = "リーダーさんが素敵な一日を送れるよう、お祈りしますね。………あれ？今私、何のお祈りをしていました？"}
+, 
+[97022081] = {id = 97022081, name = "ひぃふぅみぃっと…むふふ、今日の報酬も悪くないっ♪　でも豪邸を手に入れるまではまだまだ遠いからね。ルルリカにはもっともーっと稼いでもらわないとー♪"}
+, 
+[97022082] = {id = 97022082, name = "ふんふふーん、今日のご飯は「その辺に生えてた草」だよー♪　こういう節約が、豪邸への一歩だからね。リーダーも豪邸が欲しいなら、草を食べるべし！　だよ。覚えときな♪"}
+, 
+[97022083] = {id = 97022083, name = "こういう時間もいいよねー。労働なんてほんと、するもんじゃないよ。でもあたしは豪邸のため…ちょっと休んだらお仕事再開かなー？"}
+, 
+[97022084] = {id = 97022084, name = "リーダーもあたしがルルリカを利用してるって思うかい？　…にしし、なんとでも思うといいよ。あたしとルルリカは一心同体、引きはがせるものならやってみな♪"}
+, 
+[97030111] = {id = 97030111, name = "あぅ…ど、どうしてリーダーさん、黙っているんですか…？　わ、わたし…そんな見つめられたら…死んでしまいそうですっ…"}
+, 
+[97030112] = {id = 97030112, name = "あ、あの…リーダーさんは何をしてるんですか？　わたしはその…台本を読んでるところで…。新しい舞台は大変ですけど、わたしじゃない誰かになれる喜びは…何物にも代えがたいです。"}
+, 
+[97030113] = {id = 97030113, name = "ハ、ハミィとこんなに離れているのは、あまりないので…いったい、何をしたらいいのか…。ええと、ええと…その…か、かくれんぼでもしてみますか…？"}
+, 
+[97030114] = {id = 97030114, name = "ふふ…さっき、とても素敵な物陰を見つけたんです…♪　じめじめしてなくて、人通りが少なくて、でも危なくなさそうで…。あ…気になるならリーダーさんにも、ご紹介しますね…♪"}
+, 
+[97030121] = {id = 97030121, name = "はあぁぁ…やっぱりミアのかわいさは世界一なんですけど…！リーダーもそう思うでしょ？でしょ？"}
+, 
+[97030122] = {id = 97030122, name = "うちのプライドにはかわいい子が多くて、ミアのオシャレ魂がうずいちゃうんですけど…！コーデし放題って感じ！ふふふ…！"}
+, 
+[97030123] = {id = 97030123, name = "むむぅ…リーダーをかわいくするには、どうすればいいんだろ。ネクタイ…それともリボン…？ね、実際に試させて！"}
+, 
+[97030124] = {id = 97030124, name = "こういうとき、リーダーはミアを構うべきだと思うんですけど！例えば、異世界の服とかコーデのお話するとかして！"}
+, 
+[97022091] = {id = 97022091, name = "いつもの服よりね、この服の方がいろんな人に慕われるんだぁ。教会の子供達に、信心深い人…それから…ふふ、あとは秘密～。"}
+, 
+[97022092] = {id = 97022092, name = "ハロウィンでお菓子を欲しがる子達のために、キャンディやクッキーを持ち歩いてるんだぁ。リーダーもおひとつ、どうかな～？"}
+, 
+[97022093] = {id = 97022093, name = "リーダー、のんびりしてたらもったいないよぉ。いたずらして、お菓子ももらって、楽しまないとぉ。ふふ。"}
+, 
+[97022094] = {id = 97022094, name = "ふふふ。ワタシ、占い師なのにシスターの格好しちゃってる～。でも、占いでも運命を大事にしてるから…きっと神様も許してくれるよねぇ？"}
+, 
+[97030131] = {id = 97030131, name = "ハロウィンというのは良い祭りでござるな。ただ仮装をしただけで、これほど菓子がもらえるとは。まぁ…時折、拙者を見るなり逃げられてしまうこともあるでござるが。"}
+, 
+[97030132] = {id = 97030132, name = "ぴょんっ、ぴょんっ…むぅ。キョンシーは両手を前に伸ばして、跳ねながら進むらしいでござるが…。これで戦うのは難しそうでござるな。"}
+, 
+[97030133] = {id = 97030133, name = "故郷で恐れられていた化け物に、自分からなるとは不思議なものでござる。ふふふ、これで里帰りでもしたらきっと誰もが驚くでござろうなぁ。"}
+, 
+[97030134] = {id = 97030134, name = "この季節には、キョンシーだけでなく様々な怪異が現れやすいと言う。リーダー殿も夜道には気を付けるでござるよ。"}
+, 
+[97030141] = {id = 97030141, name = "むぅ、リーダーに構ってもらえないよぅ。でも、ロールが目立ってないせいだよね。よーしっ…もっと目立って、もーっとリーダーに構ってもらわなくちゃ！"}
+, 
+[97030142] = {id = 97030142, name = "リーダー、今ロールのこと見てくれてるの？　やったぁ！　リーダーがたーっくさん見つめてくれたら、ロールはとーってもうれしいよ！"}
+, 
+[97030143] = {id = 97030143, name = "ロールは良い子だから、大人しくここでリーダーを待ってるよ！　待ってるけど…ねっ。あとどれぐらい待ったら、ロールのこと構ってくれるかなっ？"}
+, 
+[97030144] = {id = 97030144, name = "ふわぁ…今日もとってもいい天気で、お日様が気持ち良くって～…リーダー、一緒にお昼寝…しよ…すや…すや…"}
 , 
 [101100101] = {id = 101100101, name = "お金さえあれば、できないことはないのよ♪　私はシャノン。クエスト受付嬢よ、ぜひ覚えてちょうだいね。"}
 , 
@@ -6349,6 +7351,66 @@ BaseWordData = {
 , 
 [101110721] = {id = 101110721, name = "リーダーといると面白いことばっかりだ！これからも一緒に遊ぼうな！"}
 , 
+[101301001] = {id = 101301001, name = "ごきげんよう、私の名はシェリー。あなたがどんなことをするのか…楽しみにしてるわ。"}
+, 
+[101301011] = {id = 101301011, name = "レッドの未来のためなら……この力を、私は惜しまない。"}
+, 
+[101301021] = {id = 101301021, name = "あなたは弱いアンレッドだもの。だから……大人しく私に守られているといいわ。"}
+, 
+[101300901] = {id = 101300901, name = "夏の装いというのも…悪くないわね。さぁリーダー。私の興奮が冷めないうちに、たっぷり遊びましょう？"}
+, 
+[101300911] = {id = 101300911, name = "ふふ、あなたといる夏はこんなに刺激的なのね。熱くて、無防備で…体のうずきが止まらないの。でもまだ足りないわ。もっと、もっと…私を興奮させて？"}
+, 
+[101300921] = {id = 101300921, name = "私の欲望は海のように深くて…大きいの。けど、あなたなら…私の欲望を満たせる『はじめての人』になってくれるのかしら？これからも楽しみにしてるわ。"}
+, 
+[101211201] = {id = 101211201, name = "見て見てー！ノンノ、水着着たよーっ！リーダーにすっごく見て欲しかったんだ。一緒に楽しい夏にしようね、リーダー！"}
+, 
+[101211211] = {id = 101211211, name = "リーダーに優しくしてもらった後はね、いつもより海が綺麗に見える気がする。だからね、この夏はずーっと、海が綺麗に見えたんだ。…えへへ。ありがとう、リーダー！"}
+, 
+[101211221] = {id = 101211221, name = "夏が過ぎて、寒くなってきても…またノンノと一緒に遊ぼうね。えへへっ。約束だよ、リーダーっ！"}
+, 
+[101211101] = {id = 101211101, name = "はじめまして、私はツバキです。…あの、私達どこかでお会いしたことがありましたっけ？"}
+, 
+[101211111] = {id = 101211111, name = "前の私より可愛くなっていますか…？そうであればいいのですが…"}
+, 
+[101211121] = {id = 101211121, name = "たとえ記憶を失くしても、あなたと一緒にいた証があれば…それでいいんです。"}
+, 
+[101220801] = {id = 101220801, name = "やぁやぁ、何を隠そうあたしがルルリカ専属マネージャーのハーミットだよ。ルルリカが思いっきり稼げそうで、さっさと豪邸建てられそうなお仕事募集中ー♪　あ、でもエッチなのはダメだよ？"}
+, 
+[101220811] = {id = 101220811, name = "もうリーダーとルルリカがいれば、豪邸なんていらない…なんて言わないよ。あたしは、あんた達と一緒に欲しいものを何もかも手に入れてやる、それだけだ！　むふふ、覚悟しておきなー♪"}
+, 
+[101220821] = {id = 101220821, name = "リーダー、あんたって本当に最高だよ！　だから特別に、約束してあげる。いつか世界中にあるどこの家よりもすんばらしーあたしの豪邸ができたら…そこに住まわせてあげる。にしし、光栄でしょー？"}
+, 
+[101301101] = {id = 101301101, name = "ル、ルルリカと申します…。舞台女優をしていて…でも、あまり人前に出るのが得意でなくて…きゃっ…そ、そんなに見つめないくださいっ…"}
+, 
+[101301111] = {id = 101301111, name = "わたしを導いてくれるあなたの手が、これほどあたたかいことを…この先ずっと、忘れたりはしません。…ふふ。今のは台本じゃない、わたし自身の言葉…ですからね？"}
+, 
+[101301121] = {id = 101301121, name = "ルリはずっと「自分以外の誰か」になるため、演技してきました…。でも今…あなたの前では、ルリのままでありたいって思うんです。リーダーさん…どうかこの気持ちを、受け止めてもらえますか…？"}
+, 
+[101301201] = {id = 101301201, name = "世界一オシャレでかわいい女の子こと、ミアよ！ファッションのことならお任せなんですけど！"}
+, 
+[101301211] = {id = 101301211, name = "ふふん、リーダーってば見とれてる？ミアのオシャレはまだまだ止まらないよ！"}
+, 
+[101301221] = {id = 101301221, name = "リーダー、もっともっとミアを見て。そしたらミア、もっと可愛くなれちゃうから！"}
+, 
+[101220901] = {id = 101220901, name = "ワタシとアナタが出会ったのは運命。これぞ神の思し召し…なんて。どう、シスターらしくみえるかなぁ？"}
+, 
+[101220911] = {id = 101220911, name = "わぁ、本物のシスターみたいにとっても素敵だね～。ふふ、これでいたずらなんてしていいのかなぁ？"}
+, 
+[101220921] = {id = 101220921, name = "これなら、どんな彷徨える魂も救ってあげられるよ。ワタシひとりじゃできないことも…リーダーとなら、なんでもできちゃうねぇ。ふふ。"}
+, 
+[101301301] = {id = 101301301, name = "ふふふ、ショウでござるよ。ハロウィンなる祭りのために拙者の国に伝わる怪物…キョンシーに仮装してみたでござる。なかなか様になってるでござろう？"}
+, 
+[101301311] = {id = 101301311, name = "おお、なんと素晴らしいでござる！　この姿をもっと見せつけて、もっと菓子を貰いに行かねばな。"}
+, 
+[101301321] = {id = 101301321, name = "ふふふ、リーダー殿のおかげで菓子が山ほど貰えたでござるよ。さぁリーダー殿、祝いに山分けして一緒に食べようではないか。"}
+, 
+[101301401] = {id = 101301401, name = "じゃじゃ～ん！　呼ばれて飛び出た、ロールだよーっ！　どうかな？　今の登場、ちゃんと目立ってたかな！？"}
+, 
+[101301411] = {id = 101301411, name = "わぁ！　リーダーと遊んでただけなのに、今までのロールと違うみたい！　これがリーダーの特別な力なの？　すごーい！"}
+, 
+[101301421] = {id = 101301421, name = "リーダーの言葉はすごいよね。まるで晴れた日に降る雪みたいに、キラキラしてる！　おかげでロールは、こーんな素敵になれちゃった！　ありがとう、リーダー！"}
+, 
 [102100101] = {id = 102100101, name = "あらあら。のんびりしてると、良いクエストが取られちゃうわよ♪"}
 , 
 [102100201] = {id = 102100201, name = "リーダー、お帰りなさい。今日も気を引き締めていきましょう。"}
@@ -6445,13 +7507,33 @@ BaseWordData = {
 , 
 [102310401] = {id = 102310401, name = "ああ、また来たんだ。今日は何の用？　まさか…あたしを引きずって冒険に行くつもり？"}
 , 
-[102310501] = {id = 102310501, name = "……ふあぁぁ（あくびする）、そなたか。 ……少々、疲れただけだ。 気にするはないでござるよ。"}
+[102310501] = {id = 102310501, name = "……ふあぁぁ、そなたか。 ……少々、疲れただけだ。 気にすることはないでござるよ。"}
 , 
 [102310601] = {id = 102310601, name = "リーダー様、本日のご機嫌はいかがでしょう？　ふふ。"}
 , 
 [102300801] = {id = 102300801, name = "今日も未来の歌姫に近づくための練習よ！"}
 , 
 [102110701] = {id = 102110701, name = "ふふん。パロネス、ちゃんとお留守番できたぞ！どうだ、偉いだろう？"}
+, 
+[102301001] = {id = 102301001, name = "今日は何をするつもりかしら。私にも付き合わせてちょうだい。"}
+, 
+[102300901] = {id = 102300901, name = "リーダー、今日も熱い一日を過ごしましょう…？"}
+, 
+[102211201] = {id = 102211201, name = "リーダー、今日も海でたーっくさん遊ぼうね！"}
+, 
+[102211101] = {id = 102211101, name = "こんにちは。ええと、あなたは…プライドの新人さんでしょうか？"}
+, 
+[102220801] = {id = 102220801, name = "今日も精が出るねぇ。あたしもルルリカの仕事探しに行こっかなー♪"}
+, 
+[102301101] = {id = 102301101, name = "きゃっ…リ、リーダーさん…！　急にいらっしゃると…心の準備が間に合いませんっ…"}
+, 
+[102301201] = {id = 102301201, name = "リーダー、今日も世界一カワイイを追求しに行こ！"}
+, 
+[102220901] = {id = 102220901, name = "ふふ。リーダー、大きなカボチャでも探しに行こうかぁ？"}
+, 
+[102301301] = {id = 102301301, name = "トリックオアトリート、でござるよ♪　さぁ、何か美味いものをよこすでござる。"}
+, 
+[102301401] = {id = 102301401, name = "あ、リーダーだ！　今日もロールのこと、たーっくさん注目してね！"}
 , 
 [103100101] = {id = 103100101, name = "リーダーさんって、気前がいいのね！　素敵だわ！"}
 , 
@@ -6549,13 +7631,33 @@ BaseWordData = {
 , 
 [103310401] = {id = 103310401, name = "ん…ちょっと力が戻った感じするかも。"}
 , 
-[103310501] = {id = 103310501, name = "いかさま修行の成果でござる！"}
+[103310501] = {id = 103310501, name = "修行の成果でござる！"}
 , 
 [103310601] = {id = 103310601, name = "これはリーダー様の優しさそのものですね。"}
 , 
 [103300801] = {id = 103300801, name = "まだまだ伸びしろはあるわよ！"}
 , 
 [103110701] = {id = 103110701, name = "パロネスだって、強くなるんだぞ！"}
+, 
+[103301001] = {id = 103301001, name = "まだ私の力は磨ける、ということね。"}
+, 
+[103300901] = {id = 103300901, name = "ああ、体が熱くてたまらないわ…！"}
+, 
+[103211201] = {id = 103211201, name = "今なら遠くまで泳げそうな気分っ。"}
+, 
+[103211101] = {id = 103211101, name = "わっ…もしかして成長期でしょうか…？"}
+, 
+[103220801] = {id = 103220801, name = "あんたへの恩、絶対に忘れないよ！　…たぶんね♪"}
+, 
+[103301101] = {id = 103301101, name = "この力を望んでもらえるなら…わたしも応えたいです。"}
+, 
+[103301201] = {id = 103301201, name = "ミアってば、またかわいくなっちゃったかも！"}
+, 
+[103220901] = {id = 103220901, name = "もっとハロウィンが楽しくなるね"}
+, 
+[103301301] = {id = 103301301, name = "さらに跳ねるでござるよ！"}
+, 
+[103301401] = {id = 103301401, name = "ロール、もっといい子になれた？"}
 , 
 [104100101] = {id = 104100101, name = "これも投資の一種なのかしら？"}
 , 
@@ -6661,6 +7763,26 @@ BaseWordData = {
 , 
 [104110701] = {id = 104110701, name = "なんだか身体がポカポカするぞ…。これが強くなったアカシなのか…！？"}
 , 
+[104301001] = {id = 104301001, name = "今の私が強くありたいと思うのも、きっと……"}
+, 
+[104300901] = {id = 104300901, name = "お礼に、あなたも熱くさせてあげる…ふふ。"}
+, 
+[104211201] = {id = 104211201, name = "暑い夏を乗り越えて…ノンノは強くなったよーっ！これでもう、怖いものは無しだよっ！"}
+, 
+[104211101] = {id = 104211101, name = "ふふっ…あなたと過ごした時間が、私を強くさせたんでしょうね。"}
+, 
+[104220801] = {id = 104220801, name = "あたしを強くしたいなんて変わり者だねー。でも、そういうとこが結構好きだよ♪"}
+, 
+[104301101] = {id = 104301101, name = "ふふ。リーダーさんのおかげで、演技も良くなったみたいです…♪"}
+, 
+[104301201] = {id = 104301201, name = "ミアね、リーダーのそばにいるから可愛くなれたと思う。"}
+, 
+[104220901] = {id = 104220901, name = "仮装だけど…なんだか、神様に近づけている気がするよ。"}
+, 
+[104301301] = {id = 104301301, name = "拙者のキョンシーにもこれでさらに磨きがかけられるでござるな。あいわかった、その期待に応えてみせるでござるよ。"}
+, 
+[104301401] = {id = 104301401, name = "リーダーがいつも可愛がってくれたからだね！　もーっと可愛がったら、もーっと強くなってみせるからっ！"}
+, 
 [105100101] = {id = 105100101, name = "あらあら。こういうサービスをして欲しいなら、たーっくさんお金を用意してもらわないと♪"}
 , 
 [105100102] = {id = 105100102, name = "うふふ、優しいリーダーさんは可愛いわね。真面目なリーダーさんは…かっこいいかもね？"}
@@ -6735,7 +7857,7 @@ BaseWordData = {
 , 
 [105110202] = {id = 105110202, name = "本当におせっかいが好きですね…ま、リーダーらしいですが。…助けられてるとは思ってるですから、お礼にアイテムをちょっとだけ値引きしてやるですよ！"}
 , 
-[105110203] = {id = 105110203, name = "あと何度か来店すれば、 うちの店のダイヤモンド会員になるですよ！ 金ジ…じゃなくてリーダー、何か特典をつけますか？"}
+[105110203] = {id = 105110203, name = "あと何度か来店すれば、 うちの店のダイヤモンド会員になるですよ！ 金ヅ…じゃなくてリーダー、何か特典をつけますか？"}
 , 
 [105110204] = {id = 105110204, name = "忙しそうなのに、よくわざわざリッタに構うですね。もう気にしないで、クエストにでも行ってくるですよ！　…リッタは、ずっとここでリーダーを待ってますから。"}
 , 
@@ -7159,7 +8281,7 @@ BaseWordData = {
 , 
 [105310604] = {id = 105310604, name = "リーダー様と同じように辛抱強く、優しく、強く……そして、いつでも皆様を希望で満たす存在になりたいのです。"}
 , 
-[105310605] = {id = 105310605, name = "わたくしにとって、リーダー様は特別な方です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですからどうか、あなたが苦しく思ったときには、わたくしが差し伸べる手を迷わず取ってくださいね。"}
+[105310605] = {id = 105310605, name = "わたくしにとって、リーダー様は特別な存在です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですからどうか、あなたが苦しく思ったときには、わたくしが差し伸べる手を迷わず取ってくださいね。"}
 , 
 [105300801] = {id = 105300801, name = "な、何触ってんのよ、馬鹿！いやらしい！変態！すけべ！ああもうっ、ノエルに全部言ってやるんだからー！覚悟してなさいよ！"}
 , 
@@ -7180,6 +8302,106 @@ BaseWordData = {
 [105110704] = {id = 105110704, name = "パロネスに構ってほしいのか？リーダーもパロネスのことが好きすぎるぞー、にゃははっ！じゃあさっそく、思う存分くすぐってやる！こちょこちょこちょこちょー！"}
 , 
 [105110705] = {id = 105110705, name = "ここに来てから大好きなヤツがいっぱい増えたぞ。もちろん…一番大好きなのは、リーダーだ！リーダーは構ってくれるし、パロネスを助けてくれたし、良いヤツだからだ！パロネスの一番、誇っていいぞ！"}
+, 
+[105301001] = {id = 105301001, name = "あまり不埒な真似をすると、手のひらに穴が開くわよ？"}
+, 
+[105301002] = {id = 105301002, name = "何か用かしら？クエストでも冒険でも、力になれるなら手を貸すから声をかけて。"}
+, 
+[105301003] = {id = 105301003, name = "私はあなたと仲良くしたくて、ここにいるわけじゃないわ。だから…馴れ馴れしくするのはやめて。"}
+, 
+[105301004] = {id = 105301004, name = "リーダーは私といるのが怖くないの？だって、あなたは弱いアンレッドで…私がその気になれば、いつでも仕留められるのに…"}
+, 
+[105301005] = {id = 105301005, name = "見極めるべきあなたの隣で、こんなにも安らいでしまっている…おかしな話ね…。でも、あなたに常識なんて意味がないってわかってる。あなたは本当に…特別な人よ。"}
+, 
+[105300901] = {id = 105300901, name = "ふふっ、気安く触れるのね。これがあなたじゃなかったら、今頃命はなかったわ。見逃す代わりに…楽しい戦いを用意して頂戴ね。"}
+, 
+[105300902] = {id = 105300902, name = "ふふ…私に触れるとき、自分がどんな顔をしているかわかってる？私が戦ってるときみたいに…とっても興奮した顔してるわよ？"}
+, 
+[105300903] = {id = 105300903, name = "夏の一日が長いわ。でも…面白いと思える戦いは一瞬で終わってしまうの。とっても寂しいから…今晩はなぐさめてくれないかしら、リーダー？"}
+, 
+[105300904] = {id = 105300904, name = "ちょうどよかった。商人のお嬢ちゃんから『日焼け止め』というものを貰ったの。リーダー、暇なら塗るのを手伝ってくれるかしら？体の隅から隅まで…たっぷりと。"}
+, 
+[105300905] = {id = 105300905, name = "あなたは私が思いつきもしなかった、新しい快感を教えてくれる…でも、そのせいでもっと快感が欲しくてたまらなくなるの…。ねぇリーダー、早く…戦わせてちょうだい？"}
+, 
+[105211201] = {id = 105211201, name = "うひゃっ。リーダー、くすぐったいよー！水着だと、いつもよりすっごくくすぐったい！だから、もうやめてー！"}
+, 
+[105211202] = {id = 105211202, name = "どうしたの、リーダー？あっ、もしかして…喉が渇いてきちゃった？それじゃあ海の家でお水もらってこよっか！"}
+, 
+[105211203] = {id = 105211203, name = "リーダー、『浮き輪』っていう遊び道具があるんだって！キラキラの海でぷかぷかって浮けるらしいんだ。ノンノもリーダーとぷかぷかしてみたいなぁ！"}
+, 
+[105211204] = {id = 105211204, name = "この間、イザベラさんに日焼け止めを塗るコツを教えてもらったの！リーダーも塗ってほしかったら、ノンノに言ってね！　背中から足まで…綺麗に塗ってあげるよ！"}
+, 
+[105211205] = {id = 105211205, name = "あのね、みんなで涼しくなろうって怖～い話をしたの。そしたら、頭から怖～い話が離れなくなっちゃって…だから…ねぇリーダー…。今晩、一緒に寝てもいい…？　"}
+, 
+[105211101] = {id = 105211101, name = "ふふ、大丈夫ですよ。こんなに近くにいるんですから、あなたのことを忘れたりしません。…ええと、でもお名前だけ教えてもらっていいですか？"}
+, 
+[105211102] = {id = 105211102, name = "実は私、道に迷うことはないんです。だから今度、一緒にお出掛けでもどうでしょうか？リーダーさんと一緒なら、きっとどんな場所でも素敵な思い出が作れる気がするんです。"}
+, 
+[105211103] = {id = 105211103, name = "あなたの手はすごく温かいんですね。ずっと触れていたら…火傷してしまいそうです。だから私に触れるときは、優しくお願いしますね…♪"}
+, 
+[105211104] = {id = 105211104, name = "忘れっぽいままでもいいと思うことがあるんです。だってそうすれば、何度も“いいこと”が聞けたりしますから。ふふ、それじゃあ早速…あなたの素敵なお名前を、私の耳元で聞かせてくれますか？"}
+, 
+[105211105] = {id = 105211105, name = "あなたは私の宝物です。あなたと過ごした時間も、すべて…。今では忘れることよりも、あなたに忘れられてしまうほうが…怖いです。どうか私といた今この時を、覚えていてくださいね。"}
+, 
+[105220801] = {id = 105220801, name = "おっと、お触りは厳禁だよ。たとえ対価に豪邸を用意してもね。もしルルリカに同じことしたら…生まれたのを後悔させてあげる。なーんてね♪"}
+, 
+[105220802] = {id = 105220802, name = "あたし今、どんな豪邸に住むか考えるので忙しいんだよね。あ、いっそリーダーも一緒に考える？　リーダーはどういう豪邸がいい？　思いっきり派手なの想像してよ！"}
+, 
+[105220803] = {id = 105220803, name = "ちょっとー、あたしに絡むんなら、食事ぐらいおごってもらわないと困るよー♪　ふふふ。じゃあさっそくレストランデートへ行こうかね、リーダー？"}
+, 
+[105220804] = {id = 105220804, name = "何、甘えたいの？　ルルリカ以外の面倒は見ないようにしてるんだけど…。ま、あんたには普段世話になってるし…特別に、ちょっとぐらいは世話してあげてもいいかな？　ちょっとだけ、ね。ふふ。"}
+, 
+[105220805] = {id = 105220805, name = "あたしの考えることは、ずっと豪邸とルルリカのことだけだったのに…最近は、あんたが勝手に頭の中に出てくるんだ。別にあんたについて考えることないはずなのに…なんだか、心が安らぐ気がするんだ。"}
+, 
+[105301101] = {id = 105301101, name = "きゃっ…い、いけませんリーダーさん…。わたしなんかに触れたりしたら…何が起こるかわかりませんから…もうこんなことは、やめてください…"}
+, 
+[105301102] = {id = 105301102, name = "このドレスは、ずいぶん前にハミィがくれたもので…古くなってきたんですけど、大事に手入れして着てるんです。ふふ…リーダーさんも気に入ってくれたなら、とっても嬉しいです。"}
+, 
+[105301103] = {id = 105301103, name = "「どうか私を導いて、孤独から救ってくれ。あなたのそばに、私が必要だと言ってくれ」――きゃっ…リ、リーダーさん、いらしてたんですね…。い、いえ…今のはその、ただ好きな劇のセリフで…告白とかじゃ…あぅ…"}
+, 
+[105301104] = {id = 105301104, name = "ふふ、ルリはここにいますよ。リーダーさんの前なら…物陰じゃなくても、大丈夫みたいです。ううん、むしろあなたの前にずっと――い、いえ、やっぱり、なんでもありません…"}
+, 
+[105301105] = {id = 105301105, name = "ルリにどんな役を演じて欲しいですか？　あなたが望む役なら、なんでもやってみたいんです。…あなただけの前で、あなただけのための、特別なルリを…ふふ。"}
+, 
+[105301201] = {id = 105301201, name = "かわいいミアと一緒にいるんだし、リーダーもうれしいに決まってるよね！うふふっ♪これからももーっと可愛くなって、もーっと嬉しくさせてあげる♪"}
+, 
+[105301202] = {id = 105301202, name = "リーダー、ミアに見とれちゃった？ふふーん。そんなに見たいなら、どこでもいくらでも見ていいんですけど！右からでも、左からでも、上からでも、下からでもっ…って、下からだけはダメなんですけど！"}
+, 
+[105301203] = {id = 105301203, name = "おさわりは禁止なんですけど…まあ、リーダーなら少しぐらい、許してあげてもいいけど。だって…ミアのお洋服が可愛いから、素材が気になっちゃったんでしょ！？それならしょうがないもんっ！許すっ！"}
+, 
+[105301204] = {id = 105301204, name = "誰にかわいいって思ってもらえるかも大事だって、最近思うようになったんだ。その理由とか、相手とかはー…秘密！女の子はね、秘密を持ってるともっと可愛くなるし♪"}
+, 
+[105301205] = {id = 105301205, name = "いつかかわいいじゃすまないくらい、リーダーを夢中にさせちゃうファッションを作って見せるから！リーダーだけにしか見せない、とっておきのミアを覚悟してて！"}
+, 
+[105220901] = {id = 105220901, name = "ふわぁ…仮装もパーティもいたずらも…楽しそうだけど、眠気には勝てないよ…。おやすみ、リーダー…すぅ…"}
+, 
+[105220902] = {id = 105220902, name = "今、占いをしてたところだよぉ。ハロウィンパーティが上手くいくかって。でも…リーダーがいるなら、占うまでもなく大成功だね。ふふ。"}
+, 
+[105220903] = {id = 105220903, name = "どうしたの、リーダー？　何か懺悔したいことでもあるの？　ふふ…じゃあシスタークインが特別に、リーダーの悩みを聞いてあげる～。占いのおまけつきでねぇ。"}
+, 
+[105220904] = {id = 105220904, name = "カボチャのクッキー、一緒に作らない？　中にね、占いが書かれた小さな紙も入れてあげるの。もちろんリーダーの分も用意するよ～。特別に大きな大きなクッキーにするからね、ふふ。"}
+, 
+[105220905] = {id = 105220905, name = "リーダーと、カボチャのランタンを持って夜のお散歩がしたいなぁ。きっと楽しいよ。悪いおばけが出ても大丈夫、シスタークインが追い払ってあげるからね。ふふ。"}
+, 
+[105301301] = {id = 105301301, name = "リーダー殿…拙者は今、真面目にキョンシーになろうとしているところでござる。遊ぶのは、また後程でござるよ。"}
+, 
+[105301302] = {id = 105301302, name = "ふふ。拙者の姿を見て驚きも怖がりもしないとは。流石リーダー殿は、肝が据わってるでござるな。見習いたいところでござるよ。"}
+, 
+[105301303] = {id = 105301303, name = "リーダー殿ももっと本格的な仮装をしたほうがいいでござるよ。どんな仮装でも、リーダー殿ならきっとよく似合うでござるからな。"}
+, 
+[105301304] = {id = 105301304, name = "リーダー殿はどんな菓子が欲しいでござるか？　欲しいものがあれば、拙者がそれを持っている者にトリックオアトリートしてみせるでござるよ。"}
+, 
+[105301305] = {id = 105301305, name = "リーダー殿には、拙者の道士になってほしいでござる。道士はキョンシーを操る者。つまり…リーダー殿の言うことを何でも聞いてみせるでござる。リーダー殿のためならば、なんでもしてみせよう。ふふ。"}
+, 
+[105301401] = {id = 105301401, name = "ロールのこと、気になってるの？　やったー！　ロールもリーダーのこと気になってるから、仲良くしようねっ。"}
+, 
+[105301402] = {id = 105301402, name = "なになに、どうしたのリーダー？　ロールに構ってくれるの？　じゃあロールもお礼に、リーダーのこと注目しちゃお！　じーっ…"}
+, 
+[105301403] = {id = 105301403, name = "わたし、ほめられるのが大好きなんだ！　だからロールが頑張ってるなーって思ったときは、頭なでなでとか、いっぱいしてね？　待ってるからっ。"}
+, 
+[105301404] = {id = 105301404, name = "ねっ、リーダーはどんなロールが見たい？　なんでもしてみせるよっ。だってリーダーが見てくれると、ロールはとっても嬉しいから！"}
+, 
+[105301405] = {id = 105301405, name = "たーっくさんの人に見られると嬉しいよ。でも今はね、リーダーひとりだけに見てもらう方がずっと嬉しいんだ！　リーダーの目が特別なのかな？　それともロールの、リーダーへの気持ちが特別なのかな？　えへへ！"}
 , 
 [106100101] = {id = 106100101, name = "任務完了ね♪　また儲りそうな仕事があったら、任せて頂戴♪"}
 , 
@@ -7285,6 +8507,26 @@ BaseWordData = {
 , 
 [106110701] = {id = 106110701, name = "作戦大成功だ！パロネスがいたおかげだなっ！"}
 , 
+[106301001] = {id = 106301001, name = "これで終わりね。さぁ、進みましょう。"}
+, 
+[106300901] = {id = 106300901, name = "もう終わり？あっけないわね。"}
+, 
+[106211201] = {id = 106211201, name = "やったぁ！ノンノたちの大勝利っ！"}
+, 
+[106211101] = {id = 106211101, name = "あれ、もう勝ってしまったんですか？"}
+, 
+[106220801] = {id = 106220801, name = "にししっ、デキる女は違うのさ♪"}
+, 
+[106301101] = {id = 106301101, name = "ふぅ…一幕終わった気分です…"}
+, 
+[106301201] = {id = 106301201, name = "ふふん、カワイイは必ず勝つんですけど！"}
+, 
+[106220901] = {id = 106220901, name = "あの子達の魂に安らぎを…。"}
+, 
+[106301301] = {id = 106301301, name = "いたずら大成功、でござるな。"}
+, 
+[106301401] = {id = 106301401, name = "ロールのこと、たーっくさん褒めてね♪"}
+, 
 [107100101] = {id = 107100101, name = "はぁ…これじゃ赤字ね…"}
 , 
 [107100201] = {id = 107100201, name = "役に立てなくて…本当に、ごめんなさい…"}
@@ -7389,6 +8631,26 @@ BaseWordData = {
 , 
 [107110701] = {id = 107110701, name = "うぅ…何もかも、大失敗だぁ…。"}
 , 
+[107301001] = {id = 107301001, name = "失敗だなんて…許されないわ。"}
+, 
+[107300901] = {id = 107300901, name = "ああ…血が足りないわ…"}
+, 
+[107211201] = {id = 107211201, name = "もっと戦えるのにぃ…"}
+, 
+[107211101] = {id = 107211101, name = "いつの間に…負けちゃったんでしょうか…"}
+, 
+[107220801] = {id = 107220801, name = "ちょっとー、こんな台本聞いてないよー？"}
+, 
+[107301101] = {id = 107301101, name = "戦う覚悟が足りなかったから…"}
+, 
+[107301201] = {id = 107301201, name = "うぅ…もう戦いたくないんですけど…"}
+, 
+[107220901] = {id = 107220901, name = "うーん、着慣れない服のせいかなぁ？"}
+, 
+[107301301] = {id = 107301301, name = "これでは菓子はもらえぬな…"}
+, 
+[107301401] = {id = 107301401, name = "叱られてもしょうがないよね…しょぼん…"}
+, 
 [108100101] = {id = 108100101, name = "またお仕事かしら？"}
 , 
 [108100201] = {id = 108100201, name = "私の実力を信じてくれるなら、期待に応えなくちゃね。"}
@@ -7492,6 +8754,26 @@ BaseWordData = {
 [108300801] = {id = 108300801, name = "あ、あたしの出番ってわけね！"}
 , 
 [108110701] = {id = 108110701, name = "イタズラの時間だな！"}
+, 
+[108301001] = {id = 108301001, name = "問題ないわ、行きましょう"}
+, 
+[108300901] = {id = 108300901, name = "この時を待っていたわ！"}
+, 
+[108211201] = {id = 108211201, name = "準備運動はバッチリだよっ！"}
+, 
+[108211101] = {id = 108211101, name = "戦うことを忘れないようにしますね。"}
+, 
+[108220801] = {id = 108220801, name = "立派な家を建てるためなら～♪"}
+, 
+[108301101] = {id = 108301101, name = "戦うしか、ないのなら…！"}
+, 
+[108301201] = {id = 108301201, name = "ミアの可愛さ、見せつけてあげる♪"}
+, 
+[108220901] = {id = 108220901, name = "ハッピーハロウィン、だよ～。"}
+, 
+[108301301] = {id = 108301301, name = "ぴょんぴょんっとまいるでござる。"}
+, 
+[108301401] = {id = 108301401, name = "私の活躍が見たいんだね！"}
 , 
 [111100101] = {id = 111100101, name = "気を付けてね"}
 , 
@@ -8062,6 +9344,126 @@ BaseWordData = {
 [111110705] = {id = 111110705, name = "おりゃおりゃおりゃーっ！"}
 , 
 [111110706] = {id = 111110706, name = "どーんっと行くぞっ！"}
+, 
+[111301001] = {id = 111301001, name = "そこよ"}
+, 
+[111301002] = {id = 111301002, name = "ふっ"}
+, 
+[111301003] = {id = 111301003, name = "危ないわよ"}
+, 
+[111301004] = {id = 111301004, name = "はぁっ"}
+, 
+[111301005] = {id = 111301005, name = "邪魔よ"}
+, 
+[111301006] = {id = 111301006, name = "排除してみせる"}
+, 
+[111300901] = {id = 111300901, name = "はっ！"}
+, 
+[111300902] = {id = 111300902, name = "これはどう！？"}
+, 
+[111300903] = {id = 111300903, name = "いいわ、いいわっ！"}
+, 
+[111300904] = {id = 111300904, name = "アハハッ！"}
+, 
+[111300905] = {id = 111300905, name = "いい悲鳴ねっ！"}
+, 
+[111300906] = {id = 111300906, name = "私に見惚れたかしら？"}
+, 
+[111211201] = {id = 111211201, name = "やぁっ！"}
+, 
+[111211202] = {id = 111211202, name = "とうっ！"}
+, 
+[111211203] = {id = 111211203, name = "いくよーっ"}
+, 
+[111211204] = {id = 111211204, name = "そーれっ"}
+, 
+[111211205] = {id = 111211205, name = "とりゃーっ！"}
+, 
+[111211206] = {id = 111211206, name = "ノンノと一緒に遊ぼうよっ！"}
+, 
+[111211101] = {id = 111211101, name = "はっ！"}
+, 
+[111211102] = {id = 111211102, name = "せいっ…！"}
+, 
+[111211103] = {id = 111211103, name = "やあっ！"}
+, 
+[111211104] = {id = 111211104, name = "行きます…！"}
+, 
+[111211105] = {id = 111211105, name = "どうです…？"}
+, 
+[111211106] = {id = 111211106, name = "うまく当たって…！"}
+, 
+[111220801] = {id = 111220801, name = "ほら♪"}
+, 
+[111220802] = {id = 111220802, name = "それ♪"}
+, 
+[111220803] = {id = 111220803, name = "むふふ♪"}
+, 
+[111220804] = {id = 111220804, name = "こうだよ♪"}
+, 
+[111220805] = {id = 111220805, name = "そいや♪"}
+, 
+[111220806] = {id = 111220806, name = "仕事の邪魔だよ♪"}
+, 
+[111301101] = {id = 111301101, name = "ごめんなさいっ…"}
+, 
+[111301102] = {id = 111301102, name = "えいっ…"}
+, 
+[111301103] = {id = 111301103, name = "んんっ…"}
+, 
+[111301104] = {id = 111301104, name = "それっ…"}
+, 
+[111301105] = {id = 111301105, name = "やっ…"}
+, 
+[111301106] = {id = 111301106, name = "こんなこと、したくはないんです…！"}
+, 
+[111301201] = {id = 111301201, name = "そこっ！"}
+, 
+[111301202] = {id = 111301202, name = "隙あり！"}
+, 
+[111301203] = {id = 111301203, name = "ふふん！"}
+, 
+[111301204] = {id = 111301204, name = "いけーっ！"}
+, 
+[111301205] = {id = 111301205, name = "邪魔かも！"}
+, 
+[111301206] = {id = 111301206, name = "ミアにお任せなんですけど！"}
+, 
+[111220901] = {id = 111220901, name = "そ～れ"}
+, 
+[111220902] = {id = 111220902, name = "どうかなー？"}
+, 
+[111220903] = {id = 111220903, name = "よいしょっと"}
+, 
+[111220904] = {id = 111220904, name = "あたるよねぇ"}
+, 
+[111220905] = {id = 111220905, name = "ここでしょ～？"}
+, 
+[111220906] = {id = 111220906, name = "いたずらしちゃうよ～"}
+, 
+[111301301] = {id = 111301301, name = "はっ！"}
+, 
+[111301302] = {id = 111301302, name = "ぴょんっと！"}
+, 
+[111301303] = {id = 111301303, name = "そこ！"}
+, 
+[111301304] = {id = 111301304, name = "遅い！"}
+, 
+[111301305] = {id = 111301305, name = "避けられまい"}
+, 
+[111301306] = {id = 111301306, name = "キョンシーの力を味わうでござる"}
+, 
+[111301401] = {id = 111301401, name = "えいっ"}
+, 
+[111301402] = {id = 111301402, name = "それ！"}
+, 
+[111301403] = {id = 111301403, name = "行くよ！"}
+, 
+[111301404] = {id = 111301404, name = "どお？"}
+, 
+[111301405] = {id = 111301405, name = "せやーっ"}
+, 
+[111301406] = {id = 111301406, name = "ロールがやるよーっ！"}
 , 
 [112100101] = {id = 112100101, name = "やるわね！"}
 , 
@@ -8637,6 +10039,126 @@ BaseWordData = {
 , 
 [112110706] = {id = 112110706, name = "何のまねだー！"}
 , 
+[112301001] = {id = 112301001, name = "くっ"}
+, 
+[112301002] = {id = 112301002, name = "まだよ"}
+, 
+[112301003] = {id = 112301003, name = "何を…！"}
+, 
+[112301004] = {id = 112301004, name = "この程度！"}
+, 
+[112301005] = {id = 112301005, name = "ちっ…！"}
+, 
+[112301006] = {id = 112301006, name = "命知らずね…！"}
+, 
+[112300901] = {id = 112300901, name = "うっ…"}
+, 
+[112300902] = {id = 112300902, name = "やるわね…っ"}
+, 
+[112300903] = {id = 112300903, name = "くっ…"}
+, 
+[112300904] = {id = 112300904, name = "強烈ね…！"}
+, 
+[112300905] = {id = 112300905, name = "ゾクゾクしちゃう"}
+, 
+[112300906] = {id = 112300906, name = "うふっ、燃えてきたわ…！"}
+, 
+[112211201] = {id = 112211201, name = "ひゃっ！"}
+, 
+[112211202] = {id = 112211202, name = "ひぅ…"}
+, 
+[112211203] = {id = 112211203, name = "いたたっ"}
+, 
+[112211204] = {id = 112211204, name = "わわっ…！"}
+, 
+[112211205] = {id = 112211205, name = "痛くしないでっ"}
+, 
+[112211206] = {id = 112211206, name = "ノンノ、悪いことした…？"}
+, 
+[112211101] = {id = 112211101, name = "くっ…"}
+, 
+[112211102] = {id = 112211102, name = "いたた…"}
+, 
+[112211103] = {id = 112211103, name = "きゃっ！？"}
+, 
+[112211104] = {id = 112211104, name = "ひどい…っ"}
+, 
+[112211105] = {id = 112211105, name = "うぐっ…"}
+, 
+[112211106] = {id = 112211106, name = "酷い方ですね…"}
+, 
+[112220801] = {id = 112220801, name = "焦ってる？"}
+, 
+[112220802] = {id = 112220802, name = "ひぇー"}
+, 
+[112220803] = {id = 112220803, name = "うぎゃっ"}
+, 
+[112220804] = {id = 112220804, name = "もーっ"}
+, 
+[112220805] = {id = 112220805, name = "チッ"}
+, 
+[112220806] = {id = 112220806, name = "おいたが過ぎるよ！"}
+, 
+[112301101] = {id = 112301101, name = "いやっ…"}
+, 
+[112301102] = {id = 112301102, name = "怖い…"}
+, 
+[112301103] = {id = 112301103, name = "どうして…"}
+, 
+[112301104] = {id = 112301104, name = "やめてっ…"}
+, 
+[112301105] = {id = 112301105, name = "ああっ…"}
+, 
+[112301106] = {id = 112301106, name = "傷つけるより、ずっとましです…"}
+, 
+[112301201] = {id = 112301201, name = "きゃあっ！"}
+, 
+[112301202] = {id = 112301202, name = "いたっ！"}
+, 
+[112301203] = {id = 112301203, name = "何！？"}
+, 
+[112301204] = {id = 112301204, name = "もー！"}
+, 
+[112301205] = {id = 112301205, name = "やだぁ！"}
+, 
+[112301206] = {id = 112301206, name = "汚れちゃうんですけど！"}
+, 
+[112220901] = {id = 112220901, name = "あれー？"}
+, 
+[112220902] = {id = 112220902, name = "うぅー"}
+, 
+[112220903] = {id = 112220903, name = "わぁー"}
+, 
+[112220904] = {id = 112220904, name = "なんでよー"}
+, 
+[112220905] = {id = 112220905, name = "くぅう…"}
+, 
+[112220906] = {id = 112220906, name = "せっかくの仮装が汚れちゃう～"}
+, 
+[112301301] = {id = 112301301, name = "ぐっ！"}
+, 
+[112301302] = {id = 112301302, name = "不覚…"}
+, 
+[112301303] = {id = 112301303, name = "おのれ…！"}
+, 
+[112301304] = {id = 112301304, name = "うぐっ！"}
+, 
+[112301305] = {id = 112301305, name = "なんと！"}
+, 
+[112301306] = {id = 112301306, name = "いたずらはご法度でござるよ"}
+, 
+[112301401] = {id = 112301401, name = "わっ！"}
+, 
+[112301402] = {id = 112301402, name = "ひゃあ！？"}
+, 
+[112301403] = {id = 112301403, name = "おとと！"}
+, 
+[112301404] = {id = 112301404, name = "いたっ！？"}
+, 
+[112301405] = {id = 112301405, name = "うぅ～！"}
+, 
+[112301406] = {id = 112301406, name = "目立ちすぎちゃった！？"}
+, 
 [113100101] = {id = 113100101, name = "ううっ…これじゃ、報酬がぁ…"}
 , 
 [113100201] = {id = 113100201, name = "ごめんなさい、リーダー。私がもっとしっかりしていれば…"}
@@ -8740,6 +10262,26 @@ BaseWordData = {
 [113300801] = {id = 113300801, name = "やっぱりあたしって雑魚だ…"}
 , 
 [113110701] = {id = 113110701, name = "パロネスは…またひとりぼっちに…"}
+, 
+[113301001] = {id = 113301001, name = "私には、まだやることが…"}
+, 
+[113300901] = {id = 113300901, name = "あははっ…素晴らしい一撃だったわ…"}
+, 
+[113211201] = {id = 113211201, name = "ちょっと…はしゃぎすぎちゃった…"}
+, 
+[113211101] = {id = 113211101, name = "消えていく…何もかもが…"}
+, 
+[113220801] = {id = 113220801, name = "あたしには…帰るべき家が…"}
+, 
+[113301101] = {id = 113301101, name = "わたしが…悪い子だから…"}
+, 
+[113301201] = {id = 113301201, name = "とっておきのコーデだったのにぃ…"}
+, 
+[113220901] = {id = 113220901, name = "あの世が手招いてるの…"}
+, 
+[113301301] = {id = 113301301, name = "ああ、これでは本物のキョンシーに…"}
+, 
+[113301401] = {id = 113301401, name = "これじゃ、ほめてもらえないよ～"}
 , 
 [114100101] = {id = 114100101, name = "お仕事は一生懸命やらないと♪"}
 , 
@@ -8949,6 +10491,46 @@ BaseWordData = {
 , 
 [114110702] = {id = 114110702, name = "こーんなこともできるんだぞっ！"}
 , 
+[114301001] = {id = 114301001, name = "これでもくらいなさい！"}
+, 
+[114301002] = {id = 114301002, name = "私の剣技、よく味わうといいわ。"}
+, 
+[114300901] = {id = 114300901, name = "痛みすら感じないでしょう？"}
+, 
+[114300902] = {id = 114300902, name = "あはははっ、血が滾ってきたわ！"}
+, 
+[114211201] = {id = 114211201, name = "水着を着たノンノは、一味違うの！"}
+, 
+[114211202] = {id = 114211202, name = "ノンノは暑さに負けたりしないよーっ！"}
+, 
+[114211101] = {id = 114211101, name = "ひらひら舞いましょう"}
+, 
+[114211102] = {id = 114211102, name = "高まる気持ちは、そよ風のように…"}
+, 
+[114220801] = {id = 114220801, name = "あたしは忙しいんだから、さっさと終わらせてもらうよ！"}
+, 
+[114220802] = {id = 114220802, name = "この時間働けば、いくら稼げると思ってんの！"}
+, 
+[114301101] = {id = 114301101, name = "これが正しいことなんて思わない…でも、こうするしかないから…！"}
+, 
+[114301102] = {id = 114301102, name = "わたしも他の皆さんみたいに…強く…！"}
+, 
+[114301201] = {id = 114301201, name = "戦うミアも可愛いでしょ♪"}
+, 
+[114301202] = {id = 114301202, name = "かわいいだけじゃないんですけど！"}
+, 
+[114220901] = {id = 114220901, name = "神の導きのままにぃ～。"}
+, 
+[114220902] = {id = 114220902, name = "トリックオアトリートだよ～"}
+, 
+[114301301] = {id = 114301301, name = "キョンシーアタック！　で、ござる。"}
+, 
+[114301302] = {id = 114301302, name = "さぁさぁ、飛び回るでござるよ！"}
+, 
+[114301401] = {id = 114301401, name = "ロールのお通りだよ～！"}
+, 
+[114301402] = {id = 114301402, name = "見ててね、わたし強いんだよ～！"}
+, 
 [115100101] = {id = 115100101, name = "私の賞金のために、捕まえさせてもらうわ！"}
 , 
 [115100102] = {id = 115100102, name = "うふふ♪　お仕事が終わるまで、誰も逃さないわよ～♪"}
@@ -9156,5 +10738,187 @@ BaseWordData = {
 [115110701] = {id = 115110701, name = "イタズラ大作戦、はじめるぞーっ！"}
 , 
 [115110702] = {id = 115110702, name = "にゃははっ、パロネスを甘くみるなよーっ！"}
+, 
+[115301001] = {id = 115301001, name = "私の前に立つなら、貫かれる覚悟を持つことね。"}
+, 
+[115301002] = {id = 115301002, name = "私は生きるためなら…誰かを殺すことさえ厭わないわ。"}
+, 
+[115300901] = {id = 115300901, name = "灼熱の太陽のように…じわじわたっぷり、いたぶってあげる！"}
+, 
+[115300902] = {id = 115300902, name = "戦って、戦って、戦って…ともに燃え尽きましょうっ！"}
+, 
+[115211201] = {id = 115211201, name = "海でいっぱい遊んだあとは…ノンノがたっぷり癒してあげるねっ！"}
+, 
+[115211202] = {id = 115211202, name = "ノンノの水鉄砲、味わってみたいでしょっ！"}
+, 
+[115211101] = {id = 115211101, name = "忘れられないぐらい、刺激的な技をお見せしましょう"}
+, 
+[115211102] = {id = 115211102, name = "いつかまたお会いしましょう…それまで、さようなら"}
+, 
+[115220801] = {id = 115220801, name = "じゃあ台本どおり、強く当たって後は流れでお願いしまーす。なんちゃって♪"}
+, 
+[115220802] = {id = 115220802, name = "あたしが特別に、社会の酸いも甘いも教えてあげるっ♪　ハーミットの特別指導、味わいなー♪"}
+, 
+[115301101] = {id = 115301101, name = "どうしてわたしにこんなことをさせるんですか…！　わたしは…わたしはもう、戦いたくなんてっ…うわああぁぁぁぁぁぁぁッ！"}
+, 
+[115301102] = {id = 115301102, name = "とっても興奮するんです…血の匂いがすると…わたしの身体の奥底が煮えたぎるみたいに、熱くなって、頭が真っ白になって、なんにも考えられなくなって…！　あははははははははははっ！"}
+, 
+[115301103] = {id = 115301103, name = "あははははははははははっ！"}
+, 
+[115301201] = {id = 115301201, name = "ミアから目が離せないぐらい、メロメロにさせちゃうんだから！"}
+, 
+[115301202] = {id = 115301202, name = "ミアの邪魔をするなら、お仕置きしちゃうんですけど！"}
+, 
+[115220901] = {id = 115220901, name = "シスターっぽいことでもしようかな～。アナタの魂に安らぎを～。"}
+, 
+[115220902] = {id = 115220902, name = "トリックオアトリート…なんて、聞くまでもないよぉ。"}
+, 
+[115301301] = {id = 115301301, name = "お菓子をくれぬなら、いたずらさせてもらうでござるよ！"}
+, 
+[115301302] = {id = 115301302, name = "おぬしもキョンシーの仲間にしてやるでござるよ！"}
+, 
+[115301401] = {id = 115301401, name = "瞬き厳禁の技、見せてあげる！　もうすっごいんだからー！"}
+, 
+[115301402] = {id = 115301402, name = "みんなの視線を独り占めしちゃうよーっ！"}
+, 
+[97022101] = {id = 97022101, name = "サンタというものは、想像以上に体力が必要なのですね。一軒一軒掃除をしながら、プレゼントを渡して回らないといけないだなんて…。わたくしもさらに鍛えなければなりませんね。"}
+, 
+[97022102] = {id = 97022102, name = "特別な夜を迎えるなら、いつも以上に徹底的に掃除しないといけませんね。さぁ、まずは積もった雪をすべて排除いたしましょう。リーダー様もお時間があるなら手を貸してください。"}
+, 
+[97022103] = {id = 97022103, name = "幼い頃、病院にいたわたくしのために、メイドがプレゼントを抱えてやってきてくれました。何をもらったのか覚えてはいませんが…その光景だけは、よく覚えています。"}
+, 
+[97022104] = {id = 97022104, name = "プレゼントの梱包は、腕が鳴ります。つまりこれは『どれだけ清潔にプレゼントを詰められるか』という、掃除人としての腕が試されるわけですから。"}
+, 
+[101221001] = {id = 101221001, name = "ネネル・サンタクロース、ただいま参りました。サンタとしても掃除人としても、きっちり務めさせていただきます。"}
+, 
+[101221011] = {id = 101221011, name = "サンタとしてはまだまだ未熟ですが、精いっぱいやらせていただきます。"}
+, 
+[101221021] = {id = 101221021, name = "わたくしも、一人前のサンタクロースを自称できそうです。リーダー様、ここまで付き合ってくださってありがとうございます。お礼はもちろん、お掃除で。"}
+, 
+[102221001] = {id = 102221001, name = "さぁ、プレゼントのご用意をいたしましょう。"}
+, 
+[103221001] = {id = 103221001, name = "サンタと掃除人、両立してみせましょう。"}
+, 
+[104221001] = {id = 104221001, name = "サンタと掃除人、そしてリーダー様の力を組み合わせれば、わたくしの想像以上の力になりそうです。"}
+, 
+[105221001] = {id = 105221001, name = "クリスマスで浮かれるのは理解いたしますが、清潔がおろそかになってはいけません。ご理解いただけますか、リーダー様。よろしければ、雪かきに参りましょう。"}
+, 
+[105221002] = {id = 105221002, name = "リーダー様はクリスマスがお好きですか？　わたくしは…好きでも嫌いでもございません。ですが、リーダー様には楽しんでいただきたいとは思っております。"}
+, 
+[105221003] = {id = 105221003, name = "このサンタの服は、わたくしよりも他の方のほうがお似合いかと思いますが…リーダー様がお気に召していらっしゃるようなら、このままでいるといたしましょう。"}
+, 
+[105221004] = {id = 105221004, name = "リーダー様、頭や服に雪が積もっていますよ。まるで、子供のようですね。…いいえ、失礼いたしました。侮辱したいわけではなく…ただ…愛らしいと思っただけでございます。"}
+, 
+[105221005] = {id = 105221005, name = "サンタ自身にプレゼントはありません。ですがもし、リーダー様にお許しいただけるなら…どうかわたくしと共に、今宵を過ごしていただけませんか？　それが何よりの…プレゼントとなりますから。"}
+, 
+[106221001] = {id = 106221001, name = "では、プレゼントの配達を続けます。"}
+, 
+[107221001] = {id = 107221001, name = "サンタとして、まだまだ未熟のようでございます…"}
+, 
+[108221001] = {id = 108221001, name = "プレゼントの配達へまいりましょう"}
+, 
+[111221001] = {id = 111221001, name = "掃きます"}
+, 
+[111221002] = {id = 111221002, name = "お退きください"}
+, 
+[111221003] = {id = 111221003, name = "失礼いたします"}
+, 
+[111221004] = {id = 111221004, name = "邪魔です"}
+, 
+[111221005] = {id = 111221005, name = "恐れ入ります"}
+, 
+[111221006] = {id = 111221006, name = "わたくしは今宵忙しいのです"}
+, 
+[112221001] = {id = 112221001, name = "うっ…"}
+, 
+[112221002] = {id = 112221002, name = "汚れが…！"}
+, 
+[112221003] = {id = 112221003, name = "まだっ…"}
+, 
+[112221004] = {id = 112221004, name = "なっ…！"}
+, 
+[112221005] = {id = 112221005, name = "これ以上は…！"}
+, 
+[112221006] = {id = 112221006, name = "なぜ配達の邪魔を…！"}
+, 
+[113221001] = {id = 113221001, name = "まだプレゼントが残って…"}
+, 
+[114221001] = {id = 114221001, name = "サンタクロースを甘く見てはいけませんよ"}
+, 
+[114221002] = {id = 114221002, name = "今宵の邪魔はさせません"}
+, 
+[115221001] = {id = 115221001, name = "悪い子にはプレゼントを差し上げられないと、ご存じなかったでしょうか？"}
+, 
+[115221002] = {id = 115221002, name = "あなた様にも忘れられない、特別な夜にいたしましょう。メリークリスマス！"}
+, 
+[97030151] = {id = 97030151, name = "見てのとおり…今の私はリーダーへのプレゼント、つまり君のものだ。だから眺めているだけなんて、遠慮することはないからね。"}
+, 
+[97030152] = {id = 97030152, name = "私が着れるサンタ服がないなんて、残念だよ。ネネルのように可愛らしいサンタになって、君を誘惑してみたかったのだけど。"}
+, 
+[97030153] = {id = 97030153, name = "ここはプレゼントらしく、大きな箱か大きな靴下にでも入っておこうかな。…それとも、いっそベッドに潜り込んだ方が喜ばれるかな？"}
+, 
+[97030154] = {id = 97030154, name = "お嬢達のメイドになってから、クリスマスを祝うようになったけど…本当に良い日だと思うよ。幸せな日常が、より煌めいて見えるからね。"}
+, 
+[101301501] = {id = 101301501, name = "メリークリスマス、リーダー。良い子でかわいいリーダーには、特別にお姉さんをプレゼントだ。ふふ、素敵な聖夜が待っているよ…♪"}
+, 
+[101301511] = {id = 101301511, name = "ふふ…もっともっと、私を楽しんでくれると嬉しいよ。それこそ、プレゼント冥利に尽きるからね。"}
+, 
+[101301521] = {id = 101301521, name = "ああ、素敵なプレゼントにしてもらえて嬉しいよ。でも…お姉さんももう、我慢できないな。さぁ、早くこのリボンをほどいて…聖なる夜を朝まで楽しもうじゃないか。"}
+, 
+[102301501] = {id = 102301501, name = "おかえり、リーダー。聖なる夜は短いのだから、楽しまないとね。"}
+, 
+[103301501] = {id = 103301501, name = "この姿を気に入ってくれた…ということかな？"}
+, 
+[104301501] = {id = 104301501, name = "こんなにプレゼントをもらえるなんてね。ふふ、君の愛を感じるよ。"}
+, 
+[105301501] = {id = 105301501, name = "もうプレゼントを開けたいのかい？　でも、だめだよ。特別な夜はこれからだからね。じっくり焦らしてからの…お楽しみだよ。"}
+, 
+[105301502] = {id = 105301502, name = "お姉さんもどんなプレゼントをもらうか、考えておこうかな。うーん、でもやっぱりここは…リーダーの愛、かな？"}
+, 
+[105301503] = {id = 105301503, name = "リーダーが食べたいものなら、ターキーでもケーキでも何でも用意しよう。それから…お姉さんも忘れずに、ね？"}
+, 
+[105301504] = {id = 105301504, name = "リーダーの手、冷たいな…。こんな楽しい時に風邪を引いたら大変だ。ここはお姉さんと肌を合わせて、温まるとするかい？　なんてね、ふふ。"}
+, 
+[105301505] = {id = 105301505, name = "君のその期待した瞳…ふふ、私ももう我慢できないよ。さぁ…たっぷり味わってもらおうか。お姉さんと一緒に…クリスマスケーキよりも甘い、特別な夜を…ね。"}
+, 
+[106301501] = {id = 106301501, name = "この勝利を、リーダーにプレゼントしよう。"}
+, 
+[107301501] = {id = 107301501, name = "少し、浮かれすぎたのかもしれないな…。"}
+, 
+[108301501] = {id = 108301501, name = "忘れられない夜にしよう"}
+, 
+[111301501] = {id = 111301501, name = "楽しいね"}
+, 
+[111301502] = {id = 111301502, name = "ふふっ！"}
+, 
+[111301503] = {id = 111301503, name = "ははっ！"}
+, 
+[111301504] = {id = 111301504, name = "愉快だね"}
+, 
+[111301505] = {id = 111301505, name = "いい子だ"}
+, 
+[111301506] = {id = 111301506, name = "悪い子にはこうだよ"}
+, 
+[112301501] = {id = 112301501, name = "面倒だな"}
+, 
+[112301502] = {id = 112301502, name = "ふん…"}
+, 
+[112301503] = {id = 112301503, name = "舐めるな"}
+, 
+[112301504] = {id = 112301504, name = "やめたほうがいい"}
+, 
+[112301505] = {id = 112301505, name = "悪い子だね"}
+, 
+[112301506] = {id = 112301506, name = "そんなに私が欲しいのかい？"}
+, 
+[113301501] = {id = 113301501, name = "もっと、楽しみたかったな…"}
+, 
+[114301501] = {id = 114301501, name = "メリークリスマス♪"}
+, 
+[114301502] = {id = 114301502, name = "プレゼントをあげよう"}
+, 
+[115301501] = {id = 115301501, name = "幸せな時間を邪魔する悪い子には、眠っていてもらおうか。"}
+, 
+[115301502] = {id = 115301502, name = "お姉さんはリーダーだけのプレゼントだからね。指一本も、触れさせないよ。"}
 }
 

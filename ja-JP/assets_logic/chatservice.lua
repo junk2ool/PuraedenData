@@ -35,8 +35,15 @@ end
 
 -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
 
-ChatService.ReqSetChat = function(type, subType, image, content, bsData, target, ...)
+ChatService.ReqSetPrivateChat = function(content, playerIndex, ...)
   -- function num : 0_4 , upvalues : _ENV
+  (ChatService.ReqSetChat)((ProtoEnum.CHAT_TYPE).PRIVATE_CHAT, nil, nil, content, nil, tostring(playerIndex))
+end
+
+-- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+
+ChatService.ReqSetChat = function(type, subType, image, content, bsData, target, ...)
+  -- function num : 0_5 , upvalues : _ENV
   if subType == nil then
     subType = (ProtoEnum.CHAT_SUB_TYPE).DEFAULT_SUB_CHAT
   end
@@ -51,10 +58,10 @@ ChatService.ReqSetChat = function(type, subType, image, content, bsData, target,
   (Net.Send)((Proto.MsgName).ReqSetChat, m, (Proto.MsgName).ResSetChat)
 end
 
--- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
 
 ChatService.RecvSetChat = function(msg, ...)
-  -- function num : 0_5 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV
   if msg.chatType == (ProtoEnum.CHAT_TYPE).BULLET_CHAT and msg.chatSubType == (ProtoEnum.CHAT_SUB_TYPE).ADVENTURE_BULLET then
     (AdventureService.RecvSetChat)(msg)
   else
@@ -63,22 +70,27 @@ ChatService.RecvSetChat = function(msg, ...)
     else
       if msg.chatType == (ProtoEnum.CHAT_TYPE).CARD_CHAT then
         (CardMgr.AddSelfComment)(msg.chatData)
+      else
+        if msg.chatType == (ProtoEnum.CHAT_TYPE).PRIVATE_CHAT then
+          (FriendsData.AddChatRecord)(msg.chatData, false)
+          UIMgr:SendWindowMessage((WinResConfig.FriendChatWindow).name, (WindowMsgEnum.Friends).E_MSG_REFRESH_CHAT_LIST)
+        end
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
 
 ChatService.ReqSetRecvGuildChat = function(acceptable, ...)
-  -- function num : 0_6 , upvalues : _ENV
+  -- function num : 0_7 , upvalues : _ENV
   (ChatService.ReqSetAccpetChat)((ProtoEnum.CHAT_TYPE).GUILD_CHAT, nil, acceptable)
 end
 
--- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
 
 ChatService.ReqSetAccpetChat = function(type, subType, acceptable, ...)
-  -- function num : 0_7 , upvalues : _ENV
+  -- function num : 0_8 , upvalues : _ENV
   if subType == nil then
     subType = (ProtoEnum.CHAT_SUB_TYPE).DEFAULT_SUB_CHAT
   end
@@ -90,30 +102,30 @@ ChatService.ReqSetAccpetChat = function(type, subType, acceptable, ...)
   (Net.Send)((Proto.MsgName).ReqSetAccpetChat, m, (Proto.MsgName).ResSetAccpetChat)
 end
 
--- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
-
-ChatService.RecvSetAccpectChat = function(msg, ...)
-  -- function num : 0_8
-end
-
 -- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
 
-ChatService.ReqGetBulletScreenChat = function(...)
-  -- function num : 0_9 , upvalues : _ENV
-  (ChatService.ReqGetChat)((ProtoEnum.CHAT_TYPE).BULLET_CHAT, (ProtoEnum.CHAT_SUB_TYPE).ADVENTURE_BULLET)
+ChatService.RecvSetAccpectChat = function(msg, ...)
+  -- function num : 0_9
 end
 
 -- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
 
-ChatService.ReqGetGuildChat = function(...)
+ChatService.ReqGetBulletScreenChat = function(...)
   -- function num : 0_10 , upvalues : _ENV
-  (ChatService.ReqGetChat)((ProtoEnum.CHAT_TYPE).GUILD_CHAT)
+  (ChatService.ReqGetChat)((ProtoEnum.CHAT_TYPE).BULLET_CHAT, (ProtoEnum.CHAT_SUB_TYPE).ADVENTURE_BULLET)
 end
 
 -- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
 
-ChatService.ReqGetChat = function(type, subType, ...)
+ChatService.ReqGetGuildChat = function(...)
   -- function num : 0_11 , upvalues : _ENV
+  (ChatService.ReqGetChat)((ProtoEnum.CHAT_TYPE).GUILD_CHAT)
+end
+
+-- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
+
+ChatService.ReqGetChat = function(type, subType, ...)
+  -- function num : 0_12 , upvalues : _ENV
   if subType == nil then
     subType = (ProtoEnum.CHAT_SUB_TYPE).DEFAULT_SUB_CHAT
   end
@@ -124,15 +136,29 @@ ChatService.ReqGetChat = function(type, subType, ...)
   (Net.Send)((Proto.MsgName).ReqGetChat, m, (Proto.MsgName).ResGetChat)
 end
 
--- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC43: Confused about usage of register: R0 in 'UnsetPending'
 
 ChatService.RecvGetChat = function(msg, ...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_13 , upvalues : _ENV
   if msg.chatType == (ProtoEnum.CHAT_TYPE).BULLET_CHAT and msg.chatSubType == (ProtoEnum.CHAT_SUB_TYPE).ADVENTURE_BULLET then
     (AdventureService.RecvGetChat)(msg)
   else
     if msg.chatType == (ProtoEnum.CHAT_TYPE).GUILD_CHAT then
       (GuildMgr.RecvGuildChat)(msg)
+    else
+      if msg.chatType == (ProtoEnum.CHAT_TYPE).PRIVATE_CHAT then
+        local playerIndexList = {}
+        for _,v in ipairs(msg.chatData) do
+          (FriendsData.AddChatRecord)(v, true)
+          if playerIndexList[v.pId] == nil then
+            playerIndexList[v.pId] = v.pId
+          end
+        end
+        for _,v in pairs(playerIndexList) do
+          (FriendsMgr.RecordUnreadMsg)(v)
+        end
+        UIMgr:SendWindowMessage((WinResConfig.FriendChatWindow).name, (WindowMsgEnum.Friends).E_MSG_REFRESH_CHAT_LIST)
+      end
     end
   end
 end

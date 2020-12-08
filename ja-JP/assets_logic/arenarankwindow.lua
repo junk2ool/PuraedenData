@@ -160,30 +160,43 @@ ArenaRankWindow.RefreshRankItem = function(index, item, ...)
   end
   ;
   (item:GetChild("HeadLoader")).url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
-  ;
-  (item:GetChild("BattleTxt")).text = (PUtil.get)(60000235)
-  ;
-  (item:GetChild("LvNumTxt")).text = "Lv." .. data.level
-  ;
-  (item:GetChild("PlayerNameTxt")).text = data.name
-  ;
-  (item:GetChild("NumberTxt")).text = (ArenaData.GetFC)(data)
-  local list = item:GetChild("CardHeadList")
-  if data.isPlayer then
-    (table.sort)(data.cardGroups, function(x, y, ...)
+  local headFrame = item:GetChild("HeadFrameLoader")
+  loge("data.fashionFrame:" .. data.fashionFrame)
+  local fashionFrame = headFrame:GetChild("HeadFrameLoader")
+  if data.fashionFrame == nil or data.fashionFrame == 0 then
+    fashionFrame.url = nil
+  else
+    local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[data.fashionFrame]
+    if frameConfig then
+      fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+    end
+  end
+  do
+    ;
+    (item:GetChild("BattleTxt")).text = (PUtil.get)(60000235)
+    ;
+    (item:GetChild("LvNumTxt")).text = "Lv." .. data.level
+    ;
+    (item:GetChild("PlayerNameTxt")).text = data.name
+    ;
+    (item:GetChild("NumberTxt")).text = (ArenaData.GetFC)(data)
+    local list = item:GetChild("CardHeadList")
+    if data.isPlayer then
+      (table.sort)(data.cardGroups, function(x, y, ...)
     -- function num : 0_12_0
     do return x.position < y.position end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  end
-  list:RemoveChildrenToPool()
-  local count = #data.cardGroups
-  local subItem = nil
-  for i = 1, count do
-    subItem = list:AddItemFromPool()
-    ;
-    (Util.SetHeadFrame)(subItem, (data.cardGroups)[i], not data.isPlayer)
+    end
+    list:RemoveChildrenToPool()
+    local count = #data.cardGroups
+    local subItem = nil
+    for i = 1, count do
+      subItem = list:AddItemFromPool()
+      ;
+      (Util.SetHeadFrame)(subItem, (data.cardGroups)[i], not data.isPlayer)
+    end
   end
 end
 

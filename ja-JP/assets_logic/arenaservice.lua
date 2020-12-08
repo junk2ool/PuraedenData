@@ -103,9 +103,9 @@ ArenaService.RecvArenaFight = function(msg, ...)
 
   ;
   (ArenaData.BaseData).lastArenaFightTime = (msg.arenaData).lastArenaFightTime
-  -- DECOMPILER ERROR at PC91: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC94: Confused about usage of register: R1 in 'UnsetPending'
 
-  if #(msg.arenaData).arenRival > 0 then
+  if not msg.isSweep and #(msg.arenaData).arenRival > 0 then
     (ArenaData.BaseData).arenRival = (msg.arenaData).arenRival
     ;
     (table.sort)((ArenaData.BaseData).arenRival, function(x, y, ...)
@@ -115,7 +115,7 @@ ArenaService.RecvArenaFight = function(msg, ...)
   end
 )
   end
-  -- DECOMPILER ERROR at PC102: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC105: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (ArenaData.BaseData).lastSuccess = msg.isSuccess
@@ -125,7 +125,7 @@ ArenaService.RecvArenaFight = function(msg, ...)
   (ArenaData.SetCurrentCD)()
   ;
   (ArenaData.SortRewardData)()
-  -- DECOMPILER ERROR at PC120: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC123: Confused about usage of register: R1 in 'UnsetPending'
 
   if msg.isSweep then
     (msg.arenaData).arenaCardGroups = (ArenaData.BaseData).arenaCardGroups

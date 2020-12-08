@@ -12,6 +12,7 @@ GetTask_TaskDetailedUis = function(ui, ...)
   uis.JumpBtn = ui:GetChild("JumpBtn")
   uis.functionBtn = ui:GetChild("functionBtn")
   uis.c1Ctr = ui:GetController("c1")
+  uis.c2Ctr = ui:GetController("c2")
   uis.root = ui
   return uis
 end

@@ -98,7 +98,7 @@ UnMakeEventWindow.RefreshEventItems = function(index, item, ...)
   ;
   (item.onClick):Set(function(...)
     -- function num : 0_11_0 , upvalues : _ENV, config, data
-    (AdventureMgr.TriggerEvent)(config.type, data.nodeId, tonumber(config.parameter))
+    (AdventureMgr.TriggerEvent)(config.type, data.nodeId, tonumber(config.parameter), data.id)
   end
 )
 end

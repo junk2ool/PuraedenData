@@ -239,7 +239,7 @@ AdventureMiniRPSGameWindow.ShowResult = function(gesture, npcGesture, status, ..
       -- function num : 0_15_1_0 , upvalues : _ENV, status, argTable
       local rewardInfo = (AdventureData.GetMiniGameRewardInfo)(AdventureEventType.RPS, status)
       ;
-      (AdventureService.ReqAdventureEventReward)(argTable[1], AdventureEventType.RPS, false, {[1] = rewardInfo.Id})
+      (AdventureService.ReqAdventureEventReward)(argTable[1], AdventureEventType.RPS, false, {[1] = rewardInfo.Id}, argTable[2])
       UIMgr:CloseWindow((WinResConfig.AdventureMiniRPSGameWindow).name)
     end
 )

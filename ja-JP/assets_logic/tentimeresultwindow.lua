@@ -40,10 +40,6 @@ TenTimeResultWindow.InitText = function(...)
 
   ;
   (((uis.TenTimeResultGrp).Tips_A_Grp).NameTxt).text = (PUtil.get)(60000531)
-  -- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  (((uis.TenTimeResultGrp).Tips_B_Grp).NameTxt).text = (PUtil.get)(60000532)
 end
 
 TenTimeResultWindow.InitList = function(...)
@@ -84,10 +80,8 @@ TenTimeResultWindow.Init = function(...)
   local data = nil
   ;
   (((uis.TenTimeResultGrp).Tips_A_Grp).ItemList):RemoveChildrenToPool()
-  for i = 1, count do
-    data = (argTable[1])[i]
-    ;
-    (Util.SetFrame)(data.id, data.value, ((uis.TenTimeResultGrp).Tips_A_Grp).ItemList)
+  for k,v in pairs(argTable[1]) do
+    (Util.SetFrame)(v.id, v.value, ((uis.TenTimeResultGrp).Tips_A_Grp).ItemList)
   end
   ;
   (TenTimeResultWindow.RefreshUndoneEvent)()
@@ -120,22 +114,19 @@ TenTimeResultWindow.RefreshEventItems = function(index, item, ...)
   local data = (argTable[2])[index + 1]
   local config = ((TableData.gTable).BaseAdventureEventData)[data.EventId]
   ;
-  (item:GetController("c1")).selectedIndex = (AdventureData.EVENT_ICON_INDEX)[config.event_icon]
-  ;
   (item:GetController("c2")).selectedIndex = 1
-  do
-    if config.type == AdventureEventType.Building then
-      local buildingConfig = ((TableData.gTable).BaseAdventureBuildingData)[tonumber(config.parameter)]
-      ;
-      ((item:GetChild("BuildingGrp")):GetController("c1")).selectedIndex = tonumber(buildingConfig.icon_path)
-    end
+  if config.type == AdventureEventType.Building then
+    (item:GetController("c1")).selectedIndex = 5
+  else
     ;
-    (item.onClick):Set(function(...)
+    (item:GetController("c1")).selectedIndex = (AdventureData.EVENT_ICON_INDEX)[config.event_icon]
+  end
+  ;
+  (item.onClick):Set(function(...)
     -- function num : 0_13_0 , upvalues : _ENV, config, data
-    (AdventureMgr.TriggerEvent)(config.type, data.NodeId, tonumber(config.parameter))
+    (AdventureMgr.TriggerEvent)(config.type, data.NodeId, tonumber(config.parameter), data.Uid)
   end
 )
-  end
 end
 
 TenTimeResultWindow.HandleMessage = function(msgId, para, ...)

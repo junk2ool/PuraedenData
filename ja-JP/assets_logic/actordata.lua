@@ -26,6 +26,7 @@ ActorData.InitActorData = function(...)
   self.baseInfo = {}
   self.assetInfo = {}
   self.propInfo = {}
+  self.furnitureData = {}
   self.intimacyInfo = {}
   self.intimacyAttrTable = {}
   self.cardStarTeamAttrTable = {}
@@ -85,51 +86,66 @@ ActorData.SaveActorData = function(msg, completeCallBack, ...)
   for index,value in ipairs(self.tempOtherLottery) do
     print("``````````````", value.lotteryId)
   end
-  if msg.cardInfo and #msg.cardInfo > 0 then
-    for _,v in ipairs(msg.cardInfo) do
-      if v.intimacyLv > 0 then
-        t_insert(self.intimacyInfo, {id = v.id, value = v.intimacyLv})
+  if msg.galaId then
+    local homeActData = ((TableData.gTable).BaseHomeActivityData)[msg.galaId]
+    if homeActData then
+      local lastBgId = (ActorData.GetGeneralHomeBg)()
+      ;
+      (ActorData.SetLastHomeBg)(lastBgId)
+      ;
+      (ActorData.SetGeneralHomeBg)(homeActData.bg_id)
+    end
+  end
+  do
+    if msg.cardInfo and #msg.cardInfo > 0 then
+      for _,v in ipairs(msg.cardInfo) do
+        if v.intimacyLv > 0 then
+          t_insert(self.intimacyInfo, {id = v.id, value = v.intimacyLv})
+        end
+      end
+      self.tempCardInfo = msg.cardInfo
+    end
+    local equipInfo = msg.equipInfo
+    local propInfo = msg.propInfo
+    if equipInfo then
+      self.tempEquipPageCount = self.tempEquipPageCount + 1
+      for _,v in ipairs(equipInfo.equipInfo) do
+        t_insert(self.tempEquipInfo, v)
+      end
+      if self.tempEquipPageCount == msg.equipTotalPage then
+        (EquiptMgr.InitEquipmentsInBag)(self.tempEquipInfo)
       end
     end
-    self.tempCardInfo = msg.cardInfo
-  end
-  local equipInfo = msg.equipInfo
-  local propInfo = msg.propInfo
-  if equipInfo then
-    self.tempEquipPageCount = self.tempEquipPageCount + 1
-    for _,v in ipairs(equipInfo.equipInfo) do
-      t_insert(self.tempEquipInfo, v)
+    if propInfo then
+      self.tempPropPageCount = self.tempPropPageCount + 1
+      for _,v in ipairs(propInfo.propInfo) do
+        t_insert(self.tempPropInfo, v)
+      end
+      if self.tempPropPageCount == msg.propTotalPage then
+        self.propInfo = self.tempPropInfo
+      end
     end
-    if self.tempEquipPageCount == msg.equipTotalPage then
-      (EquiptMgr.InitEquipmentsInBag)(self.tempEquipInfo)
+    if self.tempEquipPageCount == msg.equipTotalPage and self.tempPropPageCount == msg.propTotalPage then
+      (self.SaveIntimacyAttrTable)()
+      ;
+      (self.SaveCardStarTeamAttrTable)(self.tempCardInfo)
+      ;
+      (self.SaveFetterAttrTable)(self.tempFetterIds)
+      ;
+      (CardData.SaveAllCard)(self.tempCardInfo)
+      ld("HandBook")
+      ;
+      (HandBookData.CheckFetterData)(self.tempFetterIds)
+      self.fetterId = self.tempFetterIds
+      if completeCallBack then
+        completeCallBack()
+      end
+      ;
+      (self.InitTempData)()
     end
-  end
-  if propInfo then
-    self.tempPropPageCount = self.tempPropPageCount + 1
-    for _,v in ipairs(propInfo.propInfo) do
-      t_insert(self.tempPropInfo, v)
+    if msg.furnitureObject ~= nil then
+      self.furnitureData = msg.furnitureObject
     end
-    if self.tempPropPageCount == msg.propTotalPage then
-      self.propInfo = self.tempPropInfo
-    end
-  end
-  if self.tempEquipPageCount == msg.equipTotalPage and self.tempPropPageCount == msg.propTotalPage then
-    (self.SaveIntimacyAttrTable)()
-    ;
-    (self.SaveCardStarTeamAttrTable)(self.tempCardInfo)
-    ;
-    (self.SaveFetterAttrTable)(self.tempFetterIds)
-    ;
-    (CardData.SaveAllCard)(self.tempCardInfo)
-    ld("HandBook")
-    ;
-    (HandBookData.CheckFetterData)(self.tempFetterIds)
-    self.fetterId = self.tempFetterIds
-    if completeCallBack then
-      completeCallBack()
-    end
-    ;
-    (self.InitTempData)()
   end
 end
 
@@ -377,42 +393,78 @@ ActorData.ChangeActorData = function(msg, ...)
                               if config.type == PropItemType.CHARACTER_DEBRIS then
                                 updateCardPiece = true
                               end
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out DO_STMT
+                              if v.type == E_GOODS_TYPE.FURNITURE then
+                                if HomelandData == nil then
+                                  if v.value > 0 then
+                                    v.uid = tonumber(v.objectIndex)
+                                    ;
+                                    (table.insert)(self.furnitureData, v)
+                                  else
+                                    local count = #self.furnitureData
+                                    local uid = tonumber(v.objectIndex)
+                                    for i = 1, count do
+                                      if ((self.furnitureData)[i]).uid == uid then
+                                        (table.remove)(self.furnitureData, i)
+                                      end
+                                    end
+                                  end
+                                else
+                                  do
+                                    do
+                                      ;
+                                      (HomelandData.UpdateFurnitureData)(v)
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC242: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+
+                                    end
+                                  end
+                                end
+                              end
                             end
                           end
                         end
@@ -510,8 +562,23 @@ end
 
 -- DECOMPILER ERROR at PC79: Confused about usage of register: R5 in 'UnsetPending'
 
+ActorData.GetFashionFrame = function(...)
+  -- function num : 0_18 , upvalues : self, _ENV
+  if self.baseInfo then
+    local fashionFrame = (self.baseInfo).fashionFrame
+  end
+  print("====================fashionFrame", fashionFrame)
+  if fashionFrame and fashionFrame ~= 0 then
+    return fashionFrame
+  else
+    return 0
+  end
+end
+
+-- DECOMPILER ERROR at PC82: Confused about usage of register: R5 in 'UnsetPending'
+
 ActorData.SetFashionHead = function(fashionHead, ...)
-  -- function num : 0_18 , upvalues : self
+  -- function num : 0_19 , upvalues : self
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   if self.baseInfo then
@@ -519,10 +586,21 @@ ActorData.SetFashionHead = function(fashionHead, ...)
   end
 end
 
--- DECOMPILER ERROR at PC82: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC85: Confused about usage of register: R5 in 'UnsetPending'
+
+ActorData.SetFashionFrame = function(fashionFrame, ...)
+  -- function num : 0_20 , upvalues : self
+  -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
+
+  if self.baseInfo then
+    (self.baseInfo).fashionFrame = fashionFrame
+  end
+end
+
+-- DECOMPILER ERROR at PC88: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetFashionShow = function(...)
-  -- function num : 0_19 , upvalues : self
+  -- function num : 0_21 , upvalues : self
   if self.baseInfo then
     local fashionShow = (self.baseInfo).fashionShow
   end
@@ -533,10 +611,10 @@ ActorData.GetFashionShow = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC85: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC91: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetFashionShow = function(fashionShow, ...)
-  -- function num : 0_20 , upvalues : self
+  -- function num : 0_22 , upvalues : self
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   if self.baseInfo then
@@ -544,19 +622,19 @@ ActorData.SetFashionShow = function(fashionShow, ...)
   end
 end
 
--- DECOMPILER ERROR at PC88: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC94: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetLevel = function(...)
-  -- function num : 0_21 , upvalues : self
+  -- function num : 0_23 , upvalues : self
   if self.baseInfo then
     return (self.baseInfo).level
   end
 end
 
--- DECOMPILER ERROR at PC91: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC97: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetLevel = function(level, ...)
-  -- function num : 0_22 , upvalues : self
+  -- function num : 0_24 , upvalues : self
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   if self.baseInfo then
@@ -564,35 +642,35 @@ ActorData.SetLevel = function(level, ...)
   end
 end
 
--- DECOMPILER ERROR at PC94: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC100: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetVipLv = function(...)
-  -- function num : 0_23 , upvalues : self
+  -- function num : 0_25 , upvalues : self
   if self.baseInfo then
     return (self.baseInfo).vipLv
   end
 end
 
--- DECOMPILER ERROR at PC97: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC103: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetGuildID = function(...)
-  -- function num : 0_24 , upvalues : self
+  -- function num : 0_26 , upvalues : self
   if self.baseInfo then
     return (self.baseInfo).guildId
   end
 end
 
--- DECOMPILER ERROR at PC100: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC106: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetGuildID = function(guildID, showTips, ...)
-  -- function num : 0_25 , upvalues : self, _ENV
+  -- function num : 0_27 , upvalues : self, _ENV
   if self.baseInfo then
     if showTips and (self.baseInfo).guildId == 0 and guildID ~= 0 then
       UIMgr:SendWindowMessage((WinResConfig.GuildNonpartyWindow).name, (WindowMsgEnum.Guild).E_MSG_MY_APPLY_APPROVED)
     else
       if showTips and (self.baseInfo).guildId ~= 0 and guildID == 0 and GuildData.InGuild then
         (MessageMgr.OpenSoloConfirmWindow)((PUtil.get)(60000297), function(...)
-    -- function num : 0_25_0 , upvalues : _ENV
+    -- function num : 0_27_0 , upvalues : _ENV
     (GuildMgr.TryEnterNonpartyWindow)()
   end
 , (PUtil.get)(60000296))
@@ -605,19 +683,19 @@ ActorData.SetGuildID = function(guildID, showTips, ...)
   end
 end
 
--- DECOMPILER ERROR at PC103: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC109: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetExp = function(...)
-  -- function num : 0_26 , upvalues : self
+  -- function num : 0_28 , upvalues : self
   if self.baseInfo then
     return (self.baseInfo).exp
   end
 end
 
--- DECOMPILER ERROR at PC106: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC112: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetNextExp = function(...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   local curLevel = (ActorData.GetLevel)()
   local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[curLevel + 72300000]
   if LevelUpData then
@@ -625,10 +703,10 @@ ActorData.GetNextExp = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC109: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC115: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetAmountExp = function(...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   local level = (ActorData.GetLevel)()
   local amount = (ActorData.GetExp)()
   if level > 1 then
@@ -642,10 +720,10 @@ ActorData.GetAmountExp = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC112: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC118: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetExp = function(exp, ...)
-  -- function num : 0_29 , upvalues : self
+  -- function num : 0_31 , upvalues : self
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   if self.baseInfo then
@@ -653,19 +731,19 @@ ActorData.SetExp = function(exp, ...)
   end
 end
 
--- DECOMPILER ERROR at PC115: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC121: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetFc = function(...)
-  -- function num : 0_30 , upvalues : self
+  -- function num : 0_32 , upvalues : self
   if self.baseInfo then
     return (self.baseInfo).fc
   end
 end
 
--- DECOMPILER ERROR at PC118: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC124: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetFc = function(fc, ...)
-  -- function num : 0_31 , upvalues : self
+  -- function num : 0_33 , upvalues : self
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   if self.baseInfo then
@@ -673,10 +751,19 @@ ActorData.SetFc = function(fc, ...)
   end
 end
 
--- DECOMPILER ERROR at PC121: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC127: Confused about usage of register: R5 in 'UnsetPending'
+
+ActorData.GetFurniture = function(...)
+  -- function num : 0_34 , upvalues : self
+  if not self.furnitureData then
+    return {}
+  end
+end
+
+-- DECOMPILER ERROR at PC130: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetAssetCount = function(assetType, ...)
-  -- function num : 0_32 , upvalues : self, ipairs
+  -- function num : 0_35 , upvalues : self, ipairs
   local assetInfo = self.assetInfo
   if assetType and assetInfo then
     for _,v in ipairs(assetInfo) do
@@ -690,24 +777,24 @@ ActorData.GetAssetCount = function(assetType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC124: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC133: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetPropsData = function(...)
-  -- function num : 0_33 , upvalues : self
+  -- function num : 0_36 , upvalues : self
   return self.propInfo
 end
 
--- DECOMPILER ERROR at PC127: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC136: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetFetterId = function(...)
-  -- function num : 0_34 , upvalues : self
+  -- function num : 0_37 , upvalues : self
   return self.fetterId
 end
 
--- DECOMPILER ERROR at PC130: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC139: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetPropsTypeData = function(type, ...)
-  -- function num : 0_35 , upvalues : _ENV, self, ipairs, t_insert
+  -- function num : 0_38 , upvalues : _ENV, self, ipairs, t_insert
   local data = {}
   local BasePropData = (TableData.gTable).BasePropData
   local tonumber = tonumber
@@ -721,42 +808,64 @@ ActorData.GetPropsTypeData = function(type, ...)
   return data
 end
 
--- DECOMPILER ERROR at PC133: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC142: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SubIDProps = function(index, num, ...)
-  -- function num : 0_36 , upvalues : self
+  -- function num : 0_39 , upvalues : self
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R2 in 'UnsetPending'
 
   ((self.propInfo)[index]).count = ((self.propInfo)[index]).count - num
 end
 
--- DECOMPILER ERROR at PC136: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC145: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.AddIDProps = function(index, num, ...)
-  -- function num : 0_37 , upvalues : self
+  -- function num : 0_40 , upvalues : self
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R2 in 'UnsetPending'
 
   ((self.propInfo)[index]).count = ((self.propInfo)[index]).count + num
 end
 
--- DECOMPILER ERROR at PC139: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC148: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetPropsByID = function(id, ...)
-  -- function num : 0_38 , upvalues : _ENV, ipairs, self
+  -- function num : 0_41 , upvalues : _ENV, ipairs, self
   local count = 0
   id = tonumber(id)
+  local timeStamp = (LuaTime.GetTimeStamp)()
   for i,v in ipairs(self.propInfo) do
     if v.id == id then
-      count = count + v.count
+      if id == ARENA_TICKET then
+        local config = ((TableData.gTable).BasePropData)[id]
+        if timeStamp < v.time + config.time then
+          count = count + v.count
+        end
+      else
+        do
+          do
+            count = count + v.count
+            -- DECOMPILER ERROR at PC32: LeaveBlock: unexpected jumping out DO_STMT
+
+            -- DECOMPILER ERROR at PC32: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+            -- DECOMPILER ERROR at PC32: LeaveBlock: unexpected jumping out IF_STMT
+
+            -- DECOMPILER ERROR at PC32: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+            -- DECOMPILER ERROR at PC32: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
+        end
+      end
     end
   end
   return count
 end
 
--- DECOMPILER ERROR at PC142: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC151: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetNumByCost = function(cost, ...)
-  -- function num : 0_39 , upvalues : _ENV, self
+  -- function num : 0_42 , upvalues : _ENV, self
   local num = 0
   local splits = split(cost, ":")
   local costType = tonumber(splits[1])
@@ -771,10 +880,10 @@ ActorData.GetNumByCost = function(cost, ...)
   return num
 end
 
--- DECOMPILER ERROR at PC145: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC154: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetPropsIDAndNum = function(id, ...)
-  -- function num : 0_40 , upvalues : ipairs, self
+  -- function num : 0_43 , upvalues : ipairs, self
   local tb = {id = id, count = 0}
   for i,v in ipairs(self.propInfo) do
     if v.id == id then
@@ -784,10 +893,10 @@ ActorData.GetPropsIDAndNum = function(id, ...)
   return tb
 end
 
--- DECOMPILER ERROR at PC148: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC157: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetItemObjectIndex = function(id, ...)
-  -- function num : 0_41 , upvalues : ipairs, self, t_insert, _ENV
+  -- function num : 0_44 , upvalues : ipairs, self, t_insert, _ENV
   local propList = {}
   for _,v in ipairs(self.propInfo) do
     if v.id == id then
@@ -796,7 +905,7 @@ ActorData.GetItemObjectIndex = function(id, ...)
   end
   ;
   (table.sort)(propList, function(a, b, ...)
-    -- function num : 0_41_0
+    -- function num : 0_44_0
     do return a.count < b.count end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -806,10 +915,10 @@ ActorData.GetItemObjectIndex = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC151: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC160: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetCardPieceInfo = function(cardId, ...)
-  -- function num : 0_42 , upvalues : _ENV, self
+  -- function num : 0_45 , upvalues : _ENV, self
   local pieceInfo = nil
   if cardId then
     cardId = tonumber(cardId)
@@ -831,10 +940,10 @@ ActorData.GetCardPieceInfo = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC154: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC163: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetGoodsCount = function(id, type, ...)
-  -- function num : 0_43 , upvalues : _ENV, self
+  -- function num : 0_46 , upvalues : _ENV, self
   if type == PropType.ITEM then
     return (self.GetPropsByID)(tonumber(id))
   else
@@ -844,18 +953,18 @@ ActorData.GetGoodsCount = function(id, type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC157: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC166: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetAssetText = function(assetType, ...)
-  -- function num : 0_44 , upvalues : self, _ENV
+  -- function num : 0_47 , upvalues : self, _ENV
   local count = (self.GetAssetCount)(assetType)
   return GetFormatedCount(count)
 end
 
--- DECOMPILER ERROR at PC160: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC169: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetSpecifyFormatText = function(assetType, ...)
-  -- function num : 0_45 , upvalues : _ENV, self
+  -- function num : 0_48 , upvalues : _ENV, self
   local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[(self.GetLevel)() + 72300000]
   local max = nil
   if assetType == AssetType.PHYSICAL then
@@ -877,10 +986,10 @@ ActorData.GetSpecifyFormatText = function(assetType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC163: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC172: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetMaxStoreAsset = function(type, ...)
-  -- function num : 0_46 , upvalues : _ENV, self
+  -- function num : 0_49 , upvalues : _ENV, self
   local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[(self.GetLevel)() + 72300000]
   local max = nil
   if type == AssetType.PHYSICAL then
@@ -899,18 +1008,18 @@ ActorData.GetMaxStoreAsset = function(type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC166: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC175: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetServerTime = function(serverTime, ...)
-  -- function num : 0_47 , upvalues : self, _ENV
+  -- function num : 0_50 , upvalues : self, _ENV
   self.saveLocalTime = Time.unscaledTime
   self.saveServerTime = serverTime
 end
 
--- DECOMPILER ERROR at PC169: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC178: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetServerTime = function(...)
-  -- function num : 0_48 , upvalues : self, _ENV
+  -- function num : 0_51 , upvalues : self, _ENV
   if self.saveLocalTime == nil then
     return Time.unscaledTime * 1000
   end
@@ -920,40 +1029,40 @@ end
 
 self.noviceLotteryOnceNum = 0
 self.noviceLotteryMoreNum = 0
--- DECOMPILER ERROR at PC174: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC183: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetNoviceLottery = function(...)
-  -- function num : 0_49 , upvalues : self
+  -- function num : 0_52 , upvalues : self
   do return self.noviceLotteryOnceNum > 0 or self.noviceLotteryMoreNum > 0 end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC177: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC186: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetNoviceLotteryOnceNumInit = function(...)
-  -- function num : 0_50 , upvalues : self
+  -- function num : 0_53 , upvalues : self
   return self.noviceLotteryOnceNum
 end
 
--- DECOMPILER ERROR at PC180: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC189: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetNoviceLotteryTenNum = function(...)
-  -- function num : 0_51 , upvalues : self
+  -- function num : 0_54 , upvalues : self
   return self.noviceLotteryMoreNum
 end
 
--- DECOMPILER ERROR at PC183: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC192: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetNoviceLottery = function(once, more, ...)
-  -- function num : 0_52 , upvalues : self
+  -- function num : 0_55 , upvalues : self
   self.noviceLotteryOnceNum = once or 0
   self.noviceLotteryMoreNum = more or 0
 end
 
--- DECOMPILER ERROR at PC186: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC195: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SaveLotteryActivityData = function(data, ...)
-  -- function num : 0_53 , upvalues : self
+  -- function num : 0_56 , upvalues : self
   if data and #data > 0 then
     if not data then
       self.tempOtherLottery = {}
@@ -961,10 +1070,10 @@ ActorData.SaveLotteryActivityData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC189: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC198: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetLotteryActivityNum = function(aType, ...)
-  -- function num : 0_54 , upvalues : pairs, self, _ENV
+  -- function num : 0_57 , upvalues : pairs, self, _ENV
   local activityData = {}
   local isExist = false
   for index,value in pairs(self.tempOtherLottery) do
@@ -990,10 +1099,10 @@ ActorData.GetLotteryActivityNum = function(aType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC192: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC201: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetActivityLotteryTime = function(aType, ...)
-  -- function num : 0_55 , upvalues : pairs, self
+  -- function num : 0_58 , upvalues : pairs, self
   for index,value in pairs(self.tempOtherLottery) do
     if aType == value.lotteryType then
       return value.beginTime, value.endTime
@@ -1001,10 +1110,10 @@ ActorData.GetActivityLotteryTime = function(aType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC195: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC204: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SubLotteryActivityNum = function(lotteryId, num, ...)
-  -- function num : 0_56 , upvalues : _ENV, self, pairs
+  -- function num : 0_59 , upvalues : _ENV, self, pairs
   print("******************", lotteryId, num)
   local fakeTable = self.tempOtherLottery
   for index,value in pairs(self.tempOtherLottery) do
@@ -1016,33 +1125,47 @@ ActorData.SubLotteryActivityNum = function(lotteryId, num, ...)
   end
 end
 
--- DECOMPILER ERROR at PC198: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC207: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetGeneralHomeBg = function(bgId, ...)
-  -- function num : 0_57 , upvalues : _ENV
+  -- function num : 0_60 , upvalues : _ENV
   (Util.SetIntPlayerSetting)("GENERAL_HOME_BG", bgId)
 end
 
--- DECOMPILER ERROR at PC201: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC210: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetGeneralHomeBg = function(...)
-  -- function num : 0_58 , upvalues : _ENV
+  -- function num : 0_61 , upvalues : _ENV
   return (Util.GetIntPlayerSetting)("GENERAL_HOME_BG", 1)
 end
 
--- DECOMPILER ERROR at PC204: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC213: Confused about usage of register: R5 in 'UnsetPending'
+
+ActorData.SetLastHomeBg = function(bgId, ...)
+  -- function num : 0_62 , upvalues : _ENV
+  (Util.SetIntPlayerSetting)("Last_HOME_BG", bgId)
+end
+
+-- DECOMPILER ERROR at PC216: Confused about usage of register: R5 in 'UnsetPending'
+
+ActorData.GetLastHomeBg = function(...)
+  -- function num : 0_63 , upvalues : _ENV
+  return (Util.GetIntPlayerSetting)("Last_HOME_BG", 1)
+end
+
+-- DECOMPILER ERROR at PC219: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetBindRewardGet = function(...)
-  -- function num : 0_59 , upvalues : self
+  -- function num : 0_64 , upvalues : self
   if self.baseInfo then
     return (self.baseInfo).bindRewardGet
   end
 end
 
--- DECOMPILER ERROR at PC207: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC222: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetBindRewardGet = function(isGet, ...)
-  -- function num : 0_60 , upvalues : self
+  -- function num : 0_65 , upvalues : self
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   if self.baseInfo then
@@ -1051,10 +1174,10 @@ ActorData.SetBindRewardGet = function(isGet, ...)
 end
 
 self.TitleList = {}
--- DECOMPILER ERROR at PC212: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC227: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.TitleListData = function(titleList, ...)
-  -- function num : 0_61 , upvalues : self, _ENV
+  -- function num : 0_66 , upvalues : self, _ENV
   if titleList == nil then
     return self.TitleList
   else
@@ -1063,26 +1186,26 @@ ActorData.TitleListData = function(titleList, ...)
   end
 end
 
--- DECOMPILER ERROR at PC215: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC230: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetWearTitle = function(...)
-  -- function num : 0_62 , upvalues : self
+  -- function num : 0_67 , upvalues : self
   return self.baseInfo and (self.baseInfo).titleId or 0
 end
 
--- DECOMPILER ERROR at PC218: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC233: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SetWearTitle = function(id, ...)
-  -- function num : 0_63 , upvalues : self
+  -- function num : 0_68 , upvalues : self
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (self.baseInfo).titleId = id
 end
 
--- DECOMPILER ERROR at PC221: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC236: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetTitleAllAttr = function(...)
-  -- function num : 0_64 , upvalues : ipairs, self, _ENV
+  -- function num : 0_69 , upvalues : ipairs, self, _ENV
   local attrData = {}
   for _,v in ipairs(self.TitleList) do
     local configData = ((TableData.gTable).BasePlayerTitleData)[v.titleId]

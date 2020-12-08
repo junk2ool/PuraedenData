@@ -186,7 +186,8 @@ Card_LevelUpWindow.UpdateItem = function(...)
         if isExpFull == false then
           (MessageMgr.SendCenterTips)((PUtil.get)(45))
           do return  end
-          if (ActorData.GetLevel)() <= fakeCardData.level then
+          local tmpMax = (Card_LevelUpWindow.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
+          if tmpMax <= fakeCardData.level then
             if isExpFull == false then
               (MessageMgr.SendCenterTips)((PUtil.get)(46))
               do return  end
@@ -209,7 +210,7 @@ Card_LevelUpWindow.UpdateItem = function(...)
     longPress.trigger = 0.3
     longPress.interval = 0.1
     longPress:AddEventListener("onLongPressBegin", function(...)
-    -- function num : 0_2_1 , upvalues : _ENV, scrollTimer, isFakeplaying, isLongPress, TotalNum, curItems, i, TotalCostNum, expPool, frame, fakeMax, tips1IsTip, tips2IsTip, tips3IsTip, selectedIndex, fakeCardData, itemExcelData, totalFakeCost, longPressMatEffectTimer
+    -- function num : 0_2_1 , upvalues : _ENV, scrollTimer, isFakeplaying, isLongPress, TotalNum, curItems, i, TotalCostNum, expPool, frame, fakeMax, tips1IsTip, tips2IsTip, tips3IsTip, selectedIndex, MAX_LEVEL, fakeCardData, itemExcelData, totalFakeCost, longPressMatEffectTimer
     (Card_LevelUpWindow.StopPropEffects)()
     if scrollTimer ~= nil then
       scrollTimer:Comp()
@@ -227,7 +228,8 @@ Card_LevelUpWindow.UpdateItem = function(...)
     tips3IsTip = false
     selectedIndex = i
     local totalExp = 0
-    for i = fakeCardData.level, (ActorData.GetLevel)() do
+    local tmpMax = (Card_LevelUpWindow.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
+    for i = fakeCardData.level, tmpMax do
       local exp = ((CardData.GetCardLevelUpConfig)(fakeCardData.grow_type, i)).next_exp
       totalExp = totalExp + exp
     end
@@ -273,7 +275,8 @@ Card_LevelUpWindow.UpdateItem = function(...)
       end
       return 
     end
-    if (ActorData.GetLevel)() <= fakeCardData.level then
+    local tmpMax = (Card_LevelUpWindow.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
+    if tmpMax <= fakeCardData.level then
       if isExpFull ~= false or tips3IsTip == false then
         (MessageMgr.SendCenterTips)((PUtil.get)(46))
         tips3IsTip = true
@@ -341,7 +344,7 @@ end
 -- DECOMPILER ERROR at PC67: Confused about usage of register: R41 in 'UnsetPending'
 
 Card_LevelUpWindow.ScrollOnUpdate = function(...)
-  -- function num : 0_7 , upvalues : expPool, scrollTimer, fakeCardData, _ENV, perExp
+  -- function num : 0_7 , upvalues : expPool, scrollTimer, fakeCardData, _ENV, perExp, MAX_LEVEL
   if expPool <= 0 then
     scrollTimer:Comp()
     scrollTimer = nil
@@ -358,19 +361,22 @@ Card_LevelUpWindow.ScrollOnUpdate = function(...)
     perExp = expPool / 30
   end
   local levelUpExp = nextExp - curExp
-  if levelUpExp < perExp then
-    if curLvl < (ActorData.GetLevel)() then
-      perExp = levelUpExp
-    else
+  do
+    if levelUpExp < perExp then
+      local tmpMax = (Card_LevelUpWindow.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
+      if curLvl < tmpMax then
+        perExp = levelUpExp
+      else
+        perExp = expPool
+      end
+    end
+    if expPool - perExp <= 0 then
       perExp = expPool
     end
+    expPool = expPool - perExp
+    ;
+    (Card_LevelUpWindow.CheckForPercentAndLvlUp)(perExp)
   end
-  if expPool - perExp <= 0 then
-    perExp = expPool
-  end
-  expPool = expPool - perExp
-  ;
-  (Card_LevelUpWindow.CheckForPercentAndLvlUp)(perExp)
 end
 
 -- DECOMPILER ERROR at PC70: Confused about usage of register: R41 in 'UnsetPending'
@@ -426,7 +432,8 @@ end
 -- DECOMPILER ERROR at PC79: Confused about usage of register: R41 in 'UnsetPending'
 
 Card_LevelUpWindow.LvlUpLeftButtonClick = function(...)
-  -- function num : 0_11 , upvalues : fakeCardData, MAX_LEVEL, isExpFull, _ENV
+  -- function num : 0_11 , upvalues : _ENV, MAX_LEVEL, fakeCardData, isExpFull
+  local tmpMax = (Card_LevelUpWindow.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
   if MAX_LEVEL <= fakeCardData.level then
     if isExpFull == false then
       (CardService.ReqLevelUp)(fakeCardData.id, 1)
@@ -436,7 +443,7 @@ Card_LevelUpWindow.LvlUpLeftButtonClick = function(...)
       return 
     end
   else
-    if (ActorData.GetLevel)() <= fakeCardData.level then
+    if tmpMax <= fakeCardData.level then
       if isExpFull == false then
         (CardService.ReqLevelUp)(fakeCardData.id, 1)
       else
@@ -454,8 +461,8 @@ end
 -- DECOMPILER ERROR at PC82: Confused about usage of register: R41 in 'UnsetPending'
 
 Card_LevelUpWindow.LvlUpRightButtonClick = function(...)
-  -- function num : 0_12 , upvalues : _ENV, fakeCardData, MAX_LEVEL, isExpFull
-  local playerLvl = (ActorData.GetLevel)()
+  -- function num : 0_12 , upvalues : _ENV, MAX_LEVEL, fakeCardData, isExpFull
+  local tmpMax = (Card_LevelUpWindow.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
   if MAX_LEVEL <= fakeCardData.level then
     if isExpFull == false then
       (CardService.ReqLevelUp)(fakeCardData.id, 1)
@@ -465,7 +472,7 @@ Card_LevelUpWindow.LvlUpRightButtonClick = function(...)
       return 
     end
   else
-    if playerLvl <= fakeCardData.level then
+    if tmpMax <= fakeCardData.level then
       if isExpFull == false then
         (CardService.ReqLevelUp)(fakeCardData.id, 1)
       else
@@ -492,7 +499,7 @@ end
 -- DECOMPILER ERROR at PC88: Confused about usage of register: R41 in 'UnsetPending'
 
 Card_LevelUpWindow.CheckForPercentAndLvlUp = function(exp, ...)
-  -- function num : 0_14 , upvalues : fakeCardData, _ENV, isExpFull, levelTxt, battleNumTxt, lvlGrp, expTxt, expBar
+  -- function num : 0_14 , upvalues : fakeCardData, _ENV, MAX_LEVEL, isExpFull, levelTxt, battleNumTxt, lvlGrp, expTxt, expBar
   local overExp = exp
   local fakeOverExp = 0
   local cType = fakeCardData.grow_type
@@ -503,7 +510,8 @@ Card_LevelUpWindow.CheckForPercentAndLvlUp = function(exp, ...)
   local nextExp = ((CardData.GetCardLevelUpConfig)(cType, curLvl)).next_exp
   local aimBarValue = 0
   if nextExp <= fakeOverExp then
-    if curLvl + 1 <= (ActorData.GetLevel)() then
+    local tmpMax = (Card_LevelUpWindow.GetTrueMaxLevel)(MAX_LEVEL, (ActorData.GetLevel)())
+    if curLvl + 1 <= tmpMax then
       fakeCardData.level = fakeCardData.level + 1
       fakeCardData.exp = fakeOverExp - nextExp
       nextExp = ((CardData.GetCardLevelUpConfig)(cType, curLvl + 1)).next_exp
@@ -515,13 +523,12 @@ Card_LevelUpWindow.CheckForPercentAndLvlUp = function(exp, ...)
       isExpFull = true
     end
     local finalLevel = fakeCardData.level
-    local maxLevel = (ActorData.GetLevel)()
-    if finalLevel <= maxLevel then
+    if finalLevel <= tmpMax then
       fakeCardData.level = finalLevel
       levelTxt.text = finalLevel
     else
-      fakeCardData.level = maxLevel
-      levelTxt.text = maxLevel
+      fakeCardData.level = tmpMax
+      levelTxt.text = tmpMax
     end
     local changedData = {}
     ;
@@ -731,6 +738,17 @@ Card_LevelUpWindow.StopPropEffects = function(...)
     longPressMatEffectTimer:stop()
     longPressMatEffectTimer = nil
   end
+end
+
+-- DECOMPILER ERROR at PC128: Confused about usage of register: R42 in 'UnsetPending'
+
+Card_LevelUpWindow.GetTrueMaxLevel = function(a, b, ...)
+  -- function num : 0_27
+  local tmp = a
+  if b < a then
+    tmp = b
+  end
+  return tmp
 end
 
 

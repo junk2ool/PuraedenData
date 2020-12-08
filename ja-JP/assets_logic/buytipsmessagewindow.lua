@@ -50,6 +50,10 @@ BuyTipsMessageWindow.InitText = function(...)
 
   ;
   ((uis.TipsMessage).Word_01_Txt).text = (PUtil.get)(60000046)
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.TipsMessage).Word_02_Txt).text = (PUtil.get)(60000542)
 end
 
 BuyTipsMessageWindow.InitButtonEvent = function(...)

@@ -83,149 +83,161 @@ AdventureData.TriggeredTarot = 0
 AdventureData.UndoneEvent = {}
 -- DECOMPILER ERROR at PC146: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.Buildings = {}
+AdventureData.NodeEventIds = {}
 -- DECOMPILER ERROR at PC149: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BuildingInfo = {}
+AdventureData.Buildings = {}
 -- DECOMPILER ERROR at PC152: Confused about usage of register: R0 in 'UnsetPending'
 
+AdventureData.BuildingInfo = {}
+-- DECOMPILER ERROR at PC155: Confused about usage of register: R0 in 'UnsetPending'
+
 AdventureData.PassedNode = {}
--- DECOMPILER ERROR at PC154: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC157: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.CurrentMoveNode = 0
--- DECOMPILER ERROR at PC156: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC159: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.TargetNode = nil
--- DECOMPILER ERROR at PC158: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC161: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.TargetMap = nil
--- DECOMPILER ERROR at PC160: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC163: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.NeedChoose = false
--- DECOMPILER ERROR at PC162: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.LeftStep = 0
 -- DECOMPILER ERROR at PC165: Confused about usage of register: R0 in 'UnsetPending'
 
+AdventureData.LeftStep = 0
+-- DECOMPILER ERROR at PC167: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.LeftChangeMapTimes = 0
+-- DECOMPILER ERROR at PC169: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.TotalChangeMapTimes = 0
+-- DECOMPILER ERROR at PC172: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.StopByNodes = {}
+-- DECOMPILER ERROR at PC175: Confused about usage of register: R0 in 'UnsetPending'
+
 AdventureData.EventPoint = {}
--- DECOMPILER ERROR at PC168: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC178: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.ChosedEvent = {}
--- DECOMPILER ERROR at PC170: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC180: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.ChosedEventAmount = 0
--- DECOMPILER ERROR at PC173: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC183: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.ChosedEventCost = {}
--- DECOMPILER ERROR at PC176: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC186: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.Rewards = {}
--- DECOMPILER ERROR at PC179: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.TirggeredEvent = {}
--- DECOMPILER ERROR at PC182: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.PassingNode = {}
--- DECOMPILER ERROR at PC184: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.FCEnhanceEffect = nil
--- DECOMPILER ERROR at PC187: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.AvailableCards = {}
 -- DECOMPILER ERROR at PC189: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.Initialized = false
--- DECOMPILER ERROR at PC191: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.TirggeredEvent = {}
+-- DECOMPILER ERROR at PC192: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BoughtCtrlDice = 0
--- DECOMPILER ERROR at PC193: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.TriggeredBuilding = {}
+-- DECOMPILER ERROR at PC194: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.CtrlDiceCost = nil
--- DECOMPILER ERROR at PC196: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.FCEnhanceEffect = nil
+-- DECOMPILER ERROR at PC197: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.AllWishRewards = {}
+AdventureData.AvailableCards = {}
 -- DECOMPILER ERROR at PC199: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.WishRewards = {}
+AdventureData.Initialized = false
 -- DECOMPILER ERROR at PC201: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.DealingEvent = nil
+AdventureData.BoughtCtrlDice = 0
 -- DECOMPILER ERROR at PC203: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.MiniGameRewardID = 0
--- DECOMPILER ERROR at PC205: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.CtrlDiceCost = nil
+-- DECOMPILER ERROR at PC206: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.DailyWishPointUpperLimit = 0
--- DECOMPILER ERROR at PC207: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.StepToGetWishPoint = 0
+AdventureData.AllWishRewards = {}
 -- DECOMPILER ERROR at PC209: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.OpeningBuildingUI = false
+AdventureData.WishRewards = {}
 -- DECOMPILER ERROR at PC211: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.ChosedFork = 0
+AdventureData.DealingEvent = nil
 -- DECOMPILER ERROR at PC213: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.DailyTarotLimit = 0
+AdventureData.MiniGameRewardID = 0
 -- DECOMPILER ERROR at PC215: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.TarotNeedStep = 0
+AdventureData.DailyWishPointUpperLimit = 0
 -- DECOMPILER ERROR at PC217: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.MaxWishTimes = 0
--- DECOMPILER ERROR at PC220: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.StepToGetWishPoint = 0
+-- DECOMPILER ERROR at PC219: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.WishPointCheckPoint = {}
--- DECOMPILER ERROR at PC222: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.OpeningBuildingUI = false
+-- DECOMPILER ERROR at PC221: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BattleNode = 0
+AdventureData.ChosedFork = 0
+-- DECOMPILER ERROR at PC223: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.DailyTarotLimit = 0
 -- DECOMPILER ERROR at PC225: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BattleFormation = {}
--- DECOMPILER ERROR at PC228: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.TarotNeedStep = 0
+-- DECOMPILER ERROR at PC227: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.TarotRewards = {}
+AdventureData.MaxWishTimes = 0
 -- DECOMPILER ERROR at PC230: Confused about usage of register: R0 in 'UnsetPending'
 
+AdventureData.WishPointCheckPoint = {}
+-- DECOMPILER ERROR at PC233: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.BattleNodeInfo = {}
+-- DECOMPILER ERROR at PC236: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.BattleFormation = {}
+-- DECOMPILER ERROR at PC239: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.TarotRewards = {}
+-- DECOMPILER ERROR at PC241: Confused about usage of register: R0 in 'UnsetPending'
+
 AdventureData.NeedShowResult = false
--- DECOMPILER ERROR at PC232: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC243: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.BulletLineGap = 5
--- DECOMPILER ERROR at PC234: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.BulletBaseSpeed = 0.02
--- DECOMPILER ERROR at PC237: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.TaroChatData = {}
--- DECOMPILER ERROR at PC240: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.CurrentBulletStatue = {}
--- DECOMPILER ERROR at PC242: Confused about usage of register: R0 in 'UnsetPending'
-
-AdventureData.MaxBulletAmount = 0
 -- DECOMPILER ERROR at PC245: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BulletsSizePool = {}
+AdventureData.BulletBaseSpeed = 0.02
 -- DECOMPILER ERROR at PC248: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BulletsSpeedPool = {}
+AdventureData.TaroChatData = {}
 -- DECOMPILER ERROR at PC251: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BulletsColorPool = {}
+AdventureData.CurrentBulletStatue = {}
 -- DECOMPILER ERROR at PC253: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.BulletComponent = "TaroWord"
--- DECOMPILER ERROR at PC255: Confused about usage of register: R0 in 'UnsetPending'
+AdventureData.MaxBulletAmount = 0
+-- DECOMPILER ERROR at PC256: Confused about usage of register: R0 in 'UnsetPending'
 
-AdventureData.FirstGetBuildingInfoDaily = false
+AdventureData.BulletsSizePool = {}
 -- DECOMPILER ERROR at PC259: Confused about usage of register: R0 in 'UnsetPending'
 
+AdventureData.BulletsSpeedPool = {}
+-- DECOMPILER ERROR at PC262: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.BulletsColorPool = {}
+-- DECOMPILER ERROR at PC264: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.BulletComponent = "TaroWord"
+-- DECOMPILER ERROR at PC266: Confused about usage of register: R0 in 'UnsetPending'
+
+AdventureData.FirstGetBuildingInfoDaily = false
+-- DECOMPILER ERROR at PC270: Confused about usage of register: R0 in 'UnsetPending'
+
 AdventureData.InitOperate = AdventureInitType.OpenUI
--- DECOMPILER ERROR at PC261: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC272: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.AfterInitCallback = nil
--- DECOMPILER ERROR at PC264: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC275: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.ResetChosedEvent = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -240,7 +252,7 @@ AdventureData.ResetChosedEvent = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC267: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC278: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitEventCostData = function(...)
   -- function num : 0_1 , upvalues : _ENV
@@ -258,7 +270,7 @@ AdventureData.InitEventCostData = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC270: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC281: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetCtrlDiceCost = function(...)
   -- function num : 0_2 , upvalues : _ENV
@@ -277,7 +289,7 @@ AdventureData.GetCtrlDiceCost = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC273: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC284: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.ResetData = function(...)
   -- function num : 0_3 , upvalues : _ENV
@@ -286,7 +298,7 @@ AdventureData.ResetData = function(...)
   AdventureData.Initialized = false
 end
 
--- DECOMPILER ERROR at PC276: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC287: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitData = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
@@ -356,7 +368,7 @@ AdventureData.InitData = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC279: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC290: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitBuildingInfo = function(buildings, ...)
   -- function num : 0_5 , upvalues : _ENV
@@ -401,7 +413,7 @@ AdventureData.InitBuildingInfo = function(buildings, ...)
 )
 end
 
--- DECOMPILER ERROR at PC282: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC293: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitAllBuildings = function(...)
   -- function num : 0_6 , upvalues : _ENV
@@ -413,7 +425,7 @@ AdventureData.InitAllBuildings = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC285: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC296: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.UnifyBuildingOutput = function(output, ...)
   -- function num : 0_7 , upvalues : _ENV
@@ -437,7 +449,7 @@ AdventureData.UnifyBuildingOutput = function(output, ...)
   return unifiedOutput
 end
 
--- DECOMPILER ERROR at PC288: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC299: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitPassedNodeInfo = function(passedNode, ...)
   -- function num : 0_8 , upvalues : _ENV
@@ -452,7 +464,7 @@ AdventureData.InitPassedNodeInfo = function(passedNode, ...)
   end
 end
 
--- DECOMPILER ERROR at PC291: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC302: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetNextPotentialEvents = function(beginNode, ...)
   -- function num : 0_9 , upvalues : _ENV
@@ -505,7 +517,7 @@ AdventureData.GetNextPotentialEvents = function(beginNode, ...)
   end
 end
 
--- DECOMPILER ERROR at PC294: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC305: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitFCEnhanceEffect = function(...)
   -- function num : 0_10 , upvalues : _ENV
@@ -524,7 +536,7 @@ AdventureData.InitFCEnhanceEffect = function(...)
 )
 end
 
--- DECOMPILER ERROR at PC297: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC308: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetFCEnhanceEffect = function(fc, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -542,7 +554,7 @@ AdventureData.GetFCEnhanceEffect = function(fc, ...)
   return 0
 end
 
--- DECOMPILER ERROR at PC300: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC311: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitWishRewards = function(...)
   -- function num : 0_12 , upvalues : _ENV
@@ -594,7 +606,7 @@ Reward = {}
   end
 end
 
--- DECOMPILER ERROR at PC303: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC314: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetWishReward = function(type, ...)
   -- function num : 0_13 , upvalues : _ENV
@@ -622,7 +634,7 @@ AdventureData.GetWishReward = function(type, ...)
   return rewards
 end
 
--- DECOMPILER ERROR at PC306: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC317: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetNextLevelWishReward = function(type, ...)
   -- function num : 0_14 , upvalues : _ENV
@@ -652,7 +664,7 @@ AdventureData.GetNextLevelWishReward = function(type, ...)
   return rewards
 end
 
--- DECOMPILER ERROR at PC309: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC320: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetTarotResultInfo = function(poolId, ...)
   -- function num : 0_15 , upvalues : _ENV
@@ -664,7 +676,7 @@ AdventureData.GetTarotResultInfo = function(poolId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC312: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC323: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetWishRewardInfo = function(type, poolId, ...)
   -- function num : 0_16 , upvalues : _ENV
@@ -677,21 +689,21 @@ AdventureData.GetWishRewardInfo = function(type, poolId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC315: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC326: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetBattleBg = function(...)
   -- function num : 0_17 , upvalues : _ENV
   return (AdventureData.CurrentMapConfig).background_path
 end
 
--- DECOMPILER ERROR at PC318: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC329: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetBattleBGM = function(...)
   -- function num : 0_18 , upvalues : _ENV
   return (AdventureData.CurrentMapConfig).bgm_id
 end
 
--- DECOMPILER ERROR at PC321: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC332: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitBulletScreenData = function(...)
   -- function num : 0_19 , upvalues : _ENV
@@ -723,7 +735,7 @@ AdventureData.InitBulletScreenData = function(...)
 )
 end
 
--- DECOMPILER ERROR at PC324: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC335: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.SetSingleBulletPool = function(pool, id, handler, ...)
   -- function num : 0_20 , upvalues : _ENV
@@ -739,7 +751,7 @@ AdventureData.SetSingleBulletPool = function(pool, id, handler, ...)
   end
 end
 
--- DECOMPILER ERROR at PC327: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC338: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetBuildingProduceSpeed = function(id, enhance, ...)
   -- function num : 0_21 , upvalues : _ENV
@@ -762,7 +774,7 @@ AdventureData.GetBuildingProduceSpeed = function(id, enhance, ...)
   end
 end
 
--- DECOMPILER ERROR at PC330: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC341: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetMiniGameRewardInfo = function(type, status, ...)
   -- function num : 0_22 , upvalues : _ENV
@@ -777,7 +789,7 @@ AdventureData.GetMiniGameRewardInfo = function(type, status, ...)
   end
 end
 
--- DECOMPILER ERROR at PC333: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC344: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GetMiniGameRewardInfo = function(type, status, ...)
   -- function num : 0_23 , upvalues : _ENV
@@ -792,7 +804,7 @@ AdventureData.GetMiniGameRewardInfo = function(type, status, ...)
   end
 end
 
--- DECOMPILER ERROR at PC336: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC347: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.InitMiniGameReward = function(type, ...)
   -- function num : 0_24 , upvalues : _ENV
@@ -868,7 +880,7 @@ AdventureData.InitMiniGameReward = function(type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC339: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC350: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.GenerateTarotResultList = function(...)
   -- function num : 0_25 , upvalues : _ENV
@@ -911,7 +923,7 @@ AdventureData.GenerateTarotResultList = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC342: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC353: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.SetTarotResultList = function(...)
   -- function num : 0_26 , upvalues : _ENV
@@ -943,7 +955,7 @@ AdventureData.SetTarotResultList = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC345: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC356: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.CheckFreeCtrlDice = function(...)
   -- function num : 0_27 , upvalues : _ENV
@@ -958,7 +970,7 @@ AdventureData.CheckFreeCtrlDice = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC348: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC359: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.CheckBuildingRedDot = function(...)
   -- function num : 0_28 , upvalues : _ENV
@@ -970,7 +982,7 @@ AdventureData.CheckBuildingRedDot = function(...)
   return false
 end
 
--- DECOMPILER ERROR at PC351: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC362: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.PopScreenBulletContent = function(...)
   -- function num : 0_29 , upvalues : _ENV
@@ -981,7 +993,7 @@ AdventureData.PopScreenBulletContent = function(...)
   return content
 end
 
--- DECOMPILER ERROR at PC354: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC365: Confused about usage of register: R0 in 'UnsetPending'
 
 AdventureData.PushScreenBulletContent = function(data, first, ...)
   -- function num : 0_30 , upvalues : _ENV

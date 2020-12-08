@@ -38,7 +38,7 @@ CommonWinMgr.HideCountDown = function(id, ...)
 end
 
 local _gestureDic = {}
-CommonWinMgr.RegisterItemLongPress = function(item, itemId, equipInfo, Num, ResClick, ...)
+CommonWinMgr.RegisterItemLongPress = function(item, itemId, equipInfo, Num, ResClick, time, ...)
   -- function num : 0_7 , upvalues : _ENV, CommonWinMgr
   if OvertureMgr.isPlaying == true then
     return 
@@ -52,14 +52,14 @@ CommonWinMgr.RegisterItemLongPress = function(item, itemId, equipInfo, Num, ResC
   LongPressGesture.trigger = 0.2
   ;
   (LongPressGesture.onAction):Set(function(...)
-    -- function num : 0_7_0 , upvalues : _ENV, ResClick, itemId, Num, equipInfo
+    -- function num : 0_7_0 , upvalues : _ENV, ResClick, itemId, Num, equipInfo, time
     if UIMgr:IsWindowOpen((WinResConfig.GuideWindow).name) then
       return 
     end
     if not ResClick then
       ((FairyGUI.Stage).inst):CancelClick(0)
     end
-    OpenWindow((WinResConfig.ItemTipsWindow).name, UILayer.Popup, itemId, Num, equipInfo)
+    OpenWindow((WinResConfig.ItemTipsWindow).name, UILayer.Popup, itemId, Num, equipInfo, time)
   end
 )
   ;
@@ -162,14 +162,14 @@ CommonWinMgr.ClearGestureMultiple = function(...)
   gestureMultiple = {}
 end
 
-CommonWinMgr.OpenBattleDataWindow = function(BattleDataS, ...)
+CommonWinMgr.OpenBattleDataWindow = function(BattleDataS, battleType, ...)
   -- function num : 0_15 , upvalues : CommonWinMgr, _ENV
   if not BattleDataS or #BattleDataS <= 0 then
     return 
   end
   ;
   (CommonWinMgr.InitBattleAttackOrder)(BattleDataS)
-  OpenWindow((WinResConfig.BattleDataWindow).name, UILayer.HUD, BattleDataS)
+  OpenWindow((WinResConfig.BattleDataWindow).name, UILayer.HUD, BattleDataS, battleType)
 end
 
 CommonWinMgr.InitBattleAttackOrder = function(BattleDataS, ...)
@@ -353,6 +353,7 @@ CommonWinMgr.OpenCGShow = function(CGid, isGet, fun, ...)
 end
 
 local m = {}
+local mm = {}
 CommonWinMgr.OpenBattleSettleConvergeWindow = function(data, ...)
   -- function num : 0_21 , upvalues : _ENV
   OpenWindow((WinResConfig.BattleWinConvergeWindow).name, UILayer.HUD, data)

@@ -10,6 +10,7 @@ GetFormation_HeadListGrpUis = function(ui, ...)
   uis.ArrayBtn = ui:GetChild("ArrayBtn")
   uis.Division_A = GetFormation_Division_AUis(ui:GetChild("Division_A"))
   uis.ExpeditionList = ui:GetChild("ExpeditionList")
+  uis.GuildBossList = ui:GetChild("GuildBossList")
   uis.c1Ctr = ui:GetController("c1")
   uis.root = ui
   return uis
