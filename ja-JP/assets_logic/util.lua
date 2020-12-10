@@ -1947,7 +1947,7 @@ Util.SetItemFrame = function(item, id, number, get, isFirst, hideNum, gray, time
   end
   iconLoader.color = color
   local mQuality = configData.quality
-  if dataType == PropType.HEAD_ICON or dataType == PropType.HEAD_FRAME then
+  if dataType == PropType.HEAD_ICON or dataType == PropType.HEAD_FRAME or dataType == PropType.EQUIP then
     mQuality = configData.intelligence
   end
   ;
@@ -1956,7 +1956,7 @@ Util.SetItemFrame = function(item, id, number, get, isFirst, hideNum, gray, time
   (item:GetChild("Back" .. (Const.QualityColorStr)[mQuality] .. "Image")).color = color
   ;
   (item:GetChild("NumberTxt")).text = number
-  -- DECOMPILER ERROR at PC98: Unhandled construct in 'MakeBoolean' P1
+  -- DECOMPILER ERROR at PC102: Unhandled construct in 'MakeBoolean' P1
 
   if number and tonumber(number) <= 1 then
     (item:GetChild("NumberTxt")).visible = not hideNum
@@ -2406,8 +2406,20 @@ Util.MajorSort = function(items, ...)
           if itemType == PropType.ITEM then
             itemData = ((TableData.gTable).BasePropData)[itemId]
           else
-            if itemType == nil then
-              itemData = (Util.GetConfigDataByID)(itemId)
+            if itemType == PropType.TITLE then
+              itemData = ((TableData.gTable).BasePlayerTitleData)[itemId]
+            else
+              if itemType == PropType.HEAD_ICON then
+                itemData = ((TableData.gTable).BasePlayerHeadIconData)[itemId]
+              else
+                if itemType == PropType.HEAD_FRAME then
+                  itemData = ((TableData.gTable).BasePlayerHeadFrameData)[itemId]
+                else
+                  if itemType == nil then
+                    itemData = (Util.GetConfigDataByID)(itemId)
+                  end
+                end
+              end
             end
           end
         end
@@ -3445,6 +3457,20 @@ Util.Round = function(value, ...)
   end
   value = tonumber(value) or 0
   return (math.floor)((value) + 0.5)
+end
+
+Util.GetIconPathByID = function(id, ...)
+  -- function num : 0_170 , upvalues : Util, _ENV
+  local configData, dataType = (Util.GetConfigDataByID)(tonumber(id))
+  if dataType == PropType.TITLE then
+    return (Util.GetItemUrl)(configData.goods_icon)
+  else
+    if dataType == PropType.HEAD_ICON or dataType == PropType.HEAD_FRAME then
+      return (Util.GetItemUrl)(configData.icon_path)
+    else
+      return (Util.GetItemUrl)(configData.icon)
+    end
+  end
 end
 
 return Util

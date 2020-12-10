@@ -100,7 +100,7 @@ CardGetWindow = {name = "CardGetWindow", package = "Message", comName = "CardGet
 , 
 CardGetShowWindow = {name = "CardGetShowWindow", package = "CardPop", comName = "CardGetShow", hideBelow = false, notReopen = true}
 , 
-PiceGetShowWindow = {name = "PiceGetShowWindow", package = "CardPop", comName = "PiceGetShow", hideBelow = true, notReopen = true}
+PiceGetShowWindow = {name = "PiceGetShowWindow", package = "CardPop", comName = "PiceGetShow", hideBelow = false, notReopen = false}
 , 
 RewardShowWindow = {name = "RewardShowWindow", package = "Message", comName = "RewardShow", hideBelow = false}
 , 
@@ -398,6 +398,8 @@ SignActivityMainWindow = {name = "SignActivityMainWindow", package = "SignActivi
 , 
 EquipmentPresetRenameWindow = {name = "EquipmentPresetRenameWindow", package = "Equipt", comName = "ReNameWindow", hideBelow = false}
 , 
+LotteryScoreExchangeWindow = {name = "LotteryScoreExchangeWindow", package = "Lottery", comName = "PtExchange", hideBelow = false}
+, 
 FriendsListWindow = {name = "FriendsListWindow", package = "Friends", comName = "Friends", hideBelow = true}
 , 
 FriendDetailWindow = {name = "FriendDetailWindow", package = "Friends", comName = "FriendDetailsWindow", hideBelow = false}
@@ -405,6 +407,14 @@ FriendDetailWindow = {name = "FriendDetailWindow", package = "Friends", comName 
 FriendAddWindow = {name = "FriendAddWindow", package = "Friends", comName = "FriendAdd", hideBelow = true}
 , 
 FriendChatWindow = {name = "FriendChatWindow", package = "Friends", comName = "FriendChat", hideBelow = true}
+, 
+PrizeWindow = {name = "PrizeWindow", package = "Prize", comName = "Prize", hideBelow = true}
+, 
+PrizeInformationWindow = {name = "PrizeInformationWindow", package = "Prize", comName = "Probability", hideBelow = false}
+, 
+PrizeRecordWindow = {name = "PrizeRecordWindow", package = "Prize", comName = "Record", hideBelow = false}
+, 
+PrizeRewardShowWindow = {name = "PrizeRewardShowWindow", package = "Prize", comName = "PrizeRewardShow", hideBelow = false}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -431,7 +441,7 @@ BattleUIWindow = {E_MSG_UPDATE_ROUND = 1, E_MSG_UPDATE_WAVE = 2, E_MSG_UPDATE_CA
 , 
 CardWindow = {E_MSG_CARD_INFO = 1, E_MSG_CARD_LEVELUP = 2, E_MSG_CARD_STAGEUP = 3, E_MSG_CARD_STAGEUPPROPERTY = 4, E_MSG_CARD_SKILLGET = 5, E_MSG_CARD_CARDGET = 6, E_MSG_CARD_SKILLUP = 7, E_MSG_CARD_SKILLDETAIL = 8, E_MSG_CARD_GOODCHANGE = 9, E_MSG_CARD_REFRESHCARDLISTBUTTOM = 10, E_MSG_CARD_SENDCARDDATATOINFO = 11, E_MSG_CARD_STARUP = 12, E_MSG_CARD_SETFASHIONID = 13, E_MSG_CARD_CLOSECARDCHOICE = 14, E_MSG_CARD_CHOICESELECTCARDLIST = 15, E_MSG_CARD_PIECE_EXCHANGE_COUNT = 16, E_MSG_CARD_AFTER_EXCHANGE = 17, E_MSG_CARD_STAR_UP_EFFECT = 18, E_MSG_CARD_PICE_TO_CARD = 19, E_MSG_CARD_USE_EXP_PROP = 20, E_MSG_CARD_CLOSECARDINFO = 21, E_MSG_CARD_CHOICEWINDOWSELECT = 22, E_MSG_CARD_LEVELUP_TRUE = 23, E_MSG_CARD_STAGEUP_TRUE = 24, E_MSG_CARD_STARUP_TRUE = 25, E_MSG_CARD_CLOSEGET_TOLIST = 26, E_MSG_CARD_LIST_SCROLL = 27, E_MSG_CARD_SWEEP_END = 28, E_MSG_GETWAY_CLOESED = 29, E_MSG_CARD_SETMAINFASHION = 30, E_MSG_CARD_CLOSECARDLOOK = 31, E_MSG_CARD_AFTERCLOSEGOLD = 32}
 , 
-Lottery = {E_MSG_LOTTERY_INIT = 1, E_MSG_LOTTERY_DRAW = 2, E_MSG_LOTTERY_SHOWREWARD = 3, E_MSG_LOTTERY_REWARDCLOSE = 4, E_MSG_LOTTERY_DRAW_ANIMATION_END = 5, E_MSG_ONCLOSE_NEWGET = 6, E_MSG_ONCLICKCARDGET_SKIPBTN = 7, E_MSG_THE_ENDOFTHE_FRESH = 8, E_MSG_REFRESHLOTTERYLIST = 9}
+Lottery = {E_MSG_LOTTERY_INIT = 1, E_MSG_LOTTERY_DRAW = 2, E_MSG_LOTTERY_SHOWREWARD = 3, E_MSG_LOTTERY_REWARDCLOSE = 4, E_MSG_LOTTERY_DRAW_ANIMATION_END = 5, E_MSG_ONCLOSE_NEWGET = 6, E_MSG_ONCLICKCARDGET_SKIPBTN = 7, E_MSG_THE_ENDOFTHE_FRESH = 8, E_MSG_REFRESHLOTTERYLIST = 9, E_MSG_LOTTERYCONVERSION = 10, E_MSG_CLOSEEXCHANGE = 11}
 , 
 Equipt = {E_MSG_REFRESH_EQUIPMENT = 1, E_MSG_REFRESH_EQUIPMENT_IN_BAG = 2, E_MSG_REFRESH_LOCK_EQUIPMENT = 3, E_MSG_REFRESH_CHOSED_MAIN_ATTR = 4, E_MSG_DISABLE_ALL_DECOMPOSE = 5, E_MSG_REFRESH_EQUIPMENT_TO_IDENTIFY = 6, E_MSG_REFRESH_EQUIPMENT_TO_DECOMPOSE = 7, E_MSG_REFRESH_ALL_CHOOSE_BTN = 8, E_MSG_PLAY_IDENTIFY_EFFECT = 9, E_MSG_REFRESH_PRESET = 10, E_MSG_REFRESH_PRESET_AFTER_OPREATE = 11, E_MSG_REFRESH_EDIT_PRESET = 12, E_MSG_REFRESH_PRESET_NAME = 13, E_MSG_CANCEL_EDIT_PRESET = 14}
 , 
@@ -504,6 +514,8 @@ ActivityDoubleAsset = {E_MSG_ASSET_DOUBLE = 1, E_MSG_DIAMOND_DOUBLE = 2}
 LoginWindow = {E_MSG_REFRESH_EFFECT = 1}
 , 
 Friends = {E_MSG_REFRESH_MAIN_LIST = 1, E_MSG_REFRESH_ADD_LIST = 2, E_MSG_REFRESH_ONLY_ADD_LIST = 3, E_MSG_REFRESH_CHAT_LIST = 4, E_MSG_UNREAD_CHAT_LIST = 5, E_MSG_FRIEND_UPDATE_CHAT = 6}
+, 
+PrizeWindow = {E_MSG_SLOTS_RESULT = 1, E_MSG_SLOTS_REFRESH = 2, E_MSG_SLOTS_SET_POOLS = 3}
 }
 _ENV.WindowLoadPackages = {
 LoginWindow = {"LandPic"}
@@ -635,5 +647,11 @@ FriendsListWindow = {"CharacterHeadBanner", "Title"}
 FriendAddWindow = {"CharacterHeadBanner", "CardHeadIconCircle"}
 , 
 FriendChatWindow = {"CardHeadIconCircle"}
+, 
+PrizeWindow = {"Equipicon", "CardHeadIconCircle"}
+, 
+PrizeRecordWindow = {"Equipicon", "CardHeadIconCircle"}
+, 
+PrizeInformationWindow = {"Equipicon", "CardHeadIconCircle"}
 }
 

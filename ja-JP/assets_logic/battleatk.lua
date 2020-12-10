@@ -227,6 +227,8 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, ...)
               local oneAssistAtkInfo = (self.InitAtkInfo)(card, {defCard}, assistSkillConfig)
               t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)
               ;
+              (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.BEFORE_ASSIST)
+              ;
               (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
             end
           end
@@ -321,6 +323,8 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
                 local assistSkillConfig = card:GetAssistSkillConfig()
                 local oneAssistAtkInfo = (self.InitAtkInfo)(card, curTargetCards, assistSkillConfig)
                 t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)
+                ;
+                (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.BEFORE_ASSIST)
                 ;
                 (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
               end

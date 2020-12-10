@@ -13,7 +13,7 @@ BaseFunctionData = {
 , 
 [100106] = {id = 100106, limit_tab = 1, open_condition = "72501001:0:1", popup_window = 0, lock_type = 0, open_des = (PUtil.get)(89003007, 11)}
 , 
-[100107] = {id = 100107, name = (PUtil.get)(89001007), remark = (PUtil.get)(89002007), icon = "CommonResource:Function_1", limit_tab = 1, open_condition = "72501001:0:18", popup_window = 1, lock_type = 4, open_des = (PUtil.get)(89003043, 18)}
+[100107] = {id = 100107, name = (PUtil.get)(89001007), remark = (PUtil.get)(89002007), icon = "CommonResource:Function_1", limit_tab = 1, open_condition = "72501001:0:18", popup_window = 1, lock_type = 4, open_des = (PUtil.get)(89003008, 18)}
 , 
 [100108] = {id = 100108, limit_tab = 1, open_condition = "72501001:0:1", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003001)}
 , 
@@ -27,7 +27,7 @@ BaseFunctionData = {
 , 
 [100113] = {id = 100113, limit_tab = 0, open_condition = "72501001:0:1", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003001)}
 , 
-[100114] = {id = 100114, limit_tab = 1, open_condition = "72501001:0:18", popup_window = 0, lock_type = 4, open_des = (PUtil.get)(89003002, 18)}
+[100114] = {id = 100114, limit_tab = 1, open_condition = "72501001:0:18", popup_window = 0, lock_type = 4, open_des = (PUtil.get)(89003043, 18)}
 , 
 [100115] = {id = 100115, limit_tab = 1, open_condition = "72501001:0:11", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003001)}
 , 

@@ -1,11 +1,11 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BaseActivityBannerData = {
-[34100001] = {id = 34100001, icon = "HomeAd:HomeAd_025", goto_id = 100108, time_type = 0, begin_time = "1606698000", end_time = "1607958000", sort = 1}
+[34100001] = {id = 34100001, icon = "HomeAd:HomeAd_025", goto_id = 100108, time_type = 0, begin_time = "1606698000", end_time = "1607958000", sort = 3}
 , 
 [34100002] = {id = 34100002, icon = "HomeAd:HomeAd_026", goto_id = 100108, time_type = 0, begin_time = "1607371199", end_time = "1608130800", sort = 4}
 , 
-[34100003] = {id = 34100003, icon = "HomeAd:HomeAd_024", goto_id = 100108, time_type = 0, begin_time = "1606161599", end_time = "1606921200", sort = 3}
+[34100003] = {id = 34100003, icon = "HomeAd:HomeAd_027", goto_id = 100108, time_type = 0, begin_time = "1607975999", end_time = "1609426800", sort = 1}
 , 
 [34100004] = {id = 34100004, icon = "HomeAd:HomeAd_023", goto_id = 100108, time_type = 0, begin_time = "1605383999", end_time = "1606748400", sort = 2}
 , 

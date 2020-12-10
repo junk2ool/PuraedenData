@@ -81,7 +81,7 @@ BaseSkillBuffEffectData = {
 , 
 [316] = {id = 316, attribute_id = 81050001, control_type = "0", words_path = "Battle:buff_316", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
-[317] = {id = 317, attribute_id = 81050001, control_type = "0", words_path = "Battle:buff_316", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+[317] = {id = 317, attribute_id = 81050001, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [318] = {id = 318, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
@@ -172,6 +172,8 @@ BaseSkillBuffEffectData = {
 [528] = {id = 528, attribute_id = 81050039, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [529] = {id = 529, attribute_id = 81050040, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[530] = {id = 530, attribute_id = 81050004, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [601] = {id = 601, attribute_id = 81050024, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
@@ -272,5 +274,9 @@ BaseSkillBuffEffectData = {
 [902] = {id = 902, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [903] = {id = 903, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "BuffIcon:buff_903", icon_priority = 2, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[904] = {id = 904, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "FX_common_Wild", effect_body_priority = 1, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[905] = {id = 905, attribute_id = 0, control_type = "0", words_path = "Battle:buff_316", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 }
 

@@ -430,6 +430,11 @@ arena_rival_rank_not_correct = {id = "arena_rival_rank_not_correct", name = "ラ
 slots_cost_deficiency = {id = "slots_cost_deficiency", name = "抽選用アイテムが不足しています"}
 , 
 equip_scheme_is_full = {id = "equip_scheme_is_full", name = "装備プリセットが上限に達しました"}
+, 
+no_player_to_house = {id = "no_player_to_house", name = "表示できるプレイヤーがいません"}
+, 
+lottery_conversion_integral_no_enough = {id = "lottery_conversion_integral_no_enough", name = "交換ptが不足しています"}
+, 
+lottery_conversion_num_no_enough = {id = "lottery_conversion_num_no_enough", name = "当該冒険者の交換可能回数が不足しています"}
 }
-return BaseAlertData
 

@@ -771,7 +771,7 @@ MessageMgr.OpenRewardByGoods = function(goods, fun, ...)
   -- function num : 0_41 , upvalues : _ENV, MessageMgr
   local items = {}
   for _,v in ipairs(goods) do
-    if v.type <= PropType.TITLE and v.value > 0 then
+    if v.type <= PropType.HEAD_FRAME and v.value > 0 and v.type ~= PropType.OTHER then
       local item = {}
       item.id = v.id
       item.Num = v.value
@@ -848,6 +848,7 @@ MessageMgr.ShowGetGoods = function(goods, equips, showProp, props, ...)
         end
       end
       do
+        print("========11111=======", #items)
         if #items > 0 then
           (MessageMgr.OpenRewardShowWindow)(items)
         end

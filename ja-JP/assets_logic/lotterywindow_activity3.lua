@@ -33,7 +33,8 @@ LotteryWindow_Activity3.PreLoadFxMain = function(uis, ...)
   -- function num : 0_2 , upvalues : _ENV, lotteryType, fx_main
   local excelShowData = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
   local cardNum = #split(excelShowData.card_ids, ":")
-  -- DECOMPILER ERROR at PC16: Confused about usage of register: R3 in 'UnsetPending'
+  print("---------------excelShowData.card_ids33333333333", excelShowData.card_ids)
+  -- DECOMPILER ERROR at PC20: Confused about usage of register: R3 in 'UnsetPending'
 
   if cardNum == 1 then
     ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 0
@@ -83,7 +84,7 @@ LotteryWindow_Activity3.PreLoadFxMain = function(uis, ...)
           (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn):GetChild("PicLoader")).url = (Util.GetItemUrl)(cardData.lottery_pic)
         end
         do
-          -- DECOMPILER ERROR at PC174: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC178: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 3
@@ -91,6 +92,7 @@ LotteryWindow_Activity3.PreLoadFxMain = function(uis, ...)
             local cardId = tonumber(value)
             local curCardData = ((TableData.gTable).BaseCardData)[cardId]
             local seeBtn = ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).root):GetChild("Card_B" .. tostring(index) .. "_Btn")
+            print("************cardId", cardId)
             ;
             (seeBtn:GetChild("PicLoader")).url = (Util.GetItemUrl)(curCardData.lottery_pic)
             ;

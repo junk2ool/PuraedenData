@@ -208,8 +208,17 @@ ActorService.OnResGoodsChange = function(msg, ...)
       if msg.reqMsgId == (Proto.MsgIdByName).ReqSlotsOperation then
         UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_SHOW_RESULT, {msg.goods, msg.equip})
       else
-        ;
-        (MessageMgr.ShowGetGoods)(msg.goods, msg.equip)
+        if msg.reqMsgId == (Proto.MsgIdByName).ReqLotteryConversion then
+          (ActorService.OtherWayToGetCardShowForLotteryExchange)(msg.goods, function(...)
+    -- function num : 0_5_1 , upvalues : _ENV, msg
+    (MessageMgr.ShowGetGoods)(msg.goods, msg.equip)
+  end
+)
+          UIMgr:SendWindowMessage((WinResConfig.PrizeWindow).name, (WindowMsgEnum.PrizeWindow).E_MSG_SLOTS_RESULT, {msg.goods, msg.equip})
+        else
+          ;
+          (MessageMgr.ShowGetGoods)(msg.goods, msg.equip)
+        end
       end
     end
   else
@@ -242,7 +251,7 @@ ActorService.OnResGoodsChange = function(msg, ...)
     if FCChangeMsg[msg.reqMsgId] ~= nil and fcChange and ShowTeamFc then
       if card or UIMgr:IsWindowOpen((WinResConfig.PiceGetShowWindow).name) then
         UIMgr:SetOnShownComplete((WinResConfig.CardListWindow).name, function(...)
-    -- function num : 0_5_1 , upvalues : _ENV
+    -- function num : 0_5_2 , upvalues : _ENV
     (CommonWinMgr.OpenCommonFcUp)()
   end
 )
@@ -286,8 +295,35 @@ end
 
 -- DECOMPILER ERROR at PC27: Confused about usage of register: R2 in 'UnsetPending'
 
-ActorService.IsContainLottery = function(Goods, ...)
+ActorService.OtherWayToGetCardShowForLotteryExchange = function(goods, callback, ...)
   -- function num : 0_7 , upvalues : _ENV
+  local cards = {}
+  for index,value in ipairs(goods) do
+    if value.value ~= 0 then
+      do
+        local isHave = value.type ~= PropType.CARD
+        if isHave == false then
+          (table.insert)(cards, {id = value.id, isHave = isHave, picesNum = value.value})
+        end
+        -- DECOMPILER ERROR at PC27: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+        -- DECOMPILER ERROR at PC27: LeaveBlock: unexpected jumping out IF_STMT
+
+      end
+    end
+  end
+  if #cards > 0 then
+    OpenWindow("PiceGetShowWindow", UILayer.HUD, nil, nil, cards, callback)
+  else
+    callback()
+  end
+  -- DECOMPILER ERROR: 4 unprocessed JMP targets
+end
+
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.IsContainLottery = function(Goods, ...)
+  -- function num : 0_8 , upvalues : _ENV
   for _,v in pairs(Goods) do
     if (Util.IsInParticularAssetConfig)(v.id) then
       return true
@@ -296,10 +332,10 @@ ActorService.IsContainLottery = function(Goods, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC30: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.IsContainIntimacyItem = function(Goods, ...)
-  -- function num : 0_8 , upvalues : _ENV
+  -- function num : 0_9 , upvalues : _ENV
   local ConsumeIds = Const.IntimacyItemIDs
   local items = split(ConsumeIds, ":")
   for _,v in pairs(Goods) do
@@ -312,19 +348,19 @@ ActorService.IsContainIntimacyItem = function(Goods, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC33: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.System_ReqPing = function(...)
-  -- function num : 0_9 , upvalues : _ENV
+  -- function num : 0_10 , upvalues : _ENV
   local t = {account = (LoginMgr.GetAccount)()}
   ;
   (Net.Send)((Proto.MsgName).ReqPing, t, (Proto.MsgName).ResPing)
 end
 
--- DECOMPILER ERROR at PC36: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResPing = function(msg, ...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   PrintTable(msg, "心跳包消息:")
   local currentTime = msg.currentTime
   ;
@@ -349,10 +385,10 @@ ActorService.OnResPing = function(msg, ...)
   LoginService.isRegister = nil
 end
 
--- DECOMPILER ERROR at PC39: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.IsChangeCardOrAssets = function(msg, ...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   local card = false
   local assets = false
   for _,v in ipairs(msg) do
@@ -367,26 +403,26 @@ ActorService.IsChangeCardOrAssets = function(msg, ...)
   return card, assets
 end
 
--- DECOMPILER ERROR at PC42: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC45: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResGuildId = function(msg, ...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_13 , upvalues : _ENV
   (ActorData.SetGuildID)(msg.id, true)
 end
 
--- DECOMPILER ERROR at PC45: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC48: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResPlayerLevelUp = function(msg, ...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_14 , upvalues : _ENV
   loge("收到角色升级" .. msg.newLevel)
   ;
   (Util.OpenPlayerLevelUpWindow)()
 end
 
--- DECOMPILER ERROR at PC48: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC51: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.RegisterMail = function(id, ...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R1 in 'UnsetPending'
 
   if id ~= nil then
@@ -396,94 +432,94 @@ ActorService.RegisterMail = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC51: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC54: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResRegisterMail = function(msg, ...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   (ActorService.RegisterMail)(msg.id)
 end
 
--- DECOMPILER ERROR at PC54: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC57: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.ReqHorseSet = function(isOpen, ...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   local m = {}
   m.open = isOpen
   ;
   (Net.Send)((Proto.MsgName).ReqHorseSet, m)
 end
 
--- DECOMPILER ERROR at PC57: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC60: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.ReqTitleList = function(...)
-  -- function num : 0_17 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV
   local m = {}
   ;
   (Net.Send)((Proto.MsgName).ReqTitleList, m, (Proto.MsgName).ResTitleList)
 end
 
--- DECOMPILER ERROR at PC60: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC63: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResTitleList = function(msg, ...)
-  -- function num : 0_18 , upvalues : _ENV
+  -- function num : 0_19 , upvalues : _ENV
   (ActorData.TitleListData)(msg.titleInfo)
 end
 
--- DECOMPILER ERROR at PC63: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC66: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.ReqWearTitle = function(titleID, ...)
-  -- function num : 0_19 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   local m = {}
   m.titleId = titleID
   ;
   (Net.Send)((Proto.MsgName).ReqWearTitle, m, (Proto.MsgName).ResWearTitle)
 end
 
--- DECOMPILER ERROR at PC66: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResWearTitle = function(msg, ...)
-  -- function num : 0_20 , upvalues : _ENV
+  -- function num : 0_21 , upvalues : _ENV
   (ActorData.SetWearTitle)(msg.titleId)
   UIMgr:SendWindowMessage((WinResConfig.TitleWindow).name, (WindowMsgEnum.Title).E_MSG_REFRESH)
 end
 
--- DECOMPILER ERROR at PC69: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.ReqActivityLottery = function(...)
-  -- function num : 0_21 , upvalues : _ENV
+  -- function num : 0_22 , upvalues : _ENV
   local m = {}
   ;
   (Net.Send)((Proto.MsgName).ReqActivityLottery, m, (Proto.MsgName).ResActivityLottery)
   print("请求有哪些活动扭蛋")
 end
 
--- DECOMPILER ERROR at PC72: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC75: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResActivityLottery = function(msg, ...)
-  -- function num : 0_22 , upvalues : _ENV
+  -- function num : 0_23 , upvalues : _ENV
   print("返回有哪些活动扭蛋")
   ;
   (ActorData.SaveLotteryActivityData)(msg.otherLottery)
   ld("Lottery", function(...)
-    -- function num : 0_22_0 , upvalues : _ENV
+    -- function num : 0_23_0 , upvalues : _ENV
     OpenWindow((WinResConfig.LotteryWindow).name, UILayer.HUD)
   end
 )
 end
 
--- DECOMPILER ERROR at PC75: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnReqHeadData = function(...)
-  -- function num : 0_23 , upvalues : _ENV
+  -- function num : 0_24 , upvalues : _ENV
   local m = {}
   ;
   (Net.Send)((Proto.MsgName).ReqHeadData, m, (Proto.MsgName).ResHeadData)
 end
 
--- DECOMPILER ERROR at PC78: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC81: Confused about usage of register: R2 in 'UnsetPending'
 
 ActorService.OnResHeadData = function(msg, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   OpenWindow((WinResConfig.HeadChoiceWindow).name, UILayer.HUD, msg.headIcon, msg.headFrame)
 end
 

@@ -5,6 +5,9 @@ AnnouncementMgr = {}
 
 AnnouncementMgr.OpenAnnouncement = function(forbiddenJump, forbiddenTips, ...)
   -- function num : 0_0 , upvalues : _ENV
+  if IsIOSReview == true then
+    return 
+  end
   OpenWindow((WinResConfig.AnnouncementWindow).name, UILayer.HUD, forbiddenJump)
   loge("AnnouncementURL.List:" .. AnnouncementURL.List)
   ;

@@ -639,12 +639,13 @@ HandBookIntimacyWindow.CheckTabRedDot = function(...)
 end
 
 HandBookIntimacyWindow.CloseVoice = function(isFinish, ...)
-  -- function num : 0_20 , upvalues : currentAudioId, _ENV, uis, PrefabList
+  -- function num : 0_20 , upvalues : currentAudioId, _ENV, isPlayListSound, uis, PrefabList
   do
     if currentAudioId > 0 then
       local AudioMgr = (CS.AudioAssetManager).Singleton
       AudioMgr:RemoveSound(currentAudioId, false)
     end
+    isPlayListSound = false
     if uis == nil then
       return 
     end
@@ -691,15 +692,13 @@ HandBookIntimacyWindow.PlayVoice = function(cardID, DetailID, showEffect, func, 
   ;
   (HandBookIntimacyWindow.CloseVoice)()
   currentAudioId = (LuaSound.AudioMgrPlaySound)(RoleData.voice_path, false, function(...)
-    -- function num : 0_21_0 , upvalues : func, HandBookIntimacyWindow, showEffect, isPlayListSound
+    -- function num : 0_21_0 , upvalues : func, HandBookIntimacyWindow, isPlayListSound
     if func then
       func()
     end
     ;
     (HandBookIntimacyWindow.CloseVoice)(true)
-    if showEffect then
-      isPlayListSound = false
-    end
+    isPlayListSound = false
   end
 )
   if showEffect and currentAudioId > 0 then

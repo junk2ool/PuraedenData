@@ -259,6 +259,13 @@ ActivityService.ResActivityInfo = function(msg, ...)
   end
 )
           end
+        else
+          if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Prize then
+            (ActivityMgr.InitPrizeData)(msg)
+            ld("Slots")
+            ;
+            (SlotsService.ReqSlotsData)((SlotsData.SlotType).PRIZE_SLOT)
+          end
         end
       end
     end

@@ -10,6 +10,8 @@ SlotsService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResSlotsReset, SlotsService.OnResSlotsReset)
   ;
   (Net.AddListener)((Proto.MsgName).ResSlotsOperation, SlotsService.ResSlotsOperation)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSlotsRecord, SlotsService.OnResSlotsRecord)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -33,8 +35,14 @@ SlotsService.OnResSlotsData = function(msg, ...)
   (SlotsData.GetItemData)(msg.RewardItems)
   ;
   (SlotsData.ChangeTotalRound)(msg.totalRoundNum)
-  if msg.type == 1 then
+  ;
+  (SlotsData.GetCurrentType)(msg.type)
+  if msg.type == (SlotsData.SlotType).ACTIVITY_SLOT then
     OpenWindow((WinResConfig.ActivityDungeonExchangeWindow).name, UILayer.HUD)
+  else
+    if msg.type == (SlotsData.SlotType).PRIZE_SLOT then
+      OpenWindow((WinResConfig.PrizeWindow).name, UILayer.HUD)
+    end
   end
 end
 
@@ -76,21 +84,63 @@ end
 
 SlotsService.ResSlotsOperation = function(msg, ...)
   -- function num : 0_6 , upvalues : _ENV
-  local preSlot = (SlotsData.SlotRound)()
-  if msg.resetRound and preSlot < msg.round then
-    (SlotsData.SetRoundItemData)({round = preSlot, data = -1})
+  if msg.type == (SlotsData.SlotType).ACTIVITY_SLOT then
+    local preSlot = (SlotsData.SlotRound)()
+    if msg.resetRound and preSlot < msg.round then
+      (SlotsData.SetRoundItemData)({round = preSlot, data = -1})
+    end
+    ;
+    (SlotsData.SetRoundItemData)((msg.RewardItems)[1])
+    ;
+    (SlotsData.CanReset)(msg.reset)
+    ;
+    (SlotsData.ChangeTotalRound)(msg.totalRoundNum)
+    ;
+    (SlotsData.ChangeRound)(msg.resetRound)
+    ;
+    (SlotsData.SlotRound)(msg.round)
+    UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
+  else
+    do
+      if msg.type == (SlotsData.SlotType).PRIZE_SLOT then
+        (SlotsData.SetRoundItemData)((msg.RewardItems)[1])
+        ;
+        (SlotsData.CanReset)(msg.reset)
+        ;
+        (SlotsData.ChangeTotalRound)(msg.totalRoundNum)
+        ;
+        (SlotsData.ChangeRound)(msg.resetRound)
+        ;
+        (SlotsData.SlotRound)(msg.round)
+        UIMgr:SendWindowMessage((WinResConfig.PrizeWindow).name, (WindowMsgEnum.PrizeWindow).E_MSG_SLOTS_REFRESH)
+        UIMgr:SendWindowMessage((WinResConfig.PrizeWindow).name, (WindowMsgEnum.PrizeWindow).E_MSG_SLOTS_SET_POOLS, msg.showSlotsRecord)
+      end
+    end
   end
+end
+
+-- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+
+SlotsService.ReqSlotsRecord = function(type, ...)
+  -- function num : 0_7 , upvalues : _ENV
+  local m = {}
+  m.type = type
   ;
-  (SlotsData.SetRoundItemData)((msg.RewardItems)[1])
-  ;
-  (SlotsData.CanReset)(msg.reset)
-  ;
-  (SlotsData.ChangeTotalRound)(msg.totalRoundNum)
-  ;
-  (SlotsData.ChangeRound)(msg.resetRound)
-  ;
-  (SlotsData.SlotRound)(msg.round)
-  UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
+  (Net.Send)((Proto.MsgName).ReqSlotsRecord, m, (Proto.MsgName).ResSlotsRecord)
+end
+
+-- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+
+SlotsService.OnResSlotsRecord = function(msg, ...)
+  -- function num : 0_8 , upvalues : _ENV
+  if msg.type == (SlotsData.SlotType).PRIZE_SLOT then
+    if #msg.slotsRecord > 0 then
+      OpenWindow((WinResConfig.PrizeRecordWindow).name, UILayer.HUD, msg.slotsRecord)
+    else
+      ;
+      (MessageMgr.SendCenterTipsByWordID)(20000634)
+    end
+  end
 end
 
 ;

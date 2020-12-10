@@ -83,70 +83,70 @@ BasePlayerLevelUpData = {
 , 
 [72300041] = {id = 72300041, next_exp = 2415, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 41, reward = "2:21100004:60"}
 , 
-[72300042] = {id = 72300042, next_exp = 2580, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 42, reward = "2:21100004:60"}
+[72300042] = {id = 72300042, next_exp = 2580, max_vit = 121, energyRecoverMax = 10, max_sta = 35, level = 42, reward = "2:21100004:60"}
 , 
-[72300043] = {id = 72300043, next_exp = 2750, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 43, reward = "2:21100004:60"}
+[72300043] = {id = 72300043, next_exp = 2750, max_vit = 122, energyRecoverMax = 10, max_sta = 35, level = 43, reward = "2:21100004:60"}
 , 
-[72300044] = {id = 72300044, next_exp = 2915, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 44, reward = "2:21100004:60"}
+[72300044] = {id = 72300044, next_exp = 2915, max_vit = 123, energyRecoverMax = 10, max_sta = 35, level = 44, reward = "2:21100004:60"}
 , 
-[72300045] = {id = 72300045, next_exp = 3080, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 45, reward = "2:21100004:60"}
+[72300045] = {id = 72300045, next_exp = 3080, max_vit = 124, energyRecoverMax = 10, max_sta = 35, level = 45, reward = "2:21100004:60"}
 , 
-[72300046] = {id = 72300046, next_exp = 3250, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 46, reward = "2:21100004:60"}
+[72300046] = {id = 72300046, next_exp = 3250, max_vit = 125, energyRecoverMax = 10, max_sta = 35, level = 46, reward = "2:21100004:60"}
 , 
-[72300047] = {id = 72300047, next_exp = 3415, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 47, reward = "2:21100004:60"}
+[72300047] = {id = 72300047, next_exp = 3415, max_vit = 126, energyRecoverMax = 10, max_sta = 35, level = 47, reward = "2:21100004:60"}
 , 
-[72300048] = {id = 72300048, next_exp = 3580, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 48, reward = "2:21100004:60"}
+[72300048] = {id = 72300048, next_exp = 3580, max_vit = 127, energyRecoverMax = 10, max_sta = 35, level = 48, reward = "2:21100004:60"}
 , 
-[72300049] = {id = 72300049, next_exp = 3750, max_vit = 120, energyRecoverMax = 10, max_sta = 35, level = 49, reward = "2:21100004:60"}
+[72300049] = {id = 72300049, next_exp = 3750, max_vit = 128, energyRecoverMax = 10, max_sta = 35, level = 49, reward = "2:21100004:60"}
 , 
-[72300050] = {id = 72300050, next_exp = 3925, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 50, reward = "2:21100004:60"}
+[72300050] = {id = 72300050, next_exp = 3925, max_vit = 129, energyRecoverMax = 10, max_sta = 40, level = 50, reward = "2:21100004:60"}
 , 
-[72300051] = {id = 72300051, next_exp = 3955, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 51, reward = "2:21100004:60"}
+[72300051] = {id = 72300051, next_exp = 3955, max_vit = 130, energyRecoverMax = 10, max_sta = 40, level = 51, reward = "2:21100004:60"}
 , 
-[72300052] = {id = 72300052, next_exp = 3980, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 52, reward = "2:21100004:60"}
+[72300052] = {id = 72300052, next_exp = 3980, max_vit = 131, energyRecoverMax = 10, max_sta = 40, level = 52, reward = "2:21100004:60"}
 , 
-[72300053] = {id = 72300053, next_exp = 4005, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 53, reward = "2:21100004:60"}
+[72300053] = {id = 72300053, next_exp = 4005, max_vit = 132, energyRecoverMax = 10, max_sta = 40, level = 53, reward = "2:21100004:60"}
 , 
-[72300054] = {id = 72300054, next_exp = 4035, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 54, reward = "2:21100004:60"}
+[72300054] = {id = 72300054, next_exp = 4035, max_vit = 133, energyRecoverMax = 10, max_sta = 40, level = 54, reward = "2:21100004:60"}
 , 
-[72300055] = {id = 72300055, next_exp = 4060, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 55, reward = "2:21100004:60"}
+[72300055] = {id = 72300055, next_exp = 4060, max_vit = 134, energyRecoverMax = 10, max_sta = 40, level = 55, reward = "2:21100004:60"}
 , 
-[72300056] = {id = 72300056, next_exp = 4090, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 56, reward = "2:21100004:60"}
+[72300056] = {id = 72300056, next_exp = 4090, max_vit = 135, energyRecoverMax = 10, max_sta = 40, level = 56, reward = "2:21100004:60"}
 , 
-[72300057] = {id = 72300057, next_exp = 4115, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 57, reward = "2:21100004:60"}
+[72300057] = {id = 72300057, next_exp = 4115, max_vit = 136, energyRecoverMax = 10, max_sta = 40, level = 57, reward = "2:21100004:60"}
 , 
-[72300058] = {id = 72300058, next_exp = 4140, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 58, reward = "2:21100004:60"}
+[72300058] = {id = 72300058, next_exp = 4140, max_vit = 137, energyRecoverMax = 10, max_sta = 40, level = 58, reward = "2:21100004:60"}
 , 
-[72300059] = {id = 72300059, next_exp = 4170, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 59, reward = "2:21100004:60"}
+[72300059] = {id = 72300059, next_exp = 4170, max_vit = 138, energyRecoverMax = 10, max_sta = 40, level = 59, reward = "2:21100004:60"}
 , 
-[72300060] = {id = 72300060, next_exp = 4230, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 60, reward = "2:21100004:60"}
+[72300060] = {id = 72300060, next_exp = 4230, max_vit = 139, energyRecoverMax = 10, max_sta = 40, level = 60, reward = "2:21100004:60"}
 , 
-[72300061] = {id = 72300061, next_exp = 4290, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 61, reward = "2:21100004:60"}
+[72300061] = {id = 72300061, next_exp = 4290, max_vit = 140, energyRecoverMax = 10, max_sta = 40, level = 61, reward = "2:21100004:60"}
 , 
-[72300062] = {id = 72300062, next_exp = 4350, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 62, reward = "2:21100004:60"}
+[72300062] = {id = 72300062, next_exp = 4350, max_vit = 141, energyRecoverMax = 10, max_sta = 40, level = 62, reward = "2:21100004:60"}
 , 
-[72300063] = {id = 72300063, next_exp = 4410, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 63, reward = "2:21100004:60"}
+[72300063] = {id = 72300063, next_exp = 4410, max_vit = 142, energyRecoverMax = 10, max_sta = 40, level = 63, reward = "2:21100004:60"}
 , 
-[72300064] = {id = 72300064, next_exp = 4470, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 64, reward = "2:21100004:60"}
+[72300064] = {id = 72300064, next_exp = 4470, max_vit = 143, energyRecoverMax = 10, max_sta = 40, level = 64, reward = "2:21100004:60"}
 , 
-[72300065] = {id = 72300065, next_exp = 4530, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 65, reward = "2:21100004:60"}
+[72300065] = {id = 72300065, next_exp = 4530, max_vit = 144, energyRecoverMax = 10, max_sta = 40, level = 65, reward = "2:21100004:60"}
 , 
-[72300066] = {id = 72300066, next_exp = 4590, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 66, reward = "2:21100004:60"}
+[72300066] = {id = 72300066, next_exp = 4590, max_vit = 145, energyRecoverMax = 10, max_sta = 40, level = 66, reward = "2:21100004:60"}
 , 
-[72300067] = {id = 72300067, next_exp = 4650, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 67, reward = "2:21100004:60"}
+[72300067] = {id = 72300067, next_exp = 4650, max_vit = 146, energyRecoverMax = 10, max_sta = 40, level = 67, reward = "2:21100004:60"}
 , 
-[72300068] = {id = 72300068, next_exp = 4710, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 68, reward = "2:21100004:60"}
+[72300068] = {id = 72300068, next_exp = 4710, max_vit = 147, energyRecoverMax = 10, max_sta = 40, level = 68, reward = "2:21100004:60"}
 , 
-[72300069] = {id = 72300069, next_exp = 4765, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 69, reward = "2:21100004:60"}
+[72300069] = {id = 72300069, next_exp = 4765, max_vit = 148, energyRecoverMax = 10, max_sta = 40, level = 69, reward = "2:21100004:60"}
 , 
-[72300070] = {id = 72300070, next_exp = 5130, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 70, reward = "2:21100004:60"}
+[72300070] = {id = 72300070, next_exp = 5130, max_vit = 149, energyRecoverMax = 10, max_sta = 40, level = 70, reward = "2:21100004:60"}
 , 
-[72300071] = {id = 72300071, next_exp = 6750, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 71, reward = "2:21100004:60"}
+[72300071] = {id = 72300071, next_exp = 6750, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 71, reward = "2:21100004:60"}
 , 
-[72300072] = {id = 72300072, next_exp = 8100, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 72, reward = "2:21100004:60"}
+[72300072] = {id = 72300072, next_exp = 8100, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 72, reward = "2:21100004:60"}
 , 
-[72300073] = {id = 72300073, next_exp = 9450, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 73, reward = "2:21100004:60"}
+[72300073] = {id = 72300073, next_exp = 9450, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 73, reward = "2:21100004:60"}
 , 
-[72300074] = {id = 72300074, next_exp = 10500, max_vit = 120, energyRecoverMax = 10, max_sta = 40, level = 74, reward = "2:21100004:60"}
+[72300074] = {id = 72300074, next_exp = 10500, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 74, reward = "2:21100004:60"}
 }
 

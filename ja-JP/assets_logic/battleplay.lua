@@ -858,16 +858,22 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
   end
   if deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK then
     deductionRoundType2 = BattleBuffDeductionRoundType.BEFORE_ACTION
+    deductionRoundType3 = BattleBuffDeductionRoundType.BEFORE_All_ATK
   else
     if deductionRoundType == BattleBuffDeductionRoundType.AFTER_ATTACK then
       deductionRoundType2 = BattleBuffDeductionRoundType.AFTER_ACTION
     else
       if deductionRoundType == BattleBuffDeductionRoundType.BEFORE_SKILL then
         deductionRoundType2 = BattleBuffDeductionRoundType.BEFORE_ACTION
+        deductionRoundType3 = BattleBuffDeductionRoundType.BEFORE_All_ATK
       else
         if deductionRoundType == BattleBuffDeductionRoundType.AFTER_SKILL then
           deductionRoundType2 = BattleBuffDeductionRoundType.AFTER_SKILL_ENEMY
           deductionRoundType3 = BattleBuffDeductionRoundType.AFTER_ACTION
+        else
+          if deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ASSIST then
+            deductionRoundType2 = BattleBuffDeductionRoundType.BEFORE_All_ATK
+          end
         end
       end
     end
@@ -894,7 +900,7 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
       if settleRoundType then
         local buffConfig = (TableData.GetBaseSkillBuffData)(buffData.buffId)
         local play_settle_round_type = buffConfig.play_settle_round_type
-        -- DECOMPILER ERROR at PC96: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC103: Unhandled construct in 'MakeBoolean' P1
 
         if type == BattleBuffOprType.NEW and (playSettleRoundType == nil or play_settle_round_type == playSettleRoundType) and (buffData.settleRoundType == settleRoundType or buffData.settleRoundType == settleRoundType2) then
           local curDefPos = buffData.curDefPos
@@ -909,7 +915,7 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
         end
       end
       do
-        -- DECOMPILER ERROR at PC128: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC135: Unhandled construct in 'MakeBoolean' P1
 
         if type == BattleBuffOprType.IMMUNE and (buffData.settleRoundType == settleRoundType or buffData.settleRoundType == settleRoundType2) then
           local curDefPos = buffData.curDefPos
@@ -950,20 +956,20 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                             tempDeductionRoundType = BattleBuffDeductionRoundType.BEFORE_ROUND
                           else
                             if buffData.settleRoundType == BattleBuffSettleRoundType.AFTER_DAMAGE then
-                              tempDeductionRoundType = BattleBuffDeductionRoundType.AFTER_DAMAGE
+                              tempDeductionRoundType = BattleBuffDeductionRoundType.AFTER_DAMAGE_ACTION
                             end
                           end
                         end
                       end
                     end
                   end
-                  -- DECOMPILER ERROR at PC254: Unhandled construct in 'MakeBoolean' P3
+                  -- DECOMPILER ERROR at PC261: Unhandled construct in 'MakeBoolean' P3
 
-                  -- DECOMPILER ERROR at PC254: Unhandled construct in 'MakeBoolean' P3
+                  -- DECOMPILER ERROR at PC261: Unhandled construct in 'MakeBoolean' P3
 
-                  -- DECOMPILER ERROR at PC254: Unhandled construct in 'MakeBoolean' P3
+                  -- DECOMPILER ERROR at PC261: Unhandled construct in 'MakeBoolean' P3
 
-                  if tempDeductionRoundType == deductionRoundType or ((buffData.settleRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK) or buffData.settleRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or buffData.settleRoundType == BattleBuffDeductionRoundType.AFTER_DAMAGE and (deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND or deductionRoundType == BattleBuffDeductionRoundType.AFTER_ATTACK or deductionRoundType == BattleBuffDeductionRoundType.AFTER_SKILL)) then
+                  if tempDeductionRoundType == deductionRoundType or ((buffData.settleRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK) or buffData.settleRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or buffData.settleRoundType == BattleBuffDeductionRoundType.AFTER_DAMAGE_ACTION and (deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ROUND or deductionRoundType == BattleBuffDeductionRoundType.AFTER_ATTACK or deductionRoundType == BattleBuffDeductionRoundType.AFTER_SKILL)) then
                     local tempCard = (BattleData.GetCardInfoByPos)(buffData.curDefPos)
                     if tempCard then
                       v.isDeal = true
@@ -1012,7 +1018,7 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                                     end
                                   end
                                 end
-                                -- DECOMPILER ERROR at PC369: Unhandled construct in 'MakeBoolean' P3
+                                -- DECOMPILER ERROR at PC376: Unhandled construct in 'MakeBoolean' P3
 
                                 if tempDeductionRoundType == deductionRoundType or ((buffData.settleRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ATTACK) or buffData.settleRoundType == BattleBuffDeductionRoundType.AFTER_ACTION and (deductionRoundType == BattleBuffDeductionRoundType.AFTER_ATTACK or deductionRoundType == BattleBuffDeductionRoundType.AFTER_SKILL)) then
                                   local tempCard = (BattleData.GetCardInfoByPos)(buffData.curDefPos)
@@ -1040,65 +1046,65 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                                             ;
                                             (BattleBuff.PlayBuffRemove)(card, buffData)
                                           end
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out DO_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC417: LeaveBlock: unexpected jumping out IF_STMT
+                                          -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
 
                                         end
                                       end

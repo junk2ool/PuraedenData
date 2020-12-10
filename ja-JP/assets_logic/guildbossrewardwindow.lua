@@ -69,9 +69,12 @@ GuildBossRewardWindow.SetSelectIndex = function(index, ...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
+  if BattleRewardType.TimeReward == index then
+    listData = {listData[1]}
+  end
   ;
   ((uis.BossRewardChoice).RewardList):ScrollToView(0, false)
-  -- DECOMPILER ERROR at PC53: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC61: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.BossRewardChoice).RewardList).numItems = #listData

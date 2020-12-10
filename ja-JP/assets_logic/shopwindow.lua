@@ -203,7 +203,7 @@ ShopWindow.RendererList = function(index, obj, ...)
     end
     local buyData = {}
     if (ShopWindow.IsInfiniteTime)(GridData.sell_limit_time) then
-      buyData.MaxNum = 100
+      buyData.MaxNum = 500
     else
       buyData.MaxNum = GridData.sell_limit_time - data.useNum
     end

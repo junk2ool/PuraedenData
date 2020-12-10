@@ -20,6 +20,7 @@ GetLottery_LotteryPanelUis = function(ui, ...)
   uis.Time = GetLottery_TimeUis(ui:GetChild("Time"))
   uis.ProbabilityBtn = ui:GetChild("ProbabilityBtn")
   uis.RecordBtn = ui:GetChild("RecordBtn")
+  uis.ExchangeBtn = ui:GetChild("ExchangeBtn")
   uis.BgImage = ui:GetChild("BgImage")
   uis.c1Ctr = ui:GetController("c1")
   uis.root = ui

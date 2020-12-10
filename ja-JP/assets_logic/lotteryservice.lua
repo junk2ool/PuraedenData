@@ -10,6 +10,10 @@ LotteryService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResLotteryDraw, LotteryService.OnResLotteryDraw)
   ;
   (Net.AddListener)((Proto.MsgName).ResLotteryRecord, LotteryService.OnResLotteryRecord)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResInitConversion, LotteryService.OnResInitConversion)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResLotteryConversion, LotteryService.OnResLotteryConversion)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -145,6 +149,41 @@ LotteryService.OnResLotteryRecord = function(msg, ...)
   if msg and msg.lotteryRecord then
     OpenWindow((WinResConfig.LotteryRecordWindow).name, UILayer.HUD, msg.lotteryRecord)
   end
+end
+
+-- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+
+LotteryService.ReqInitConversion = function(type, ...)
+  -- function num : 0_7 , upvalues : _ENV
+  local m = {}
+  m.type = type
+  ;
+  (Net.Send)((Proto.MsgName).ReqInitConversion, m, (Proto.MsgName).ResInitConversion)
+end
+
+-- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+
+LotteryService.OnResInitConversion = function(msg, ...)
+  -- function num : 0_8 , upvalues : _ENV
+  OpenWindow((WinResConfig.LotteryScoreExchangeWindow).name, UILayer.HUD, msg.integral, msg.type, msg.initConversion)
+end
+
+-- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
+
+LotteryService.ReqLotteryConversion = function(type, id, ...)
+  -- function num : 0_9 , upvalues : _ENV
+  local m = {}
+  m.type = type
+  m.id = id
+  ;
+  (Net.Send)((Proto.MsgName).ReqLotteryConversion, m, (Proto.MsgName).ResLotteryConversion)
+end
+
+-- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
+
+LotteryService.OnResLotteryConversion = function(msg, ...)
+  -- function num : 0_10 , upvalues : _ENV
+  UIMgr:SendWindowMessage((WinResConfig.LotteryScoreExchangeWindow).name, (WindowMsgEnum.Lottery).E_MSG_LOTTERYCONVERSION, {data = msg})
 end
 
 ;

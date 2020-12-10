@@ -195,30 +195,44 @@ ShopBuyWindow.GetMaxBuyTimes = function(...)
   local maxTime = buyData.MaxNum
   while 1 do
     while 1 do
-      if maxTime > 0 then
-        local itemId, Num = (ShopBuyWindow.GetConsumptionIdAndNum)(maxTime)
-        local haveNum = (ActorData.GetAssetCount)(tonumber(itemId))
-        if tonumber(itemId) == AssetType.DIAMOND_BIND then
-          haveNum = (ActorData.GetAssetCount)(AssetType.DIAMOND) + haveNum
-        end
-        if Num <= haveNum then
-          do return maxTime end
-          -- DECOMPILER ERROR at PC28: LeaveBlock: unexpected jumping out IF_THEN_STMT
+      while 1 do
+        if maxTime > 0 then
+          local sItemId, sNum = (ShopBuyWindow.CalculateSimpleConsumption)(maxTime)
+          local haveNum = (ActorData.GetAssetCount)(tonumber(sItemId))
+          if tonumber(sItemId) == AssetType.DIAMOND_BIND then
+            haveNum = (ActorData.GetAssetCount)(AssetType.DIAMOND) + haveNum
+          end
+          if sNum <= haveNum then
+            local itemId, Num = (ShopBuyWindow.GetConsumptionIdAndNum)(maxTime)
+            if Num <= haveNum then
+              do return maxTime end
+              -- DECOMPILER ERROR at PC33: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-          -- DECOMPILER ERROR at PC28: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC33: LeaveBlock: unexpected jumping out IF_STMT
 
-          -- DECOMPILER ERROR at PC28: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC33: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-          -- DECOMPILER ERROR at PC28: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC33: LeaveBlock: unexpected jumping out IF_STMT
 
+              -- DECOMPILER ERROR at PC33: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+              -- DECOMPILER ERROR at PC33: LeaveBlock: unexpected jumping out IF_STMT
+
+            end
+          end
         end
       end
+      maxTime = maxTime - 1
     end
-    maxTime = maxTime - 1
+    do
+      do
+        maxTime = maxTime - 1
+        -- DECOMPILER ERROR at PC37: LeaveBlock: unexpected jumping out DO_STMT
+
+      end
+    end
   end
-  do
-    return 1
-  end
+  return 1
 end
 
 ShopBuyWindow.CheckIsSatisfiedTimes = function(times, isShowTips, ...)
@@ -288,8 +302,15 @@ ShopBuyWindow.SetBuyConsume = function(times, ...)
   -- DECOMPILER ERROR: 5 unprocessed JMP targets
 end
 
-ShopBuyWindow.GetConsumptionIdAndNum = function(times, ...)
+ShopBuyWindow.CalculateSimpleConsumption = function(times, ...)
   -- function num : 0_6 , upvalues : _ENV, buyData
+  local PoolData = ((TableData.gTable).BaseShopPoolData)[buyData.poolID]
+  local consumeConfigs = ((Util.ParseConfigStr)(PoolData.sell_price))[1]
+  return consumeConfigs[2], tonumber(consumeConfigs[3]) * times
+end
+
+ShopBuyWindow.GetConsumptionIdAndNum = function(times, ...)
+  -- function num : 0_7 , upvalues : _ENV, buyData
   local PoolData = ((TableData.gTable).BaseShopPoolData)[buyData.poolID]
   local consumeConfigs = ((Util.ParseConfigStr)(PoolData.sell_price))[1]
   local costNum = 0
@@ -306,7 +327,7 @@ ShopBuyWindow.GetConsumptionIdAndNum = function(times, ...)
 end
 
 ShopBuyWindow.InitBasicInformation = function(...)
-  -- function num : 0_7 , upvalues : _ENV, buyData, uis, _currentType
+  -- function num : 0_8 , upvalues : _ENV, buyData, uis, _currentType
   local PoolData = ((TableData.gTable).BaseShopPoolData)[buyData.poolID]
   local str = (ShopMgr.GetRangeStr)(PoolData.sell_time, PoolData.item, buyData.buyTime)
   local Number = str[3]
@@ -363,7 +384,7 @@ ShopBuyWindow.InitBasicInformation = function(...)
 end
 
 ShopBuyWindow.SetNeedCardList = function(...)
-  -- function num : 0_8 , upvalues : buyData, uis, _ENV
+  -- function num : 0_9 , upvalues : buyData, uis, _ENV
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
   if buyData.needCards and #buyData.needCards > 0 then
@@ -377,7 +398,7 @@ ShopBuyWindow.SetNeedCardList = function(...)
 end
 
 ShopBuyWindow.OnShown = function(...)
-  -- function num : 0_9 , upvalues : ShopBuyWindow, _ENV, uis, buyData
+  -- function num : 0_10 , upvalues : ShopBuyWindow, _ENV, uis, buyData
   (ShopBuyWindow.InitBasicInformation)()
   ;
   (ShopBuyWindow.SetBuyConsume)(tonumber((uis.ChangeNumberTxt).text))
@@ -403,11 +424,11 @@ ShopBuyWindow.OnShown = function(...)
 end
 
 ShopBuyWindow.OnHide = function(...)
-  -- function num : 0_10
+  -- function num : 0_11
 end
 
 ShopBuyWindow.OnClose = function(...)
-  -- function num : 0_11 , upvalues : uis, contentPane, argTable, buyData
+  -- function num : 0_12 , upvalues : uis, contentPane, argTable, buyData
   uis = nil
   contentPane = nil
   argTable = {}
@@ -415,7 +436,7 @@ ShopBuyWindow.OnClose = function(...)
 end
 
 ShopBuyWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_12
+  -- function num : 0_13
 end
 
 return ShopBuyWindow

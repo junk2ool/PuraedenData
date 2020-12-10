@@ -60,6 +60,18 @@ LotteryWindow.BindingUI = function(...)
   if lotteryBtns[LotteryType.Coupon] then
     (RedDotMgr.BindingUI)(winName, RedDotComID.Lottery_Card, lotteryBtns[LotteryType.Coupon])
   end
+  if lotteryBtns[LotteryType.HuoDongUp] then
+    (RedDotMgr.BindingUI)(winName, RedDotComID.LotteryActivty_Score1, lotteryBtns[LotteryType.HuoDongUp])
+  end
+  if lotteryBtns[LotteryType.HuoDongUp2] then
+    (RedDotMgr.BindingUI)(winName, RedDotComID.LotteryActivty_Score2, lotteryBtns[LotteryType.HuoDongUp2])
+  end
+  if lotteryBtns[LotteryType.HuoDongUp3] then
+    (RedDotMgr.BindingUI)(winName, RedDotComID.LotteryActivty_Score3, lotteryBtns[LotteryType.HuoDongUp3])
+  end
+  if lotteryBtns[LotteryType.HuoDongUp4] then
+    (RedDotMgr.BindingUI)(winName, RedDotComID.LotteryActivty_Score4, lotteryBtns[LotteryType.HuoDongUp4])
+  end
   ;
   (RedDotMgr.RefreshTreeUI)(winName)
 end
@@ -142,17 +154,19 @@ LotteryWindow.LotteryButtonRefresh = function(...)
   else
     ;
     (table.insert)(btnTab, LotteryType.Card)
-    if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp) then
-      (table.insert)(btnTab, LotteryType.HuoDongUp)
-    end
-    if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp2) then
-      (table.insert)(btnTab, LotteryType.HuoDongUp2)
-    end
-    if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp3) then
-      (table.insert)(btnTab, LotteryType.HuoDongUp3)
-    end
-    if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp4) then
-      (table.insert)(btnTab, LotteryType.HuoDongUp4)
+    if IsIOSReview ~= true then
+      if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp) then
+        (table.insert)(btnTab, LotteryType.HuoDongUp)
+      end
+      if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp2) then
+        (table.insert)(btnTab, LotteryType.HuoDongUp2)
+      end
+      if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp3) then
+        (table.insert)(btnTab, LotteryType.HuoDongUp3)
+      end
+      if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp4) then
+        (table.insert)(btnTab, LotteryType.HuoDongUp4)
+      end
     end
   end
   if (ActorData.GetLotteryActivityNum)(LotteryType.ShilianBiChu) then
@@ -174,9 +188,9 @@ LotteryWindow.LotteryButtonRefresh = function(...)
         do
           isStillChooseThisType = true
           do break end
-          -- DECOMPILER ERROR at PC104: LeaveBlock: unexpected jumping out IF_THEN_STMT
+          -- DECOMPILER ERROR at PC107: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-          -- DECOMPILER ERROR at PC104: LeaveBlock: unexpected jumping out IF_STMT
+          -- DECOMPILER ERROR at PC107: LeaveBlock: unexpected jumping out IF_STMT
 
         end
       end
@@ -189,11 +203,11 @@ LotteryWindow.LotteryButtonRefresh = function(...)
     end
     local button = ((uis.LotteryPanelGrp).ButtonList):AddItemFromPool((UIPackage.GetItemURL)("Lottery", showData.button_asset))
     lotteryBtns[value] = button
-    -- DECOMPILER ERROR at PC135: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC138: Confused about usage of register: R9 in 'UnsetPending'
 
     if value == lotteryType then
       ((uis.LotteryPanelGrp).ButtonList).selectedIndex = index - 1
-      -- DECOMPILER ERROR at PC139: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC142: Confused about usage of register: R9 in 'UnsetPending'
 
       ;
       ((uis.LotteryPanelGrp).c1Ctr).selectedIndex = showData.selected_index
@@ -250,7 +264,7 @@ LotteryWindow.RefreshLotteryPanel = function(...)
 end
 
 LotteryWindow.SetLotteryDate = function(lType, ...)
-  -- function num : 0_6 , upvalues : _ENV, uis
+  -- function num : 0_6 , upvalues : _ENV, uis, lotteryType, LotteryType
   local beginTime, endTime = (ActorData.GetActivityLotteryTime)(lType)
   local isShow = beginTime ~= -1 and beginTime ~= nil
   print("=============SetLotteryDate", beginTime, endTime, isShow)
@@ -258,16 +272,27 @@ LotteryWindow.SetLotteryDate = function(lType, ...)
 
   ;
   (((uis.LotteryPanelGrp).Time).root).visible = isShow
-  -- DECOMPILER ERROR at PC35: Confused about usage of register: R4 in 'UnsetPending'
+  local config = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
+  local timeSelectedIndex = lotteryType ~= LotteryType.Fresh and lotteryType ~= LotteryType.Coupon and lotteryType ~= LotteryType.ShilianBiChu and lotteryType ~= LotteryType.Card and config.integral_convert ~= "0"
+  -- DECOMPILER ERROR at PC51: Confused about usage of register: R6 in 'UnsetPending'
+
+  if timeSelectedIndex then
+    (((uis.LotteryPanelGrp).Time).c1Ctr).selectedIndex = 1
+  else
+    -- DECOMPILER ERROR at PC56: Confused about usage of register: R6 in 'UnsetPending'
+
+    (((uis.LotteryPanelGrp).Time).c1Ctr).selectedIndex = 0
+  end
+  -- DECOMPILER ERROR at PC72: Confused about usage of register: R6 in 'UnsetPending'
 
   if isShow then
     (((uis.LotteryPanelGrp).Time).StartTxt).text = (PUtil.get)(221) .. (LuaTime.GetFormatTimeStr)("%Y-%m-%d %H:%M", beginTime)
-    -- DECOMPILER ERROR at PC49: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC86: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (((uis.LotteryPanelGrp).Time).EndTxt).text = (PUtil.get)(222) .. (LuaTime.GetFormatTimeStr)("%Y-%m-%d %H:%M", endTime)
   end
-  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  -- DECOMPILER ERROR: 6 unprocessed JMP targets
 end
 
 LotteryWindow.OnClose = function(...)
@@ -317,213 +342,181 @@ LotteryWindow.OnClose = function(...)
 end
 
 LotteryWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_8 , upvalues : _ENV, lotteryType, LotteryType, uis, LotteryWindow, drawResult, cardIndex, cardResults, isAutoPlay
+  -- function num : 0_8 , upvalues : _ENV, lotteryType, uis, LotteryType, lotteryBtns, LotteryWindow, drawResult, cardIndex, cardResults, isAutoPlay
   local windowMsgEnum = WindowMsgEnum.Lottery
   if msgId == windowMsgEnum.E_MSG_LOTTERY_INIT then
+    print("=======初始化扭蛋信息========")
+    ;
     (LotteryData.SaveLotteryData)(para.data, lotteryType)
+    local config = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
+    -- DECOMPILER ERROR at PC41: Confused about usage of register: R4 in 'UnsetPending'
+
+    ;
+    ((uis.LotteryPanelGrp).ExchangeBtn).visible = lotteryType ~= LotteryType.Fresh and lotteryType ~= LotteryType.Coupon and lotteryType ~= LotteryType.ShilianBiChu and lotteryType ~= LotteryType.Card and config.integral_convert ~= "0"
+    ;
+    (((uis.LotteryPanelGrp).ExchangeBtn):GetChild("RedDot")).visible = ((lotteryBtns[lotteryType]):GetChild("RedDot")).visible
+    ;
+    (((uis.LotteryPanelGrp).ExchangeBtn):GetChild("WordTxt")).text = (PUtil.get)(270, (para.data).integral)
+    ;
+    (((uis.LotteryPanelGrp).ExchangeBtn).onClick):Set(function(...)
+    -- function num : 0_8_0 , upvalues : _ENV, lotteryType
+    (LotteryService.ReqInitConversion)(lotteryType)
+  end
+)
     if lotteryType == LotteryType.Card then
       (LotteryWindow_Card.RefreshWindow)(uis)
       ;
       (LotteryWindow_Card.ReceiveInitData)()
-    else
-      if lotteryType == LotteryType.Coupon then
-        (LotteryWindow_Coupon.RefreshWindow)(uis)
-        ;
-        (LotteryWindow_Coupon.ReceiveInitData)()
-      else
-        if lotteryType == LotteryType.Fresh then
-          (LotteryWindow_Fresh.RefreshWindow)(uis)
-          ;
-          (LotteryWindow_Fresh.ReceiveInitData)()
-        else
-          if lotteryType == LotteryType.ShilianBiChu then
-            (LotteryWindow_Sure.RefreshWindow)(uis)
-          else
-            if lotteryType == LotteryType.HuoDongUp then
-              (LotteryWindow_Activity.ReceiveInitData)()
-            else
-              if lotteryType == LotteryType.HuoDongUp2 then
-                (LotteryWindow_Activity2.ReceiveInitData)()
-              else
-                if lotteryType == LotteryType.HuoDongUp3 then
-                  (LotteryWindow_Activity3.ReceiveInitData)()
-                else
-                  if lotteryType == LotteryType.HuoDongUp4 then
-                    (LotteryWindow_Activity4.ReceiveInitData)()
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
+    elseif lotteryType == LotteryType.Coupon then
+      (LotteryWindow_Coupon.RefreshWindow)(uis)
+      ;
+      (LotteryWindow_Coupon.ReceiveInitData)()
+    elseif lotteryType == LotteryType.Fresh then
+      (LotteryWindow_Fresh.RefreshWindow)(uis)
+      ;
+      (LotteryWindow_Fresh.ReceiveInitData)()
+    elseif lotteryType == LotteryType.ShilianBiChu then
+      (LotteryWindow_Sure.RefreshWindow)(uis)
+    elseif lotteryType == LotteryType.HuoDongUp then
+      (LotteryWindow_Activity.ReceiveInitData)()
+    elseif lotteryType == LotteryType.HuoDongUp2 then
+      (LotteryWindow_Activity2.ReceiveInitData)()
+    elseif lotteryType == LotteryType.HuoDongUp3 then
+      (LotteryWindow_Activity3.ReceiveInitData)()
+    elseif lotteryType == LotteryType.HuoDongUp4 then
+      (LotteryWindow_Activity4.ReceiveInitData)()
     end
+  elseif msgId == windowMsgEnum.E_MSG_LOTTERY_DRAW then
+    (LotteryMgr.SetIsLotterying)(true)
+    if lotteryType == LotteryType.Card then
+      (LotteryWindow_Card.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.Coupon then
+      (LotteryWindow_Coupon.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.Fresh then
+      (LotteryWindow_Fresh.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.ShilianBiChu then
+      (LotteryWindow_Sure.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.HuoDongUp then
+      (LotteryWindow_Activity.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.HuoDongUp2 then
+      (LotteryWindow_Activity2.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.HuoDongUp3 then
+      (LotteryWindow_Activity3.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.HuoDongUp4 then
+      (LotteryWindow_Activity4.ReceiveDrawedData)(para)
+    end
+    local randomCard = (Util.Shuffle)((para.data).goods)
+    ;
+    (LotteryWindow.BubbleSortGoods)(randomCard)
+    -- DECOMPILER ERROR at PC236: Confused about usage of register: R4 in 'UnsetPending'
+
+    ;
+    (para.data).goods = randomCard
+    drawResult = para
+    -- DECOMPILER ERROR at PC239: Confused about usage of register: R4 in 'UnsetPending'
+
+    ;
+    (uis.TouchScreenBtn).visible = true
+    ;
+    (LotteryWindow_Activity.HideOrShowFxMain)(false)
+    ;
+    (LotteryWindow_Activity2.HideOrShowFxMain)(false)
+    ;
+    (LotteryWindow_Activity3.HideOrShowFxMain)(false)
+    ;
+    (LotteryWindow_Activity4.HideOrShowFxMain)(false)
+    ;
+    (LotteryService.ReqLotteryInit)(lotteryType)
   else
-    if msgId == windowMsgEnum.E_MSG_LOTTERY_DRAW then
-      (LotteryMgr.SetIsLotterying)(true)
-      if lotteryType == LotteryType.Card then
-        (LotteryWindow_Card.ReceiveDrawedData)(para)
-      else
-        if lotteryType == LotteryType.Coupon then
-          (LotteryWindow_Coupon.ReceiveDrawedData)(para)
-        else
-          if lotteryType == LotteryType.Fresh then
-            (LotteryWindow_Fresh.ReceiveDrawedData)(para)
-          else
-            if lotteryType == LotteryType.ShilianBiChu then
-              (LotteryWindow_Sure.ReceiveDrawedData)(para)
-            else
-              if lotteryType == LotteryType.HuoDongUp then
-                (LotteryWindow_Activity.ReceiveDrawedData)(para)
-              else
-                if lotteryType == LotteryType.HuoDongUp2 then
-                  (LotteryWindow_Activity2.ReceiveDrawedData)(para)
-                else
-                  if lotteryType == LotteryType.HuoDongUp3 then
-                    (LotteryWindow_Activity3.ReceiveDrawedData)(para)
-                  else
-                    if lotteryType == LotteryType.HuoDongUp4 then
-                      (LotteryWindow_Activity4.ReceiveDrawedData)(para)
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
-      local randomCard = (Util.Shuffle)((para.data).goods)
-      ;
-      (LotteryWindow.BubbleSortGoods)(randomCard)
-      -- DECOMPILER ERROR at PC174: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC265: Confused about usage of register: R3 in 'UnsetPending'
+
+    if msgId == windowMsgEnum.E_MSG_LOTTERY_REWARDCLOSE then
+      (uis.TouchScreenBtn).visible = false
+      -- DECOMPILER ERROR at PC268: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
-      (para.data).goods = randomCard
-      drawResult = para
-      -- DECOMPILER ERROR at PC177: Confused about usage of register: R4 in 'UnsetPending'
+      ((uis.StartWord).root).visible = false
+      -- DECOMPILER ERROR at PC271: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
-      (uis.TouchScreenBtn).visible = true
+      ((uis.LotteryPanelGrp).BgImage).visible = false
       ;
-      (LotteryWindow_Activity.HideOrShowFxMain)(false)
-      ;
-      (LotteryWindow_Activity2.HideOrShowFxMain)(false)
-      ;
-      (LotteryWindow_Activity3.HideOrShowFxMain)(false)
-      ;
-      (LotteryWindow_Activity4.HideOrShowFxMain)(false)
-    else
-      do
-        -- DECOMPILER ERROR at PC199: Confused about usage of register: R3 in 'UnsetPending'
-
-        if msgId == windowMsgEnum.E_MSG_LOTTERY_REWARDCLOSE then
-          (uis.TouchScreenBtn).visible = false
-          -- DECOMPILER ERROR at PC202: Confused about usage of register: R3 in 'UnsetPending'
-
-          ;
-          ((uis.StartWord).root).visible = false
-          -- DECOMPILER ERROR at PC205: Confused about usage of register: R3 in 'UnsetPending'
-
-          ;
-          ((uis.LotteryPanelGrp).BgImage).visible = false
-          ;
-          (LotteryMgr.SetIsLotterying)(false)
-        else
-        end
-        if msgId ~= windowMsgEnum.E_MSG_THE_ENDOFTHE_FRESH or msgId == windowMsgEnum.E_MSG_LOTTERY_DRAW_ANIMATION_END then
-          cardIndex = 1
-          cardResults = {}
-          isAutoPlay = false
-          ;
-          (LotteryWindow.ShowCardProcess)(drawResult)
-          -- DECOMPILER ERROR at PC229: Confused about usage of register: R3 in 'UnsetPending'
-
-          ;
-          ((uis.LotteryPanelGrp).BgImage).visible = true
-        else
-          if msgId == windowMsgEnum.E_MSG_ONCLOSE_NEWGET then
-            if cardIndex < #cardResults then
-              cardIndex = cardIndex + 1
-              ;
-              (LotteryWindow.RunCardResultEffect)(cardIndex)
-            else
-              loge("已到最后一个 直接显示结果")
-              ;
-              (LotteryWindow_Activity.HideOrShowFxMain)(true)
-              ;
-              (LotteryWindow_Activity2.HideOrShowFxMain)(true)
-              ;
-              (LotteryWindow_Activity3.HideOrShowFxMain)(true)
-              ;
-              (LotteryWindow_Activity4.HideOrShowFxMain)(true)
-              if lotteryType == LotteryType.Card then
-                (LotteryWindow_Card.ShowResult)(drawResult)
-              else
-                if lotteryType == LotteryType.Fresh then
-                  (LotteryWindow_Fresh.ShowResult)(drawResult)
-                  local isHaveNum = (LotteryData.CheckFreshHaveNum)()
-                  if not isHaveNum then
-                    (LotteryWindow.ClassicInit)()
-                  end
-                else
-                  do
-                    if lotteryType == LotteryType.Coupon then
-                      (LotteryWindow_Coupon.ShowResult)(drawResult)
-                    else
-                      if lotteryType == LotteryType.ShilianBiChu then
-                        (LotteryWindow_Sure.ShowResult)(drawResult)
-                        ;
-                        (LotteryWindow.ClassicInit)()
-                      else
-                        if lotteryType == LotteryType.HuoDongUp then
-                          (LotteryWindow_Activity.ShowResult)(drawResult)
-                          ;
-                          (LotteryWindow.ClassicInit)()
-                        else
-                          if lotteryType == LotteryType.HuoDongUp2 then
-                            (LotteryWindow_Activity2.ShowResult)(drawResult)
-                            ;
-                            (LotteryWindow.ClassicInit)()
-                          else
-                            if lotteryType == LotteryType.HuoDongUp3 then
-                              (LotteryWindow_Activity3.ShowResult)(drawResult)
-                              ;
-                              (LotteryWindow.ClassicInit)()
-                            else
-                              if lotteryType == LotteryType.HuoDongUp4 then
-                                (LotteryWindow_Activity4.ShowResult)(drawResult)
-                                ;
-                                (LotteryWindow.ClassicInit)()
-                              end
-                            end
-                          end
-                        end
-                      end
-                    end
-                    -- DECOMPILER ERROR at PC355: Confused about usage of register: R3 in 'UnsetPending'
-
-                    ;
-                    ((uis.GechaCardEffectGrp).root).visible = false
-                    if msgId == windowMsgEnum.E_MSG_ONCLICKCARDGET_SKIPBTN then
-                      isAutoPlay = true
-                      -- DECOMPILER ERROR at PC364: Confused about usage of register: R3 in 'UnsetPending'
-
-                      ;
-                      ((uis.GechaCardEffectGrp).SkipBtn).visible = false
-                    else
-                      if msgId == windowMsgEnum.E_MSG_REFRESHLOTTERYLIST then
-                        (LotteryWindow.ClassicInit)()
-                      end
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
+      (LotteryMgr.SetIsLotterying)(false)
     end
   end
+  if msgId ~= windowMsgEnum.E_MSG_THE_ENDOFTHE_FRESH or msgId == windowMsgEnum.E_MSG_LOTTERY_DRAW_ANIMATION_END then
+    cardIndex = 1
+    cardResults = {}
+    isAutoPlay = false
+    ;
+    (LotteryWindow.ShowCardProcess)(drawResult)
+    -- DECOMPILER ERROR at PC295: Confused about usage of register: R3 in 'UnsetPending'
+
+    ;
+    ((uis.LotteryPanelGrp).BgImage).visible = true
+  elseif msgId == windowMsgEnum.E_MSG_ONCLOSE_NEWGET then
+    if cardIndex < #cardResults then
+      cardIndex = cardIndex + 1
+      ;
+      (LotteryWindow.RunCardResultEffect)(cardIndex)
+    else
+      loge("已到最后一个 直接显示结果")
+      ;
+      (LotteryWindow_Activity.HideOrShowFxMain)(true)
+      ;
+      (LotteryWindow_Activity2.HideOrShowFxMain)(true)
+      ;
+      (LotteryWindow_Activity3.HideOrShowFxMain)(true)
+      ;
+      (LotteryWindow_Activity4.HideOrShowFxMain)(true)
+      if lotteryType == LotteryType.Card then
+        (LotteryWindow_Card.ShowResult)(drawResult)
+      elseif lotteryType == LotteryType.Fresh then
+        (LotteryWindow_Fresh.ShowResult)(drawResult)
+        local isHaveNum = (LotteryData.CheckFreshHaveNum)()
+        if not isHaveNum then
+          (LotteryWindow.ClassicInit)()
+        end
+      elseif lotteryType == LotteryType.Coupon then
+        (LotteryWindow_Coupon.ShowResult)(drawResult)
+      elseif lotteryType == LotteryType.ShilianBiChu then
+        (LotteryWindow_Sure.ShowResult)(drawResult)
+        ;
+        (LotteryWindow.ClassicInit)()
+      elseif lotteryType == LotteryType.HuoDongUp then
+        (LotteryWindow_Activity.ShowResult)(drawResult)
+        ;
+        (LotteryWindow.ClassicInit)()
+      elseif lotteryType == LotteryType.HuoDongUp2 then
+        (LotteryWindow_Activity2.ShowResult)(drawResult)
+        ;
+        (LotteryWindow.ClassicInit)()
+      elseif lotteryType == LotteryType.HuoDongUp3 then
+        (LotteryWindow_Activity3.ShowResult)(drawResult)
+        ;
+        (LotteryWindow.ClassicInit)()
+      elseif lotteryType == LotteryType.HuoDongUp4 then
+        (LotteryWindow_Activity4.ShowResult)(drawResult)
+        ;
+        (LotteryWindow.ClassicInit)()
+      end
+      -- DECOMPILER ERROR at PC421: Confused about usage of register: R3 in 'UnsetPending'
+
+      ;
+      ((uis.GechaCardEffectGrp).root).visible = false
+    end
+  elseif msgId == windowMsgEnum.E_MSG_ONCLICKCARDGET_SKIPBTN then
+    isAutoPlay = true
+    -- DECOMPILER ERROR at PC430: Confused about usage of register: R3 in 'UnsetPending'
+
+    ;
+    ((uis.GechaCardEffectGrp).SkipBtn).visible = false
+  elseif msgId == windowMsgEnum.E_MSG_REFRESHLOTTERYLIST then
+    (LotteryWindow.ClassicInit)()
+  elseif msgId == windowMsgEnum.E_MSG_CLOSEEXCHANGE then
+    (LotteryService.ReqLotteryInit)(lotteryType)
+  end
+  -- DECOMPILER ERROR: 34 unprocessed JMP targets
 end
 
 LotteryWindow.ShowCardProcess = function(para, isShowFirst, ...)

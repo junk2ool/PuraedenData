@@ -351,7 +351,11 @@ BattleBuffMgr.DealClearBuff = function(targetCard, newBuff, ...)
                   local buffClone = clone(buff)
                   buffClone:SetClearCount(clearCount)
                   buffClone:SetCurDefPos(card:GetPosIndex())
-                  buffClone.atkPos = newBuff.atkPos
+                  if buff.atkPos == 0 then
+                    buffClone.atkPos = newBuff.curDefPos
+                  else
+                    buffClone.atkPos = newBuff.atkPos
+                  end
                   local canAdd = (BattleDataCount.DealAddBuff)(card, buffClone)
                   if canAdd == true then
                     local deductionRoundType = buffClone:GetDeductionRoundType()
@@ -364,7 +368,7 @@ BattleBuffMgr.DealClearBuff = function(targetCard, newBuff, ...)
                 end
               end
               do
-                -- DECOMPILER ERROR at PC123: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC129: LeaveBlock: unexpected jumping out DO_STMT
 
               end
             end

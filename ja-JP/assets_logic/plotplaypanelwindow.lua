@@ -778,6 +778,11 @@ PlotPlayPanelWindow.HandleBtns = function(status, ...)
       (uis.Live2DBtn).visible = not PlotPlayData.NotShowSwitchBtn
     end
   end
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
+
+  if IsIOSReview == true then
+    (uis.Live2DBtn).visible = false
+  end
   _currentBtnStatus = status
 end
 

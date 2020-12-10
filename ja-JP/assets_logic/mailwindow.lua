@@ -61,8 +61,42 @@ MailWindow.SetListVirtual = function(...)
   mailScroll:SetBeginAnim(true, "up", 0.05, 0.05, true)
 end
 
+MailWindow.Deal = function(ori, para, ...)
+  -- function num : 0_2 , upvalues : _ENV
+  local oriTxt = (PUtil.get)(tonumber(ori))
+  local sp = #split(oriTxt, "{")
+  if sp <= 1 then
+    local startIndex = tonumber((string.sub)((split(oriTxt, "{"))[2], 1, 1)) + 1
+    do
+      local max = startIndex + sp - 2
+      for i = startIndex, max do
+        local inx = para[i]
+        local fi = ""
+        if (string.find)(inx, "&") then
+          local inx2 = (string.sub)(inx, 2, (string.len)(inx))
+          fi = (PUtil.get)(tonumber(inx2))
+        else
+          do
+            do
+              fi = inx
+              oriTxt = (string.gsub)(oriTxt, "{" .. tostring(i - 1) .. "}", fi)
+              -- DECOMPILER ERROR at PC72: LeaveBlock: unexpected jumping out DO_STMT
+
+              -- DECOMPILER ERROR at PC72: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+              -- DECOMPILER ERROR at PC72: LeaveBlock: unexpected jumping out IF_STMT
+
+            end
+          end
+        end
+      end
+      return oriTxt
+    end
+  end
+end
+
 MailWindow.RefreshMailItem = function(index, item, ...)
-  -- function num : 0_2 , upvalues : mailList, _ENV, MailWindow
+  -- function num : 0_3 , upvalues : mailList, _ENV, MailWindow
   local data = mailList[index + 1]
   ;
   ((item:GetChild("MailDetailed")):GetChild("SendPeopleWordTxt")).text = (PUtil.get)(81)
@@ -70,7 +104,7 @@ MailWindow.RefreshMailItem = function(index, item, ...)
   ((item:GetChild("MailDetailed")):GetChild("SendTimeWordTxt")).text = (PUtil.get)(96)
   local mailData = {}
   if data.cId > 0 then
-    mailData.title = (PUtil.get)(tonumber(data.title))
+    mailData.title = (MailWindow.Deal)(data.title, data.params)
     mailData.sender = (PUtil.get)(tonumber(data.sender))
     mailData.live = data.live
   else
@@ -97,7 +131,7 @@ MailWindow.RefreshMailItem = function(index, item, ...)
   (((item:GetChild("MailDetailed")):GetChild("MailTouchBtn")).onClick):Clear()
   ;
   (((item:GetChild("MailDetailed")):GetChild("MailTouchBtn")).onClick):Add(function(...)
-    -- function num : 0_2_0 , upvalues : _ENV, index, data
+    -- function num : 0_3_0 , upvalues : _ENV, index, data
     (MailData.SaveClickedIndex)(index)
     ;
     (MailService.ReqReadMail)(data.id)
@@ -109,7 +143,7 @@ MailWindow.RefreshMailItem = function(index, item, ...)
 end
 
 MailWindow.CheckMailState = function(data, ...)
-  -- function num : 0_3 , upvalues : MailItemState
+  -- function num : 0_4 , upvalues : MailItemState
   local mailState = nil
   if data.hasAnnex == false and data.read == false then
     mailState = MailItemState.NoItemNoRead
@@ -130,7 +164,7 @@ MailWindow.CheckMailState = function(data, ...)
 end
 
 MailWindow.RefreshMailNumber = function(number, ...)
-  -- function num : 0_4 , upvalues : mailScroll, MAX_MAIL_NUM, uis, _ENV, MailWindow
+  -- function num : 0_5 , upvalues : mailScroll, MAX_MAIL_NUM, uis, _ENV, MailWindow
   mailScroll.numItems = number
   local color = nil
   if MAX_MAIL_NUM <= number then
@@ -162,7 +196,7 @@ MailWindow.RefreshMailNumber = function(number, ...)
 end
 
 MailWindow.RefreshMailDetail = function(detailInfo, ...)
-  -- function num : 0_5 , upvalues : MailWindow, _ENV, uis, PowerMax
+  -- function num : 0_6 , upvalues : MailWindow, _ENV, uis, PowerMax
   local selectedIndex = 0
   if detailInfo.hasAnnex == true then
     selectedIndex = 2
@@ -173,13 +207,10 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
   (MailWindow.SetMainWindowState)(selectedIndex)
   local mailData = {}
   if detailInfo.cId > 0 then
-    mailData.title = (PUtil.get)(tonumber(detailInfo.title))
+    mailData.title = (MailWindow.Deal)(detailInfo.title, detailInfo.params)
     mailData.sender = (PUtil.get)(tonumber(detailInfo.sender))
     mailData.live = detailInfo.live
-    local content = (PUtil.get)(tonumber(detailInfo.content))
-    for i,v in ipairs(detailInfo.params) do
-      content = (string.gsub)(content, "{" .. tostring(i - 1) .. "}", v)
-    end
+    local content = (MailWindow.Deal)(detailInfo.content, detailInfo.params)
     mailData.content = content
     mailData.receive = detailInfo.receive
   else
@@ -189,41 +220,41 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
       mailData.live = detailInfo.live
       mailData.content = detailInfo.content
       mailData.receive = detailInfo.receive
-      -- DECOMPILER ERROR at PC70: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC48: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.TitleTxt).text = mailData.title
-      -- DECOMPILER ERROR at PC79: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC57: Confused about usage of register: R3 in 'UnsetPending'
 
       if mailData.live < 0 then
         (uis.TimeTxt).text = (PUtil.get)(211)
       else
-        -- DECOMPILER ERROR at PC97: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC75: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
         (uis.TimeTxt).text = (PUtil.get)(96) .. "  " .. (LuaTime.GetLeftTimeStr)((math.floor)(mailData.live * 0.001), true)
       end
-      -- DECOMPILER ERROR at PC100: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC78: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendPeopleNameTxt).text = mailData.sender
-      -- DECOMPILER ERROR at PC107: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC85: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendTimeTxt).text = (LuaTime.GetFormatTimeStr)("%Y-%m-%d", mailData.receive)
-      -- DECOMPILER ERROR at PC113: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC91: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendTimeWordTxt).text = (PUtil.get)(82)
-      -- DECOMPILER ERROR at PC119: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC97: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendPeopleWordTxt).text = (PUtil.get)(81)
-      -- DECOMPILER ERROR at PC125: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC103: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.EnclosureWordTxt).text = (PUtil.get)(204)
-      -- DECOMPILER ERROR at PC129: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC107: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.GetBtn).visible = not detailInfo.received
@@ -233,7 +264,7 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
       ((uis.GetBtn).onClick):Clear()
       ;
       ((uis.GetBtn).onClick):Add(function(...)
-    -- function num : 0_5_0 , upvalues : _ENV, detailInfo, PowerMax
+    -- function num : 0_6_0 , upvalues : _ENV, detailInfo, PowerMax
     local power = 0
     local configData = ((TableData.gTable).BaseAssetData)[AssetType.PHYSICAL]
     for index,value in ipairs(detailInfo.annexList) do
@@ -250,7 +281,7 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
     (MailService.ReqGetAllMailAnnex)(detailInfo.id)
   end
 )
-      -- DECOMPILER ERROR at PC150: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC128: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.DeleteBtn).visible = detailInfo.canDel
@@ -258,11 +289,11 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
       ((uis.DeleteBtn).onClick):Clear()
       ;
       ((uis.DeleteBtn).onClick):Add(function(...)
-    -- function num : 0_5_1 , upvalues : detailInfo, _ENV
+    -- function num : 0_6_1 , upvalues : detailInfo, _ENV
     if detailInfo.hasAnnex == true then
       if detailInfo.received == false then
         (MessageMgr.OpenConfirmWindow)((PUtil.get)(95), function(...)
-      -- function num : 0_5_1_0 , upvalues : _ENV, detailInfo
+      -- function num : 0_6_1_0 , upvalues : _ENV, detailInfo
       (MailService.ReqDeleteMail)(detailInfo.id)
     end
 )
@@ -285,7 +316,7 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
 end
 
 MailWindow.SetMainWindowState = function(selectedIndex, ...)
-  -- function num : 0_6 , upvalues : uis, _ENV
+  -- function num : 0_7 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (uis.c1Ctr).selectedIndex = selectedIndex
@@ -302,7 +333,7 @@ MailWindow.SetMainWindowState = function(selectedIndex, ...)
 end
 
 MailWindow.SetWorldList = function(wordInfo, ...)
-  -- function num : 0_7 , upvalues : uis, _ENV, MailWindow
+  -- function num : 0_8 , upvalues : uis, _ENV, MailWindow
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (uis.WordList).numItems = 0
@@ -318,7 +349,7 @@ MailWindow.SetWorldList = function(wordInfo, ...)
 end
 
 MailWindow.CreateLine = function(content, ...)
-  -- function num : 0_8 , upvalues : _ENV
+  -- function num : 0_9 , upvalues : _ENV
   if (Util.StringIsNullOrEmpty)(content) then
     return 
   end
@@ -346,7 +377,7 @@ MailWindow.CreateLine = function(content, ...)
 end
 
 MailWindow.SetItemList = function(itemList, ...)
-  -- function num : 0_9 , upvalues : uis, _ENV
+  -- function num : 0_10 , upvalues : uis, _ENV
   (uis.ItemList):RemoveChildrenToPool()
   itemList = (Util.MajorSort)(itemList, 1207)
   for i,v in pairs(itemList) do
@@ -355,7 +386,7 @@ MailWindow.SetItemList = function(itemList, ...)
 end
 
 MailWindow.ReqGetAllMailItems = function(...)
-  -- function num : 0_10 , upvalues : MailWindow, _ENV
+  -- function num : 0_11 , upvalues : MailWindow, _ENV
   if (MailWindow.CheckUnGetItem)() == true then
     (MailService.ReqGetAllMailAnnex)()
   else
@@ -365,7 +396,7 @@ MailWindow.ReqGetAllMailItems = function(...)
 end
 
 MailWindow.CheckUnGetItem = function(...)
-  -- function num : 0_11 , upvalues : _ENV, mailList, uis
+  -- function num : 0_12 , upvalues : _ENV, mailList, uis
   local ishv = false
   for i,v in ipairs(mailList) do
     if v.received == false and v.hasAnnex == true then
@@ -384,9 +415,9 @@ MailWindow.CheckUnGetItem = function(...)
 end
 
 MailWindow.SortMailList = function(list, ...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_13 , upvalues : _ENV
   (table.sort)(list, function(a, b, ...)
-    -- function num : 0_12_0
+    -- function num : 0_13_0
     local aWeight = 0
     local bWeight = 0
     if a.read == false then
@@ -421,7 +452,7 @@ MailWindow.SortMailList = function(list, ...)
 end
 
 MailWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_13 , upvalues : _ENV, mailList, MailWindow, isDelete, constTenIndex, uis
+  -- function num : 0_14 , upvalues : _ENV, mailList, MailWindow, isDelete, constTenIndex, uis
   local windowMsgEnum = WindowMsgEnum.Mail
   if msgId == windowMsgEnum.E_MSG_MAIL_LIST then
     mailList = {}
@@ -495,7 +526,7 @@ MailWindow.HandleMessage = function(msgId, para, ...)
 end
 
 MailWindow.DeletMail = function(list, mailId, ...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   local index = 1
   for i,v in ipairs(list) do
     if v.id ~= mailId then
@@ -513,7 +544,7 @@ MailWindow.DeletMail = function(list, mailId, ...)
 end
 
 MailWindow.CheckDisposeRedDot = function(...)
-  -- function num : 0_15 , upvalues : _ENV, mailList
+  -- function num : 0_16 , upvalues : _ENV, mailList
   for _,v in pairs(mailList) do
     if (v.hasAnnex == true and v.received == false) or v.read == false then
       return false
@@ -523,12 +554,12 @@ MailWindow.CheckDisposeRedDot = function(...)
 end
 
 MailWindow.UpdateTaskSpine = function(...)
-  -- function num : 0_16 , upvalues : _ENV, uis
+  -- function num : 0_17 , upvalues : _ENV, uis
   (Util.SetNotFoundEffect)(uis.CardLoader)
 end
 
 MailWindow.OnClose = function(...)
-  -- function num : 0_17 , upvalues : _ENV, uis, contentPane, mailScroll, itemScroll, constTenIndex, mailList, isDelete
+  -- function num : 0_18 , upvalues : _ENV, uis, contentPane, mailScroll, itemScroll, constTenIndex, mailList, isDelete
   (CommonWinMgr.RemoveAssets)((WinResConfig.MailWindow).name)
   uis = nil
   contentPane = nil

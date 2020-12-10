@@ -354,27 +354,27 @@ ClearingWindow.SetAimSweepNum = function(getItem, ...)
   end
   for _,v2 in pairs(getItem) do
     if v2.id == aimItemId then
-      AimItemNum = AimItemNum + 1
+      AimItemNum = AimItemNum + v2.Num
     end
   end
   do
-    -- DECOMPILER ERROR at PC32: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
 
     if SweepData.aimItemId == nil or SweepData.aimItemId <= 0 then
       (uis.describeTxt).text = (PUtil.get)(20000278, AimItemNum)
       return 
     end
     surplus = aimItemNum - AimItemNum
-    -- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC40: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     (uis.describeTxt).visible = true
-    -- DECOMPILER ERROR at PC50: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC51: Confused about usage of register: R1 in 'UnsetPending'
 
     if surplus > 0 then
       (uis.describeTxt).text = (PUtil.get)(20000096, AimItemNum, surplus)
     else
-      -- DECOMPILER ERROR at PC58: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       (uis.describeTxt).text = (PUtil.get)(20000097, AimItemNum)
@@ -526,7 +526,7 @@ ClearingWindow.ItemRenderer = function(index, obj, ...)
       ;
       (model.ItemList):AddChild(Frame)
       if startPlay then
-        (ClearingWindow.AddDebrisToList)(id)
+        (ClearingWindow.AddDebrisToList)(id, number)
       end
     end
   end
@@ -534,11 +534,11 @@ ClearingWindow.ItemRenderer = function(index, obj, ...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
-ClearingWindow.AddDebrisToList = function(id, ...)
+ClearingWindow.AddDebrisToList = function(id, num, ...)
   -- function num : 0_15 , upvalues : debrisData, uis, _ENV
   if debrisData[id] then
-    debrisData[id] = debrisData[id] + 1
-    -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
+    debrisData[id] = debrisData[id] + num
+    -- DECOMPILER ERROR at PC7: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.Heroitem2List).numItems = 0

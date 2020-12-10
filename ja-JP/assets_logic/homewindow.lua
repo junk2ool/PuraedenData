@@ -96,6 +96,11 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ((uis.ActorInfoBtn).onClick):Set(HomeWindow.ClickPlayerInfoBtn)
   ;
   ((uis.AnnouncementBtn).onClick):Set(HomeWindow.ClickAnnouncementBtn)
+  -- DECOMPILER ERROR at PC164: Confused about usage of register: R1 in 'UnsetPending'
+
+  if IsIOSReview == true then
+    (uis.AnnouncementBtn).visible = false
+  end
   ;
   ((uis.ActivityDungeonBtn).onClick):Set(function(...)
     -- function num : 0_1_3 , upvalues : _ENV
@@ -137,7 +142,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
 )
   end
   do
-    -- DECOMPILER ERROR at PC233: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC238: Confused about usage of register: R1 in 'UnsetPending'
 
     if Game.testPackage ~= true and uis.ServerNameTxt then
       (uis.ServerNameTxt).text = (LoginMgr.GetServerName)()
@@ -179,16 +184,16 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     (LoginMgr.ReturnToLoginWindow)()
   end
 , nil, (PUtil.get)(60000004))
-          -- DECOMPILER ERROR at PC332: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC337: Confused about usage of register: R3 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
         end
       else
         do
-          -- DECOMPILER ERROR at PC335: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC340: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
-          -- DECOMPILER ERROR at PC338: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC343: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
         end
@@ -220,6 +225,52 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
   if (uis.CarnivalBtn).visible == false and (uis.ActivityDungeonBtn).visible == true then
     (uis.ActivityDungeonBtn).xy = ActivityPos[1]
   end
+  local TenMailID = (ActorService.RegisterMail)()
+  local Appointment = (uis.LeftList):GetChild("Appointment")
+  do
+    -- DECOMPILER ERROR at PC45: Unhandled construct in 'MakeBoolean' P1
+
+    if TenMailID and TenMailID > 0 and Appointment == nil then
+      local AppointmentBtn = UIMgr:CreateObject("Home", "AppointmentBtn")
+      AppointmentBtn.name = "Appointment"
+      ;
+      (uis.LeftList):AddChild(AppointmentBtn)
+      ;
+      (AppointmentBtn.onClick):Set(function(...)
+    -- function num : 0_3_0 , upvalues : _ENV
+    ld("Mail", function(...)
+      -- function num : 0_3_0_0 , upvalues : _ENV
+      OpenWindow((WinResConfig.MailWindow).name, UILayer.HUD)
+    end
+)
+  end
+)
+    end
+    if Appointment then
+      (uis.LeftList):RemoveChild(Appointment)
+    end
+    local PrizeCom = (uis.LeftList):GetChild("Prize")
+    local Prize = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Prize)
+    do
+      -- DECOMPILER ERROR at PC80: Unhandled construct in 'MakeBoolean' P1
+
+      if Prize == true and PrizeCom == nil then
+        local PrizeBtn = UIMgr:CreateObject("Home", "PrizeBtn")
+        PrizeBtn.name = "Prize"
+        ;
+        (uis.LeftList):AddChild(PrizeBtn)
+        ;
+        (PrizeBtn.onClick):Set(function(...)
+    -- function num : 0_3_1 , upvalues : _ENV
+    (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).Prize)
+  end
+)
+      end
+      if PrizeCom then
+        (uis.LeftList):RemoveChild(PrizeCom)
+      end
+    end
+  end
 end
 
 local BannerListData = {}
@@ -227,11 +278,16 @@ local PossibleBanner = {}
 local _timers = {}
 local isGet = false
 HomeWindow.InitActivityBannerList = function(...)
-  -- function num : 0_4 , upvalues : uis, HomeWindow, BannerListData, BannerIndex, isGet
+  -- function num : 0_4 , upvalues : uis, _ENV, HomeWindow, BannerListData, BannerIndex, isGet
   local list = (uis.Activity).PicList
+  -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
+
+  if IsIOSReview == true then
+    ((uis.Activity).root).visible = false
+  end
   list.itemRenderer = HomeWindow.ActivityBannerRenderer
   list:SetVirtualAndLoop()
-  -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (list.scrollPane).pageMode = true
@@ -823,7 +879,7 @@ HomeWindow.InitSend = function(...)
 end
 
 HomeWindow.Update = function(...)
-  -- function num : 0_18 , upvalues : _ENV, popup
+  -- function num : 0_18 , upvalues : _ENV, popup, HomeWindow
   if (Application.platform == RuntimePlatform.WindowsEditor or Application.platform == RuntimePlatform.OSXEditor) and (Input.GetKey)(KeyCode.N) and (Input.GetKeyDown)(KeyCode.M) then
     (PlayerPrefs.DeleteAll)()
   end
@@ -834,7 +890,9 @@ HomeWindow.Update = function(...)
     OpenWindow((WinResConfig.FriendsListWindow).name, UILayer.HUD)
   end
   if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.C) then
-    OpenWindow((WinResConfig.GuildBossMainWindow).name, UILayer.HUD1)
+    (ActorService.RegisterMail)(0)
+    ;
+    (HomeWindow.RefreshActivityBtnVisible)()
   end
 end
 
@@ -1281,24 +1339,9 @@ HomeWindow.OnShown = function(...)
 
   ;
   ((uis.LotteryTips).root).visible = (TenNum > 0 and actorLv > 3 and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Newbie_Lottery))
-  local TenMailID = (ActorService.RegisterMail)()
-  -- DECOMPILER ERROR at PC106: Confused about usage of register: R9 in 'UnsetPending'
-
-  ;
-  (uis.AppointmentBtn).visible = not TenMailID or TenMailID > 0
-  ;
-  ((uis.AppointmentBtn).onClick):Set(function(...)
-    -- function num : 0_52_0 , upvalues : _ENV
-    ld("Mail", function(...)
-      -- function num : 0_52_0_0 , upvalues : _ENV
-      OpenWindow((WinResConfig.MailWindow).name, UILayer.HUD)
-    end
-)
-  end
-)
   ;
   (SimpleTimer.setTimeout)(0.3, function(...)
-    -- function num : 0_52_1 , upvalues : _ENV
+    -- function num : 0_52_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
 
     if not (GuideMgr.IsInMainGuide)() and not (FunctionControlMgr.IsPrepareFunctionOpenWindow)() then
@@ -1315,24 +1358,24 @@ HomeWindow.OnShown = function(...)
 )
   ;
   (MessageMgr.OnRegisterBackWinFunc)((WinResConfig.HomeWindow).name, function(...)
-    -- function num : 0_52_2 , upvalues : uis, _ENV
+    -- function num : 0_52_1 , upvalues : uis, _ENV
     if (uis.c1Ctr).selectedIndex == 1 then
       (SimpleTimer.setTimeout)(0.01, function(...)
-      -- function num : 0_52_2_0 , upvalues : uis
+      -- function num : 0_52_1_0 , upvalues : uis
       (uis.c1Ctr):SetSelectedIndex(0)
     end
 )
     else
       ;
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000521), function(...)
-      -- function num : 0_52_2_1 , upvalues : _ENV
+      -- function num : 0_52_1_1 , upvalues : _ENV
       (Application.Quit)()
     end
 , nil, nil, nil, nil, nil, UILayer.HUD1)
     end
   end
 )
-  -- DECOMPILER ERROR: 4 unprocessed JMP targets
+  -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
 HomeWindow.OnHide = function(...)

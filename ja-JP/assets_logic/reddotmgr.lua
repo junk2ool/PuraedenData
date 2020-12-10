@@ -151,6 +151,14 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Lottery_Character, RedDotComID.Lottery_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Lottery_Card, RedDotComID.Lottery_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.LotteryActivty_Score1, RedDotComID.Lottery_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.LotteryActivty_Score2, RedDotComID.Lottery_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.LotteryActivty_Score3, RedDotComID.Lottery_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.LotteryActivty_Score4, RedDotComID.Lottery_Main)
   winName = (WinResConfig.EquipmentWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Equipt_Main, RedDotComID.Home_Equip, (WinResConfig.HomeWindow).name)

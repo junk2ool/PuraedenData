@@ -97,12 +97,27 @@ local LoadScript = function(...)
 
   if IsIOSReview == true then
     if ((TableData.gTable).BaseCardData)[11202008] then
-      (((TableData.gTable).BaseCardData)[11202008]).open_time = "1636512216"
+      (((TableData.gTable).BaseCardData)[11202008]).open_time = "1922520516"
     end
     -- DECOMPILER ERROR at PC66: Confused about usage of register: R0 in 'UnsetPending'
 
     if ((TableData.gTable).BaseCardData)[11300011] then
-      (((TableData.gTable).BaseCardData)[11300011]).open_time = "1636512216"
+      (((TableData.gTable).BaseCardData)[11300011]).open_time = "1922520516"
+    end
+    -- DECOMPILER ERROR at PC77: Confused about usage of register: R0 in 'UnsetPending'
+
+    if ((TableData.gTable).BaseCardData)[11202004] then
+      (((TableData.gTable).BaseCardData)[11202004]).open_time = "1922520516"
+    end
+    -- DECOMPILER ERROR at PC88: Confused about usage of register: R0 in 'UnsetPending'
+
+    if ((TableData.gTable).BaseCardData)[11301005] then
+      (((TableData.gTable).BaseCardData)[11301005]).open_time = "1922520516"
+    end
+    -- DECOMPILER ERROR at PC99: Confused about usage of register: R0 in 'UnsetPending'
+
+    if ((TableData.gTable).BaseCardData)[11300013] then
+      (((TableData.gTable).BaseCardData)[11300013]).open_time = "1922520516"
     end
   end
 end
@@ -376,6 +391,9 @@ InitScreenResolution = function(...)
       Game.defaultPlotCharacterType = 2
       value = "1"
     end
+  end
+  if IsIOSReview == true then
+    Game.defaultPlotCharacterType = 1
   end
   if value ~= "nil" then
     (PlayerPrefs.SetString)(PlayerPrefsKeyName.SETTING_QUALITY, value)

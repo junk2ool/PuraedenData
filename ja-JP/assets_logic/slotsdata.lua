@@ -1,11 +1,11 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 SlotsData = {}
--- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
-SlotsData.SlotType = {ACTIVITY_SLOT = 1}
+SlotsData.SlotType = {ACTIVITY_SLOT = 1, PRIZE_SLOT = 2}
 local self = SlotsData
--- DECOMPILER ERROR at PC9: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.SlotRound = function(round, ...)
   -- function num : 0_0 , upvalues : self
@@ -16,7 +16,7 @@ SlotsData.SlotRound = function(round, ...)
   end
 end
 
--- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.ChangeRound = function(round, ...)
   -- function num : 0_1 , upvalues : self
@@ -27,7 +27,7 @@ SlotsData.ChangeRound = function(round, ...)
   end
 end
 
--- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.ChangeTotalRound = function(round, ...)
   -- function num : 0_2 , upvalues : self
@@ -38,14 +38,18 @@ SlotsData.ChangeTotalRound = function(round, ...)
   end
 end
 
--- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
 
-SlotsData.GetCurrentType = function(...)
-  -- function num : 0_3 , upvalues : _ENV
-  return (SlotsData.SlotType).ACTIVITY_SLOT
+SlotsData.GetCurrentType = function(type, ...)
+  -- function num : 0_3 , upvalues : self
+  if type == nil then
+    return self.mCurrentType
+  else
+    self.mCurrentType = type
+  end
 end
 
--- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.CanReset = function(reset, ...)
   -- function num : 0_4 , upvalues : self
@@ -56,14 +60,14 @@ SlotsData.CanReset = function(reset, ...)
   end
 end
 
--- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.GetItemData = function(data, ...)
   -- function num : 0_5 , upvalues : self
   self.ItemData = data
 end
 
--- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.SetRoundItemData = function(Items, ...)
   -- function num : 0_6 , upvalues : _ENV, self
@@ -79,7 +83,7 @@ SlotsData.SetRoundItemData = function(Items, ...)
   end
 end
 
--- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.GetItemTimes = function(round, poolId, ...)
   -- function num : 0_7 , upvalues : _ENV, self
