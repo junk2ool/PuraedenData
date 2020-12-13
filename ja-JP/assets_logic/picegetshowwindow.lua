@@ -97,6 +97,7 @@ PiceGetShowWindow.OnInit = function(bridgeObj, ...)
   (PiceGetShowWindow.CardLines)()
   ;
   (Util.RegistCaptureScreenShot)((uis.Information).ShotBtn, (uis.Information).LogoImage, (uis.Information).CodeImage, 1334, 750)
+  UIMgr:HideGrabBloom((uis.root).displayObject)
 end
 
 PiceGetShowWindow.CardLines = function(...)

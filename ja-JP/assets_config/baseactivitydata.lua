@@ -49,11 +49,11 @@ BaseActivityData = {
 , 
 [33000303] = {id = 33000303, type = 4, name = (PUtil.get)(82803004), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012212359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003003:35103003", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 , 
-[33000304] = {id = 33000304, type = 4, name = (PUtil.get)(82803005), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012212359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003004:35103004", parameter2 = "0", parameter3 = "0", fashion_id = 0}
+[33000304] = {id = 33000304, type = 4, name = (PUtil.get)(82803005), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012242359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003004:35103004", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 , 
-[33000305] = {id = 33000305, type = 4, name = (PUtil.get)(82803006), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012212359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003005:35103005", parameter2 = "0", parameter3 = "0", fashion_id = 0}
+[33000305] = {id = 33000305, type = 4, name = (PUtil.get)(82803006), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012242359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003005:35103005", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 , 
-[33000306] = {id = 33000306, type = 4, name = (PUtil.get)(82803007), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012212359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003006:35103006", parameter2 = "0", parameter3 = "0", fashion_id = 0}
+[33000306] = {id = 33000306, type = 4, name = (PUtil.get)(82803007), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012242359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003006:35103006", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 , 
 [33000307] = {id = 33000307, type = 4, name = (PUtil.get)(82803008), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202012150500:MX0", end_time = "5:202012212359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "35003007:35103007", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 , 
@@ -79,5 +79,4 @@ BaseActivityData = {
 , 
 [33000901] = {id = 33000901, type = 11, name = (PUtil.get)(87300901), remark = (PUtil.get)(87300001), open_condition = "72501001:0:11", initial_condition = 0, time_type = 0, begin_time = "5:202012100000:MX0", end_time = "5:202012142359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "0", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 }
-return BaseActivityData
 
