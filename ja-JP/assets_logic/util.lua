@@ -1879,17 +1879,36 @@ Util.GoodsToItemDataModel = function(goodsObj, ...)
   local mGoods = {}
   if goodsObj then
     for _,v in ipairs(goodsObj) do
-      local Goods = {}
-      Goods.id = v.Id
-      Goods.Num = v.Amount
-      Goods.isGet = false
-      ;
-      (table.insert)(mGoods, Goods)
+      if v.Type == PropType.EQUIP then
+        for i = 1, v.Amount do
+          local Goods = {}
+          Goods.id = v.Id
+          Goods.Num = 1
+          Goods.isGet = false
+          ;
+          (table.insert)(mGoods, Goods)
+        end
+      else
+        do
+          do
+            local Goods = {}
+            Goods.id = v.Id
+            Goods.Num = v.Amount
+            Goods.isGet = false
+            ;
+            (table.insert)(mGoods, Goods)
+            -- DECOMPILER ERROR at PC39: LeaveBlock: unexpected jumping out DO_STMT
+
+            -- DECOMPILER ERROR at PC39: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+            -- DECOMPILER ERROR at PC39: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
+        end
+      end
     end
   end
-  do
-    return mGoods
-  end
+  return mGoods
 end
 
 Util.SetEnemyHeadFrameGray = function(frame, gray, ...)

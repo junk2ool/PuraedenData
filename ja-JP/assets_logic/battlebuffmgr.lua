@@ -118,6 +118,15 @@ BattleBuffMgr.AddBuffToList = function(buff, ...)
       PrintTable(buff:GetBuffInfo(), "详细信息 BuffInfo:")
     end
     t_insert(self.buffList, buff)
+    ;
+    (table.sort)(self.buffList, function(a, b, ...)
+    -- function num : 0_5_0
+    local aSort = a:GetActiveForever() == 1 and 1000 or 0
+    local bSort = b:GetActiveForever() == 1 and 1000 or 0
+    do return bSort < aSort end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
   end
 end
 

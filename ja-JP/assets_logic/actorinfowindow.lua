@@ -142,6 +142,16 @@ ActorInfoWindow.BasicInfoSet = function(...)
     OpenWindow((WinResConfig.RenameWindow).name, UILayer.HUD)
   end
 )
+  -- DECOMPILER ERROR at PC113: Confused about usage of register: R3 in 'UnsetPending'
+
+  ;
+  ((uis.InfoAssemblyGrp).CardBtn).visible = true
+  ;
+  (((uis.InfoAssemblyGrp).CardBtn).onClick):Set(function(...)
+    -- function num : 0_2_10 , upvalues : _ENV
+    OpenWindow((WinResConfig.PlayerBusinessCardWindow).name, UILayer.HUD)
+  end
+)
   ;
   (Util.RecycleUIModel)(uis.PictureLoader)
   local fashionShow = (ActorData.GetFashionShow)()

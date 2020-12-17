@@ -2512,7 +2512,9 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
       count = #presetData.equipIndex
     end
   end
-  _slotsEquipInfo = {}
+  if chose then
+    _slotsEquipInfo = {}
+  end
   local fc, str, percent = nil, nil, nil
   local totalPercent = 0
   for i = 1, count do
@@ -2542,7 +2544,7 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
               if chose then
                 _slotsEquipInfo[configData.type] = eachData
               end
-              -- DECOMPILER ERROR at PC84: Confused about usage of register: R17 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC86: Confused about usage of register: R17 in 'UnsetPending'
 
               ;
               (slot.c1Ctr).selectedIndex = 0
@@ -2558,7 +2560,7 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
               if #eachData.randomBuff > 0 then
                 str = str .. "[color=" .. Const.GreenColor .. "](" .. #eachData.randomBuff .. ")[/color]"
               end
-              -- DECOMPILER ERROR at PC133: Confused about usage of register: R17 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC135: Confused about usage of register: R17 in 'UnsetPending'
 
               ;
               (slot.NumberTxt).text = str
@@ -2578,11 +2580,11 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
               loge("数据为空")
             end
           end
-          -- DECOMPILER ERROR at PC154: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+          -- DECOMPILER ERROR at PC156: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-          -- DECOMPILER ERROR at PC154: LeaveBlock: unexpected jumping out IF_STMT
+          -- DECOMPILER ERROR at PC156: LeaveBlock: unexpected jumping out IF_STMT
 
-          -- DECOMPILER ERROR at PC154: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC156: LeaveBlock: unexpected jumping out DO_STMT
 
         end
       end
@@ -2593,26 +2595,26 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
     local slot = used[i]
     if not slot then
       slot = _equipSlotsForPreset[i]
-      -- DECOMPILER ERROR at PC170: Confused about usage of register: R16 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC172: Confused about usage of register: R16 in 'UnsetPending'
 
       if i == EquiptPartsType.Ring then
         (slot.c1Ctr).selectedIndex = 2
       else
-        -- DECOMPILER ERROR at PC177: Confused about usage of register: R16 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC179: Confused about usage of register: R16 in 'UnsetPending'
 
         if i == EquiptPartsType.Necklace then
           (slot.c1Ctr).selectedIndex = 1
         else
-          -- DECOMPILER ERROR at PC181: Confused about usage of register: R16 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC183: Confused about usage of register: R16 in 'UnsetPending'
 
           (slot.c1Ctr).selectedIndex = i + 2
         end
       end
-      -- DECOMPILER ERROR at PC189: Confused about usage of register: R16 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC191: Confused about usage of register: R16 in 'UnsetPending'
 
       ;
       ((slot.FrameEffGrp).root).visible = _currentEquipmentTypeForPreset == index
-      -- DECOMPILER ERROR at PC191: Confused about usage of register: R16 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC193: Confused about usage of register: R16 in 'UnsetPending'
 
       ;
       (slot.NumberTxt).text = ""
@@ -3239,7 +3241,9 @@ EquipmentWindow.ClickDetailBtn = function(...)
 end
 
 EquipmentWindow.ClickChangePageBtn = function(...)
-  -- function num : 0_113 , upvalues : EquipmentWindow, _secondEquipInit, _slotsEquipInfoForChange, _slotsEquipInfo, _ENV
+  -- function num : 0_113 , upvalues : EquipmentWindow, _ENV, _secondEquipInit, _slotsEquipInfoForChange, _slotsEquipInfo
+  (EquipmentWindow.ChoseEquipByType)(EquiptPartsType.All)
+  ;
   (EquipmentWindow.EditCheck)()
   if _secondEquipInit == false then
     (EquipmentWindow.RefreshEquipmentInfoSecondary)()

@@ -436,5 +436,11 @@ no_player_to_house = {id = "no_player_to_house", name = "表示できるプレ�
 lottery_conversion_integral_no_enough = {id = "lottery_conversion_integral_no_enough", name = "交換ptが不足しています"}
 , 
 lottery_conversion_num_no_enough = {id = "lottery_conversion_num_no_enough", name = "当該冒険者の交換可能回数が不足しています"}
+, 
+deck_scheme_not_exist = {id = "deck_scheme_not_exist", name = "現陣容が登録されていない"}
+, 
+deck_scheme_is_full = {id = "deck_scheme_is_full", name = "登録した陣容がいっぱいのため保存できません"}
+, 
+not_call_on_myself = {id = "not_call_on_myself", name = "自分自身を訪問することができません"}
 }
 

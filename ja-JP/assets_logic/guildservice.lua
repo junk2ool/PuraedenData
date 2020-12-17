@@ -706,6 +706,7 @@ end
 GuildService.RecvGuildSummary = function(msg, ...)
   -- function num : 0_65 , upvalues : _ENV
   UIMgr:SendWindowMessage((WinResConfig.ActorInfoWindow).name, (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_NAME, msg.name)
+  UIMgr:SendWindowMessage((WinResConfig.PlayerBusinessCardWindow).name, (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_NAME, msg.name)
 end
 
 -- DECOMPILER ERROR at PC203: Confused about usage of register: R1 in 'UnsetPending'

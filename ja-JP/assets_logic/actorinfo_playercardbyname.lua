@@ -14,6 +14,7 @@ GetActorInfo_PlayerCardUis = function(ui, ...)
   uis.LookBtn = ui:GetChild("LookBtn")
   uis.OutBtn = ui:GetChild("OutBtn")
   uis.ScreenBtn = ui:GetChild("ScreenBtn")
+  uis.TouchScreenBtn = ui:GetChild("TouchScreenBtn")
   uis.ScreenShotCtr = ui:GetController("ScreenShot")
   uis.root = ui
   return uis

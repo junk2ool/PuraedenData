@@ -148,5 +148,13 @@ BasePlayerLevelUpData = {
 [72300073] = {id = 72300073, next_exp = 9450, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 73, reward = "2:21100004:60"}
 , 
 [72300074] = {id = 72300074, next_exp = 10500, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 74, reward = "2:21100004:60"}
+, 
+[72300075] = {id = 72300075, next_exp = 16500, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 75, reward = "2:21100004:60"}
+, 
+[72300076] = {id = 72300076, next_exp = 22500, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 76, reward = "2:21100004:60"}
+, 
+[72300077] = {id = 72300077, next_exp = 28500, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 77, reward = "2:21100004:60"}
+, 
+[72300078] = {id = 72300078, next_exp = 28500, max_vit = 150, energyRecoverMax = 10, max_sta = 40, level = 78, reward = "2:21100004:60"}
 }
 

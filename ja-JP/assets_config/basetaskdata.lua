@@ -83,7 +83,11 @@ BaseTaskData = {
 , 
 [31101041] = {id = 31101041, name = (PUtil.get)(87110101), remark = (PUtil.get)(87210101, 41, 5), type = 1, is_inherit = 1, pre_id = 31101040, next_id = 31101042, level_required = 1, icon_path = "Task:texture_2", sort_weight = 1, target_href_id = 300101, complete_lv_limit = 1, target_type = "72504111:52104105:1", reset_time = "0", liveness = 25, reward = "1:999|2:21100003:20000"}
 , 
-[31101042] = {id = 31101042, name = (PUtil.get)(87110101), remark = (PUtil.get)(87210101, 42, 5), type = 1, is_inherit = 1, pre_id = 31101041, next_id = 0, level_required = 1, icon_path = "Task:texture_2", sort_weight = 1, target_href_id = 300101, complete_lv_limit = 1, target_type = "72504111:52104205:1", reset_time = "0", liveness = 25, reward = "1:999|2:21100003:20000"}
+[31101042] = {id = 31101042, name = (PUtil.get)(87110101), remark = (PUtil.get)(87210101, 42, 5), type = 1, is_inherit = 1, pre_id = 31101041, next_id = 31101043, level_required = 1, icon_path = "Task:texture_2", sort_weight = 1, target_href_id = 300101, complete_lv_limit = 1, target_type = "72504111:52104205:1", reset_time = "0", liveness = 25, reward = "1:999|2:21100003:20000"}
+, 
+[31101043] = {id = 31101043, name = (PUtil.get)(87110101), remark = (PUtil.get)(87210101, 43, 5), type = 1, is_inherit = 1, pre_id = 31101042, next_id = 31101044, level_required = 1, icon_path = "Task:texture_2", sort_weight = 1, target_href_id = 300101, complete_lv_limit = 1, target_type = "72504111:52104305:1", reset_time = "0", liveness = 25, reward = "1:999|2:21100003:20000"}
+, 
+[31101044] = {id = 31101044, name = (PUtil.get)(87110101), remark = (PUtil.get)(87210101, 44, 5), type = 1, is_inherit = 1, pre_id = 31101043, next_id = 0, level_required = 1, icon_path = "Task:texture_2", sort_weight = 1, target_href_id = 300101, complete_lv_limit = 1, target_type = "72504111:52104405:1", reset_time = "0", liveness = 25, reward = "1:999|2:21100003:20000"}
 , 
 [31102001] = {id = 31102001, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 1, 2), type = 1, is_inherit = 1, pre_id = 0, next_id = 31102002, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200103:1", reset_time = "0", liveness = 50, reward = "1:999|1:21121001:3"}
 , 
@@ -115,7 +119,7 @@ BaseTaskData = {
 , 
 [31102015] = {id = 31102015, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 5, 2), type = 1, is_inherit = 1, pre_id = 31102014, next_id = 31102016, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200505:1", reset_time = "0", liveness = 50, reward = "1:999|1:21121001:3"}
 , 
-[31102016] = {id = 31102016, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 5, 3), type = 1, is_inherit = 1, pre_id = 31102015, next_id = 31102017, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200512:1", reset_time = "0", liveness = 50, reward = "1:999|1:21121001:3"}
+[31102016] = {id = 31102016, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 5, 3), type = 1, is_inherit = 1, pre_id = 31102015, next_id = 31102017, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200511:1", reset_time = "0", liveness = 50, reward = "1:999|1:21121001:3"}
 , 
 [31102017] = {id = 31102017, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 5, 5), type = 1, is_inherit = 1, pre_id = 31102016, next_id = 31102018, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200521:1", reset_time = "0", liveness = 50, reward = "1:999|1:21121001:3"}
 , 
@@ -123,7 +127,13 @@ BaseTaskData = {
 , 
 [31102019] = {id = 31102019, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 6, 6), type = 1, is_inherit = 1, pre_id = 31102018, next_id = 31102020, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200615:1", reset_time = "0", liveness = 50, reward = "1:999|2:21100003:30000"}
 , 
-[31102020] = {id = 31102020, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 6, 9), type = 1, is_inherit = 1, pre_id = 31102019, next_id = 0, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200624:1", reset_time = "0", liveness = 50, reward = "1:999|2:21100003:30000"}
+[31102020] = {id = 31102020, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 6, 9), type = 1, is_inherit = 1, pre_id = 31102019, next_id = 31102021, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200624:1", reset_time = "0", liveness = 50, reward = "1:999|2:21100003:30000"}
+, 
+[31102021] = {id = 31102021, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 7, 2), type = 1, is_inherit = 1, pre_id = 31102020, next_id = 31102022, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200704:1", reset_time = "0", liveness = 50, reward = "1:999|2:21100003:30000"}
+, 
+[31102022] = {id = 31102022, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 7, 4), type = 1, is_inherit = 1, pre_id = 31102021, next_id = 31102023, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200712:1", reset_time = "0", liveness = 50, reward = "1:999|2:21100003:30000"}
+, 
+[31102023] = {id = 31102023, name = (PUtil.get)(87110201), remark = (PUtil.get)(87210201, 7, 7), type = 1, is_inherit = 1, pre_id = 31102022, next_id = 0, level_required = 1, icon_path = "Task:texture_2", sort_weight = 2, target_href_id = 300102, complete_lv_limit = 1, target_type = "72504211:52200725:1", reset_time = "0", liveness = 50, reward = "1:999|2:21100003:30000"}
 , 
 [31103001] = {id = 31103001, name = (PUtil.get)(87110301), remark = (PUtil.get)(87210301, 1, 4), type = 1, is_inherit = 1, pre_id = 0, next_id = 31103002, level_required = 1, icon_path = "Task:texture_2", sort_weight = 3, target_href_id = 300105, complete_lv_limit = 1, target_type = "72504411:52310104:1", reset_time = "0", liveness = 50, reward = "1:999|2:21100001:60"}
 , 
@@ -445,7 +455,15 @@ BaseTaskData = {
 , 
 [31106054] = {id = 31106054, name = (PUtil.get)(87110601), remark = (PUtil.get)(87210601, 73), type = 1, is_inherit = 1, pre_id = 31106053, next_id = 31106055, level_required = 1, icon_path = "Task:texture_1", sort_weight = 6, target_href_id = 0, complete_lv_limit = 1, target_type = "72501001:0:73", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:30"}
 , 
-[31106055] = {id = 31106055, name = (PUtil.get)(87110601), remark = (PUtil.get)(87210601, 74), type = 1, is_inherit = 1, pre_id = 31106054, next_id = 0, level_required = 1, icon_path = "Task:texture_1", sort_weight = 6, target_href_id = 0, complete_lv_limit = 1, target_type = "72501001:0:74", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:30"}
+[31106055] = {id = 31106055, name = (PUtil.get)(87110601), remark = (PUtil.get)(87210601, 74), type = 1, is_inherit = 1, pre_id = 31106054, next_id = 31106056, level_required = 1, icon_path = "Task:texture_1", sort_weight = 6, target_href_id = 0, complete_lv_limit = 1, target_type = "72501001:0:74", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:30"}
+, 
+[31106056] = {id = 31106056, name = (PUtil.get)(87110601), remark = (PUtil.get)(87210601, 75), type = 1, is_inherit = 1, pre_id = 31106055, next_id = 31106057, level_required = 1, icon_path = "Task:texture_1", sort_weight = 6, target_href_id = 0, complete_lv_limit = 1, target_type = "72501001:0:75", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:30"}
+, 
+[31106057] = {id = 31106057, name = (PUtil.get)(87110601), remark = (PUtil.get)(87210601, 76), type = 1, is_inherit = 1, pre_id = 31106056, next_id = 31106058, level_required = 1, icon_path = "Task:texture_1", sort_weight = 6, target_href_id = 0, complete_lv_limit = 1, target_type = "72501001:0:76", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:30"}
+, 
+[31106058] = {id = 31106058, name = (PUtil.get)(87110601), remark = (PUtil.get)(87210601, 77), type = 1, is_inherit = 1, pre_id = 31106057, next_id = 31106059, level_required = 1, icon_path = "Task:texture_1", sort_weight = 6, target_href_id = 0, complete_lv_limit = 1, target_type = "72501001:0:77", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:30"}
+, 
+[31106059] = {id = 31106059, name = (PUtil.get)(87110601), remark = (PUtil.get)(87210601, 78), type = 1, is_inherit = 1, pre_id = 31106058, next_id = 0, level_required = 1, icon_path = "Task:texture_1", sort_weight = 6, target_href_id = 0, complete_lv_limit = 1, target_type = "72501001:0:78", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:30"}
 , 
 [31107001] = {id = 31107001, name = (PUtil.get)(87110701), remark = (PUtil.get)(87210701, 6), type = 1, is_inherit = 1, pre_id = 0, next_id = 31107002, level_required = 1, icon_path = "Task:texture_3", sort_weight = 7, target_href_id = 0, complete_lv_limit = 1, target_type = "72501003:0:6", reset_time = "0", liveness = 100, reward = "1:999|2:21100001:25"}
 , 
@@ -1501,7 +1519,13 @@ BaseTaskData = {
 , 
 [31120056] = {id = 31120056, name = (PUtil.get)(87111101), remark = (PUtil.get)(87211101, 3, "8:19", (PUtil.get)(81040008)), type = 1, is_inherit = 1, pre_id = 31120055, next_id = 31120057, level_required = 1, icon_path = "Task:texture_1", sort_weight = 11, target_href_id = 200202, complete_lv_limit = 1, target_type = "72501004:72501006:3|19", reset_time = "0", liveness = 25, reward = "1:999|1:21140041:9"}
 , 
-[31120057] = {id = 31120057, name = (PUtil.get)(87111101), remark = (PUtil.get)(87211101, 6, "8:19", (PUtil.get)(81040008)), type = 1, is_inherit = 1, pre_id = 31120056, next_id = 0, level_required = 1, icon_path = "Task:texture_1", sort_weight = 11, target_href_id = 200202, complete_lv_limit = 1, target_type = "72501004:72501006:6|19", reset_time = "0", liveness = 25, reward = "1:999|1:21140041:12"}
+[31120057] = {id = 31120057, name = (PUtil.get)(87111101), remark = (PUtil.get)(87211101, 6, "8:19", (PUtil.get)(81040008)), type = 1, is_inherit = 1, pre_id = 31120056, next_id = 31120058, level_required = 1, icon_path = "Task:texture_1", sort_weight = 11, target_href_id = 200202, complete_lv_limit = 1, target_type = "72501004:72501006:6|19", reset_time = "0", liveness = 25, reward = "1:999|1:21140041:12"}
+, 
+[31120058] = {id = 31120058, name = (PUtil.get)(87111101), remark = (PUtil.get)(87211101, 1, "8:20", (PUtil.get)(81040008)), type = 1, is_inherit = 1, pre_id = 31120057, next_id = 31120059, level_required = 1, icon_path = "Task:texture_1", sort_weight = 11, target_href_id = 200202, complete_lv_limit = 1, target_type = "72501004:72501006:1|20", reset_time = "0", liveness = 25, reward = "1:999|1:21140042:6"}
+, 
+[31120059] = {id = 31120059, name = (PUtil.get)(87111101), remark = (PUtil.get)(87211101, 3, "8:20", (PUtil.get)(81040008)), type = 1, is_inherit = 1, pre_id = 31120058, next_id = 31120060, level_required = 1, icon_path = "Task:texture_1", sort_weight = 11, target_href_id = 200202, complete_lv_limit = 1, target_type = "72501004:72501006:3|20", reset_time = "0", liveness = 25, reward = "1:999|1:21140043:9"}
+, 
+[31120060] = {id = 31120060, name = (PUtil.get)(87111101), remark = (PUtil.get)(87211101, 6, "8:20", (PUtil.get)(81040008)), type = 1, is_inherit = 1, pre_id = 31120059, next_id = 0, level_required = 1, icon_path = "Task:texture_1", sort_weight = 11, target_href_id = 200202, complete_lv_limit = 1, target_type = "72501004:72501006:6|20", reset_time = "0", liveness = 25, reward = "1:999|1:21140044:12"}
 , 
 [31130001] = {id = 31130001, name = (PUtil.get)(87111201), remark = (PUtil.get)(87211201, 6), type = 1, is_inherit = 1, pre_id = 0, next_id = 31130002, level_required = 1, icon_path = "Task:texture_1", sort_weight = 12, target_href_id = 220101, complete_lv_limit = 1, target_type = "72501010:0:6", reset_time = "0", liveness = 25, reward = "1:999|2:21100001:20"}
 , 
@@ -1717,4 +1741,5 @@ BaseTaskData = {
 , 
 [31300014] = {id = 31300014, name = (PUtil.get)(87130014), remark = (PUtil.get)(87230014, 6), type = 3, is_inherit = 0, pre_id = 0, next_id = 0, level_required = 1, icon_path = "Task:texture_2", sort_weight = 14, target_href_id = 300106, complete_lv_limit = 1, target_type = "72504531:0:6", reset_time = "2:10500:MX0", liveness = 20, reward = "1:999|2:21100008:200"}
 }
+return BaseTaskData
 

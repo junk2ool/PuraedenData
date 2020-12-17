@@ -17,7 +17,7 @@ local book3 = "book_04"
 local book4 = "book_03"
 local book5 = "book_05"
 local book6 = "book_08"
-local book7 = "book_07"
+local book7 = "book_06"
 local bookAni = {LEFT_UPTURN = "zf_shang", LEFT_DOWN = "zf_xia", RIGHT_UPTURN = "yf_shang", RIGHT_DOWN = "yf_xia"}
 local isLoading = false
 local bookNameList = {
@@ -284,7 +284,7 @@ HeroDungeonWindow.CreateAndPlayBookAni = function(bookIndex, aniName, right, fun
       ;
       (table.insert)(loaderList, loader)
       local reduce = 2
-      if currentIndex ~= 5 and currentIndex ~= initPos - 1 and currentIndex ~= initPos + 1 then
+      if currentIndex ~= #bookNameList and currentIndex ~= initPos - 1 and currentIndex ~= initPos + 1 then
         reduce = 1
       end
       local obj = TopLoaderList[i]
@@ -300,7 +300,7 @@ HeroDungeonWindow.CreateAndPlayBookAni = function(bookIndex, aniName, right, fun
         end
       end
       do
-        -- DECOMPILER ERROR at PC95: LeaveBlock: unexpected jumping out DO_STMT
+        -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out DO_STMT
 
       end
     end

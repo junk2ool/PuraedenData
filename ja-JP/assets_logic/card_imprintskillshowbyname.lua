@@ -1,10 +1,9 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
-GetActorInfo_Cothes_A_BtnUis = function(ui, ...)
+GetCard_ImprintSkillShowUis = function(ui, ...)
   -- function num : 0_0
   local uis = {}
-  uis.buttonCtr = ui:GetController("button")
-  uis.lockCtr = ui:GetController("lock")
+  uis.ImprintSkillLoader = ui:GetChild("ImprintSkillLoader")
   uis.root = ui
   return uis
 end

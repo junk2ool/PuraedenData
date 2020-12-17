@@ -415,6 +415,8 @@ PrizeInformationWindow = {name = "PrizeInformationWindow", package = "Prize", co
 PrizeRecordWindow = {name = "PrizeRecordWindow", package = "Prize", comName = "Record", hideBelow = false}
 , 
 PrizeRewardShowWindow = {name = "PrizeRewardShowWindow", package = "Prize", comName = "PrizeRewardShow", hideBelow = false}
+, 
+PlayerBusinessCardWindow = {name = "PlayerBusinessCardWindow", package = "ActorInfo", comName = "PlayerCard", hideBelow = false}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -653,5 +655,7 @@ PrizeWindow = {"Equipicon", "CardHeadIconCircle"}
 PrizeRecordWindow = {"Equipicon", "CardHeadIconCircle"}
 , 
 PrizeInformationWindow = {"Equipicon", "CardHeadIconCircle"}
+, 
+PlayerBusinessCardWindow = {"HomeAd", "CardHeadIconCircle", "HomeBg", "Title"}
 }
 

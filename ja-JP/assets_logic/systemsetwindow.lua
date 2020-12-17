@@ -178,7 +178,7 @@ SystemSetWindow.InitButtonEvent = function(...)
   ;
   (((_messageSetGrp.Content_01_Grp).Switch_B_Btn).onClick):Add(SystemSetWindow.ClickScrollInfoBtn)
   ;
-  (((_messageSetGrp.Content_02_Grp).Switch_B_Btn).onClick):Add(SystemSetWindow.ClickConsumTipBtn)
+  (((_messageSetGrp.Content_02_Grp).Switch_A_Btn).onClick):Add(SystemSetWindow.ClickConsumTipBtn)
   ;
   (((_messageSetGrp.Content_02_Grp).Switch_B_Btn).onClick):Add(SystemSetWindow.ClickConsumTipBtn)
   ;

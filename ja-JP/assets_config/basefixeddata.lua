@@ -31,9 +31,9 @@ BaseFixedData = {
 , 
 [72000015] = {id = 72000015, int_value = 100, array_value = "0"}
 , 
-[72000016] = {id = 72000016, int_value = 70, array_value = "0"}
+[72000016] = {id = 72000016, int_value = 74, array_value = "0"}
 , 
-[72000017] = {id = 72000017, int_value = 19, array_value = "0"}
+[72000017] = {id = 72000017, int_value = 20, array_value = "0"}
 , 
 [72000018] = {id = 72000018, int_value = 3, array_value = "0"}
 , 
@@ -180,5 +180,15 @@ BaseFixedData = {
 [72010071] = {id = 72010071, int_value = 100, array_value = "0"}
 , 
 [72010072] = {id = 72010072, int_value = 7, array_value = "0"}
+, 
+[72010073] = {id = 72010073, int_value = 500, array_value = "0"}
+, 
+[72010074] = {id = 72010074, int_value = 0, array_value = "5:5:10"}
+, 
+[72010075] = {id = 72010075, int_value = 14700, array_value = "0"}
+, 
+[72010081] = {id = 72010081, int_value = 20, array_value = "0"}
+, 
+[72010082] = {id = 72010082, int_value = 7, array_value = "0"}
 }
 

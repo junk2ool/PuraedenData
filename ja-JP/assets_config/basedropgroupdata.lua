@@ -371,55 +371,55 @@ BaseDropGroupData = {
 , 
 [22103705] = {id = 22103705, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103801] = {id = 22103801, type = 1, propType = 1, props = "21140039:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103801] = {id = 22103801, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103802] = {id = 22103802, type = 1, propType = 1, props = "21140039:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103802] = {id = 22103802, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103803] = {id = 22103803, type = 1, propType = 1, props = "21140039:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103803] = {id = 22103803, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103804] = {id = 22103804, type = 1, propType = 1, props = "21140039:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103804] = {id = 22103804, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103805] = {id = 22103805, type = 1, propType = 1, props = "21140039:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103805] = {id = 22103805, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103901] = {id = 22103901, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103901] = {id = 22103901, type = 1, propType = 1, props = "21140043:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103902] = {id = 22103902, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103902] = {id = 22103902, type = 1, propType = 1, props = "21140043:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103903] = {id = 22103903, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103903] = {id = 22103903, type = 1, propType = 1, props = "21140043:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103904] = {id = 22103904, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103904] = {id = 22103904, type = 1, propType = 1, props = "21140043:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22103905] = {id = 22103905, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22103905] = {id = 22103905, type = 1, propType = 1, props = "21140043:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104001] = {id = 22104001, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104001] = {id = 22104001, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104002] = {id = 22104002, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104002] = {id = 22104002, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104003] = {id = 22104003, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104003] = {id = 22104003, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104004] = {id = 22104004, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104004] = {id = 22104004, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104005] = {id = 22104005, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104005] = {id = 22104005, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104101] = {id = 22104101, type = 1, propType = 1, props = "21140039:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104101] = {id = 22104101, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104102] = {id = 22104102, type = 1, propType = 1, props = "21140039:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104102] = {id = 22104102, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104103] = {id = 22104103, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104103] = {id = 22104103, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104104] = {id = 22104104, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104104] = {id = 22104104, type = 1, propType = 1, props = "21140043:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104105] = {id = 22104105, type = 1, propType = 1, props = "21140040:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104105] = {id = 22104105, type = 1, propType = 1, props = "21140043:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104201] = {id = 22104201, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104201] = {id = 22104201, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104202] = {id = 22104202, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104202] = {id = 22104202, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104203] = {id = 22104203, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104203] = {id = 22104203, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104204] = {id = 22104204, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104204] = {id = 22104204, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22104205] = {id = 22104205, type = 1, propType = 1, props = "21140041:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22104205] = {id = 22104205, type = 1, propType = 1, props = "21140044:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
 [22104301] = {id = 22104301, type = 1, propType = 1, props = "21140042:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
@@ -811,55 +811,55 @@ BaseDropGroupData = {
 , 
 [22203705] = {id = 22203705, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203801] = {id = 22203801, type = 1, propType = 1, props = "21140039:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203801] = {id = 22203801, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203802] = {id = 22203802, type = 1, propType = 1, props = "21140039:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203802] = {id = 22203802, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203803] = {id = 22203803, type = 1, propType = 1, props = "21140039:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203803] = {id = 22203803, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203804] = {id = 22203804, type = 1, propType = 1, props = "21140039:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203804] = {id = 22203804, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203805] = {id = 22203805, type = 1, propType = 1, props = "21140039:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203805] = {id = 22203805, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203901] = {id = 22203901, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203901] = {id = 22203901, type = 1, propType = 1, props = "21140043:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203902] = {id = 22203902, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203902] = {id = 22203902, type = 1, propType = 1, props = "21140043:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203903] = {id = 22203903, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203903] = {id = 22203903, type = 1, propType = 1, props = "21140043:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203904] = {id = 22203904, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203904] = {id = 22203904, type = 1, propType = 1, props = "21140043:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22203905] = {id = 22203905, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22203905] = {id = 22203905, type = 1, propType = 1, props = "21140043:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204001] = {id = 22204001, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204001] = {id = 22204001, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204002] = {id = 22204002, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204002] = {id = 22204002, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204003] = {id = 22204003, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204003] = {id = 22204003, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204004] = {id = 22204004, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204004] = {id = 22204004, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204005] = {id = 22204005, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204005] = {id = 22204005, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204101] = {id = 22204101, type = 1, propType = 1, props = "21140039:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204101] = {id = 22204101, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204102] = {id = 22204102, type = 1, propType = 1, props = "21140039:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204102] = {id = 22204102, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204103] = {id = 22204103, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204103] = {id = 22204103, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204104] = {id = 22204104, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204104] = {id = 22204104, type = 1, propType = 1, props = "21140043:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204105] = {id = 22204105, type = 1, propType = 1, props = "21140040:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204105] = {id = 22204105, type = 1, propType = 1, props = "21140043:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204201] = {id = 22204201, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204201] = {id = 22204201, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204202] = {id = 22204202, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204202] = {id = 22204202, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204203] = {id = 22204203, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204203] = {id = 22204203, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204204] = {id = 22204204, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204204] = {id = 22204204, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
-[22204205] = {id = 22204205, type = 1, propType = 1, props = "21140041:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
+[22204205] = {id = 22204205, type = 1, propType = 1, props = "21140044:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 
 [22204301] = {id = 22204301, type = 1, propType = 1, props = "21140042:1:10000,21130005:1:10000,21110001:1:10000", assetType = 1, assets = "21100003:500:10000", cardType = 0, cards = "0", equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", level_limit = "1:999"}
 , 

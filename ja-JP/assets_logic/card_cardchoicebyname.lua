@@ -12,8 +12,6 @@ GetCard_CardChoiceUis = function(ui, ...)
   uis.Decorate_05_Image = ui:GetChild("Decorate_05_Image")
   uis.CardChoicePicShow = GetCard_CardChoicePicShowUis(ui:GetChild("CardChoicePicShow"))
   uis.ContentList = ui:GetChild("ContentList")
-  uis.CardLookBtn = ui:GetChild("CardLookBtn")
-  uis.StaticChangeBtn = ui:GetChild("StaticChangeBtn")
   uis.Decorate_01_Image = ui:GetChild("Decorate_01_Image")
   uis.Decorate_02_Image = ui:GetChild("Decorate_02_Image")
   uis.TitleTxt = ui:GetChild("TitleTxt")
@@ -22,6 +20,8 @@ GetCard_CardChoiceUis = function(ui, ...)
   uis.CardHeadList = ui:GetChild("CardHeadList")
   uis.LeftBtn = ui:GetChild("LeftBtn")
   uis.RightBtn = ui:GetChild("RightBtn")
+  uis.ButtonList = ui:GetChild("ButtonList")
+  uis.AnimationLoader = ui:GetChild("AnimationLoader")
   uis.root = ui
   return uis
 end
