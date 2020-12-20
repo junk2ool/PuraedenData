@@ -1213,6 +1213,7 @@ message ReqSealOpen
 message ResSealOpen
 {
 	int32          cardId = 1;//卡牌ID
+	int32          sealLv = 2;//印文等级
 }
 
 //433请求印文数据
@@ -1225,7 +1226,7 @@ message ResSealData
 {
 			 int32          	cardId = 1;//卡牌ID
 			 int32              sealLv = 2;//印文等级
-	repeated CommonObject 	 sealSkill = 3;//印文已激活技能列表（ID+LV）
+	repeated CommonObject 	 sealSkill = 3;//印文技能列表（TYPE+LV）
 }
 
 //435请求印文升级
@@ -1238,32 +1239,34 @@ message ResSealUp
 {
 	int32          cardId = 1;//卡牌ID
 	int32          sealLv = 2;//印文等级
+	int32       skillType = 3;//可以激活的技能类型
 }
 
 //437请求印文技能激活
 message ReqSealSkillAc
 {
 	int32          cardId = 1;//卡牌ID
-	int32         skillId = 2;//技能ID
+	int32       skillType = 2;//技能类型
 }
 //438返回印文技能激活
 message ResSealSkillAc
 {
 	int32          cardId = 1;//卡牌ID
-	int32         skillId = 2;//技能ID
+	int32       skillType = 2;//技能类型
+	int32         skillLv = 3;//技能等级
 }
 
 //439请求印文技能升级
 message ReqSealSkillUp
 {
 	int32          cardId = 1;//卡牌ID
-	int32         skillId = 2;//技能ID
+	int32       skillType = 2;//技能类型
 }
 //440返回印文技能升级
 message ResSealSkillUp
 {
 	int32          cardId = 1;//卡牌ID
-	int32         skillId = 2;//技能ID
+	int32       skillType = 2;//技能类型
 	int32         skillLv = 3;//技能等级
 }
 
@@ -2484,7 +2487,7 @@ message CardObject
 	   		 int32 			lastStageId = 10;//幕间物语最后通关ID
 	   		 int64 			equipScheme = 11;//装备方案
 	   		 int32               sealLv = 12;//印文等级
-	repeated CommonObject sealSkillInfo = 13;//印文已激活技能列表（ID+LV）
+	repeated CommonObject sealSkillInfo = 13;//印文技能列表（TYPE+LV）
 }
 
 message CardDetail
