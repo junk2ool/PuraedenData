@@ -313,11 +313,21 @@ LoginMgr.ReturnToLoginWindow = function(...)
     (BattleMgr.CloseBattle)(true, function(...)
     -- function num : 0_10_0 , upvalues : _ENV, name, layer
     UIMgr:CloseAllWindow(true)
+    UIMgr:SetOnShownComplete(name, function(...)
+      -- function num : 0_10_0_0 , upvalues : _ENV, name
+      UIMgr:SendWindowMessage(name, (WindowMsgEnum.LoginWindow).E_MSG_REFRESH_EFFECT)
+    end
+)
     OpenWindow(name, layer)
   end
 )
   else
     UIMgr:CloseAllWindow(true)
+    UIMgr:SetOnShownComplete(name, function(...)
+    -- function num : 0_10_1 , upvalues : _ENV, name
+    UIMgr:SendWindowMessage(name, (WindowMsgEnum.LoginWindow).E_MSG_REFRESH_EFFECT)
+  end
+)
     OpenWindow(name, layer)
   end
 end

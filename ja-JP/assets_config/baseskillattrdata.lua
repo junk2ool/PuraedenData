@@ -151,5 +151,4 @@ BaseSkillAttrData = {
 , 
 [49201074] = {id = 49201074, type = 1, level = 74, add_attr = "1:81050024:180", fc = 0}
 }
-return BaseSkillAttrData
 

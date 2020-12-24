@@ -350,32 +350,44 @@ GuildDetailWindow.RefreshMemberItem = function(index, item, ...)
     ;
     (titlePanel:GetChild("PicLoader")).url = (Util.GetItemUrl)((((TableData.gTable).BasePlayerTitleData)[data.titleId]).icon)
   end
-  if data.onlineTime == 0 then
-    (item:GetChild("TimeTxt")).text = (PUtil.get)(60000233)
+  local headFrame = (item:GetChild("PlayerHeadGrp")):GetChild("HeadFrameLoader")
+  local fashionFrame = headFrame:GetChild("HeadFrameLoader")
+  if data.fashionFrame == nil or data.fashionFrame == 0 then
+    fashionFrame.url = nil
   else
-    ;
-    (item:GetChild("TimeTxt")).text = "(" .. (LuaTime.GetLeftTimeStr)(data.onlineTime / 1000) .. ")"
+    local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[data.fashionFrame]
+    if frameConfig then
+      fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+    end
   end
-  ;
-  ((item:GetChild("ChatStatus")):GetController("c1")).selectedIndex = (GuildData.GetPositionUIIndex)(((GuildData.BaseInfo).members)[data.objectindex])
-  local powerGrp = item:GetChild("MainTips_01_Grp")
-  ;
-  (powerGrp:GetChild("NameTxt")).text = (PUtil.get)(7)
-  ;
-  (powerGrp:GetChild("WordTxt")).text = data.fc
-  local vigourGrp = item:GetChild("MainTips_02_Grp")
-  ;
-  (vigourGrp:GetChild("NameTxt")).text = (PUtil.get)(60000236)
-  ;
-  (vigourGrp:GetChild("WordTxt")).text = data.weekActivation
-  ;
-  (item.onClick):Set(function(...)
+  do
+    if data.onlineTime == 0 then
+      (item:GetChild("TimeTxt")).text = (PUtil.get)(60000233)
+    else
+      ;
+      (item:GetChild("TimeTxt")).text = "(" .. (LuaTime.GetLeftTimeStr)(data.onlineTime / 1000) .. ")"
+    end
+    ;
+    ((item:GetChild("ChatStatus")):GetController("c1")).selectedIndex = (GuildData.GetPositionUIIndex)(((GuildData.BaseInfo).members)[data.objectindex])
+    local powerGrp = item:GetChild("MainTips_01_Grp")
+    ;
+    (powerGrp:GetChild("NameTxt")).text = (PUtil.get)(7)
+    ;
+    (powerGrp:GetChild("WordTxt")).text = data.fc
+    local vigourGrp = item:GetChild("MainTips_02_Grp")
+    ;
+    (vigourGrp:GetChild("NameTxt")).text = (PUtil.get)(60000236)
+    ;
+    (vigourGrp:GetChild("WordTxt")).text = data.weekActivation
+    ;
+    (item.onClick):Set(function(...)
     -- function num : 0_19_0 , upvalues : _listPos, uis, _ENV, data
     _listPos = ((((uis.GuildManageContentGrp).MemberGrp).MemberTipsList).scrollPane).posY
     ;
     (GuildMgr.ViewGuildMemeber)(data)
   end
 )
+  end
 end
 
 GuildDetailWindow.InitApplyList = function(...)
@@ -427,30 +439,42 @@ GuildDetailWindow.RefreshApplyItem = function(index, item, ...)
     ;
     (item:GetChild("TimeTxt")).text = "(" .. (LuaTime.GetLeftTimeStr)(data.onlineTime / 1000) .. ")"
   end
-  local rejectBtn = item:GetChild("NoBtn")
-  rejectBtn.text = (PUtil.get)(60000282)
-  ;
-  (rejectBtn.onClick):Set(function(...)
+  local headFrame = (item:GetChild("PlayerHeadGrp")):GetChild("HeadFrameLoader")
+  local fashionFrame = headFrame:GetChild("HeadFrameLoader")
+  if data.fashionFrame == nil or data.fashionFrame == 0 then
+    fashionFrame.url = nil
+  else
+    local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[data.fashionFrame]
+    if frameConfig then
+      fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+    end
+  end
+  do
+    local rejectBtn = item:GetChild("NoBtn")
+    rejectBtn.text = (PUtil.get)(60000282)
+    ;
+    (rejectBtn.onClick):Set(function(...)
     -- function num : 0_21_0 , upvalues : _ENV, data
     (GuildMgr.ReqProcessApply)((ProtoEnum.GUILD_APPLY).REFUSE_APPLY, {[1] = data.objectindex})
   end
 )
-  local approveBtn = item:GetChild("YesBtn")
-  approveBtn.text = (PUtil.get)(60000283)
-  ;
-  (approveBtn.onClick):Set(function(...)
+    local approveBtn = item:GetChild("YesBtn")
+    approveBtn.text = (PUtil.get)(60000283)
+    ;
+    (approveBtn.onClick):Set(function(...)
     -- function num : 0_21_1 , upvalues : _ENV, data
     (GuildMgr.ReqProcessApply)((ProtoEnum.GUILD_APPLY).PASS_APPLY, {[1] = data.objectindex})
   end
 )
-  local list = item:GetChild("HeadList")
-  list:RemoveChildrenToPool()
-  local count = #data.cardList
-  local subItem = nil
-  for i = 1, count do
-    subItem = list:AddItemFromPool()
-    ;
-    (Util.SetHeadFrame)(subItem, (data.cardList)[i])
+    local list = item:GetChild("HeadList")
+    list:RemoveChildrenToPool()
+    local count = #data.cardList
+    local subItem = nil
+    for i = 1, count do
+      subItem = list:AddItemFromPool()
+      ;
+      (Util.SetHeadFrame)(subItem, (data.cardList)[i])
+    end
   end
 end
 

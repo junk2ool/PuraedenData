@@ -11,6 +11,7 @@ GetFormation_ModelTemplateUis = function(ui, ...)
   uis.OrderEnemyTxt = ui:GetChild("OrderEnemyTxt")
   uis.Talk = GetFormation_TalkUis(ui:GetChild("Talk"))
   uis.TipsTxt = ui:GetChild("TipsTxt")
+  uis.SupportImage = ui:GetChild("SupportImage")
   uis.c1Ctr = ui:GetController("c1")
   uis.root = ui
   return uis

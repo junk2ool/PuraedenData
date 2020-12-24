@@ -7,6 +7,7 @@ local FriendChatWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
 local friendList = {}
+local friendHeadIcon = {}
 local currentPlayerIndex = 0
 local ExpressionUis, emojiGprHeight = nil, nil
 local EmojiLisData = {}
@@ -101,7 +102,7 @@ FriendChatWindow.InitList = function(...)
 end
 
 FriendChatWindow.RefreshChatItem = function(index, item, ...)
-  -- function num : 0_5 , upvalues : chatDataList, _ENV, _timers, EmojiParser, ChatMaxWidth
+  -- function num : 0_5 , upvalues : chatDataList, _ENV, _timers, friendHeadIcon, EmojiParser, ChatMaxWidth
   local data = chatDataList[index + 1]
   ;
   (item:GetChild("PlayerNameTxt")).text = data.pName
@@ -123,22 +124,38 @@ FriendChatWindow.RefreshChatItem = function(index, item, ...)
       ;
       (table.insert)(_timers, timer)
     end
-    local headGrp, wordGrp = nil, nil
+    local headFrame = item:GetChild("HeadFrameLoader")
+    local fashionFrame = (headFrame:GetChild("HeadFrameLoader"))
+    local fashionFrameValue, headGrp, wordGrp = nil, nil, nil
     if data.pId == (ActorData.GetPlayerIndex)() then
       headGrp = item:GetChild("OneSelfGrp")
       wordGrp = item:GetChild("OneSelfChatWordGrp")
+      fashionFrameValue = (ActorData.GetFashionFrame)()
     else
       headGrp = item:GetChild("OtherPlayerGrp")
       wordGrp = item:GetChild("OtherChatWordGrp")
+      if not friendHeadIcon[data.pId] then
+        fashionFrameValue = data.fashionFrame
+      end
     end
-    local content = wordGrp:GetChild("WordTxt")
-    local mLoader = headGrp:GetChild("ActorHeadLoader")
-    mLoader.url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
-    mLoader.alpha = 1
-    mLoader:InvalidateBatchingState()
-    content.text = (EmojiParser.inst):Parse(data.content)
-    content.width = ChatMaxWidth
-    content.width = (math.min)(ChatMaxWidth, content.textWidth)
+    if fashionFrameValue == nil or fashionFrameValue == 0 then
+      fashionFrame.url = nil
+    else
+      local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[fashionFrameValue]
+      if frameConfig then
+        fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+      end
+    end
+    do
+      local content = wordGrp:GetChild("WordTxt")
+      local mLoader = headGrp:GetChild("ActorHeadLoader")
+      mLoader.url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
+      mLoader.alpha = 1
+      mLoader:InvalidateBatchingState()
+      content.text = (EmojiParser.inst):Parse(data.content)
+      content.width = ChatMaxWidth
+      content.width = (math.min)(ChatMaxWidth, content.textWidth)
+    end
   end
 end
 
@@ -176,7 +193,7 @@ FriendChatWindow.ClearChatTimers = function(...)
 end
 
 FriendChatWindow.FriendsListRenderer = function(index, obj, ...)
-  -- function num : 0_8 , upvalues : friendList, _ENV, currentPlayerIndex, FriendChatWindow, uis
+  -- function num : 0_8 , upvalues : friendList, _ENV, friendHeadIcon, currentPlayerIndex, FriendChatWindow, uis
   local data = friendList[index + 1]
   if not data then
     return 
@@ -186,15 +203,27 @@ FriendChatWindow.FriendsListRenderer = function(index, obj, ...)
   (obj:GetChild("ActorHeadLoader")).url = (Util.GetItemUrl)(fashionConfig.icon_path)
   ;
   (obj:GetChild("NameTxt")).text = data.nickName
-  if data.online then
-    ChangeUIController(obj:GetChild("OnLine"), "c1", 0)
+  local headFrame = obj:GetChild("HeadFrameLoader")
+  local fashionFrame = headFrame:GetChild("HeadFrameLoader")
+  if data.fashionFrame == nil or data.fashionFrame == 0 then
+    fashionFrame.url = nil
   else
-    ChangeUIController(obj:GetChild("OnLine"), "c1", 1)
+    local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[data.fashionFrame]
+    if frameConfig then
+      fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+    end
   end
-  ;
-  (obj:GetChild("MessageTips")).visible = (FriendsMgr.GetHaveNewMsg)(data.playerIndex)
-  ;
-  (obj.onClick):Set(function(...)
+  do
+    friendHeadIcon[data.playerIndex] = data.fashionFrame
+    if data.online then
+      ChangeUIController(obj:GetChild("OnLine"), "c1", 0)
+    else
+      ChangeUIController(obj:GetChild("OnLine"), "c1", 1)
+    end
+    ;
+    (obj:GetChild("MessageTips")).visible = (FriendsMgr.GetHaveNewMsg)(data.playerIndex)
+    ;
+    (obj.onClick):Set(function(...)
     -- function num : 0_8_0 , upvalues : currentPlayerIndex, data, FriendChatWindow, uis, index
     if currentPlayerIndex ~= data.playerIndex then
       currentPlayerIndex = data.playerIndex
@@ -207,10 +236,11 @@ FriendChatWindow.FriendsListRenderer = function(index, obj, ...)
     end
   end
 )
+  end
 end
 
 FriendChatWindow.RefreshFriendList = function(sort, ...)
-  -- function num : 0_9 , upvalues : friendList, _ENV, isJump, currentPlayerIndex, uis
+  -- function num : 0_9 , upvalues : friendList, _ENV, isJump, currentPlayerIndex, friendHeadIcon, uis
   friendList = (Util.clone)(FriendsData.FriendsList)
   ;
   (table.sort)(friendList, function(a, b, ...)
@@ -237,7 +267,8 @@ FriendChatWindow.RefreshFriendList = function(sort, ...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  -- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
+  friendHeadIcon = {}
+  -- DECOMPILER ERROR at PC17: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.ChatHeadList).ChatHeadList).numItems = #friendList

@@ -98,6 +98,9 @@ end
 GuildBossRewardWindow.ListRenderer = function(index, obj, ...)
   -- function num : 0_4 , upvalues : listData, _ENV
   local mData = listData[index + 1]
+  if mData == nil then
+    return 
+  end
   local configData = mData.ConfigData
   local status = mData.state
   if status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then

@@ -38,4 +38,5 @@ _ENV.CVAudioType = {UnLockBubble = 1, LoginBubble = 2, HomeIdleBubble = 3, Level
 _ENV.GuideTipsCheckPoint = {AcquireCharacter = 1, BreakThrough = 2, AcquireCharacterCG = 3, AcquireBackgroundCG = 4, PassStoryChapter = 5, UnlockStoryChapter = 6, AcquireStoryCG = 7, PassHeroDungeon = 8, UnlockHeroDungeon = 9, UnlockAssaultTheif = 10, UnlockChallengeMage = 11, UnlockDailyDungeon = 12, UnlockNewTower = 13, UnlockExpedition = 14, PassExpedition = 15, AcquireArenaRank = 16, AdventrureWish = 17, UnlockHandBookStory = 18, UnlockNewFetter = 19, AcquireFeelingTitle = 20, UnlcokFeelingStory = 21, UnlockCV = 22, UnlockBackgroundStory = 23, AcquireStoryRoleCG = 24, QuestComplete = 25, UnlockAdventureStore = 26, UnlockHeroStore = 27, UnlockStorySlots = 28, MergeItem = 29, PlotPlay = 30, UnlockAssaultLeader = 31, AutoSkillLvlUp = 32, GuildBossTimesIncrease = 33}
 _ENV.SystemSetType = {NonBattle = 0, Arena = 1, Battle = 2}
 _ENV.ItemSortType = {}
+_ENV.MultipleDropType = {COPY_STORE = 1, COPY_ELITE = 2, COPY_GOLD = 3, COPY_EXP = 4, COPY_EQUIP = 5, COPY_TOWER = 6, COPY_EXPEDITION = 7, COPY_ACTIVITY = 8, MOON_RES = 9, MOON_DIA = 10}
 

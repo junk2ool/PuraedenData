@@ -437,9 +437,20 @@ GuildMainWindow.RefreshChatItem = function(index, item, ...)
     end
     ;
     (item:GetChild("TimeTxt")).text = (PUtil.get)(60000234, (LuaTime.GetLeftTimeStr)(data.time * 0.001))
+    local headFrame = item:GetChild("HeadFrameLoader")
+    local fashionFrame = headFrame:GetChild("HeadFrameLoader")
+    if data.fashionFrame == nil or data.fashionFrame == 0 then
+      fashionFrame.url = nil
+    else
+      local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[data.fashionFrame]
+      if frameConfig then
+        fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+      end
+    end
     do
-      if (LuaTime.GetTimeStamp)() - data.time < 3600 then
-        local timer = (SimpleTimer.new)(60, -1, function(...)
+      do
+        if (LuaTime.GetTimeStamp)() - data.time < 3600 then
+          local timer = (SimpleTimer.new)(60, -1, function(...)
     -- function num : 0_26_0 , upvalues : _ENV, data, item
     if (LuaTime.GetTimeStamp)() - data.time >= 3600 then
       timer:stop()
@@ -448,41 +459,42 @@ GuildMainWindow.RefreshChatItem = function(index, item, ...)
     (item:GetChild("TimeTxt")).text = (PUtil.get)(60000234, (LuaTime.GetLeftTimeStr)(data.time * 0.001))
   end
 )
-        timer:start()
-        ;
-        (table.insert)(_timers, timer)
-      end
-      local headGrp, wordGrp = nil, nil
-      if data.pId == (ActorData.GetPlayerIndex)() then
-        headGrp = item:GetChild("OneSelfGrp")
-        wordGrp = item:GetChild("OneSelfChatWordGrp")
-      else
-        headGrp = item:GetChild("OtherPlayerGrp")
-        wordGrp = item:GetChild("OtherChatWordGrp")
-        local ChatStatus = item:GetChild("ChatStatus")
-        local PositionName = ((GuildData.BaseInfo).members)[data.pId]
-        if PositionName ~= nil and PositionName == (ProtoEnum.GUILD_POST).LEADER_POST then
-          ChangeUIController(ChatStatus, "c1", 0)
+          timer:start()
+          ;
+          (table.insert)(_timers, timer)
+        end
+        local headGrp, wordGrp = nil, nil
+        if data.pId == (ActorData.GetPlayerIndex)() then
+          headGrp = item:GetChild("OneSelfGrp")
+          wordGrp = item:GetChild("OneSelfChatWordGrp")
         else
-          if PositionName ~= nil and PositionName == (ProtoEnum.GUILD_POST).VICE_LEADER_POST then
-            ChangeUIController(ChatStatus, "c1", 1)
+          headGrp = item:GetChild("OtherPlayerGrp")
+          wordGrp = item:GetChild("OtherChatWordGrp")
+          local ChatStatus = item:GetChild("ChatStatus")
+          local PositionName = ((GuildData.BaseInfo).members)[data.pId]
+          if PositionName ~= nil and PositionName == (ProtoEnum.GUILD_POST).LEADER_POST then
+            ChangeUIController(ChatStatus, "c1", 0)
           else
-            ChangeUIController(ChatStatus, "c1", 2)
+            if PositionName ~= nil and PositionName == (ProtoEnum.GUILD_POST).VICE_LEADER_POST then
+              ChangeUIController(ChatStatus, "c1", 1)
+            else
+              ChangeUIController(ChatStatus, "c1", 2)
+            end
           end
         end
-      end
-      do
-        local content = wordGrp:GetChild("WordTxt")
-        local mLoader = headGrp:GetChild("ActorHeadLoader")
-        mLoader.url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
-        mLoader:InvalidateBatchingState()
-        content.text = (EmojiParser.inst):Parse(data.content)
-        if ChatIsMax then
-          content.width = ChatMaxWidth
-          content.width = (math.min)(ChatMaxWidth, content.textWidth)
-        else
-          content.width = ChatMinWidth
-          content.width = (math.min)(ChatMinWidth, content.textWidth)
+        do
+          local content = wordGrp:GetChild("WordTxt")
+          local mLoader = headGrp:GetChild("ActorHeadLoader")
+          mLoader.url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
+          mLoader:InvalidateBatchingState()
+          content.text = (EmojiParser.inst):Parse(data.content)
+          if ChatIsMax then
+            content.width = ChatMaxWidth
+            content.width = (math.min)(ChatMaxWidth, content.textWidth)
+          else
+            content.width = ChatMinWidth
+            content.width = (math.min)(ChatMinWidth, content.textWidth)
+          end
         end
       end
     end

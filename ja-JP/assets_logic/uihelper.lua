@@ -163,6 +163,7 @@ PlayUITrans = function(com, transName, callBack, delayTime, times, startTime, en
   if com then
     local trans = com:GetTransition(transName)
     if trans then
+      trans.invalidateBatchingEveryFrame = true
       if ignoreEngineTimeScale == false then
         trans.ignoreEngineTimeScale = false
       end

@@ -2461,7 +2461,7 @@ BaseSkillDataPart31 = {
 , 
 [47203943] = {id = 47203943, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003103, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
-[47203944] = {id = 47203944, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003103, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+[47203944] = {id = 47203944, type = 2, targetType = 2002, damage = 36043, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003103, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47203945] = {id = 47203945, name = (PUtil.get)(81212107), remark = (PUtil.get)(81312107), des = (PUtil.get)(81610001, (PUtil.get)(81312107), (PUtil.get)(81652107)), des_level_up = "81050901:105", des_array = (PUtil.get)(81830027), icon_path = "SkillIcon:42002107", type = 2, targetType = 2006, move_pos_type = 3, damage = 105, damage_up = 0, damage_rate = 16000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47403901:1000:10000", show_id = 42002107, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 

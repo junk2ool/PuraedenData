@@ -92,20 +92,30 @@ GuildBossRankWindow.ItemListRenderer = function(index, obj, ...)
       ChangeUIController(obj, "c4", 0)
     else
       do
+        ;
+        ((obj:GetChild("PlayerHead")):GetChild("ActorHeadLoader")).url = ""
+        ;
+        ((obj:GetChild("PlayerHead")):GetChild("LevelTxt")).text = ""
+        ;
+        (Util.SetTitleShow)(obj:GetChild("TitlePic"), 0)
+        ;
+        (obj:GetChild("NameTxt")).text = (PUtil.get)(20000563)
+        ;
+        ((obj:GetChild("IntegralNumber")):GetChild("WordTxt")).text = ""
+        ;
+        ((obj:GetChild("TipsBattleNumber")):GetChild("WordTxt")).text = ""
+        ChangeUIController(obj, "c4", 1)
+        local headFrame = (obj:GetChild("PlayerHead")):GetChild("HeadFrameLoader")
+        local fashionFrame = headFrame:GetChild("HeadFrameLoader")
+        if data.fashionFrame == nil or data.fashionFrame == 0 then
+          fashionFrame.url = nil
+        else
+          local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[data.fashionFrame]
+          if frameConfig then
+            fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+          end
+        end
         do
-          ;
-          ((obj:GetChild("PlayerHead")):GetChild("ActorHeadLoader")).url = ""
-          ;
-          ((obj:GetChild("PlayerHead")):GetChild("LevelTxt")).text = ""
-          ;
-          (Util.SetTitleShow)(obj:GetChild("TitlePic"), 0)
-          ;
-          (obj:GetChild("NameTxt")).text = (PUtil.get)(20000563)
-          ;
-          ((obj:GetChild("IntegralNumber")):GetChild("WordTxt")).text = ""
-          ;
-          ((obj:GetChild("TipsBattleNumber")):GetChild("WordTxt")).text = ""
-          ChangeUIController(obj, "c4", 1)
           ChangeUIController(obj, "c2", 1)
           local guildData = data
           if guildData.id == guildIndex then
@@ -335,80 +345,91 @@ GuildBossRankWindow.SetLeftInfo = function(...)
     if fashionConfig then
       ((BossRewardInfo.PlayerHead).ActorHeadLoader).url = (Util.GetResUrl)(fashionConfig.icon_path)
     end
-    local titleID = (ActorData.GetWearTitle)()
-    ;
-    (Util.SetTitleShow)((BossRewardInfo.TitlePic).root, titleID)
-  else
+    local frameValue = (ActorData.GetFashionFrame)()
+    local fashionFrame = ((BossRewardInfo.PlayerHead).HeadFrameLoader).HeadFrameLoader
+    if frameValue == nil or frameValue == 0 then
+      fashionFrame.url = nil
+    else
+      local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[frameValue]
+      if frameConfig then
+        fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+      end
+    end
     do
-      -- DECOMPILER ERROR at PC108: Confused about usage of register: R4 in 'UnsetPending'
-
-      ;
-      (BossRewardInfo.c1Ctr).selectedIndex = 1
-      local GuildRank = (GuildBossMgr.GuildRankIndex)()
-      -- DECOMPILER ERROR at PC117: Confused about usage of register: R5 in 'UnsetPending'
-
-      if GuildRank and GuildRank > 0 then
-        (BossRewardInfo.c3Ctr).selectedIndex = 0
-        -- DECOMPILER ERROR at PC121: Confused about usage of register: R5 in 'UnsetPending'
-
-        if maxRank < GuildRank then
-          (BossRewardInfo.RankNumberTxt).text = maxRank
-          -- DECOMPILER ERROR at PC123: Confused about usage of register: R5 in 'UnsetPending'
-
-          ;
-          (BossRewardInfo.PlusImage).visible = true
-        else
-          -- DECOMPILER ERROR at PC126: Confused about usage of register: R5 in 'UnsetPending'
-
-          ;
-          (BossRewardInfo.RankNumberTxt).text = GuildRank
-          -- DECOMPILER ERROR at PC128: Confused about usage of register: R5 in 'UnsetPending'
-
-          ;
-          (BossRewardInfo.PlusImage).visible = false
-        end
-      else
-        -- DECOMPILER ERROR at PC131: Confused about usage of register: R5 in 'UnsetPending'
+      do
+        local titleID = (ActorData.GetWearTitle)()
+        ;
+        (Util.SetTitleShow)((BossRewardInfo.TitlePic).root, titleID)
+        -- DECOMPILER ERROR at PC131: Confused about usage of register: R4 in 'UnsetPending'
 
         ;
-        (BossRewardInfo.c3Ctr).selectedIndex = 1
+        (BossRewardInfo.c1Ctr).selectedIndex = 1
+        local GuildRank = (GuildBossMgr.GuildRankIndex)()
+        -- DECOMPILER ERROR at PC140: Confused about usage of register: R5 in 'UnsetPending'
+
+        if GuildRank and GuildRank > 0 then
+          (BossRewardInfo.c3Ctr).selectedIndex = 0
+          -- DECOMPILER ERROR at PC144: Confused about usage of register: R5 in 'UnsetPending'
+
+          if maxRank < GuildRank then
+            (BossRewardInfo.RankNumberTxt).text = maxRank
+            -- DECOMPILER ERROR at PC146: Confused about usage of register: R5 in 'UnsetPending'
+
+            ;
+            (BossRewardInfo.PlusImage).visible = true
+          else
+            -- DECOMPILER ERROR at PC149: Confused about usage of register: R5 in 'UnsetPending'
+
+            ;
+            (BossRewardInfo.RankNumberTxt).text = GuildRank
+            -- DECOMPILER ERROR at PC151: Confused about usage of register: R5 in 'UnsetPending'
+
+            ;
+            (BossRewardInfo.PlusImage).visible = false
+          end
+        else
+          -- DECOMPILER ERROR at PC154: Confused about usage of register: R5 in 'UnsetPending'
+
+          ;
+          (BossRewardInfo.c3Ctr).selectedIndex = 1
+        end
+        -- DECOMPILER ERROR at PC161: Confused about usage of register: R5 in 'UnsetPending'
+
+        ;
+        ((BossRewardInfo.IntegralNumber).NameTxt).text = (PUtil.get)(20000533)
+        -- DECOMPILER ERROR at PC168: Confused about usage of register: R5 in 'UnsetPending'
+
+        ;
+        ((BossRewardInfo.President).NameTxt).text = (PUtil.get)(20000534)
+        -- DECOMPILER ERROR at PC175: Confused about usage of register: R5 in 'UnsetPending'
+
+        ;
+        ((BossRewardInfo.Member).NameTxt).text = (PUtil.get)(20000535)
+        local guildInfo = (GuildBossMgr.GuildInfo)()
+        -- DECOMPILER ERROR at PC181: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        (BossRewardInfo.NameTxt).text = guildInfo.name
+        ;
+        ((BossRewardInfo.root):GetChild("LevelTxt")).text = "Lv." .. guildInfo.level
+        -- DECOMPILER ERROR at PC195: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        ((BossRewardInfo.GuildHead).GuildLoader).url = (GuildBossRankWindow.GetGuildIcon)(guildInfo.icon)
+        -- DECOMPILER ERROR at PC199: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        ((BossRewardInfo.President).WordTxt).text = guildInfo.leader
+        local max = (((TableData.gTable).BaseGuildLevelUpData)[GuildLevelConfig[guildInfo.level]]).max_member
+        -- DECOMPILER ERROR at PC214: Confused about usage of register: R7 in 'UnsetPending'
+
+        ;
+        ((BossRewardInfo.Member).WordTxt).text = "[color=#ffac26]" .. guildInfo.memberCount .. "[/color]/" .. max
+        -- DECOMPILER ERROR at PC220: Confused about usage of register: R7 in 'UnsetPending'
+
+        ;
+        ((BossRewardInfo.IntegralNumber).WordTxt).text = (GuildBossMgr.GuildRankScore)()
       end
-      -- DECOMPILER ERROR at PC138: Confused about usage of register: R5 in 'UnsetPending'
-
-      ;
-      ((BossRewardInfo.IntegralNumber).NameTxt).text = (PUtil.get)(20000533)
-      -- DECOMPILER ERROR at PC145: Confused about usage of register: R5 in 'UnsetPending'
-
-      ;
-      ((BossRewardInfo.President).NameTxt).text = (PUtil.get)(20000534)
-      -- DECOMPILER ERROR at PC152: Confused about usage of register: R5 in 'UnsetPending'
-
-      ;
-      ((BossRewardInfo.Member).NameTxt).text = (PUtil.get)(20000535)
-      local guildInfo = (GuildBossMgr.GuildInfo)()
-      -- DECOMPILER ERROR at PC158: Confused about usage of register: R6 in 'UnsetPending'
-
-      ;
-      (BossRewardInfo.NameTxt).text = guildInfo.name
-      ;
-      ((BossRewardInfo.root):GetChild("LevelTxt")).text = "Lv." .. guildInfo.level
-      -- DECOMPILER ERROR at PC172: Confused about usage of register: R6 in 'UnsetPending'
-
-      ;
-      ((BossRewardInfo.GuildHead).GuildLoader).url = (GuildBossRankWindow.GetGuildIcon)(guildInfo.icon)
-      -- DECOMPILER ERROR at PC176: Confused about usage of register: R6 in 'UnsetPending'
-
-      ;
-      ((BossRewardInfo.President).WordTxt).text = guildInfo.leader
-      local max = (((TableData.gTable).BaseGuildLevelUpData)[GuildLevelConfig[guildInfo.level]]).max_member
-      -- DECOMPILER ERROR at PC191: Confused about usage of register: R7 in 'UnsetPending'
-
-      ;
-      ((BossRewardInfo.Member).WordTxt).text = "[color=#ffac26]" .. guildInfo.memberCount .. "[/color]/" .. max
-      -- DECOMPILER ERROR at PC197: Confused about usage of register: R7 in 'UnsetPending'
-
-      ;
-      ((BossRewardInfo.IntegralNumber).WordTxt).text = (GuildBossMgr.GuildRankScore)()
     end
   end
 end

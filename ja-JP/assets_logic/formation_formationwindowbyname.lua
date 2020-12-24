@@ -7,6 +7,7 @@ require("Formation_HeadListGrpByName")
 require("Formation_GuildBossTipsByName")
 require("Formation_GuildBossChoiceByName")
 require("Formation_FormationTipsByName")
+require("Formation_TeamNameByName")
 GetFormation_FormationWindowUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
@@ -67,6 +68,7 @@ GetFormation_FormationWindowUis = function(ui, ...)
   uis.GuildBossChoice = GetFormation_GuildBossChoiceUis(ui:GetChild("GuildBossChoice"))
   uis.FormationTipsGrp = GetFormation_FormationTipsUis(ui:GetChild("FormationTipsGrp"))
   uis.ExtBtn = ui:GetChild("ExtBtn")
+  uis.TeamName = GetFormation_TeamNameUis(ui:GetChild("TeamName"))
   uis.c1Ctr = ui:GetController("c1")
   uis.root = ui
   return uis

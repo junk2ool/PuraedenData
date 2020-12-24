@@ -567,6 +567,7 @@ message BattleCompleteData
 	AllBattleTeamCardState allTeamCardState = 8;//卡牌战斗之后的状态
     ExpeditionBattleData expeditionBattleData = 9;//远征的数据
 	int32 gameServerId           = 10;//游戏服serverId
+	string versionAndPlatform    = 11;//客户端版本号跟平台
 }
 
 //远征使用到的数据信息，客户端封装后传给服务器
@@ -1239,7 +1240,6 @@ message ResSealUp
 {
 	int32          cardId = 1;//卡牌ID
 	int32          sealLv = 2;//印文等级
-	int32       skillType = 3;//可以激活的技能类型
 }
 
 //437请求印文技能激活
@@ -2059,6 +2059,7 @@ message ChatData{
 	BulletScreen bulletScreenData	= 9;//弹幕数据
 	int64  chatId                   = 10;//唯一id
 	int32 clickLikeNum              = 11;//点赞次数
+	int32 fashionFrame              = 12;//头像框
 }
 
 //请求收藏卡牌列表
@@ -2140,6 +2141,7 @@ enum E_BATTLE_TYPE
 	TOWER_ENCOUNTER          = 13;//天之塔遭遇战
 	GUILD_WAR                = 14;//公会战
 	FRIEND_PK                = 15;//好友切磋
+	TEMPLE                   = 16;//神殿遗迹副本
 }
 
 //渠道
@@ -2250,7 +2252,8 @@ enum E_CHALLENGE_TYPE
 	ACTIVITY_CHALLENGE   = 101;//活动副本
 	ENCOUNTER_CHALLENGE  = 13;//天之塔遭遇战
 	GUILD_WAR_CHALLENGE  = 14;//公会战
-	FRIEND_PK_CHALLENGE = 15;//好友切磋
+	FRIEND_PK_CHALLENGE  = 15;//好友切磋
+	TEMPLE_CHALLENGE     = 20;//神殿遗迹
 }
 
 enum E_SET_TYPE
@@ -2281,6 +2284,10 @@ enum E_LOTTERY_TYPE
 	LOTTERY_ACTIVITY_CAPSULE_UP2 = 8;//活动扭蛋up2
 	LOTTERY_ACTIVITY_CAPSULE_UP3 = 9;//活动扭蛋up3
 	LOTTERY_ACTIVITY_CAPSULE_UP4 = 10;//活动扭蛋up4
+	LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE1 = 11;//十连必出扭蛋活动1
+	LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE2 = 12;//十连必出扭蛋活动2
+	LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE3 = 13;//十连必出扭蛋活动3
+	LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE4 = 14;//十连必出扭蛋活动4
 	
 }
 
@@ -2950,6 +2957,7 @@ message FriendInfo
 	bool			online          	= 9;//是否在线
 	int32			fc		   			= 10;//战力
 	int32           serverId            = 11;//服务器ID
+	int32           fashionFrame        = 12;//头像框
 }
 
 //好友详细信息
@@ -2967,6 +2975,7 @@ message FriendDetailInfo
 	repeated	int32			cardIdList          = 10;//最强6张卡ID
 				int32			logoutTime          = 11;//离线的时间戳（秒），0就是在线
 				int32			serverId            = 12;//玩家服务器ID
+				int32           fashionFrame        = 13;//头像框
 }
 
 //2201 请求好友数据
@@ -3345,7 +3354,8 @@ message MemberInfo
 	         int32 	       activation = 8;//总活跃
 	         int64         onlineTime = 9;//最后在线时间
 	         int32 		     serverId = 10;//服务器ID
-	         int32           titleId  = 11;//已佩戴称号ID
+	         int32            titleId = 11;//已佩戴称号ID
+	         int32       fashionFrame = 12;//头像框
 }
 
 //申请信息
@@ -3360,6 +3370,7 @@ message ApplyInfo
 	         int32 		     serverId = 7;//服务器ID
 	         int64          applyTime = 8;//申请时间
 	repeated PlayerCardInfo  cardList = 9;//卡牌列表
+	         int32      fashionFrame  = 10;//头像框
 }
 
 //卡牌信息
@@ -3963,6 +3974,7 @@ message HurtReportInfo
 	int32                             fc = 5;//玩家战力
 	int32                        titleId = 6;//佩戴的称号ID
 	int64                           hurt = 7;//伤害值
+	int32                   fashionFrame = 8;//头像框
 }
 
 //公会天赋信息
@@ -4002,6 +4014,7 @@ message MsRankInfo
 	int64   					      fc = 5;//战力
 	int32           		     titleId = 6;//已佩戴称号ID
 	int32         			    integral = 7;//赛季积分
+	int32                   fashionFrame = 8;//头像框
 }
 
 //赛季提示信息
@@ -6310,7 +6323,7 @@ WAR_SETTLE_TYPE = {DEFAULT_SETTLE_TYPE = 0, SIMULATION = 1, MURDERER = 2, PASSED
 , 
 GUILD_SET = {DEFAULT_SET = 0, ICON_SET = 1, NAME_SET = 2, COND_SET = 3, NOTICE_SET = 4}
 , 
-E_BATTLE_TYPE = {BATTLE_TYPE_UNKNOWN = 0, ARENA = 1, STORY = 2, HERO = 3, GOLD = 4, EXP = 5, EQUIPEXP = 6, TOWER = 7, EXPEDITION = 8, CG = 9, ADVENTURE = 10, GUILD_PK = 11, ACTIVITY = 12, TOWER_ENCOUNTER = 13, GUILD_WAR = 14, FRIEND_PK = 15}
+E_BATTLE_TYPE = {BATTLE_TYPE_UNKNOWN = 0, ARENA = 1, STORY = 2, HERO = 3, GOLD = 4, EXP = 5, EQUIPEXP = 6, TOWER = 7, EXPEDITION = 8, CG = 9, ADVENTURE = 10, GUILD_PK = 11, ACTIVITY = 12, TOWER_ENCOUNTER = 13, GUILD_WAR = 14, FRIEND_PK = 15, TEMPLE = 16}
 , 
 GUILD_WAR_STATUS = {DEFAULT_STATUS = 0, READY = 1, CHALLENGE = 2, SETTLE = 3}
 , 
@@ -6320,7 +6333,7 @@ E_MAIL_TYPE = {MAIL_TYPE_UNKNOWN = 0, MAIL_SYSTEM = 1, MAIL_BACKEND = 2, MAIL_MA
 , 
 E_CHAPTER_OPEN_CONDITION = {COC_UNKNOWN = 0, PLAYER_LEVEL = 1, PASS_STAGE = 2}
 , 
-E_CHALLENGE_TYPE = {UNKNOW_CHALLENGE = 0, STORE_CHALLENGE = 1, ELITE_CHALLENGE = 2, GOLD_CHALLENGE = 3, EXP_CHALLENGE = 4, EQUIPEXP_CHALLENGE = 5, ARENA_CHALLENGE = 6, TOWER_CHALLENGE = 7, EXPEDITION_CHALLENGE = 8, CG_CHALLENGE = 9, ADVENTURE_CHALLENGE = 10, GUILD_PK_CHALLENGE = 11, ACTIVITY_CHALLENGE = 101, ENCOUNTER_CHALLENGE = 13, GUILD_WAR_CHALLENGE = 14, FRIEND_PK_CHALLENGE = 15}
+E_CHALLENGE_TYPE = {UNKNOW_CHALLENGE = 0, STORE_CHALLENGE = 1, ELITE_CHALLENGE = 2, GOLD_CHALLENGE = 3, EXP_CHALLENGE = 4, EQUIPEXP_CHALLENGE = 5, ARENA_CHALLENGE = 6, TOWER_CHALLENGE = 7, EXPEDITION_CHALLENGE = 8, CG_CHALLENGE = 9, ADVENTURE_CHALLENGE = 10, GUILD_PK_CHALLENGE = 11, ACTIVITY_CHALLENGE = 101, ENCOUNTER_CHALLENGE = 13, GUILD_WAR_CHALLENGE = 14, FRIEND_PK_CHALLENGE = 15, TEMPLE_CHALLENGE = 20}
 , 
 BUY_ASSIST_TYPE = {DEFAULT_BUY_TIME = 0, GOLD_BUY_TIME_TYPE = 1, VIT_BUY_TIME_TYPE = 2, STA_BUY_TIME_TYPE = 3, ENERGY_BUY_TIME_TYPE = 4}
 , 
@@ -6328,7 +6341,7 @@ FriendOperationCode = {OP_SUCCESS = 0, EXCEED_MAX_FRIEND_COUNT = 1, EXCEED_TARGE
 , 
 E_RANK_TYPE = {RANK_TYPE_UNKNOWN = 0}
 , 
-E_LOTTERY_TYPE = {LOTTERY_TYPE_UNKNOWN = 0, LOTTERY_TYPE_CARD = 1, LOTTERY_TYPE_EQUIP = 2, LOTTERY_TYPE_COUPON = 3, LOTTERY_TYPE_NOVICE = 4, LOTTERY_TEN_EVEN_CAPSULE = 6, LOTTERY_ACTIVITY_CAPSULE_UP1 = 7, LOTTERY_ACTIVITY_CAPSULE_UP2 = 8, LOTTERY_ACTIVITY_CAPSULE_UP3 = 9, LOTTERY_ACTIVITY_CAPSULE_UP4 = 10}
+E_LOTTERY_TYPE = {LOTTERY_TYPE_UNKNOWN = 0, LOTTERY_TYPE_CARD = 1, LOTTERY_TYPE_EQUIP = 2, LOTTERY_TYPE_COUPON = 3, LOTTERY_TYPE_NOVICE = 4, LOTTERY_TEN_EVEN_CAPSULE = 6, LOTTERY_ACTIVITY_CAPSULE_UP1 = 7, LOTTERY_ACTIVITY_CAPSULE_UP2 = 8, LOTTERY_ACTIVITY_CAPSULE_UP3 = 9, LOTTERY_ACTIVITY_CAPSULE_UP4 = 10, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE1 = 11, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE2 = 12, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE3 = 13, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE4 = 14}
 , 
 E_QUERY_TYPE = {QUERY_UNKNOWN = 0, OBJECT_INDEX = 1, ACCOUNT = 2, NAME = 3}
 , 

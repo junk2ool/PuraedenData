@@ -93,39 +93,51 @@ ArenaRecordWindow.RefreshRecordItem = function(index, item, ...)
   (item:GetChild("NumberTxt")).text = (ArenaData.GetFC)(data)
   ;
   (item:GetChild("TimeTxt")).text = (LuaTime.GetLeftTimeStr)((math.floor)(data.timestamp * 0.001))
-  local list = item:GetChild("CardHeadList")
-  if data.isPlayer then
-    (table.sort)(((data.cardGroups)[1]).teamCard, function(x, y, ...)
+  local headFrame = item:GetChild("HeadFrameLoader")
+  local fashionFrame = headFrame:GetChild("HeadFrameLoader")
+  if data.fashionFrame == nil or data.fashionFrame == 0 then
+    fashionFrame.url = nil
+  else
+    local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[data.fashionFrame]
+    if frameConfig then
+      fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+    end
+  end
+  do
+    local list = item:GetChild("CardHeadList")
+    if data.isPlayer then
+      (table.sort)(((data.cardGroups)[1]).teamCard, function(x, y, ...)
     -- function num : 0_9_0
     do return x.posIndex < y.posIndex end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  end
-  list:RemoveChildrenToPool()
-  local count = #((data.cardGroups)[1]).teamCard
-  local subItem = nil
-  for i = 1, count do
-    subItem = list:AddItemFromPool()
+    end
+    list:RemoveChildrenToPool()
+    local count = #((data.cardGroups)[1]).teamCard
+    local subItem = nil
+    for i = 1, count do
+      subItem = list:AddItemFromPool()
+      ;
+      (Util.SetHeadFrame)(subItem, ((((data.cardGroups)[1]).teamCard)[i]).cardInfo, not data.isPlayer)
+    end
+    local dataBtn = item:GetChild("DataBtn")
+    local replayBtn = item:GetChild("RePlayBtn")
+    dataBtn.text = (PUtil.get)(60000066)
+    replayBtn.text = (PUtil.get)(60000067)
     ;
-    (Util.SetHeadFrame)(subItem, ((((data.cardGroups)[1]).teamCard)[i]).cardInfo, not data.isPlayer)
-  end
-  local dataBtn = item:GetChild("DataBtn")
-  local replayBtn = item:GetChild("RePlayBtn")
-  dataBtn.text = (PUtil.get)(60000066)
-  replayBtn.text = (PUtil.get)(60000067)
-  ;
-  (dataBtn.onClick):Set(function(...)
+    (dataBtn.onClick):Set(function(...)
     -- function num : 0_9_1 , upvalues : _ENV, data
     (ArenaMgr.TryShowBattleData)(data.battleindex)
   end
 )
-  ;
-  (replayBtn.onClick):Set(function(...)
+    ;
+    (replayBtn.onClick):Set(function(...)
     -- function num : 0_9_2 , upvalues : _ENV, data
     (ArenaMgr.TryReplayBattle)(data.battleindex)
   end
 )
+  end
 end
 
 ArenaRecordWindow.ClickCloseBtn = function(...)

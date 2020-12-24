@@ -161,7 +161,6 @@ ArenaRankWindow.RefreshRankItem = function(index, item, ...)
   ;
   (item:GetChild("HeadLoader")).url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
   local headFrame = item:GetChild("HeadFrameLoader")
-  loge("data.fashionFrame:" .. data.fashionFrame)
   local fashionFrame = headFrame:GetChild("HeadFrameLoader")
   if data.fashionFrame == nil or data.fashionFrame == 0 then
     fashionFrame.url = nil

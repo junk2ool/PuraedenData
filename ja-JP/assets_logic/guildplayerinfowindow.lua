@@ -114,16 +114,27 @@ GuildPlayerInfoWindow.InitBasicInfo = function(...)
   end
   ;
   ((((uis.PlayerInfoGrp).PlayerHeadGrp).root):GetChild("ActorHeadLoader")).url = (Util.GetHeadIconByFashionId)((argTable.memberInfo).fashionId, HeadIconType.ROUND)
-  ;
-  (GuildPlayerInfoWindow.SetDetailItem)((uis.PlayerInfoGrp).BattleNumberGrp, (PUtil.get)(60000235), (argTable.memberInfo).fc)
-  ;
-  (GuildPlayerInfoWindow.SetDetailItem)((uis.PlayerInfoGrp).WeekGrp, (PUtil.get)(60000236), (argTable.memberInfo).weekActivation)
-  -- DECOMPILER ERROR at PC68: Confused about usage of register: R0 in 'UnsetPending'
+  local fashionFrame = ((uis.PlayerInfoGrp).HeadFrameLoader).HeadFrameLoader
+  if (argTable.memberInfo).fashionFrame == nil or (argTable.memberInfo).fashionFrame == 0 then
+    fashionFrame.url = nil
+  else
+    local frameConfig = ((TableData.gTable).BasePlayerHeadFrameData)[(argTable.memberInfo).fashionFrame]
+    if frameConfig then
+      fashionFrame.url = (Util.GetResUrl)(frameConfig.icon_path)
+    end
+  end
+  do
+    ;
+    (GuildPlayerInfoWindow.SetDetailItem)((uis.PlayerInfoGrp).BattleNumberGrp, (PUtil.get)(60000235), (argTable.memberInfo).fc)
+    ;
+    (GuildPlayerInfoWindow.SetDetailItem)((uis.PlayerInfoGrp).WeekGrp, (PUtil.get)(60000236), (argTable.memberInfo).weekActivation)
+    -- DECOMPILER ERROR at PC94: Confused about usage of register: R1 in 'UnsetPending'
 
-  ;
-  ((uis.PlayerInfoGrp).CardList).numItems = #argTable.Cards
-  ;
-  (GuildPlayerInfoWindow.InitPositionInfo)()
+    ;
+    ((uis.PlayerInfoGrp).CardList).numItems = #argTable.Cards
+    ;
+    (GuildPlayerInfoWindow.InitPositionInfo)()
+  end
 end
 
 GuildPlayerInfoWindow.InitPositionInfo = function(...)

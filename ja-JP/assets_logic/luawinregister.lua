@@ -417,6 +417,10 @@ PrizeRecordWindow = {name = "PrizeRecordWindow", package = "Prize", comName = "R
 PrizeRewardShowWindow = {name = "PrizeRewardShowWindow", package = "Prize", comName = "PrizeRewardShow", hideBelow = false}
 , 
 PlayerBusinessCardWindow = {name = "PlayerBusinessCardWindow", package = "ActorInfo", comName = "PlayerCard", hideBelow = false}
+, 
+FormationPresetWindow = {name = "FormationPresetWindow", package = "Formation", comName = "TeamProgramme", hideBelow = false}
+, 
+FormationPresetNamingWindow = {name = "FormationPresetNamingWindow", package = "Formation", comName = "TeamRenameWindow", hideBelow = false}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -518,6 +522,8 @@ LoginWindow = {E_MSG_REFRESH_EFFECT = 1}
 Friends = {E_MSG_REFRESH_MAIN_LIST = 1, E_MSG_REFRESH_ADD_LIST = 2, E_MSG_REFRESH_ONLY_ADD_LIST = 3, E_MSG_REFRESH_CHAT_LIST = 4, E_MSG_UNREAD_CHAT_LIST = 5, E_MSG_FRIEND_UPDATE_CHAT = 6}
 , 
 PrizeWindow = {E_MSG_SLOTS_RESULT = 1, E_MSG_SLOTS_REFRESH = 2, E_MSG_SLOTS_SET_POOLS = 3}
+, 
+FormationPreset = {E_MSG_REFRESH_PRESET = 1, E_MSG_REFRESH_FORMATION = 2, E_MSG_REFRESH = 3, E_MSG_REFRESH_PRESET_NAME = 4}
 }
 _ENV.WindowLoadPackages = {
 LoginWindow = {"LandPic"}

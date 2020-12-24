@@ -24,13 +24,13 @@ BattleBackground.CreateBackground = function(isChangeWave, stageId, battleType, 
 
     BattleData.soundId = nil
   end
-  if isChangeWave and background_path == curMapPath then
+  if IsBattleTest == true then
+    background_path = "BattleScene_1003"
+  end
+  if (Util.StringIsNullOrEmpty)(background_path) or isChangeWave and background_path == curMapPath then
     return 
   end
   curMapPath = background_path
-  if IsBattleTest == true then
-    curMapPath = "BattleScene_1003"
-  end
   ;
   (self.ExtendBackground)()
 end

@@ -284,19 +284,15 @@ AdventureWindow.OnShown = function(...)
     canMove = false
   end
   ;
-  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).STORE_CHALLENGE}, (uis.MiddleComp).AdventureIconBtn)
+  (AdventureWindow.SetMultipleShow)({MultipleDropType.COPY_STORE}, (uis.MiddleComp).AdventureIconBtn)
   ;
-  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).GOLD_CHALLENGE, (ProtoEnum.E_CHALLENGE_TYPE).EXP_CHALLENGE, (ProtoEnum.E_CHALLENGE_TYPE).EQUIPEXP_CHALLENGE}, (uis.MiddleComp).ExperimentIconBtn)
+  (AdventureWindow.SetMultipleShow)({MultipleDropType.COPY_GOLD, MultipleDropType.COPY_EXP, MultipleDropType.COPY_EQUIP}, (uis.MiddleComp).ExperimentIconBtn)
   ;
-  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).TOWER_CHALLENGE}, (uis.MiddleComp).MapWorkshopIconBtn)
+  (AdventureWindow.SetMultipleShow)({MultipleDropType.COPY_TOWER}, (uis.MiddleComp).MapWorkshopIconBtn)
   ;
-  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).EXPEDITION_CHALLENGE}, (uis.MiddleComp).ExpeditionIconBtn)
+  (AdventureWindow.SetMultipleShow)({MultipleDropType.COPY_EXPEDITION}, (uis.MiddleComp).ExpeditionIconBtn)
   ;
-  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).ARENA_CHALLENGE}, (uis.MiddleComp).ArenaIconBtn)
-  ;
-  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE}, (uis.MiddleComp).HeroBtn)
-  ;
-  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).ADVENTURE_CHALLENGE}, (uis.MiddleComp).RichIconBtn)
+  (AdventureWindow.SetMultipleShow)({MultipleDropType.COPY_ELITE}, (uis.MiddleComp).HeroBtn)
 end
 
 AdventureWindow.AniIsPlay = function(id, ...)

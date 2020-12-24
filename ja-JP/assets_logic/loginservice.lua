@@ -96,6 +96,9 @@ LoginService.ReqLogout = function(...)
   if PlotDungeonMgr then
     (PlotDungeonMgr.RevertDungeonData)()
   end
+  if FormationPresetData then
+    (FormationPresetData.ClearData)()
+  end
   ;
   (MsgWaiterObj.ClearCheckTimer)()
   ;
@@ -157,22 +160,14 @@ LoginService.OnResLogin = function(msg, ...)
       else
         if result == (ProtoEnum.E_LOGIN_RESULT).AUTH then
           log("登录过期，重新认证")
-          -- DECOMPILER ERROR at PC91: Confused about usage of register: R8 in 'UnsetPending'
-
-          if Game.useSDK == true then
-            LoginMgr.directLogin = true
-            ;
-            (SuperSDKUtil.Login)()
-          else
-            ;
-            (LoginMgr.ConnectAuthServer)(LoginMgr.lastUrlInfo)
-          end
+          ;
+          (LoginMgr.ReturnToLoginWindow)()
         else
-          -- DECOMPILER ERROR at PC108: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC96: Confused about usage of register: R8 in 'UnsetPending'
 
           if result == (ProtoEnum.E_LOGIN_RESULT).REGISTER then
             LoginMgr.curServerId = serverId
-            -- DECOMPILER ERROR at PC110: Confused about usage of register: R8 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC98: Confused about usage of register: R8 in 'UnsetPending'
 
             LoginMgr.curPlatformServerId = platformServerId
             do

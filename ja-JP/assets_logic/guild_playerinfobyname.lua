@@ -1,6 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 require("Guild_PlayerHeadByName")
+require("CommonResource_HeadFrameLoaderByName")
 require("Guild_TipsInfo_03ByName")
 require("Guild_TipsInfo_02ByName")
 require("Guild_ChatStatusByName")
@@ -10,6 +11,7 @@ GetGuild_PlayerInfoUis = function(ui, ...)
   uis.NameTxt = ui:GetChild("NameTxt")
   uis.CloseBtn = ui:GetChild("CloseBtn")
   uis.PlayerHeadGrp = GetGuild_PlayerHeadUis(ui:GetChild("PlayerHeadGrp"))
+  uis.HeadFrameLoader = GetCommonResource_HeadFrameLoaderUis(ui:GetChild("HeadFrameLoader"))
   uis.CardList = ui:GetChild("CardList")
   uis.PlayerNameTxt = ui:GetChild("PlayerNameTxt")
   uis.TimeTxt = ui:GetChild("TimeTxt")
