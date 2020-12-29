@@ -61,7 +61,7 @@ MailWindow.SetListVirtual = function(...)
   mailScroll:SetBeginAnim(true, "up", 0.05, 0.05, true)
 end
 
-MailWindow.Deal = function(ori, para, ...)
+MailWindow.Deal = function(ori, para, mailId, ...)
   -- function num : 0_2 , upvalues : _ENV
   local oriTxt = (PUtil.get)(tonumber(ori))
   local sp = #split(oriTxt, "{")
@@ -72,7 +72,7 @@ MailWindow.Deal = function(ori, para, ...)
       for i = startIndex, max do
         local inx = para[i]
         local fi = ""
-        if (string.find)(inx, "&") then
+        if (string.find)(inx, "&") and mailId == 78410008 then
           local inx2 = (string.sub)(inx, 2, (string.len)(inx))
           fi = (PUtil.get)(tonumber(inx2))
         else
@@ -80,11 +80,11 @@ MailWindow.Deal = function(ori, para, ...)
             do
               fi = inx
               oriTxt = (string.gsub)(oriTxt, "{" .. tostring(i - 1) .. "}", fi)
-              -- DECOMPILER ERROR at PC72: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC74: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC72: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC74: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC72: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC74: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -104,7 +104,7 @@ MailWindow.RefreshMailItem = function(index, item, ...)
   ((item:GetChild("MailDetailed")):GetChild("SendTimeWordTxt")).text = (PUtil.get)(96)
   local mailData = {}
   if data.cId > 0 then
-    mailData.title = (MailWindow.Deal)(data.title, data.params)
+    mailData.title = (MailWindow.Deal)(data.title, data.params, data.id)
     mailData.sender = (PUtil.get)(tonumber(data.sender))
     mailData.live = data.live
   else
@@ -207,10 +207,10 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
   (MailWindow.SetMainWindowState)(selectedIndex)
   local mailData = {}
   if detailInfo.cId > 0 then
-    mailData.title = (MailWindow.Deal)(detailInfo.title, detailInfo.params)
+    mailData.title = (MailWindow.Deal)(detailInfo.title, detailInfo.params, detailInfo.id)
     mailData.sender = (PUtil.get)(tonumber(detailInfo.sender))
     mailData.live = detailInfo.live
-    local content = (MailWindow.Deal)(detailInfo.content, detailInfo.params)
+    local content = (MailWindow.Deal)(detailInfo.content, detailInfo.params, detailInfo.id)
     mailData.content = content
     mailData.receive = detailInfo.receive
   else
@@ -220,41 +220,41 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
       mailData.live = detailInfo.live
       mailData.content = detailInfo.content
       mailData.receive = detailInfo.receive
-      -- DECOMPILER ERROR at PC48: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC50: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.TitleTxt).text = mailData.title
-      -- DECOMPILER ERROR at PC57: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC59: Confused about usage of register: R3 in 'UnsetPending'
 
       if mailData.live < 0 then
         (uis.TimeTxt).text = (PUtil.get)(211)
       else
-        -- DECOMPILER ERROR at PC75: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC77: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
         (uis.TimeTxt).text = (PUtil.get)(96) .. "  " .. (LuaTime.GetLeftTimeStr)((math.floor)(mailData.live * 0.001), true)
       end
-      -- DECOMPILER ERROR at PC78: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC80: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendPeopleNameTxt).text = mailData.sender
-      -- DECOMPILER ERROR at PC85: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC87: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendTimeTxt).text = (LuaTime.GetFormatTimeStr)("%Y-%m-%d", mailData.receive)
-      -- DECOMPILER ERROR at PC91: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC93: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendTimeWordTxt).text = (PUtil.get)(82)
-      -- DECOMPILER ERROR at PC97: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC99: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SendPeopleWordTxt).text = (PUtil.get)(81)
-      -- DECOMPILER ERROR at PC103: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC105: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.EnclosureWordTxt).text = (PUtil.get)(204)
-      -- DECOMPILER ERROR at PC107: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC109: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.GetBtn).visible = not detailInfo.received
@@ -281,7 +281,7 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
     (MailService.ReqGetAllMailAnnex)(detailInfo.id)
   end
 )
-      -- DECOMPILER ERROR at PC128: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC130: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.DeleteBtn).visible = detailInfo.canDel

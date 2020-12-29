@@ -1,6 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 require("Lottery_EffectByName")
+require("Lottery_GetCha_LuckBagGrpByName")
 require("Lottery_GetCha_NewCardUpGrpByName")
 require("Lottery_GetCha_CardGrpByName")
 require("Lottery_GetCha_CouponGrpByName")
@@ -11,6 +12,7 @@ GetLottery_LotteryPanelUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
   uis.EffectGrp = GetLottery_EffectUis(ui:GetChild("EffectGrp"))
+  uis.GetCha_LuckBagGrp = GetLottery_GetCha_LuckBagGrpUis(ui:GetChild("GetCha_LuckBagGrp"))
   uis.GetCha_NewCardUpGrp = GetLottery_GetCha_NewCardUpGrpUis(ui:GetChild("GetCha_NewCardUpGrp"))
   uis.GetCha_CardGrp = GetLottery_GetCha_CardGrpUis(ui:GetChild("GetCha_CardGrp"))
   uis.GetCha_CouponGrp = GetLottery_GetCha_CouponGrpUis(ui:GetChild("GetCha_CouponGrp"))

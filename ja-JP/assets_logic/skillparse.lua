@@ -31,10 +31,11 @@ SkillParse.Init = function(atkEndCallBack, skillShowConfig, ...)
     end
   end
   atkCard = (BattleData.GetCardInfoByUid)(atkInfo.atkCardUid)
+  local SkillConfig = atkCard:GetSkillConfig()
   for _,defCardInfo in ipairs(atkInfo.defCardsInfo) do
     local defCardUid = defCardInfo.defCardUid
     local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
-    if defCardInfo.isCounter == false and defCardUid ~= atkCard:GetCardUid() and defCardInfo.isSkillTarget == true then
+    if (SkillConfig.targetType_show and SkillConfig.targetType_show == 1) or defCardInfo.isCounter == false then
       (table.insert)(defCards, defCard)
     end
   end
@@ -83,9 +84,9 @@ SkillParse.Init = function(atkEndCallBack, skillShowConfig, ...)
               if v.isCounter == false and v.defCardUid == atkCard:GetCardUid() then
                 do
                   (table.insert)(defCardsInfo, v)
-                  -- DECOMPILER ERROR at PC164: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                  -- DECOMPILER ERROR at PC173: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                  -- DECOMPILER ERROR at PC164: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC173: LeaveBlock: unexpected jumping out IF_STMT
 
                 end
               end
@@ -154,7 +155,7 @@ ChangeAtkState = function(delayTime, state, loop, ...)
   end
 end
 
-ChangeDefState = function(delayTime, state, lastAtk, hitEffect, ...)
+ChangeDefState = function(delayTime, state, lastAtk, hitEffect, noChangeHp, ...)
   -- function num : 0_6 , upvalues : totalDefCards, _ENV, hurtTableList, SkillParse, atkInfo, setTimeout
   if not delayTime then
     delayTime = 0
@@ -164,7 +165,7 @@ ChangeDefState = function(delayTime, state, lastAtk, hitEffect, ...)
   end
   if totalDefCards and #totalDefCards > 0 then
     local callback = function(...)
-    -- function num : 0_6_0 , upvalues : _ENV, totalDefCards, hurtTableList, SkillParse, atkInfo, hitEffect, lastAtk, setTimeout
+    -- function num : 0_6_0 , upvalues : _ENV, totalDefCards, hurtTableList, SkillParse, atkInfo, noChangeHp, hitEffect, lastAtk, setTimeout
     for i,defCard in ipairs(totalDefCards) do
       do
         local hurtTable = hurtTableList[i]
@@ -172,32 +173,40 @@ ChangeDefState = function(delayTime, state, lastAtk, hitEffect, ...)
         if atkInfo then
           local isTreatment = not hurtData or atkInfo.isTreatment
         end
-        defCard:ChangeHp(hurtData, atkInfo, nil, nil, #hurtTable <= SkillParse.curHitIndex, SkillParse.curHitIndex)
-        if SkillParse.curHitIndex == 1 then
-          (BattlePlay.PlayBuff)(atkInfo, nil, nil, BattleBuffSettleRoundType.BEFORE_ATTACK, BattlePlaySettleRoundType.FIRST_ATTACK)
-          if isTreatment ~= true then
-            (AudioManager.PlayBattleVoice)(defCard:GetFashionId(), CVAudioType.HitBubble)
-          end
-        end
-        defCard:PlayHitEffect(atkInfo, true, nil, nil, hitEffect)
-        if #hurtTable <= SkillParse.curHitIndex then
-          if lastAtk then
-            loge("-------------技能最后一下伤害")
-            setTimeout(0.4, function(...)
+        if #hurtTable > SkillParse.curHitIndex then
+          do
+            defCard:ChangeHp(hurtData, atkInfo, nil, nil, noChangeHp, SkillParse.curHitIndex)
+            if SkillParse.curHitIndex == 1 then
+              (BattlePlay.PlayBuff)(atkInfo, nil, nil, BattleBuffSettleRoundType.BEFORE_ATTACK, BattlePlaySettleRoundType.FIRST_ATTACK)
+              if isTreatment ~= true then
+                (AudioManager.PlayBattleVoice)(defCard:GetFashionId(), CVAudioType.HitBubble)
+              end
+            end
+            defCard:PlayHitEffect(atkInfo, true, nil, nil, hitEffect)
+            if #hurtTable <= SkillParse.curHitIndex then
+              if lastAtk then
+                loge("-------------技能最后一下伤害")
+                setTimeout(0.4, function(...)
       -- function num : 0_6_0_0 , upvalues : defCard
       defCard:DealAfterAtk()
     end
 )
-          end
-          if SkillParse.atkEndCallBack then
-            (SkillParse.atkEndCallBack)()
-            SkillParse.atkEndCallBack = nil
+              end
+              if SkillParse.atkEndCallBack then
+                (SkillParse.atkEndCallBack)()
+                SkillParse.atkEndCallBack = nil
+              end
+            end
+            -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+            -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out IF_STMT
+
           end
         end
       end
     end
     SkillParse.curHitIndex = SkillParse.curHitIndex + 1
-    -- DECOMPILER ERROR: 4 unprocessed JMP targets
+    -- DECOMPILER ERROR: 5 unprocessed JMP targets
   end
 
     if delayTime == 0 then

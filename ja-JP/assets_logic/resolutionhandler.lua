@@ -9,6 +9,7 @@ local self = ResolutionHandler
 self.Width = _designScreenWidth
 self.Height = _designScreenHeight
 self.AdaptOffset = {X = 0, Y = 0}
+self.ScreenScale = {X = 1, Y = 1}
 self.UIscale = 0.01333333
 ResolutionHandler.Init = function(...)
   -- function num : 0_0 , upvalues : _screenWidth, _designScreenWidth, _screenHeight, _designScreenHeight, self, _ENV
@@ -31,6 +32,14 @@ ResolutionHandler.Init = function(...)
     (self.AdaptOffset).X = (dx - _designScreenWidth) * 0.5
     self.Width = dx
   end
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  (self.ScreenScale).X = self.Width / _screenWidth
+  -- DECOMPILER ERROR at PC40: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  (self.ScreenScale).Y = self.Height / _screenHeight
   self.UIscale = (((((((CS.FairyGUI).Stage).inst).gameObject).transform):Find("GRoot/UILayer")).lossyScale).x
 end
 

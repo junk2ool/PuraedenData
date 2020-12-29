@@ -949,6 +949,14 @@ ActorData.GetGoodsCount = function(id, type, ...)
   else
     if type == PropType.ASSET then
       return (self.GetAssetCount)(tonumber(id))
+    else
+      if type == PropType.SEED then
+        return (HomelandData.GetSeedNumById)(id)
+      else
+        if type == PropType.FURNITURE then
+          return (HomelandData.GetFurnitureAmount)(id)
+        end
+      end
     end
   end
 end

@@ -114,6 +114,9 @@ BaseWindowNameData = {
 [4006] = {id = 4006, window_name = "GuildBossMainWindow", rule_des = "0:88304005", red_dot_max = 7}
 , 
 [5001] = {id = 5001, window_name = "ActivityMainWindow", red_dot_max = 7}
+, 
+[6001] = {id = 6001, window_name = "HomelandRoomWindow", rule_des = "0:88304007", red_dot_max = 7}
+, 
+[6002] = {id = 6002, window_name = "HomelandFarmWindow", rule_des = "0:88304008", red_dot_max = 7, pic_path = "Guide:FamilyFarm_001,Guide:FamilyFarm_002,Guide:FamilyFarm_003,Guide:FamilyFarm_004,Guide:FamilyFarm_005,Guide:FamilyFarm_006", pic_content = "88900401,88900402,88900403,88900404,88900405,88900406"}
 }
-return BaseWindowNameData
 

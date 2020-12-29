@@ -4420,5 +4420,72 @@ BaseSoundPathData = {
 [230160311] = {id = 230160311, play_frame = 69, path = "sfx_xiongmao_small_wh_69fr", bank = "xiongmao"}
 , 
 [230160312] = {id = 230160312, play_frame = 92, path = "sfx_xiongmao_small_tx_92fr", bank = "xiongmao"}
+, 
+[222140101] = {id = 222140101, play_frame = 5, path = "sfx_saierwei_ny_big_tx_5fr", bank = "saierwei_ny"}
+, 
+[222140102] = {id = 222140102, play_frame = 33, path = "sfx_saierwei_ny_big_tx_33fr", bank = "saierwei_ny"}
+, 
+[222140103] = {id = 222140103, play_frame = 64, path = "sfx_saierwei_ny_big_tx_64fr", bank = "saierwei_ny"}
+, 
+[222140104] = {id = 222140104, play_frame = 165, path = "sfx_saierwei_ny_big_tx_165fr", bank = "saierwei_ny"}
+, 
+[222140105] = {id = 222140105, play_frame = 170, path = "sfx_saierwei_ny_big_tx_170fr", bank = "saierwei_ny"}
+, 
+[222140106] = {id = 222140106, play_frame = 175, path = "sfx_saierwei_ny_big_tx_175fr", bank = "saierwei_ny"}
+, 
+[222140107] = {id = 222140107, play_frame = 188, path = "sfx_saierwei_ny_big_tx_188fr", bank = "saierwei_ny"}
+, 
+[222140108] = {id = 222140108, play_frame = 199, path = "sfx_saierwei_ny_big_tx_199fr", bank = "saierwei_ny"}
+, 
+[222140109] = {id = 222140109, play_frame = 216, path = "sfx_saierwei_ny_big_tx_216fr", bank = "saierwei_ny"}
+, 
+[222140110] = {id = 222140110, play_frame = 234, path = "sfx_saierwei_ny_big_tx_234fr", bank = "saierwei_ny"}
+, 
+[222140111] = {id = 222140111, play_frame = 253, path = "sfx_saierwei_ny_big_tx_253fr", bank = "saierwei_ny"}
+, 
+[222140201] = {id = 222140201, play_frame = 30, path = "sfx_saierwei_ny_pt_wh_30fr", bank = "saierwei_ny"}
+, 
+[222140202] = {id = 222140202, play_frame = 39, path = "sfx_saierwei_ny_pt_tx_39fr", bank = "saierwei_ny"}
+, 
+[222140203] = {id = 222140203, play_frame = 50, path = "sfx_saierwei_ny_pt_tx_50fr", bank = "saierwei_ny"}
+, 
+[222140301] = {id = 222140301, play_frame = 6, path = "sfx_saierwei_ny_small_tx_6fr", bank = "saierwei_ny"}
+, 
+[222140302] = {id = 222140302, play_frame = 82, path = "sfx_saierwei_ny_small_tx_82fr", bank = "saierwei_ny"}
+, 
+[222140303] = {id = 222140303, play_frame = 104, path = "sfx_saierwei_ny_small_tx_104fr", bank = "saierwei_ny"}
+, 
+[230170101] = {id = 230170101, play_frame = 10, path = "sfx_fulangxisika_ny_big_wh_10fr", bank = "fulangxisika_ny"}
+, 
+[230170102] = {id = 230170102, play_frame = 47, path = "sfx_fulangxisika_ny_big_wh_47fr", bank = "fulangxisika_ny"}
+, 
+[230170103] = {id = 230170103, play_frame = 129, path = "sfx_fulangxisika_ny_big_tx_129fr", bank = "fulangxisika_ny"}
+, 
+[230170104] = {id = 230170104, play_frame = 169, path = "sfx_fulangxisika_ny_big_tx_169fr", bank = "fulangxisika_ny"}
+, 
+[230170105] = {id = 230170105, play_frame = 213, path = "sfx_fulangxisika_ny_big_tx_213fr", bank = "fulangxisika_ny"}
+, 
+[230170106] = {id = 230170106, play_frame = 230, path = "sfx_fulangxisika_ny_big_tx_230fr", bank = "fulangxisika_ny"}
+, 
+[230170107] = {id = 230170107, play_frame = 239, path = "sfx_fulangxisika_ny_big_tx_239fr", bank = "fulangxisika_ny"}
+, 
+[230170108] = {id = 230170108, play_frame = 265, path = "sfx_fulangxisika_ny_big_tx_265fr", bank = "fulangxisika_ny"}
+, 
+[230170109] = {id = 230170109, play_frame = 378, path = "sfx_fulangxisika_ny_big_tx_378fr", bank = "fulangxisika_ny"}
+, 
+[230170110] = {id = 230170110, play_frame = 409, path = "sfx_fulangxisika_ny_big_tx_409fr", bank = "fulangxisika_ny"}
+, 
+[230170111] = {id = 230170111, play_frame = 460, path = "sfx_fulangxisika_ny_big_tx_460fr", bank = "fulangxisika_ny"}
+, 
+[230170112] = {id = 230170112, play_frame = 495, path = "sfx_fulangxisika_ny_big_tx_495fr", bank = "fulangxisika_ny"}
+, 
+[230170201] = {id = 230170201, play_frame = 46, path = "sfx_fulangxisika_ny_pt_wh_46fr", bank = "fulangxisika_ny"}
+, 
+[230170202] = {id = 230170202, play_frame = 66, path = "sfx_fulangxisika_ny_pt_tx_66fr", bank = "fulangxisika_ny"}
+, 
+[230170301] = {id = 230170301, play_frame = 7, path = "sfx_fulangxisika_ny_small_wh_7fr", bank = "fulangxisika_ny"}
+, 
+[230170302] = {id = 230170302, play_frame = 68, path = "sfx_fulangxisika_ny_small_tx_68fr", bank = "fulangxisika_ny"}
 }
+return BaseSoundPathData
 

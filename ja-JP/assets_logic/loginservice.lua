@@ -93,6 +93,9 @@ LoginService.ReqLogout = function(...)
   if EquiptData then
     (EquiptData.ClearEquipData)()
   end
+  if HomelandData then
+    (HomelandData.ClearData)()
+  end
   if PlotDungeonMgr then
     (PlotDungeonMgr.RevertDungeonData)()
   end
@@ -279,37 +282,38 @@ LoginService.OnResAlert = function(msg, ...)
           local config = (Util.GetConfigDataByID)(id)
           if config then
             content = (string.format)(content, config.name)
+          else
+            content = (string.format)(content, id)
           end
-        end
-      end
-    end
-  end
-  do
-    if msgId == (Proto.MsgIdByName).ReqArenaFight then
-      (MessageMgr.SendCenterTips)((PUtil.get)(60000503))
-      if UIMgr:IsWindowOpen((WinResConfig.FormationWindow).name) then
-        UIMgr:CloseWindow((WinResConfig.FormationWindow).name)
-      end
-      ;
-      (ArenaService.ReqArenaData)(ArenaRefreshDataType.Rank)
-    else
-      if type == (ProtoEnum.E_ALERT_TYPE).WARN then
-        needQuitBattle = true
-        local btnText = nil
-        if msgId < 0 then
-          if msgId == -1 then
-            btnText = (PUtil.get)(40000015)
-          end
-          ;
-          (MsgWaiterObj.ClearCheckTimer)()
-          ;
-          (ActorMgr.RemoveHeartUpdate)()
-          if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
-            UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_BATTLE_PAUSE)
-          end
-        end
-        ;
-        (MessageMgr.OpenSoloConfirmWindow)(content, function(...)
+        else
+          do
+            do
+              content = (string.format)(content, param)
+              if msgId == (Proto.MsgIdByName).ReqArenaFight then
+                (MessageMgr.SendCenterTips)((PUtil.get)(60000503))
+                if UIMgr:IsWindowOpen((WinResConfig.FormationWindow).name) then
+                  UIMgr:CloseWindow((WinResConfig.FormationWindow).name)
+                end
+                ;
+                (ArenaService.ReqArenaData)(ArenaRefreshDataType.Rank)
+              else
+                if type == (ProtoEnum.E_ALERT_TYPE).WARN then
+                  needQuitBattle = true
+                  local btnText = nil
+                  if msgId < 0 then
+                    if msgId == -1 then
+                      btnText = (PUtil.get)(40000015)
+                    end
+                    ;
+                    (MsgWaiterObj.ClearCheckTimer)()
+                    ;
+                    (ActorMgr.RemoveHeartUpdate)()
+                    if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
+                      UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_BATTLE_PAUSE)
+                    end
+                  end
+                  ;
+                  (MessageMgr.OpenSoloConfirmWindow)(content, function(...)
     -- function num : 0_7_0 , upvalues : msgId, _ENV
     if msgId == -1 or msgId == -2 or msgId == -3 then
       (LoginMgr.ReturnToLoginWindow)()
@@ -330,34 +334,39 @@ LoginService.OnResAlert = function(msg, ...)
     end
   end
 , nil, btnText)
-      else
-        do
-          if type == (ProtoEnum.E_ALERT_TYPE).NOTICE then
-            loge("跑马灯来了。。。。。。。。。。。。。。。")
-            local noticeData = ((TableData.gTable).BaseNoticeData)[msgId]
-            local playerIndex = (ActorData.GetPlayerIndex)()
-            local SettingOpen = tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.SCROLL_INFO, "0"))
-            if SettingOpen == 0 or msg.playerIndex and playerIndex == msg.playerIndex and noticeData.is_lottery_show == 1 then
-              loge("跑马灯关闭")
-              return 
-            end
-            if noticeData then
-              local remark = noticeData.remark
-              local noticeContent = nil
-              if remark and not (Util.StringIsNullOrEmpty)(remark) then
-                local cons = split(content, ",")
-                noticeContent = (string.format)(remark, cons[1], cons[2], cons[3], cons[4], cons[5], cons[6])
-              else
-                do
-                  noticeContent = content
-                  if tonumber(noticeData.replace) ~= 1 then
-                    do
-                      do
-                        (MessageMgr.SendNoticeMsg)(noticeContent, not (LoginService.CheckIsShowNotice)(noticeData.show_function_ids))
-                        ;
-                        (MessageMgr.SendNoticeMsg)(content)
-                        loge("跑马灯" .. msgId .. "未找到")
-                        -- DECOMPILER ERROR: 3 unprocessed JMP targets
+                else
+                  do
+                    if type == (ProtoEnum.E_ALERT_TYPE).NOTICE then
+                      loge("跑马灯来了。。。。。。。。。。。。。。。")
+                      local noticeData = ((TableData.gTable).BaseNoticeData)[msgId]
+                      local playerIndex = (ActorData.GetPlayerIndex)()
+                      local SettingOpen = tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.SCROLL_INFO, "0"))
+                      if SettingOpen == 0 or msg.playerIndex and playerIndex == msg.playerIndex and noticeData.is_lottery_show == 1 then
+                        loge("跑马灯关闭")
+                        return 
+                      end
+                      if noticeData then
+                        local remark = noticeData.remark
+                        local noticeContent = nil
+                        if remark and not (Util.StringIsNullOrEmpty)(remark) then
+                          local cons = split(content, ",")
+                          noticeContent = (string.format)(remark, cons[1], cons[2], cons[3], cons[4], cons[5], cons[6])
+                        else
+                          do
+                            noticeContent = content
+                            if tonumber(noticeData.replace) ~= 1 then
+                              do
+                                do
+                                  (MessageMgr.SendNoticeMsg)(noticeContent, not (LoginService.CheckIsShowNotice)(noticeData.show_function_ids))
+                                  ;
+                                  (MessageMgr.SendNoticeMsg)(content)
+                                  loge("跑马灯" .. msgId .. "未找到")
+                                  -- DECOMPILER ERROR: 3 unprocessed JMP targets
+                                end
+                              end
+                            end
+                          end
+                        end
                       end
                     end
                   end

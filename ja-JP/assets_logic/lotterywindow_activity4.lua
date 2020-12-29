@@ -3,11 +3,10 @@
 LotteryWindow_Activity4 = {}
 local LotteryCardId = {single = 24000091, ten = 24000092, day = 24000093}
 local CostType = {Free = 1, Ticket = 2, Diamond = 3}
-local LotteryType = {Card = 1, Equip = 2, Coupon = 3, Fresh = 4, ShilianBiChu = 6, HuoDongUp = 7, HuoDongUp2 = 8, HuoDongUp3 = 9, HuoDongUp4 = 10}
 local countTimer = nil
 local lotteryType = LotteryType.HuoDongUp4
 local fx_main, uis, beginTime, endTime = nil, nil, nil, nil
--- DECOMPILER ERROR at PC25: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC16: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.RefreshWindow = function(_uis, ...)
   -- function num : 0_0 , upvalues : uis, _ENV
@@ -18,7 +17,7 @@ LotteryWindow_Activity4.RefreshWindow = function(_uis, ...)
   (LotteryWindow_Activity4.PreLoadFxMain)(uis)
 end
 
--- DECOMPILER ERROR at PC28: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC19: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.HideOrShowFxMain = function(isShow, ...)
   -- function num : 0_1 , upvalues : fx_main
@@ -27,7 +26,7 @@ LotteryWindow_Activity4.HideOrShowFxMain = function(isShow, ...)
   end
 end
 
--- DECOMPILER ERROR at PC31: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC22: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.PreLoadFxMain = function(uis, ...)
   -- function num : 0_2 , upvalues : _ENV, lotteryType, fx_main
@@ -107,7 +106,7 @@ LotteryWindow_Activity4.PreLoadFxMain = function(uis, ...)
   end
 end
 
--- DECOMPILER ERROR at PC34: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC25: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.ReceiveInitData = function(...)
   -- function num : 0_3 , upvalues : _ENV, beginTime, endTime, countTimer, uis, LotteryCardId
@@ -155,7 +154,7 @@ LotteryWindow_Activity4.ReceiveInitData = function(...)
   (LotteryWindow_Activity4.SetButtonInfo)(((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).SpecialOneTimeBtn, LotteryCardId.day, 0, lData.dayLottery)
 end
 
--- DECOMPILER ERROR at PC37: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC28: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound, ...)
   -- function num : 0_4 , upvalues : _ENV, uis, LotteryCardId, beginTime, endTime, CostType
@@ -303,7 +302,7 @@ LotteryWindow_Activity4.SetButtonInfo = function(btn, id, freeNum, dayLottery, s
   -- DECOMPILER ERROR: 16 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC40: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC31: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.ReceiveDrawedData = function(para, ...)
   -- function num : 0_5 , upvalues : _ENV, lotteryType
@@ -317,7 +316,7 @@ LotteryWindow_Activity4.ReceiveDrawedData = function(para, ...)
 , para)
 end
 
--- DECOMPILER ERROR at PC43: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC34: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.ShowResult = function(para, ...)
   -- function num : 0_6 , upvalues : _ENV
@@ -326,7 +325,7 @@ LotteryWindow_Activity4.ShowResult = function(para, ...)
   (LotteryMgr.HideAllBackGroundEffects)()
 end
 
--- DECOMPILER ERROR at PC46: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC37: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity4.OnClose = function(...)
   -- function num : 0_7 , upvalues : uis, _ENV, fx_main

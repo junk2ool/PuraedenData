@@ -191,7 +191,9 @@ ActorService.OnResGoodsChange = function(msg, ...)
     if UIMgr:IsWindowOpen((WinResConfig.BagWindow).name) then
       UIMgr:SendWindowMessage((WinResConfig.BagWindow).name, (WindowMsgEnum.BagWindow).E_MSG_BAG_REFRESH)
     end
-    UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_CTRL_REDDOT)
+    if UIMgr:IsWindowOpen((WinResConfig.AdventureGameWindow).name) then
+      UIMgr:SendWindowMessage((WinResConfig.AdventureGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_REFRESH_CTRL_REDDOT)
+    end
   end
   ;
   (EquiptMgr.AcquireEquipments)(msg.equip)

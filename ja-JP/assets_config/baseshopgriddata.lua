@@ -162,5 +162,151 @@ BaseShopGridData = {
 [23005043] = {id = 23005043, shop_type = 5, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "43"}
 , 
 [23005044] = {id = 23005044, shop_type = 5, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "44"}
+, 
+[23006001] = {id = 23006001, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006002] = {id = 23006002, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006003] = {id = 23006003, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006004] = {id = 23006004, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006005] = {id = 23006005, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006006] = {id = 23006006, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006007] = {id = 23006007, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006008] = {id = 23006008, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006009] = {id = 23006009, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006010] = {id = 23006010, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006011] = {id = 23006011, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006012] = {id = 23006012, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006013] = {id = 23006013, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006014] = {id = 23006014, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006015] = {id = 23006015, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006016] = {id = 23006016, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006017] = {id = 23006017, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006018] = {id = 23006018, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006019] = {id = 23006019, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006020] = {id = 23006020, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006021] = {id = 23006021, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006022] = {id = 23006022, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006023] = {id = 23006023, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006024] = {id = 23006024, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006025] = {id = 23006025, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006026] = {id = 23006026, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006027] = {id = 23006027, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006028] = {id = 23006028, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006029] = {id = 23006029, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006030] = {id = 23006030, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006031] = {id = 23006031, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006032] = {id = 23006032, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006033] = {id = 23006033, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006034] = {id = 23006034, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006035] = {id = 23006035, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006036] = {id = 23006036, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006037] = {id = 23006037, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006038] = {id = 23006038, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006039] = {id = 23006039, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006040] = {id = 23006040, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006041] = {id = 23006041, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006042] = {id = 23006042, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006043] = {id = 23006043, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006044] = {id = 23006044, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006045] = {id = 23006045, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006046] = {id = 23006046, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006047] = {id = 23006047, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006048] = {id = 23006048, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006049] = {id = 23006049, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006050] = {id = 23006050, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006051] = {id = 23006051, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006052] = {id = 23006052, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006053] = {id = 23006053, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006054] = {id = 23006054, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006055] = {id = 23006055, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006056] = {id = 23006056, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006057] = {id = 23006057, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006058] = {id = 23006058, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006059] = {id = 23006059, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006060] = {id = 23006060, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006061] = {id = 23006061, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006062] = {id = 23006062, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006063] = {id = 23006063, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006064] = {id = 23006064, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006065] = {id = 23006065, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006066] = {id = 23006066, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006067] = {id = 23006067, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006068] = {id = 23006068, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23006069] = {id = 23006069, shop_type = 6, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23007001] = {id = 23007001, shop_type = 7, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23007002] = {id = 23007002, shop_type = 7, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23007003] = {id = 23007003, shop_type = 7, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
+, 
+[23008001] = {id = 23008001, shop_type = 8, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
 }
 

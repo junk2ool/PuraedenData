@@ -138,6 +138,8 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_ATTACK)
+      ;
+      (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT_ALL)
       if atkCard:IsDead() ~= true then
         (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_ATTACK)
         ;
@@ -173,6 +175,8 @@ BattleAtk.InsetAttackFailInfo = function(atkCard, ...)
   (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
   ;
   (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_ATTACK)
+  ;
+  (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT_ALL)
   ;
   (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_ATTACK)
   ;
@@ -241,6 +245,8 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, ...)
               end
               ;
               (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT)
+              ;
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT_ALL)
               ;
               (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
               if atkCard:IsDead() ~= true then
@@ -337,6 +343,8 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
               ;
               (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT)
               ;
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT_ALL)
+              ;
               (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
               if atkCard:IsDead() ~= true then
                 (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_ATTACK)
@@ -398,6 +406,8 @@ BattleAtk.InsertSkillInfo = function(curSkill, ...)
           atkInfo.atkFail = true
           ;
           (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT)
+          ;
+          (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT_ALL)
           ;
           (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
           if atkCard:IsDead() ~= true then

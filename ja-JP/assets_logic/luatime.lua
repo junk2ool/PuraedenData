@@ -122,8 +122,31 @@ LuaTime.GetTimeStr = function(time, showDay, ...)
   end
 end
 
-LuaTime.GetTimeStrVersion2 = function(time, showDay, ...)
+LuaTime.GetTimeStrDHM = function(time, ...)
   -- function num : 0_6 , upvalues : _ENV
+  local hours, minutes, seconds = nil, nil, nil
+  hours = (math.floor)(time / 3600)
+  time = time % 3600
+  minutes = (math.floor)(time / 60)
+  seconds = time % 60
+  if hours > 24 then
+    local day = (math.floor)(hours / 24)
+    return day .. "d"
+  else
+    do
+      if hours > 0 and hours < 24 then
+        return hours .. "h"
+      else
+        if hours <= 0 then
+          return minutes .. "m"
+        end
+      end
+    end
+  end
+end
+
+LuaTime.GetTimeStrVersion2 = function(time, showDay, ...)
+  -- function num : 0_7 , upvalues : _ENV
   local arg1, arg2, arg3, arg4 = nil, nil, nil, nil
   if time < 3600 then
     arg1 = (math.floor)(time / 60)
@@ -148,16 +171,35 @@ LuaTime.GetTimeStrVersion2 = function(time, showDay, ...)
 end
 
 LuaTime.GetTimeWithoutSeondsStr = function(time, ...)
-  -- function num : 0_7 , upvalues : _ENV
+  -- function num : 0_8 , upvalues : _ENV
   local hours, minutes, seconds = nil, nil, nil
   hours = (math.floor)(time / 3600)
   time = time % 3600
   minutes = (math.floor)(time / 60)
+  if minutes == 0 and hours == 0 then
+    minutes = 1
+  end
   return (string.format)("%02d:%02d", hours, minutes)
 end
 
+LuaTime.GetTimeWithoutSeondsStr_Ceil = function(time, ...)
+  -- function num : 0_9 , upvalues : _ENV
+  local hours, minutes, seconds = nil, nil, nil
+  hours = (math.floor)(time / 3600)
+  time = time % 3600
+  minutes = (math.floor)(time / 60)
+  if hours == 0 and minutes == 0 then
+    minutes = "01"
+  end
+  if hours > 99 then
+    return "99"
+  else
+    return (string.format)("%02d:%02d", hours, minutes)
+  end
+end
+
 LuaTime.GetTimeNum = function(time, ...)
-  -- function num : 0_8 , upvalues : _ENV
+  -- function num : 0_10 , upvalues : _ENV
   local hours, minutes, seconds = nil, nil, nil
   hours = (math.floor)(time / 3600)
   time = time % 3600
@@ -167,7 +209,7 @@ LuaTime.GetTimeNum = function(time, ...)
 end
 
 LuaTime.CheckTimeUp = function(time, ...)
-  -- function num : 0_9 , upvalues : _ENV, LuaTime
+  -- function num : 0_11 , upvalues : _ENV, LuaTime
   time = tonumber(time)
   if time == nil then
     return false
@@ -177,43 +219,90 @@ LuaTime.CheckTimeUp = function(time, ...)
 end
 
 LuaTime.GetTimeStamp = function(...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   return (math.floor)((ActorData.GetServerTime)() * 0.001)
 end
 
-LuaTime.CountDown = function(time, text, func, showDay, ...)
-  -- function num : 0_11 , upvalues : _ENV, LuaTime
+LuaTime.CountDown = function(time, text, func, showDay, perFunc, ...)
+  -- function num : 0_13 , upvalues : _ENV, LuaTime
   time = (math.floor)(time)
   local timerInfo = {}
   text.text = (LuaTime.GetTimeStr)(time, showDay)
   timerInfo.timer = (SimpleTimer.new)(1, time, function(timer, tickTime, ...)
-    -- function num : 0_11_0 , upvalues : text, LuaTime, time, showDay
+    -- function num : 0_13_0 , upvalues : text, LuaTime, time, showDay, perFunc
     text.text = (LuaTime.GetTimeStr)(time - tickTime, showDay)
+    if perFunc then
+      perFunc(tickTime)
+    end
   end
 , function(...)
-    -- function num : 0_11_1 , upvalues : func
+    -- function num : 0_13_1 , upvalues : func
     if func ~= nil then
       func()
     end
   end
 )
   timerInfo.Stop = function(self, ...)
-    -- function num : 0_11_2
+    -- function num : 0_13_2
     (self.timer):stop()
   end
 
   timerInfo.Complete = function(self, ...)
-    -- function num : 0_11_3
+    -- function num : 0_13_3
     (self.timer):Comp()
   end
 
   timerInfo.Pause = function(self, ...)
-    -- function num : 0_11_4
+    -- function num : 0_13_4
     (self.timer):pause()
   end
 
   timerInfo.Resume = function(self, ...)
-    -- function num : 0_11_5
+    -- function num : 0_13_5
+    (self.timer):resume()
+  end
+
+  ;
+  (timerInfo.timer):start()
+  return timerInfo
+end
+
+LuaTime.CountDownForFarm = function(time, text, func, showDay, perFunc, ...)
+  -- function num : 0_14 , upvalues : _ENV, LuaTime
+  time = (math.ceil)(time)
+  local timerInfo = {}
+  text.text = (LuaTime.GetTimeWithoutSeondsStr)(time)
+  timerInfo.timer = (SimpleTimer.new)(1, time, function(timer, tickTime, ...)
+    -- function num : 0_14_0 , upvalues : text, LuaTime, time, perFunc
+    text.text = (LuaTime.GetTimeWithoutSeondsStr)(time - tickTime)
+    if perFunc then
+      perFunc(tickTime)
+    end
+  end
+, function(...)
+    -- function num : 0_14_1 , upvalues : func
+    if func ~= nil then
+      func()
+    end
+  end
+)
+  timerInfo.Stop = function(self, ...)
+    -- function num : 0_14_2
+    (self.timer):stop()
+  end
+
+  timerInfo.Complete = function(self, ...)
+    -- function num : 0_14_3
+    (self.timer):Comp()
+  end
+
+  timerInfo.Pause = function(self, ...)
+    -- function num : 0_14_4
+    (self.timer):pause()
+  end
+
+  timerInfo.Resume = function(self, ...)
+    -- function num : 0_14_5
     (self.timer):resume()
   end
 
@@ -223,7 +312,7 @@ LuaTime.CountDown = function(time, text, func, showDay, ...)
 end
 
 LuaTime.InitConfigStr = function(value, ...)
-  -- function num : 0_12 , upvalues : _ENV, LuaTime
+  -- function num : 0_15 , upvalues : _ENV, LuaTime
   if (Util.StringIsNullOrEmpty)(value) then
     return 
   end
@@ -248,7 +337,7 @@ LuaTime.InitConfigStr = function(value, ...)
 end
 
 LuaTime.AnalyseSpecifedTime = function(arg1, arg2, ...)
-  -- function num : 0_13 , upvalues : _ENV, LuaTime, DurationType
+  -- function num : 0_16 , upvalues : _ENV, LuaTime, DurationType
   if (Util.StringIsNullOrEmpty)(arg1) or (Util.StringIsNullOrEmpty)(arg2) then
     return 
   end
@@ -306,19 +395,19 @@ LuaTime.AnalyseSpecifedTime = function(arg1, arg2, ...)
 end
 
 LuaTime.CoverTimeZone = function(timeStamp, ...)
-  -- function num : 0_14 , upvalues : LuaTime, _ENV
+  -- function num : 0_17 , upvalues : LuaTime, _ENV
   local timezone = (LuaTime.GetTimeZone)()
   return timeStamp - timezone + 3600 * Game.timeZone
 end
 
 LuaTime.GetTimeZone = function(...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV
   local now = (os.time)()
   return (os.difftime)(now, (os.time)((os.date)("!*t", now)))
 end
 
 LuaTime.HourMin = function(str, ...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_19 , upvalues : _ENV
   local array = {}
   local hour = tonumber((string.sub)(str, 1, 2))
   local minute = tonumber((string.sub)(str, 3))
@@ -332,7 +421,7 @@ LuaTime.HourMin = function(str, ...)
 end
 
 LuaTime.keepTime = function(str, ...)
-  -- function num : 0_17 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   if (string.len)(str) < 2 then
     loge("配置错误")
     return 
@@ -360,7 +449,7 @@ LuaTime.keepTime = function(str, ...)
 end
 
 LuaTime.GetRangeTime = function(str, ...)
-  -- function num : 0_18 , upvalues : LuaTime, _ENV
+  -- function num : 0_21 , upvalues : LuaTime, _ENV
   local time, keep = (LuaTime.InitConfigStr)(str)
   local startTime = (string.format)("%02d:%02d", time[1], time[2])
   local keepHour, keepMin = (LuaTime.GetTimeNum)(keep)
@@ -370,13 +459,13 @@ LuaTime.GetRangeTime = function(str, ...)
 end
 
 LuaTime.GetGameHour = function(time, ...)
-  -- function num : 0_19 , upvalues : _ENV
+  -- function num : 0_22 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return tonumber((os.date)("%H", (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)))
 end
 
 LuaTime.GetTimeWithTimezone = function(time, ...)
-  -- function num : 0_20 , upvalues : _ENV
+  -- function num : 0_23 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)
 end

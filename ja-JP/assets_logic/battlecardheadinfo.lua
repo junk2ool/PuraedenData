@@ -256,6 +256,12 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
             local uisBuff = GetBattle_BuffIconUis(buffIcon)
             local buffIconLoader = uisBuff.BuffIconLoader
             local loaderTxt = uisBuff.LoaderTxt
+            local buffConfig = (TableData.GetBaseSkillBuffData)(v.buffId)
+            if buffConfig.no_show_num and buffConfig.no_show_num == 1 then
+              loaderTxt.visible = false
+            else
+              loaderTxt.visible = true
+            end
             if buffIconLoader then
               buffIconLoader.url = GetResUrl(v.effectPath)
             end
@@ -270,15 +276,15 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
           do
             do
               buffIconList:AddChild(buffIcon)
-              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC60: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC73: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end

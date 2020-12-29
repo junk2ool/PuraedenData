@@ -269,9 +269,9 @@ local OpenLoginWindow = function(...)
           (AnnouncementMgr.OpenAnnouncement)(true)
         end
 )
+        ld("Friends")
       end
 )
-      ld("Friends")
     end
 )
     ;

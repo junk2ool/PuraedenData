@@ -227,7 +227,7 @@ BaseSlotsPoolData = {
 , 
 [24402508] = {id = 24402508, type = 15, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_prob = 165, reward_max = 165, sort = 5}
 , 
-[24403101] = {id = 24403101, type = 16, reward = "1:21122210:30", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
+[24403101] = {id = 24403101, type = 16, reward = "1:21122214:30", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
 , 
 [24403102] = {id = 24403102, type = 16, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_prob = 20, reward_max = 20, sort = 2}
 , 
@@ -241,7 +241,7 @@ BaseSlotsPoolData = {
 , 
 [24403107] = {id = 24403107, type = 16, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_prob = 165, reward_max = 165, sort = 4}
 , 
-[24403201] = {id = 24403201, type = 17, reward = "1:21122104:20", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
+[24403201] = {id = 24403201, type = 17, reward = "1:21122205:20", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
 , 
 [24403202] = {id = 24403202, type = 17, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_prob = 20, reward_max = 20, sort = 2}
 , 
@@ -255,7 +255,7 @@ BaseSlotsPoolData = {
 , 
 [24403207] = {id = 24403207, type = 17, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_prob = 165, reward_max = 165, sort = 4}
 , 
-[24403301] = {id = 24403301, type = 18, reward = "1:21122210:20", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
+[24403301] = {id = 24403301, type = 18, reward = "1:21122214:20", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
 , 
 [24403302] = {id = 24403302, type = 18, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_prob = 20, reward_max = 20, sort = 2}
 , 
@@ -269,7 +269,7 @@ BaseSlotsPoolData = {
 , 
 [24403307] = {id = 24403307, type = 18, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_prob = 165, reward_max = 165, sort = 4}
 , 
-[24403401] = {id = 24403401, type = 19, reward = "1:21122104:20", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
+[24403401] = {id = 24403401, type = 19, reward = "1:21122205:20", reward_lab = 1, reward_type = 1, reward_prob = 50, reward_max = 1, sort = 1}
 , 
 [24403402] = {id = 24403402, type = 19, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_prob = 20, reward_max = 20, sort = 2}
 , 
@@ -299,40 +299,38 @@ BaseSlotsPoolData = {
 , 
 [24403508] = {id = 24403508, type = 20, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_prob = 165, reward_max = 165, sort = 5}
 , 
-[24410101] = {id = 24410101, type = 101, reward = "1:21500610:1", reward_lab = 1, reward_type = 1, reward_prob = 92, reward_max = 1, sort = 1, group_icon = "Prize:y_21500610", intelligence = 3, reward_show = "1:21500610:1"}
+[24410101] = {id = 24410101, type = 101, reward = "1:21500610:1", reward_lab = 1, reward_type = 1, reward_prob = 100, reward_max = 1, sort = 1, group_icon = "Prize:y_21500610", intelligence = 3, reward_show = "1:21500610:1"}
 , 
-[24410102] = {id = 24410102, type = 101, reward = "1:21120000:4", reward_lab = 1, reward_type = 1, reward_prob = 920, reward_max = 10, sort = 2, group_icon = "Prize:y_21120000", intelligence = 3, tip_id = 21500614, reward_show = "1:21120000:4"}
+[24410102] = {id = 24410102, type = 101, reward = "1:21120000:4", reward_lab = 1, reward_type = 1, reward_prob = 1000, reward_max = 10, sort = 2, group_icon = "Prize:y_21120000", intelligence = 3, tip_id = 21500614, reward_show = "1:21120000:4"}
 , 
-[24410103] = {id = 24410103, type = 101, reward = "9:78601301:1", reward_lab = 1, reward_type = 1, reward_prob = 92, reward_max = 1, sort = 3, group_icon = "Prize:y_78601301", intelligence = 3, reward_show = "9:78601301:1"}
+[24410103] = {id = 24410103, type = 101, reward = "1:21500616:1", reward_lab = 1, reward_type = 1, reward_prob = 100, reward_max = 1, sort = 3, group_icon = "Prize:y_21500616", intelligence = 3, tip_id = 21500616, reward_show = "1:21140014:38,1:21140018:42,1:21140017:42,1:21140016:38,1:21140015:38,1:21140013:38"}
 , 
-[24410104] = {id = 24410104, type = 101, reward = "10:78610005:1", reward_lab = 1, reward_type = 1, reward_prob = 92, reward_max = 1, sort = 4, group_icon = "Prize:y_78610005", intelligence = 3, reward_show = "10:78610005:1"}
+[24410104] = {id = 24410104, type = 101, reward = "1:21120001:5", reward_lab = 2, reward_type = 2, reward_prob = 856, reward_max = 4, sort = 4, group_icon = "Prize:y_21120001", intelligence = 2, tip_id = 21500615, reward_show = "1:21120001:5"}
 , 
-[24410105] = {id = 24410105, type = 101, reward = "1:21120001:5", reward_lab = 2, reward_type = 2, reward_prob = 856, reward_max = 4, sort = 5, group_icon = "Prize:y_21120001", intelligence = 2, tip_id = 21500615, reward_show = "1:21120001:5"}
+[24410105] = {id = 24410105, type = 101, reward = "4:61080011:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 5, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080011:1"}
 , 
-[24410106] = {id = 24410106, type = 101, reward = "4:61080011:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 6, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080011:1"}
+[24410106] = {id = 24410106, type = 101, reward = "4:61080012:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 5, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080012:1"}
 , 
-[24410107] = {id = 24410107, type = 101, reward = "4:61080012:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 6, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080012:1"}
+[24410107] = {id = 24410107, type = 101, reward = "4:61080013:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 5, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080013:1"}
 , 
-[24410108] = {id = 24410108, type = 101, reward = "4:61080013:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 6, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080013:1"}
+[24410108] = {id = 24410108, type = 101, reward = "4:61080014:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 5, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080014:1"}
 , 
-[24410109] = {id = 24410109, type = 101, reward = "4:61080014:1", reward_lab = 2, reward_type = 2, reward_prob = 214, reward_max = 1, sort = 6, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080014:1"}
+[24410109] = {id = 24410109, type = 101, reward = "1:21500607:1", reward_lab = 2, reward_type = 2, reward_prob = 428, reward_max = 2, sort = 6, group_icon = "Prize:y_21500607", intelligence = 2, tip_id = 21500607, reward_show = "1:21140011:32,1:21140010:32,1:21140009:30,1:21140008:30,1:21140007:26,1:21140006:26"}
 , 
-[24410110] = {id = 24410110, type = 101, reward = "1:21500607:1", reward_lab = 2, reward_type = 2, reward_prob = 428, reward_max = 2, sort = 7, group_icon = "Prize:y_21500607", intelligence = 2, tip_id = 21500607, reward_show = "1:21140011:32,1:21140010:32,1:21140009:30,1:21140008:30,1:21140007:26,1:21140006:26"}
+[24410110] = {id = 24410110, type = 101, reward = "1:21500608:1", reward_lab = 2, reward_type = 2, reward_prob = 428, reward_max = 2, sort = 7, group_icon = "Prize:y_21500608", intelligence = 2, tip_id = 21500608, reward_show = "1:21140014:36,1:21140013:36,1:21140012:32,1:21140011:32,1:21140010:28,1:21140009:28"}
 , 
-[24410111] = {id = 24410111, type = 101, reward = "1:21500608:1", reward_lab = 2, reward_type = 2, reward_prob = 428, reward_max = 2, sort = 8, group_icon = "Prize:y_21500608", intelligence = 2, tip_id = 21500608, reward_show = "1:21140014:36,1:21140013:36,1:21140012:32,1:21140011:32,1:21140010:28,1:21140009:28"}
+[24410111] = {id = 24410111, type = 101, reward = "1:21500609:1", reward_lab = 2, reward_type = 2, reward_prob = 424, reward_max = 2, sort = 8, group_icon = "Prize:y_21500609", intelligence = 2, tip_id = 21500609, reward_show = "1:21140014:34,1:21140013:34,1:21140016:38,1:21140015:38,1:21140012:34,1:21140011:34"}
 , 
-[24410112] = {id = 24410112, type = 101, reward = "1:21500609:1", reward_lab = 2, reward_type = 2, reward_prob = 428, reward_max = 2, sort = 9, group_icon = "Prize:y_21500609", intelligence = 2, tip_id = 21500609, reward_show = "1:21140014:34,1:21140013:34,1:21140016:38,1:21140015:38,1:21140012:34,1:21140011:34"}
+[24410112] = {id = 24410112, type = 101, reward = "1:21500603:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 9, group_icon = "Prize:y_21500603", intelligence = 1, tip_id = 21500603, reward_show = "1:21140002:10,1:21140001:10"}
 , 
-[24410113] = {id = 24410113, type = 101, reward = "1:21500603:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 10, group_icon = "Prize:y_21500603", intelligence = 1, tip_id = 21500603, reward_show = "1:21140002:10,1:21140001:10"}
+[24410113] = {id = 24410113, type = 101, reward = "1:21500604:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 10, group_icon = "Prize:y_21500604", intelligence = 1, tip_id = 21500604, reward_show = "1:21140004:18,1:21140003:14,1:21140002:14"}
 , 
-[24410114] = {id = 24410114, type = 101, reward = "1:21500604:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 11, group_icon = "Prize:y_21500604", intelligence = 1, tip_id = 21500604, reward_show = "1:21140004:18,1:21140003:14,1:21140002:14"}
+[24410114] = {id = 24410114, type = 101, reward = "1:21500605:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 11, group_icon = "Prize:y_21500605", intelligence = 1, tip_id = 21500605, reward_show = "1:21140006:22,1:21140005:22,1:21140004:16,1:21140003:16"}
 , 
-[24410115] = {id = 24410115, type = 101, reward = "1:21500605:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 12, group_icon = "Prize:y_21500605", intelligence = 1, tip_id = 21500605, reward_show = "1:21140006:22,1:21140005:22,1:21140004:16,1:21140003:16"}
+[24410115] = {id = 24410115, type = 101, reward = "1:21500606:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 12, group_icon = "Prize:y_21500606", intelligence = 1, tip_id = 21500606, reward_show = "1:21140005:22,1:21140008:26,1:21140007:26,1:21140006:26,1:21140004:22"}
 , 
-[24410116] = {id = 24410116, type = 101, reward = "1:21500606:1", reward_lab = 2, reward_type = 2, reward_prob = 132, reward_max = 1, sort = 13, group_icon = "Prize:y_21500606", intelligence = 1, tip_id = 21500606, reward_show = "1:21140005:22,1:21140008:26,1:21140007:26,1:21140006:26,1:21140004:22"}
+[24410116] = {id = 24410116, type = 101, reward = "2:21100003:100000", reward_lab = 2, reward_type = 2, reward_prob = 2640, reward_max = 20, sort = 13, group_icon = "Prize:y_21100003", intelligence = 1, tip_id = 21500612, reward_show = "2:21100003:100000"}
 , 
-[24410117] = {id = 24410117, type = 101, reward = "2:21100003:100000", reward_lab = 2, reward_type = 2, reward_prob = 2640, reward_max = 20, sort = 14, group_icon = "Prize:y_21100003", intelligence = 1, tip_id = 21500612, reward_show = "2:21100003:100000"}
-, 
-[24410118] = {id = 24410118, type = 101, reward = "1:21110004:8", reward_lab = 2, reward_type = 2, reward_prob = 2640, reward_max = 20, sort = 15, group_icon = "Prize:y_21110004", intelligence = 1, tip_id = 21500613, reward_show = "1:21110004:8"}
+[24410117] = {id = 24410117, type = 101, reward = "1:21110004:8", reward_lab = 2, reward_type = 2, reward_prob = 2640, reward_max = 20, sort = 14, group_icon = "Prize:y_21110004", intelligence = 1, tip_id = 21500613, reward_show = "1:21110004:8"}
 }
 

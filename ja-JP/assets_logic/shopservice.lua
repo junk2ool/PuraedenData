@@ -18,9 +18,9 @@ end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
 
-ShopService.OnReqShopData = function(...)
+ShopService.OnReqShopData = function(flag, ...)
   -- function num : 0_1 , upvalues : _ENV
-  local m = {}
+  local m = {flag = flag or 0}
   ;
   (Net.Send)((Proto.MsgName).ReqShopData, m, (Proto.MsgName).ResShopData)
 end
@@ -29,7 +29,13 @@ end
 
 ShopService.OnResShopData = function(msg, ...)
   -- function num : 0_2 , upvalues : _ENV
-  (ShopMgr.InitShop)(msg)
+  if msg.flag == 0 then
+    (ShopMgr.InitShop)(msg)
+  else
+    if msg.flag == 1 then
+      (HomelandService.ResFarmShopTypeData)(msg)
+    end
+  end
 end
 
 -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
@@ -50,11 +56,15 @@ ShopService.OnResShopGridData = function(msg, ...)
     if msg.shopType == ShopType.ActivityDungeonShop then
       OpenWindow((WinResConfig.ActivityDungeonShopWindow).name, UILayer.HUD, msg)
     else
-      if not (ShopService.CheckIsContainFreeItem)(msg.shopGridData) then
-        (RedDotService.ReqRemoveRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Shop_Main, 23000000 + msg.shopType)
+      if msg.shopType == ShopType.Family_NormalShop or msg.shopType == ShopType.Family_SeedShop or msg.shopType == ShopType.Family_SecretShop then
+        (HomelandService.ResShopGridDataByType)(msg)
+      else
+        if not (ShopService.CheckIsContainFreeItem)(msg.shopGridData) then
+          (RedDotService.ReqRemoveRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Shop_Main, 23000000 + msg.shopType)
+        end
+        ;
+        (ShopMgr.InitShopGridData)(msg)
       end
-      ;
-      (ShopMgr.InitShopGridData)(msg)
     end
   end
 end
@@ -114,9 +124,13 @@ ShopService.OnResShopBuy = function(msg, ...)
     if msg.shopType == ShopType.ActivityDungeonShop then
       UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonShopWindow).name, (WindowMsgEnum.ActivityDungeonShopWindow).E_MSG_REFRESH_ITEMLIST, {data = msg.shopGridData})
     else
-      ;
-      (ShopMgr.SetShopGridData)(msg.shopGridData)
-      UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_REFRESH_ITEM)
+      if msg.shopType == ShopType.Family_NormalShop or msg.shopType == ShopType.Family_SeedShop or msg.shopType == ShopType.Family_SecretShop then
+        (HomelandService.ResShopBuy)(msg)
+      else
+        ;
+        (ShopMgr.SetShopGridData)(msg.shopGridData)
+        UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_REFRESH_ITEM)
+      end
     end
   end
 end

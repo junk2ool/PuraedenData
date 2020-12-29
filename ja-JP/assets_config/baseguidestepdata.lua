@@ -164,6 +164,9 @@ BaseGuideStepData = {
 [602] = {id = 602, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300106, bubble_text = "リーダー、こっちこっち！", bubble_pos = "-270:-20", guide_eff_offset = "-20:10", finger_state = 3, alpha = 0.45}
 , 
 [603] = {id = 603, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010023}
+, 
+[610] = {id = 610, full_screen = "0", req_severs = 1, window_name = 1001, ctrl_id = 100115, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45, qc_state = "hi"}
+, 
+[611] = {id = 611, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010024}
 }
-return BaseGuideStepData
 

@@ -967,8 +967,17 @@ end
 
 -- DECOMPILER ERROR at PC136: Confused about usage of register: R6 in 'UnsetPending'
 
-GuildMgr.ShowMemberList = function(...)
+GuildMgr.CheckMemberList = function(...)
   -- function num : 0_42 , upvalues : _ENV
+  if (ActorData.GetGuildID)() ~= 0 and (_G.next)(GuildData.MemberList) == nil then
+    (GuildService.ReqGuildMemberList)()
+  end
+end
+
+-- DECOMPILER ERROR at PC139: Confused about usage of register: R6 in 'UnsetPending'
+
+GuildMgr.ShowMemberList = function(...)
+  -- function num : 0_43 , upvalues : _ENV
   if GuildData.NeedUpdateMemberInfo then
     (GuildService.ReqGuildMemberList)()
   else
@@ -976,21 +985,23 @@ GuildMgr.ShowMemberList = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC139: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC142: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RecvMemberList = function(data, ...)
-  -- function num : 0_43 , upvalues : _ENV
+  -- function num : 0_44 , upvalues : _ENV
   (GuildData.InitMemberList)(data)
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   GuildData.NeedUpdateMemberInfo = false
+  UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_GULID_VISIT)
+  UIMgr:SendWindowMessage((WinResConfig.HomelandVisitRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_GULID_VISIT)
   UIMgr:SendWindowMessage((WinResConfig.GuildDetailWindow).name, (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_MEMBER)
 end
 
--- DECOMPILER ERROR at PC142: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC145: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.ShowGuildApplyList = function(...)
-  -- function num : 0_44 , upvalues : _ENV
+  -- function num : 0_45 , upvalues : _ENV
   if GuildData.NeedUpdateApplyInfo then
     (GuildService.ReqGuildReview)()
   else
@@ -998,12 +1009,12 @@ GuildMgr.ShowGuildApplyList = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC145: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC148: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RecvGuildReview = function(data, ...)
-  -- function num : 0_45 , upvalues : _ENV
+  -- function num : 0_46 , upvalues : _ENV
   (table.sort)(data, function(x, y, ...)
-    -- function num : 0_45_0
+    -- function num : 0_46_0
     do return x.applyTime < y.applyTime end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -1017,10 +1028,10 @@ GuildMgr.RecvGuildReview = function(data, ...)
   UIMgr:SendWindowMessage((WinResConfig.GuildDetailWindow).name, (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_APPLY)
 end
 
--- DECOMPILER ERROR at PC148: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC151: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.ReqSetGuildJoinCondition = function(value, ...)
-  -- function num : 0_46 , upvalues : _ENV
+  -- function num : 0_47 , upvalues : _ENV
   if value == nil or value < 0 then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000281))
     return 
@@ -1030,10 +1041,10 @@ GuildMgr.ReqSetGuildJoinCondition = function(value, ...)
   (GuildService.ReqSetGuildInfo)((ProtoEnum.GUILD_SET).COND_SET, value)
 end
 
--- DECOMPILER ERROR at PC151: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC154: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.ReqProcessApply = function(type, data, ...)
-  -- function num : 0_47 , upvalues : _ENV
+  -- function num : 0_48 , upvalues : _ENV
   if type == (ProtoEnum.GUILD_APPLY).PASS_APPLY then
     local levelConfig = ((TableData.gTable).BaseGuildLevelUpData)[(GuildData.GuildLevelConfig)[(GuildData.BaseInfo).level]]
     if levelConfig.max_member <= (GuildData.BaseInfo).memberCount then
@@ -1045,7 +1056,7 @@ GuildMgr.ReqProcessApply = function(type, data, ...)
       local listData = (Util.Copy)(GuildData.GuildApplyList)
       ;
       (table.sort)(listData, function(x, y, ...)
-    -- function num : 0_47_0
+    -- function num : 0_48_0
     do return y.fc < x.fc end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -1063,10 +1074,10 @@ GuildMgr.ReqProcessApply = function(type, data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC154: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC157: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RecvProcessApply = function(data, ...)
-  -- function num : 0_48 , upvalues : _ENV
+  -- function num : 0_49 , upvalues : _ENV
   local count = #data.objectIndex
   local ids = {}
   for i = 1, count do
@@ -1109,10 +1120,10 @@ GuildMgr.RecvProcessApply = function(data, ...)
   (GuildMgr.RefreshMemberCount)()
 end
 
--- DECOMPILER ERROR at PC157: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC160: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.SyncGuildData = function(data, ...)
-  -- function num : 0_49 , upvalues : _ENV, _currentPanel
+  -- function num : 0_50 , upvalues : _ENV, _currentPanel
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R1 in 'UnsetPending'
 
   (GuildData.BaseInfo).level = data.level
@@ -1130,10 +1141,10 @@ GuildMgr.SyncGuildData = function(data, ...)
   (GuildMgr.InitVigourInfo)(_currentPanel)
 end
 
--- DECOMPILER ERROR at PC160: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC163: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.ReqGuildPK = function(id, serverId, ...)
-  -- function num : 0_50 , upvalues : _ENV
+  -- function num : 0_51 , upvalues : _ENV
   if (GuildData.MemberList)[id] == nil then
     (MessageMgr.SendCenterTips)((PUtil.get)(60000318))
     return 
@@ -1142,14 +1153,14 @@ GuildMgr.ReqGuildPK = function(id, serverId, ...)
   (GuildService.ReqGuildPK)(id, serverId)
 end
 
--- DECOMPILER ERROR at PC163: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC166: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.EnterSetFormation = function(data, ...)
-  -- function num : 0_51 , upvalues : _ENV
+  -- function num : 0_52 , upvalues : _ENV
   local btnData = {}
   btnData.btnTxt = (PUtil.get)(20000021)
   btnData.fun = function(cards, ...)
-    -- function num : 0_51_0 , upvalues : _ENV
+    -- function num : 0_52_0 , upvalues : _ENV
     (GuildService.ReqInGuildPK)((Util.CovertLoaclFormationToRemote)(cards))
   end
 
@@ -1163,10 +1174,10 @@ GuildMgr.EnterSetFormation = function(data, ...)
   (MessageMgr.OpenFormationWindow)(formationData)
 end
 
--- DECOMPILER ERROR at PC166: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC169: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.AfterBattle = function(msg, ...)
-  -- function num : 0_52 , upvalues : _ENV
+  -- function num : 0_53 , upvalues : _ENV
   if msg.success then
     local m = {}
     m.BattleType = (ProtoEnum.E_BATTLE_TYPE).GUILD_PK
@@ -1182,10 +1193,10 @@ GuildMgr.AfterBattle = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC169: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC172: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitGuildBasicInfoPanel = function(panel, panelType, ...)
-  -- function num : 0_53 , upvalues : _currentPanel, _ENV
+  -- function num : 0_54 , upvalues : _currentPanel, _ENV
   _currentPanel = panel
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R2 in 'UnsetPending'
 
@@ -1225,10 +1236,10 @@ GuildMgr.InitGuildBasicInfoPanel = function(panel, panelType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC172: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC175: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RefreshGuildLeader = function(...)
-  -- function num : 0_54 , upvalues : _ENV, _currentPanel
+  -- function num : 0_55 , upvalues : _ENV, _currentPanel
   (GuildMgr.InitChangeIconBtn)(_currentPanel)
   ;
   (GuildMgr.InitAnnouncement)(_currentPanel)
@@ -1242,19 +1253,19 @@ GuildMgr.RefreshGuildLeader = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC175: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC178: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RefreshMemberCount = function(...)
-  -- function num : 0_55 , upvalues : _ENV, _currentPanel
+  -- function num : 0_56 , upvalues : _ENV, _currentPanel
   (GuildMgr.InitPowerInfo)(_currentPanel)
   ;
   (GuildMgr.InitMemberCountInfo)(_currentPanel)
 end
 
--- DECOMPILER ERROR at PC178: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC181: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitDetailBtn = function(panel, isDetail, ...)
-  -- function num : 0_56 , upvalues : _ENV
+  -- function num : 0_57 , upvalues : _ENV
   if not isDetail then
     isDetail = false
   end
@@ -1274,10 +1285,10 @@ GuildMgr.InitDetailBtn = function(panel, isDetail, ...)
   end
 end
 
--- DECOMPILER ERROR at PC181: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC184: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitQuitBtn = function(panel, ...)
-  -- function num : 0_57 , upvalues : _ENV
+  -- function num : 0_58 , upvalues : _ENV
   -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
 
   if GuildData.SelfPosition == (ProtoEnum.GUILD_POST).LEADER_POST then
@@ -1304,13 +1315,13 @@ GuildMgr.InitQuitBtn = function(panel, ...)
   end
   ;
   ((panel.ImpeachBtn).onClick):Set(function(...)
-    -- function num : 0_57_0 , upvalues : _ENV
+    -- function num : 0_58_0 , upvalues : _ENV
     if GuildData.IsImpeach == 0 then
       (MessageMgr.SendCenterTipsByWordID)(20000619)
     else
       if GuildData.IsImpeach == 1 then
         (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000616), function(...)
-      -- function num : 0_57_0_0 , upvalues : _ENV
+      -- function num : 0_58_0_0 , upvalues : _ENV
       (GuildService.ReqImpeachData)()
     end
 , nil, (PUtil.get)(20000617), (PUtil.get)(20000615), (PUtil.get)(20000618))
@@ -1323,10 +1334,10 @@ GuildMgr.InitQuitBtn = function(panel, ...)
 )
 end
 
--- DECOMPILER ERROR at PC184: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC187: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.ClickGuildDetailBtn = function(...)
-  -- function num : 0_58 , upvalues : _ENV
+  -- function num : 0_59 , upvalues : _ENV
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
   GuildData.NeedUpdateMemberInfo = true
@@ -1336,10 +1347,10 @@ GuildMgr.ClickGuildDetailBtn = function(...)
   OpenWindow((WinResConfig.GuildDetailWindow).name, UILayer.HUD)
 end
 
--- DECOMPILER ERROR at PC187: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC190: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitBuildingLog = function(panel, ...)
-  -- function num : 0_59 , upvalues : _ENV
+  -- function num : 0_60 , upvalues : _ENV
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
   ((panel.ContentGrp).WordTxt).text = (PUtil.get)(60000270)
@@ -1365,7 +1376,7 @@ GuildMgr.InitBuildingLog = function(panel, ...)
       -- DECOMPILER ERROR at PC43: Confused about usage of register: R2 in 'UnsetPending'
 
       ((panel.ContentGrp).BadgeTipsList).itemRenderer = function(index, item, ...)
-    -- function num : 0_59_0 , upvalues : _ENV, count
+    -- function num : 0_60_0 , upvalues : _ENV, count
     local data = ((GuildData.BuildingInfo).record)[count - index]
     print(data.type)
     ;
@@ -1390,16 +1401,16 @@ GuildMgr.InitBuildingLog = function(panel, ...)
   end
 end
 
--- DECOMPILER ERROR at PC190: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC193: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitChangeIconBtn = function(panel, ...)
-  -- function num : 0_60 , upvalues : _ENV
+  -- function num : 0_61 , upvalues : _ENV
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
   ((panel.GuildIconGrp).GuildIconLoader).url = (GuildData.GetGuildIcon)((GuildData.BaseInfo).icon)
   if ((GuildData.GetSelfRights)()).change_badge == 1 then
     (((panel.GuildIconGrp).GuildIconLoader).onClick):Set(function(...)
-    -- function num : 0_60_0 , upvalues : _ENV
+    -- function num : 0_61_0 , upvalues : _ENV
     if (_G.next)(GuildData.BadgeConfig) == nil then
       (GuildData.InitGuildBadgeConfig)()
     end
@@ -1412,10 +1423,10 @@ GuildMgr.InitChangeIconBtn = function(panel, ...)
   end
 end
 
--- DECOMPILER ERROR at PC193: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC196: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitChangeNameBtn = function(panel, ...)
-  -- function num : 0_61 , upvalues : _ENV
+  -- function num : 0_62 , upvalues : _ENV
   -- DECOMPILER ERROR at PC9: Confused about usage of register: R1 in 'UnsetPending'
 
   (panel.GuildNameBtn).visible = ((GuildData.GetSelfRights)()).change_name == 1
@@ -1424,26 +1435,26 @@ GuildMgr.InitChangeNameBtn = function(panel, ...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC196: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC199: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.ClickChangeNameBtn = function(...)
-  -- function num : 0_62 , upvalues : _ENV
+  -- function num : 0_63 , upvalues : _ENV
   OpenWindow((WinResConfig.GuildRenameWindow).name, UILayer.HUD)
 end
 
--- DECOMPILER ERROR at PC199: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC202: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitGuildNameInfo = function(panel, ...)
-  -- function num : 0_63 , upvalues : _ENV
+  -- function num : 0_64 , upvalues : _ENV
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   (panel.GuildNameTxt).text = (GuildData.BaseInfo).name
 end
 
--- DECOMPILER ERROR at PC202: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC205: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitLevelInfo = function(panel, ...)
-  -- function num : 0_64 , upvalues : _ENV
+  -- function num : 0_65 , upvalues : _ENV
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   (panel.LevelTxt).text = (GuildData.BaseInfo).level
@@ -1464,10 +1475,10 @@ GuildMgr.InitLevelInfo = function(panel, ...)
   end
 end
 
--- DECOMPILER ERROR at PC205: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC208: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitVigourInfo = function(panel, ...)
-  -- function num : 0_65 , upvalues : _ENV
+  -- function num : 0_66 , upvalues : _ENV
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
   ((panel.ActiveGrp).NameTxt).text = (PUtil.get)(60000259)
@@ -1481,10 +1492,10 @@ GuildMgr.InitVigourInfo = function(panel, ...)
   ((panel.ActiveGrp).WordTxt).text = (GuildData.BaseInfo).activation
 end
 
--- DECOMPILER ERROR at PC208: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC211: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitPowerInfo = function(panel, ...)
-  -- function num : 0_66 , upvalues : _ENV
+  -- function num : 0_67 , upvalues : _ENV
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
   ((panel.BattleTxt).NameTxt).text = (PUtil.get)(109)
@@ -1498,10 +1509,10 @@ GuildMgr.InitPowerInfo = function(panel, ...)
   ((panel.BattleTxt).WordTxt).text = (GuildData.BaseInfo).fc
 end
 
--- DECOMPILER ERROR at PC211: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC214: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitGuildLeaderInfo = function(panel, ...)
-  -- function num : 0_67 , upvalues : _ENV
+  -- function num : 0_68 , upvalues : _ENV
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
   ((panel.BossGrp).NameTxt).text = (PUtil.get)(60000208)
@@ -1515,10 +1526,10 @@ GuildMgr.InitGuildLeaderInfo = function(panel, ...)
   ((panel.BossGrp).WordTxt).text = (GuildData.BaseInfo).leader
 end
 
--- DECOMPILER ERROR at PC214: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC217: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitMemberCountInfo = function(panel, ...)
-  -- function num : 0_68 , upvalues : _ENV
+  -- function num : 0_69 , upvalues : _ENV
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
   ((panel.NumberTxt).NameTxt).text = (PUtil.get)(60000260)
@@ -1533,10 +1544,10 @@ GuildMgr.InitMemberCountInfo = function(panel, ...)
   ((panel.NumberTxt).WordTxt).text = tostring((GuildData.BaseInfo).memberCount) .. "/" .. tostring(levelConfig.max_member) .. "  [color=" .. Const.GreenColor .. "](" .. (PUtil.get)(60000261, GuildData.OnlineCount) .. ")"
 end
 
--- DECOMPILER ERROR at PC217: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC220: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitAnnouncement = function(panel, ...)
-  -- function num : 0_69 , upvalues : _ENV
+  -- function num : 0_70 , upvalues : _ENV
   (panel.NoticeList):RemoveChildrenToPool()
   local item = (panel.NoticeList):AddItemFromPool()
   local text = item:GetChild("NoticeTxt")
@@ -1547,7 +1558,7 @@ GuildMgr.InitAnnouncement = function(panel, ...)
     text.touchable = true
     ;
     (text.onFocusIn):Set(function(...)
-    -- function num : 0_69_0 , upvalues : _ENV, text
+    -- function num : 0_70_0 , upvalues : _ENV, text
     if (Util.StringIsNullOrEmpty)(GuildData.Announcement) then
       text.text = ""
     end
@@ -1555,7 +1566,7 @@ GuildMgr.InitAnnouncement = function(panel, ...)
 )
     ;
     (text.onFocusOut):Set(function(...)
-    -- function num : 0_69_1 , upvalues : text, _ENV
+    -- function num : 0_70_1 , upvalues : text, _ENV
     if text.text ~= GuildData.Announcement then
       (GuildMgr.ReqChangeAnnouncement)(text.text)
     end
@@ -1566,7 +1577,7 @@ GuildMgr.InitAnnouncement = function(panel, ...)
 )
     ;
     ((panel.NoticeList).onClick):Set(function(...)
-    -- function num : 0_69_2 , upvalues : text
+    -- function num : 0_70_2 , upvalues : text
     text:RequestFocus()
   end
 )
@@ -1590,10 +1601,10 @@ GuildMgr.InitAnnouncement = function(panel, ...)
   end
 end
 
--- DECOMPILER ERROR at PC220: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC223: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RecvNewLog = function(log, ...)
-  -- function num : 0_70 , upvalues : _ENV
+  -- function num : 0_71 , upvalues : _ENV
   if log.logType ~= (ProtoEnum.GUILD_LOG).DOWNGRADE_LOG then
     (table.insert)(GuildData.LogInfos, log)
   end
@@ -1634,18 +1645,18 @@ GuildMgr.RecvNewLog = function(log, ...)
   end
 end
 
--- DECOMPILER ERROR at PC223: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC226: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RecvGuildChat = function(msg, ...)
-  -- function num : 0_71 , upvalues : _ENV
+  -- function num : 0_72 , upvalues : _ENV
   (GuildData.InitShowChats)(msg.chatData)
   UIMgr:SendWindowMessage((WinResConfig.GuildMainWindow).name, (WindowMsgEnum.Guild).E_MSG_INIT_GUILD_CHAT)
 end
 
--- DECOMPILER ERROR at PC226: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC229: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.RecvNewChat = function(chatData, ...)
-  -- function num : 0_72 , upvalues : _ENV
+  -- function num : 0_73 , upvalues : _ENV
   if GuildData.MAX_CHAT_AMOUNT <= #GuildData.ShowChats then
     (table.remove)(GuildData.ShowChats, 1)
   end
@@ -1655,10 +1666,10 @@ GuildMgr.RecvNewChat = function(chatData, ...)
 end
 
 self.CupType = {Covered = 1, Demonstrate = 2}
--- DECOMPILER ERROR at PC233: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC236: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetGuessMaxTime = function(...)
-  -- function num : 0_73 , upvalues : _ENV
+  -- function num : 0_74 , upvalues : _ENV
   local level = (GuildData.BaseInfo).level
   local config = (TableData.gTable).BaseGuildLevelUpData
   for _,v in pairs(config) do
@@ -1668,18 +1679,18 @@ GuildMgr.GetGuessMaxTime = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC236: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC239: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.InitGuessData = function(data, ...)
-  -- function num : 0_74 , upvalues : self
+  -- function num : 0_75 , upvalues : self
   self.GuessData = data
   self.RoundReward = data.reward
 end
 
--- DECOMPILER ERROR at PC239: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC242: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.UpdateRoundReward = function(data, ...)
-  -- function num : 0_75 , upvalues : self, _ENV
+  -- function num : 0_76 , upvalues : self, _ENV
   if data.round == (self.RoundReward).round then
     for _,v in ipairs(data.reward) do
       (table.insert)((self.RoundReward).reward, v)
@@ -1691,10 +1702,10 @@ GuildMgr.UpdateRoundReward = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC242: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC245: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.ResetRoundReward = function(round, ...)
-  -- function num : 0_76 , upvalues : self
+  -- function num : 0_77 , upvalues : self
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   (self.RoundReward).reward = {}
@@ -1704,17 +1715,17 @@ GuildMgr.ResetRoundReward = function(round, ...)
   (self.RoundReward).round = round
 end
 
--- DECOMPILER ERROR at PC245: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC248: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetRoundReward = function(...)
-  -- function num : 0_77 , upvalues : self
+  -- function num : 0_78 , upvalues : self
   return self.RoundReward
 end
 
--- DECOMPILER ERROR at PC248: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC251: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetGuessTimes = function(times, ...)
-  -- function num : 0_78 , upvalues : self
+  -- function num : 0_79 , upvalues : self
   if times == nil then
     return (self.GuessData).guessCapNum
   else
@@ -1725,10 +1736,10 @@ GuildMgr.GetGuessTimes = function(times, ...)
   end
 end
 
--- DECOMPILER ERROR at PC251: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC254: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetGuessRoundTimes = function(times, ...)
-  -- function num : 0_79 , upvalues : self
+  -- function num : 0_80 , upvalues : self
   if times == nil then
     return (self.GuessData).num
   else
@@ -1739,10 +1750,10 @@ GuildMgr.GetGuessRoundTimes = function(times, ...)
   end
 end
 
--- DECOMPILER ERROR at PC254: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC257: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetGuessIsCovered = function(covered, ...)
-  -- function num : 0_80 , upvalues : self
+  -- function num : 0_81 , upvalues : self
   if (self.GuessData).guessCapsState ~= (self.CupType).Covered then
     do return covered ~= nil end
     -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
@@ -1753,10 +1764,10 @@ GuildMgr.GetGuessIsCovered = function(covered, ...)
   end
 end
 
--- DECOMPILER ERROR at PC257: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC260: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetGuessGoods = function(goods, ...)
-  -- function num : 0_81 , upvalues : self
+  -- function num : 0_82 , upvalues : self
   if goods == nil then
     return (self.GuessData).goods
   else
@@ -1767,10 +1778,10 @@ GuildMgr.GetGuessGoods = function(goods, ...)
   end
 end
 
--- DECOMPILER ERROR at PC260: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC263: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetGuessOpenList = function(opens, ...)
-  -- function num : 0_82 , upvalues : self
+  -- function num : 0_83 , upvalues : self
   if opens == nil then
     return (self.GuessData).openCaps
   else
@@ -1781,10 +1792,10 @@ GuildMgr.GetGuessOpenList = function(opens, ...)
   end
 end
 
--- DECOMPILER ERROR at PC263: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC266: Confused about usage of register: R6 in 'UnsetPending'
 
 GuildMgr.GetCupsIsOpen = function(index, ...)
-  -- function num : 0_83 , upvalues : _ENV, self
+  -- function num : 0_84 , upvalues : _ENV, self
   for _,v in ipairs((self.GuessData).openCaps) do
     if v == index then
       return true

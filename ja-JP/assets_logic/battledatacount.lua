@@ -240,7 +240,7 @@ BattleDataCount.DealActiveBuff = function(atkCard, atkInfo, settle_round_type, .
 
       -- DECOMPILER ERROR at PC76: Unhandled construct in 'MakeBoolean' P3
 
-      if settleRoundType == settle_round_type or ((settle_round_type == BattleBuffSettleRoundType.BEFORE_ATTACK and settleRoundType == BattleBuffSettleRoundType.BEFORE_ACTION) or settle_round_type ~= BattleBuffSettleRoundType.AFTER_ATTACK or settle_round_type ~= BattleBuffSettleRoundType.BEFORE_SKILL or settle_round_type ~= BattleBuffSettleRoundType.AFTER_SKILL or settle_round_type == BattleBuffSettleRoundType.AFTER_DAMAGE and (settleRoundType == BattleBuffSettleRoundType.BEFORE_ROUND or settleRoundType == BattleBuffSettleRoundType.AFTER_ATTACK or settleRoundType == BattleBuffSettleRoundType.AFTER_SKILL)) then
+      if settleRoundType == settle_round_type or ((settle_round_type == BattleBuffSettleRoundType.BEFORE_ATTACK and settleRoundType == BattleBuffSettleRoundType.BEFORE_ACTION) or settle_round_type ~= BattleBuffSettleRoundType.AFTER_ATTACK or settle_round_type ~= BattleBuffSettleRoundType.BEFORE_SKILL or settle_round_type ~= BattleBuffSettleRoundType.AFTER_SKILL or settleRoundType == BattleBuffSettleRoundType.AFTER_DAMAGE and (settle_round_type == BattleBuffSettleRoundType.BEFORE_ROUND or settle_round_type == BattleBuffSettleRoundType.AFTER_ATTACK or settle_round_type == BattleBuffSettleRoundType.AFTER_SKILL)) then
         if card and card:IsDead() ~= true then
           local canAdd = (self.DealAddBuff)(card, tempBuff, atkInfo)
           if canAdd == true then
@@ -287,7 +287,7 @@ BattleDataCount.DealEquipBuff = function(atkCard, tempBuff, atkInfo, ...)
     if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.TREATMENT_EXTRA) == true then
       (self.DealTreatDirectBuff)(atkCard, atkInfo)
     end
-    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.FIX_DAMAGE_PER) == true then
+    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.FIX_DAMAGE_PER) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_EXTRA) == true then
       (self.DealActiveDamageBuff)(atkCard, atkInfo)
     end
   end
@@ -517,6 +517,11 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
           end
+          -- DECOMPILER ERROR at PC265: Unhandled construct in 'MakeBoolean' P1
+
+          if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT_ALL and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
+            (self.RealUpdateBuffCount)(buff, atkInfo)
+          end
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DAMAGE then
             local curDefPos = buff:GetCurDefPos()
             local config = buff:GetBuffConfig()
@@ -543,7 +548,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
                   if deduction_round_type == BattleBuffDeductionRoundType.NEAR_DEATH then
                     isTrigger = (self.RealUpdateBuffCount)(buff, atkInfo)
                   else
-                    -- DECOMPILER ERROR at PC342: Unhandled construct in 'MakeBoolean' P1
+                    -- DECOMPILER ERROR at PC360: Unhandled construct in 'MakeBoolean' P1
 
                     if deduction_round_type == BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
                       local attackTime = defCard:RecodeHitTimes()
@@ -559,27 +564,27 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
                       if deduction_round_type == BattleBuffDeductionRoundType.NOW then
                         (self.RealUpdateBuffCount)(buff, atkInfo)
                       end
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC363: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end

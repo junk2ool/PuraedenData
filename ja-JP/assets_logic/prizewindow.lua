@@ -332,17 +332,17 @@ PrizeWindow.PlaySingleAni = function(poolID, func, ...)
 end
 
 PrizeWindow.PlayTenAni = function(poolsID, func, ...)
-  -- function num : 0_16 , upvalues : uis, _ENV, PrizeWindow
+  -- function num : 0_16 , upvalues : uis, ItemDataList, _ENV, PrizeWindow
   local RewardShow = (uis.RewardShow).root
   local freeItem = {}
-  for i = 1, 15 do
+  for i = 1, #ItemDataList do
     local item = RewardShow:GetChild("Item_" .. i)
     local control = item:GetController("c2")
     if control.selectedIndex == 0 then
       (table.insert)(freeItem, item)
     end
   end
-  -- DECOMPILER ERROR at PC26: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   (GRoot.inst).touchable = false

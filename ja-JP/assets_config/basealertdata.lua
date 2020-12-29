@@ -442,5 +442,7 @@ deck_scheme_not_exist = {id = "deck_scheme_not_exist", name = "現陣容が登�
 deck_scheme_is_full = {id = "deck_scheme_is_full", name = "登録した陣容がいっぱいのため保存できません"}
 , 
 not_call_on_myself = {id = "not_call_on_myself", name = "自分自身を訪問することができません"}
+, 
+farm_level_no_enough = {id = "farm_level_no_enough", name = "農場レベルが Lv.%d に達すると部屋を拡張できる"}
 }
 

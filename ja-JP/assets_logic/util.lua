@@ -516,6 +516,14 @@ Util.GetConfigDataByID = function(itemId, ...)
   if config ~= nil then
     return config, PropType.EQUIP
   end
+  config = ((TableData.gTable).BaseFamilyFarmSeedData)[tonumber(itemId)]
+  if config ~= nil then
+    return config, PropType.SEED
+  end
+  config = ((TableData.gTable).BaseFamilyFurnitureData)[tonumber(itemId)]
+  if config ~= nil then
+    return config, PropType.FURNITURE
+  end
   config = ((TableData.gTable).BasePlayerTitleData)[tonumber(itemId)]
   if config ~= nil then
     return config, PropType.TITLE
@@ -1225,10 +1233,9 @@ Util.CreateMiniModel = function(loader, fashionId, callback, IsFlipX, useConfigS
     return 
   end
   if useConfigScale then
-    (Util.CreateMiniModelByPath)(loader, fashionData.spd_bundle, callback, IsFlipX, fashionData.scale)
+    return (Util.CreateMiniModelByPath)(loader, fashionData.spd_bundle, callback, IsFlipX, fashionData.scale)
   else
-    ;
-    (Util.CreateMiniModelByPath)(loader, fashionData.spd_bundle, callback, IsFlipX)
+    return (Util.CreateMiniModelByPath)(loader, fashionData.spd_bundle, callback, IsFlipX)
   end
 end
 
@@ -2086,7 +2093,7 @@ Util.SetFrame = function(id, number, list, get, isFirst, hideNum, time, ...)
   local PropType = PropType
   local ConfigData, type = (Util.GetConfigDataByID)(id)
   local frame, LongPressGesture = nil, nil
-  if type == PropType.ITEM or type == PropType.ASSET or type == PropType.TITLE then
+  if type == PropType.ITEM or type == PropType.ASSET or type == PropType.SEED or type == PropType.TITLE then
     if type == PropType.ITEM and (ConfigData.type == PropItemType.CHARACTER_DEBRIS or ConfigData.type == PropItemType.UNIVERSAL_DEBRIS) then
       frame = (Util.GetFrameFromPoolOrCreate)(GoodsIconType.DEBRIS, list)
       LongPressGesture = (Util.SetDebrisFrame)(frame, id, number, isFirst, hideNum)
@@ -2174,7 +2181,11 @@ Util.SetAllItemIcon = function(frame, id, number, get, isFirst, hideNum, lucky, 
         (frame:GetController("c1")).selectedIndex = 3
         LongPressGesture = (Util.SetShowHeadFrame)(frame:GetChild("HeadFrame"), id, isFirst, nil, headDebris)
       else
-        if type == PropType.HEAD_ICON or type == PropType.HEAD_FRAME then
+        if type == PropType.HEAD_ICON or type == PropType.HEAD_FRAME or type == PropType.SEED then
+          (frame:GetController("c1")).selectedIndex = 0
+          LongPressGesture = (Util.SetItemFrame)(frame:GetChild("ItemFrameGrp"), id, number, get, isFirst, hideNum, gray)
+        else
+          ;
           (frame:GetController("c1")).selectedIndex = 0
           LongPressGesture = (Util.SetItemFrame)(frame:GetChild("ItemFrameGrp"), id, number, get, isFirst, hideNum, gray)
         end
@@ -3605,6 +3616,138 @@ Util.GetIconPathByID = function(id, ...)
       return (Util.GetItemUrl)(configData.icon_path)
     else
       return (Util.GetItemUrl)(configData.icon)
+    end
+  end
+end
+
+Util.isPointInRect = function(point, ltPoint, lbPoint, rtPoint, rbPoint, ...)
+  -- function num : 0_174
+  local a = (ltPoint.x - lbPoint.x) * (point.y - lbPoint.y) - (ltPoint.y - lbPoint.y) * (point.x - lbPoint.x)
+  local b = (rtPoint.x - ltPoint.x) * (point.y - ltPoint.y) - (rtPoint.y - ltPoint.y) * (point.x - ltPoint.x)
+  local c = (rbPoint.x - rtPoint.x) * (point.y - rtPoint.y) - (rbPoint.y - rtPoint.y) * (point.x - rtPoint.x)
+  local d = (lbPoint.x - rbPoint.x) * (point.y - rbPoint.y) - (lbPoint.y - rbPoint.y) * (point.x - rbPoint.x)
+  if (a > 0 and b > 0 and c > 0 and d > 0) or a < 0 and b < 0 and c < 0 and d < 0 then
+    return true
+  else
+    return false
+  end
+end
+
+Util.CopyVec = function(vec, ...)
+  -- function num : 0_175 , upvalues : _ENV
+  if vec.z == nil then
+    return Vector2(vec.x, vec.y)
+  else
+    return Vector3(vec.x, vec.y, vec.z)
+  end
+end
+
+Util.Dot = function(v1, v2, ...)
+  -- function num : 0_176
+  return v1.x * v2.x + v1.y * v2.y
+end
+
+Util.Cross = function(v1, v2, ...)
+  -- function num : 0_177
+  local v3 = {x = v1.y * v2.z - v2.y * v1.z, y = v2.x * v1.z - v1.x * v2.z, z = v1.x * v2.y - v2.x * v1.y}
+  return v3
+end
+
+Util.InitIndexList = function(data, pushFunc, sortFunc, ...)
+  -- function num : 0_178 , upvalues : pairs, _ENV
+  if data == nil then
+    return 
+  end
+  local list = {}
+  local indexList = {}
+  local item = nil
+  for k,v in pairs(data) do
+    if pushFunc then
+      item = pushFunc(v)
+      ;
+      (table.insert)(list, item)
+      if not sortFunc then
+        indexList[item.id] = #list
+      end
+    else
+      ;
+      (table.insert)(list, v)
+      if not sortFunc then
+        indexList[v.id] = #list
+      end
+    end
+  end
+  if sortFunc then
+    (table.sort)(list, sortFunc)
+    local count = #list
+    for i = 1, count do
+      indexList[(list[i]).id] = i
+    end
+  end
+  do
+    return list, indexList
+  end
+end
+
+Util.AddToIndexList = function(data, list, indexList, specifyFunc, ...)
+  -- function num : 0_179 , upvalues : _ENV
+  if data == nil or list == nil or indexList == nil then
+    return false
+  end
+  if specifyFunc then
+    local index = specifyFunc()
+    ;
+    (table.insert)(list, index, data)
+    local count = #list
+    if data.id then
+      for i = index, count do
+        indexList[(list[i]).id] = i
+      end
+    else
+      do
+        for i = index, count do
+          indexList[list[i]] = i
+        end
+        do
+          ;
+          (table.insert)(list, data)
+          if data.id then
+            indexList[data.id] = #list
+          else
+            indexList[data] = #list
+          end
+          return true
+        end
+      end
+    end
+  end
+end
+
+Util.RemoveFromIndexList = function(id, list, indexList, ...)
+  -- function num : 0_180 , upvalues : _ENV
+  if list == nil or indexList == nil then
+    return false
+  end
+  local index = indexList[id]
+  if index == nil then
+    return false
+  end
+  ;
+  (table.remove)(list, index)
+  indexList[id] = nil
+  local count = #list
+  if count > 0 and (list[1]).id then
+    for i = index, count do
+      indexList[(list[i]).id] = i
+    end
+  else
+    do
+      for i = index, count do
+        indexList[list[i]] = i
+      end
+      do
+        return true
+      end
     end
   end
 end

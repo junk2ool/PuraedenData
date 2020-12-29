@@ -13,7 +13,15 @@ end
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
 
 BrithDayService.ReqBirthdayList = function(...)
-  -- function num : 0_1
+  -- function num : 0_1 , upvalues : _ENV
+  local isOpen = (FunctionControlMgr.GetFunctionState)(ControlID.Card_BrithDay)
+  print("419请求卡牌生日列表（登录请求）", isOpen)
+  if isOpen == false then
+    return 
+  end
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqBirthdayList, m, (Proto.MsgName).ResBirthdayList)
 end
 
 -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'

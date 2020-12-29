@@ -158,6 +158,7 @@ FriendsService.OnResChangeMyRelation = function(msg, ...)
       end
     end
   end
+  UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_GULID_VISIT)
 end
 
 -- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'

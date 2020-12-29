@@ -133,46 +133,53 @@ GetWayMgr.Goto = function(id, ...)
                                               if id == ControlID.Lottery_Part or id == ControlID.Lottery_Equip or id == ControlID.Lottery_Card then
                                                 (ActorService.ReqActivityLottery)()
                                               else
-                                                if id == ControlID.Adventure_Tower then
-                                                  ld("Tower", function(...)
+                                                if id == ControlID.Home_FamilyBtn then
+                                                  ld("Homeland", function(...)
     -- function num : 0_0_7 , upvalues : _ENV
-    (TowerMgr.TryOpenTowerUI)()
+    (HomelandService.ReqInFamily)()
   end
 )
                                                 else
-                                                  if id == ControlID.AssetShop_Physical then
-                                                    (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).VIT_BUY_TIME_TYPE)
-                                                  else
-                                                    if id == ControlID.Activity_Sign then
-                                                      (ActivityService.OnReqSignInInit)()
-                                                    else
-                                                      if id == ControlID.Activity_Cake then
-                                                        (ActivityService.OnReqVitGetInit)()
-                                                      else
-                                                        if id == ControlID.Activity_SevenDay then
-                                                          (ActivityService.ReqLoginAct)()
-                                                        else
-                                                          if id == ControlID.Task_Daily then
-                                                            (TaskService.ReqTaskData)(TaskType.Daily)
-                                                          else
-                                                            if id == ControlID.Task_Week then
-                                                              (TaskService.ReqTaskData)(TaskType.Weekly)
-                                                            else
-                                                              if id == ControlID.Task_GrowUp then
-                                                                (TaskService.ReqTaskData)(TaskType.GrowUp)
-                                                              else
-                                                                if id == ControlID.AssetShop_Gold then
-                                                                  (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).GOLD_BUY_TIME_TYPE)
-                                                                else
-                                                                  if id == ControlID.AssetShop_ENDURANCE then
-                                                                    (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).STA_BUY_TIME_TYPE)
-                                                                  else
-                                                                    if id == ControlID.AssetShop_SPIRIT then
-                                                                      (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).ENERGY_BUY_TIME_TYPE)
-                                                                    else
-                                                                      if id == ControlID.Guild_Guess then
-                                                                        ld("Guild", function(...)
+                                                  if id == ControlID.Adventure_Tower then
+                                                    ld("Tower", function(...)
     -- function num : 0_0_8 , upvalues : _ENV
+    (TowerMgr.TryOpenTowerUI)()
+  end
+)
+                                                  else
+                                                    if id == ControlID.AssetShop_Physical then
+                                                      (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).VIT_BUY_TIME_TYPE)
+                                                    else
+                                                      if id == ControlID.Activity_Sign then
+                                                        (ActivityService.OnReqSignInInit)()
+                                                      else
+                                                        if id == ControlID.Activity_Cake then
+                                                          (ActivityService.OnReqVitGetInit)()
+                                                        else
+                                                          if id == ControlID.Activity_SevenDay then
+                                                            (ActivityService.ReqLoginAct)()
+                                                          else
+                                                            if id == ControlID.Task_Daily then
+                                                              (TaskService.ReqTaskData)(TaskType.Daily)
+                                                            else
+                                                              if id == ControlID.Task_Week then
+                                                                (TaskService.ReqTaskData)(TaskType.Weekly)
+                                                              else
+                                                                if id == ControlID.Task_GrowUp then
+                                                                  (TaskService.ReqTaskData)(TaskType.GrowUp)
+                                                                else
+                                                                  if id == ControlID.AssetShop_Gold then
+                                                                    (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).GOLD_BUY_TIME_TYPE)
+                                                                  else
+                                                                    if id == ControlID.AssetShop_ENDURANCE then
+                                                                      (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).STA_BUY_TIME_TYPE)
+                                                                    else
+                                                                      if id == ControlID.AssetShop_SPIRIT then
+                                                                        (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).ENERGY_BUY_TIME_TYPE)
+                                                                      else
+                                                                        if id == ControlID.Guild_Guess then
+                                                                          ld("Guild", function(...)
+    -- function num : 0_0_9 , upvalues : _ENV
     if (ActorData.GetGuildID)() == 0 then
       (MessageMgr.SendCenterTips)((PUtil.get)(20000280))
     else
@@ -181,10 +188,10 @@ GetWayMgr.Goto = function(id, ...)
     end
   end
 )
-                                                                      else
-                                                                        if id == ControlID.Guild_Construction then
-                                                                          ld("Guild", function(...)
-    -- function num : 0_0_9 , upvalues : _ENV
+                                                                        else
+                                                                          if id == ControlID.Guild_Construction then
+                                                                            ld("Guild", function(...)
+    -- function num : 0_0_10 , upvalues : _ENV
     if (ActorData.GetGuildID)() == 0 then
       (MessageMgr.SendCenterTips)((PUtil.get)(20000280))
     else
@@ -193,30 +200,31 @@ GetWayMgr.Goto = function(id, ...)
     end
   end
 )
-                                                                        else
-                                                                          if id == ControlID.Talent_Uplevel then
-                                                                            OpenWindow((WinResConfig.TalentMainWindow).name, UILayer.HUD)
                                                                           else
-                                                                            if id == ControlID.Home_MailBtn then
-                                                                              ld("Mail", function(...)
-    -- function num : 0_0_10 , upvalues : _ENV
+                                                                            if id == ControlID.Talent_Uplevel then
+                                                                              OpenWindow((WinResConfig.TalentMainWindow).name, UILayer.HUD)
+                                                                            else
+                                                                              if id == ControlID.Home_MailBtn then
+                                                                                ld("Mail", function(...)
+    -- function num : 0_0_11 , upvalues : _ENV
     OpenWindow((WinResConfig.MailWindow).name, UILayer.HUD)
   end
 )
-                                                                            else
-                                                                              if id == ControlID.Shop_Recharge then
-                                                                                ld("Shop", function(...)
-    -- function num : 0_0_11 , upvalues : _ENV
+                                                                              else
+                                                                                if id == ControlID.Shop_Recharge then
+                                                                                  ld("Shop", function(...)
+    -- function num : 0_0_12 , upvalues : _ENV
     (ShopMgr.ExternalGotoShop)(ShopType.Recharge)
   end
 )
-                                                                              else
-                                                                                if id == ControlID.Shop_Gift then
-                                                                                  ld("Shop", function(...)
-    -- function num : 0_0_12 , upvalues : _ENV
+                                                                                else
+                                                                                  if id == ControlID.Shop_Gift then
+                                                                                    ld("Shop", function(...)
+    -- function num : 0_0_13 , upvalues : _ENV
     (ShopMgr.ExternalGotoShop)(ShopType.GiftBuy)
   end
 )
+                                                                                  end
                                                                                 end
                                                                               end
                                                                             end

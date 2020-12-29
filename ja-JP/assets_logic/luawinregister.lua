@@ -400,6 +400,14 @@ EquipmentPresetRenameWindow = {name = "EquipmentPresetRenameWindow", package = "
 , 
 LotteryScoreExchangeWindow = {name = "LotteryScoreExchangeWindow", package = "Lottery", comName = "PtExchange", hideBelow = false}
 , 
+HomelandRoomWindow = {name = "HomelandRoomWindow", package = "Family", comName = "Room", hideBelow = true}
+, 
+HomelandFarmWindow = {name = "HomelandFarmWindow", package = "Family", comName = "Farm", hideBelow = true}
+, 
+FamilyTipsWindow = {name = "FamilyTipsWindow", package = "Family", comName = "TipsWindow", hideBelow = false}
+, 
+FamilyShopWindow = {name = "FamilyShopWindow", package = "Family", comName = "FamilyShop", hideBelow = true}
+, 
 FriendsListWindow = {name = "FriendsListWindow", package = "Friends", comName = "Friends", hideBelow = true}
 , 
 FriendDetailWindow = {name = "FriendDetailWindow", package = "Friends", comName = "FriendDetailsWindow", hideBelow = false}
@@ -421,6 +429,10 @@ PlayerBusinessCardWindow = {name = "PlayerBusinessCardWindow", package = "ActorI
 FormationPresetWindow = {name = "FormationPresetWindow", package = "Formation", comName = "TeamProgramme", hideBelow = false}
 , 
 FormationPresetNamingWindow = {name = "FormationPresetNamingWindow", package = "Formation", comName = "TeamRenameWindow", hideBelow = false}
+, 
+HomelandDeployCardWindow = {name = "HomelandDeployCardWindow", package = "Family", comName = "LiveWindow", hideBelow = false}
+, 
+HomelandVisitRoomWindow = {name = "HomelandVisitRoomWindow", package = "Family", comName = "VisitPlayWindow", hideBelow = false}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -524,6 +536,8 @@ Friends = {E_MSG_REFRESH_MAIN_LIST = 1, E_MSG_REFRESH_ADD_LIST = 2, E_MSG_REFRES
 PrizeWindow = {E_MSG_SLOTS_RESULT = 1, E_MSG_SLOTS_REFRESH = 2, E_MSG_SLOTS_SET_POOLS = 3}
 , 
 FormationPreset = {E_MSG_REFRESH_PRESET = 1, E_MSG_REFRESH_FORMATION = 2, E_MSG_REFRESH = 3, E_MSG_REFRESH_PRESET_NAME = 4}
+, 
+Family = {E_MSG_GET_SEEDS_INFO = 1, E_MSG_SEED_PLANT_SUCCESS = 2, E_MSG_PLANT_HARVEST = 3, E_MSG_ROOT_LAND = 4, E_MSG_UNLOCK_LAND = 5, E_MSG_FARMSHOP_SHOPGRIP_RES = 6, E_MSG_FARMSHOP_BUY_RES = 7, E_MSG_REFRESH_ROOM_ROLES = 8, E_MSG_CHANGE_ROOM_LAYOUT_SUCCESS = 9, E_MSG_CLEAR_ROOM = 10, E_MSG_UPGRADE_ROOM = 11, E_MSG_REFRESH_HOUSE = 12, E_MSG_REFRESH_ROOM = 13, E_MSG_REFRESH_GULID_VISIT = 14, E_MSG_REFRESH_FURNITURE_LIST = 15, E_MSG_REFRESH_FURNITURE_VIRTUAL_LIST = 16, E_MSG_CONTINUE_PATROL = 17}
 }
 _ENV.WindowLoadPackages = {
 LoginWindow = {"LandPic"}
@@ -663,5 +677,15 @@ PrizeRecordWindow = {"Equipicon", "CardHeadIconCircle"}
 PrizeInformationWindow = {"Equipicon", "CardHeadIconCircle"}
 , 
 PlayerBusinessCardWindow = {"HomeAd", "CardHeadIconCircle", "HomeBg", "Title"}
+, 
+HomelandRoomWindow = {"FamilyFurniture", "Title", "CardHeadIconCircle"}
+, 
+HomelandFarmWindow = {"FamilyFurniture"}
+, 
+FriendChatWindow = {"CardHeadIconCircle"}
+, 
+HomelandVisitRoomWindow = {"CardHeadIconCircle"}
+, 
+FamilyShopWindow = {"FamilyFurniture"}
 }
 

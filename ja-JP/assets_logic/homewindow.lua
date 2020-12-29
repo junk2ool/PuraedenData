@@ -95,8 +95,10 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ;
   ((uis.ActorInfoBtn).onClick):Set(HomeWindow.ClickPlayerInfoBtn)
   ;
+  ((uis.FamilyBtn).onClick):Set(HomeWindow.ClickHomelandBtn)
+  ;
   ((uis.AnnouncementBtn).onClick):Set(HomeWindow.ClickAnnouncementBtn)
-  -- DECOMPILER ERROR at PC164: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC169: Confused about usage of register: R1 in 'UnsetPending'
 
   if IsIOSReview == true then
     (uis.AnnouncementBtn).visible = false
@@ -142,7 +144,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
 )
   end
   do
-    -- DECOMPILER ERROR at PC238: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC243: Confused about usage of register: R1 in 'UnsetPending'
 
     if Game.testPackage ~= true and uis.ServerNameTxt then
       (uis.ServerNameTxt).text = (LoginMgr.GetServerName)()
@@ -184,16 +186,16 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     (LoginMgr.ReturnToLoginWindow)()
   end
 , nil, (PUtil.get)(60000004))
-          -- DECOMPILER ERROR at PC337: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC342: Confused about usage of register: R3 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
         end
       else
         do
-          -- DECOMPILER ERROR at PC340: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC345: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
-          -- DECOMPILER ERROR at PC343: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC348: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
         end
@@ -688,6 +690,7 @@ HomeWindow.InitFunctionControl = function(...)
   RegisterGuideAndControl(ControlID.Home_AssetShopBtn, uis.HeadBtn, HomeWindowConfig.name)
   RegisterGuideAndControl(ControlID.Home_CarnivalBtn, uis.CarnivalBtn, HomeWindowConfig.name)
   RegisterGuideAndControl(ControlID.Home_FriendBtn, uis.FriendBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_FamilyBtn, uis.FamilyBtn, HomeWindowConfig.name)
 end
 
 HomeWindow.InitSend = function(...)
@@ -747,6 +750,10 @@ HomeWindow.InitSend = function(...)
     local BaseAssetData = (TableData.gTable).BaseAssetData
     for _,v in pairs(BaseAssetData) do
       DebrisStr = DebrisStr .. ":" .. "gm,addAsset," .. v.id .. ",999999"
+    end
+    local BaseFurnitureData = (TableData.gTable).BaseFamilyFurnitureData
+    for _,v in pairs(BaseFurnitureData) do
+      DebrisStr = DebrisStr .. ":" .. "gm,addFurniture," .. v.id .. ",10"
     end
     ;
     (SimpleTimer.setTimeout)(1, function(...)
@@ -894,6 +901,20 @@ HomeWindow.Update = function(...)
     ;
     (HomeWindow.RefreshActivityBtnVisible)()
   end
+  if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.V) then
+    ld("Homeland", function(...)
+    -- function num : 0_18_0 , upvalues : _ENV
+    (HomelandService.ReqInFamily)()
+  end
+)
+  end
+  if (Input.GetKey)(KeyCode.A) and (Input.GetKeyDown)(KeyCode.D) then
+    ld("Homeland", function(...)
+    -- function num : 0_18_1 , upvalues : _ENV
+    (HomelandMgr.OpenRoom)()
+  end
+)
+  end
 end
 
 HomeWindow.OnClickBag = function(...)
@@ -955,26 +976,35 @@ HomeWindow.ClickPlayerInfoBtn = function(...)
   OpenWindow((WinResConfig.ActorInfoWindow).name, UILayer.HUD)
 end
 
-HomeWindow.ClickAnnouncementBtn = function(...)
+HomeWindow.ClickHomelandBtn = function(...)
   -- function num : 0_26 , upvalues : _ENV
+  ld("Homeland", function(...)
+    -- function num : 0_26_0 , upvalues : _ENV
+    (HomelandService.ReqInFamily)()
+  end
+)
+end
+
+HomeWindow.ClickAnnouncementBtn = function(...)
+  -- function num : 0_27 , upvalues : _ENV
   (AnnouncementMgr.OpenAnnouncement)()
 end
 
 HomeWindow.onClickAdventureBtn = function(...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_28 , upvalues : _ENV
   (Util.SetDelayCall)(function(...)
-    -- function num : 0_27_0 , upvalues : _ENV
+    -- function num : 0_28_0 , upvalues : _ENV
     OpenWindow((WinResConfig.AdventureWindow).name, UILayer.HUD)
   end
 )
 end
 
 HomeWindow.onClickTeamBtn = function(...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   ld("Talent", function(...)
-    -- function num : 0_28_0 , upvalues : _ENV
+    -- function num : 0_29_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_28_0_0 , upvalues : _ENV
+      -- function num : 0_29_0_0 , upvalues : _ENV
       OpenWindow((WinResConfig.TalentMainWindow).name, UILayer.HUD)
     end
 )
@@ -983,26 +1013,26 @@ HomeWindow.onClickTeamBtn = function(...)
 end
 
 HomeWindow.onClickGuildBtn = function(...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   ld("Guild", function(...)
-    -- function num : 0_29_0 , upvalues : _ENV
+    -- function num : 0_30_0 , upvalues : _ENV
     (GuildMgr.OpenGuild)()
   end
 )
 end
 
 HomeWindow.onClickActivityBtn = function(...)
-  -- function num : 0_30 , upvalues : _ENV
+  -- function num : 0_31 , upvalues : _ENV
   (ActivityMgr.OnClickHomeActivityBtn)((WindowMsgEnum.ActivityMainWindow).SING_INIT)
 end
 
 HomeWindow.onClickCardBtn = function(...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_32 , upvalues : _ENV
   print("open the CardListWindow")
   ld("Card", function(...)
-    -- function num : 0_31_0 , upvalues : _ENV
+    -- function num : 0_32_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_31_0_0 , upvalues : _ENV
+      -- function num : 0_32_0_0 , upvalues : _ENV
       OpenWindow("CardListWindow", UILayer.HUD)
     end
 )
@@ -1011,11 +1041,11 @@ HomeWindow.onClickCardBtn = function(...)
 end
 
 HomeWindow.onClickEquipmentBtn = function(...)
-  -- function num : 0_32 , upvalues : _ENV
+  -- function num : 0_33 , upvalues : _ENV
   ld("Equipt", function(...)
-    -- function num : 0_32_0 , upvalues : _ENV
+    -- function num : 0_33_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_32_0_0 , upvalues : _ENV
+      -- function num : 0_33_0_0 , upvalues : _ENV
       (EquiptMgr.OpenEquipmentWindow)()
     end
 )
@@ -1024,20 +1054,20 @@ HomeWindow.onClickEquipmentBtn = function(...)
 end
 
 HomeWindow.onClickHandbookBtn = function(...)
-  -- function num : 0_33 , upvalues : _ENV
+  -- function num : 0_34 , upvalues : _ENV
   ld("HandBook", function(...)
-    -- function num : 0_33_0 , upvalues : _ENV
+    -- function num : 0_34_0 , upvalues : _ENV
     OpenWindow((WinResConfig.HandBookMainWindow).name, UILayer.HUD)
   end
 )
 end
 
 HomeWindow.onClickLotteryBtn = function(...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_35 , upvalues : _ENV
   ld("Lottery", function(...)
-    -- function num : 0_34_0 , upvalues : _ENV
+    -- function num : 0_35_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_34_0_0 , upvalues : _ENV
+      -- function num : 0_35_0_0 , upvalues : _ENV
       (ActorService.ReqActivityLottery)()
     end
 )
@@ -1046,14 +1076,14 @@ HomeWindow.onClickLotteryBtn = function(...)
 end
 
 HomeWindow.UpdateActor = function(...)
-  -- function num : 0_35 , upvalues : HomeWindow
+  -- function num : 0_36 , upvalues : HomeWindow
   (HomeWindow.UpdateActorLvAndPower)()
   ;
   (HomeWindow.UpdateActorMoney)()
 end
 
 HomeWindow.UpdateBg = function(...)
-  -- function num : 0_36 , upvalues : HomeWindow, _ENV, homeUis
+  -- function num : 0_37 , upvalues : HomeWindow, _ENV, homeUis
   (HomeWindow.RemoveShowModel)()
   local isStatic = (Util.GetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, "0")
   print("===============isStatic", isStatic)
@@ -1069,12 +1099,12 @@ HomeWindow.UpdateBg = function(...)
 end
 
 HomeWindow.RemoveShowModel = function(...)
-  -- function num : 0_37 , upvalues : _ENV, homeUis
+  -- function num : 0_38 , upvalues : _ENV, homeUis
   (Util.RecycleUIModel)(homeUis.ShowLoader)
 end
 
 HomeWindow.UpdateActorLvAndPower = function(...)
-  -- function num : 0_38 , upvalues : uis, _ENV
+  -- function num : 0_39 , upvalues : uis, _ENV
   local levelTxt = (uis.HeadGrp).LevelTxt
   local fcTxt = (uis.HeadGrp).FcTxt
   local fcWordTxt = (uis.HeadGrp).FcWordTxt
@@ -1095,7 +1125,7 @@ HomeWindow.UpdateActorLvAndPower = function(...)
 end
 
 HomeWindow.UpdateActorMoney = function(...)
-  -- function num : 0_39 , upvalues : uis, _ENV, assetType
+  -- function num : 0_40 , upvalues : uis, _ENV, assetType
   local diamondTxt = ((uis.HeadGrp).Diamonds).IconTxt
   local goldTxt = ((uis.HeadGrp).Gold).IconTxt
   local PhysicalTxt = ((uis.HeadGrp).Power).IconTxt
@@ -1105,13 +1135,13 @@ HomeWindow.UpdateActorMoney = function(...)
 end
 
 HomeWindow.OnBgScrollView = function(...)
-  -- function num : 0_40 , upvalues : HomeWindow
+  -- function num : 0_41 , upvalues : HomeWindow
   (HomeWindow.UpdateChooseBgArrow)()
 end
 
 local bgTable = {}
 HomeWindow.UpdateSelectBgPanel = function(refresh, ...)
-  -- function num : 0_41 , upvalues : uis, HomeWindow, bgTable, _ENV
+  -- function num : 0_42 , upvalues : uis, HomeWindow, bgTable, _ENV
   if refresh ~= true then
     local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
     if TouchScreenBtn then
@@ -1140,7 +1170,7 @@ HomeWindow.UpdateSelectBgPanel = function(refresh, ...)
     end
     ;
     (table.sort)(configTable, function(a, b, ...)
-    -- function num : 0_41_0
+    -- function num : 0_42_0
     do return a.sort < b.sort end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -1172,24 +1202,6 @@ HomeWindow.UpdateSelectBgPanel = function(refresh, ...)
 end
 
 HomeWindow.TouchBgScreen = function(...)
-  -- function num : 0_42 , upvalues : uis, _ENV, HomeWindow
-  local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
-  if TouchScreenBtn then
-    (TouchScreenBtn.onClick):Clear()
-  end
-  local panel = (uis.BackGroundChoice).root
-  if panel then
-    PlayUITrans(panel, "in", function(...)
-    -- function num : 0_42_0 , upvalues : TouchScreenBtn, HomeWindow
-    if TouchScreenBtn then
-      (TouchScreenBtn.onClick):Set(HomeWindow.TouchScreenBtnReverse)
-    end
-  end
-, nil, nil, nil, nil, nil, true)
-  end
-end
-
-HomeWindow.TouchScreenBtnReverse = function(...)
   -- function num : 0_43 , upvalues : uis, _ENV, HomeWindow
   local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
   if TouchScreenBtn then
@@ -1200,6 +1212,24 @@ HomeWindow.TouchScreenBtnReverse = function(...)
     PlayUITrans(panel, "in", function(...)
     -- function num : 0_43_0 , upvalues : TouchScreenBtn, HomeWindow
     if TouchScreenBtn then
+      (TouchScreenBtn.onClick):Set(HomeWindow.TouchScreenBtnReverse)
+    end
+  end
+, nil, nil, nil, nil, nil, true)
+  end
+end
+
+HomeWindow.TouchScreenBtnReverse = function(...)
+  -- function num : 0_44 , upvalues : uis, _ENV, HomeWindow
+  local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
+  if TouchScreenBtn then
+    (TouchScreenBtn.onClick):Clear()
+  end
+  local panel = (uis.BackGroundChoice).root
+  if panel then
+    PlayUITrans(panel, "in", function(...)
+    -- function num : 0_44_0 , upvalues : TouchScreenBtn, HomeWindow
+    if TouchScreenBtn then
       (TouchScreenBtn.onClick):Set(HomeWindow.TouchBgScreen)
     end
   end
@@ -1208,7 +1238,7 @@ HomeWindow.TouchScreenBtnReverse = function(...)
 end
 
 HomeWindow.UpdateOneBg = function(hand, config, ...)
-  -- function num : 0_44 , upvalues : _ENV, HomeWindow
+  -- function num : 0_45 , upvalues : _ENV, HomeWindow
   if hand and config then
     (hand:GetChild("PictureLoader")).url = (Util.GetItemUrl)(config.path_ui)
     local curSelect = (ActorData.GetGeneralHomeBg)()
@@ -1228,7 +1258,7 @@ HomeWindow.UpdateOneBg = function(hand, config, ...)
       end
       ;
       (hand.onClick):Set(function(...)
-    -- function num : 0_44_0 , upvalues : isSelect, isGet, _ENV, config, HomeWindow
+    -- function num : 0_45_0 , upvalues : isSelect, isGet, _ENV, config, HomeWindow
     if isSelect ~= true and isGet == true then
       local lastBgId = (ActorData.GetGeneralHomeBg)()
       ;
@@ -1248,7 +1278,7 @@ HomeWindow.UpdateOneBg = function(hand, config, ...)
 end
 
 HomeWindow.FirstLoginVoiceAndBubble = function(...)
-  -- function num : 0_45 , upvalues : _ENV, fashionID, homeUis
+  -- function num : 0_46 , upvalues : _ENV, fashionID, homeUis
   local recordFirstLogin = (AudioManager.GetRecordFirstLogin)()
   if recordFirstLogin then
     return 
@@ -1261,25 +1291,25 @@ HomeWindow.FirstLoginVoiceAndBubble = function(...)
 end
 
 HomeWindow.AutoPlayVoiceAndBubble = function(...)
-  -- function num : 0_46 , upvalues : _ENV, fashionID, cvVoiceTimer, AUTOCVTIME, homeUis
+  -- function num : 0_47 , upvalues : _ENV, fashionID, cvVoiceTimer, AUTOCVTIME, homeUis
   loge("***********开启一个循环定时器 用于定时随机播放语音和气泡")
   fashionID = (ActorData.GetFashionShow)()
   cvVoiceTimer = (SimpleTimer.setInterval)(AUTOCVTIME, -1, function(...)
-    -- function num : 0_46_0 , upvalues : _ENV, fashionID, homeUis
+    -- function num : 0_47_0 , upvalues : _ENV, fashionID, homeUis
     (AudioManager.PlayBubbleAndVoice)(true, true, fashionID, CVAudioType.HomeIdleBubble, homeUis.ShowLoader, homeUis, false, true, nil, false)
   end
 )
 end
 
 HomeWindow.onClickShowLoader = function(...)
-  -- function num : 0_47 , upvalues : fashionID, _ENV, homeUis
+  -- function num : 0_48 , upvalues : fashionID, _ENV, homeUis
   fashionID = (ActorData.GetFashionShow)()
   ;
   (AudioManager.PlayBubbleAndVoice)(true, true, fashionID, CVAudioType.HomeIdleBubble, homeUis.ShowLoader, homeUis, false, true, nil, false)
 end
 
 HomeWindow.onClickTouchScreenBtn = function(...)
-  -- function num : 0_48 , upvalues : _ENV, uis
+  -- function num : 0_49 , upvalues : _ENV, uis
   PlayUITrans(uis.root, "in")
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -1288,12 +1318,12 @@ HomeWindow.onClickTouchScreenBtn = function(...)
 end
 
 HomeWindow.onClickHideBtn = function(...)
-  -- function num : 0_49 , upvalues : _ENV, uis
+  -- function num : 0_50 , upvalues : _ENV, uis
   PlayUITrans(uis.root, "hide")
 end
 
 HomeWindow.onClickBackgroundBtn = function(...)
-  -- function num : 0_50 , upvalues : _ENV, uis, HomeWindow
+  -- function num : 0_51 , upvalues : _ENV, uis, HomeWindow
   ChangeController(uis.c1Ctr, 1)
   ;
   (HomeWindow.UpdateSelectBgPanel)()
@@ -1302,12 +1332,12 @@ HomeWindow.onClickBackgroundBtn = function(...)
 end
 
 HomeWindow.onClickCloseBackgroundBtn = function(...)
-  -- function num : 0_51 , upvalues : _ENV, uis
+  -- function num : 0_52 , upvalues : _ENV, uis
   ChangeController(uis.c1Ctr, 0)
 end
 
 HomeWindow.OnShown = function(...)
-  -- function num : 0_52 , upvalues : _ENV, uis
+  -- function num : 0_53 , upvalues : _ENV, uis
   (GuideMgr.CheckIsTriggerGuide)((WinResConfig.HomeWindow).name)
   ;
   (GuideMgr.MildGuideTrigger)((WinResConfig.HomeWindow).name)
@@ -1341,7 +1371,7 @@ HomeWindow.OnShown = function(...)
   ((uis.LotteryTips).root).visible = (TenNum > 0 and actorLv > 3 and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Newbie_Lottery))
   ;
   (SimpleTimer.setTimeout)(0.3, function(...)
-    -- function num : 0_52_0 , upvalues : _ENV
+    -- function num : 0_53_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
 
     if not (GuideMgr.IsInMainGuide)() and not (FunctionControlMgr.IsPrepareFunctionOpenWindow)() then
@@ -1358,17 +1388,17 @@ HomeWindow.OnShown = function(...)
 )
   ;
   (MessageMgr.OnRegisterBackWinFunc)((WinResConfig.HomeWindow).name, function(...)
-    -- function num : 0_52_1 , upvalues : uis, _ENV
+    -- function num : 0_53_1 , upvalues : uis, _ENV
     if (uis.c1Ctr).selectedIndex == 1 then
       (SimpleTimer.setTimeout)(0.01, function(...)
-      -- function num : 0_52_1_0 , upvalues : uis
+      -- function num : 0_53_1_0 , upvalues : uis
       (uis.c1Ctr):SetSelectedIndex(0)
     end
 )
     else
       ;
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000521), function(...)
-      -- function num : 0_52_1_1 , upvalues : _ENV
+      -- function num : 0_53_1_1 , upvalues : _ENV
       (Application.Quit)()
     end
 , nil, nil, nil, nil, nil, UILayer.HUD1)
@@ -1379,11 +1409,11 @@ HomeWindow.OnShown = function(...)
 end
 
 HomeWindow.OnHide = function(...)
-  -- function num : 0_53
+  -- function num : 0_54
 end
 
 HomeWindow.ClearAllHolder = function(...)
-  -- function num : 0_54 , upvalues : holder, _ENV, holderEffectBack, holderEffectFront
+  -- function num : 0_55 , upvalues : holder, _ENV, holderEffectBack, holderEffectFront
   if holder then
     (LuaEffect.DestroyEffect)(holder)
     holder = nil
@@ -1399,7 +1429,7 @@ HomeWindow.ClearAllHolder = function(...)
 end
 
 HomeWindow.OnClose = function(...)
-  -- function num : 0_55 , upvalues : texture, _ENV, _timers, showModel, HomeWindow, bgTable, uis, popup, homeUis, contentPane, cvVoiceTimer, BannerTimer, ActivityTimer
+  -- function num : 0_56 , upvalues : texture, _ENV, _timers, showModel, HomeWindow, bgTable, uis, popup, homeUis, contentPane, cvVoiceTimer, BannerTimer, ActivityTimer
   if texture then
     (ResHelper.UnloadTexture)(texture)
     texture = nil
@@ -1450,7 +1480,7 @@ HomeWindow.OnClose = function(...)
 end
 
 HomeWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_56 , upvalues : _ENV, HomeWindow, playWelcome, uis
+  -- function num : 0_57 , upvalues : _ENV, HomeWindow, playWelcome, uis
   if msgId == (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_ACTOR_INFO then
     (HomeWindow.UpdateActor)()
   else
@@ -1480,7 +1510,7 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
 end
 
 HomeWindow.CheckActivityIcon = function(...)
-  -- function num : 0_57 , upvalues : _ENV, uis, ActivityTimer, HomeWindow
+  -- function num : 0_58 , upvalues : _ENV, uis, ActivityTimer, HomeWindow
   local serverTime = (LuaTime.GetTimeStamp)()
   local selectedIndex = 0
   local timeMinus = 0
@@ -1523,6 +1553,8 @@ HomeWindow.CheckActivityIcon = function(...)
     ;
     ((uis.FriendBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
+    ((uis.FamilyBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    ;
     ((uis.GuildBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
     ((uis.Top_BagBtn):GetController("Clothes")).selectedIndex = selectedIndex
@@ -1534,7 +1566,7 @@ HomeWindow.CheckActivityIcon = function(...)
     ((uis.AnnouncementBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
     ((uis.ActorInfoBtn):GetController("Clothes")).selectedIndex = selectedIndex
-    -- DECOMPILER ERROR at PC123: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC128: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.Activity).ClothesCtr).selectedIndex = selectedIndex
@@ -1553,7 +1585,7 @@ HomeWindow.CheckActivityIcon = function(...)
           ActivityTimer = nil
         end
         ActivityTimer = (SimpleTimer.setTimeout)(timeMinus, function(...)
-    -- function num : 0_57_0 , upvalues : _ENV, HomeWindow
+    -- function num : 0_58_0 , upvalues : _ENV, HomeWindow
     local curBgId = (ActorData.GetGeneralHomeBg)()
     local curBgData = ((TableData.gTable).BaseHomeBackgroundData)[curBgId]
     if curBgData.begin_time ~= nil then
