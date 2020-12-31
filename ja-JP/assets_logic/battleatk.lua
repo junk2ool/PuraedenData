@@ -126,6 +126,15 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_SKILL)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_SKILL)
+      -- DECOMPILER ERROR at PC61: Confused about usage of register: R7 in 'UnsetPending'
+
+      if (BattleBuff.IsAttackDouble)(atkCard) == true then
+        BattleData.forceNextAttackFunc = function(...)
+    -- function num : 0_3_0 , upvalues : _ENV, atkCard
+    (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
+  end
+
+      end
       if atkCard:IsDead() ~= true then
         (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_SKILL)
         ;
@@ -138,6 +147,15 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_ATTACK)
+      -- DECOMPILER ERROR at PC97: Confused about usage of register: R7 in 'UnsetPending'
+
+      if (BattleBuff.IsAttackDouble)(atkCard) == true then
+        BattleData.forceNextAttackFunc = function(...)
+    -- function num : 0_3_1 , upvalues : _ENV, atkCard
+    (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
+  end
+
+      end
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT_ALL)
       if atkCard:IsDead() ~= true then
@@ -321,7 +339,7 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
       do
         ;
         (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
-        if isTreatment == false and #curTargetCards <= 1 then
+        if isTreatment == false and #curTargetCards <= 1 and defCard:GetCampFlag() ~= atkCard:GetCampFlag() then
           local assistCard = (self.IsAssistAtk)(atkCard)
           if #assistCard > 0 and defCard:IsDead() ~= true then
             for _,card in ipairs(assistCard) do

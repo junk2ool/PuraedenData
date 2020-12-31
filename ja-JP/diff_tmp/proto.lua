@@ -1368,7 +1368,7 @@ message ResTempleInit{
 	repeated StageInfo stageInfo = 1;//关卡信息
 	repeated CardStateExpedition battleCardState = 2;//上阵的卡牌状态
 	repeated CardStateExpedition yetCardState    = 3;//使用过的卡牌状态
-	repeated StageRivalCardState rivalCard       = 4;//所有关卡对手信息
+	repeated StageRivalCardState rivalCard       = 4;//对手信息
 	int32 changeFc                               = 5;//战力改变值
 	int32 templeWeakenNum                        = 6;//神殿遗迹精英/boss关卡削弱次数
 	int64 templeBeginTime                        = 7;//本次神殿遗迹开启时间
@@ -1411,7 +1411,8 @@ message ResSettleStage{
 	repeated GoodsObject firstGoods  = 8;//首通奖励
 	 
 	repeated CardStateExpedition battleCardState = 9;//上阵的卡牌状态 只有神殿遗迹的boss关卡和精英关卡 才有值
-	repeated RivalCardState rivalCard            = 10;//对手信息 只有神殿遗迹的boss关卡和精英关卡 才有值
+	repeated RivalCardState rivalCard            = 10;//对手信息 只有神殿遗迹的boss关卡和精英关卡 才有值  
+	repeated StageRivalCardState weakenRivalCard = 11;//对手信息 只有神殿遗迹的boss关卡和精英关卡 当挑战的是普通关卡时  这里是进行削弱之后的值
 	
 }
 

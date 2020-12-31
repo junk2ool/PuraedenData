@@ -47,6 +47,7 @@ ActorData.InitTempData = function(...)
   self.tempPropPageCount = 0
   self.tempCardInfo = {}
   self.tempFetterIds = {}
+  self.tempFurniture = {}
 end
 
 -- DECOMPILER ERROR at PC31: Confused about usage of register: R5 in 'UnsetPending'
@@ -76,6 +77,9 @@ ActorData.SaveActorData = function(msg, completeCallBack, ...)
   end
   if msg.fetterId and #msg.fetterId > 0 then
     self.tempFetterIds = msg.fetterId
+  end
+  if msg.furnitureObject and #msg.furnitureObject > 0 then
+    self.tempFurniture = msg.furnitureObject
   end
   for index,value in ipairs(msg.otherLottery) do
     print("=============", value.lotteryId)
@@ -137,14 +141,12 @@ ActorData.SaveActorData = function(msg, completeCallBack, ...)
       ;
       (HandBookData.CheckFetterData)(self.tempFetterIds)
       self.fetterId = self.tempFetterIds
+      self.furnitureData = self.tempFurniture
       if completeCallBack then
         completeCallBack()
       end
       ;
       (self.InitTempData)()
-    end
-    if msg.furnitureObject ~= nil then
-      self.furnitureData = msg.furnitureObject
     end
   end
 end
