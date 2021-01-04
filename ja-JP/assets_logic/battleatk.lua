@@ -130,8 +130,13 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
 
       if (BattleBuff.IsAttackDouble)(atkCard) == true then
         BattleData.forceNextAttackFunc = function(...)
-    -- function num : 0_3_0 , upvalues : _ENV, atkCard
-    (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
+    -- function num : 0_3_0 , upvalues : _ENV, skillConfig, atkCard
+    if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
+      (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
+    else
+      ;
+      (BattleAtk.InsertSmallSkillInfo)(atkCard)
+    end
   end
 
       end
@@ -151,8 +156,13 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
 
       if (BattleBuff.IsAttackDouble)(atkCard) == true then
         BattleData.forceNextAttackFunc = function(...)
-    -- function num : 0_3_1 , upvalues : _ENV, atkCard
-    (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
+    -- function num : 0_3_1 , upvalues : _ENV, skillConfig, atkCard
+    if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
+      (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
+    else
+      ;
+      (BattleAtk.InsertSmallSkillInfo)(atkCard)
+    end
   end
 
       end

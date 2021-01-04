@@ -64,13 +64,18 @@ end
 MailWindow.Deal = function(ori, para, mailId, ...)
   -- function num : 0_2 , upvalues : _ENV
   local oriTxt = (PUtil.get)(tonumber(ori))
+  print("00000000000000000000", oriTxt)
   local sp = #split(oriTxt, "{")
+  print("11111111111111", (split(oriTxt, "{"))[2], sp)
   if sp <= 1 then
     local startIndex = tonumber((string.sub)((split(oriTxt, "{"))[2], 1, 1)) + 1
+    print("22222222222222222", startIndex, type(startIndex))
     do
       local max = startIndex + sp - 2
+      print("3333333333333333", startIndex, max)
       for i = startIndex, max do
         local inx = para[i]
+        print("------------inx", inx, (string.find)(inx, "&"), mailId, type(mailId))
         local fi = ""
         if (string.find)(inx, "&") and mailId == 78410008 then
           local inx2 = (string.sub)(inx, 2, (string.len)(inx))
@@ -79,12 +84,13 @@ MailWindow.Deal = function(ori, para, mailId, ...)
           do
             do
               fi = inx
+              print("---111111111---", fi, oriTxt, tostring(i - 1))
               oriTxt = (string.gsub)(oriTxt, "{" .. tostring(i - 1) .. "}", fi)
-              -- DECOMPILER ERROR at PC74: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC120: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC74: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC120: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC74: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC120: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -104,7 +110,7 @@ MailWindow.RefreshMailItem = function(index, item, ...)
   ((item:GetChild("MailDetailed")):GetChild("SendTimeWordTxt")).text = (PUtil.get)(96)
   local mailData = {}
   if data.cId > 0 then
-    mailData.title = (MailWindow.Deal)(data.title, data.params, data.id)
+    mailData.title = (MailWindow.Deal)(data.title, data.params, data.cId)
     mailData.sender = (PUtil.get)(tonumber(data.sender))
     mailData.live = data.live
   else
@@ -207,10 +213,10 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
   (MailWindow.SetMainWindowState)(selectedIndex)
   local mailData = {}
   if detailInfo.cId > 0 then
-    mailData.title = (MailWindow.Deal)(detailInfo.title, detailInfo.params, detailInfo.id)
+    mailData.title = (MailWindow.Deal)(detailInfo.title, detailInfo.params, detailInfo.cId)
     mailData.sender = (PUtil.get)(tonumber(detailInfo.sender))
     mailData.live = detailInfo.live
-    local content = (MailWindow.Deal)(detailInfo.content, detailInfo.params, detailInfo.id)
+    local content = (MailWindow.Deal)(detailInfo.content, detailInfo.params, detailInfo.cId)
     mailData.content = content
     mailData.receive = detailInfo.receive
   else

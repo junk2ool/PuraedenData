@@ -377,6 +377,8 @@ end
 PiceGetShowWindow.OnClose = function(...)
   -- function num : 0_7 , upvalues : _ENV, uis, contentPane, controller, argTable, moveIndex, isMoving, fashionData, isSkip, picesNum, clickEnable, cards, callBack, fxMainEffect, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END, showModel
   (AudioManager.DisposeCurAudioAndBubble)()
+  ;
+  (Util.RecycleUIModel)(uis.CardLoader)
   uis = nil
   contentPane = nil
   controller = nil
