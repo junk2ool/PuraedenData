@@ -126,20 +126,6 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_SKILL)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_SKILL)
-      -- DECOMPILER ERROR at PC61: Confused about usage of register: R7 in 'UnsetPending'
-
-      if (BattleBuff.IsAttackDouble)(atkCard) == true then
-        BattleData.forceNextAttackFunc = function(...)
-    -- function num : 0_3_0 , upvalues : _ENV, skillConfig, atkCard
-    if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
-      (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
-    else
-      ;
-      (BattleAtk.InsertSmallSkillInfo)(atkCard)
-    end
-  end
-
-      end
       if atkCard:IsDead() ~= true then
         (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_SKILL)
         ;
@@ -152,11 +138,11 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_ATTACK)
-      -- DECOMPILER ERROR at PC97: Confused about usage of register: R7 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC88: Confused about usage of register: R7 in 'UnsetPending'
 
       if (BattleBuff.IsAttackDouble)(atkCard) == true then
         BattleData.forceNextAttackFunc = function(...)
-    -- function num : 0_3_1 , upvalues : _ENV, skillConfig, atkCard
+    -- function num : 0_3_0 , upvalues : _ENV, skillConfig, atkCard
     if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
       (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
     else

@@ -2598,8 +2598,10 @@ effectTable = {eff}
           (AudioManager.PlayBattleVoice)(self:GetFashionId(), CVAudioType.HitBubble)
         end
         self:ChangeState(targetState, false, function(...)
-      -- function num : 0_0_79_2 , upvalues : self
-      self:Stand()
+      -- function num : 0_0_79_2 , upvalues : self, BattleCardState
+      if self:GetCurState() ~= BattleCardState.FALL_DOWN then
+        self:Stand()
+      end
     end
 , true)
         ;

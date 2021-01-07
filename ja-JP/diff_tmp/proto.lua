@@ -1410,7 +1410,7 @@ message ResSettleStage{
 	repeated CommonObject cardInfo	 = 7;//卡组(id为卡的ID,value为位置) 
 	repeated GoodsObject firstGoods  = 8;//首通奖励
 	 
-	repeated CardStateExpedition battleCardState = 9;//上阵的卡牌状态 只有神殿遗迹的boss关卡和精英关卡 才有值
+	repeated CardStateExpedition battleCardState = 9;//上阵的卡牌状态 只有神殿遗迹的精英关卡 才有值
 	repeated RivalCardState rivalCard            = 10;//对手信息 只有神殿遗迹的boss关卡和精英关卡 才有值  
 	repeated StageRivalCardState weakenRivalCard = 11;//对手信息 只有神殿遗迹的boss关卡和精英关卡 当挑战的是普通关卡时  这里是进行削弱之后的值
 	
