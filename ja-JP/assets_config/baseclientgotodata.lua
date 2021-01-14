@@ -415,6 +415,10 @@ BaseClientGotoData = {
 , 
 [77423017] = {id = 77423017, name = (PUtil.get)(88010013), remark = (PUtil.get)(88200027), icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
+[77423018] = {id = 77423018, name = (PUtil.get)(88010013), remark = (PUtil.get)(88200028), icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423019] = {id = 77423019, name = (PUtil.get)(88010013), remark = (PUtil.get)(88200028), icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
 [77430003] = {id = 77430003, name = (PUtil.get)(88030016), remark = (PUtil.get)(88200008), icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 }
 

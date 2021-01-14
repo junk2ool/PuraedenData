@@ -21,23 +21,26 @@ HomelandData.RolePatrolArgument = 72010074
 HomelandData.RoleScale = 72010075
 -- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
 
+HomelandData.RandomBubbleGap = 72010076
+-- DECOMPILER ERROR at PC20: Confused about usage of register: R1 in 'UnsetPending'
+
 HomelandData.OpenUI = false
-HomelandRoomResources = {WhiteGrid = "WhiteLine", WhiteWallGrid = "WhiteLineTwo", RedLine = "RedLine", RedGrid = "RedBlock", GreenLine = "GreenLine", GreenGrid = "GreenBlock", MoveFurnitureCom = "Furniture", FurnitureCom = "FurnitureItem", Shadow = "Shadow"}
+HomelandRoomResources = {WhiteGrid = "WhiteLine", WhiteWallGrid = "WhiteLineTwo", RedLine = "RedLine", RedGrid = "RedBlock", GreenLine = "GreenLine", GreenGrid = "GreenBlock", MoveFurnitureCom = "Furniture", FurnitureCom = "FurnitureItem", Shadow = "Shadow", TalkL = "TalkL", TalkR = "TalkR"}
 HomelandRoomConstant = {OriginalPoint = Vector2.zero, WallHeight = 0, WallVGridAmount = 0, FloorAngle = 0, 
 LeftWallRect = {}
 , 
 RightWallRect = {}
 , 
 FloorRect = {}
-, DefaultGridCount = 0, GridLength = 0, GridProject = Vector2.zero, XAxis = Vector2.zero, YAxis = Vector2.zero, ZAxis = Vector2.zero, ZAxisYScale = 1, NormalizeXAxis = Vector2.zero, NormalizeYAxis = Vector2.zero, DefaultFloor = 0, DefaultWall = 0, DefaultZoom = 0, MaxZoom = 0, MinZoom = 0, MaxChooseCircleSize = 0, RoleMaxMoveDistance = 5, RoleMaxWaitDuration = 5, RoleMinWaitDuration = 0, RoleScale = 1}
--- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
+, DefaultGridCount = 0, GridLength = 0, GridProject = Vector2.zero, XAxis = Vector2.zero, YAxis = Vector2.zero, ZAxis = Vector2.zero, ZAxisYScale = 1, NormalizeXAxis = Vector2.zero, NormalizeYAxis = Vector2.zero, DefaultFloor = 0, DefaultWall = 0, DefaultZoom = 0, MaxZoom = 0, MinZoom = 0, MaxChooseCircleSize = 0, RoleMaxMoveDistance = 5, RoleMaxWaitDuration = 5, RoleMinWaitDuration = 0, RoleScale = 1, RandomBubbleGap = 10}
+-- DECOMPILER ERROR at PC82: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.AllRoomData = {}
--- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC85: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.UsedCard = {}
 HomelandHostRelation = {Self = 0, Guild = 1, Friend = 2, Stranger = 3}
--- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC124: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.RoomData = {Relation = HomelandHostRelation.Self, DefaultId = 0, Id = 0, DefaultStyleId = 0, StyleId = 0, SelfId = 0, SelfStyleId = 0, Type = 0, 
 Role = {}
@@ -61,48 +64,48 @@ HomelandFurnitureType = {All = 0, Wall = 1, Floor = 2, Furniture = 3, Decorate =
 HomelandRoomGridType = {Floor = 1, LeftWall = 2, RightWall = 3}
 HomelandRoomGridStatus = {Unknown = 0, Available = 1, OutOfRoom = 2, Occupied = 3}
 HomelandRoomDecorateDirection = {None = 0, Left = 1, Right = 2}
--- DECOMPILER ERROR at PC150: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC155: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.PileFurnitures = {}
--- DECOMPILER ERROR at PC153: Confused about usage of register: R1 in 'UnsetPending'
-
-HomelandData.UndeployFurnitures = {}
--- DECOMPILER ERROR at PC156: Confused about usage of register: R1 in 'UnsetPending'
-
-HomelandData.EditUndeployFurnitures = {}
 -- DECOMPILER ERROR at PC158: Confused about usage of register: R1 in 'UnsetPending'
 
+HomelandData.UndeployFurnitures = {}
+-- DECOMPILER ERROR at PC161: Confused about usage of register: R1 in 'UnsetPending'
+
+HomelandData.EditUndeployFurnitures = {}
+-- DECOMPILER ERROR at PC163: Confused about usage of register: R1 in 'UnsetPending'
+
 HomelandData.EditCurrentFurnitures = nil
--- DECOMPILER ERROR at PC160: Confused about usage of register: R1 in 'UnsetPending'
-
-HomelandData.EditCurrentType = nil
--- DECOMPILER ERROR at PC162: Confused about usage of register: R1 in 'UnsetPending'
-
-HomelandData.EditPileFurnitures = nil
 -- DECOMPILER ERROR at PC165: Confused about usage of register: R1 in 'UnsetPending'
 
+HomelandData.EditCurrentType = nil
+-- DECOMPILER ERROR at PC167: Confused about usage of register: R1 in 'UnsetPending'
+
+HomelandData.EditPileFurnitures = nil
+-- DECOMPILER ERROR at PC170: Confused about usage of register: R1 in 'UnsetPending'
+
 HomelandData.Furnitures = {}
--- DECOMPILER ERROR at PC168: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC173: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.RoomByLevel = {}
--- DECOMPILER ERROR at PC171: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC176: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.StyleWF = {}
--- DECOMPILER ERROR at PC177: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC182: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.UnavailableColor = ((CS.UnityEngine).Color).red
--- DECOMPILER ERROR at PC179: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC184: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandData.UnavailableAlpha = 0.5
 local _roomData = HomelandData.RoomData
--- DECOMPILER ERROR at PC184: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC189: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetCurrentRoomSize = function(...)
   -- function num : 0_0 , upvalues : _ENV, _roomData
   return (((HomelandData.RoomByLevel)[_roomData.Type])[_roomData.Level]).Size
 end
 
--- DECOMPILER ERROR at PC187: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC192: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitRoomConstantPart1 = function(...)
   -- function num : 0_1 , upvalues : _ENV
@@ -142,24 +145,27 @@ HomelandData.InitRoomConstantPart1 = function(...)
   -- DECOMPILER ERROR at PC104: Confused about usage of register: R1 in 'UnsetPending'
 
   HomelandRoomConstant.RoleMaxWaitDuration = tonumber(info[3])
-  -- DECOMPILER ERROR at PC107: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC113: Confused about usage of register: R1 in 'UnsetPending'
+
+  HomelandRoomConstant.RandomBubbleGap = (((TableData.gTable).BaseFixedData)[HomelandData.RandomBubbleGap]).int_value
+  -- DECOMPILER ERROR at PC116: Confused about usage of register: R1 in 'UnsetPending'
 
   HomelandData.RoomByLevel = {}
   local configs = (TableData.gTable).BaseFamilyRoomUpData
   for k,v in pairs(configs) do
-    -- DECOMPILER ERROR at PC125: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC134: Confused about usage of register: R7 in 'UnsetPending'
 
     if (HomelandData.RoomByLevel)[v.type] == nil then
       (HomelandData.RoomByLevel)[v.type] = {}
     end
-    -- DECOMPILER ERROR at PC145: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC156: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
-    ((HomelandData.RoomByLevel)[v.type])[v.level] = {Id = k, RoleAmount = v.role_num, Size = tonumber((split(v.size, ":"))[1]), Cost = v.cost}
+    ((HomelandData.RoomByLevel)[v.type])[v.level] = {Id = k, RoleAmount = v.role_num, Size = tonumber((split(v.size, ":"))[1]), Cost = v.cost, FarmLevel = v.farmLevel}
   end
 end
 
--- DECOMPILER ERROR at PC190: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC195: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitFurnitureData = function(usedFurniture, ...)
   -- function num : 0_2 , upvalues : _ENV
@@ -196,7 +202,7 @@ HomelandData.InitFurnitureData = function(usedFurniture, ...)
   end
 end
 
--- DECOMPILER ERROR at PC193: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC198: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitData = function(msg, ...)
   -- function num : 0_3 , upvalues : _ENV, _roomData
@@ -277,7 +283,7 @@ roomStyle = {}
   (HomelandData.InitFurnitureData)(usedFurniture)
 end
 
--- DECOMPILER ERROR at PC196: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC201: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.RefreshFurnitureData = function(...)
   -- function num : 0_4 , upvalues : _ENV
@@ -300,7 +306,7 @@ HomelandData.RefreshFurnitureData = function(...)
   (HomelandData.InitFurnitureData)(usedFurniture)
 end
 
--- DECOMPILER ERROR at PC199: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC204: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetFurnituresByType = function(type, ...)
   -- function num : 0_5 , upvalues : _ENV
@@ -319,7 +325,7 @@ HomelandData.GetFurnituresByType = function(type, ...)
   return furnitures
 end
 
--- DECOMPILER ERROR at PC202: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC207: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.ClearData = function(...)
   -- function num : 0_6 , upvalues : _ENV
@@ -355,14 +361,14 @@ HomelandData.ClearData = function(...)
   HomelandData.StyleWF = {}
 end
 
--- DECOMPILER ERROR at PC205: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC210: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitCurrentPlayerInfo = function(data, ...)
   -- function num : 0_7 , upvalues : _roomData
   _roomData.CurrentPlayInfo = data
 end
 
--- DECOMPILER ERROR at PC208: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC213: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetRelation = function(objectIndex, ...)
   -- function num : 0_8 , upvalues : _ENV
@@ -377,7 +383,7 @@ HomelandData.GetRelation = function(objectIndex, ...)
   end
 end
 
--- DECOMPILER ERROR at PC211: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC216: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.UpdateFurnitureData = function(data, ...)
   -- function num : 0_9 , upvalues : _ENV
@@ -395,7 +401,7 @@ HomelandData.UpdateFurnitureData = function(data, ...)
   UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_FURNITURE_LIST)
 end
 
--- DECOMPILER ERROR at PC214: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC219: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetFurnitureTime = function(uid, ...)
   -- function num : 0_10 , upvalues : _ENV
@@ -406,7 +412,7 @@ HomelandData.GetFurnitureTime = function(uid, ...)
   end
 end
 
--- DECOMPILER ERROR at PC217: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC222: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.AddFurniture = function(uid, data, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -430,7 +436,7 @@ HomelandData.AddFurniture = function(uid, data, ...)
   (table.insert)((HomelandData.PileFurnitures)[id], uid)
 end
 
--- DECOMPILER ERROR at PC220: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC225: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.RemoveFurinture = function(uid, data, ...)
   -- function num : 0_12 , upvalues : _ENV
@@ -476,7 +482,7 @@ HomelandData.RemoveFurinture = function(uid, data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC223: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC228: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitRoomConstantPart2 = function(totalSize, angle, pos, wallHeight, ...)
   -- function num : 0_13 , upvalues : _ENV
@@ -530,7 +536,7 @@ HomelandData.InitRoomConstantPart2 = function(totalSize, angle, pos, wallHeight,
   (HomelandData.SetFloorAndWallArea)()
 end
 
--- DECOMPILER ERROR at PC226: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC231: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitRoomInfo = function(data, relation, ...)
   -- function num : 0_14 , upvalues : _roomData, _ENV
@@ -545,7 +551,7 @@ HomelandData.InitRoomInfo = function(data, relation, ...)
   _roomData.Type = (((TableData.gTable).BaseFamilyRoomData)[data.id]).type
 end
 
--- DECOMPILER ERROR at PC229: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC234: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitRoomStyleInfo = function(data, wall, floor, ...)
   -- function num : 0_15 , upvalues : _roomData, _ENV
@@ -579,16 +585,16 @@ HomelandData.InitRoomStyleInfo = function(data, wall, floor, ...)
     end
   end
   do
-    if not data.cardId then
+    if not data.roomCardInfo then
       _roomData.Role = {}
       -- DECOMPILER ERROR at PC76: Confused about usage of register: R3 in 'UnsetPending'
 
       HomelandData.UsedCard = {}
       local count = #_roomData.Role
       for i = 1, count do
-        -- DECOMPILER ERROR at PC87: Confused about usage of register: R8 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC88: Confused about usage of register: R8 in 'UnsetPending'
 
-        (HomelandData.UsedCard)[(_roomData.Role)[i]] = true
+        (HomelandData.UsedCard)[((_roomData.Role)[i]).cardId] = true
       end
       do
         if not data.furnitureData then
@@ -599,7 +605,7 @@ HomelandData.InitRoomStyleInfo = function(data, wall, floor, ...)
   end
 end
 
--- DECOMPILER ERROR at PC232: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC237: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.SetFloorAndWallArea = function(...)
   -- function num : 0_16 , upvalues : _ENV
@@ -644,7 +650,7 @@ BottomRight = {x = pos.x, y = pos.y + 2 * sin}
 }
 end
 
--- DECOMPILER ERROR at PC235: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC240: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.UpdateCardGridUsage = function(x, y, id, ...)
   -- function num : 0_17 , upvalues : _roomData, _ENV
@@ -688,7 +694,7 @@ HomelandData.UpdateCardGridUsage = function(x, y, id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC238: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC243: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.CheckGridAvailableForRole = function(x, y, ...)
   -- function num : 0_18 , upvalues : _roomData
@@ -696,7 +702,7 @@ HomelandData.CheckGridAvailableForRole = function(x, y, ...)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC241: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC246: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.InitCardGridData = function(...)
   -- function num : 0_19 , upvalues : _ENV
@@ -729,7 +735,7 @@ HomelandData.InitCardGridData = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC244: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC249: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetRandomAvailableCoordinate = function(...)
   -- function num : 0_20 , upvalues : _ENV, Random
@@ -745,7 +751,7 @@ HomelandData.GetRandomAvailableCoordinate = function(...)
   return nil
 end
 
--- DECOMPILER ERROR at PC247: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC252: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.Change2DSet = function(set, x, y, data, ...)
   -- function num : 0_21 , upvalues : _ENV
@@ -769,7 +775,7 @@ HomelandData.Change2DSet = function(set, x, y, data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC250: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC255: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetFurnitureAmount = function(id, ...)
   -- function num : 0_22 , upvalues : _ENV
@@ -780,10 +786,40 @@ HomelandData.GetFurnitureAmount = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC253: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC258: Confused about usage of register: R2 in 'UnsetPending'
+
+HomelandData.RemoveFromWaitingList = function(coordinate, roleId, ...)
+  -- function num : 0_23 , upvalues : _ENV
+  if ((HomelandData.RoomData).GridWaiting)[coordinate.x] ~= nil then
+    local waiting = (((HomelandData.RoomData).GridWaiting)[coordinate.x])[coordinate.y]
+    if waiting then
+      local count = #waiting
+      for i = 1, count do
+        if (waiting[i]).Id == roleId then
+          (table.remove)(waiting, i)
+          break
+        end
+      end
+      do
+        -- DECOMPILER ERROR at PC44: Confused about usage of register: R4 in 'UnsetPending'
+
+        if (_G.next)(waiting) == nil then
+          (((HomelandData.RoomData).GridWaiting)[coordinate.x])[coordinate.y] = nil
+          -- DECOMPILER ERROR at PC59: Confused about usage of register: R4 in 'UnsetPending'
+
+          if (_G.next)(((HomelandData.RoomData).GridWaiting)[coordinate.x]) == nil then
+            ((HomelandData.RoomData).GridWaiting)[coordinate.x] = nil
+          end
+        end
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC261: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetPath = function(start, destination, ...)
-  -- function num : 0_23 , upvalues : _ENV
+  -- function num : 0_24 , upvalues : _ENV
   local openSet = {}
   local closeSet = {}
   local nearBySet = {}
@@ -849,7 +885,7 @@ HomelandData.GetPath = function(start, destination, ...)
         ;
         (HomelandData.Change2DSet)(openSet, minNode.x, minNode.y)
         local addNewNode = function(newNode, ...)
-    -- function num : 0_23_0 , upvalues : closeSet, minNode, _ENV, destination, openSet, nearBySet, checkNode
+    -- function num : 0_24_0 , upvalues : closeSet, minNode, _ENV, destination, openSet, nearBySet, checkNode
     local t = ((closeSet[minNode.x])[minNode.y]).Priority + 1 + (math.abs)(destination.x - newNode.x) + (math.abs)(destination.y - newNode.y)
     ;
     (HomelandData.Change2DSet)(openSet, newNode.x, newNode.y, {Parent = minNode, Priority = ((closeSet[minNode.x])[minNode.y]).Priority + 1 + (math.abs)(destination.x - newNode.x) + (math.abs)(destination.y - newNode.y)})
@@ -858,7 +894,7 @@ HomelandData.GetPath = function(start, destination, ...)
   end
 
         local checkNearByNode = function(x, y, condition, ...)
-    -- function num : 0_23_1 , upvalues : checkNode, _ENV, destination, node, closeSet, addNewNode
+    -- function num : 0_24_1 , upvalues : checkNode, _ENV, destination, node, closeSet, addNewNode
     checkNode = Vector2(x, y)
     if checkNode.x == destination.x and checkNode.y == destination.y then
       node = checkNode
@@ -881,22 +917,22 @@ HomelandData.GetPath = function(start, destination, ...)
   end
   do
     if checkNearByNode(minNode.x - 1, minNode.y, function(checkNode, ...)
-    -- function num : 0_23_2
+    -- function num : 0_24_2
     do return checkNode.x > 0 end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 ) or checkNearByNode(minNode.x, minNode.y + 1, function(checkNode, ...)
-    -- function num : 0_23_3 , upvalues : roomSize
+    -- function num : 0_24_3 , upvalues : roomSize
     do return checkNode.y <= roomSize end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 ) or checkNearByNode(minNode.x + 1, minNode.y, function(checkNode, ...)
-    -- function num : 0_23_4 , upvalues : roomSize
+    -- function num : 0_24_4 , upvalues : roomSize
     do return checkNode.x <= roomSize end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 ) or checkNearByNode(minNode.x, minNode.y - 1, function(checkNode, ...)
-    -- function num : 0_23_5
+    -- function num : 0_24_5
     do return checkNode.y > 0 end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -918,10 +954,10 @@ HomelandData.GetPath = function(start, destination, ...)
   end
 end
 
--- DECOMPILER ERROR at PC256: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC264: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.SetFarmInfo = function(farmInfo, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R1 in 'UnsetPending'
 
   if not farmInfo then
@@ -929,17 +965,24 @@ HomelandData.SetFarmInfo = function(farmInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC259: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC267: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetFarmInfo = function(...)
-  -- function num : 0_25 , upvalues : _ENV
+  -- function num : 0_26 , upvalues : _ENV
   return HomelandData.farmInfo
 end
 
--- DECOMPILER ERROR at PC262: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC270: Confused about usage of register: R2 in 'UnsetPending'
+
+HomelandData.GetFarmLevel = function(...)
+  -- function num : 0_27 , upvalues : _ENV
+  return HomelandData.farmInfo and (HomelandData.farmInfo).farmLevel or 0
+end
+
+-- DECOMPILER ERROR at PC273: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetLandInfoByIndex = function(index, ...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_28 , upvalues : _ENV
   local landInfo = {
 serverData = {}
 , 
@@ -955,10 +998,10 @@ configData = {}
   return landInfo
 end
 
--- DECOMPILER ERROR at PC265: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC276: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.SetLandInfoByIndex = function(index, status, countDown, ...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   for key,value in pairs((HomelandData.farmInfo).landInfo) do
     local landConfig = ((TableData.gTable).BaseFamilyFarmLandData)[value.id]
     local type = landConfig.type
@@ -975,10 +1018,10 @@ HomelandData.SetLandInfoByIndex = function(index, status, countDown, ...)
   end
 end
 
--- DECOMPILER ERROR at PC268: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC279: Confused about usage of register: R2 in 'UnsetPending'
 
 HomelandData.GetSeedNumById = function(seedId, ...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   local num = 0
   if (HomelandData.farmInfo).seedInfo then
     for index,value in ipairs((HomelandData.farmInfo).seedInfo) do

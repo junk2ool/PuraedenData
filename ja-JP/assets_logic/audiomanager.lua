@@ -61,6 +61,14 @@ AudioManager.GetBubbleIds = function(fashionId, bubbleType, isRandom, ...)
                             else
                               if bubbleType == CVAudioType.BattleLoseBubble then
                                 bubbleIds = excelData.lose_bubble_ids
+                              else
+                                if bubbleType == CVAudioType.HomelandDeployBubble then
+                                  bubbleIds = excelData.familyArray_bubble_ids
+                                else
+                                  if bubbleType == CVAudioType.homelandRandomBubble then
+                                    bubbleIds = excelData.family_bubble_ids
+                                  end
+                                end
                               end
                             end
                           end
@@ -305,13 +313,18 @@ AudioManager.DisposeCurAudioAndBubble = function(isSaveAudio, ...)
   end
 end
 
+AudioManager.PlayingAudio = function(...)
+  -- function num : 0_8 , upvalues : isPlayingAudio
+  return isPlayingAudio
+end
+
 AudioManager.RecordFirstLogin = function(...)
-  -- function num : 0_8 , upvalues : recordFirstLogin
+  -- function num : 0_9 , upvalues : recordFirstLogin
   recordFirstLogin = true
 end
 
 AudioManager.GetRecordFirstLogin = function(...)
-  -- function num : 0_9 , upvalues : recordFirstLogin
+  -- function num : 0_10 , upvalues : recordFirstLogin
   return recordFirstLogin
 end
 

@@ -2999,6 +2999,10 @@ EquipmentWindow.EditCheck = function(...)
     EquiptData.EditPreset = {}
   end
 )
+      else
+        -- DECOMPILER ERROR at PC66: Confused about usage of register: R1 in 'UnsetPending'
+
+        EquiptData.EditPreset = {}
       end
     end
   end

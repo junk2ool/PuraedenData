@@ -17,13 +17,16 @@ local sortIsUp = true
 local myTime = {}
 local farmInfo = {}
 local windMial, clickedItem = nil, nil
+local oriFarmExp = 0
+local expTimer = nil
 HomelandFarmWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, farmInfo, HomelandFarmWindow, MAXLANDNUM, landItems, swipeDic, sortIsUp, myTime, seedShowType, SeedShowType
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, farmInfo, oriFarmExp, HomelandFarmWindow, MAXLANDNUM, landItems, swipeDic, sortIsUp, myTime, seedShowType, SeedShowType
   bridgeObj:SetView((WinResConfig.HomelandFarmWindow).package, (WinResConfig.HomelandFarmWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
   uis = GetFamily_FarmUis(contentPane)
   farmInfo = (HomelandData.GetFarmInfo)()
+  oriFarmExp = farmInfo.farmExp
   ;
   (HomelandFarmWindow.InitAssetResource)()
   ;
@@ -132,7 +135,7 @@ HomelandFarmWindow.OnClickLandFunc = function(clickIndex, ...)
       end
       do
         local needLvl = landConfigData.farm_level
-        if needLvl <= farmLvl and (Util.CheckCostResources)(landConfigData.cost) then
+        if needLvl <= farmLvl and (Util.CheckCostResources)(landConfigData.cost, nil, nil, false, true) then
           local costStr = split(landConfigData.cost, ",")
           local str = ""
           for k,v in pairs(costStr) do
@@ -239,7 +242,7 @@ HomelandFarmWindow.SetLandState = function(index, ...)
 end
 
 HomelandFarmWindow.RefreshFarmWindow = function(...)
-  -- function num : 0_3 , upvalues : uis, _ENV, farmInfo, MAXLANDNUM, HomelandFarmWindow, seedShowType
+  -- function num : 0_3 , upvalues : uis, _ENV, farmInfo, oriFarmExp, MAXLANDNUM, HomelandFarmWindow, seedShowType
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.Level).WordTxt).text = (PUtil.get)(236)
@@ -252,22 +255,60 @@ HomelandFarmWindow.RefreshFarmWindow = function(...)
   end
   local lvlUpExp = 0
   lvlUpExp = farmConfig.nextExp
-  -- DECOMPILER ERROR at PC40: Confused about usage of register: R3 in 'UnsetPending'
+  local levelExpBar = ((uis.Level).root):GetChild("LevelExpBar")
+  -- DECOMPILER ERROR at PC45: Confused about usage of register: R4 in 'UnsetPending'
 
   if farmMaxLevel == farmInfo.farmLevel and lvlUpExp < farmInfo.farmExp then
     ((uis.Level).LevelExpTxt).text = (PUtil.get)(60000432)
+    levelExpBar.value = 100
   else
-    -- DECOMPILER ERROR at PC48: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC54: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
     ((uis.Level).LevelExpTxt).text = farmInfo.farmExp .. "/" .. lvlUpExp
   end
-  -- DECOMPILER ERROR at PC57: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC63: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   ((uis.Level).FarmLevelTxt).text = (PUtil.get)(22) .. farmInfo.farmLevel
-  ;
-  (((uis.Level).root):GetChild("LevelExpBar")).value = farmInfo.farmExp / lvlUpExp * 100
+  if oriFarmExp < farmInfo.farmExp then
+    ((LeanTween.value)(levelExpBar.value, farmInfo.farmExp / lvlUpExp * 100, 0.5)):setOnUpdate(function(value, ...)
+    -- function num : 0_3_0 , upvalues : levelExpBar
+    levelExpBar.value = value
+  end
+)
+    ;
+    (((LeanTween.value)(oriFarmExp, farmInfo.farmExp, 0.5)):setOnUpdate(function(value, ...)
+    -- function num : 0_3_1 , upvalues : uis, _ENV, lvlUpExp
+    -- DECOMPILER ERROR at PC9: Confused about usage of register: R1 in 'UnsetPending'
+
+    ((uis.Level).LevelExpTxt).text = (math.floor)(value) .. "/" .. lvlUpExp
+  end
+)):setOnComplete(function(...)
+    -- function num : 0_3_2 , upvalues : oriFarmExp, farmInfo
+    oriFarmExp = farmInfo.farmExp
+  end
+)
+  else
+    if farmInfo.farmExp < oriFarmExp then
+      (((LeanTween.value)(levelExpBar.value, 100, 0.25)):setOnUpdate(function(value, ...)
+    -- function num : 0_3_3 , upvalues : levelExpBar
+    levelExpBar.value = value
+  end
+)):setOnComplete(function(...)
+    -- function num : 0_3_4 , upvalues : _ENV, farmInfo, lvlUpExp, levelExpBar, oriFarmExp
+    ((LeanTween.value)(0, farmInfo.farmExp / lvlUpExp * 100, 0.25)):setOnUpdate(function(value, ...)
+      -- function num : 0_3_4_0 , upvalues : levelExpBar, oriFarmExp, farmInfo
+      levelExpBar.value = value
+      oriFarmExp = farmInfo.farmExp
+    end
+)
+  end
+)
+    else
+      levelExpBar.value = farmInfo.farmExp / lvlUpExp * 100
+    end
+  end
   for i = 1, MAXLANDNUM do
     (HomelandFarmWindow.SetLandState)(i)
   end

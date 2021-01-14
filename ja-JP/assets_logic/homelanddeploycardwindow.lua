@@ -105,13 +105,13 @@ HomelandDeployCardWindow.RefreshDeployCard = function(...)
   local index = 0
   for k,v in pairs((HomelandData.RoomData).Role) do
     index = index + 1
-    local cardId = v
+    local cardId = v.cardId
     do
       item = list:AddItemFromPool()
       ;
       (item:GetController("c1")).selectedIndex = 0
       ;
-      (Util.SetHeadFrame)(item:GetChild("HeadFrame"), (CardData.GetCardData)(v))
+      (Util.SetHeadFrame)(item:GetChild("HeadFrame"), (CardData.GetCardData)(cardId))
       ;
       (item.onClick):Set(function(...)
     -- function num : 0_10_0 , upvalues : _ENV, cardId

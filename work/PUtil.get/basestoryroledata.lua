@@ -337,9 +337,9 @@
 , 
 [75200552] = {id = 75200552, name = "ミア", role_path = "img_11201011_2", effect_path = "FIGHT_KILL", fashion_id = "14301201", offset = "-5:-60"}
 , 
-[75200561] = {id = 75200561, name = "ツバキ", role_path = "img_11201011_1", effect_path = "FIGHT_KILL", fashion_id = "14211100", offset = "25:45"}
+[75200561] = {id = 75200561, name = "ツバキ", role_path = "img_11201011_1", effect_path = "FIGHT_KILL", fashion_id = "14211100", offset = "25:0"}
 , 
-[75200562] = {id = 75200562, name = "ツバキ", role_path = "img_11201011_2", effect_path = "FIGHT_KILL", fashion_id = "14211101", offset = "25:45"}
+[75200562] = {id = 75200562, name = "ツバキ", role_path = "img_11201011_2", effect_path = "FIGHT_KILL", fashion_id = "14211101", offset = "25:0"}
 , 
 [75200571] = {id = 75200571, name = "イザベラ", role_path = "img_11300009_1", effect_path = "FIGHT_KILL", fashion_id = "14300900", offset = "-54:177"}
 , 

@@ -968,8 +968,13 @@ FormationWindow.GetCardState = function(id, ...)
   return -1
 end
 
+FormationWindow.GetAvailableCount = function(...)
+  -- function num : 0_25 , upvalues : MaxFight, ExpeditionListData
+  return MaxFight - #ExpeditionListData
+end
+
 FormationWindow.InitBuff = function(formationData, ...)
-  -- function num : 0_25 , upvalues : FormationWindow, _ENV, mFormationType, uis
+  -- function num : 0_26 , upvalues : FormationWindow, _ENV, mFormationType, uis
   if not formationData.ExternalData then
     (FormationWindow.CloseBuffShow)()
     return 
@@ -995,7 +1000,7 @@ FormationWindow.InitBuff = function(formationData, ...)
 end
 
 FormationWindow.CloseBuffShow = function(...)
-  -- function num : 0_26 , upvalues : mFormationType, _ENV, uis
+  -- function num : 0_27 , upvalues : mFormationType, _ENV, uis
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   if mFormationType == FormationType.Tower then
@@ -1018,7 +1023,7 @@ FormationWindow.CloseBuffShow = function(...)
 end
 
 FormationWindow.InitBottomBoard = function(...)
-  -- function num : 0_27 , upvalues : FormationWindow, _ENV, mFormationType, enemyIsCustom, enemyFightDate
+  -- function num : 0_28 , upvalues : FormationWindow, _ENV, mFormationType, enemyIsCustom, enemyFightDate
   for i = 1, 6 do
     local mSelf = (FormationWindow.GetModelTemplate)(true, i)
     local selfModel = GetFormation_ModelTemplateUis(mSelf)
@@ -1057,7 +1062,7 @@ FormationWindow.InitBottomBoard = function(...)
 end
 
 FormationWindow.SplitSupportCardUse = function(...)
-  -- function num : 0_28 , upvalues : _ENV, supportData, FormationWindow
+  -- function num : 0_29 , upvalues : _ENV, supportData, FormationWindow
   local use = {}
   local noUse = {}
   for _,v in ipairs(supportData) do
@@ -1070,14 +1075,14 @@ FormationWindow.SplitSupportCardUse = function(...)
   end
   ;
   (table.sort)(use, function(a, b, ...)
-    -- function num : 0_28_0 , upvalues : FormationWindow
+    -- function num : 0_29_0 , upvalues : FormationWindow
     do return (FormationWindow.CardListSort)(b, true) < (FormationWindow.CardListSort)(a, true) end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
   ;
   (table.sort)(noUse, function(a, b, ...)
-    -- function num : 0_28_1 , upvalues : FormationWindow
+    -- function num : 0_29_1 , upvalues : FormationWindow
     do return (FormationWindow.CardListSort)(b, true) < (FormationWindow.CardListSort)(a, true) end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -1086,7 +1091,7 @@ FormationWindow.SplitSupportCardUse = function(...)
 end
 
 FormationWindow.CardListSort = function(data, isSupportCard, ...)
-  -- function num : 0_29 , upvalues : FormationWindow
+  -- function num : 0_30 , upvalues : FormationWindow
   local aIsFight = 0
   if (FormationWindow.IsFight)(data.id, isSupportCard, data.playerIndex) then
     aIsFight = 100000000000
@@ -1095,7 +1100,7 @@ FormationWindow.CardListSort = function(data, isSupportCard, ...)
 end
 
 FormationWindow.RefreshSupportCard = function(...)
-  -- function num : 0_30 , upvalues : mFormationType, _ENV, supportCardListDate, FormationWindow, uis
+  -- function num : 0_31 , upvalues : mFormationType, _ENV, supportCardListDate, FormationWindow, uis
   if mFormationType ~= FormationType.GuildBattle then
     return 
   end
@@ -1127,7 +1132,7 @@ FormationWindow.RefreshSupportCard = function(...)
 
       ;
       ((uis.HeadListGrp).GuildBossList).itemProvider = function(index, ...)
-    -- function num : 0_30_0 , upvalues : supportCardListDate, _ENV
+    -- function num : 0_31_0 , upvalues : supportCardListDate, _ENV
     local data = supportCardListDate[index + 1]
     if data == "Line" then
       return (Util.GetResUrl)("Formation:Division_B")
@@ -1145,7 +1150,7 @@ FormationWindow.RefreshSupportCard = function(...)
 end
 
 FormationWindow.RefreshCard = function(...)
-  -- function num : 0_31 , upvalues : mFormationType, _ENV, FormationWindow, cardListDate, ExpeditionListData, scrollList, uis, MaxFight, filterType, saveInitCard
+  -- function num : 0_32 , upvalues : mFormationType, _ENV, FormationWindow, cardListDate, ExpeditionListData, scrollList, uis, MaxFight, filterType, saveInitCard
   if mFormationType == FormationType.Expedition then
     local fightList = (FormationWindow.GetExpeditionFightListData)()
     local freeList = (FormationWindow.GetExpeditionFreeListData)()
@@ -1174,7 +1179,7 @@ FormationWindow.RefreshCard = function(...)
         end
         ExpeditionListData = fightList
         scrollList.itemProvider = function(index, ...)
-    -- function num : 0_31_0 , upvalues : cardListDate, _ENV
+    -- function num : 0_32_0 , upvalues : cardListDate, _ENV
     local data = cardListDate[index + 1]
     if data == "Line" then
       return (Util.GetResUrl)("Formation:Division_B")
@@ -1234,7 +1239,7 @@ FormationWindow.RefreshCard = function(...)
                       (table.insert)(cardListDate, v)
                     end
                     scrollList.itemProvider = function(index, ...)
-    -- function num : 0_31_1 , upvalues : cardListDate, _ENV
+    -- function num : 0_32_1 , upvalues : cardListDate, _ENV
     local data = cardListDate[index + 1]
     if data == "Line" then
       return (Util.GetResUrl)("Formation:Division_B")
@@ -1257,7 +1262,7 @@ FormationWindow.RefreshCard = function(...)
                     do
                       ;
                       (table.sort)(cardListDate, function(a, b, ...)
-    -- function num : 0_31_2 , upvalues : FormationWindow
+    -- function num : 0_32_2 , upvalues : FormationWindow
     local aIsFight = 0
     local bIsFight = 0
     if (FormationWindow.IsFight)(a.id) then
@@ -1285,7 +1290,7 @@ FormationWindow.RefreshCard = function(...)
 end
 
 FormationWindow.GetExpeditionDataByID = function(id, ...)
-  -- function num : 0_32 , upvalues : _ENV, ExpeditionListData
+  -- function num : 0_33 , upvalues : _ENV, ExpeditionListData
   for _,v in ipairs(ExpeditionListData) do
     if v.cardId == id then
       return v
@@ -1294,7 +1299,7 @@ FormationWindow.GetExpeditionDataByID = function(id, ...)
 end
 
 FormationWindow.GetExpeditionListSortWeight = function(id, ...)
-  -- function num : 0_33 , upvalues : mFormationType, _ENV, FormationWindow
+  -- function num : 0_34 , upvalues : mFormationType, _ENV, FormationWindow
   if mFormationType ~= FormationType.Expedition then
     return 0
   end
@@ -1316,7 +1321,7 @@ FormationWindow.GetExpeditionListSortWeight = function(id, ...)
 end
 
 FormationWindow.GetExpeditionSortWeight = function(id, ...)
-  -- function num : 0_34 , upvalues : mFormationType, _ENV, FormationWindow
+  -- function num : 0_35 , upvalues : mFormationType, _ENV, FormationWindow
   if mFormationType ~= FormationType.Expedition then
     return 0
   end
@@ -1337,7 +1342,7 @@ FormationWindow.GetExpeditionSortWeight = function(id, ...)
 end
 
 FormationWindow.SetSelfFightAlphaAndTouch = function(num, canTouch, ...)
-  -- function num : 0_35 , upvalues : _ENV, selfLoaderList
+  -- function num : 0_36 , upvalues : _ENV, selfLoaderList
   for _,v in pairs(selfLoaderList) do
     if v.Model then
       v.alpha = num
@@ -1347,7 +1352,7 @@ FormationWindow.SetSelfFightAlphaAndTouch = function(num, canTouch, ...)
 end
 
 FormationWindow.CardRenderer = function(index, obj, ...)
-  -- function num : 0_36 , upvalues : cardListDate, mFormationType, _ENV, battleType, FormationWindow, expeditionSweep, isTouching
+  -- function num : 0_37 , upvalues : cardListDate, mFormationType, _ENV, battleType, FormationWindow, expeditionSweep, isTouching
   local cardData = cardListDate[index + 1]
   if cardData == nil or cardData == "Line" then
     if cardData == "Line" then
@@ -1390,7 +1395,7 @@ FormationWindow.CardRenderer = function(index, obj, ...)
       (Util.SetHeadFrameByOneCard)(Card, cardData, isMonster)
       ;
       (Card.onClick):Set(function(...)
-    -- function num : 0_36_0 , upvalues : FormationWindow, cardData
+    -- function num : 0_37_0 , upvalues : FormationWindow, cardData
     (FormationWindow.onClickCard)(cardData, true)
   end
 )
@@ -1440,7 +1445,7 @@ FormationWindow.CardRenderer = function(index, obj, ...)
           local isCreate = false
           ;
           (swipeGes.onBegin):Set(function(...)
-    -- function num : 0_36_1 , upvalues : _ENV, swipeGes, isSwipe, isCreate
+    -- function num : 0_37_1 , upvalues : _ENV, swipeGes, isSwipe, isCreate
     local temp = (math.atan)((swipeGes.position).y / (swipeGes.position).x)
     isSwipe = true
     isCreate = false
@@ -1451,7 +1456,7 @@ FormationWindow.CardRenderer = function(index, obj, ...)
 )
           ;
           (swipeGes.onMove):Set(function(Context, ...)
-    -- function num : 0_36_2 , upvalues : _ENV, isSwipe, isCreate, isCanDrag, mFormationType, FormationWindow, cardData, isTouching, Card
+    -- function num : 0_37_2 , upvalues : _ENV, isSwipe, isCreate, isCanDrag, mFormationType, FormationWindow, cardData, isTouching, Card
     ((FairyGUI.Stage).inst):CancelClick(0)
     if not isSwipe or isCreate or not isCanDrag then
       return 
@@ -1481,7 +1486,7 @@ FormationWindow.CardRenderer = function(index, obj, ...)
 )
           ;
           (swipeGes.onEnd):Set(function(...)
-    -- function num : 0_36_3 , upvalues : Card
+    -- function num : 0_37_3 , upvalues : Card
     Card.draggable = false
   end
 )
@@ -1492,7 +1497,7 @@ FormationWindow.CardRenderer = function(index, obj, ...)
 end
 
 FormationWindow.IsContainCantUseList = function(id, ...)
-  -- function num : 0_37 , upvalues : _ENV, GuildBossCantCard
+  -- function num : 0_38 , upvalues : _ENV, GuildBossCantCard
   for _,v in ipairs(GuildBossCantCard) do
     if v == id then
       return true
@@ -1502,7 +1507,7 @@ FormationWindow.IsContainCantUseList = function(id, ...)
 end
 
 FormationWindow.SupportCardRenderer = function(index, obj, ...)
-  -- function num : 0_38 , upvalues : supportCardListDate, _ENV, supportID, supportPlayerIndex, FormationWindow
+  -- function num : 0_39 , upvalues : supportCardListDate, _ENV, supportID, supportPlayerIndex, FormationWindow
   local cardData = supportCardListDate[index + 1]
   if cardData == nil or cardData == "Line" then
     if cardData == "Line" then
@@ -1533,7 +1538,7 @@ FormationWindow.SupportCardRenderer = function(index, obj, ...)
   end
   ;
   (headFrame.onClick):Set(function(...)
-    -- function num : 0_38_0 , upvalues : FormationWindow, cardData
+    -- function num : 0_39_0 , upvalues : FormationWindow, cardData
     (FormationWindow.onClickCard)(cardData, false)
   end
 )
@@ -1543,7 +1548,7 @@ FormationWindow.SupportCardRenderer = function(index, obj, ...)
   local isCreate = false
   ;
   (swipeGes.onBegin):Set(function(...)
-    -- function num : 0_38_1 , upvalues : _ENV, swipeGes, isSwipe, isCreate
+    -- function num : 0_39_1 , upvalues : _ENV, swipeGes, isSwipe, isCreate
     local temp = (math.atan)((swipeGes.position).y / (swipeGes.position).x)
     isSwipe = true
     isCreate = false
@@ -1554,7 +1559,7 @@ FormationWindow.SupportCardRenderer = function(index, obj, ...)
 )
   ;
   (swipeGes.onMove):Set(function(Context, ...)
-    -- function num : 0_38_2 , upvalues : _ENV, isSwipe, isCreate, isCanDrag, headFrame, FormationWindow, cardData
+    -- function num : 0_39_2 , upvalues : _ENV, isSwipe, isCreate, isCanDrag, headFrame, FormationWindow, cardData
     ((FairyGUI.Stage).inst):CancelClick(0)
     if not isSwipe or isCreate or not isCanDrag then
       return 
@@ -1567,14 +1572,14 @@ FormationWindow.SupportCardRenderer = function(index, obj, ...)
 )
   ;
   (swipeGes.onEnd):Set(function(...)
-    -- function num : 0_38_3 , upvalues : headFrame
+    -- function num : 0_39_3 , upvalues : headFrame
     headFrame.draggable = false
   end
 )
 end
 
 FormationWindow.GetGesture = function(item, ...)
-  -- function num : 0_39 , upvalues : _gestureDic, _ENV
+  -- function num : 0_40 , upvalues : _gestureDic, _ENV
   if _gestureDic[item] == nil then
     _gestureDic[item] = (FairyGUI.LongPressGesture)(item)
   end
@@ -1582,7 +1587,7 @@ FormationWindow.GetGesture = function(item, ...)
 end
 
 FormationWindow.GetSwipeGesture = function(item, ...)
-  -- function num : 0_40 , upvalues : _swipeDic, _ENV
+  -- function num : 0_41 , upvalues : _swipeDic, _ENV
   if _swipeDic[item] == nil then
     _swipeDic[item] = (FairyGUI.SwipeGesture)(item)
   end
@@ -1590,7 +1595,7 @@ FormationWindow.GetSwipeGesture = function(item, ...)
 end
 
 FormationWindow.IsContainCard = function(id, ...)
-  -- function num : 0_41 , upvalues : _ENV, myselfFightDate
+  -- function num : 0_42 , upvalues : _ENV, myselfFightDate
   for _,v in pairs(myselfFightDate) do
     if v == id then
       return true
@@ -1600,7 +1605,7 @@ FormationWindow.IsContainCard = function(id, ...)
 end
 
 FormationWindow.JudgeSupportIsFight = function(id, playerIndex, ...)
-  -- function num : 0_42 , upvalues : mFormationType, _ENV, supportID, supportPlayerIndex
+  -- function num : 0_43 , upvalues : mFormationType, _ENV, supportID, supportPlayerIndex
   if mFormationType ~= FormationType.GuildBattle then
     return true
   end
@@ -1609,7 +1614,7 @@ FormationWindow.JudgeSupportIsFight = function(id, playerIndex, ...)
 end
 
 FormationWindow.IsFight = function(id, isSupportCard, playerIndex, ...)
-  -- function num : 0_43 , upvalues : mFormationType, _ENV, FormationWindow, myselfFightDate, supportID
+  -- function num : 0_44 , upvalues : mFormationType, _ENV, FormationWindow, myselfFightDate, supportID
   if isSupportCard and mFormationType == FormationType.GuildBattle then
     return (FormationWindow.JudgeSupportIsFight)(id, playerIndex)
   end
@@ -1631,7 +1636,7 @@ FormationWindow.IsFight = function(id, isSupportCard, playerIndex, ...)
 end
 
 FormationWindow.onClickCard = function(cardData, showBtn, ...)
-  -- function num : 0_44 , upvalues : _ENV, uis, FormationWindow
+  -- function num : 0_45 , upvalues : _ENV, uis, FormationWindow
   print(cardData.id)
   local configData, isMonster = (CardData.GetBaseConfig)(cardData.id)
   -- DECOMPILER ERROR at PC15: Confused about usage of register: R4 in 'UnsetPending'
@@ -1644,15 +1649,15 @@ FormationWindow.onClickCard = function(cardData, showBtn, ...)
   ((uis.FormationTipsGrp).EquiptCultivateBtn).visible = (not isMonster and showBtn)
   ;
   (((uis.FormationTipsGrp).CardCultivateBtn).onClick):Set(function(...)
-    -- function num : 0_44_0 , upvalues : _ENV, cardData
+    -- function num : 0_45_0 , upvalues : _ENV, cardData
     (CardMgr.ClickCardResultByCardId)(cardData.id)
   end
 )
   ;
   (((uis.FormationTipsGrp).EquiptCultivateBtn).onClick):Set(function(...)
-    -- function num : 0_44_1 , upvalues : _ENV, cardData
+    -- function num : 0_45_1 , upvalues : _ENV, cardData
     ld("Equipt", function(...)
-      -- function num : 0_44_1_0 , upvalues : _ENV, cardData
+      -- function num : 0_45_1_0 , upvalues : _ENV, cardData
       (EquiptMgr.OpenEquipmentWindow)(EquiptOpenType.ChangeRoldEquipts, cardData.id)
     end
 )
@@ -1669,7 +1674,7 @@ FormationWindow.onClickCard = function(cardData, showBtn, ...)
     local equipInfoS = (Util.clone)(equipInfo)
     ;
     (table.sort)(equipInfoS, function(a, b, ...)
-    -- function num : 0_44_2 , upvalues : _ENV, FormationWindow
+    -- function num : 0_45_2 , upvalues : _ENV, FormationWindow
     local AEquipData = ((TableData.gTable).BaseEquipData)[a.id]
     local BEquipData = ((TableData.gTable).BaseEquipData)[b.id]
     local ASort = (FormationWindow.GetEquipSort)(AEquipData.type)
@@ -1721,7 +1726,7 @@ FormationWindow.onClickCard = function(cardData, showBtn, ...)
   ((uis.FormationTipsGrp).root).visible = true
   ;
   (GRoot.inst):AddCustomPopups((uis.FormationTipsGrp).root, function(...)
-    -- function num : 0_44_3 , upvalues : uis
+    -- function num : 0_45_3 , upvalues : uis
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.FormationTipsGrp).root).visible = false
@@ -1735,7 +1740,7 @@ FormationWindow.onClickCard = function(cardData, showBtn, ...)
   local current = (math.min)(skillHeight + (mHeight) + (interval), 363)
   local gt = (GTween.To)(last, current, 0.3)
   gt:OnUpdate(function(...)
-    -- function num : 0_44_4 , upvalues : uis, gt
+    -- function num : 0_45_4 , upvalues : uis, gt
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.FormationTipsGrp).ContentList).height = (gt.value).x
@@ -1747,7 +1752,7 @@ FormationWindow.onClickCard = function(cardData, showBtn, ...)
 end
 
 FormationWindow.GetEquipSort = function(part, ...)
-  -- function num : 0_45 , upvalues : _ENV
+  -- function num : 0_46 , upvalues : _ENV
   if part == EquiptPartsType.Necklace then
     return 4
   else
@@ -1764,7 +1769,7 @@ FormationWindow.GetEquipSort = function(part, ...)
 end
 
 FormationWindow.SetInfoGrpHead = function(cardData, isMonster, ...)
-  -- function num : 0_46 , upvalues : _ENV, uis
+  -- function num : 0_47 , upvalues : _ENV, uis
   local cardInfo = {}
   cardInfo.id = cardData.id
   cardInfo.quality = cardData.quality
@@ -1794,7 +1799,7 @@ FormationWindow.SetInfoGrpHead = function(cardData, isMonster, ...)
 end
 
 FormationWindow.SetEquipBuffInfo = function(buffID, ...)
-  -- function num : 0_47 , upvalues : _ENV, uis
+  -- function num : 0_48 , upvalues : _ENV, uis
   local buffData = ((TableData.gTable).BaseBuffPreBattleData)[buffID]
   if not buffData then
     return 
@@ -1807,7 +1812,7 @@ FormationWindow.SetEquipBuffInfo = function(buffID, ...)
 end
 
 FormationWindow.SetSkillInfo = function(cardData, isMonster, ...)
-  -- function num : 0_48 , upvalues : _ENV, FormationWindow
+  -- function num : 0_49 , upvalues : _ENV, FormationWindow
   local skillInfo = cardData.skillInfo
   local unique_skill_id, special_skill_id = nil, nil
   local unique_skill_level = 0
@@ -1844,7 +1849,7 @@ FormationWindow.SetSkillInfo = function(cardData, isMonster, ...)
 end
 
 FormationWindow.CreateSingleSkill = function(skillID, level, isUnique, cardData, ...)
-  -- function num : 0_49 , upvalues : _ENV, FormationWindow, uis
+  -- function num : 0_50 , upvalues : _ENV, FormationWindow, uis
   local uniqueSkill = UIMgr:CreateObject("Formation", "CardSkill")
   local skillConfig = (TableData.GetBaseSkillData)(skillID)
   ;
@@ -1862,7 +1867,7 @@ FormationWindow.CreateSingleSkill = function(skillID, level, isUnique, cardData,
 end
 
 FormationWindow.GetSkillRemark = function(skillData, level, cardData, ...)
-  -- function num : 0_50 , upvalues : _ENV, FormationWindow
+  -- function num : 0_51 , upvalues : _ENV, FormationWindow
   local text = skillData.des_array
   if (string.find)(text, "damage_A") ~= nil then
     text = (string.gsub)(text, "damage_A", (FormationWindow.Damage_A)(skillData, skillData))
@@ -1902,7 +1907,7 @@ FormationWindow.GetSkillRemark = function(skillData, level, cardData, ...)
 end
 
 FormationWindow.Damage_A = function(skillData, ...)
-  -- function num : 0_51 , upvalues : _ENV
+  -- function num : 0_52 , upvalues : _ENV
   local number = 0
   number = ((math.abs)(skillData.damage_rate * 0.0001) + (math.abs)(skillData.damage_rate_up * 0.0001)) * 100
   local str = ""
@@ -1913,7 +1918,7 @@ FormationWindow.Damage_A = function(skillData, ...)
 end
 
 FormationWindow.Damage_B = function(skillData, skillLevel, ...)
-  -- function num : 0_52 , upvalues : _ENV
+  -- function num : 0_53 , upvalues : _ENV
   local number = 0
   number = (math.abs)(skillData.damage) * (1 + (math.abs)(skillData.damage_up) * 0.0001 * skillLevel)
   local str = ""
@@ -1924,7 +1929,7 @@ FormationWindow.Damage_B = function(skillData, skillLevel, ...)
 end
 
 FormationWindow.Damage_C = function(skillData, cIndex, skillLevel, ...)
-  -- function num : 0_53 , upvalues : _ENV
+  -- function num : 0_54 , upvalues : _ENV
   local number = 0
   local attr = (split((split(skillData.add_attr, ","))[cIndex], ":"))[3]
   number = (math.abs)(attr) * skillLevel
@@ -1937,7 +1942,7 @@ FormationWindow.Damage_C = function(skillData, cIndex, skillLevel, ...)
 end
 
 FormationWindow.Damage_D = function(buffId, skillLevel, ...)
-  -- function num : 0_54 , upvalues : _ENV
+  -- function num : 0_55 , upvalues : _ENV
   local number = 0
   local config = (TableData.GetBaseSkillBuffData)(buffId)
   local value_up = tonumber((split(config.value_up, ":"))[2])
@@ -1951,7 +1956,7 @@ FormationWindow.Damage_D = function(buffId, skillLevel, ...)
 end
 
 FormationWindow.Damage_E = function(skillData, index, cardData, ...)
-  -- function num : 0_55 , upvalues : _ENV
+  -- function num : 0_56 , upvalues : _ENV
   local buffId = (split(skillData.star_config_id, ":"))[index]
   local buffData = (TableData.GetBaseSkillBuffData)(tonumber(buffId))
   local starConfig = buffData.star_config
@@ -1967,7 +1972,7 @@ FormationWindow.Damage_E = function(skillData, index, cardData, ...)
 end
 
 FormationWindow.InitInfoGrpBtn = function(...)
-  -- function num : 0_56 , upvalues : uis, _ENV
+  -- function num : 0_57 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.FormationTipsGrp).CardCultivateBtn).text = (PUtil.get)(20000214)
@@ -1978,7 +1983,7 @@ FormationWindow.InitInfoGrpBtn = function(...)
 end
 
 FormationWindow.onDragStart = function(Context, card, ...)
-  -- function num : 0_57 , upvalues : FormationWindow, _ENV, ModelScale, DragDropManager, dragOffset, dragModelPos, dragSize, DragModel
+  -- function num : 0_58 , upvalues : FormationWindow, _ENV, ModelScale, DragDropManager, dragOffset, dragModelPos, dragSize, DragModel
   Context:PreventDefault()
   local data = card
   ;
@@ -1996,14 +2001,14 @@ FormationWindow.onDragStart = function(Context, card, ...)
 end
 
 FormationWindow.CreateModel = function(id, quality, ...)
-  -- function num : 0_58 , upvalues : _ENV
+  -- function num : 0_59 , upvalues : _ENV
   local fashionConfig = (CardData.GetFashionConfig)({id = id, quality = quality})
   local spdName = fashionConfig.spd_bundle
   return (ResHelper.InstantiateModel)(spdName)
 end
 
 FormationWindow.scrollOnDrag = function(EventContext, Card, ...)
-  -- function num : 0_59 , upvalues : _ENV, FormationWindow, mFormationType, MustFightID, myselfFightDate, supportID
+  -- function num : 0_60 , upvalues : _ENV, FormationWindow, mFormationType, MustFightID, myselfFightDate, supportID
   local data = EventContext.data
   if type(data) == "number" then
     if (FormationWindow.GetFightNum)() <= 1 and mFormationType ~= FormationType.Edit then
@@ -2029,7 +2034,7 @@ FormationWindow.scrollOnDrag = function(EventContext, Card, ...)
 end
 
 FormationWindow.GetFightNum = function(...)
-  -- function num : 0_60 , upvalues : myselfFightDate
+  -- function num : 0_61 , upvalues : myselfFightDate
   local count = 0
   for i = 1, 6 do
     if myselfFightDate[i] then
@@ -2040,7 +2045,7 @@ FormationWindow.GetFightNum = function(...)
 end
 
 FormationWindow.GetFreePosNum = function(...)
-  -- function num : 0_61 , upvalues : myselfFightDate
+  -- function num : 0_62 , upvalues : myselfFightDate
   local count = 0
   for i = 1, 6 do
     if myselfFightDate[i] == nil or myselfFightDate[i] == 0 then
@@ -2051,7 +2056,7 @@ FormationWindow.GetFreePosNum = function(...)
 end
 
 FormationWindow.GetFightNum = function(...)
-  -- function num : 0_62 , upvalues : _ENV, myselfFightDate
+  -- function num : 0_63 , upvalues : _ENV, myselfFightDate
   local num = 0
   for _,v in pairs(myselfFightDate) do
     if v and v > 0 then
@@ -2063,7 +2068,7 @@ end
 
 local currentTxt = {}
 FormationWindow.AddFightDate = function(IsCard, startPos, endPos, BanVoice, isSupport, playerIndex, oldPos, ...)
-  -- function num : 0_63 , upvalues : _ENV, mFormationType, ExpeditionListData, MaxFight, myselfFightDate, FormationWindow, saveInitCard, MustFightID, supportCardListDate, supportID, supportPlayerIndex
+  -- function num : 0_64 , upvalues : _ENV, mFormationType, ExpeditionListData, MaxFight, myselfFightDate, FormationWindow, saveInitCard, MustFightID, supportCardListDate, supportID, supportPlayerIndex
   if endPos > 6 or not IsCard and startPos > 6 then
     (MessageMgr.SendCenterTips)("此时应该有问题了")
     return 
@@ -2105,7 +2110,7 @@ FormationWindow.AddFightDate = function(IsCard, startPos, endPos, BanVoice, isSu
     (FormationWindow.CloseTalkCom)()
     ;
     (AudioManager.PlayBubbleAndVoice)(false, true, config.id, CVAudioType.ArrayUpBubble, nil, nil, nil, nil, nil, nil, function(...)
-    -- function num : 0_63_0 , upvalues : FormationWindow
+    -- function num : 0_64_0 , upvalues : FormationWindow
     (FormationWindow.CloseTalkCom)()
   end
 , true)
@@ -2145,7 +2150,7 @@ FormationWindow.AddFightDate = function(IsCard, startPos, endPos, BanVoice, isSu
 end
 
 FormationWindow.GetSupportIDPos = function(...)
-  -- function num : 0_64 , upvalues : myselfFightDate, supportID
+  -- function num : 0_65 , upvalues : myselfFightDate, supportID
   for i = 1, 6 do
     if myselfFightDate[i] and myselfFightDate[i] == supportID then
       return i
@@ -2154,7 +2159,7 @@ FormationWindow.GetSupportIDPos = function(...)
 end
 
 FormationWindow.PlayTalkTxt = function(fashionID, endPos, ...)
-  -- function num : 0_65 , upvalues : _ENV, FormationWindow, grpTalkCom, uis, currentTxt
+  -- function num : 0_66 , upvalues : _ENV, FormationWindow, grpTalkCom, uis, currentTxt
   local excelData = ((TableData.gTable).BaseFashionData)[fashionID]
   if excelData then
     local ids = split(excelData.arrayup_bubble_ids, ":")
@@ -2186,7 +2191,7 @@ FormationWindow.PlayTalkTxt = function(fashionID, endPos, ...)
 end
 
 FormationWindow.GetMaxSortingOrder = function(...)
-  -- function num : 0_66 , upvalues : mFormationType, _ENV, uis
+  -- function num : 0_67 , upvalues : mFormationType, _ENV, uis
   if mFormationType == FormationType.Single or mFormationType == FormationType.Edit then
     return ((uis.ArenaNumber_02_Txt).displayObject).renderingOrder
   else
@@ -2199,13 +2204,13 @@ FormationWindow.GetMaxSortingOrder = function(...)
 end
 
 FormationWindow.CloseTalkCom = function(...)
-  -- function num : 0_67 , upvalues : _ENV, currentTxt, FormationWindow, grpTalkCom
+  -- function num : 0_68 , upvalues : _ENV, currentTxt, FormationWindow, grpTalkCom
   for i,v in ipairs(currentTxt) do
     local mSelf = (FormationWindow.GetModelTemplate)(true, v)
     do
       local talk = grpTalkCom[mSelf.uid]
       PlayUITrans(talk, "out", function(...)
-    -- function num : 0_67_0 , upvalues : talk
+    -- function num : 0_68_0 , upvalues : talk
     (talk:GetChild("TalkTxt")).alpha = 0
   end
 )
@@ -2215,7 +2220,7 @@ FormationWindow.CloseTalkCom = function(...)
 end
 
 FormationWindow.RefreshEnemyFightList = function(formationData, ...)
-  -- function num : 0_68 , upvalues : mFormationType, _ENV, enemyLoaderList, enemyIsCustom, enemyFightDate, FormationWindow, uis, recordEnemyFc, battleType, stageID
+  -- function num : 0_69 , upvalues : mFormationType, _ENV, enemyLoaderList, enemyIsCustom, enemyFightDate, FormationWindow, uis, recordEnemyFc, battleType, stageID
   if mFormationType == FormationType.Single or mFormationType == FormationType.Edit then
     return 
   end
@@ -2272,7 +2277,7 @@ FormationWindow.RefreshEnemyFightList = function(formationData, ...)
 end
 
 FormationWindow.RefreshMyselfFightList = function(list, ...)
-  -- function num : 0_69 , upvalues : FormationWindow, myselfFightDate, _ENV, mFormationType, uis
+  -- function num : 0_70 , upvalues : FormationWindow, myselfFightDate, _ENV, mFormationType, uis
   local fight = 0
   local luck = 0
   local isHaveFight = false
@@ -2356,7 +2361,7 @@ FormationWindow.RefreshMyselfFightList = function(list, ...)
 end
 
 FormationWindow.GetOneCardDataByID = function(id, ...)
-  -- function num : 0_70 , upvalues : mFormationType, _ENV, supportID, cardListDate, saveInitCard, supportCardListDate, supportPlayerIndex
+  -- function num : 0_71 , upvalues : mFormationType, _ENV, supportID, cardListDate, saveInitCard, supportCardListDate, supportPlayerIndex
   if mFormationType ~= FormationType.GuildBattle or id ~= supportID then
     local mCardList = cardListDate
     if mFormationType == FormationType.GuildBattle then
@@ -2379,7 +2384,7 @@ FormationWindow.GetOneCardDataByID = function(id, ...)
 end
 
 FormationWindow.GetSupportOneCardData = function(id, playerIndex, ...)
-  -- function num : 0_71 , upvalues : _ENV, supportCardListDate
+  -- function num : 0_72 , upvalues : _ENV, supportCardListDate
   for _,v in ipairs(supportCardListDate) do
     if v.id == id and v.playerIndex == playerIndex then
       return v
@@ -2388,7 +2393,7 @@ FormationWindow.GetSupportOneCardData = function(id, playerIndex, ...)
 end
 
 FormationWindow.SetLuckArrow = function(green, red, ...)
-  -- function num : 0_72 , upvalues : uis
+  -- function num : 0_73 , upvalues : uis
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R2 in 'UnsetPending'
 
   (uis.RedImage).visible = red
@@ -2399,7 +2404,7 @@ FormationWindow.SetLuckArrow = function(green, red, ...)
 end
 
 FormationWindow.SortSpeList = function(...)
-  -- function num : 0_73 , upvalues : speedSort, _ENV, myselfFightDate, FormationWindow, enemyFightDate, enemyIsCustom
+  -- function num : 0_74 , upvalues : speedSort, _ENV, myselfFightDate, FormationWindow, enemyFightDate, enemyIsCustom
   speedSort = {}
   for i,v in pairs(myselfFightDate) do
     if v then
@@ -2443,7 +2448,7 @@ FormationWindow.SortSpeList = function(...)
 end
 
 FormationWindow.GetSpeedSort = function(cardId, isSelf, ...)
-  -- function num : 0_74 , upvalues : _ENV, speedSort
+  -- function num : 0_75 , upvalues : _ENV, speedSort
   if type(cardId) == "number" or type(cardId) == "string" then
     for i,v in ipairs(speedSort) do
       if v.id == tonumber(cardId) and v.isSelf == isSelf then
@@ -2463,7 +2468,7 @@ FormationWindow.GetSpeedSort = function(cardId, isSelf, ...)
 end
 
 FormationWindow.CustomSort = function(a, b, ...)
-  -- function num : 0_75
+  -- function num : 0_76
   local aSelf = 0
   local bSelf = 0
   if a.isSelf then
@@ -2477,7 +2482,7 @@ FormationWindow.CustomSort = function(a, b, ...)
 end
 
 FormationWindow.RefreshSpeedSort = function(...)
-  -- function num : 0_76 , upvalues : FormationWindow, myselfFightDate, enemyFightDate, _ENV, mFormationType, enemyIsCustom
+  -- function num : 0_77 , upvalues : FormationWindow, myselfFightDate, enemyFightDate, _ENV, mFormationType, enemyIsCustom
   for i = 1, 6 do
     local selfModel = (FormationWindow.GetModelTemplate)(true, i)
     local enemyModel = (FormationWindow.GetModelTemplate)(false, i)
@@ -2505,7 +2510,7 @@ FormationWindow.RefreshSpeedSort = function(...)
 end
 
 FormationWindow.SetSpeedSort = function(model, isSelf, cardId, ...)
-  -- function num : 0_77 , upvalues : _ENV, FormationWindow
+  -- function num : 0_78 , upvalues : _ENV, FormationWindow
   local template = GetFormation_ModelTemplateUis(model)
   if isSelf then
     (FormationWindow.SetSpeedFrameShow)(template, true, false)
@@ -2524,7 +2529,7 @@ FormationWindow.SetSpeedSort = function(model, isSelf, cardId, ...)
 end
 
 FormationWindow.SetSpeedFrameShow = function(model, Self, enemy, ...)
-  -- function num : 0_78
+  -- function num : 0_79
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
@@ -2540,7 +2545,7 @@ FormationWindow.SetSpeedFrameShow = function(model, Self, enemy, ...)
 end
 
 FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
-  -- function num : 0_79 , upvalues : _ENV, FormationWindow, mFormationType, supportID, isTouching, grpTalkCom, currentTxt, selfLoaderList, putHolder, sfxOffsetPos, enemyLoaderList, enemyIsCustom
+  -- function num : 0_80 , upvalues : _ENV, FormationWindow, mFormationType, supportID, isTouching, grpTalkCom, currentTxt, selfLoaderList, putHolder, sfxOffsetPos, enemyLoaderList, enemyIsCustom
   local cardId = tonumber(card)
   local template = (FormationWindow.GetModelTemplate)(isSelf, pos)
   local fightModel = GetFormation_ModelTemplateUis(template)
@@ -2564,7 +2569,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
       end
       ;
       (ModelLoader.onDragStart):Set(function(Context, ...)
-    -- function num : 0_79_0 , upvalues : isTouching, FormationWindow, pos
+    -- function num : 0_80_0 , upvalues : isTouching, FormationWindow, pos
     if isTouching then
       return 
     end
@@ -2574,7 +2579,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
 )
       ;
       (((fightModel.MonsterLoader).root).onDrop):Set(function(eventContext, ...)
-    -- function num : 0_79_1 , upvalues : FormationWindow, pos
+    -- function num : 0_80_1 , upvalues : FormationWindow, pos
     (FormationWindow.onDropFight)(eventContext, pos)
   end
 )
@@ -2603,7 +2608,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
       end
       ;
       (SimpleTimer.setTimeout)(waitTime, function(...)
-    -- function num : 0_79_2 , upvalues : _ENV, isSelf, FormationWindow, cardId, selfLoaderList, pos, ModelLoader, fightModel, IsInit, putHolder, template, sfxOffsetPos, enemyLoaderList, enemyIsCustom
+    -- function num : 0_80_2 , upvalues : _ENV, isSelf, FormationWindow, cardId, selfLoaderList, pos, ModelLoader, fightModel, IsInit, putHolder, template, sfxOffsetPos, enemyLoaderList, enemyIsCustom
     if UIMgr:IsWindowOpen((WinResConfig.FormationWindow).name) ~= true then
       return 
     end
@@ -2612,7 +2617,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
       selfLoaderList[pos] = ModelLoader
       ;
       (Util.ShowUIModelByFashionId)(cardData.id, cardData.quality, cardData.fashionId, ModelLoader, true, function(model, ...)
-      -- function num : 0_79_2_0 , upvalues : FormationWindow, fightModel, _ENV, IsInit, putHolder, template, sfxOffsetPos
+      -- function num : 0_80_2_0 , upvalues : FormationWindow, fightModel, _ENV, IsInit, putHolder, template, sfxOffsetPos
       if model == nil then
         return 
       end
@@ -2620,7 +2625,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
       (FormationWindow.AddSmokeEvent)(model, (fightModel.MonsterLoader).root)
       ;
       (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.LAND, false, function(...)
-        -- function num : 0_79_2_0_0 , upvalues : _ENV, model
+        -- function num : 0_80_2_0_0 , upvalues : _ENV, model
         (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.IDLE, true)
       end
 )
@@ -2636,13 +2641,13 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
         enemyLoaderList[pos] = ModelLoader
         if enemyIsCustom then
           (Util.CreateMiniModel)(ModelLoader, cardId, function(model, ...)
-      -- function num : 0_79_2_1 , upvalues : FormationWindow, fightModel, _ENV, cardId
+      -- function num : 0_80_2_1 , upvalues : FormationWindow, fightModel, _ENV, cardId
       (FormationWindow.AddSmokeEvent)(model, (fightModel.MonsterLoader).root)
       ;
       (SkeletonAnimationUtil.SetFlip)(model, true, false)
       ;
       (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.LAND, false, function(...)
-        -- function num : 0_79_2_1_0 , upvalues : _ENV, model
+        -- function num : 0_80_2_1_0 , upvalues : _ENV, model
         (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.IDLE, true)
       end
 )
@@ -2657,7 +2662,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
         else
           ;
           (Util.ShowUIModelByFashionId)(cardId, 0, nil, ModelLoader, true, function(model, ...)
-      -- function num : 0_79_2_2 , upvalues : _ENV, cardId, FormationWindow, fightModel
+      -- function num : 0_80_2_2 , upvalues : _ENV, cardId, FormationWindow, fightModel
       local config = (CardData.GetFashionConfig)({id = cardId, quality = 0, fashionId = nil})
       ;
       (FormationWindow.AddSmokeEvent)(model, (fightModel.MonsterLoader).root)
@@ -2665,7 +2670,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
       (SkeletonAnimationUtil.SetFlip)(model, true, false)
       ;
       (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.LAND, false, function(...)
-        -- function num : 0_79_2_2_0 , upvalues : _ENV, model
+        -- function num : 0_80_2_2_0 , upvalues : _ENV, model
         (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.IDLE, true)
       end
 )
@@ -2693,7 +2698,7 @@ FormationWindow.CreateFightCard = function(isSelf, card, pos, IsInit, ...)
 end
 
 FormationWindow.GetModelTemplate = function(isSelf, pos, ...)
-  -- function num : 0_80 , upvalues : mFormationType, _ENV, uis
+  -- function num : 0_81 , upvalues : mFormationType, _ENV, uis
   local posName = nil
   if mFormationType == FormationType.Single or mFormationType == FormationType.Edit then
     posName = "ArenaSelf_0" .. pos .. "_Grp"
@@ -2709,10 +2714,10 @@ FormationWindow.GetModelTemplate = function(isSelf, pos, ...)
 end
 
 FormationWindow.AddSmokeEvent = function(model, parent, ...)
-  -- function num : 0_81 , upvalues : _ENV
+  -- function num : 0_82 , upvalues : _ENV
   local callback = nil
   callback = function(trackEntry, event, ...)
-    -- function num : 0_81_0 , upvalues : _ENV, parent, model, callback
+    -- function num : 0_82_0 , upvalues : _ENV, parent, model, callback
     if (event.Data).Name == "smoke" then
       (LuaEffect.CreateEffectToObj)(BattleEffectEnum.COMMON_FALLDOWN_SMOKE, true, parent, (Vector2(parent.width / 2, parent.height)), nil, 14)
       ;
@@ -2727,7 +2732,7 @@ FormationWindow.AddSmokeEvent = function(model, parent, ...)
 end
 
 FormationWindow.OnDestroyModel = function(loader, ...)
-  -- function num : 0_82 , upvalues : _ENV
+  -- function num : 0_83 , upvalues : _ENV
   if loader.Model then
     loader.alpha = 1
     ;
@@ -2736,7 +2741,7 @@ FormationWindow.OnDestroyModel = function(loader, ...)
 end
 
 FormationWindow.onDragFightStart = function(Context, pos, ...)
-  -- function num : 0_83 , upvalues : myselfFightDate, FormationWindow, _ENV, ModelScale, DragDropManager, dragOffset, dragModelPos, dragSize, DragModel
+  -- function num : 0_84 , upvalues : myselfFightDate, FormationWindow, _ENV, ModelScale, DragDropManager, dragOffset, dragModelPos, dragSize, DragModel
   Context:PreventDefault()
   local data = myselfFightDate[pos]
   local cardDate = (FormationWindow.GetOneCardDataByID)(data)
@@ -2755,7 +2760,7 @@ FormationWindow.onDragFightStart = function(Context, pos, ...)
 end
 
 FormationWindow.onDropFight = function(eventContext, pos, ...)
-  -- function num : 0_84 , upvalues : _ENV, FormationWindow, supportID
+  -- function num : 0_85 , upvalues : _ENV, FormationWindow, supportID
   local startData = eventContext.data
   if type(startData) ~= "number" then
     local cardData = startData
@@ -2804,7 +2809,7 @@ FormationWindow.onDropFight = function(eventContext, pos, ...)
 end
 
 FormationWindow.RefreshCardList = function(...)
-  -- function num : 0_85 , upvalues : mFormationType, _ENV, FormationWindow, uis
+  -- function num : 0_86 , upvalues : mFormationType, _ENV, FormationWindow, uis
   if mFormationType ~= FormationType.GuildBattle then
     (FormationWindow.RefreshCard)()
   else
@@ -2819,13 +2824,13 @@ FormationWindow.RefreshCardList = function(...)
 end
 
 FormationWindow.CardDataIsSupport = function(cardData, ...)
-  -- function num : 0_86
+  -- function num : 0_87
   do return cardData.used ~= nil end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 FormationWindow.GetCardPosByID = function(id, ...)
-  -- function num : 0_87 , upvalues : myselfFightDate, _ENV
+  -- function num : 0_88 , upvalues : myselfFightDate, _ENV
   for i = 1, 6 do
     if myselfFightDate[i] == tonumber(id) then
       return i
@@ -2834,7 +2839,7 @@ FormationWindow.GetCardPosByID = function(id, ...)
 end
 
 FormationWindow.GetCardListPosByID = function(id, ...)
-  -- function num : 0_88 , upvalues : saveInitCard, _ENV
+  -- function num : 0_89 , upvalues : saveInitCard, _ENV
   local mList = saveInitCard
   for i,v in ipairs(mList) do
     if v.id ~= nil and v.id == id then
@@ -2844,7 +2849,7 @@ FormationWindow.GetCardListPosByID = function(id, ...)
 end
 
 FormationWindow.GetSupportCardListPosByID = function(id, playerIndex, ...)
-  -- function num : 0_89 , upvalues : _ENV, supportCardListDate
+  -- function num : 0_90 , upvalues : _ENV, supportCardListDate
   for i,v in ipairs(supportCardListDate) do
     if v.id ~= nil and v.id == id and v.playerIndex == playerIndex then
       return i
@@ -2853,15 +2858,15 @@ FormationWindow.GetSupportCardListPosByID = function(id, playerIndex, ...)
 end
 
 FormationWindow.OnShown = function(...)
-  -- function num : 0_90
-end
-
-FormationWindow.OnHide = function(...)
   -- function num : 0_91
 end
 
+FormationWindow.OnHide = function(...)
+  -- function num : 0_92
+end
+
 FormationWindow.OnClose = function(...)
-  -- function num : 0_92 , upvalues : _ENV, DragModel, DragDropManager, enemyLoaderList, FormationWindow, selfLoaderList, grpTalkCom, myselfFightDate, enemyFightDate, alreadyCard, MaxFight, ExpeditionListData, appaySfx, putHolder, uis, contentPane, scrollList, cardListDate, speedSort, selfGrp, _gestureDic, bgModel, currentTxt
+  -- function num : 0_93 , upvalues : _ENV, DragModel, DragDropManager, enemyLoaderList, FormationWindow, selfLoaderList, grpTalkCom, myselfFightDate, enemyFightDate, alreadyCard, MaxFight, ExpeditionListData, appaySfx, putHolder, uis, contentPane, scrollList, cardListDate, speedSort, selfGrp, _gestureDic, bgModel, currentTxt
   (BattleBackground.ClearBackground)(true)
   DragModel = nil
   local dragAgent = (DragDropManager.inst).dragAgent
@@ -2929,7 +2934,7 @@ FormationWindow.OnClose = function(...)
 end
 
 FormationWindow.InitAsset = function(formationData, ...)
-  -- function num : 0_93 , upvalues : _ENV, uis, battleType, myselfFightDate
+  -- function num : 0_94 , upvalues : _ENV, uis, battleType, myselfFightDate, FormationWindow
   local m = {}
   m.windowName = (WinResConfig.FormationWindow).name
   m.Tip = (PUtil.get)(20000035)
@@ -2943,25 +2948,40 @@ FormationWindow.InitAsset = function(formationData, ...)
     m.Formation = (Util.CovertLoaclFormationToRemoteTight)(myselfFightDate)
   end
   m.CloseBtnFun = function(...)
-    -- function num : 0_93_0 , upvalues : formationData, myselfFightDate
+    -- function num : 0_94_0 , upvalues : formationData, myselfFightDate
     if formationData.closeFun then
       (formationData.closeFun)(myselfFightDate)
     end
   end
 
   m.BackBtnFun = function(...)
-    -- function num : 0_93_1 , upvalues : formationData, myselfFightDate
+    -- function num : 0_94_1 , upvalues : formationData, myselfFightDate
     if formationData.backFun then
       (formationData.backFun)(myselfFightDate)
     end
   end
 
+  if formationData.formationType == FormationType.Expedition then
+    m.ExternalData = {}
+    -- DECOMPILER ERROR at PC54: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (m.ExternalData).Type = FormationType.Expedition
+    -- DECOMPILER ERROR at PC57: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (m.ExternalData).GetCardStatus = FormationWindow.GetCardState
+    -- DECOMPILER ERROR at PC60: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (m.ExternalData).GetAvailableCount = FormationWindow.GetAvailableCount
+  end
   ;
   (CommonWinMgr.RegisterAssets)(m)
 end
 
 FormationWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_94 , upvalues : _ENV, myselfFightDate, FormationWindow, uis
+  -- function num : 0_95 , upvalues : _ENV, myselfFightDate, FormationWindow, uis
   if msgId == (WindowMsgEnum.FormationPreset).E_MSG_REFRESH_FORMATION then
     myselfFightDate = para
     ;

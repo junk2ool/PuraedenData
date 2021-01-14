@@ -26,6 +26,7 @@ AssetStripWindow.Init = function(params, ...)
   local activityIds = params.activityIds
   local explainFunc = params.explainFunc
   local formation = params.Formation
+  local externalData = params.ExternalData
   openWindowList[windowName] = params
   assetList[windowName] = moneyTypes
   if model.BackBtn then
@@ -34,15 +35,15 @@ AssetStripWindow.Init = function(params, ...)
   if model.CloseBtn then
     (LuaSound.SetClickSound)(model.CloseBtn, LuaSound.COMMON_WIN_CLOSE)
   end
-  -- DECOMPILER ERROR at PC37: Confused about usage of register: R15 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R16 in 'UnsetPending'
 
   ;
   ((model.Double_01_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC40: Confused about usage of register: R15 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC41: Confused about usage of register: R16 in 'UnsetPending'
 
   ;
   ((model.Double_02_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC43: Confused about usage of register: R15 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC44: Confused about usage of register: R16 in 'UnsetPending'
 
   ;
   ((model.Double_03_Grp).root).visible = false
@@ -91,7 +92,7 @@ AssetStripWindow.Init = function(params, ...)
       local wordID = (AssetStripWindow.GetFunctionRuleIdByName)(windowName)
       if wordID and wordID > 0 then
         local ruleDes = (PUtil.get)(tonumber(wordID))
-        -- DECOMPILER ERROR at PC99: Confused about usage of register: R17 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC100: Confused about usage of register: R18 in 'UnsetPending'
 
         ;
         (model.ExplainBtn).visible = true
@@ -103,11 +104,11 @@ AssetStripWindow.Init = function(params, ...)
 )
       else
         do
-          -- DECOMPILER ERROR at PC108: Confused about usage of register: R16 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC109: Confused about usage of register: R17 in 'UnsetPending'
 
           ;
           (model.ExplainBtn).visible = false
-          -- DECOMPILER ERROR at PC112: Confused about usage of register: R16 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC113: Confused about usage of register: R17 in 'UnsetPending'
 
           if explainFunc ~= nil then
             (model.ExplainBtn).visible = true
@@ -118,20 +119,20 @@ AssetStripWindow.Init = function(params, ...)
           (AssetStripWindow.inItCloseBtn)(model.CloseBtn, openName, CloseBtnFun, isShowConfirm, ConfirmContent, isSelfClose, windowName)
           ;
           (AssetStripWindow.inItAsset)(params, moneyTypes)
-          -- DECOMPILER ERROR at PC131: Confused about usage of register: R16 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC132: Confused about usage of register: R17 in 'UnsetPending'
 
           ;
           (model.FunctionNameTxt).text = Tip
           ;
           ((model.root):GetTransition("in")).invalidateBatchingEveryFrame = true
-          -- DECOMPILER ERROR at PC138: Confused about usage of register: R16 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC139: Confused about usage of register: R17 in 'UnsetPending'
 
           ;
           (model.TeamBtn).visible = formation
           ;
           ((model.TeamBtn).onClick):Set(function(...)
-    -- function num : 0_0_2 , upvalues : _ENV, formation
-    (FormationPresetMgr.OpenUI)(formation)
+    -- function num : 0_0_2 , upvalues : _ENV, formation, externalData
+    (FormationPresetMgr.OpenUI)(formation, externalData)
   end
 )
         end

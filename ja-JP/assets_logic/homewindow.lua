@@ -572,6 +572,7 @@ HomeWindow.BindingUI = function(...)
   BindingUI(winName, RedDotComID.Home_bag, uis.Top_BagBtn)
   BindingUI(winName, RedDotComID.Home_Setting, uis.ActorInfoBtn)
   BindingUI(winName, RedDotComID.Home_Friend, uis.FriendBtn)
+  BindingUI(winName, RedDotComID.Home_Homeland, uis.FamilyBtn)
   ;
   (RedDotMgr.RefreshTreeUI)(winName)
 end

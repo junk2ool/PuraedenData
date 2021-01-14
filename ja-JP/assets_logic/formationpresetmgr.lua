@@ -4,11 +4,14 @@ FormationPresetMgr = {}
 local self = FormationPresetMgr
 -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
-FormationPresetMgr.OpenUI = function(formation, ...)
+FormationPresetMgr.OpenUI = function(formation, externalData, ...)
   -- function num : 0_0 , upvalues : _ENV
-  -- DECOMPILER ERROR at PC3: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC3: Confused about usage of register: R2 in 'UnsetPending'
 
   FormationPresetData.ChosedPreset = {deckSchemes = formation}
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R2 in 'UnsetPending'
+
+  FormationPresetData.ExternalData = externalData
   if FormationPresetData.Initialized then
     (FormationPresetData.FindChosedPreset)(formation)
     ;

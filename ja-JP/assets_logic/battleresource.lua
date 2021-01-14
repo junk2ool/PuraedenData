@@ -160,6 +160,7 @@ BattleResource.GetOneCardResource = function(cardInfo, ...)
   if cardConfig == nil then
     return 
   end
+  local change_fashion_ids = cardConfig.change_fashion_ids
   local fashionId = cardInfo.fashionId
   local showIdTable = {}
   ;
@@ -170,53 +171,69 @@ BattleResource.GetOneCardResource = function(cardInfo, ...)
   (table.insert)(showIdTable, (BattleSkill.GetSkillShowId)(fashionId, BattleSkillType.SKILL))
   ;
   (table.insert)(showIdTable, (BattleSkill.GetSkillShowId)(fashionId, BattleSkillType.ASSIST))
-  for _,showId in ipairs(showIdTable) do
-    local showConfig = ((TableData.gTable).BaseSkillShowData)[showId]
-    -- DECOMPILER ERROR at PC73: Confused about usage of register: R11 in 'UnsetPending'
-
-    if showConfig.effect_attack then
-      if (string.find)(showConfig.effect_attack, "SkillScript") == nil then
-        (self.resourceList)[showConfig.effect_attack] = 1
-      else
-        local SkillScript = require(showConfig.effect_attack)
-        -- DECOMPILER ERROR at PC82: Confused about usage of register: R12 in 'UnsetPending'
-
-        if SkillScript then
-          (self.resourceList)[SkillScript.timelineName] = 1
-        end
-      end
+  if change_fashion_ids and not (Util.StringIsNullOrEmpty)(change_fashion_ids) then
+    local ids = split(change_fashion_ids, ":")
+    for _,v in ipairs(ids) do
+      local temp = tonumber(v)
+      ;
+      (table.insert)(showIdTable, (BattleSkill.GetSkillShowId)(temp, BattleSkillType.NORMAL))
+      ;
+      (table.insert)(showIdTable, (BattleSkill.GetSkillShowId)(temp, BattleSkillType.SMALL))
+      ;
+      (table.insert)(showIdTable, (BattleSkill.GetSkillShowId)(temp, BattleSkillType.SKILL))
+      ;
+      (table.insert)(showIdTable, (BattleSkill.GetSkillShowId)(temp, BattleSkillType.ASSIST))
     end
-    do
-      if showConfig.effect_attack_target then
-        local strTable = split(showConfig.effect_attack_target, "|")
-        for _,str in ipairs(strTable) do
-          -- DECOMPILER ERROR at PC95: Confused about usage of register: R17 in 'UnsetPending'
+  end
+  do
+    for _,showId in ipairs(showIdTable) do
+      local showConfig = ((TableData.gTable).BaseSkillShowData)[showId]
+      -- DECOMPILER ERROR at PC135: Confused about usage of register: R12 in 'UnsetPending'
 
-          (self.resourceList)[str] = 1
+      if showConfig.effect_attack then
+        if (string.find)(showConfig.effect_attack, "SkillScript") == nil then
+          (self.resourceList)[showConfig.effect_attack] = 1
+        else
+          local SkillScript = require(showConfig.effect_attack)
+          -- DECOMPILER ERROR at PC144: Confused about usage of register: R13 in 'UnsetPending'
+
+          if SkillScript then
+            (self.resourceList)[SkillScript.timelineName] = 1
+          end
         end
       end
       do
-        if showConfig.effect_attack_hit then
-          local strTable = split(showConfig.effect_attack_hit, "|")
+        if showConfig.effect_attack_target then
+          local strTable = split(showConfig.effect_attack_target, "|")
           for _,str in ipairs(strTable) do
-            -- DECOMPILER ERROR at PC110: Confused about usage of register: R17 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC157: Confused about usage of register: R18 in 'UnsetPending'
 
             (self.resourceList)[str] = 1
           end
         end
         do
-          do
-            -- DECOMPILER ERROR at PC118: Confused about usage of register: R11 in 'UnsetPending'
+          if showConfig.effect_attack_hit then
+            local strTable = split(showConfig.effect_attack_hit, "|")
+            for _,str in ipairs(strTable) do
+              -- DECOMPILER ERROR at PC172: Confused about usage of register: R18 in 'UnsetPending'
 
-            if showConfig.effect_attack_air then
-              (self.resourceList)[showConfig.effect_attack_air] = 1
+              (self.resourceList)[str] = 1
             end
-            -- DECOMPILER ERROR at PC119: LeaveBlock: unexpected jumping out DO_STMT
+          end
+          do
+            do
+              -- DECOMPILER ERROR at PC180: Confused about usage of register: R12 in 'UnsetPending'
 
-            -- DECOMPILER ERROR at PC119: LeaveBlock: unexpected jumping out DO_STMT
+              if showConfig.effect_attack_air then
+                (self.resourceList)[showConfig.effect_attack_air] = 1
+              end
+              -- DECOMPILER ERROR at PC181: LeaveBlock: unexpected jumping out DO_STMT
 
-            -- DECOMPILER ERROR at PC119: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC181: LeaveBlock: unexpected jumping out DO_STMT
 
+              -- DECOMPILER ERROR at PC181: LeaveBlock: unexpected jumping out DO_STMT
+
+            end
           end
         end
       end

@@ -264,24 +264,74 @@ HomelandService.OnResLandHarvest = function(msg, ...)
       for index,value in ipairs(msg.goods) do
         (MessageMgr.OpenItemBuyTipsWindowBySingle)({id = value.id, Num = value.value})
       end
+      do
+        ;
+        (HomelandService.CheckFarmRedDot)(msg.framInfo)
+      end
     end
   end
 end
 
 -- DECOMPILER ERROR at PC76: Confused about usage of register: R1 in 'UnsetPending'
 
-HomelandService.ReqLandUproot = function(landId, ...)
+HomelandService.CheckFarmRedDot = function(fInfo, ...)
   -- function num : 0_23 , upvalues : _ENV
+  local isNeedEl = true
+  if fInfo and fInfo.landInfo then
+    for index,value in ipairs(fInfo.landInfo) do
+      if value.status == (ProtoEnum.LAND_STATUS).HARVEST then
+        if isNeedEl then
+          do
+            isNeedEl = false
+            if value.status == (ProtoEnum.LAND_STATUS).DEFAULT_LOCK then
+              local farmLvl = fInfo.farmLevel
+              local landConfigData = nil
+              for key,value in pairs((TableData.gTable).BaseFamilyFarmLandData) do
+                if value.type == index then
+                  landConfigData = value
+                end
+              end
+              local needLvl = landConfigData.farm_level
+              print("判断是否可以解锁", farmLvl, needLvl)
+              isNeedEl = not isNeedEl or farmLvl < needLvl
+            elseif isNeedEl then
+              isNeedEl = true
+            end
+            -- DECOMPILER ERROR at PC56: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+            -- DECOMPILER ERROR at PC56: LeaveBlock: unexpected jumping out IF_STMT
+
+            -- DECOMPILER ERROR at PC56: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+            -- DECOMPILER ERROR at PC56: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
+        end
+      end
+    end
+  end
+  if isNeedEl then
+    (RedDotMgr.EliminateRedDot)((WinResConfig.HomeWindow).name, RedDotComID.Homeland_Farm_Harve)
+    ;
+    (RedDotMgr.EliminateRedDot)((WinResConfig.HomeWindow).name, RedDotComID.Homeland_Farm_Unlock)
+  end
+  -- DECOMPILER ERROR: 6 unprocessed JMP targets
+end
+
+-- DECOMPILER ERROR at PC79: Confused about usage of register: R1 in 'UnsetPending'
+
+HomelandService.ReqLandUproot = function(landId, ...)
+  -- function num : 0_24 , upvalues : _ENV
   print("2309请求土地铲除")
   local m = {landId = landId}
   ;
   (Net.Send)((Proto.MsgName).ReqLandUproot, m, (Proto.MsgName).ResLandUproot)
 end
 
--- DECOMPILER ERROR at PC79: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC82: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandService.OnResLandUproot = function(msg, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   print("2310返回土地铲除")
   UIMgr:SendWindowMessage("HomelandFarmWindow", (WindowMsgEnum.Family).E_MSG_ROOT_LAND, {data = msg})
   local items = {}
@@ -290,30 +340,32 @@ HomelandService.OnResLandUproot = function(msg, ...)
   (MessageMgr.OpenItemBuyTipsWindowBySingle)({id = msg.seedId, Num = seedData.use_num})
 end
 
--- DECOMPILER ERROR at PC82: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC85: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandService.ReqLandUnlock = function(landId, ...)
-  -- function num : 0_25 , upvalues : _ENV
+  -- function num : 0_26 , upvalues : _ENV
   print("2311请求土地解锁", landId)
   local m = {landId = landId}
   ;
   (Net.Send)((Proto.MsgName).ReqLandUnlock, m, (Proto.MsgName).ResLandUnlock)
 end
 
--- DECOMPILER ERROR at PC85: Confused about usage of register: R1 in 'UnsetPending'
-
-HomelandService.OnResLandUnlock = function(msg, ...)
-  -- function num : 0_26 , upvalues : _ENV
-  print("2312返回土地解锁")
-  UIMgr:SendWindowMessage("HomelandFarmWindow", (WindowMsgEnum.Family).E_MSG_UNLOCK_LAND, {data = msg})
-end
-
 -- DECOMPILER ERROR at PC88: Confused about usage of register: R1 in 'UnsetPending'
 
+HomelandService.OnResLandUnlock = function(msg, ...)
+  -- function num : 0_27 , upvalues : _ENV
+  print("2312返回土地解锁")
+  UIMgr:SendWindowMessage("HomelandFarmWindow", (WindowMsgEnum.Family).E_MSG_UNLOCK_LAND, {data = msg})
+  ;
+  (HomelandService.CheckFarmRedDot)(msg.framInfo)
+end
+
+-- DECOMPILER ERROR at PC91: Confused about usage of register: R1 in 'UnsetPending'
+
 HomelandService.ReqFarmShopTypeData = function(shopType, ...)
-  -- function num : 0_27 , upvalues : _ENV, self
+  -- function num : 0_28 , upvalues : _ENV, self
   ld("Shop", function(...)
-    -- function num : 0_27_0 , upvalues : self, shopType, _ENV
+    -- function num : 0_28_0 , upvalues : self, shopType, _ENV
     self.shopType = shopType
     ;
     (ShopService.OnReqShopData)(1)
@@ -321,26 +373,26 @@ HomelandService.ReqFarmShopTypeData = function(shopType, ...)
 )
 end
 
--- DECOMPILER ERROR at PC91: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC94: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandService.ResFarmShopTypeData = function(msg, ...)
-  -- function num : 0_28 , upvalues : _ENV, self
+  -- function num : 0_29 , upvalues : _ENV, self
   (HomelandService.ReqShopGridDataByType)(self.shopType)
 end
 
--- DECOMPILER ERROR at PC94: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC97: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandService.ReqShopGridDataByType = function(shopType, ...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   if shopType then
     (ShopService.OnReqShopGridData)(shopType)
   end
 end
 
--- DECOMPILER ERROR at PC97: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC100: Confused about usage of register: R1 in 'UnsetPending'
 
 HomelandService.ResShopGridDataByType = function(msg, ...)
-  -- function num : 0_30 , upvalues : _ENV
+  -- function num : 0_31 , upvalues : _ENV
   print("返回商店类型格子")
   if UIMgr:IsWindowOpen((WinResConfig.FamilyShopWindow).name) then
     UIMgr:SendWindowMessage((WinResConfig.FamilyShopWindow).name, (WindowMsgEnum.Family).E_MSG_FARMSHOP_SHOPGRIP_RES, {data = msg})
@@ -352,28 +404,28 @@ HomelandService.ResShopGridDataByType = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC100: Confused about usage of register: R1 in 'UnsetPending'
-
-HomelandService.ReqShopReset = function(shopType, ...)
-  -- function num : 0_31
-end
-
 -- DECOMPILER ERROR at PC103: Confused about usage of register: R1 in 'UnsetPending'
 
-HomelandService.ResShopReset = function(msg, ...)
+HomelandService.ReqShopReset = function(shopType, ...)
   -- function num : 0_32
 end
 
 -- DECOMPILER ERROR at PC106: Confused about usage of register: R1 in 'UnsetPending'
 
-HomelandService.ReqShopBuy = function(shopType, ...)
+HomelandService.ResShopReset = function(msg, ...)
   -- function num : 0_33
 end
 
 -- DECOMPILER ERROR at PC109: Confused about usage of register: R1 in 'UnsetPending'
 
+HomelandService.ReqShopBuy = function(shopType, ...)
+  -- function num : 0_34
+end
+
+-- DECOMPILER ERROR at PC112: Confused about usage of register: R1 in 'UnsetPending'
+
 HomelandService.ResShopBuy = function(msg, ...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_35 , upvalues : _ENV
   if msg.success then
     UIMgr:SendWindowMessage((WinResConfig.FamilyShopWindow).name, (WindowMsgEnum.Family).E_MSG_FARMSHOP_BUY_RES, {data = msg})
   else

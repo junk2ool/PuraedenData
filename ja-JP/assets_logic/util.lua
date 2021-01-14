@@ -3159,7 +3159,7 @@ Util.GetAssetWeight = function(id, ...)
   end
 end
 
-Util.CheckCostResources = function(cost, func, notEnoughFunc, notShowTips, ...)
+Util.CheckCostResources = function(cost, func, notEnoughFunc, notShowTips, showAmount, ...)
   -- function num : 0_151 , upvalues : type, split, Util, _ENV
   local costInfo = nil
   if type(cost) == "string" then
@@ -3178,12 +3178,16 @@ Util.CheckCostResources = function(cost, func, notEnoughFunc, notShowTips, ...)
       local bindDiaCount = (ActorData.GetAssetCount)(AssetType.DIAMOND_BIND)
       if bindDiaCount < eachCost.Amount then
         local diaCount = (ActorData.GetAssetCount)(AssetType.DIAMOND)
-        if bindDiaCount + diaCount < eachCost.Amount then
+        local total = diaCount
+        if bindDiaCount > 0 then
+          total = total + bindDiaCount
+        end
+        if total < eachCost.Amount then
           if notEnoughFunc then
             notEnoughFunc()
           end
           if not notShowTips then
-            (MessageMgr.OpenAssetNotEnoughtWindow)(AssetType.DIAMOND_BIND, func, func)
+            (MessageMgr.OpenAssetNotEnoughtWindow)(AssetType.DIAMOND_BIND, func, func, eachCost.Amount, showAmount)
           end
           result = false
           break
@@ -3191,9 +3195,14 @@ Util.CheckCostResources = function(cost, func, notEnoughFunc, notShowTips, ...)
           if bindDiaCount == 0 then
             costInfo.OnlyDiamond = true
           else
-            ;
-            (table.insert)(costInfo, {Id = AssetType.DIAMOND, Type = PropType.ASSET, Amount = eachCost.Amount - bindDiaCount})
-            eachCost.Amount = bindDiaCount
+            if bindDiaCount < 0 then
+              (table.insert)(costInfo, {Id = AssetType.DIAMOND, Type = PropType.ASSET, Amount = eachCost.Amount})
+              eachCost.Amount = 0
+            else
+              ;
+              (table.insert)(costInfo, {Id = AssetType.DIAMOND, Type = PropType.ASSET, Amount = eachCost.Amount - bindDiaCount})
+              eachCost.Amount = bindDiaCount
+            end
             costInfo.DiamondIndex = #costInfo
           end
         end
@@ -3208,17 +3217,17 @@ Util.CheckCostResources = function(cost, func, notEnoughFunc, notShowTips, ...)
                 notEnoughFunc()
               end
               if not notShowTips then
-                (MessageMgr.OpenAssetNotEnoughtWindow)(eachCost.Id, func, func)
+                (MessageMgr.OpenAssetNotEnoughtWindow)(eachCost.Id, func, func, eachCost.Amount, showAmount)
               end
             end
             result = false
             break
           end
-          -- DECOMPILER ERROR at PC121: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC145: LeaveBlock: unexpected jumping out DO_STMT
 
-          -- DECOMPILER ERROR at PC121: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+          -- DECOMPILER ERROR at PC145: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-          -- DECOMPILER ERROR at PC121: LeaveBlock: unexpected jumping out IF_STMT
+          -- DECOMPILER ERROR at PC145: LeaveBlock: unexpected jumping out IF_STMT
 
         end
       end

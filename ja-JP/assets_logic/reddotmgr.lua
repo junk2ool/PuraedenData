@@ -44,6 +44,8 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Setting, RedDotComID.Home_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Friend, RedDotComID.Home_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Homeland, RedDotComID.Home_Main)
   winName = (WinResConfig.ActorInfoWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Setting_Main, RedDotComID.Home_Setting, (WinResConfig.HomeWindow).name)
@@ -251,6 +253,13 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Friend_Chat, RedDotComID.Friend_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Friend_Add, RedDotComID.Friend_Main)
+  winName = (WinResConfig.HomelandFarmWindow).name
+  ;
+  (RedDotMgr.RegisterRootNode)(winName, RedDotComID.HomeLandMain, RedDotComID.Home_Homeland, (WinResConfig.HomeWindow).name)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Homeland_Farm_Harve, RedDotComID.HomeLandMain)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Homeland_Farm_Unlock, RedDotComID.HomeLandMain)
 end
 
 -- DECOMPILER ERROR at PC9: Confused about usage of register: R2 in 'UnsetPending'

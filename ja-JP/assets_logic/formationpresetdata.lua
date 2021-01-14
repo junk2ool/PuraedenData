@@ -2,35 +2,39 @@
 -- function num : 0 , upvalues : _ENV
 FormationPresetData = {}
 FormationPresetChangeType = {Add = 1, Alter = 2, Delete = 3}
--- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
-
-FormationPresetData.Initialized = false
--- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
-
-FormationPresetData.MAX_PRESET_AMOUNT = 72010081
--- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
-
-FormationPresetData.MAX_PRESET_NAME_LENGTH = 72010082
+FormationPresetCardsStatus = {Normal = 1, PartialAvailable = 2, NotAvailable = 3, ExpeditionOutOfLimit = 4}
 -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
 
-FormationPresetData.ChosedPreset = nil
+FormationPresetData.Initialized = false
 -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
 
-FormationPresetData.EditPreset = nil
--- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+FormationPresetData.MAX_PRESET_AMOUNT = 72010081
+-- DECOMPILER ERROR at PC18: Confused about usage of register: R0 in 'UnsetPending'
 
-FormationPresetData.PresetData = {}
+FormationPresetData.MAX_PRESET_NAME_LENGTH = 72010082
+-- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
+
+FormationPresetData.ChosedPreset = nil
 -- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
 
+FormationPresetData.EditPreset = nil
+-- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+
+FormationPresetData.PresetData = {}
+-- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+
 FormationPresetData.PresetFC = {}
--- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
 
 FormationPresetData.OriginFormation = nil
--- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
+
+FormationPresetData.ExternalData = nil
+-- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
 
 FormationPresetData.Constant = {MaxPresetAmount = 20, MaxPresetNameLength = 7}
 local self = FormationPresetData
--- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC41: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.Init = function(...)
   -- function num : 0_0 , upvalues : self, _ENV
@@ -43,7 +47,7 @@ FormationPresetData.Init = function(...)
   (self.Constant).MaxPresetNameLength = (((TableData.gTable).BaseFixedData)[FormationPresetData.MAX_PRESET_NAME_LENGTH]).int_value
 end
 
--- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC44: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.GetPresetFC = function(data, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -65,7 +69,7 @@ FormationPresetData.GetPresetFC = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC47: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.ClearData = function(...)
   -- function num : 0_2 , upvalues : self
@@ -75,7 +79,7 @@ FormationPresetData.ClearData = function(...)
   self.PresetFC = {}
 end
 
--- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC50: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.CompareFormation = function(formation1, formation2, ...)
   -- function num : 0_3 , upvalues : _ENV
@@ -101,7 +105,7 @@ FormationPresetData.CompareFormation = function(formation1, formation2, ...)
   -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC53: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.RefreshPresetFC = function(...)
   -- function num : 0_4 , upvalues : _ENV
@@ -133,7 +137,7 @@ FormationPresetData.RefreshPresetFC = function(...)
   (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
 end
 
--- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC56: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.Sort = function(x, y, ...)
   -- function num : 0_5 , upvalues : _ENV
@@ -157,7 +161,7 @@ FormationPresetData.Sort = function(x, y, ...)
   -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC51: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.FormationSort = function(x, y, ...)
   -- function num : 0_6
@@ -177,7 +181,7 @@ FormationPresetData.FormationSort = function(x, y, ...)
   -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC54: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
 
 FormationPresetData.FindChosedPreset = function(formation, ...)
   -- function num : 0_7 , upvalues : _ENV

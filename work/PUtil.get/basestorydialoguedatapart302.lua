@@ -783,7 +783,7 @@
 , 
 [75706426] = {id = 75706426, remark = "くっ…着物でさえなければ…", type = 1, option_ids = "0", next = 75706427, role_ids = "75200675", role_type = 75200675, position = "418:606:10050", role_admission_type = "75200675:0:0", role_departure_type = "75200673:0:0,75200041:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
-[75706427] = {id = 75706427, remark = "おじきは、これでいいのでしょうか…？", type = 1, option_ids = "0", next = 75706428, role_ids = "75200491", role_type = 75200491, position = "418:606:10050", role_admission_type = "75200491:0:0", role_departure_type = "75200675:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+[75706427] = {id = 75706427, remark = "おじぎは、これでいいのでしょうか…？", type = 1, option_ids = "0", next = 75706428, role_ids = "75200491", role_type = 75200491, position = "418:606:10050", role_admission_type = "75200491:0:0", role_departure_type = "75200675:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
 [75706428] = {id = 75706428, remark = "ウルスラさん、完璧です。\n初めてなのにすごいですね。", type = 1, option_ids = "0", next = 75706429, role_ids = "75200561", role_type = 75200561, position = "418:606:10050", role_admission_type = "75200561:0:0", role_departure_type = "75200491:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 

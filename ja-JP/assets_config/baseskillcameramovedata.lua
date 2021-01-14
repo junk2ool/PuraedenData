@@ -761,6 +761,40 @@ BaseSkillCameraMoveData = {
 , 
 [48120380] = {id = 48120380, scale = 3, position_a = "0,-5", move_time = 167}
 , 
+[48120381] = {id = 48120381, scale = -2, move_time = 200}
+, 
+[48120382] = {id = 48120382, scale = 0.5, move_time = 83}
+, 
+[48120383] = {id = 48120383, scale = 0.5, move_time = 83}
+, 
+[48120384] = {id = 48120384, scale = 0.5, move_time = 83}
+, 
+[48120385] = {id = 48120385, scale = 0.5, move_time = 83}
+, 
+[48120386] = {id = 48120386, scale = 1, move_time = 83}
+, 
+[48120387] = {id = 48120387, scale = 1, move_time = 83}
+, 
+[48120388] = {id = 48120388, end_type = 1, position_a = "5,0", position_b = "10,0", move_time = 200}
+, 
+[48120389] = {id = 48120389, scale = -1, end_type = 2, move_time = 300}
+, 
+[48120390] = {id = 48120390, position_a = "0,5", move_time = 83}
+, 
+[48120391] = {id = 48120391, scale = 0.3, move_time = 100}
+, 
+[48120392] = {id = 48120392, scale = 0.3, move_time = 100}
+, 
+[48120393] = {id = 48120393, scale = 0.3, move_time = 100}
+, 
+[48120394] = {id = 48120394, scale = 0.4, move_time = 100}
+, 
+[48120395] = {id = 48120395, scale = 0.4, move_time = 100}
+, 
+[48120396] = {id = 48120396, scale = 0.4, move_time = 100}
+, 
+[48120397] = {id = 48120397, scale = 2, position_a = "0,-5", move_time = 83}
+, 
 [48220001] = {id = 48220001, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
 , 
 [48220002] = {id = 48220002, scale = -2, end_type = 2, move_time = 267}
@@ -1338,5 +1372,33 @@ BaseSkillCameraMoveData = {
 [48220288] = {id = 48220288, position_a = "-5,5", move_time = 417}
 , 
 [48220289] = {id = 48220289, scale = 5, position_a = "5,-5", move_time = 183}
+, 
+[48220290] = {id = 48220290, scale = -2, move_time = 200}
+, 
+[48220291] = {id = 48220291, scale = 0.5, move_time = 133}
+, 
+[48220292] = {id = 48220292, scale = 0.5, move_time = 167}
+, 
+[48220293] = {id = 48220293, scale = 0.5, move_time = 167}
+, 
+[48220294] = {id = 48220294, scale = 0.5, move_time = 167}
+, 
+[48220295] = {id = 48220295, scale = 0.5, move_time = 167}
+, 
+[48220296] = {id = 48220296, scale = 0.5, move_time = 167}
+, 
+[48220297] = {id = 48220297, scale = 1, move_time = 167}
+, 
+[48220298] = {id = 48220298, scale = 1, move_time = 167}
+, 
+[48220299] = {id = 48220299, scale = -2, move_time = 200}
+, 
+[48220300] = {id = 48220300, position_a = "0,3", move_time = 167}
+, 
+[48220301] = {id = 48220301, position_a = "0,2", move_time = 333}
+, 
+[48220302] = {id = 48220302, scale = 2, position_a = "0,-5", move_time = 133}
+, 
+[48220303] = {id = 48220303, scale = 3, move_time = 83}
 }
 

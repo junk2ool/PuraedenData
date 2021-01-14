@@ -144,5 +144,9 @@
 [78601165] = {id = 78601165, name = "リン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300016_2", condition = "72501008:11300016:10", sort = 936, reward_sort = 9880001, own_show = 1}
 , 
 [78601166] = {id = 78601166, name = "ヨウル", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300024_2", condition = "72501008:11300024:10", sort = 935, reward_sort = 9880001, own_show = 1}
+, 
+[78601167] = {id = 78601167, name = "シルヴィ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202014_2", condition = "72501008:11202014:10", sort = 934, reward_sort = 9880001, own_show = 1}
+, 
+[78601168] = {id = 78601168, name = "フランチェスカ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300017_2", condition = "72501008:11300017:10", sort = 933, reward_sort = 9880001, own_show = 1}
 }
 

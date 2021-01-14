@@ -126,6 +126,9 @@ GuildBossDetailWindow.OnClickShowTips = function(pos, content, ...)
   ;
   (tipsObj:GetChild("ItemWordTxt")).text = content
   tipsObj.xy = pos + Vector2(100, -tipsObj.height / 2)
+  if tipsObj.y < 0 then
+    tipsObj.y = 40
+  end
 end
 
 GuildBossDetailWindow.OnShown = function(...)

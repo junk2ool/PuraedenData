@@ -88,9 +88,11 @@ HomelandMgr.UnDeployCard = function(cardId, ...)
   -- function num : 0_5 , upvalues : _ENV
   local cardIds = {}
   local count = #(HomelandData.RoomData).Role
+  local used = {}
   for i = 1, count do
-    if ((HomelandData.RoomData).Role)[i] ~= cardId then
-      (table.insert)(cardIds, ((HomelandData.RoomData).Role)[i])
+    if not used[(((HomelandData.RoomData).Role)[i]).cardId] and (((HomelandData.RoomData).Role)[i]).cardId ~= cardId then
+      (table.insert)(cardIds, (((HomelandData.RoomData).Role)[i]).cardId)
+      used[(((HomelandData.RoomData).Role)[i]).cardId] = true
     end
   end
   ;
@@ -106,7 +108,14 @@ HomelandMgr.DeployCard = function(cardId, maxCount, availableCoor, ...)
     return 
   end
   local cardIds = {}
-  cardIds = (Util.Copy)((HomelandData.RoomData).Role)
+  local count = #(HomelandData.RoomData).Role
+  local used = {}
+  for i = 1, count do
+    if not used[(((HomelandData.RoomData).Role)[i]).cardId] then
+      (table.insert)(cardIds, (((HomelandData.RoomData).Role)[i]).cardId)
+      used[(((HomelandData.RoomData).Role)[i]).cardId] = true
+    end
+  end
   ;
   (table.insert)(cardIds, cardId)
   if maxCount < #cardIds then
@@ -122,27 +131,54 @@ end
 HomelandMgr.RecvRoomEnter = function(msg, ...)
   -- function num : 0_7 , upvalues : _ENV
   local count = #(HomelandData.RoomData).Role
+  local originCard = {}
   for i = 1, count do
-    -- DECOMPILER ERROR at PC14: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC16: Confused about usage of register: R7 in 'UnsetPending'
 
-    (HomelandData.UsedCard)[((HomelandData.RoomData).Role)[i]] = nil
+    (HomelandData.UsedCard)[(((HomelandData.RoomData).Role)[i]).cardId] = nil
+    originCard[(((HomelandData.RoomData).Role)[i]).cardId] = true
   end
-  -- DECOMPILER ERROR at PC19: Confused about usage of register: R2 in 'UnsetPending'
+  if count < #msg.cardInfo then
+    count = #msg.cardInfo
+    for i = 1, count do
+      if not originCard[((msg.cardInfo)[i]).cardId] then
+        local config = (CardData.GetFashionConfig)({id = ((msg.cardInfo)[i]).cardId, quality = ((msg.cardInfo)[i]).quality}, true)
+        ;
+        (AudioManager.PlayBubbleAndVoice)(false, true, config.id, CVAudioType.HomelandDeployBubble, nil, nil, false, false, false, false, nil, true)
+        break
+      end
+    end
+  else
+    do
+      if #msg.cardInfo < count then
+        count = #msg.cardInfo
+        for i = 1, count do
+          originCard[((msg.cardInfo)[i]).cardId] = nil
+        end
+        for k,v in pairs(originCard) do
+          UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_STOP_ROLE_VOICE, k)
+        end
+      end
+      do
+        -- DECOMPILER ERROR at PC105: Confused about usage of register: R3 in 'UnsetPending'
 
-  ;
-  (HomelandData.RoomData).Role = msg.cardId
-  -- DECOMPILER ERROR at PC28: Confused about usage of register: R2 in 'UnsetPending'
+        ;
+        (HomelandData.RoomData).Role = msg.cardInfo
+        -- DECOMPILER ERROR at PC114: Confused about usage of register: R3 in 'UnsetPending'
 
-  ;
-  ((((HomelandData.AllRoomData)[msg.roomId]).roomStyle)[msg.styleId]).cardId = msg.cardId
-  count = #(HomelandData.RoomData).Role
-  for i = 1, count do
-    -- DECOMPILER ERROR at PC43: Confused about usage of register: R6 in 'UnsetPending'
+        ;
+        ((((HomelandData.AllRoomData)[msg.roomId]).roomStyle)[msg.styleId]).roomCardInfo = msg.cardInfo
+        count = #(HomelandData.RoomData).Role
+        for i = 1, count do
+          -- DECOMPILER ERROR at PC130: Confused about usage of register: R7 in 'UnsetPending'
 
-    (HomelandData.UsedCard)[((HomelandData.RoomData).Role)[i]] = true
+          (HomelandData.UsedCard)[(((HomelandData.RoomData).Role)[i]).cardId] = true
+        end
+        UIMgr:SendWindowMessage((WinResConfig.HomelandDeployCardWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_ROOM_ROLES)
+        UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_ROOM_ROLES)
+      end
+    end
   end
-  UIMgr:SendWindowMessage((WinResConfig.HomelandDeployCardWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_ROOM_ROLES)
-  UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_ROOM_ROLES)
 end
 
 -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
@@ -321,7 +357,11 @@ HomelandMgr.ReqRoomLevelUp = function(roomId, styleId, ...)
     loge("reach max level")
     return 
   end
-  if (Util.CheckCostResources)(data.Cost) then
+  if (HomelandData.GetFarmLevel)() < data.FarmLevel then
+    (MessageMgr.SendCenterTips)((PUtil.get)(60000611, data.FarmLevel))
+    return 
+  end
+  if (Util.CheckCostResources)(data.Cost, nil, nil, false, true) then
     local costStr = split(data.Cost, ",")
     local str = ""
     for k,v in pairs(costStr) do
@@ -444,6 +484,9 @@ end
 
 HomelandMgr.AddFurnitureToUI = function(id, uid, ...)
   -- function num : 0_22 , upvalues : _ENV
+  if id == nil or uid == nil then
+    return 
+  end
   do
     if (HomelandData.EditPileFurnitures)[id] == nil then
       local config = ((TableData.gTable).BaseFamilyFurnitureData)[id]
@@ -452,7 +495,7 @@ HomelandMgr.AddFurnitureToUI = function(id, uid, ...)
       end
       ;
       (table.insert)(HomelandData.EditUndeployFurnitures, id)
-      -- DECOMPILER ERROR at PC46: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC51: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (HomelandData.EditPileFurnitures)[id] = {}

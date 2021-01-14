@@ -26,10 +26,7 @@ FormationPresetWindow.InitTopMenu = function(...)
   m.closeToWindow = (WinResConfig.AdventureWindow).name
   m.moneyTypes = {}
   m.BackBtnFun = function(...)
-    -- function num : 0_1_0 , upvalues : _ENV
-    if FormationPresetData.ChosedPreset then
-      UIMgr:SendWindowMessage((WinResConfig.FormationWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH_FORMATION, (Util.CovertRemoteFormationToLocal)((FormationPresetData.ChosedPreset).deckSchemes))
-    end
+    -- function num : 0_1_0
   end
 
   m.CloseBtnFun = function(...)
@@ -107,13 +104,43 @@ FormationPresetWindow.RefreshPresetItem = function(index, item, ...)
       local list = item:GetChild("HeadList")
       list:RemoveChildrenToPool()
       local count = #data.deckSchemes
-      local subItem = nil
+      local subItem, status = nil, nil
+      local unUsed = 0
+      local disable = {}
+      local partialAvailable = {}
+      local btnStatus = FormationPresetCardsStatus.Normal
       for i = 1, count do
         if ((data.deckSchemes)[i]).id ~= 0 then
           local card = (CardData.GetCardData)(((data.deckSchemes)[i]).id)
           subItem = list:AddItemFromPool()
+          if FormationPresetData.ExternalData and (FormationPresetData.ExternalData).Type == FormationType.Expedition then
+            status = ((FormationPresetData.ExternalData).GetCardStatus)(card.id)
+            if status == (ExpeditionMgr.CardState).NoFight then
+              unUsed = unUsed + 1
+            end
+          end
           ;
           (Util.SetHeadFrame)(subItem, card)
+          if status and (ExpeditionMgr.CardState).Normal < status then
+            (subItem:GetController("c3")).selectedIndex = status
+            ;
+            (table.insert)(disable, card.id)
+          else
+            ;
+            (subItem:GetController("c3")).selectedIndex = 1
+            ;
+            (table.insert)(partialAvailable, (data.deckSchemes)[i])
+          end
+        end
+      end
+      if #disable == count then
+        btnStatus = FormationPresetCardsStatus.NotAvailable
+      else
+        if #disable > 0 and #disable < count then
+          btnStatus = FormationPresetCardsStatus.PartialAvailable
+        end
+        if FormationPresetData.ExternalData and (FormationPresetData.ExternalData).Type == FormationType.Expedition and ((FormationPresetData.ExternalData).GetAvailableCount)() < unUsed then
+          btnStatus = FormationPresetCardsStatus.ExpeditionOutOfLimit
         end
       end
       local btn = item:GetChild("EditBtn")
@@ -137,20 +164,42 @@ FormationPresetWindow.RefreshPresetItem = function(index, item, ...)
         btn.text = (PUtil.get)(20000032)
         ;
         (btn.onClick):Set(function(...)
-    -- function num : 0_7_3 , upvalues : _ENV, data, uis
-    -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
+    -- function num : 0_7_3 , upvalues : btnStatus, _ENV, partialAvailable, data, uis
+    if btnStatus == FormationPresetCardsStatus.NotAvailable then
+      (MessageMgr.SendCenterTips)((PUtil.get)(60000609))
+      return 
+    else
+      if btnStatus == FormationPresetCardsStatus.ExpeditionOutOfLimit then
+        (MessageMgr.SendCenterTips)((PUtil.get)(20000181))
+        return 
+      else
+        if btnStatus == FormationPresetCardsStatus.PartialAvailable then
+          (MessageMgr.SendCenterTips)((PUtil.get)(60000610))
+          -- DECOMPILER ERROR at PC46: Confused about usage of register: R0 in 'UnsetPending'
+
+          ;
+          (MessageMgr.formationData).myselfList = (Util.CovertRemoteFormationToLocal)(partialAvailable)
+        else
+          ;
+          (MessageMgr.SendCenterTips)((PUtil.get)(60000606))
+          -- DECOMPILER ERROR at PC61: Confused about usage of register: R0 in 'UnsetPending'
+
+          ;
+          (MessageMgr.formationData).myselfList = (Util.CovertRemoteFormationToLocal)(data.deckSchemes)
+        end
+      end
+    end
+    -- DECOMPILER ERROR at PC67: Confused about usage of register: R0 in 'UnsetPending'
 
     FormationPresetData.ChosedPreset = (Util.Copy)(data)
+    -- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'
+
     ;
-    (MessageMgr.SendCenterTips)((PUtil.get)(60000606))
+    (FormationPresetData.ChosedPreset).RealFormation = (MessageMgr.formationData).myselfList
     ;
     (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
     ;
     (uis.BattleInformationList):RefreshVirtualList()
-    -- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
-
-    ;
-    (MessageMgr.formationData).myselfList = (Util.CovertRemoteFormationToLocal)(data.deckSchemes)
     UIMgr:SendWindowMessage((WinResConfig.FormationWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH)
   end
 )

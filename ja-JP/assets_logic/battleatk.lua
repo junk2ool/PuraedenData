@@ -396,6 +396,7 @@ BattleAtk.InsertSkillInfo = function(curSkill, ...)
     (BattleData.SaveBattleProcess)("攻击回合：" .. BattleData.atkIndex .. " 攻击者位置：" .. atkCard:GetPosIndex() .. " 攻击类型：必杀技")
   end
   local curTargetCards = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
+  local killCount = -1
   if #curTargetCards > 0 then
     local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig)
     atkInfo.copyCardUid = copyCardUid
@@ -410,7 +411,8 @@ BattleAtk.InsertSkillInfo = function(curSkill, ...)
         ;
         (BattleDataCount.DealTreatDirectBuff)(atkCard, atkInfo)
       else
-        local defCardInfoTable = (BattleDataCount.GetSkillDataCount)(atkCard, curTargetCards, atkInfo, atkCard, costTable)
+        local defCardInfoTable, mKillCount = (BattleDataCount.GetSkillDataCount)(atkCard, curTargetCards, atkInfo, atkCard, costTable)
+        killCount = mKillCount
         ;
         (BattleDataCount.DealHitCritBuff)(defCardInfoTable, atkInfo)
       end
@@ -438,6 +440,7 @@ BattleAtk.InsertSkillInfo = function(curSkill, ...)
           t_insert((BattleData.curRoundData).attackInfo, atkInfo)
           ;
           (self.InsetAttackFailInfo)(atkCard)
+          return killCount
         end
       end
     end

@@ -34,7 +34,7 @@ _ENV.GuessCupType = {Guild = 1}
 _ENV.GuessCupOperateType = {Once = 1, All = 2}
 _ENV.AssetShopType = {DIAMOND = 1, GOLD = 2, PHYSICAL = 3}
 _ENV.CardTendType = {ATTACK = 1, DEFENCE = 2, SUP = 3}
-_ENV.CVAudioType = {UnLockBubble = 1, LoginBubble = 2, HomeIdleBubble = 3, LevelUpBubble = 4, QualityUpBubble = 5, StarUpBubble = 6, TouchBubble = 7, ArrayUpBubble = 8, AttackBubble = 9, HitBubble = 10, DeathBubble = 11, SkillBubble = 12, UniqueSkillBubble = 13, BattleWinBubble = 14, BattleLoseBubble = 15}
+_ENV.CVAudioType = {UnLockBubble = 1, LoginBubble = 2, HomeIdleBubble = 3, LevelUpBubble = 4, QualityUpBubble = 5, StarUpBubble = 6, TouchBubble = 7, ArrayUpBubble = 8, AttackBubble = 9, HitBubble = 10, DeathBubble = 11, SkillBubble = 12, UniqueSkillBubble = 13, BattleWinBubble = 14, BattleLoseBubble = 15, HomelandDeployBubble = 16, homelandRandomBubble = 17}
 _ENV.GuideTipsCheckPoint = {AcquireCharacter = 1, BreakThrough = 2, AcquireCharacterCG = 3, AcquireBackgroundCG = 4, PassStoryChapter = 5, UnlockStoryChapter = 6, AcquireStoryCG = 7, PassHeroDungeon = 8, UnlockHeroDungeon = 9, UnlockAssaultTheif = 10, UnlockChallengeMage = 11, UnlockDailyDungeon = 12, UnlockNewTower = 13, UnlockExpedition = 14, PassExpedition = 15, AcquireArenaRank = 16, AdventrureWish = 17, UnlockHandBookStory = 18, UnlockNewFetter = 19, AcquireFeelingTitle = 20, UnlcokFeelingStory = 21, UnlockCV = 22, UnlockBackgroundStory = 23, AcquireStoryRoleCG = 24, QuestComplete = 25, UnlockAdventureStore = 26, UnlockHeroStore = 27, UnlockStorySlots = 28, MergeItem = 29, PlotPlay = 30, UnlockAssaultLeader = 31, AutoSkillLvlUp = 32, GuildBossTimesIncrease = 33}
 _ENV.SystemSetType = {NonBattle = 0, Arena = 1, Battle = 2}
 _ENV.ItemSortType = {}

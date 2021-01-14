@@ -413,6 +413,10 @@
 , 
 [77423017] = {id = 77423017, name = "募集", remark = "「正月 お見合い攻防戦」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
+[77423018] = {id = 77423018, name = "募集", remark = "「パッションで雪を溶かす！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423019] = {id = 77423019, name = "募集", remark = "「パッションで雪を溶かす！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 }
 

@@ -1,5 +1,5 @@
 {
-[75449001] = {id = 75449001, remark = "おはようございます、リーダー。\n今日の良い天気ですね。", type = 1, option_ids = "0", next = 75449002, role_ids = "75200491", expression = "0", action = "0", action_type = "0", role_type = 75200491, position = "418:606:10050", role_admission_type = "75200491:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+[75449001] = {id = 75449001, remark = "おはようございます、リーダー。\n今日はいい天気ですね", type = 1, option_ids = "0", next = 75449002, role_ids = "75200491", expression = "0", action = "0", action_type = "0", role_type = 75200491, position = "418:606:10050", role_admission_type = "75200491:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 
 [75449002] = {id = 75449002, remark = "…あの、リーダー。私をプライドに入れてくださって、\nありがとうございます。", type = 1, option_ids = "0", next = 75449003, role_ids = "75200491", expression = "0", action = "0", action_type = "0", role_type = 75200491, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 

@@ -252,17 +252,26 @@ BattleMgr.InitCurAtkInfo = function(...)
     local forceFunc = BattleData.forceNextAttackFunc
     if forceFunc == nil then
       (BattleData.AddAutoSkill)()
-      local curSkill = (BattleData.GetCurSkillAtk)()
+      local skill_Add = false
+      local curSkill = (Util.clone)((BattleData.GetSkillAdditional)())
+      if curSkill == nil then
+        curSkill = (BattleData.GetCurSkillAtk)()
+      else
+        PrintTable(curSkill, " 找到奥义追加必杀技： ")
+        skill_Add = true
+      end
+      ;
+      (BattleData.ResetSkillAdditional)()
       if curSkill then
         PrintTable(curSkill, " 找到必杀技： ")
         local cardUid = curSkill.cardUid
         local skillConfig = curSkill.skillConfig
+        local killCount = -1
         local atkCard = (BattleData.GetCardInfoByUid)(cardUid)
         if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
           (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
         else
-          ;
-          (BattleAtk.InsertSkillInfo)(curSkill)
+          killCount = (BattleAtk.InsertSkillInfo)(curSkill)
         end
         local curAtkInfo = BattleAtk.curAtkInfo
         if curAtkInfo then
@@ -271,6 +280,12 @@ BattleMgr.InitCurAtkInfo = function(...)
           (BattleBuffMgr.SetAllBuffRoundActive)(true)
           ;
           (BattleData.SetBattleState)(BattleState.BUFF_BEFORE_ATTACK)
+          if skill_Add then
+            (BattleDataCount.UpdateBuffCount)(curAtkInfo, BattleBuffDeductionRoundType.AFTER_SKILL_ADD)
+          end
+          if killCount and killCount == 0 then
+            (BattleDataCount.DealSkillNoKill)(atkCard, curAtkInfo)
+          end
           return 
         end
       end

@@ -287,7 +287,7 @@ BattleDataCount.DealEquipBuff = function(atkCard, tempBuff, atkInfo, ...)
     if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.TREATMENT_EXTRA) == true then
       (self.DealTreatDirectBuff)(atkCard, atkInfo)
     end
-    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.FIX_DAMAGE_PER) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_EXTRA) == true then
+    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.FIX_DAMAGE_PER) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_EXTRA) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_LIKE) == true then
       (self.DealActiveDamageBuff)(atkCard, atkInfo)
     end
   end
@@ -362,15 +362,22 @@ end
 
 -- DECOMPILER ERROR at PC172: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.DealActiveDamageBuff = function(atkCard, atkInfo, ...)
+BattleDataCount.DealSkillNoKill = function(atkCard, atkInfo, ...)
   -- function num : 0_9 , upvalues : self, BattleBuffDeductionRoundType
-  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.DAMAGE_BUFF_ACTIVE, atkInfo)
+  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.AFTER_SKILL_NO_SKILL, atkInfo)
 end
 
 -- DECOMPILER ERROR at PC175: Confused about usage of register: R47 in 'UnsetPending'
 
+BattleDataCount.DealActiveDamageBuff = function(atkCard, atkInfo, ...)
+  -- function num : 0_10 , upvalues : self, BattleBuffDeductionRoundType
+  (self.UpdateEquipBuff)(atkCard:GetPosIndex(), BattleBuffDeductionRoundType.DAMAGE_BUFF_ACTIVE, atkInfo)
+end
+
+-- DECOMPILER ERROR at PC178: Confused about usage of register: R47 in 'UnsetPending'
+
 BattleDataCount.DealOneAliveEnemyBuff = function(atkCard, atkInfo, ...)
-  -- function num : 0_10 , upvalues : _ENV, abs, self, BattleBuffDeductionRoundType
+  -- function num : 0_11 , upvalues : _ENV, abs, self, BattleBuffDeductionRoundType
   local camp = atkCard:GetCampFlag()
   local liveCards = (BattleData.GetAliveCards)(abs(1 - camp))
   if liveCards and #liveCards == 1 then
@@ -378,10 +385,10 @@ BattleDataCount.DealOneAliveEnemyBuff = function(atkCard, atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC178: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC181: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealControlEnemyBuff = function(atkCard, atkInfo, ...)
-  -- function num : 0_11 , upvalues : _ENV, abs, ipairs, self, BattleBuffDeductionRoundType
+  -- function num : 0_12 , upvalues : _ENV, abs, ipairs, self, BattleBuffDeductionRoundType
   local camp = atkCard:GetCampFlag()
   local liveCards = (BattleData.GetAliveCards)(abs(1 - camp))
   if liveCards then
@@ -393,10 +400,10 @@ BattleDataCount.DealControlEnemyBuff = function(atkCard, atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC181: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC184: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.UpdateEquipBuff = function(pos, deductionRoundType, atkInfo, ...)
-  -- function num : 0_12 , upvalues : BattleBuffMgr, ipairs, self
+  -- function num : 0_13 , upvalues : BattleBuffMgr, ipairs, self
   local buffList = (BattleBuffMgr.GetBuffListByCardPos)(pos)
   for _,buff in ipairs(buffList) do
     local deduction_round_type = buff:GetDeductionRoundType()
@@ -406,10 +413,10 @@ BattleDataCount.UpdateEquipBuff = function(pos, deductionRoundType, atkInfo, ...
   end
 end
 
--- DECOMPILER ERROR at PC184: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC187: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
-  -- function num : 0_13 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, ipairs, self
+  -- function num : 0_14 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, ipairs, self
   if not atkInfo then
     atkInfo = BattleAtk.curAtkInfo
   end
@@ -445,6 +452,7 @@ BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
             if IsBattleServer == nil then
               (BattleData.SaveBattleProcess)("  新增buff " .. tempBuff:GetBuffLog())
             end
+            loge("  新增buff " .. tempBuff:GetBuffLog())
             ;
             (BattleBuffMgr.DealClearBuff)(card, tempBuff)
             ;
@@ -458,10 +466,10 @@ BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC187: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC190: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
-  -- function num : 0_14 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, self, tonumber
+  -- function num : 0_15 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, self, tonumber
   local isTrigger = true
   local buffList = (BattleBuffMgr.GetBuffList)()
   local idStr = ""
@@ -561,30 +569,34 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
                   end
                   do
                     do
-                      if deduction_round_type == BattleBuffDeductionRoundType.NOW then
+                      if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ADD then
                         (self.RealUpdateBuffCount)(buff, atkInfo)
+                      else
+                        if deduction_round_type == BattleBuffDeductionRoundType.NOW then
+                          (self.RealUpdateBuffCount)(buff, atkInfo)
+                        end
                       end
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC389: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
@@ -600,10 +612,10 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC190: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC193: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
-  -- function num : 0_15 , upvalues : _ENV, ipairs, t_insert, clone, self, BattleBuffDeductionRoundType
+  -- function num : 0_16 , upvalues : _ENV, ipairs, t_insert, clone, self, BattleBuffDeductionRoundType
   local isTrigger = false
   local buffConfig = buff:GetBuffConfig()
   local curDefPos = buff:GetCurDefPos()
@@ -663,10 +675,10 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC193: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC196: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
-  -- function num : 0_16 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, self
+  -- function num : 0_17 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, self
   local ExtraTrigger = false
   if not atkInfo then
     atkInfo = BattleAtk.curAtkInfo
@@ -707,10 +719,10 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
   end
 end
 
--- DECOMPILER ERROR at PC196: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC199: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.ClearNoUsedBuffCount = function(...)
-  -- function num : 0_17 , upvalues : BattleBuffMgr
+  -- function num : 0_18 , upvalues : BattleBuffMgr
   local buffList = (BattleBuffMgr.GetBuffList)()
   for i = #buffList, 1, -1 do
     local buff = buffList[i]
@@ -720,10 +732,10 @@ BattleDataCount.ClearNoUsedBuffCount = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC199: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC202: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, mainAtkCard, mainAtkInfo, ...)
-  -- function num : 0_18 , upvalues : self, _ENV, BattleDisplayEffect, BattleBuffDeductionRoundType, ceil, shanghai_fudong_min, shanghai_fudong_max, max, ipairs
+  -- function num : 0_19 , upvalues : self, _ENV, BattleDisplayEffect, BattleBuffDeductionRoundType, ceil, shanghai_fudong_min, shanghai_fudong_max, max, ipairs
   atkInfo.defCardsInfo = {}
   local isAssist = atkInfo.isAssist
   if isAssist ~= true then
@@ -987,10 +999,10 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
   end
 end
 
--- DECOMPILER ERROR at PC202: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC205: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtkCard, costTable, ...)
-  -- function num : 0_19 , upvalues : self, _ENV, BattleSkillType, ceil, BattleDisplayEffect, ipairs, BattleBuffDeductionRoundType, shanghai_fudong_min, shanghai_fudong_max, max, t_insert
+  -- function num : 0_20 , upvalues : self, _ENV, BattleSkillType, ceil, BattleDisplayEffect, ipairs, BattleBuffDeductionRoundType, shanghai_fudong_min, shanghai_fudong_max, max, t_insert
   atkInfo.defCardsInfo = {}
   ;
   (self.DealOneAliveEnemyBuff)(atkCard, atkInfo)
@@ -1283,17 +1295,17 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
             (self.DealDamageKill)(mainAtkCard, atkInfo)
           end
         end
-        do return defCardInfoTable end
+        do return defCardInfoTable, killCount end
         -- DECOMPILER ERROR: 22 unprocessed JMP targets
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC205: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC208: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingPoFang = function(atkCard, defCard, ...)
-  -- function num : 0_20 , upvalues : ceil, gedang_diyu_xishu, _ENV, pofang_diyu_xishu, max
+  -- function num : 0_21 , upvalues : ceil, gedang_diyu_xishu, _ENV, pofang_diyu_xishu, max
   local pofang_A = atkCard:GetArp()
   local diyu_B = defCard:GetRea()
   local pofang_qiangdu_A = atkCard:GetArpInt()
@@ -1327,10 +1339,10 @@ BattleDataCount.PanDingPoFang = function(atkCard, defCard, ...)
   -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC208: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC211: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingShanBi = function(atkCard, defCard, atkInfo, isSkill, ...)
-  -- function num : 0_21 , upvalues : ceil, mingzhong_shanbi_xishu, _ENV
+  -- function num : 0_22 , upvalues : ceil, mingzhong_shanbi_xishu, _ENV
   local shanbi_B = defCard:GetEva()
   local mingzhong_A = atkCard:GetHit()
   local ewai_gongji_shanbilv = 0
@@ -1368,10 +1380,10 @@ BattleDataCount.PanDingShanBi = function(atkCard, defCard, atkInfo, isSkill, ...
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC211: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC214: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, ...)
-  -- function num : 0_22 , upvalues : ceil, baoji_mianbao_xishu, min, baojilv_max, max, baojilv_min, _ENV, gedang_poji_xishu, gedanglv_max, gedanglv_min, baoji_jiacheng_max, baoji_jiacheng_min, baoji_kangbao_qiangdu_xishu, gedang_jiacheng_max, gedang_jiacheng_min, gedang_poji_qiangdu_xishu
+  -- function num : 0_23 , upvalues : ceil, baoji_mianbao_xishu, min, baojilv_max, max, baojilv_min, _ENV, gedang_poji_xishu, gedanglv_max, gedanglv_min, baoji_jiacheng_max, baoji_jiacheng_min, baoji_kangbao_qiangdu_xishu, gedang_jiacheng_max, gedang_jiacheng_min, gedang_poji_qiangdu_xishu
   local baoji_A = atkCard:GetCrt()
   local kangbao_B = (defCard:GetRec())
   local baojilv = nil
@@ -1462,10 +1474,10 @@ BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, ...)
   return baoji_jiacheng, gedang_jiangdi
 end
 
--- DECOMPILER ERROR at PC214: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC217: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingShangHaiJiaCheng = function(atkCard, defCard, ...)
-  -- function num : 0_23 , upvalues : _ENV, shanghai_jiacheng_min, zengshang_mianshang_xishu, max, ceil, min, shanghai_jiacheng_max
+  -- function num : 0_24 , upvalues : _ENV, shanghai_jiacheng_min, zengshang_mianshang_xishu, max, ceil, min, shanghai_jiacheng_max
   local zengshang_qiangdu_A = atkCard:GetAddInt()
   local mianshang_qiangdu_B = defCard:GetExdInt()
   local shanghai_jiacheng = 0
@@ -1484,17 +1496,17 @@ BattleDataCount.PanDingShangHaiJiaCheng = function(atkCard, defCard, ...)
   return shanghai_jiacheng
 end
 
--- DECOMPILER ERROR at PC217: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC220: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.PanDingKeZhi = function(atkCard, defCard, ...)
-  -- function num : 0_24
+  -- function num : 0_25
   return 0
 end
 
--- DECOMPILER ERROR at PC220: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC223: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetTreatmentCount = function(atkCard, defCards, atkInfo, costTable, ...)
-  -- function num : 0_25 , upvalues : _ENV, ceil, zhiliao_baoji_xishu, min, zhiliao_baojilv_max, max, zhiliao_baojilv_min, zhiliao_baoji_jiacheng_max, zhiliao_baoji_jiacheng_min, zhiliao_baoji_qiangdu_xishu, BattleDisplayEffect, BattleSkillType, ipairs, zhiliao_fudong_min, zhiliao_fudong_max
+  -- function num : 0_26 , upvalues : _ENV, ceil, zhiliao_baoji_xishu, min, zhiliao_baojilv_max, max, zhiliao_baojilv_min, zhiliao_baoji_jiacheng_max, zhiliao_baoji_jiacheng_min, zhiliao_baoji_qiangdu_xishu, BattleDisplayEffect, BattleSkillType, ipairs, zhiliao_fudong_min, zhiliao_fudong_max
   atkInfo.defCardsInfo = {}
   local defCardsInfo = atkInfo.defCardsInfo
   local gongji_A = atkCard:GetAtk()
@@ -1561,10 +1573,10 @@ BattleDataCount.GetTreatmentCount = function(atkCard, defCards, atkInfo, costTab
   end
 end
 
--- DECOMPILER ERROR at PC223: Confused about usage of register: R47 in 'UnsetPending'
+-- DECOMPILER ERROR at PC226: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetAtkDanderCount = function(atkInfo, ...)
-  -- function num : 0_26
+  -- function num : 0_27
   local atkPos = atkInfo.atkPos
 end
 

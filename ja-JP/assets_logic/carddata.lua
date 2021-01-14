@@ -1688,7 +1688,7 @@ CardData.CheckAllHeroSkillUpRedPoint = function(cardId, ...)
       local cardLvl = cardData.level
       if isStarLock == true and k.value < cardLvl then
         for n,m in pairs(tableConfig) do
-          if m.type == ((self.GetCardData)(cardData.id)).skill_grow_type and m.level == k.value + 1 then
+          if m.type == ((self.GetCardData)(cardData.id)).skill_grow_type and m.level == k.value + 1 and skillData.no_level_up == nil then
             local haveGoldNum = (ActorData.GetAssetCount)(AssetType.GOLD)
             if j == 1 then
               local cost = tonumber((split(m.unique_skill_cost, ":"))[3])
@@ -1748,9 +1748,9 @@ CardData.CheckAllHeroSkillUpRedPoint = function(cardId, ...)
           end
         end
       end
-      -- DECOMPILER ERROR at PC298: LeaveBlock: unexpected jumping out IF_THEN_STMT
+      -- DECOMPILER ERROR at PC301: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-      -- DECOMPILER ERROR at PC298: LeaveBlock: unexpected jumping out IF_STMT
+      -- DECOMPILER ERROR at PC301: LeaveBlock: unexpected jumping out IF_STMT
 
     end
   end

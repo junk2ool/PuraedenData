@@ -104,7 +104,7 @@ HomelandVisitRoomWindow.Init = function(...)
 end
 
 HomelandVisitRoomWindow.RefreshPlayerItem = function(index, item, ...)
-  -- function num : 0_9 , upvalues : _selfIndex, _currentData, _ENV
+  -- function num : 0_9 , upvalues : _selfIndex, _currentData, _ENV, HomelandVisitRoomWindow
   index = index + 1
   local data = nil
   if _selfIndex and _selfIndex < index then
@@ -146,7 +146,8 @@ HomelandVisitRoomWindow.RefreshPlayerItem = function(index, item, ...)
     btn.text = (PUtil.get)(60000552)
     ;
     (btn.onClick):Set(function(...)
-    -- function num : 0_9_0 , upvalues : _ENV, data
+    -- function num : 0_9_0 , upvalues : HomelandVisitRoomWindow, _ENV, data
+    (HomelandVisitRoomWindow.ClickCloseBtn)()
     ;
     (HomelandMgr.ReqRoomCallOn)(data.objectindex or data.playerIndex, data.serverId)
   end

@@ -429,7 +429,7 @@ MessageMgr.GetCostImgHtml = function(cost, txtColor, picSize, ...)
   end
 end
 
-MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, ...)
+MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, showAmount, ...)
   -- function num : 0_27 , upvalues : _ENV, MessageMgr
   if not ((TableData.gTable).BaseAssetData)[id] then
     local config = ((TableData.gTable).BasePropData)[id]
@@ -443,8 +443,7 @@ MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, ...
       (MessageMgr.SendCenterTips)((PUtil.get)(177, coinName))
     else
       do
-        ;
-        (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000037, config.name), function(...)
+        local cb = function(...)
     -- function num : 0_27_0 , upvalues : id, _ENV, needAmount, func
     if id == AssetType.GOLD or id == AssetType.EQUIP_EXP then
       (Util.ShowGetWay)(id)
@@ -474,7 +473,18 @@ MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, ...
       func()
     end
   end
-, func2)
+
+        if showAmount then
+          if ((TableData.gTable).BaseAssetData)[id] then
+            (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000612, config.name, (MessageMgr.GetCostImgHtmlByStr)(PropType.ASSET .. ":" .. id .. ":" .. needAmount, Const.RedColor)), cb, func2)
+          else
+            ;
+            (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000612, config.name, (MessageMgr.GetCostImgHtmlByStr)(PropType.ITEM .. ":" .. id .. ":" .. needAmount, Const.RedColor)), cb, func2)
+          end
+        else
+          ;
+          (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000037, config.name), cb, func2)
+        end
       end
     end
   end
