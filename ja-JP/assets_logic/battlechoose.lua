@@ -735,7 +735,7 @@ BattleChoose.GetTargetPosByTargetId = function(atkPos, targetId, allCardPos, ...
     end
     t_insert(self.allCardList, card)
   end
-  local targetCards = (BattleChoose.GetTargetCardsByTargetId)(atkCard, targetId)
+  local targetCards = (BattleChoose.GetTargetCardsByTargetId)(atkCard, targetId, nil, nil, nil, nil, true)
   self.onlyChoosePos = false
   self.allCardList = {}
   return targetCards
@@ -743,7 +743,7 @@ end
 
 -- DECOMPILER ERROR at PC91: Confused about usage of register: R6 in 'UnsetPending'
 
-BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, isBuff, skillConfig, atkInfo, ...)
+BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, isBuff, skillConfig, atkInfo, banMultiple, ...)
   -- function num : 0_26 , upvalues : self, _ENV, t_insert, ipairs, math
   local targetCards = {}
   local switch = {[1000] = function(...)
@@ -1177,31 +1177,33 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
           func()
         end
         local temp = (Util.clone)(targetCards)
-        for _,v in ipairs(temp) do
-          local target_type = v:GetBossIsMultiplyChoose()
-          do
-            -- DECOMPILER ERROR at PC251: Unhandled construct in 'MakeBoolean' P1
-
-            if target_type and target_type == 1 and isBuff and targetId == 1000 then
-              local data = (Util.clone)(targetCards[1])
-              if data ~= nil then
-                targetCards = {}
-                ;
-                (table.insert)(targetCards, data)
-                break
-              end
-            end
-            local Target = ((TableData.gTable).BaseMonsterTargetData)[targetId]
-            if Target and tonumber(Target.target_num) > 1 then
-              for i = 1, Target.target_num - 1 do
-                local data = (Util.clone)(v)
-                ;
-                (table.insert)(targetCards, data)
-              end
-            end
+        if not banMultiple then
+          for _,v in ipairs(temp) do
+            local target_type = v:GetBossIsMultiplyChoose()
             do
-              -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC253: Unhandled construct in 'MakeBoolean' P1
 
+              if target_type and target_type == 1 and isBuff and targetId == 1000 then
+                local data = (Util.clone)(targetCards[1])
+                if data ~= nil then
+                  targetCards = {}
+                  ;
+                  (table.insert)(targetCards, data)
+                  break
+                end
+              end
+              local Target = ((TableData.gTable).BaseMonsterTargetData)[targetId]
+              if Target and tonumber(Target.target_num) > 1 then
+                for i = 1, Target.target_num - 1 do
+                  local data = (Util.clone)(v)
+                  ;
+                  (table.insert)(targetCards, data)
+                end
+              end
+              do
+                -- DECOMPILER ERROR at PC290: LeaveBlock: unexpected jumping out DO_STMT
+
+              end
             end
           end
         end
