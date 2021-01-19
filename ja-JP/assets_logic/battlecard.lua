@@ -2905,14 +2905,17 @@ effectTable = {eff}
         return 
       end
       if curState == BattleCardState.DIE and state ~= curState then
+        if callBack then
+          callBack(curState)
+        end
         return 
       end
-      -- DECOMPILER ERROR at PC31: Confused about usage of register: R7 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC36: Confused about usage of register: R7 in 'UnsetPending'
 
       if state == BattleCardState.ATTACK or state == BattleCardState.ATTACK_AIR or state == BattleCardState.SKILL or state == BattleCardState.UNIQUE_SKILL then
         BattleMgr.startRecord = true
       else
-        -- DECOMPILER ERROR at PC46: Confused about usage of register: R7 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC51: Confused about usage of register: R7 in 'UnsetPending'
 
         if curState == BattleCardState.ATTACK or curState == BattleCardState.ATTACK_AIR or curState == BattleCardState.SKILL then
           BattleMgr.startRecord = false

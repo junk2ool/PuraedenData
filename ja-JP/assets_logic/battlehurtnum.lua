@@ -46,6 +46,9 @@ end
 
 ShowHurtNum = function(hurt_type, num, bindObject, ...)
   -- function num : 0_2 , upvalues : HurtNumType, _ENV, BattleBuffWordType, BattleHurtNum, random, battleHurtObjectPool
+  if hurt_type == HurtNumType.BUFF_HURT and num == 0 then
+    return 
+  end
   if hurt_type == HurtNumType.ABSORB_HURT then
     ShowStateWord(BattleBuffWordType.ABSORB, num, bindObject)
     return 

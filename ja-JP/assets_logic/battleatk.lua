@@ -103,13 +103,16 @@ end
 
 -- DECOMPILER ERROR at PC40: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
+BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid, ...)
   -- function num : 0_3 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
   local BattleDataCount = BattleDataCount
   local BattleSkillType = BattleSkillType
   local curTargetCards = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
   if #curTargetCards > 0 then
     local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig)
+    if copyCardUid then
+      atkInfo.copyCardUid = copyCardUid
+    end
     self.curAtkInfo = atkInfo
     if atkFail == true then
       atkInfo.atkFail = true
@@ -138,7 +141,7 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, ...)
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_ATTACK)
-      -- DECOMPILER ERROR at PC88: Confused about usage of register: R7 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC91: Confused about usage of register: R8 in 'UnsetPending'
 
       if (BattleBuff.IsAttackDouble)(atkCard) == true then
         BattleData.forceNextAttackFunc = function(...)
