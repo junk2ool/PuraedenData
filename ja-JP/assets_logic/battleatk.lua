@@ -28,7 +28,7 @@ end
 
 -- DECOMPILER ERROR at PC34: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InitAtkInfo = function(atkCard, defCards, skillConfig, withoutBuff, ...)
+BattleAtk.InitAtkInfo = function(atkCard, defCards, skillConfig, withoutBuff, skillAdd, ...)
   -- function num : 0_1 , upvalues : TARGET_CARD, _ENV, ipairs, clone, BattleBuffMgr, value0, t_insert
   local atkInfo = {atkIndex = 0, 
 allBuffTable = {}
@@ -38,8 +38,8 @@ doubleAtkInfo = {}
 assistAtkInfo = {}
 , isAssist = false, isTreatment = false, 
 defCardsInfo = {}
-, isStrike = false, isFall = false, lastAtk = false, isDoubleAttack = false, moveCamera = false, atkFail = false, noAtkAction = false, targetSelf = false, movePosType = TARGET_CARD, copyCardUid = ""}
-  -- DECOMPILER ERROR at PC33: Confused about usage of register: R5 in 'UnsetPending'
+, isStrike = false, isFall = false, lastAtk = false, isDoubleAttack = false, moveCamera = false, atkFail = false, noAtkAction = false, targetSelf = false, movePosType = TARGET_CARD, copyCardUid = "", skillAddition = false}
+  -- DECOMPILER ERROR at PC34: Confused about usage of register: R6 in 'UnsetPending'
 
   BattleData.atkIndex = BattleData.atkIndex + 1
   atkInfo.atkIndex = BattleData.atkIndex
@@ -67,6 +67,7 @@ defCardsInfo = {}
     atkInfo.skillId = skillConfig and skillConfig.id or value0
     atkInfo.skillType = skillConfig and skillConfig.type or value0
     atkInfo.isAssist = atkInfo.skillType == BattleSkillType.ASSIST
+    atkInfo.skillAddition = skillAdd or false
     if defCards then
       for _,defCard in ipairs(defCards) do
         local subAtkInfo = {defPos = defCard:GetPosIndex(), isSkillTarget = true, defCardUid = defCard:GetCardUid(), hpDef = value0, danderDef = value0, isDodge = false, isCrit = false, isBlock = false, absorbDamage = value0}
@@ -74,7 +75,7 @@ defCardsInfo = {}
       end
     end
     do return atkInfo end
-    -- DECOMPILER ERROR: 3 unprocessed JMP targets
+    -- DECOMPILER ERROR: 4 unprocessed JMP targets
   end
 end
 
@@ -103,13 +104,13 @@ end
 
 -- DECOMPILER ERROR at PC40: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid, ...)
+BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid, skillAdd, ...)
   -- function num : 0_3 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
   local BattleDataCount = BattleDataCount
   local BattleSkillType = BattleSkillType
   local curTargetCards = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
   if #curTargetCards > 0 then
-    local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig)
+    local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig, nil, skillAdd)
     if copyCardUid then
       atkInfo.copyCardUid = copyCardUid
     end
@@ -141,7 +142,7 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid,
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_ATTACK)
-      -- DECOMPILER ERROR at PC91: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC93: Confused about usage of register: R9 in 'UnsetPending'
 
       if (BattleBuff.IsAttackDouble)(atkCard) == true then
         BattleData.forceNextAttackFunc = function(...)
@@ -386,7 +387,7 @@ end
 
 -- DECOMPILER ERROR at PC55: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsertSkillInfo = function(curSkill, ...)
+BattleAtk.InsertSkillInfo = function(curSkill, skillAdd, ...)
   -- function num : 0_8 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
   local BattleDataCount = BattleDataCount
   local BattleData = BattleData
@@ -401,7 +402,7 @@ BattleAtk.InsertSkillInfo = function(curSkill, ...)
   local curTargetCards = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
   local killCount = -1
   if #curTargetCards > 0 then
-    local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig)
+    local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig, nil, skillAdd)
     atkInfo.copyCardUid = copyCardUid
     self.curAtkInfo = atkInfo
     ;

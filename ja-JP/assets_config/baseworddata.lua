@@ -1641,7 +1641,7 @@ BaseWordData = {
 , 
 [81653018] = {id = 81653018, name = "最もHPが低い敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。"}
 , 
-[81653019] = {id = 81653019, name = "敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]30%%[/color]の確率で[color=#3cbcff]失明[/color]を[color=#3cbcff]1[/color]行動ターンの間付与する。目標が[color=#3cbcff]極寒[/color]効果を受けている場合、極寒状態の敵[color=#3cbcff]1[/color]体につき、追加で自身に[color=#3cbcff]100[/color]点のSPを回復する。\n\n[color=#ffac26]「失明：すべての攻撃は目標に命中できない」\n「極寒：ターン毎に与えたダメージの10%%分のダメージを与え（最大10回まで重複可能）、3ラウンド持続。」[/color]"}
+[81653019] = {id = 81653019, name = "敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。[color=#3cbcff]30%%[/color]の確率で失明を[color=#3cbcff]1[/color]行動ターンの間付与する。目標が極寒効果を受けている場合、追加でダメージ[color=#3cbcff](攻撃*100%%)[/color]を与え、極寒状態の敵[color=#3cbcff]1[/color]体につき、追加で自身に[color=#3cbcff]100[/color]点のSPを回復する。\n\n[color=#ffac26]「失明：すべての攻撃は目標に命中できない」\n「極寒：ターン毎に与えたダメージの10%%分のダメージを与え（最大10回まで重複可能）、3ラウンド持続。」[/color]"}
 , 
 [81661001] = {id = 81661001, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]混乱[/color]させる。\n\n[color=#ffac26]「混乱：奥義と特技を使用できない、通常攻撃の目標はランダムであり、協擊を発動しない」[/color]"}
 , 

@@ -597,9 +597,9 @@ BattleData.GetSkillCardFromBattleData = function(...)
         for _,roundInfo in ipairs(roundData) do
           local attackInfo = roundInfo.attackInfo
           for _,oneAttackInfo in ipairs(attackInfo) do
-            -- DECOMPILER ERROR at PC39: Confused about usage of register: R19 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC42: Confused about usage of register: R19 in 'UnsetPending'
 
-            if oneAttackInfo.skillType == BattleSkillType.SKILL then
+            if oneAttackInfo.skillType == BattleSkillType.SKILL and oneAttackInfo.skillAddition == false then
               ((BattleData.saveSkillIndexTable)[curWave])[oneAttackInfo.atkIndex] = oneAttackInfo.atkCardUid
             end
           end

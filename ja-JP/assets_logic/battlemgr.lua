@@ -269,9 +269,9 @@ BattleMgr.InitCurAtkInfo = function(...)
         local killCount = -1
         local atkCard = (BattleData.GetCardInfoByUid)(cardUid)
         if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
-          (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig, curSkill.copyCardUid)
+          (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig, curSkill.copyCardUid, skill_Add)
         else
-          killCount = (BattleAtk.InsertSkillInfo)(curSkill)
+          killCount = (BattleAtk.InsertSkillInfo)(curSkill, skill_Add)
         end
         local curAtkInfo = BattleAtk.curAtkInfo
         if curAtkInfo then

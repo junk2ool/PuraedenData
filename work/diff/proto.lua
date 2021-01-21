@@ -56,6 +56,13 @@ message LoginDayActInfo
 	         bool                   todayGet = 2;//今日奖励是否已领取
 }
 
+//扭蛋积分
+message LotteryIntegralActInfo
+{
+             int32 					  points = 1;//总积分
+	repeated TaskSimpleObject     rewardList = 2;//奖励列表（奖励ID		状态）
+}
+
 
 //1701请求活动列表
 message ReqActivityList
@@ -77,13 +84,14 @@ message ReqActivityInfo
 //1704返回活动信息
 message ResActivityInfo
 {
-	BaseActivityInfo 		baseActivityInfo = 1;//基本活动数据
+	BaseActivityInfo 		         baseActivityInfo = 1;//基本活动数据
 
-	SevenDayActInfo 		 SevenDayActInfo = 2;//七天嘉年华
-	LimitGiftActInfo 		LimitGiftActInfo = 3;//限时限购礼包
-	DailyPayActInfo 		 DailyPayActInfo = 4;//每日充值
-	TotalPayActInfo 		 TotalPayActInfo = 5;//累计充值
-	LoginDayActInfo          loginDayActInfo = 6;//累计登录
+	SevenDayActInfo 		          SevenDayActInfo = 2;//七天嘉年华
+	LimitGiftActInfo 		         LimitGiftActInfo = 3;//限时限购礼包
+	DailyPayActInfo 		          DailyPayActInfo = 4;//每日充值
+	TotalPayActInfo 		          TotalPayActInfo = 5;//累计充值
+	LoginDayActInfo                   loginDayActInfo = 6;//累计登录
+	LotteryIntegralActInfo		lotteryIntegralActInfo= 7;//扭蛋积分
 }
 
 //1705活动过期
@@ -716,6 +724,7 @@ message BattleAtkInfo
     repeated BattleAtkInfo doubleAtkInfo    = 21;//连击信息
     bool isDoubleAttack                     = 22;//本次攻击信息是否是连击
     string copyCardUid                      = 23;//复制技能复制的角色uid
+	bool skillAddition                      = 24;//本次技能是否是追加技能
 }
 
 message BattleBuffObject
@@ -1368,7 +1377,7 @@ message ResTempleInit{
 	repeated StageInfo stageInfo = 1;//关卡信息
 	repeated CardStateExpedition battleCardState = 2;//上阵的卡牌状态
 	repeated CardStateExpedition yetCardState    = 3;//使用过的卡牌状态
-	repeated StageRivalCardState rivalCard       = 4;//对手信息
+	repeated StageRivalCardState rivalCardStates = 4;//对手信息
 	int32 changeFc                               = 5;//战力改变值
 	int32 templeWeakenNum                        = 6;//神殿遗迹精英/boss关卡削弱次数
 	int64 templeBeginTime                        = 7;//本次神殿遗迹开启时间
@@ -1418,8 +1427,8 @@ message ResSettleStage{
 	repeated GoodsObject firstGoods  = 8;//首通奖励
 	 
 	repeated CardStateExpedition battleCardState = 9;//上阵的卡牌状态 只有神殿遗迹的精英关卡 才有值
-	repeated RivalCardState rivalCard            = 10;//对手信息 只有神殿遗迹的boss关卡和精英关卡 才有值  
-	repeated StageRivalCardState weakenRivalCard = 11;//对手信息 只有神殿遗迹的boss关卡和精英关卡 当挑战的是普通关卡时  这里是进行削弱之后的值
+	//repeated RivalCardState rivalCard            = 10;//当前关卡对手信息 只有神殿遗迹的boss关卡和精英关卡 才有值  
+	repeated StageRivalCardState rivalCardStates = 11;//对手信息
 	
 }
 
@@ -7917,6 +7926,7 @@ MemberSummary = "MemberSummary",
 TitleInfo = "TitleInfo",
 ReqAdventureStoryStage = "ReqAdventureStoryStage",
 ResArenaData = "ResArenaData",
+LotteryIntegralActInfo = "LotteryIntegralActInfo",
 ReqPointReward = "ReqPointReward",
 ReqRandomPlayerInfo = "ReqRandomPlayerInfo",
 ResGetMoonReward = "ResGetMoonReward",
