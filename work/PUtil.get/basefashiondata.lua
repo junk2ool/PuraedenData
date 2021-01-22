@@ -691,8 +691,8 @@
 , 
 [15300005] = {id = 15300005, spd_bundle = "CardSpine_12030013", scale = 110000, head_icon_square = "MonsterHeadSquare:HeadSquare_12030013", head_icon_round = "MonsterHeadCircle:HeadCircle_12030013", head_icon_skill_banner = "BattleCorizontalCardIcon:HeadBattle_12030011_3"}
 , 
-[15300006] = {id = 15300006, spd_bundle = "CardSpine_12030014", scale = 150000, head_icon_square = "MonsterHeadSquare:HeadSquare_12030013", head_icon_round = "MonsterHeadCircle:HeadCircle_12030013", head_icon_skill_banner = "BattleCorizontalCardIcon:HeadBattle_12030011_3"}
+[15300006] = {id = 15300006, spd_bundle = "CardSpine_12030014", scale = 150000, head_icon_square = "MonsterHeadSquare:HeadSquare_12030014", head_icon_round = "MonsterHeadCircle:HeadCircle_12030014", head_icon_skill_banner = "BattleCorizontalCardIcon:HeadBattle_12030011_3"}
 , 
-[15300007] = {id = 15300007, spd_bundle = "CardSpine_12030015", scale = 100000, head_icon_square = "MonsterHeadSquare:HeadSquare_12030013", head_icon_round = "MonsterHeadCircle:HeadCircle_12030013", head_icon_skill_banner = "BattleCorizontalCardIcon:HeadBattle_12030011_3"}
+[15300007] = {id = 15300007, spd_bundle = "CardSpine_12030015", scale = 100000, head_icon_square = "MonsterHeadSquare:HeadSquare_12030015", head_icon_round = "MonsterHeadCircle:HeadCircle_12030015", head_icon_skill_banner = "BattleCorizontalCardIcon:HeadBattle_12030011_3"}
 }
 
