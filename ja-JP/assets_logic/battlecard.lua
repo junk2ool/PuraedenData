@@ -3568,7 +3568,7 @@ effectTable = {eff}
                   end
                 else
                   do
-                    if self:GetDisPlayHp() > 0 then
+                    if self:GetDisPlayHp() > 0 and (BattleMgr.IsInBattle)() then
                       (ResHelper.DestroyGameObject)(model, false)
                       local fashionID = cardInfo:GetFashionId()
                       self:CreateCard(fashionID, true)

@@ -1651,7 +1651,10 @@ end
 -- DECOMPILER ERROR at PC33: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.PlayBuffActive = function(card, buffData, ...)
-  -- function num : 0_4 , upvalues : ipairs, _ENV, BattleBuffEffectPosType
+  -- function num : 0_4 , upvalues : _ENV, ipairs, BattleBuffEffectPosType
+  if IsBattleServer == true then
+    return 
+  end
   if card and buffData then
     local effectTable = buffData.effectTable
     local buffId = buffData.buffId
@@ -1765,7 +1768,10 @@ end
 -- DECOMPILER ERROR at PC42: Confused about usage of register: R13 in 'UnsetPending'
 
 BattleBuff.PlayBuffRemove = function(card, buffData, ...)
-  -- function num : 0_7 , upvalues : ipairs, BattleBuffEffectPosType, _ENV
+  -- function num : 0_7 , upvalues : _ENV, ipairs, BattleBuffEffectPosType
+  if IsBattleServer == true then
+    return 
+  end
   if card and buffData then
     local effectTable = buffData.effectTable
     local buffId = buffData.buffId
