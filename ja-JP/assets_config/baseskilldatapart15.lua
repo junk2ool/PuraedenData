@@ -129,6 +129,8 @@ BaseSkillDataPart15 = {
 , 
 [44003024] = {id = 44003024, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[44003030] = {id = 44003030, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [44003101] = {id = 44003101, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44003101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44003102] = {id = 44003102, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44003102, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}

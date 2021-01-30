@@ -61,5 +61,4 @@ BaseSkillParameterData = {
 , 
 [72100030] = {id = 72100030, data = "-50"}
 }
-return BaseSkillParameterData
 

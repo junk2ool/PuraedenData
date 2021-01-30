@@ -253,6 +253,10 @@
 , 
 [46030243] = {id = 46030243, name = "圣诞驯鹿_必杀技_溅射", des = "102:2:-4000:1 & 挂载：攻击方必杀后 & 扣减：立即生效扣除 & 回合数：1", type = 10, value = "102:2:-4000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
 , 
+[46030301] = {id = 46030301, name = "未定義(46030301)", des = "未定義(56030301)", type = 60, value = "601:1:200:2", value_up = "0", trigger_condition = 1003, trigger_type = 5, trigger_value = "3000", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
+, 
+[46030302] = {id = 46030302, name = "未定義(46030302)", des = "未定義(56030302)", type = 15, value = "117:1:-2000:1", value_up = "0", trigger_condition = 1003, trigger_type = 3, trigger_value = "3000", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 5, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
 [46031011] = {id = 46031011, name = "拉比_必杀技_提暴", des = "504:1:952:1 & 挂载：攻击方必杀前 & 扣减：立即生效扣除 & 回合数：1", type = 50, value = "504:1:952:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 5, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
 [46031021] = {id = 46031021, name = "厄休拉_必杀技_回怒", des = "601:1:200:2 & 挂载：攻击方必杀后 & 扣减：立即生效扣除 & 回合数：1", type = 60, value = "601:1:200:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
@@ -283,4 +287,3 @@
 , 
 [46031062] = {id = 46031062, name = "梅_必杀技_守护", des = "303:0:0:0 & 挂载：攻击方必杀后 & 扣减：大回合开始前 & 回合数：1", type = 31, value = "303:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 1, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 }
-

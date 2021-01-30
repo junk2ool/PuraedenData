@@ -200,7 +200,11 @@ FormationPresetWindow.RefreshPresetItem = function(index, item, ...)
     (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
     ;
     (uis.BattleInformationList):RefreshVirtualList()
+    -- DECOMPILER ERROR at PC85: Confused about usage of register: R0 in 'UnsetPending'
+
+    FormationPresetData.FormationData = nil
     UIMgr:SendWindowMessage((WinResConfig.FormationWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH)
+    UIMgr:CloseWindow((WinResConfig.FormationPresetWindow).name)
   end
 )
       end

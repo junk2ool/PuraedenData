@@ -23,5 +23,4 @@ BaseCardFetterShowData = {
 , 
 [11] = {id = 11, fetter_tree_ids = 16011000, fetter_ids = "16011000:16011001:16011002:16011003:16011004:16011005:16011006", card_ids = "11201008:11300006:11202003:11301005", type_sort = 11}
 }
-return BaseCardFetterShowData
 

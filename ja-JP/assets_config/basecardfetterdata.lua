@@ -155,5 +155,4 @@ BaseCardFetterData = {
 , 
 [16011006] = {id = 16011006, type = 11, level = 7, name = (PUtil.get)(81060001), remark = (PUtil.get)(81070001), card_ids = "11201008:11300006:11202003:11301005", lock_type = 1, star = 5, quality = 6, add_attr = "1:81050002:7875"}
 }
-return BaseCardFetterData
 

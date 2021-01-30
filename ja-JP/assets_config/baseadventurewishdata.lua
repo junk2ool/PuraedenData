@@ -5,5 +5,4 @@ BaseAdventureWishData = {
 , 
 [76401002] = {id = 76401002, type = 2, wish_count = 6, reward_pool = "301:0,302:0,303:0,304:0,305:0,306:0"}
 }
-return BaseAdventureWishData
 

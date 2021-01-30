@@ -101,5 +101,4 @@ BaseTrialRoleShowData = {
 , 
 [76110050] = {id = 76110050, path = "HeadCover_11301006_1"}
 }
-return BaseTrialRoleShowData
 

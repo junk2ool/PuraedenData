@@ -263,6 +263,10 @@ BaseFunctionData = {
 , 
 [307002] = {id = 307002, limit_tab = 0, open_condition = "72501001:0:13", popup_window = 0, lock_type = 0}
 , 
+[307003] = {id = 307003, limit_tab = 1, open_condition = "72501001:0:13", popup_window = 0, lock_type = 2, open_des = (PUtil.get)(89003001)}
+, 
+[307004] = {id = 307004, limit_tab = 1, open_condition = "72501001:0:13", popup_window = 0, lock_type = 2, open_des = (PUtil.get)(89003001)}
+, 
 [400101] = {id = 400101, limit_tab = 0, open_condition = "72501001:0:18", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003040, 18)}
 , 
 [400102] = {id = 400102, limit_tab = 0, open_condition = "72501001:0:18", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003041, 18)}

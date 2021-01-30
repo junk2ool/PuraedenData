@@ -192,5 +192,7 @@ BaseFixedData = {
 [72010081] = {id = 72010081, int_value = 20, array_value = "0"}
 , 
 [72010082] = {id = 72010082, int_value = 7, array_value = "0"}
+, 
+[72010083] = {id = 72010083, int_value = 0, array_value = "1:1.8:3"}
 }
 

@@ -361,7 +361,7 @@
 , 
 [75134404] = {id = 75134404, remark = "ええ、そうよ。だってオリヴィアが\nわたくしのものにならないんだもの。", type = 1, option_ids = "0", next = 75134405, role_ids = "75201002:75205004", expression = "0:exp_shy", action = "0:happy", action_type = "0", role_type = 75205004, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, effect_sound = 0, dialogue_sound = "MB_Luna_Plot_41"}
 , 
-[75134405] = {id = 75134405, remark = "わたくしは…\nこんなにもあたなのことを愛しているのに！", type = 1, option_ids = "0", next = 75134406, role_ids = "75201002:75205004", expression = "0:exp_shy", action = "0:shy", action_type = "0", role_type = 75205004, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, effect_sound = 0, dialogue_sound = "MB_Luna_Plot_42"}
+[75134405] = {id = 75134405, remark = "わたくしは…\nこんなにもあなたのことを愛しているのに！", type = 1, option_ids = "0", next = 75134406, role_ids = "75201002:75205004", expression = "0:exp_shy", action = "0:shy", action_type = "0", role_type = 75205004, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, effect_sound = 0, dialogue_sound = "MB_Luna_Plot_42"}
 , 
 [75134406] = {id = 75134406, remark = "え…？", type = 1, option_ids = "0", next = 75134407, role_ids = "75201002:75205004", expression = "exp_shock:0", action = "0", action_type = "0", role_type = 75201002, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_path = "FX_story_motion_jingya", expression_position = "533:168", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, effect_sound = 0, dialogue_sound = "Olivia_Plot_724"}
 , 
@@ -487,4 +487,3 @@
 , 
 [75134610] = {id = 75134610, remark = "じゃ、調査は続けよっか。\n大したことない事件だといいねー！", type = 1, option_ids = "0", next = -1, role_ids = "75201001:75201002", expression = "PoseB:0", action = "0", action_type = "0", role_type = 75201001, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, effect_sound = 0, dialogue_sound = "April_Plot_856"}
 }
-

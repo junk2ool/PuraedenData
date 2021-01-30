@@ -70,6 +70,8 @@ RewardShowWindow.ItemRenderer = function(index, obj, ...)
       loader.url = (Util.GetItemUrl)(ConfigData.goods_icon)
       ;
       (item:GetChild("NumberTxt")).visible = false
+      ;
+      (item:GetController("Quality")).selectedIndex = ConfigData.quality
     else
       do
         ;

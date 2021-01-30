@@ -609,4 +609,3 @@
 , 
 [46850921] = {id = 46850921, name = "额外伤害", des = "102:5:-4000:1 & 挂载：攻击后 & 扣减：立即生效扣除 & 回合数：1", type = 100, value = "102:5:-4000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, overlay_buff_list = "0", settle_round_type = 9, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
 }
-

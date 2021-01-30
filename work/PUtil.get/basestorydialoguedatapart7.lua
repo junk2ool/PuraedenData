@@ -479,4 +479,3 @@
 , 
 [75116617] = {id = 75116617, remark = "次にやること…ですか？", type = 1, option_ids = "0", next = -1, role_ids = "75201002:75201004", expression = "0:exp_shock", action = "0", action_type = "0", role_type = 75201004, position = "195:606:10000,642:606:10050", role_admission_type = "75201004:-50:0", scene_effect_position = "1:2", expression_path = "FX_story_motion_wenhao", expression_position = "987:221", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, effect_sound = 0, dialogue_sound = "Lily_Plot_161"}
 }
-

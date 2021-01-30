@@ -475,4 +475,3 @@
 , 
 [75128528] = {id = 75128528, remark = "ふふ…いつでもおいでやす。\nうちらは、待ってるさかい…", type = 0, option_ids = "0", next = -1, role_ids = "75209099", expression = "0", action = "0", action_type = "0", role_type = 75209028, position = "0:0:1", role_admission_type = "75209099:50:0", role_departure_type = "75201001:0:0", scene_effect_path = "FX_story_snow", scene_effect_position = "647:53", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009, effect_sound = 0, dialogue_sound = "MB_Iroha_Plot_64"}
 }
-

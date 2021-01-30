@@ -89,5 +89,4 @@ BaseAttributeData = {
 , 
 [81050904] = {id = 81050904, remark = "复制等级（技能升级显示用）", name = "copy", display_name = (PUtil.get)(81051904), fc_base = 0, equip_show = 0, type = 0}
 }
-return BaseAttributeData
 

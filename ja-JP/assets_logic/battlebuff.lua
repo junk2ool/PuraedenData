@@ -283,6 +283,9 @@ effectRounds = {}
             end
           end
         end
+        if card:IsDead() == true then
+          (BattleDataCount.UpdateEquipBuff)(curDefPos, BattleBuffDeductionRoundType.DAMAGE_DEAD, atkInfo)
+        end
         self:SetEffectTable(effectTable)
       end
     end

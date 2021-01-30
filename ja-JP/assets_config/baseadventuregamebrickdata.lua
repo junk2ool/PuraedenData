@@ -27,5 +27,4 @@ BaseAdventureGameBrickData = {
 , 
 [76450013] = {id = 76450013, sort = 13, event_id = 76420601, type = "2", reward_pool = 124, parameter = 0}
 }
-return BaseAdventureGameBrickData
 

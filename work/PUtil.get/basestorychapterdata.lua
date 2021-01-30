@@ -2930,5 +2930,34 @@
 [75900691] = {id = 75900691, scene_path = "92000046", dialogue_ids = "75706901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "お見合いのどたばたが終わって、主人公たちは初詣に行ってきた。", times = 0}
 , 
 [75900692] = {id = 75900692, scene_path = "92000046", dialogue_ids = "75706927", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "お見合いのどたばたが終わって、主人公たちは初詣に行ってきた。", times = 0}
+, 
+[75900711] = {id = 75900711, scene_path = "92000008", dialogue_ids = "75707101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストを終え、帰り道に一行は悪そうな男達に追われている少女を助けた。少女はぜひお礼をさせてほしいと言い、立派な屋敷まで案内する…", times = 0}
+, 
+[75900712] = {id = 75900712, scene_path = "92000008", dialogue_ids = "75707110", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストを終え、帰り道に一行は悪そうな男達に追われている少女を助けた。少女はぜひお礼をさせてほしいと言い、立派な屋敷まで案内する…", times = 0}
+, 
+[75900713] = {id = 75900713, scene_path = "92000021", dialogue_ids = "75707123", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストを終え、帰り道に一行は悪そうな男達に追われている少女を助けた。少女はぜひお礼をさせてほしいと言い、立派な屋敷まで案内する…", times = 0}
+, 
+[75900714] = {id = 75900714, scene_path = "92000025", dialogue_ids = "75707128", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストを終え、帰り道に一行は悪そうな男達に追われている少女を助けた。少女はぜひお礼をさせてほしいと言い、立派な屋敷まで案内する…", times = 0}
+, 
+[75900721] = {id = 75900721, scene_path = "92000025", dialogue_ids = "75707201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストを終え、帰り道に一行は悪そうな男達に追われている少女を助けた。少女はぜひお礼をさせてほしいと言い、立派な屋敷まで案内する…", times = 0}
+, 
+[75900731] = {id = 75900731, scene_path = "92000025", dialogue_ids = "75707301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マフィアの次期ボスであるクーニャは、家族の象徴である宝石を取り戻したいと、プライドに依頼する。そこで、一行は宝石回収作戦を立てることに。", times = 0}
+, 
+[75900741] = {id = 75900741, scene_path = "92000028", dialogue_ids = "75707401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マフィアの次期ボスであるクーニャは、家族の象徴である宝石を取り戻したいと、プライドに依頼する。そこで、一行は宝石回収作戦を立てることに。", times = 0}
+, 
+[75900751] = {id = 75900751, scene_path = "92000040", dialogue_ids = "75707501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "偽火事を起こし、闇オークションの会場へ侵入する…散々工夫してきたのに、まさか取り戻した宝石が偽物だど！？", times = 0}
+, 
+[75900752] = {id = 75900752, scene_path = "92000038", dialogue_ids = "75707510", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "偽火事を起こし、闇オークションの会場へ侵入する…散々工夫してきたのに、まさか取り戻した宝石が偽物だど！？", times = 0}
+, 
+[75900753] = {id = 75900753, scene_path = "92000017", dialogue_ids = "75707534", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "偽火事を起こし、闇オークションの会場へ侵入する…散々工夫してきたのに、まさか取り戻した宝石が偽物だど！？", times = 0}
+, 
+[75900761] = {id = 75900761, scene_path = "92000030", dialogue_ids = "75707601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "偽火事を起こし、闇オークションの会場へ侵入する…散々工夫してきたのに、まさか取り戻した宝石が偽物だど！？", times = 0}
+, 
+[75900771] = {id = 75900771, scene_path = "92000033", dialogue_ids = "75707701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "裏切り者をおびき寄せるために、メンバーたちは罠を仕掛ける。そこへやってきた謎の男を捕まえることに。", times = 0}
+, 
+[75900772] = {id = 75900772, scene_path = "92000031", dialogue_ids = "75707709", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "裏切り者をおびき寄せるために、メンバーたちは罠を仕掛ける。そこへやってきた謎の男を捕まえることに。", times = 0}
+, 
+[75900781] = {id = 75900781, scene_path = "92000031", dialogue_ids = "75707801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "裏切り者をおびき寄せるために、メンバーたちは罠を仕掛ける。そこへやってきた謎の男を捕まえることに。", times = 0}
+, 
+[75900791] = {id = 75900791, scene_path = "92000025", dialogue_ids = "75707901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "事件を解決し、手を貸してくれたリーダーたちに恩を返すために、クーニャたちはプライドへの加入を頼む。", times = 0}
 }
-

@@ -49,5 +49,4 @@ BaseGuildWarTalentData = {
 , 
 [71502033] = {id = 71502033, name = (PUtil.get)(89061033), type = 4, cycle_type = 2, icon = "GuildBoss:71500018", index = 12, unlock_level = 1, need_talents = "71502032:3", max_level = 1, next = "0", grow_type = 12}
 }
-return BaseGuildWarTalentData
 

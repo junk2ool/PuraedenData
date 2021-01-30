@@ -81,5 +81,4 @@ BaseGuildActiveRewardData = {
 , 
 [76530904] = {id = 76530904, type = 10, level_range = "10:10", value = 240, rewards = "2:21100007:75"}
 }
-return BaseGuildActiveRewardData
 

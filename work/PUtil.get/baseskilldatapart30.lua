@@ -337,4 +337,3 @@
 , 
 [47200920] = {id = 47200920, remark = "对敌方单体目标造成伤害。", type = 1, targetType = 2001, damage = 2982, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41113005, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 }
-

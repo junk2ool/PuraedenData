@@ -483,4 +483,3 @@
 , 
 [75136618] = {id = 75136618, remark = "あーっはっはっはっは！", type = 1, option_ids = "0", next = -1, role_ids = "75201010", expression = "exp_shy", action = "shock", action_type = "0", role_type = 75201010, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, effect_sound = 0, dialogue_sound = "Canon_Plot_57"}
 }
-

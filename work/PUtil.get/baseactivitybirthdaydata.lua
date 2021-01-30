@@ -1,126 +1,125 @@
 {
-[11100001] = {id = 11100001, card_name = "シャノン", fashion_id = 14000101, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11100001] = {id = 11100001, card_name = "シャノン", fashion_id = 14000101, remark = "ふふ、この年になると誕生日なんて照れちゃうけど…でもリーダーさんがお祝いしてくれるなら嬉しいわ♪　…それで、プレゼントの金貨袋はどこかしら？", server_date = "9:05090500:MX0", date_remark = "5/9", rewards = "2:21100001:50"}
 , 
-[11100002] = {id = 11100002, card_name = "オリヴィア", fashion_id = 14000201, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11100002] = {id = 11100002, card_name = "オリヴィア", fashion_id = 14000201, remark = "まぁ、忙しくてすっかり忘れてたわ…。ふふ、でも忘れず祝ってもらえるのは、やっぱり嬉しいわね。あなたの誕生日のときも任せてちょうだい。", server_date = "9:04080500:MX0", date_remark = "4/8", rewards = "2:21100001:50"}
 , 
-[11100003] = {id = 11100003, card_name = "エイプリル", fashion_id = 14000301, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11100003] = {id = 11100003, card_name = "エイプリル", fashion_id = 14000301, remark = "ふっふっふ、驚いた？　実は四月一日生まれじゃないんだなー！　ま、とにかく今日は朝から晩まで、盛大に祝って、盛大に遊ぼうねーっ！", server_date = "9:12160500:MX0", date_remark = "12/16", rewards = "2:21100001:50"}
 , 
-[11100004] = {id = 11100004, card_name = "リリー", fashion_id = 14000401, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11100004] = {id = 11100004, card_name = "リリー", fashion_id = 14000401, remark = "今日のリリーは、いつもの何万倍も元気で絶好調です！　だって、今日はリリーの誕生日ですから！　成長したリリーは、誰にも止められませんよーっ！", server_date = "9:08080500:MX0", date_remark = "8/8", rewards = "2:21100001:50"}
 , 
-[11100005] = {id = 11100005, card_name = "フランチェスカ", fashion_id = 14000501, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11100005] = {id = 11100005, card_name = "フランチェスカ", fashion_id = 14000501, remark = "…去年の私より、確実に成長できていると思う。また冒険を重ねて、さらに知識と経験を積んでみせる。…あと、身長も伸ばす。", server_date = "9:06010500:MX0", date_remark = "6/1", rewards = "2:21100001:50"}
 , 
-[11100006] = {id = 11100006, card_name = "イヴリン", fashion_id = 14000601, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11100006] = {id = 11100006, card_name = "イヴリン", fashion_id = 14000601, remark = "えっっ…わたしのために、お祝いしてくれるんですか…！？　あ、ありがとうございます…！　でも、あの、お祝いされるのは慣れてなくて…わたしは何をすれば…？", server_date = "9:10100500:MX0", date_remark = "10/10", rewards = "2:21100001:50"}
 , 
-[11101001] = {id = 11101001, card_name = "ソフィア", fashion_id = 14110101, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11101001] = {id = 11101001, card_name = "ソフィア", fashion_id = 14110101, remark = "うう～～っ、嬉しいですぅっ…！　だってみんな忘れてるだろう私の誕生日を、覚えていてくれたなんてぇ…！　ううっ、プライドに入って…本当によがっだぁ…！", server_date = "9:07180500:MX0", date_remark = "7/18", rewards = "2:21100001:50"}
 , 
-[11101002] = {id = 11101002, card_name = "リッタ", fashion_id = 14110201, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11101002] = {id = 11101002, card_name = "リッタ", fashion_id = 14110201, remark = "タダより高いものはありませんから、誕生日プレゼントは不要ですよ。でも、どうしてもと言うなら…うちの店でたーーーっくさん、アイテム買ってけですっ！", server_date = "9:04210500:MX0", date_remark = "4/21", rewards = "2:21100001:50"}
 , 
-[11101003] = {id = 11101003, card_name = "ノンノ", fashion_id = 14110301, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11101003] = {id = 11101003, card_name = "ノンノ", fashion_id = 14110301, remark = "わーい！　今日でもうひとつ、お姉さんになれたよ！　もっと大きくなって、たくさんの人癒せるようになるんだ！　いーっぱい頑張るから見ててね、リーダー！", server_date = "9:12190500:MX0", date_remark = "12/19", rewards = "2:21100001:50"}
 , 
-[11101004] = {id = 11101004, card_name = "シルヴィ", fashion_id = 14110401, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11101004] = {id = 11101004, card_name = "シルヴィ", fashion_id = 14110401, remark = "リーダーだけに特ダネを教えちゃいますっ…！　なんとなんと…今日はあたしの誕生日なんです！　ってことでリーダー、最高のネタをくださいっ！　えへへ！", server_date = "9:02230500:MX0", date_remark = "2/23", rewards = "2:21100001:50"}
 , 
-[11101005] = {id = 11101005, card_name = "ヌエット", fashion_id = 14110501, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11101005] = {id = 11101005, card_name = "ヌエット", fashion_id = 14110501, remark = "リーダー、誕生日プレゼントください！　あっもう全然気は遣わず大丈夫なので、とりあえずお金とか大金とか大富豪とかください！　なるべく早くお願いしますっ♪", server_date = "9:05040500:MX0", date_remark = "5/4", rewards = "2:21100001:50"}
 , 
-[11101006] = {id = 11101006, card_name = "シエラ", fashion_id = 14110601, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11101006] = {id = 11101006, card_name = "シエラ", fashion_id = 14110601, remark = "今年の誕生日は、これでもかってくらい『シエラグルメ』の研究をする日にしようって決めてたの！　えへへ、今から楽しみだなぁ～。あ、リーダーも試食してくれる？", server_date = "9:07040500:MX0", date_remark = "7/4", rewards = "2:21100001:50"}
 , 
-[11200001] = {id = 11200001, card_name = "エマ", fashion_id = 14200101, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11200001] = {id = 11200001, card_name = "エマ", fashion_id = 14200101, remark = "今日はエマの誕生日だぞ！　だからリーダー、一緒に海へ漁に出るぞ！　海でフィシュラを釣って、フィシュラパーティーを開かないとなー！", server_date = "9:07250500:MX0", date_remark = "7/25", rewards = "2:21100001:50"}
 , 
-[11200002] = {id = 11200002, card_name = "コゼット", fashion_id = 14200201, remark = "画面をタップしてアイテムをお受け取りください。", server_date = "9:01230500:MX0", date_remark = "1/23", rewards = "2:21100001:50"}
+[11200002] = {id = 11200002, card_name = "コゼット", fashion_id = 14200201, remark = "あのね、お誕生日だからってみんなが優しくしてくれるの。それは嬉しいんだけど…私、誰かを甘やかせないのが耐えられないの！　リーダー、甘えてくれないかな！？", server_date = "9:01230500:MX0", date_remark = "1/23", rewards = "2:21100001:50"}
 , 
-[11200003] = {id = 11200003, card_name = "ニコリータ", fashion_id = 14200301, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11200003] = {id = 11200003, card_name = "ニコリータ", fashion_id = 14200301, remark = "えっへへぇ～、今日はめでたいあたしの誕生日だぁ～！　ってことだからぁ、リーダーも一緒に飲もぉ～！　あ、もちろんリーダーはジュースでもいいよぉ！", server_date = "9:03270500:MX0", date_remark = "3/27", rewards = "2:21100001:50"}
 , 
-[11200004] = {id = 11200004, card_name = "ミエル", fashion_id = 14200401, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11200004] = {id = 11200004, card_name = "ミエル", fashion_id = 14200401, remark = "私の誕生日会ということで…今夜、食事会を開くんだが、どうか招かれてくれないかな？　世界中の最高の美食をそろえてあるから、気軽に楽しもうじゃないか。", server_date = "9:12030500:MX0", date_remark = "12/3", rewards = "2:21100001:50"}
 , 
-[11200005] = {id = 11200005, card_name = "イルダ", fashion_id = 14200501, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11200005] = {id = 11200005, card_name = "イルダ", fashion_id = 14200501, remark = "リーダーさん、一生のお願いがあります！　どうか、どうか私の誕生日に免じてリーダーさんの世界の百合をできる限り、私に伝授してください！　お願いしますッ…！", server_date = "9:11280500:MX0", date_remark = "11/28", rewards = "2:21100001:50"}
 , 
-[11200006] = {id = 11200006, card_name = "フィナ", fashion_id = 14200601, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11200006] = {id = 11200006, card_name = "フィナ", fashion_id = 14200601, remark = "誕生日は好きなだけ穴を掘るって決めてるので、今日はずーっと穴を掘るんですっ…！　リーダーさんも、穴に入りたいときは言ってくださいね？　ふふ。", server_date = "9:10270500:MX0", date_remark = "10/27", rewards = "2:21100001:50"}
 , 
-[11200007] = {id = 11200007, card_name = "ジュリアン", fashion_id = 14200701, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11200007] = {id = 11200007, card_name = "ジュリアン", fashion_id = 14200701, remark = "ああ、リーダー…麗しの君よ！　僕の誕生日を祝ってくれるというのかい？　ありがとう、とても嬉しいよ…！　お礼に、君の誕生日はもっと素敵な日にしてみせよう！", server_date = "9:06030500:MX0", date_remark = "6/3", rewards = "2:21100001:50"}
 , 
-[11200008] = {id = 11200008, card_name = "ショコラ", fashion_id = 14200801, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11200008] = {id = 11200008, card_name = "ショコラ", fashion_id = 14200801, remark = "今日は誕生日だから、ついたくさんお菓子を作っちゃいました～。リーダーも一緒に食べて、お祝いしてください～。あ、もちろんお菓子の持ち込みも大歓迎です♪", server_date = "9:06060500:MX0", date_remark = "6/6", rewards = "2:21100001:50"}
 , 
-[11201001] = {id = 11201001, card_name = "ウィチタ", fashion_id = 14210101, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201001] = {id = 11201001, card_name = "ウィチタ", fashion_id = 14210101, remark = "ウィチタ団団長である俺様の誕生日には団員全員が集まり、誕生日パーティが開かれるんだ！　だからリーダーもプレゼントを持って、参加することだ！　いいな！", server_date = "9:02200500:MX0", date_remark = "2/20", rewards = "2:21100001:50"}
 , 
-[11201002] = {id = 11201002, card_name = "ネネル", fashion_id = 14210201, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201002] = {id = 11201002, card_name = "ネネル", fashion_id = 14210201, remark = "本日は誕生日ということで、掃除用具を一新させていただきました。新しいホウキ、モップ…より一層掃除が捗ります。もちろんリーダー様のお部屋もお任せください。", server_date = "9:09110500:MX0", date_remark = "9/11", rewards = "2:21100001:50"}
 , 
-[11201003] = {id = 11201003, card_name = "チェルシー", fashion_id = 14210301, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201003] = {id = 11201003, card_name = "チェルシー", fashion_id = 14210301, remark = "うぅ、もう誕生日が来ちゃったの？　他の子達の恋愛相談ばっかりで、自分のほうはまだ全然…リーダーは私を置いて抜け駆けしたりしないでよねっ！", server_date = "9:10240500:MX0", date_remark = "10/24", rewards = "2:21100001:50"}
 , 
-[11201004] = {id = 11201004, card_name = "アイリス", fashion_id = 14210401, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201004] = {id = 11201004, card_name = "アイリス", fashion_id = 14210401, remark = "誕生日くらい好きなもの買って、美味しいもの食べて…なんて、夢見てる場合じゃないわよね…。今日も貧しい子たちの為に、働くとするわ。さぁ行くわよ、リーダー！", server_date = "9:03140500:MX0", date_remark = "3/14", rewards = "2:21100001:50"}
 , 
-[11201005] = {id = 11201005, card_name = "アイリーン", fashion_id = 14210501, remark = "画面をタップしてアイテムをお受け取りください。", server_date = "9:01090500:MX0", date_remark = "1/9", rewards = "2:21100001:50"}
+[11201005] = {id = 11201005, card_name = "アイリーン", fashion_id = 14210501, remark = "誕生日プレゼントなら、ファンからたくさんもらえたっすよ。でも、まだ足りないっす。リーダーさんから祝いの言葉とプレゼントもらえたら…やっと満足っす♪", server_date = "9:01090500:MX0", date_remark = "1/9", rewards = "2:21100001:50"}
 , 
-[11201006] = {id = 11201006, card_name = "キキ", fashion_id = 14210601, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201006] = {id = 11201006, card_name = "キキ", fashion_id = 14210601, remark = "誕生日プレゼントには、もちろん宝石を…なんて、さすがに言わないですぞ。ただリーダーには、ジブンと宝石談議に花を咲かせてもらえれば、十分ですからな！", server_date = "9:10300500:MX0", date_remark = "10/30", rewards = "2:21100001:50"}
 , 
-[11201007] = {id = 11201007, card_name = "コンチータ", fashion_id = 14210701, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201007] = {id = 11201007, card_name = "コンチータ", fashion_id = 14210701, remark = "リーダー…誕生日、お祝いしてくれる…？　う、嬉しい…ありがとう…。私、友達とお誕生日会するのが、夢で…あぅ、えっと…誘ったら、来て、くれる？", server_date = "9:06100500:MX0", date_remark = "6/10", rewards = "2:21100001:50"}
 , 
-[11201008] = {id = 11201008, card_name = "ドミニク", fashion_id = 14210801, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201008] = {id = 11201008, card_name = "ドミニク", fashion_id = 14210801, remark = "リーダーくん、今日は時間あるかな？　自分に誕生日プレゼントを買おうと思ってね、ついでにリーダーくんとデートでもしようじゃないか♪", server_date = "9:09050500:MX0", date_remark = "9/5", rewards = "2:21100001:50"}
 , 
-[11201009] = {id = 11201009, card_name = "アリシア", fashion_id = 14210901, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201009] = {id = 11201009, card_name = "アリシア", fashion_id = 14210901, remark = "私は大人ですから、誕生日プレゼントは結構ですっ。…でも、もう用意してもらったなら、仕方がないので受け取りますっ。…えへへ、ありがとうございます。", server_date = "9:11090500:MX0", date_remark = "11/9", rewards = "2:21100001:50"}
 , 
-[11201010] = {id = 11201010, card_name = "ベロニカ", fashion_id = 14211001, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201010] = {id = 11201010, card_name = "ベロニカ", fashion_id = 14211001, remark = "うぇひひ、ベロちゃん絶好調なのれす～。リーダーさんもベロちゃんのお誕生日、お祝いしてくれるれすかぁ～？　では、プレゼントはアロエさんの毒薬をくらさいれす～！", server_date = "9:03030500:MX0", date_remark = "3/3", rewards = "2:21100001:50"}
 , 
-[11202001] = {id = 11202001, card_name = "ティーネ", fashion_id = 14220101, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202001] = {id = 11202001, card_name = "ティーネ", fashion_id = 14220101, remark = "あら～、私の誕生日をお祝いしに来てくださったんですか～？　ありがとうございます～。どうやら今日は、試練よりも祝福を得られる日だったみたいですね～ふふ～。", server_date = "9:03030500:MX0", date_remark = "3/3", rewards = "2:21100001:50"}
 , 
-[11202002] = {id = 11202002, card_name = "マルタ", fashion_id = 14220201, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202002] = {id = 11202002, card_name = "マルタ", fashion_id = 14220201, remark = "わぁ、リーダーさんにお祝いしてもらえるなんて思ってなかったから、嬉しいですっ…！　えへへ、なんだか胸のあたりがあったかい気がしますっ…。", server_date = "9:03220500:MX0", date_remark = "3/22", rewards = "2:21100001:50"}
 , 
-[11202003] = {id = 11202003, card_name = "ノエル", fashion_id = 14220301, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202003] = {id = 11202003, card_name = "ノエル", fashion_id = 14220301, remark = "今日は、ボクの誕生日なんです。だからリーダーさん、その…どうか「おめでとう」って言ってくれませんか…？　あなたに、お祝いしてもらいたくて…ダメ、ですか？", server_date = "9:10280500:MX0", date_remark = "10/28", rewards = "2:21100001:50"}
 , 
-[11202004] = {id = 11202004, card_name = "クイン", fashion_id = 14220401, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202004] = {id = 11202004, card_name = "クイン", fashion_id = 14220401, remark = "…ふあぁ～。今日の占いは、お休みだよぉ～。誕生日はゆっくりしたいしぃ…。…ふふ。アナタも一緒にゆっくりするなら、隣においで？", server_date = "9:10250500:MX0", date_remark = "10/25", rewards = "2:21100001:50"}
 , 
-[11202005] = {id = 11202005, card_name = "ケイト", fashion_id = 14220501, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202005] = {id = 11202005, card_name = "ケイト", fashion_id = 14220501, remark = "誕生日なんて、大した意味はないだろう。ひとつ歳を重ねただけだ。…だが、祝ってくれるなら、礼は言う。その…ありがとう。", server_date = "9:11030500:MX0", date_remark = "11/3", rewards = "2:21100001:50"}
 , 
-[11202006] = {id = 11202006, card_name = "カノン", fashion_id = 14220601, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202006] = {id = 11202006, card_name = "カノン", fashion_id = 14220601, remark = "はぁーっはっはっは！　聞け、闇の同志よ！　今日は冥界の堕天使たる我輩の生誕祭だ！　さあ、崇め称えよ！　そして、遠慮なく我輩に貢物をするがいい！", server_date = "9:05260500:MX0", date_remark = "5/26", rewards = "2:21100001:50"}
 , 
-[11202007] = {id = 11202007, card_name = "ユーナ", fashion_id = 14220701, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202007] = {id = 11202007, card_name = "ユーナ", fashion_id = 14220701, remark = "な、なんだよ、リーダーも祝ってくれるのか？　…いつもは、家族ばっかりと祝ってたから…なんか、むずむずするっつーか…とにかく、ありがとな。", server_date = "9:06280500:MX0", date_remark = "6/28", rewards = "2:21100001:50"}
 , 
-[11300001] = {id = 11300001, card_name = "グローリア", fashion_id = 14300101, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300001] = {id = 11300001, card_name = "グローリア", fashion_id = 14300101, remark = "誕生日祝われるのは、なんだかくすぐったいな…。欲しいものは特に浮かばないが…そうだな、リーダーの直筆の手紙をくれないか？　きっと、良い記念になる。", server_date = "9:08260500:MX0", date_remark = "8/26", rewards = "2:21100001:50"}
 , 
-[11300002] = {id = 11300002, card_name = "ブリジット", fashion_id = 14300201, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300002] = {id = 11300002, card_name = "ブリジット", fashion_id = 14300201, remark = "今日は俺が生まれた日だからな、メイがパーティーを開いてくれるんだってさ！　リーダーも来いよ、美味いご馳走がいっぱい食えるからな！", server_date = "9:04200500:MX0", date_remark = "4/20", rewards = "2:21100001:50"}
 , 
-[11300003] = {id = 11300003, card_name = "アロエ", fashion_id = 14300301, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300003] = {id = 11300003, card_name = "アロエ", fashion_id = 14300301, remark = "誕生日をお祝いしてくれるなんて…私はリーダーさんがそばにいてくれるだけで十分です。今日も、明日も、明後日も、それからこの先もずーっと…永遠に…", server_date = "9:04300500:MX0", date_remark = "4/30", rewards = "2:21100001:50"}
 , 
-[11300004] = {id = 11300004, card_name = "フラワー", fashion_id = 14300401, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300004] = {id = 11300004, card_name = "フラワー", fashion_id = 14300401, remark = "お誕生日はね、みんなに優しくしてもらえる日なの。だからね、リーダーにはおめでとうって言ってほしいし、いっぱいなでなでしてほしいな。えへへ。", server_date = "9:07100500:MX0", date_remark = "7/10", rewards = "2:21100001:50"}
 , 
-[11300005] = {id = 11300005, card_name = "サラ", fashion_id = 14300501, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300005] = {id = 11300005, card_name = "サラ", fashion_id = 14300501, remark = "やあ、お姉さんの誕生日だとわかってて会いに来てくれたのかな？　ふふ、そうでなくとも嬉しいよ。今日は少し冷えるし…お姉さんと、身を寄せ合おうじゃないか。", server_date = "9:11250500:MX0", date_remark = "11/25", rewards = "2:21100001:50"}
 , 
-[11300006] = {id = 11300006, card_name = "ベル", fashion_id = 14300601, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300006] = {id = 11300006, card_name = "ベル", fashion_id = 14300601, remark = "おかしいわね、予定だと今頃は金銀財宝ざくざく囲まれて誕生日を迎えてたはずなのに…でも、今から見つければ大丈夫よね！　さぁリーダー、宝探しへ行くわよ！", server_date = "9:07280500:MX0", date_remark = "7/28", rewards = "2:21100001:50"}
 , 
-[11300007] = {id = 11300007, card_name = "モニカ", fashion_id = 14300701, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300007] = {id = 11300007, card_name = "モニカ", fashion_id = 14300701, remark = "あー、リーダー。今日誕生日なんだけど、なーんにも予定なくて暇してんの。だからさー、ケーキ買ったりアイリス誘ったりして、家でパーティーでもしよー？", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
 , 
-[11301001] = {id = 11301001, card_name = "ラヴィ", fashion_id = 14310101, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11301001] = {id = 11301001, card_name = "ラヴィ", fashion_id = 14310101, remark = "誕生日にあなたと過ごせるだなんて、こんな幸せ、他にありません…♪　今日は一日中、ラヴィとベッドの中でいちゃいちゃしましょうね…？", server_date = "9:03220500:MX0", date_remark = "3/22", rewards = "2:21100001:50"}
 , 
-[11301002] = {id = 11301002, card_name = "ウルスラ", fashion_id = 14310201, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11301002] = {id = 11301002, card_name = "ウルスラ", fashion_id = 14310201, remark = "主人が従者の誕生日を祝うなど不要なこと…。ですが…お気持ち、大変うれしいです。ありがとうございます、リーダー。あなたが主人で、本当に良かったです。", server_date = "9:01280500:MX0", date_remark = "1/28", rewards = "2:21100001:50"}
 , 
-[11301003] = {id = 11301003, card_name = "イザベラ", fashion_id = 14310301, remark = "画面をタップしてアイテムをお受け取りください。", server_date = "9:01120500:MX0", date_remark = "1/12", rewards = "2:21100001:50"}
+[11301003] = {id = 11301003, card_name = "イザベラ", fashion_id = 14310301, remark = "別にいつもと変わりないわ。でも、あなたが祝ってくれるというなら…今日一日、私に付き合って。そしてとんでもなく危険なところへ行って、楽しみましょう…？", server_date = "9:01120500:MX0", date_remark = "1/12", rewards = "2:21100001:50"}
 , 
-[11301004] = {id = 11301004, card_name = "エヴァンテ", fashion_id = 14310401, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11301004] = {id = 11301004, card_name = "エヴァンテ", fashion_id = 14310401, remark = "今日がなんの日か、知らないフリはなしだよ。てわけで誕生日プレゼントに、新作ゲーム機と新作ゲームちょうだい。あ、あとプレイ中は肩のマッサージもよろしく。", server_date = "9:03050500:MX0", date_remark = "3/5", rewards = "2:21100001:50"}
 , 
-[11301005] = {id = 11301005, card_name = "ショウ", fashion_id = 14310501, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11301005] = {id = 11301005, card_name = "ショウ", fashion_id = 14310501, remark = "おや、誕生日を祝ってくれるとは…やはりリーダー殿は、気遣いができる御人でござる。ふふ…贈り物よりも、やはりその気持ちが何より嬉しいものでござるな…", server_date = "9:04180500:MX0", date_remark = "4/18", rewards = "2:21100001:50"}
 , 
-[11301006] = {id = 11301006, card_name = "メイ", fashion_id = 14310601, remark = "画面をタップしてアイテムをお受け取りください。", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11301006] = {id = 11301006, card_name = "メイ", fashion_id = 14310601, remark = "ふふ、これまでいろんなプレゼントをもらいましたが…やはり「おめでとう」という言葉が、何よりも嬉しいですね。お祝い、ありがとうございます♪", server_date = "9:07210500:MX0", date_remark = "7/21", rewards = "2:21100001:50"}
 , 
-[11300008] = {id = 11300008, card_name = "リサ", fashion_id = 14300801, remark = "未定義(89200051)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300008] = {id = 11300008, card_name = "リサ", fashion_id = 14300801, remark = "未定義(89200051)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11101007] = {id = 11101007, card_name = "パロネス", fashion_id = 14110701, remark = "未定義(89200052)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11101007] = {id = 11101007, card_name = "パロネス", fashion_id = 14110701, remark = "未定義(89200052)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11300010] = {id = 11300010, card_name = "シェリー", fashion_id = 14301001, remark = "未定義(89200053)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300010] = {id = 11300010, card_name = "シェリー", fashion_id = 14301001, remark = "未定義(89200053)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11300009] = {id = 11300009, card_name = "イザベラ", fashion_id = 14300901, remark = "未定義(89200054)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300009] = {id = 11300009, card_name = "イザベラ", fashion_id = 14300901, remark = "未定義(89200054)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11201012] = {id = 11201012, card_name = "ノンノ", fashion_id = 14211201, remark = "未定義(89200055)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201012] = {id = 11201012, card_name = "ノンノ", fashion_id = 14211201, remark = "未定義(89200055)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11201011] = {id = 11201011, card_name = "ツバキ", fashion_id = 14211101, remark = "未定義(89200056)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11201011] = {id = 11201011, card_name = "ツバキ", fashion_id = 14211101, remark = "未定義(89200056)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11202008] = {id = 11202008, card_name = "ハーミット", fashion_id = 14220801, remark = "未定義(89200057)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202008] = {id = 11202008, card_name = "ハーミット", fashion_id = 14220801, remark = "未定義(89200057)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11300011] = {id = 11300011, card_name = "ルルリカ", fashion_id = 14301101, remark = "未定義(89200058)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300011] = {id = 11300011, card_name = "ルルリカ", fashion_id = 14301101, remark = "未定義(89200058)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11300012] = {id = 11300012, card_name = "ミア", fashion_id = 14301201, remark = "未定義(89200059)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300012] = {id = 11300012, card_name = "ミア", fashion_id = 14301201, remark = "未定義(89200059)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11202009] = {id = 11202009, card_name = "未定義(81012209)", fashion_id = 14220901, remark = "未定義(89200060)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11202009] = {id = 11202009, card_name = "未定義(81012209)", fashion_id = 14220901, remark = "未定義(89200060)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11300013] = {id = 11300013, card_name = "未定義(81013013)", fashion_id = 14301301, remark = "未定義(89200061)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300013] = {id = 11300013, card_name = "未定義(81013013)", fashion_id = 14301301, remark = "未定義(89200061)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11300014] = {id = 11300014, card_name = "ロール", fashion_id = 14301401, remark = "未定義(89200062)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "10/21", rewards = "2:21100001:50"}
+[11300014] = {id = 11300014, card_name = "ロール", fashion_id = 14301401, remark = "未定義(89200062)", voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 }
-

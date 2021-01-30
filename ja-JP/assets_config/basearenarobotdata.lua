@@ -55,5 +55,4 @@ BaseArenaRobotData = {
 , 
 [76200027] = {id = 76200027, rank_low = 1, rank_high = 1, monster_group = "53402601", fc_rate = "9900:10100", head_icons = "78601001:78601002:78601003:78601004:78601005"}
 }
-return BaseArenaRobotData
 

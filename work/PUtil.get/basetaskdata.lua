@@ -1739,4 +1739,3 @@
 , 
 [31300014] = {id = 31300014, name = "遠征", remark = "「遠征」を6回クリア", type = 3, is_inherit = 0, pre_id = 0, next_id = 0, level_required = 1, icon_path = "Task:texture_2", sort_weight = 14, target_href_id = 300106, complete_lv_limit = 1, target_type = "72504531:0:6", reset_time = "2:10500:MX0", liveness = 20, reward = "1:999|2:21100008:200"}
 }
-

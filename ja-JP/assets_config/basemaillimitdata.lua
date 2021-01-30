@@ -431,5 +431,4 @@ BaseMailLimitData = {
 , 
 [61080013] = {id = 61080013, limit_num = 10}
 }
-return BaseMailLimitData
 

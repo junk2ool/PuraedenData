@@ -112,6 +112,9 @@ HomelandRoomWindow.InitTopMenu = function(...)
         (HomelandMgr.InitDefaultData)()
         ;
         (HomelandRoomWindow.RefreshHouse)()
+        if not ((HomelandData.RoomData).CurrentPlayInfo).isRandomVisit then
+          (HomelandRoomWindow.ClickVisitBtn)()
+        end
       end
     else
       if (HomelandRoomWindow.ModifiedCheck)() then
@@ -415,31 +418,46 @@ HomelandRoomWindow.RefreshPlayerInfo = function(...)
     ;
     (((uis.PlayerInfo).TitlePic).PicLoader).url = (Util.GetItemUrl)((((TableData.gTable).BasePlayerTitleData)[data.title]).icon)
   end
-  -- DECOMPILER ERROR at PC68: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC65: Confused about usage of register: R2 in 'UnsetPending'
 
+  ;
+  ((uis.PlayerInfo).c1Ctr).selectedIndex = 1
+  -- DECOMPILER ERROR at PC72: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  ((uis.PlayerInfo).NextBtn).text = (PUtil.get)(60000558)
   if data.isRandomVisit then
-    ((uis.PlayerInfo).c1Ctr).selectedIndex = 1
-    -- DECOMPILER ERROR at PC75: Confused about usage of register: R2 in 'UnsetPending'
-
-    ;
-    ((uis.PlayerInfo).NextBtn).text = (PUtil.get)(60000558)
-    ;
     (((uis.PlayerInfo).NextBtn).onClick):Set(function(...)
     -- function num : 0_13_0 , upvalues : _ENV
     (HomelandMgr.ReqRandomPlayerInfo)()
   end
 )
   else
-    -- DECOMPILER ERROR at PC85: Confused about usage of register: R2 in 'UnsetPending'
-
     ;
-    ((uis.PlayerInfo).c1Ctr).selectedIndex = 0
+    (((uis.PlayerInfo).NextBtn).onClick):Set(function(...)
+    -- function num : 0_13_1 , upvalues : _ENV
+    -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
+
+    if (HomelandData.VisitInfo).Index == #(HomelandData.VisitInfo).Content then
+      (HomelandData.VisitInfo).Index = 1
+    else
+      -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (HomelandData.VisitInfo).Index = (HomelandData.VisitInfo).Index + 1
+    end
+    local data = ((HomelandData.VisitInfo).Content)[(HomelandData.VisitInfo).Index]
+    if not data.objectindex then
+      (HomelandMgr.ReqRoomCallOn)(data.playerIndex, data.serverId)
+    end
+  end
+)
   end
   ;
   (HomelandRoomWindow.RefreshOtherRelation)()
   if (uis.c2Ctr).selectedIndex == 1 then
     _infoAnim:PlayReverse(function(...)
-    -- function num : 0_13_1 , upvalues : _infoAnim
+    -- function num : 0_13_2 , upvalues : _infoAnim
     _infoAnim:Play()
   end
 )
@@ -1030,7 +1048,7 @@ HomelandRoomWindow.PickCard = function(roleData, fashionId, ...)
 end
 
 HomelandRoomWindow.PlaceCard = function(roleData, ...)
-  -- function num : 0_33 , upvalues : HomelandRoomWindow, _ENV
+  -- function num : 0_33 , upvalues : HomelandRoomWindow, _ENV, _currentBubble, uis
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (roleData.Loader).alpha = 1
@@ -1063,6 +1081,9 @@ HomelandRoomWindow.PlaceCard = function(roleData, ...)
   (HomelandMgr.UpdateCardGridUsage)((roleData.Coordinate).x, (roleData.Coordinate).y, roleData.Id)
   roleData.Path = nil
   roleData.PatrolTween = (HomelandRoomWindow.StartPatrol)(roleData)
+  if _currentBubble then
+    ((uis.Currency).root):SetChildIndex(_currentBubble, ((uis.Currency).root).numChildren - 1)
+  end
 end
 
 HomelandRoomWindow.FindAvailableCoordinate = function(coordinate, round, ...)
@@ -1621,7 +1642,7 @@ HomelandRoomWindow.GetRoleShadow = function(...)
 end
 
 HomelandRoomWindow.SetCardLoaderPos = function(roleData, pos, ...)
-  -- function num : 0_46 , upvalues : _currentBubble, ROLE_SIZE, ROLE_HEIGHT_FIX
+  -- function num : 0_46 , upvalues : _currentBubble, ROLE_SIZE, ROLE_HEIGHT_FIX, uis
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R2 in 'UnsetPending'
 
   (roleData.Loader).xy = pos
@@ -1641,6 +1662,8 @@ HomelandRoomWindow.SetCardLoaderPos = function(roleData, pos, ...)
 
     ;
     (roleData.Bubble).y = pos.y - ROLE_SIZE.y - ROLE_HEIGHT_FIX - _currentBubble.height + (roleData.BubbleOffset).y
+    ;
+    ((uis.Currency).root):InvalidateBatchingState()
   end
 end
 
@@ -5447,30 +5470,37 @@ HomelandRoomWindow.SaveCurrentStyleEditInfo = function(...)
 end
 
 HomelandRoomWindow.ClickBlankBtn = function(...)
-  -- function num : 0_151 , upvalues : uis, _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, _ui, _uiAnim, _topUIAnim
-  -- DECOMPILER ERROR at PC16: Unhandled construct in 'MakeBoolean' P1
-
-  if ((uis.AssetStripGrp).root).visible and _moveComInfo.Com ~= nil and (_moveComInfo.Com).visible then
-    if _moveComInfo.New then
-      (HomelandRoomWindow.PlaceNewFurniture)()
-    else
+  -- function num : 0_151 , upvalues : uis, _ENV, _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, _ui, _uiAnim, _topUIAnim
+  if ((uis.AssetStripGrp).root).visible then
+    if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Edit and (_moveComInfo.Com == nil or not (_moveComInfo.Com).visible) then
+      (HomelandRoomWindow.AbortEdit)()
       ;
-      (HomelandRoomWindow.ChangePlacedFurnitureStatus)(_editFurnitureInfo[_moveComInfo.Uid], true)
+      (HomelandRoomWindow.DeactiveEditMode)(true)
+    else
+      if _moveComInfo.Com ~= nil and (_moveComInfo.Com).visible then
+        if _moveComInfo.New then
+          (HomelandRoomWindow.PlaceNewFurniture)()
+        else
+          ;
+          (HomelandRoomWindow.ChangePlacedFurnitureStatus)(_editFurnitureInfo[_moveComInfo.Uid], true)
+        end
+        ;
+        (HomelandRoomWindow.HideMoveFurniture)()
+      end
     end
+  else
+    -- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
+
     ;
-    (HomelandRoomWindow.HideMoveFurniture)()
+    ((uis.AssetStripGrp).root).visible = true
+    _ui.visible = true
+    -- DECOMPILER ERROR at PC51: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    ((uis.PlayerInfo).root).visible = true
+    _uiAnim:Play()
+    _topUIAnim:Play()
   end
-  -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  ((uis.AssetStripGrp).root).visible = true
-  _ui.visible = true
-  -- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  ((uis.PlayerInfo).root).visible = true
-  _uiAnim:Play()
-  _topUIAnim:Play()
 end
 
 HomelandRoomWindow.ClickClearBtn = function(...)

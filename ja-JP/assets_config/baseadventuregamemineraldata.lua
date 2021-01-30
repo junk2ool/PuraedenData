@@ -109,5 +109,4 @@ BaseAdventureGameMineralData = {
 , 
 [76460054] = {id = 76460054, sort = 13, event_id = 76420501, type = "1", reward_pool = 0, parameter = -5, mineral_path = "AdventureGame:AdventureGame_1002"}
 }
-return BaseAdventureGameMineralData
 

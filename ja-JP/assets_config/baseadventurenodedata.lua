@@ -437,5 +437,4 @@ BaseAdventureNodeData = {
 , 
 [76410383] = {id = 76410383, index = 83, type = 1, map_id = 76400003, pre = "76410382", next = "76410101", event_id = 0, note_icon = "0", multiple_show = 0, fc_show = 7964}
 }
-return BaseAdventureNodeData
 

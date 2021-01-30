@@ -449,4 +449,3 @@
 , 
 [75130627] = {id = 75130627, remark = "はぁ…うるさいのがまた増えた…", type = 1, option_ids = "0", next = -1, role_ids = "75201003:75201005", expression = "0", action = "angry:0", action_type = "0", role_type = 75201003, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, effect_sound = 0, dialogue_sound = "francesca_Plot_417"}
 }
-

@@ -58,6 +58,7 @@ AdventureGameWindow.InitFunctionControl = function(...)
   local RegisterGuideAndControl = GuideData.RegisterGuideAndControl
   local ControlID = ControlID
   RegisterGuideAndControl(ControlID.BigAdventure_PlayOne, uis.OnceBtn, winName)
+  RegisterGuideAndControl(ControlID.BigAdventure_PlayMutiply, uis.TenTimeBtn, winName)
 end
 
 AdventureGameWindow.BindingUI = function(...)
@@ -255,17 +256,17 @@ AdventureGameWindow.InitMultiPlayBtn = function(...)
   -- function num : 0_18 , upvalues : _ENV, uis
   local times = (math.ceil)((ActorData.GetAssetCount)(AssetType.ENDURANCE) / (AdventureData.CurrentMapConfig).dice_cost)
   local playedTimes = (Util.GetIntPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_MOVE_TIMES)
-  -- DECOMPILER ERROR at PC26: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC32: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
-  (uis.TenTimeBtn).visible = times ~= 0 and AdventureData.FIXED_MOVE_TIMES <= playedTimes
-  -- DECOMPILER ERROR at PC28: Confused about usage of register: R2 in 'UnsetPending'
+  (uis.TenTimeBtn).visible = (times ~= 0 and AdventureData.FIXED_MOVE_TIMES <= playedTimes and (FunctionControlMgr.GetFunctionState)(ControlID.BigAdventure_PlayMutiply))
+  -- DECOMPILER ERROR at PC34: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.TenTimeBtn).touchable = true
   ;
   ((uis.TenTimeBtn):GetChild("NumberTxt")).text = times
-  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
 AdventureGameWindow.InitMap = function(mapId, ...)

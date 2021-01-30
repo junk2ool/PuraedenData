@@ -67,7 +67,7 @@
 , 
 [21122108] = {id = 21122108, name = "ドミニクの欠片", remark = "欠片を30個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11201008", quality = 3, type = 2, effect_value = "11201008", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31023, go_to_id = "77122108:77422108", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 6, reward_sort = 9880016, time = -1, own_show = 0}
 , 
-[21122109] = {id = 21122109, name = "アリシアの欠片", remark = "欠片を30個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11201009", quality = 3, type = 2, effect_value = "11201009", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31022, go_to_id = "77122109:77322109:77422109", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 6, reward_sort = 9880017, time = -1, own_show = 0}
+[21122109] = {id = 21122109, name = "アリシアの欠片", remark = "欠片を30個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11201009", quality = 3, type = 2, effect_value = "11201009", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31022, go_to_id = "77122109:77422109", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 6, reward_sort = 9880017, time = -1, own_show = 0}
 , 
 [21122110] = {id = 21122110, name = "ベロニカの欠片", remark = "欠片を30個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11201010", quality = 3, type = 2, effect_value = "11201010", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31021, go_to_id = "77122110:77422110", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 6, reward_sort = 9880018, time = -1, own_show = 0}
 , 
@@ -150,6 +150,8 @@
 [21123018] = {id = 21123018, name = "ラヴィ(水着)の欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300018", quality = 3, type = 2, effect_value = "11300018", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423018", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
 , 
 [21123019] = {id = 21123019, name = "リリー(水着)の欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300019", quality = 3, type = 2, effect_value = "11300019", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423019", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
+, 
+[21123030] = {id = 21123030, name = "クーニャの欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300030", quality = 3, type = 2, effect_value = "11300030", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423030", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
 , 
 [21130001] = {id = 21130001, name = "花輪ブレスレット", remark = "冒険者の好感度30点アップ。", icon = "ItemIcon:21130001", quality = 1, type = 3, effect_value = "30", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20405, go_to_id = "77230001:77330001", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9490001, time = -1, own_show = 0}
 , 
@@ -330,5 +332,6 @@
 [21500615] = {id = 21500615, name = "一般証明書パック", remark = "冒険ギルドからの特別補給。開けると一般証明書を少量入手できる。", icon = "Prize:y_21120001", quality = 2, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
 [21500616] = {id = 21500616, name = "(10)突破素材パック", remark = "冒険ギルドからの特別補給。開けると(9)から(10)までの突破に必要な素材を獲得可能。", icon = "Prize:y_21500616", quality = 4, type = 8, effect_value = "5010", can_use = 1, use_level = "0", auto_open = 1, bag_type = 1, sort = 10202, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9690001, time = -1, own_show = 1}
+, 
+[21500617] = {id = 21500617, name = "東の国家具パック", remark = "開けると東の国シリーズ家具が獲得できる(計21点)。", icon = "ItemIcon:21500617", quality = 4, type = 8, effect_value = "5011", can_use = 1, use_level = "26", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9690001, time = -1, own_show = 1}
 }
-

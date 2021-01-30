@@ -533,4 +533,3 @@
 , 
 [75148540] = {id = 75148540, remark = "…えへへ、もっちろん。\nリーダーとわたし達に任せてよ！", type = 1, option_ids = "0", next = -1, role_ids = "75201020:75201001", expression = "0:PoseA", role_type = 75201001, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020004, dialogue_sound = "April_Plot_1085"}
 }
-

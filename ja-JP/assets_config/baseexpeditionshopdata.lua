@@ -37,5 +37,4 @@ BaseExpeditionShopData = {
 , 
 [76310603] = {id = 76310603, type = 6, start = 3, finish = 3, reward = "1:21150001:30", drop = "22606303", change_num = "0", cost = "2:21100001:15"}
 }
-return BaseExpeditionShopData
 

@@ -227,6 +227,10 @@
 , 
 [46130241] = {id = 46130241, name = "圣诞驯鹿_小技能_提暴", des = "504:1:2143:1 & 挂载：攻击方出手前 & 扣减：立即生效扣除 & 回合数：1", type = 50, value = "504:1:2143:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 2, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
+[46130301] = {id = 46130301, name = "未定義(46130301)", des = "未定義(56130301)", type = 10, value = "102:2:-4000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 3, deduction_round_type = 1, settle_round_cnt = 2, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
+, 
+[46130302] = {id = 46130302, name = "未定義(46130302)", des = "未定義(56130302)", type = 60, value = "601:1:100:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 3, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
+, 
 [46131011] = {id = 46131011, name = "拉比_小技能_额外伤害", des = "101:2:-2000:1 & 挂载：攻击方出手前 & 扣减：立即生效扣除 & 回合数：1", type = 10, value = "101:2:-2000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 2, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
 , 
 [46131012] = {id = 46131012, name = "拉比_小技能_降防", des = "703:4:-3500:2 & 挂载：攻击方出手后 & 扣减：大回合开始前 & 回合数：1", type = 70, value = "703:4:-3500:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 3, deduction_round_type = 1, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
@@ -249,4 +253,3 @@
 , 
 [46131061] = {id = 46131061, name = "梅_小技能_反伤", des = "107:1:3000:0 & 挂载：攻击方出手后 & 扣减：大回合开始前 & 回合数：1", type = 15, value = "107:1:3000:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 3, deduction_round_type = 1, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 }
-

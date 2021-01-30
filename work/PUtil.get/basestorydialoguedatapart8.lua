@@ -559,4 +559,3 @@
 , 
 [75118535] = {id = 75118535, remark = "どこなんだよ、あっちって。", type = 1, option_ids = "0", next = -1, role_ids = "75201003:75201004", expression = "0", action = "shock:0", action_type = "0", role_type = 75201003, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_path = "FX_story_motion_wenhao", expression_position = "533:257", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, effect_sound = 0, dialogue_sound = "francesca_Plot_273"}
 }
-

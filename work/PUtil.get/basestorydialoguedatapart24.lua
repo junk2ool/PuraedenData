@@ -643,4 +643,3 @@
 , 
 [75150602] = {id = 75150602, remark = "お願い…助けて…", type = 1, option_ids = "0", next = -1, role_ids = "75201001", expression = "exp_said", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003, dialogue_sound = "April_Plot_1159"}
 }
-

@@ -21,5 +21,4 @@ BaseGuildLevelUpData = {
 , 
 [76500010] = {id = 76500010, level = 10, next_exp = 300000, max_member = 30, max_vice_leader = 2, day_max_exp = 9000, lottery_times = 9, support_rewards_max = "2:21100001:190"}
 }
-return BaseGuildLevelUpData
 

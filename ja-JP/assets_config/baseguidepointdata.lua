@@ -67,5 +67,4 @@ BaseGuidePointData = {
 , 
 [78303300] = {id = 78303300, name = 88803300, remark = 88813300, icon = "GuideTips:GuideTips_004", type = 33, sort = 32}
 }
-return BaseGuidePointData
 

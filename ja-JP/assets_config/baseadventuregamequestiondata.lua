@@ -193,5 +193,4 @@ BaseAdventureGameQuestionData = {
 , 
 [76440117] = {id = 76440117, description = "ルナと主人公達が花畑へ手がかりを探しに行こうとする時、どんなことが起きましたか？", type = 2, open_range = "64:99", answer1 = "黒ずくめの男に攫われた", answer2 = "市民からプレゼントをもらった", answer3 = "騎士団に追われていた", right_answer = "1", event_id = "0"}
 }
-return BaseAdventureGameQuestionData
 

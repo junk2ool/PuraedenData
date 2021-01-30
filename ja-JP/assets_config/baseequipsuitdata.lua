@@ -69,5 +69,4 @@ BaseEquipSuitData = {
 , 
 [63106021] = {id = 63106021, des = (PUtil.get)(83990041, (PUtil.get)(81051004), 2120, (PUtil.get)(81051002), 8660, (PUtil.get)(81051007), 280, (PUtil.get)(81051006), 280), group_id = 10602, equip_id = "61060021:61060022:61060023:61060024:61060025:61060026", equip_num = 4, add_attr = "1:81050004:2120,1:81050002:8660,1:81050007:280,1:81050006:280", sort = 1}
 }
-return BaseEquipSuitData
 

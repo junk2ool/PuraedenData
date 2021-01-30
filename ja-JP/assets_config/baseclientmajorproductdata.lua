@@ -7,5 +7,4 @@ BaseClientMajorProductData = {
 , 
 [3] = {id = 3, items = "2:2:11202001"}
 }
-return BaseClientMajorProductData
 

@@ -513,4 +513,3 @@
 , 
 [75108526] = {id = 75108526, remark = "…ついに見つけました。\nこれで私も…", type = 1, option_ids = "0", next = -1, role_ids = "75209010", expression = "0", action = "0", action_type = "0", role_type = 75209010, position = "418:606:10050", role_admission_type = "75209010:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", effect_sound = 0, dialogue_sound = "Lily_Plot_1"}
 }
-

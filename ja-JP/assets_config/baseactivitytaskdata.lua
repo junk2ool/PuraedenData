@@ -91,5 +91,4 @@ BaseActivityTaskData = {
 , 
 [33201006] = {id = 33201006, name = (PUtil.get)(87110601), remark = (PUtil.get)(87310106, 22), task_condition = "72501003:0:22", reward_points = 3, reward = "1:21120001:5"}
 }
-return BaseActivityTaskData
 

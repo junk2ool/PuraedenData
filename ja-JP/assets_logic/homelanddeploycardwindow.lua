@@ -140,14 +140,18 @@ HomelandDeployCardWindow.RefreshAllCardItem = function(index, item, ...)
   if (HomelandData.UsedCard)[data.id] then
     (item:GetController("c3")).selectedIndex = 7
     ;
-    (item.onClick):Clear()
+    (item.onClick):Set(function(...)
+    -- function num : 0_11_0 , upvalues : _ENV, data
+    (HomelandMgr.UnDeployCard)(data.id)
+  end
+)
   else
     ;
     (item:GetController("c3")).selectedIndex = 0
     local clicked = false
     do
       (item.onClick):Set(function(...)
-    -- function num : 0_11_0 , upvalues : clicked, _ENV, data, argTable, _initRoleCount
+    -- function num : 0_11_1 , upvalues : clicked, _ENV, data, argTable, _initRoleCount
     if clicked then
       return 
     end

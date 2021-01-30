@@ -27,5 +27,4 @@ BaseAdventureEventData = {
 , 
 [76420701] = {id = 76420701, type = 14, parameter = "0", reward_pool = 140, event_icon = "Battle", win_cost = "2:21100001:20"}
 }
-return BaseAdventureEventData
 

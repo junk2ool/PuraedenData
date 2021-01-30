@@ -105,4 +105,3 @@
 , 
 [47760002] = {id = 47760002, name = "未定義(47760002)", des = "未定義(57760002)", type = 65, value = "651:1:-20:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 23, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
 }
-

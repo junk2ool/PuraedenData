@@ -525,4 +525,3 @@
 , 
 [75120623] = {id = 75120623, remark = "――ふふ、いい場所見ーつけた！\nさっそくダーリンに教えなくっちゃ☆", type = 1, option_ids = "0", next = -1, role_ids = "75205002", expression = "exp_happy", action = "happy", action_type = "0", role_type = 75205002, position = "418:606:10050", role_admission_type = "75205002:0:0", role_departure_type = "75201001:-50:0", scene_effect_position = "1:2", expression_path = "FX_story_motion_xihuan", expression_position = "761:227", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, effect_sound = 0, dialogue_sound = "MB_Roxanne_Plot_10"}
 }
-

@@ -127,5 +127,4 @@ BaseTowerLuckyData = {
 , 
 [25001063] = {id = 25001063, lucky = "6121:9999", ratio = "0:0:0:0:0:0", index = "2:2:2:2:2:2", add = "7500:15000:40000:37600:2000:400"}
 }
-return BaseTowerLuckyData
 

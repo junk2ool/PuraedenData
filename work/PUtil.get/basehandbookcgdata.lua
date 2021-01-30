@@ -57,7 +57,7 @@
 , 
 [26200431] = {id = 26200431, name = "姫と護衛", remark = "外にとても賑やかで、外に出かけてみたいなあ——", des = "第四十三章 ロック中", type = 1, chapter_id = 51100043, index = 29, icon = "HandBookCGBanner:92101043", fashion_id = "92101043", open_time = 0}
 , 
-[26200441] = {id = 26200441, name = "古代の武器", remark = "田舎者ども！古代の武器も知らないで、今日はお前らに见せてやる！", des = "第四十四章 ロック中", type = 1, chapter_id = 51100044, index = 30, icon = "HandBookCGBanner:92101044", fashion_id = "92101044", open_time = 0}
+[26200441] = {id = 26200441, name = "古代の武器", remark = "田舎者ども！古代の武器も知らないで、今日はお前らに見せてやる！", des = "第四十四章 ロック中", type = 1, chapter_id = 51100044, index = 30, icon = "HandBookCGBanner:92101044", fashion_id = "92101044", open_time = 0}
 , 
 [26110010] = {id = 26110010, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11100001, index = 1, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 
@@ -182,5 +182,8 @@
 [26300601] = {id = 26300601, name = "お見合い破談作戦", remark = "なんて可憐な人だ…これはもはや運命というより、宿命！今すぐ結婚しよう！", des = "第一章 ロック中", type = 3, chapter_id = 51410006, index = 1, icon = "HandBookCGBanner:92108011", fashion_id = "92108011", activity_sort = 6, activity_name = "「正月 お見合い攻防戦」", open_time = 1609376400}
 , 
 [26300602] = {id = 26300602, name = "新年初詣", remark = "今年こそ、静かに過ごせますように…まぁ、無理だろうけどな。", des = "第一章 ロック中", type = 3, chapter_id = 51410006, index = 2, icon = "HandBookCGBanner:92108012", fashion_id = "92108012", activity_sort = 6, activity_name = "「正月 お見合い攻防戦」", open_time = 1609376400}
+, 
+[26300701] = {id = 26300701, name = "買い出しの帰り道", remark = "本当に魅力的で、素敵な人で…！クーニャちゃんと出会えたら、私は救われたんです。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 1, icon = "HandBookCGBanner:92108013", fashion_id = "92108013", activity_sort = 7, activity_name = "ファミリーの名にかけて！", open_time = 1612054800}
+, 
+[26300702] = {id = 26300702, name = "支え合う二人", remark = "一人で立ち向かうしかないと思っていたが、私のそばにプデルがいる…こんなに心強いことはない。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 2, icon = "HandBookCGBanner:92108014", fashion_id = "92108014", activity_sort = 7, activity_name = "ファミリーの名にかけて！", open_time = 1612054800}
 }
-

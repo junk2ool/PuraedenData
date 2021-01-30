@@ -7,5 +7,4 @@ BaseExpeditionData = {
 , 
 [51320003] = {id = 51320003, name = (PUtil.get)(85401003), remark = (PUtil.get)(85402003), open_condition = "72501001:0:66", card_num = 18, stage_pre = 51323001, stage_path = "Expedition:Map_C", background_path = "BattleScene_1024", fashion_id = 14220302, bgm_id = 1040013}
 }
-return BaseExpeditionData
 

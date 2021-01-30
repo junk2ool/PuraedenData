@@ -48,7 +48,11 @@ FamilyShopWindow.OnInit = function(bridgeObj, ...)
   (CommonWinMgr.RegisterAssets)(m)
   isSendMsg = false
   tmpShopGridData = nil
-  -- DECOMPILER ERROR at PC57: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC53: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  (uis.TimeNameTxt).visible = false
+  -- DECOMPILER ERROR at PC59: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.TimeNameTxt).text = (PUtil.get)(248)
@@ -96,7 +100,7 @@ FamilyShopWindow.OnInit = function(bridgeObj, ...)
 )
   ;
   (((uis.ShopPanel).ZhongZiBtn):GetChild("NameTxt")).text = (PUtil.get)(247)
-  -- DECOMPILER ERROR at PC113: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC115: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.ShopPanel).ZhongZiBtn).visible = false
@@ -106,7 +110,7 @@ FamilyShopWindow.OnInit = function(bridgeObj, ...)
     print("===================shopType", shopType)
     ;
     (FamilyShopWindow.RefreshShopWindow)(argTable[1])
-    -- DECOMPILER ERROR at PC134: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC136: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     ((uis.ShopPanel).c1Ctr).selectedIndex = shopType - 6
@@ -129,6 +133,10 @@ FamilyShopWindow.RefreshShopWindow = function(_data, ...)
 
   ;
   (uis.RefreshBtn).visible = shopConfig.reset_type == 1
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R3 in 'UnsetPending'
+
+  ;
+  (uis.TimeTxt).visible = false
   if data.updateTime and (data.updateTime).bTime then
     if resetTime then
       resetTime:Stop()
@@ -163,7 +171,7 @@ FamilyShopWindow.RefreshShopWindow = function(_data, ...)
   local shopNum = #data.shopGridData
   local shopGrpNum = (math.ceil)(shopNum / 5)
   local t = 1
-  -- DECOMPILER ERROR at PC78: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC80: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (GRoot.inst).touchable = false

@@ -155,5 +155,4 @@ BaseIntimacyUpData = {
 , 
 [72202610] = {id = 72202610, type = 7, level = 10, rank = 3, next_exp = 11000, add_attr = "0", team_add_attr = "1:81050003:300,1:81050004:88,1:81050002:4010"}
 }
-return BaseIntimacyUpData
 

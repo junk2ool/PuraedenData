@@ -347,5 +347,4 @@ BaseGoodsSourceData = {
 , 
 [21001] = {id = 21001, name = "领取体力补领消耗"}
 }
-return BaseGoodsSourceData
 

@@ -81,5 +81,4 @@ BaseEquipData = {
 , 
 [61080014] = {id = 61080014, name = (PUtil.get)(82900814), remark = (PUtil.get)(83900814), des = (PUtil.get)(83900814), icon = "Equipicon:s_61080014", big_icon = "Equipicon:b_61080014", type = 4, star = 5, intelligence = 4, show_type = 0, card_id = 0, sort = 1, grow_type = 1, main_attribute = "66100804:10000", random_attribute = "66200804:0,66200804:6700,66200804:2000,66200804:1000,66200804:300", random_limit = "1", random_buff = "504:8500,504:1500", fixed_attribute = "0", fixed_buff = "0", suit_id = "0", is_identify = 1, identify_cost = "2:21100012:420,2:21100003:60000", destroy_identify_goods = "2:21100012:200", destroy_no_identify_goods = "2:21100012:200", reward_sort = 9860004}
 }
-return BaseEquipData
 

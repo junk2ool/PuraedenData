@@ -37,5 +37,4 @@ BaseTrialStageData = {
 , 
 [54300006] = {id = 54300006, type = 12, next = 0, monster_group_list = "53330006:53330006:53330006:53330006:53330006:53330006:53330006", open_condition = "72501001:0:63,72504313:54300005:1", is_sweep = 1, buff_id = "47000002:47000003", win_condition = "1", lowest_unit = 5000, lowest_reward = "2:21100012:300", unit_reward = "2:21100012:6:100", intimacy_reward = "10", sweep_intimacy_reward = "1:21130005:2"}
 }
-return BaseTrialStageData
 

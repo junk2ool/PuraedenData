@@ -521,4 +521,3 @@
 , 
 [75132611] = {id = 75132611, remark = "リーダー、依頼させてくれ。お嬢の身に\nいったい何が起こったのか、調査して欲しい。", type = 1, option_ids = "0", next = -1, role_ids = "75201011", expression = "0", action = "0", action_type = "0", role_type = 75201011, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, effect_sound = 0, dialogue_sound = "Sara_Plot_18"}
 }
-

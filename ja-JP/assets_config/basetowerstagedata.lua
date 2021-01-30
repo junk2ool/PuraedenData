@@ -89,5 +89,4 @@ BaseTowerStageData = {
 , 
 [52311104] = {id = 52311104, name = (PUtil.get)(85130102, (PUtil.get)(85901011), 11, 4), remark = (PUtil.get)(85500011), tower_id = 51310011, pre = 52311103, next = 0, cost = "2:21100006:1", sweep_cost = "1:21160004:1", win_condition = "1", drop_id = "22501104:2,22531104:1", sweep_reward = "22501104:2,22541404:1", first_reward = "2:21100001:150", ext_drop_reward = "0:22520004:0,0:22520008:400,1:22520012:600,1:22520016:2200,1:22520020:3000,1:22520024:5700", ext_drop_max = 8, card_intimacy = 10, buff_id = "47001114", stage_icon = "Tower:TowerIcon_301,Tower:TowerIcon_401", drop_show = "4:61080011,4:61100011,4:61050011,4:61090011", ext_drop_show = "4:61080011:5700,4:61100011:3000,4:61050011:2200,4:61090011:600", fc = 1528000, monster_group_list = "53511141:53511142", battle_banner_show = "PlotUIBackGround:BattleBanner_4024"}
 }
-return BaseTowerStageData
 

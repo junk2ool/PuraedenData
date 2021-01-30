@@ -437,12 +437,15 @@ randomBuff = {}
                   end
                 end
                 self:SetHp(curValue + (value))
+                if curValue + (value) <= 0 then
+                  (BattleDataCount.UpdateEquipBuff)(atkInfo.atkPos, BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
+                end
                 do return value, absorbDamage, specialEffect end
-                -- DECOMPILER ERROR at PC166: Overwrote pending register: R11 in 'AssignReg'
+                -- DECOMPILER ERROR at PC176: Overwrote pending register: R11 in 'AssignReg'
 
                 if attributeId == BattleCardAttributeID.DANDER then
                   self:SetDander(absorbDamage)
-                  -- DECOMPILER ERROR at PC173: Overwrote pending register: R12 in 'AssignReg'
+                  -- DECOMPILER ERROR at PC183: Overwrote pending register: R12 in 'AssignReg'
 
                   if IsBattleServer == nil then
                     SaveBattleProcess("\tbuff改变怒气 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)

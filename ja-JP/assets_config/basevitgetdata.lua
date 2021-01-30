@@ -9,5 +9,4 @@ BaseVitGetData = {
 , 
 [32010004] = {id = 32010004, name = (PUtil.get)(89005004), icon = "cake_4", time = "7:2100:HX3", reward = "2:21100004:120", extra_cost = "2:21100001:10"}
 }
-return BaseVitGetData
 

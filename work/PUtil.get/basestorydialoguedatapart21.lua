@@ -371,7 +371,7 @@
 , 
 [75144401] = {id = 75144401, remark = "これがあたしの秘蔵中の秘蔵…\nとっておきの相棒だ。", type = 1, option_ids = "0", next = 75144402, role_ids = "75204011", action = "angry", role_type = 75204011, position = "418:606:10050", role_admission_type = "75204011:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "ME_Bonnie_Plot_17"}
 , 
-[75144402] = {id = 75144402, remark = "…見た目は、さっきの古代兵器を変わらないわね。", type = 1, option_ids = "0", next = 75144403, role_ids = "75201002", expression = "exp_shock", action = "shock", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75204011:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "Olivia_Plot_876"}
+[75144402] = {id = 75144402, remark = "…見た目は、さっきの古代兵器と変わらないわね。", type = 1, option_ids = "0", next = 75144403, role_ids = "75201002", expression = "exp_shock", action = "shock", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75204011:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "Olivia_Plot_876"}
 , 
 [75144403] = {id = 75144403, remark = "だろ？　でも射程も威力も大幅に強化されてる、\n今発掘されてる古代兵器の中でも強いやつなんだぜ。", type = 1, option_ids = "0", next = 75144404, role_ids = "75204011", action = "happy", role_type = 75204011, position = "418:606:10050", role_admission_type = "75204011:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "ME_Bonnie_Plot_18"}
 , 
@@ -487,4 +487,3 @@
 , 
 [75144541] = {id = 75144541, remark = "考え事は後にして…ひとまず街の様子を\n見に行きましょう、リーダー。", type = 1, option_ids = "0", next = -1, role_ids = "75201002", expression = "APOSE", role_type = 75201002, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, dialogue_sound = "Olivia_Plot_885"}
 }
-

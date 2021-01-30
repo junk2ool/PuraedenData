@@ -7,5 +7,4 @@ BaseGuildBuildData = {
 , 
 [76520003] = {id = 76520003, type = 3, vip_range = 0, cost = "2:21100001:100", guild_exp = 60, devote = 60, rewards = "2:21100007:30", active_point = 6, war_reward = "2:21100019:1"}
 }
-return BaseGuildBuildData
 

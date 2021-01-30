@@ -4680,5 +4680,75 @@ BaseSoundPathData = {
 [230190304] = {id = 230190304, play_frame = 93, path = "sfx_lili_yongzhuang_small_tx_93fr", bank = "lili_yongzhuang"}
 , 
 [230190305] = {id = 230190305, play_frame = 107, path = "sfx_lili_yongzhuang_small_tx_107fr", bank = "lili_yongzhuang"}
+, 
+[230300101] = {id = 230300101, play_frame = 19, path = "sfx_mianyinmao_big_tx_19fr", bank = "mianyinmao"}
+, 
+[230300102] = {id = 230300102, play_frame = 32, path = "sfx_mianyinmao_big_wh_32fr", bank = "mianyinmao"}
+, 
+[230300103] = {id = 230300103, play_frame = 77, path = "sfx_mianyinmao_big_tx_77fr", bank = "mianyinmao"}
+, 
+[230300104] = {id = 230300104, play_frame = 113, path = "sfx_mianyinmao_big_tx_113fr", bank = "mianyinmao"}
+, 
+[230300105] = {id = 230300105, play_frame = 140, path = "sfx_mianyinmao_big_tx_140fr", bank = "mianyinmao"}
+, 
+[230300106] = {id = 230300106, play_frame = 145, path = "sfx_mianyinmao_big_tx_145fr", bank = "mianyinmao"}
+, 
+[230300107] = {id = 230300107, play_frame = 151, path = "sfx_mianyinmao_big_tx_151fr", bank = "mianyinmao"}
+, 
+[230300108] = {id = 230300108, play_frame = 158, path = "sfx_mianyinmao_big_tx_158fr", bank = "mianyinmao"}
+, 
+[230300109] = {id = 230300109, play_frame = 194, path = "sfx_mianyinmao_big_tx_194fr", bank = "mianyinmao"}
+, 
+[230300110] = {id = 230300110, play_frame = 286, path = "sfx_mianyinmao_big_tx_286fr", bank = "mianyinmao"}
+, 
+[230300111] = {id = 230300111, play_frame = 334, path = "sfx_mianyinmao_big_tx_334fr", bank = "mianyinmao"}
+, 
+[230300112] = {id = 230300112, play_frame = 390, path = "sfx_mianyinmao_big_tx_390fr", bank = "mianyinmao"}
+, 
+[230300113] = {id = 230300113, play_frame = 406, path = "sfx_mianyinmao_big_tx_406fr", bank = "mianyinmao"}
+, 
+[230300114] = {id = 230300114, play_frame = 424, path = "sfx_mianyinmao_big_tx_424fr", bank = "mianyinmao"}
+, 
+[230300115] = {id = 230300115, play_frame = 460, path = "sfx_mianyinmao_big_tx_460fr", bank = "mianyinmao"}
+, 
+[230300116] = {id = 230300116, play_frame = 508, path = "sfx_mianyinmao_big_tx_508fr", bank = "mianyinmao"}
+, 
+[230300117] = {id = 230300117, play_frame = 539, path = "sfx_mianyinmao_big_tx_539fr", bank = "mianyinmao"}
+, 
+[230300201] = {id = 230300201, play_frame = 18, path = "sfx_mianyinmao_pt_wh_18fr", bank = "mianyinmao"}
+, 
+[230300202] = {id = 230300202, play_frame = 23, path = "sfx_mianyinmao_pt_tx_23fr", bank = "mianyinmao"}
+, 
+[230300203] = {id = 230300203, play_frame = 47, path = "sfx_mianyinmao_pt_wh_47fr", bank = "mianyinmao"}
+, 
+[230300204] = {id = 230300204, play_frame = 52, path = "sfx_mianyinmao_pt_tx_52fr", bank = "mianyinmao"}
+, 
+[230300205] = {id = 230300205, play_frame = 82, path = "sfx_mianyinmao_pt_wh_82fr", bank = "mianyinmao"}
+, 
+[230300206] = {id = 230300206, play_frame = 84, path = "sfx_mianyinmao_pt_tx_84fr", bank = "mianyinmao"}
+, 
+[230300301] = {id = 230300301, play_frame = 19, path = "sfx_mianyinmao_small_wh_19fr", bank = "mianyinmao"}
+, 
+[230300302] = {id = 230300302, play_frame = 23, path = "sfx_mianyinmao_small_tx_23fr", bank = "mianyinmao"}
+, 
+[230300303] = {id = 230300303, play_frame = 44, path = "sfx_mianyinmao_small_wh_44fr", bank = "mianyinmao"}
+, 
+[230300304] = {id = 230300304, play_frame = 49, path = "sfx_mianyinmao_small_tx_49fr", bank = "mianyinmao"}
+, 
+[230300305] = {id = 230300305, play_frame = 68, path = "sfx_mianyinmao_small_wh_68fr", bank = "mianyinmao"}
+, 
+[230300306] = {id = 230300306, play_frame = 76, path = "sfx_mianyinmao_small_tx_76fr", bank = "mianyinmao"}
+, 
+[230300307] = {id = 230300307, play_frame = 87, path = "sfx_mianyinmao_small_wh_87fr", bank = "mianyinmao"}
+, 
+[230300308] = {id = 230300308, play_frame = 92, path = "sfx_mianyinmao_small_tx_92fr", bank = "mianyinmao"}
+, 
+[230300309] = {id = 230300309, play_frame = 137, path = "sfx_mianyinmao_small_wh_137fr", bank = "mianyinmao"}
+, 
+[230300310] = {id = 230300310, play_frame = 143, path = "sfx_mianyinmao_small_tx_143fr", bank = "mianyinmao"}
+, 
+[230300401] = {id = 230300401, play_frame = 5, path = "sfx_mianyinmao_pt_wh_82fr", bank = "mianyinmao"}
+, 
+[230300402] = {id = 230300402, play_frame = 19, path = "sfx_mianyinmao_pt_tx_84fr", bank = "mianyinmao"}
 }
 

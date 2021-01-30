@@ -444,5 +444,14 @@
 [52500612] = {id = 52500612, name = "お見合いの主役", remark = "お見合いの主役", icon = "HandBookBanner:Activity_06_4", story_id = "75900671:75900681:75900682", sort = 4}
 , 
 [52500615] = {id = 52500615, name = "新年初詣", remark = "新年初詣", icon = "HandBookBanner:Activity_06_5", story_id = "75900691:75900692", sort = 5}
+, 
+[52500703] = {id = 52500703, name = "謎の少女", remark = "謎の少女", icon = "HandBookBanner:Activity_07_1", story_id = "75900711:75900712:75900713:75900714:75900721", sort = 1}
+, 
+[52500706] = {id = 52500706, name = "マフィアの依頼", remark = "マフィアの依頼", icon = "HandBookBanner:Activity_07_2", story_id = "75900731:75900741", sort = 2}
+, 
+[52500709] = {id = 52500709, name = "宝石回収作戦", remark = "宝石回収作戦", icon = "HandBookBanner:Activity_07_3", story_id = "75900751:75900752:75900753:75900761", sort = 3}
+, 
+[52500712] = {id = 52500712, name = "罠を仕掛ける", remark = "罠を仕掛ける", icon = "HandBookBanner:Activity_07_4", story_id = "75900771:75900772:75900781", sort = 4}
+, 
+[52500715] = {id = 52500715, name = "ボスの提案", remark = "ボスの提案", icon = "HandBookBanner:Activity_07_5", story_id = "75900791", sort = 5}
 }
-

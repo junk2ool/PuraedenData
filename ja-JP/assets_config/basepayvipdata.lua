@@ -13,5 +13,4 @@ BasePayVipData = {
 , 
 [74000005] = {id = 74000005, level = 5, vip_exp = 500000}
 }
-return BasePayVipData
 

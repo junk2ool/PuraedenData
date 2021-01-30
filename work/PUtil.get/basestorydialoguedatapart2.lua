@@ -507,4 +507,3 @@
 , 
 [75106624] = {id = 75106624, remark = "次はどんなことが起こるんだろ。\n楽しみだなー♪", type = 1, option_ids = "0", next = -1, role_ids = "75201001:75201002:75201003", expression = "PoseA:0:0", action = "0", action_type = "0", role_type = 75201001, position = "64:606:10050,418:606:10000,772:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, effect_sound = 0, dialogue_sound = "April_Plot_257"}
 }
-

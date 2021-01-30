@@ -9,5 +9,4 @@ BaseActivityShowData = {
 , 
 [34000004] = {id = 34000004, type = 5, sort = 5, banner = "HomeAd:HomeAd_004"}
 }
-return BaseActivityShowData
 

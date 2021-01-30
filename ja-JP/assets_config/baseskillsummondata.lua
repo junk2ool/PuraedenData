@@ -25,5 +25,4 @@ BaseSkillSummonData = {
 , 
 [300104] = {id = 300104, group = 3001, monster_id = 12118416, random_prob = 2500, random_pos = "101:102:103:111:112:113"}
 }
-return BaseSkillSummonData
 

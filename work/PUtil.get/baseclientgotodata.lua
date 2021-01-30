@@ -41,7 +41,7 @@
 , 
 [77122008] = {id = 77122008, name = "冒険者修行", remark = "第4章\n4-2 ショコラ", icon = "ItemIcon:21160003", type = 300102, value = 52200406, sort = 10}
 , 
-[77122102] = {id = 77122102, name = "冒険者修行", remark = "第7章\n7-7 マルタ", icon = "ItemIcon:21160003", type = 300102, value = 52200725, sort = 10}
+[77122102] = {id = 77122102, name = "冒険者修行", remark = "第7章\n7-7 ネネル", icon = "ItemIcon:21160003", type = 300102, value = 52200725, sort = 10}
 , 
 [77122105] = {id = 77122105, name = "冒険者修行", remark = "第4章\n4-5 アイリーン", icon = "ItemIcon:21160003", type = 300102, value = 52200416, sort = 10}
 , 
@@ -253,8 +253,6 @@
 , 
 [77322107] = {id = 77322107, name = "中央闘技場", remark = "「中央闘技場－ランキング報酬」で獲得する", icon = "ItemIcon:21160003", type = 300104, value = 0, sort = 30}
 , 
-[77322109] = {id = 77322109, name = "秘境", remark = "「秘境－ミニゲーム」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 30}
-, 
 [77322203] = {id = 77322203, name = "中央闘技場", remark = "「中央闘技場－ポイント報酬」で獲得する", icon = "ItemIcon:21160003", type = 300104, value = 0, sort = 30}
 , 
 [77323007] = {id = 77323007, name = "遠征", remark = "「遠征」で獲得する", icon = "ItemIcon:21160003", type = 300106, value = 0, sort = 30}
@@ -407,7 +405,7 @@
 , 
 [77423016] = {id = 77423016, name = "募集", remark = "「白い聖夜の贈り物」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423024] = {id = 77423024, name = "募集", remark = "「白い聖夜の贈り物」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423024] = {id = 77423024, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77422214] = {id = 77422214, name = "イベント", remark = "イベント 「正月 お見合い攻防戦」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
@@ -417,6 +415,7 @@
 , 
 [77423019] = {id = 77423019, name = "募集", remark = "「パッションで雪を溶かす！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
+[77423030] = {id = 77423030, name = "募集", remark = "「ファミリーの名にかけて！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 }
-

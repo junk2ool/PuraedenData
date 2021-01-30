@@ -556,7 +556,7 @@ LotteryWindow = {"GachaCharacter001"}
 , 
 ShopWindow = {"Equipicon", "Equipt"}
 , 
-BagWindow = {"Equipicon", "Equipt"}
+BagWindow = {"Equipicon", "Equipt", "FamilyFurniture"}
 , 
 GetWayWindow = {"Equipicon"}
 , 

@@ -719,4 +719,3 @@
 , 
 [75454923] = {id = 75454923, remark = "まったく…本当に、すべてリーダーのおかげだな。\nありがとう…リーダー。", type = 1, option_ids = "0", next = -1, role_ids = "75200261:75200541", expression = "0", action = "0", action_type = "0", role_type = 75200261, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 }
-

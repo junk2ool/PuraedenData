@@ -261,6 +261,10 @@
 , 
 [307002] = {id = 307002, limit_tab = 0, open_condition = "72501001:0:13", popup_window = 0, lock_type = 0}
 , 
+[307003] = {id = 307003, limit_tab = 1, open_condition = "72501001:0:13", popup_window = 0, lock_type = 2, open_des = "機能未開放"}
+, 
+[307004] = {id = 307004, limit_tab = 1, open_condition = "72501001:0:13", popup_window = 0, lock_type = 2, open_des = "機能未開放"}
+, 
 [400101] = {id = 400101, limit_tab = 0, open_condition = "72501001:0:18", popup_window = 0, lock_type = 1, open_des = "「ギルドお祈り」  Lv.18で開放"}
 , 
 [400102] = {id = 400102, limit_tab = 0, open_condition = "72501001:0:18", popup_window = 0, lock_type = 1, open_des = "「ギルド建設」  Lv.18で開放"}
@@ -279,4 +283,3 @@
 , 
 [600201] = {id = 600201, limit_tab = 1, open_condition = "72501001:0:4", popup_window = 0, lock_type = 1, open_des = "機能未開放"}
 }
-

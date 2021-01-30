@@ -471,4 +471,3 @@
 , 
 [75112613] = {id = 75112613, remark = "――天の塔へようこそ。\nあんた達、挑戦する？", type = 1, option_ids = "0", next = -1, role_ids = "75201015", expression = "exp_happy", action = "happy", action_type = "0", role_type = 75201015, position = "418:606:10050", role_admission_type = "75201015:0:0", role_departure_type = "75201001:0:0,75201002:0:0,75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009, effect_sound = 0, dialogue_sound = "Evanthe_Plot_75"}
 }
-

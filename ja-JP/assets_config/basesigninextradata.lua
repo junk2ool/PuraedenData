@@ -399,5 +399,4 @@ BaseSignInExtraData = {
 , 
 [32001200] = {id = 32001200, count = 1890, rewards = "2:21100001:150,1:21110003:10,2:21100003:50000"}
 }
-return BaseSignInExtraData
 

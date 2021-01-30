@@ -19,5 +19,4 @@ BaseNoticeData = {
 , 
 [88700012] = {id = 88700012, param = "0", show_function_ids = "3:999:0", level_limit = "3:999", sort = 1, replace = 1, is_lottery_show = 0}
 }
-return BaseNoticeData
 

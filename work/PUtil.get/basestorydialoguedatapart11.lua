@@ -539,4 +539,3 @@
 , 
 [75124626] = {id = 75124626, remark = "ギャンブルを楽しむのもいいですが…\n何事もほどほどにできなきゃ…ですね、リーダーさん♪", type = 1, option_ids = "0", next = -1, role_ids = "75201005", expression = "APOSE", action = "0", action_type = "0", role_type = 75201005, position = "418:606:10050", role_admission_type = "75201005:0:0", role_departure_type = "75201001:0:0,75201017:0:0", scene_effect_position = "1:2", expression_path = "FX_story_motion_qingsong", expression_position = "767:189", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, effect_sound = 0, dialogue_sound = "Shanon_Plot_303"}
 }
-

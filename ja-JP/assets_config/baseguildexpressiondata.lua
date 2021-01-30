@@ -29,5 +29,4 @@ BaseGuildExpressionData = {
 , 
 [78500114] = {id = 78500114, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f614", sort = 14}
 }
-return BaseGuildExpressionData
 

@@ -9,5 +9,4 @@ BaseGuildJobData = {
 , 
 [4] = {id = 4, level = 4, change_badge = 1, change_name = 1, change_notice = 1, change_join_condition = 1, agree_join = 1, refuse_join = 1, promotion = 1, downgrade = 1, transfer_guild = 1, dissolve_guild = 1, remove_member = 1, out_member = 1}
 }
-return BaseGuildJobData
 

@@ -97,5 +97,4 @@ BaseExpeditionStageData = {
 , 
 [51323016] = {id = 51323016, type = 6, expedition_id = 51320003, show_type = 6, sweep_times = "4", sweep_dander = 0, buff_ids = "0", drop_id = "0", card_intimacy = 0, buff_group1 = "0", buff_group2 = "0", buff_group3 = "0", box_drop = "22604006", shop_type = "0", stage_icon = 5, drop_show = "0", monster_group_list = "0", fc_range = "0", attr_power = "0", fc_show = 0, pre = 51323015, next = 0}
 }
-return BaseExpeditionStageData
 

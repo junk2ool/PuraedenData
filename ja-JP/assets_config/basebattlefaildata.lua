@@ -15,5 +15,4 @@ BaseBattleFailData = {
 , 
 [200204] = {id = 200204, name = (PUtil.get)(89009007), icon = "ItemIcon:21140007", name_icon = "CommonResource:name_lottery", sort = 5, rate_type = "card_skill_level_max"}
 }
-return BaseBattleFailData
 

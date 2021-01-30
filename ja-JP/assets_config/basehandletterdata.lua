@@ -101,5 +101,4 @@ BaseHandLetterData = {
 , 
 [26231060] = {id = 26231060, index = 50, icon = "CardHeadIconSquare:HeadSquare_11202006_1", remark = (PUtil.get)(94000001), card_id = 11301006}
 }
-return BaseHandLetterData
 

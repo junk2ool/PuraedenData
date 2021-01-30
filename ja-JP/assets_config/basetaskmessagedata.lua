@@ -21,5 +21,4 @@ BaseTaskMessageData = {
 , 
 [78600010] = {id = 78600010, messages = "89021001:89021002", message_prob = "2500:2500"}
 }
-return BaseTaskMessageData
 

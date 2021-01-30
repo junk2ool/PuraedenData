@@ -193,5 +193,4 @@ BaseEquipLevelUpData = {
 , 
 [67000515] = {id = 67000515, type = 6, level = 15, next_exp = 0, next_gold = 0, destroy_exp = 85520}
 }
-return BaseEquipLevelUpData
 

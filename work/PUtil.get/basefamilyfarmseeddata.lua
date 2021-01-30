@@ -11,4 +11,3 @@
 , 
 [21600451] = {id = 21600451, name = "モーモーの果樹", remark = "エデン大陸の特有の木。果実がジューシーでおいしい！", icon = "FamilyFurniture:21600451", quality = 4, intelligence = 2, grow1_icon = "FamilyFurniture:h_21600451", grow2_icon = "FamilyFurniture:h_21600452", grow3_icon = "FamilyFurniture:h_21600453", grow_time = 21600, end_time = 43200, use_num = 1, reward = "22841004", sort = 1, superposition = 9999}
 }
-

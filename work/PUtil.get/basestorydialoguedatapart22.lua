@@ -491,4 +491,3 @@
 , 
 [75146529] = {id = 75146529, remark = "えええーーーーっ！？", type = 1, option_ids = "0", next = -1, role_ids = "75201001:75201002", expression = "0:exp_shock", action = "0:shock", role_type = 75201002, position = "195:606:10000,642:606:10050", role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009, dialogue_sound = "Olivia_Plot_915"}
 }
-

@@ -511,4 +511,3 @@
 , 
 [75114632] = {id = 75114632, remark = "じ、女王様…？", type = 1, option_ids = "0", next = -1, role_ids = "75201001:75201002:75201003", expression = "0:exp_shock:0", action = "0:shock:0", action_type = "0", role_type = 75201002, position = "64:606:10000,418:606:10050,772:606:10000", role_admission_type = "75201001:50:0,75201002:0:0,75201003:-50:0", role_departure_type = "75206021:0:0", scene_effect_position = "1:2", expression_path = "FX_story_motion_jingya", expression_position = "757:168", carmera = 51100001, carmera_time = 1, role_shake = "0", effect_sound = 0, dialogue_sound = "Olivia_Plot_345"}
 }
-

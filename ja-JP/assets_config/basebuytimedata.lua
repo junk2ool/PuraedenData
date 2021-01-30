@@ -89,5 +89,4 @@ BaseBuyTimeData = {
 , 
 [72921403] = {id = 72921403, type = 214, start = 3, finish = 3, cost = "2:21100001:100", reward = "2:21100006:5"}
 }
-return BaseBuyTimeData
 

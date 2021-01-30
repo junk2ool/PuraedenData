@@ -29,5 +29,4 @@ BaseCameraShakeData = {
 , 
 [1000] = {id = 1000, name = "shake105", type = 0, frame_number = 0, frame_time = 0}
 }
-return BaseCameraShakeData
 

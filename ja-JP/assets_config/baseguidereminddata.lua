@@ -11,5 +11,4 @@ BaseGuideRemindData = {
 , 
 [5] = {id = 5, level_range = "13:20", window_name = 3070, ctrl_id = 307001, guide_eff_offset = "-20:45", finger_direction = 2, wait_time = 1}
 }
-return BaseGuideRemindData
 

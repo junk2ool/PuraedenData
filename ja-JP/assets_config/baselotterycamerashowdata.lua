@@ -101,5 +101,4 @@ BaseLotteryCameraShowData = {
 , 
 [48300050] = {id = 48300050, fashion_id = 14310600, position1 = "0:708,-80:708", scale1 = 20000, move_time1 = 2000, position2 = "-280:708,-200:708", scale2 = 20000, move_time2 = 2000, position3 = "-490:210,-490:133", scale3 = 20000, move_time3 = 2000}
 }
-return BaseLotteryCameraShowData
 

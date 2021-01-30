@@ -703,5 +703,4 @@ BaseArenaRewardData = {
 , 
 [76251224] = {id = 76251224, type = 3, phase = 12, rank_low = 20000, rank_high = 20000, reward = "2:21100001:150,2:21100003:10000,1:21110002:6", sort = 24}
 }
-return BaseArenaRewardData
 

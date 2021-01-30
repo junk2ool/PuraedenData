@@ -537,4 +537,3 @@
 , 
 [75440912] = {id = 75440912, remark = "とっても嬉しいです…\nこのお洋服、一生大事にしますね。", type = 1, option_ids = "0", next = -1, role_ids = "75200401", expression = "0", action = "0", action_type = "0", role_type = 75200401, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 }
-

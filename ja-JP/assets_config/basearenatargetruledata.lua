@@ -37,5 +37,4 @@ BaseArenaTargetRuleData = {
 , 
 [76230018] = {id = 76230018, rank_low = 1, rank_high = 1, pre_ratio = 10000, next_ratio = 70000}
 }
-return BaseArenaTargetRuleData
 

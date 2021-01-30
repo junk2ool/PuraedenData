@@ -10,5 +10,6 @@
 [78610005] = {id = 78610005, name = "Xmas限定アイコン枠", des = "メリークリスマス！\n2020年クリスマスイベント限定アイコン枠", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0005", condition = "0", sort = 5, reward_sort = 9880001, own_show = 1}
 , 
 [78610006] = {id = 78610006, name = "丑年アイコン", des = "2021年新春ログインボーナスより獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0006", condition = "0", sort = 6, reward_sort = 9880001, own_show = 1}
+, 
+[78610007] = {id = 78610007, name = "ダンディアイコン枠", des = "今日はダンディスタイルで。\n「女神のおもちゃ箱」より獲得可能", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0007", condition = "0", sort = 7, reward_sort = 9880001, own_show = 1}
 }
-

@@ -73,5 +73,4 @@ BaseGuildWarTalentUpData = {
 , 
 [71601331] = {id = 71601331, type = 12, level = 1, remark = (PUtil.get)(89071331), add_attr = "1:81050003:0", buff = "47731121", cost = "2:21100019:4"}
 }
-return BaseGuildWarTalentUpData
 

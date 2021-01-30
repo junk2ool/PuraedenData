@@ -21,5 +21,4 @@ BaseGuildBadgeData = {
 , 
 [10] = {id = 10, icon = "Guild:guild_icon10"}
 }
-return BaseGuildBadgeData
 

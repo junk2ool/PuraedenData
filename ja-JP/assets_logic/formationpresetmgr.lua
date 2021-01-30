@@ -57,53 +57,50 @@ FormationPresetMgr.RecvPresetData = function(msg, ...)
         break
       end
     end
+  else
     do
-      do
-        if UIMgr:IsWindowOpen((WinResConfig.FormationPresetWindow).name) then
-          UIMgr:SendWindowMessage((WinResConfig.FormationPresetWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH_PRESET)
-        else
-          OpenWindow((WinResConfig.FormationPresetWindow).name, UILayer.HUD)
-        end
-        ;
-        (MessageMgr.SendCenterTips)((PUtil.get)(60000605))
-        -- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
+      ;
+      (MessageMgr.SendCenterTips)((PUtil.get)(60000605))
+      -- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
 
-        ;
-        (FormationPresetData.PresetFC)[(msg.deckScheme).id] = (FormationPresetData.GetPresetFC)(msg.deckScheme)
-        -- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
+      ;
+      (FormationPresetData.PresetFC)[(msg.deckScheme).id] = (FormationPresetData.GetPresetFC)(msg.deckScheme)
+      -- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
 
-        FormationPresetData.EditPreset = msg.deckScheme
+      FormationPresetData.EditPreset = msg.deckScheme
+      ;
+      (table.sort)((msg.deckScheme).deckSchemes, FormationPresetData.FormationSort)
+      if msg.type == FormationPresetChangeType.Add then
+        (table.insert)(FormationPresetData.PresetData, msg.deckScheme)
         ;
-        (table.sort)((msg.deckScheme).deckSchemes, FormationPresetData.FormationSort)
-        if msg.type == FormationPresetChangeType.Add then
-          (table.insert)(FormationPresetData.PresetData, msg.deckScheme)
-          ;
-          (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
-        else
-          if msg.type == FormationPresetChangeType.Alter then
-            local count = #FormationPresetData.PresetData
-            for i = 1, count do
-              -- DECOMPILER ERROR at PC127: Confused about usage of register: R6 in 'UnsetPending'
+        (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
+      else
+        if msg.type == FormationPresetChangeType.Alter then
+          local count = #FormationPresetData.PresetData
+          for i = 1, count do
+            -- DECOMPILER ERROR at PC102: Confused about usage of register: R6 in 'UnsetPending'
 
-              if ((FormationPresetData.PresetData)[i]).id == (msg.deckScheme).id then
-                (FormationPresetData.PresetData)[i] = msg.deckScheme
-                break
-              end
+            if ((FormationPresetData.PresetData)[i]).id == (msg.deckScheme).id then
+              (FormationPresetData.PresetData)[i] = msg.deckScheme
+              break
             end
+          end
+          do
             do
-              do
-                -- DECOMPILER ERROR at PC152: Confused about usage of register: R2 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC127: Confused about usage of register: R2 in 'UnsetPending'
 
-                if FormationPresetData.ChosedPreset and (FormationPresetData.ChosedPreset).id == (msg.deckScheme).id and not (FormationPresetData.CompareFormation)((FormationPresetData.ChosedPreset).deckSchemes, (msg.deckScheme).deckSchemes) then
-                  FormationPresetData.ChosedPreset = nil
-                end
-                -- DECOMPILER ERROR at PC156: Confused about usage of register: R1 in 'UnsetPending'
+              if FormationPresetData.ChosedPreset and (FormationPresetData.ChosedPreset).id == (msg.deckScheme).id and not (FormationPresetData.CompareFormation)((FormationPresetData.ChosedPreset).deckSchemes, (msg.deckScheme).deckSchemes) then
+                FormationPresetData.ChosedPreset = nil
+              end
+              -- DECOMPILER ERROR at PC131: Confused about usage of register: R1 in 'UnsetPending'
 
-                FormationPresetData.OriginFormation = (msg.deckScheme).deckSchemes
-                ;
-                (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
-                UIMgr:SendWindowMessage((WinResConfig.FormationPresetWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH_PRESET, msg.type ~= FormationPresetChangeType.Add)
-                -- DECOMPILER ERROR: 2 unprocessed JMP targets
+              FormationPresetData.OriginFormation = (msg.deckScheme).deckSchemes
+              ;
+              (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
+              if UIMgr:IsWindowOpen((WinResConfig.FormationPresetWindow).name) then
+                UIMgr:SendWindowMessage((WinResConfig.FormationPresetWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH_PRESET)
+              else
+                OpenWindow((WinResConfig.FormationPresetWindow).name, UILayer.HUD)
               end
             end
           end

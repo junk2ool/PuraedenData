@@ -23,5 +23,4 @@ BaseTowerData = {
 , 
 [51310011] = {id = 51310011, name = (PUtil.get)(85901011), name_icon = "Tower:TowerName_11", stages = "52311101:52311102:52311103:52311104", open_condition = "72501001:0:55,72504411:52311004:1", pre = 51310010, next = 0, tower_icon = "Tower:Map_011", fc_range = "7000:11000", attr_power = "81050002:4914,81050003:9694,81050004:10000", fc_show = 8443, pool_id = 4011, cost = "0", background_path = "BattleScene_1011", bgm_id = 1040019}
 }
-return BaseTowerData
 

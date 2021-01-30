@@ -603,5 +603,4 @@ BaseAdventureBattlePowerData = {
 , 
 [76402301] = {id = 76402301, battle_power_max = 1000000, battle_power_percent = 30000}
 }
-return BaseAdventureBattlePowerData
 

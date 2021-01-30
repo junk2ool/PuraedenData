@@ -1,4 +1,548 @@
 {
+[116100101] = {id = 116100101, bubble_text = "あらあらリーダーさん、ここでクエストの受付ができるかしら？", voice_path = "Shanon_Home_In_1", top_position = 10}
+, 
+[116100201] = {id = 116100201, bubble_text = "リーダー。ここで修行はできるかしら？", voice_path = "Olivia_Home_In_1", top_position = 10}
+, 
+[116100301] = {id = 116100301, bubble_text = "わーい！　リーダー、ここって遊べる？", voice_path = "April_Home_In_1", top_position = 10}
+, 
+[116100401] = {id = 116100401, bubble_text = "わぁー！　すご――ごふーっ！？　…リ、リーダーさん、ティッシュは…ありますか…？", voice_path = "Lily_Home_In_1", top_position = 10}
+, 
+[116100501] = {id = 116100501, bubble_text = "ここ、書斎はある？", voice_path = "francesca_Home_In_1", top_position = 10}
+, 
+[116100601] = {id = 116100601, bubble_text = "リ、リーダーさん、ここでわたしに役立てることは、あるでしょうか…？", voice_path = "Evelynn_Home_In_1", top_position = 10}
+, 
+[116110101] = {id = 116110101, bubble_text = "リーダーさん、ここに派手な服はありますか？", voice_path = "Sophia_Home_In_1", top_position = 10}
+, 
+[116110201] = {id = 116110201, bubble_text = "ここで支店は開けるですか、リーダー？", voice_path = "Ritta_Home_In_1", top_position = 10}
+, 
+[116110301] = {id = 116110301, bubble_text = "リーダー、ここに温泉宿は建てられる？", voice_path = "Nonno_Home_In_1", top_position = 10}
+, 
+[116110401] = {id = 116110401, bubble_text = "リーダー、ここで自由に取材できますかね？", voice_path = "Sylvie_Home_In_1", top_position = 10}
+, 
+[116110501] = {id = 116110501, bubble_text = "リーダー、ここなら私も本領発揮できますか？", voice_path = "Nouet_Home_In_1", top_position = 10}
+, 
+[116110601] = {id = 116110601, bubble_text = "リーダー、ここに食堂を出せるかな？", voice_path = "Sierra_Home_In_1", top_position = 10}
+, 
+[116200101] = {id = 116200101, bubble_text = "ここにエマの港は作れるか？", voice_path = "Ema_Home_In_1", top_position = 10}
+, 
+[116200201] = {id = 116200201, bubble_text = "リーダー、みんなの願い事を叶えられるかな？", voice_path = "Cosette_Home_In_1", top_position = 10}
+, 
+[116200301] = {id = 116200301, bubble_text = "ねぇ。ここに酒蔵（さがくら）は作れるかなぁリーダー？", voice_path = "Nicoleta_Home_In_1", top_position = 10}
+, 
+[116200401] = {id = 116200401, bubble_text = "リーダー、ここに五つ星レストランはあるかな？", voice_path = "Miel_Home_In_1", top_position = 10}
+, 
+[116200501] = {id = 116200501, bubble_text = "さ、最高の場所じゃないですかっ…！　ここで取材できたら、きっと小説のアイディアがわき続けて困っちゃいますっ…！", voice_path = "Hilda_Home_In_1", top_position = 10}
+, 
+[116200601] = {id = 116200601, bubble_text = "リ、リーダーさん、ここって穴を掘れますか？", voice_path = "Fina_Home_In_1", top_position = 10}
+, 
+[116200701] = {id = 116200701, bubble_text = "ここに劇場を作れるかな、リーダー！", voice_path = "Julian_Home_In_1", top_position = 10}
+, 
+[116200801] = {id = 116200801, bubble_text = "リーダー、ここにお菓子屋さんを開けますか～？", voice_path = "Chocolat_Home_In_1", top_position = 10}
+, 
+[116210101] = {id = 116210101, bubble_text = "新入り、ここを俺様の新しい基地にできるな！？", voice_path = "Wichita_Home_In_1", top_position = 10}
+, 
+[116210201] = {id = 116210201, bubble_text = "リーダー様、こちらの部屋の掃除はできますか？いえ、返答はどうあれ、掃除はさせていただくのですが。", voice_path = "Nener_Home_In_1", top_position = 10}
+, 
+[116210301] = {id = 116210301, bubble_text = "リーダー、ここに恋愛小説ってあるかな？", voice_path = "chelsea_Home_In_1", top_position = 10}
+, 
+[116210401] = {id = 116210401, bubble_text = "リーダー、ここで募金活動はできる？", voice_path = "Iris_Home_In_1", top_position = 10}
+, 
+[116210501] = {id = 116210501, bubble_text = "歌を練習できる場所はあるっすか、リーダー？", voice_path = "Aileen_Home_In_1", top_position = 10}
+, 
+[116210601] = {id = 116210601, bubble_text = "リーダー、宝石を扱うための部屋を一つもらいたいです", voice_path = "Kiki_Home_In_1", top_position = 10}
+, 
+[116210701] = {id = 116210701, bubble_text = "あの…ここでも、芸はできる…？", voice_path = "Conchita_Home_In_1", top_position = 10}
+, 
+[116210801] = {id = 116210801, bubble_text = "リーダーくん、ここに冒険に必要なものを置けるかな？", voice_path = "Dominique_Home_In_1", top_position = 10}
+, 
+[116210901] = {id = 116210901, bubble_text = "リーダー、ここにポストを設置できますか？", voice_path = "Alicia_Home_In_1", top_position = 10}
+, 
+[116211001] = {id = 116211001, bubble_text = "リーダー、ここにアトリエはあるれすか？", voice_path = "veronica_Home_In_1", top_position = 10}
+, 
+[116220101] = {id = 116220101, bubble_text = "リーダーさん、ここにハープを弾ける場所はありますか～？", voice_path = "Tyyne_Home_In_1", top_position = 10}
+, 
+[116220201] = {id = 116220201, bubble_text = "わっ、素敵な場所ですねっ…！　どこも壊さないよう、できるかな…？", voice_path = "Marta_Home_In_1", top_position = 10}
+, 
+[116220301] = {id = 116220301, bubble_text = "リーダーさん、ペットたちも一緒に連れてきていいですか？", voice_path = "Noel_Home_In_1", top_position = 10}
+, 
+[116220401] = {id = 116220401, bubble_text = "リーダー。ここで占い屋、開くことはできるかな～？", voice_path = "Quinn_Home_In_1", top_position = 10}
+, 
+[116220501] = {id = 116220501, bubble_text = "リーダー。ここには当然、医務室はあるだろう？", voice_path = "Cate_Home_In_1", top_position = 10}
+, 
+[116220601] = {id = 116220601, bubble_text = "盟友よ。今よりここを我輩、冥夜の堕天使の領地にできるな？", voice_path = "Canon_Home_In_1", top_position = 10}
+, 
+[116220701] = {id = 116220701, bubble_text = "ここに工房はあるか？　じっとしてられないな…", voice_path = "Yewna_Home_In_1", top_position = 10}
+, 
+[116300101] = {id = 116300101, bubble_text = "ここに見張り場を設置できるか、リーダー", voice_path = "Gloria_Home_In_1", top_position = 10}
+, 
+[116300201] = {id = 116300201, bubble_text = "リーダー、ここには強くなれる道具とか置いてあるか？", voice_path = "Bridget_Home_In_1", top_position = 10}
+, 
+[116300301] = {id = 116300301, bubble_text = "私が薬を作る部屋はありますか、リーダーさん…？", voice_path = "Aloe_Home_In_1", top_position = 10}
+, 
+[116300401] = {id = 116300401, bubble_text = "リーダー、ここって好きに遊べる？", voice_path = "Flower_Home_In_1", top_position = 10}
+, 
+[116300501] = {id = 116300501, bubble_text = "おっと。ここでもお姉さんの体で洗う必要があるのかい？", voice_path = "Sara_Home_In_1", top_position = 10}
+, 
+[116300601] = {id = 116300601, bubble_text = "ここをベル様の宝庫にできるかしら！？", voice_path = "Bell_Home_In_1", top_position = 10}
+, 
+[116300701] = {id = 116300701, bubble_text = "リーダー、日向ぼっこできる場所はある？", voice_path = "Monica_Home_In_1", top_position = 10}
+, 
+[116310101] = {id = 116310101, bubble_text = "リーダーさん、ここを私たちの愛の巣にできますか？", voice_path = "Lovey_Home_In_1", top_position = 10}
+, 
+[116310201] = {id = 116310201, bubble_text = "リーダー、ここを守る仕事は私が担当できるでしょうか？", voice_path = "Ursula_Home_In_1", top_position = 10}
+, 
+[116310301] = {id = 116310301, bubble_text = "ここの子たちと遊んでもいいのかしら、リーダー？", voice_path = "Isabella_Home_In_1", top_position = 10}
+, 
+[116310401] = {id = 116310401, bubble_text = "ここにも漫画とかゲームはある？", voice_path = "Evanthe_Home_In_1", top_position = 10}
+, 
+[116310501] = {id = 116310501, bubble_text = "とてもいい場所でござるな！もっと質素な場所でも拙者は構わんでござるぞ", voice_path = "Xiao_Home_In_1", top_position = 10}
+, 
+[116310601] = {id = 116310601, bubble_text = "リーダー様、わたくしはここでお仕事ができるでしょうか…？", voice_path = "May_Home_In_1", top_position = 10}
+, 
+[116300801] = {id = 116300801, bubble_text = "歌の練習ができる場所はある？", voice_path = "Lisa_Home_In_1", top_position = 10}
+, 
+[116110701] = {id = 116110701, bubble_text = "パロネスの遊び場はあるか！？", voice_path = "Paroness_Home_In_1", top_position = 10}
+, 
+[116301001] = {id = 116301001, bubble_text = "ひとりになれる場所はあるかしら？", voice_path = "shelly_Home_In_1", top_position = 10}
+, 
+[116300901] = {id = 116300901, bubble_text = "私の相手になりそうな子はいるかしら？", voice_path = "Isabella_mizugi_Home_In_1", top_position = 10}
+, 
+[116211201] = {id = 116211201, bubble_text = "みんなが涼める場所はあるかなぁ？", voice_path = "Nonno_mizugi_Home_In_1", top_position = 10}
+, 
+[116211101] = {id = 116211101, bubble_text = "ここには、交流日誌なんてありますか？", voice_path = "Tsubaki_Home_In_1", top_position = 10}
+, 
+[116220801] = {id = 116220801, bubble_text = "大きな家の設計図を広げられる、大きな机はあるかなー♪", voice_path = "Hamit_Home_In_1", top_position = 10}
+, 
+[116301101] = {id = 116301101, bubble_text = "あの…人目につかない場所はあるでしょうか？", voice_path = "ruru_Home_In_1", top_position = 10}
+, 
+[116301201] = {id = 116301201, bubble_text = "ファッションチェックのための、おっきな鏡はある？", voice_path = "mia_Home_In_1", top_position = 10}
+, 
+[116301301] = {id = 116301301, bubble_text = "カボチャの串団子などござらんか？", voice_path = "Ha_Show_Home_In_1", top_position = 10}
+, 
+[116220901] = {id = 116220901, bubble_text = "お菓子の材料はあるかなぁ～？", voice_path = "Ha_Quinn_Home_In_1", top_position = 10}
+, 
+[116301401] = {id = 116301401, bubble_text = "ロールと遊んでくれる人はいるかなー？", voice_path = "Roll_Home_In_1", top_position = 10}
+, 
+[116221001] = {id = 116221001, bubble_text = "こちらにもみの木はございますか？あれば掃除いたします。", voice_path = "Xmas_neneru_Home_In_1", top_position = 10}
+, 
+[116301501] = {id = 116301501, bubble_text = "パーティの準備はできてるかい？", voice_path = "Xmas_sara_Home_In_1", top_position = 10}
+, 
+[116301601] = {id = 116301601, bubble_text = "おいしいおやつはあるかな～♪", voice_path = "rin_Home_In_1", top_position = 10}
+, 
+[116302401] = {id = 116302401, bubble_text = "プレゼントが置ける、大きなもみの木はあるかしら？", voice_path = "youru_Home_In_1", top_position = 10}
+, 
+[116221401] = {id = 116221401, bubble_text = "お清めの塩とかあります～？", voice_path = "xc_Sylvie_Home_In_1", top_position = 10}
+, 
+[116301701] = {id = 116301701, bubble_text = "着付けを直す場所はあるか？", voice_path = "xc_fran_Home_In_1", top_position = 10}
+, 
+[117100101] = {id = 117100101, bubble_text = "ここを売ったら、かなり儲かるんじゃない？　うふふふふふふ…", voice_path = "Shanon_Home_Talk_1", top_position = 10}
+, 
+[117100102] = {id = 117100102, bubble_text = "私ができること、きっとあるわよね？　遠慮なく言ってちょうだいね。", voice_path = "Shanon_Home_Talk_2", top_position = 10}
+, 
+[117100103] = {id = 117100103, bubble_text = "あら、リーダーさん。こんな素敵な場所を用意してくれたの？　もしかして、私のためだったりして…♪", voice_path = "Shanon_Home_Talk_3", top_position = 10}
+, 
+[117100201] = {id = 117100201, bubble_text = "ノエルもここにいるの？　なら…ち、ちょっと話でもしようかしら。", voice_path = "Olivia_Home_Talk_1", top_position = 10}
+, 
+[117100202] = {id = 117100202, bubble_text = "リーダー、手伝うべきことがあれば何でも言ってちょうだい。", voice_path = "Olivia_Home_Talk_2", top_position = 10}
+, 
+[117100203] = {id = 117100203, bubble_text = "私を見ているより、エイプリルのいたずらを止めた方がいいと思うわ。", voice_path = "Olivia_Home_Talk_3", top_position = 10}
+, 
+[117100301] = {id = 117100301, bubble_text = "そんな見つめられても、エイプリルちゃんは増えたりしないよ～？", voice_path = "April_Home_Talk_1", top_position = 10}
+, 
+[117100302] = {id = 117100302, bubble_text = "なになに？　エイプリルちゃんに何か用？", voice_path = "April_Home_Talk_2", top_position = 10}
+, 
+[117100303] = {id = 117100303, bubble_text = "んふふ～。誰にいたずらしよう…じゃなくて、誰と遊んじゃおっかな～？", voice_path = "April_Home_Talk_3", top_position = 10}
+, 
+[117100401] = {id = 117100401, bubble_text = "おおっ、リーダーさんっ！　リリー、今日も少し強くなったと思いませんかっ！？", voice_path = "Lily_Home_Talk_1", top_position = 10}
+, 
+[117100402] = {id = 117100402, bubble_text = "リリーを探してるんですか？　ここですよ、リーダーさん！", voice_path = "Lily_Home_Talk_2", top_position = 10}
+, 
+[117100403] = {id = 117100403, bubble_text = "先輩たちと一緒に修行できるなんて、リリーは面白いって思いますっ！", voice_path = "Lily_Home_Talk_3", top_position = 10}
+, 
+[117100501] = {id = 117100501, bubble_text = "別に、本を読めればどこでも同じ…", voice_path = "francesca_Home_Talk_1", top_position = 10}
+, 
+[117100502] = {id = 117100502, bubble_text = "用がないなら、邪魔しないで。", voice_path = "francesca_Home_Talk_2", top_position = 10}
+, 
+[117100503] = {id = 117100503, bubble_text = "問題がある。…ここは静かだけど、雰囲気が大図書館と違う。", voice_path = "francesca_Home_Talk_3", top_position = 10}
+, 
+[117100601] = {id = 117100601, bubble_text = "コ、コゼットさんは、とっても優しい人ですけど…ち、ちょっと怖いです……", voice_path = "Evelynn_Home_Talk_1", top_position = 10}
+, 
+[117100602] = {id = 117100602, bubble_text = "リ、リーダーさん、何か雑用はありませんか…？　やっぱり、何かしてないと不安で…", voice_path = "Evelynn_Home_Talk_2", top_position = 10}
+, 
+[117100603] = {id = 117100603, bubble_text = "い、いつかわたしも、ウルスラさんみたいに強くてかっこいい人になりたいですっ…！", voice_path = "Evelynn_Home_Talk_3", top_position = 10}
+, 
+[117110101] = {id = 117110101, bubble_text = "何か手伝うことはありますか？　できたら、とびっきり目立つお仕事を…", voice_path = "Sophia_Home_Talk_1", top_position = 10}
+, 
+[117110102] = {id = 117110102, bubble_text = "あれ？　もしかして私、もう注目の的ですかっ？", voice_path = "Sophia_Home_Talk_2", top_position = 10}
+, 
+[117110103] = {id = 117110103, bubble_text = "私、頑張りますっ！　大活躍して、大注目される人になってみせますっ…！", voice_path = "Sophia_Home_Talk_3", top_position = 10}
+, 
+[117110201] = {id = 117110201, bubble_text = "リッタはとても忙しいですからっ！　暇な子供だと思わないでくださいですっ。", voice_path = "Ritta_Home_Talk_1", top_position = 10}
+, 
+[117110202] = {id = 117110202, bubble_text = "もし助けが必要ならすぐにリッタに言うですよ。だから、余計なことはしちゃだめですっ。", voice_path = "Ritta_Home_Talk_2", top_position = 10}
+, 
+[117110203] = {id = 117110203, bubble_text = "リッタを品のない商人と比べないでください、リッタはとても良い商人ですから！", voice_path = "Ritta_Home_Talk_3", top_position = 10}
+, 
+[117110301] = {id = 117110301, bubble_text = "みんなを助けられたらね、ノンノはとっても嬉しくなるんだっ！", voice_path = "Nonno_Home_Talk_1", top_position = 10}
+, 
+[117110302] = {id = 117110302, bubble_text = "家事もクエストも、ノンノにお任せだよ〜！", voice_path = "Nonno_Home_Talk_2", top_position = 10}
+, 
+[117110303] = {id = 117110303, bubble_text = "リーダーはいつもみんなを癒してるよねっ。ノンノもリーダーを見習うよー！", voice_path = "Nonno_Home_Talk_3", top_position = 10}
+, 
+[117110401] = {id = 117110401, bubble_text = "フンフン、良いネタの匂いがします！　ここにも面白いことがたーっくさんありそうですね！", voice_path = "Sylvie_Home_Talk_1", top_position = 10}
+, 
+[117110402] = {id = 117110402, bubble_text = "新しい面白い記事が書けるなら、どんなことでも私にやらせてくださいっ！", voice_path = "Sylvie_Home_Talk_2", top_position = 10}
+, 
+[117110403] = {id = 117110403, bubble_text = "最近、大きなネタがないので退屈です…こうなったら、私たちで特大スクープネタでも作っちゃいます！？", voice_path = "Sylvie_Home_Talk_3", top_position = 10}
+, 
+[117110501] = {id = 117110501, bubble_text = "ふっふっふ…ギャンブルの必勝法を手に入れました！　今度カジノに行ったら、ディーラーをこてんぱんにしてやります！", voice_path = "Nouet_Home_Talk_1", top_position = 10}
+, 
+[117110502] = {id = 117110502, bubble_text = "リーダー、どうして冒険なんて大変な仕事をやってるんですか？　もっと楽に稼ぐ方法があるかもしれないのに…", voice_path = "Nouet_Home_Talk_2", top_position = 10}
+, 
+[117110503] = {id = 117110503, bubble_text = "エイプリルさんもいるんですか？　彼女とはしばらく会ってませんでした、また一緒に遊びたいなぁ～", voice_path = "Nouet_Home_Talk_3", top_position = 10}
+, 
+[117110601] = {id = 117110601, bubble_text = "みんな、お腹が空いてきたんじゃないかな？　そろそろご飯を作っておくね！", voice_path = "Sierra_Home_Talk_1", top_position = 10}
+, 
+[117110602] = {id = 117110602, bubble_text = "リーダー、私の手が必要ならちょっと待っててね。シエラグルメの新作メモを書き終えちゃうから…", voice_path = "Sierra_Home_Talk_2", top_position = 10}
+, 
+[117110603] = {id = 117110603, bubble_text = "今度、他の料理と一緒にシエラグルメを出して、ミエルに食べてもらう…なんてどうかな？　すぐにばれて叱られちゃうかな…？", voice_path = "Sierra_Home_Talk_3", top_position = 10}
+, 
+[117200101] = {id = 117200101, bubble_text = "ここもなかなか綺麗だな！　海に比べると、物足りないけどなっ。", voice_path = "Ema_Home_Talk_1", top_position = 10}
+, 
+[117200102] = {id = 117200102, bubble_text = "エマに何かを頼みごとはないか？　どんなことでも、エマはやりきるぞ！", voice_path = "Ema_Home_Talk_2", top_position = 10}
+, 
+[117200103] = {id = 117200103, bubble_text = "最近はいろいろ買い物しすぎて、船を買う夢がどんどん離れていってる気がするぞ…ち、ちゃんと働かないと！", voice_path = "Ema_Home_Talk_3", top_position = 10}
+, 
+[117200201] = {id = 117200201, bubble_text = "仕事の報酬をもらえたら、ここにみんなが欲しいものを買い足そうね。", voice_path = "Cosette_Home_Talk_1", top_position = 10}
+, 
+[117200202] = {id = 117200202, bubble_text = "なんでも私に任せて、必ずやりきってみせるから！", voice_path = "Cosette_Home_Talk_2", top_position = 10}
+, 
+[117200203] = {id = 117200203, bubble_text = "みんなのしたいことを手伝えたら、私はそれだけで幸せだよ。", voice_path = "Cosette_Home_Talk_3", top_position = 10}
+, 
+[117200301] = {id = 117200301, bubble_text = "アロエの薬があれば、二日酔いもすぐ治るんだよ。またアロエからたくさんもらっておかなくちゃねぇ。", voice_path = "Nicoleta_Home_Talk_1", top_position = 10}
+, 
+[117200302] = {id = 117200302, bubble_text = "ぶどうジュースととっておきのお酒、どっちがいい～？", voice_path = "Nicoleta_Home_Talk_2", top_position = 10}
+, 
+[117200303] = {id = 117200303, bubble_text = "みんなと一緒に美味し～お酒をもっと味わいたいな。だから今日も宴だよぉ！", voice_path = "Nicoleta_Home_Talk_3", top_position = 10}
+, 
+[117200401] = {id = 117200401, bubble_text = "何か美食の匂いがするんだよ、少し探してみるとしよう！", voice_path = "Miel_Home_Talk_1", top_position = 10}
+, 
+[117200402] = {id = 117200402, bubble_text = "リーダー、うちの金の皿に入ってみないかい？　きっと冒険の役に立つはずだ！", voice_path = "Miel_Home_Talk_2", top_position = 10}
+, 
+[117200403] = {id = 117200403, bubble_text = "リーダーはショコラが作ったデザートを食べたことがあるかい？　とっても人気でね、オススメだよ！", voice_path = "Miel_Home_Talk_3", top_position = 10}
+, 
+[117200501] = {id = 117200501, bubble_text = "…しーっ、静かに…今、女の子たちの日常を観察してるところなんです！　邪魔しちゃいけませんっ…！", voice_path = "Hilda_Home_Talk_1", top_position = 10}
+, 
+[117200502] = {id = 117200502, bubble_text = "あ、あの子たち、今日は一緒に出掛けるんでしょうか…？　それならぜひとも、私を連れて…！　いえっ、荷物としてでもいいのでっ…！！", voice_path = "Hilda_Home_Talk_2", top_position = 10}
+, 
+[117200503] = {id = 117200503, bubble_text = "…いい、いいですよ…！　ここの空気、女の子の甘い匂いが満ちててっ…ふひひっ…！", voice_path = "Hilda_Home_Talk_3", top_position = 10}
+, 
+[117200601] = {id = 117200601, bubble_text = "穴が掘りたいです…ちょっと時間ができただけで、穴掘り欲がどんどん湧いてきます…", voice_path = "Fina_Home_Talk_1", top_position = 10}
+, 
+[117200602] = {id = 117200602, bubble_text = "リーダーさん、井戸はいりませんか？よければリーダーさんのための、とっておきのものをひとつ掘りますよっ…！", voice_path = "Fina_Home_Talk_2", top_position = 10}
+, 
+[117200603] = {id = 117200603, bubble_text = "皆さん、忙しそうですね。私も何かお手伝いできたらいいんですけど…", voice_path = "Fina_Home_Talk_3", top_position = 10}
+, 
+[117200701] = {id = 117200701, bubble_text = "『風よ吹け！　頬を裂き、怒りを吹きつけろ！』――今の演技はどうかな、リーダー？", voice_path = "Julian_Home_Talk_1", top_position = 10}
+, 
+[117200702] = {id = 117200702, bubble_text = "何か困ってるのかい、麗しのリーダー。悲しげな顔は、君に似合わないよ。", voice_path = "Julian_Home_Talk_2", top_position = 10}
+, 
+[117200703] = {id = 117200703, bubble_text = "おや、このセリフは難しいな。リーダー、少し練習に付き合ってもらえるかい？", voice_path = "Julian_Home_Talk_3", top_position = 10}
+, 
+[117200801] = {id = 117200801, bubble_text = "みんなのお腹が空く前に、早くお菓子を作らなくちゃ♪", voice_path = "Chocolat_Home_Talk_1", top_position = 10}
+, 
+[117200802] = {id = 117200802, bubble_text = "リーダー、今のうちにお菓子、いっぱい食べてくださいね！　お腹が空いたら動けなくなっちゃいますからっ！", voice_path = "Chocolat_Home_Talk_2", top_position = 10}
+, 
+[117200803] = {id = 117200803, bubble_text = "今回の新作、なかなか美味しくできました～。今度ミエルさんにも食べてもらおうっと♪", voice_path = "Chocolat_Home_Talk_3", top_position = 10}
+, 
+[117210101] = {id = 117210101, bubble_text = "ふむ、問題なく仕事をこなしているようだな！　後でお菓子をやる、おまけもしてやろう。", voice_path = "Wichita_Home_Talk_1", top_position = 10}
+, 
+[117210102] = {id = 117210102, bubble_text = "面倒なやつがいたら教えろ。俺様がそいつを鍛え直してやるっ！", voice_path = "Wichita_Home_Talk_2", top_position = 10}
+, 
+[117210103] = {id = 117210103, bubble_text = "ふふん！　ウィチタ様は最高に賢く、機転が利いて、優秀かつ有能だと……これからはお前もそう言うように！", voice_path = "Wichita_Home_Talk_3", top_position = 10}
+, 
+[117210201] = {id = 117210201, bubble_text = "掃除をするうえで、必要なのは強靭な精神と肉体ですから。さらなる高みを目指さねばなりません。", voice_path = "Nener_Home_Talk_1", top_position = 10}
+, 
+[117210202] = {id = 117210202, bubble_text = "リーダー様、わたくしに何かご用でしょうか？", voice_path = "Nener_Home_Talk_2", top_position = 10}
+, 
+[117210203] = {id = 117210203, bubble_text = "正義のメイド？　いいえ、わたくしはただの掃除人でございます。", voice_path = "Nener_Home_Talk_3", top_position = 10}
+, 
+[117210301] = {id = 117210301, bubble_text = "ここでもきみのこと、ずーっと見てるから！　リーダー、覚悟してね！", voice_path = "chelsea_Home_Talk_1", top_position = 10}
+, 
+[117210302] = {id = 117210302, bubble_text = "恋愛に関する悩みがあったら、私に相談してね。他の悩みについては…ちょっと、答える自信ないかも…", voice_path = "chelsea_Home_Talk_2", top_position = 10}
+, 
+[117210303] = {id = 117210303, bubble_text = "好きな作者が最近ね、女の子同士の恋愛を題材にした作品を書いたの。それを読んだら私、もうすっごく気に入っちゃって…！", voice_path = "chelsea_Home_Talk_3", top_position = 10}
+, 
+[117210401] = {id = 117210401, bubble_text = "お腹空いた…今なら、どんな料理でも完食できるわ…シエラの料理以外なら！", voice_path = "Iris_Home_Talk_1", top_position = 10}
+, 
+[117210402] = {id = 117210402, bubble_text = "貧しい人々や帰る場所のない子供達を助けられるなら…どんなに辛くても、耐えてみせるわ。", voice_path = "Iris_Home_Talk_2", top_position = 10}
+, 
+[117210403] = {id = 117210403, bubble_text = "モニカにこの場所がわかるかしら…アイツは教会への帰り道も忘れるやつだもの、迷うに決まってるわ…！", voice_path = "Iris_Home_Talk_3", top_position = 10}
+, 
+[117210501] = {id = 117210501, bubble_text = "ティーネさんもここにいたら、一緒に楽しく歌えるっすね！", voice_path = "Aileen_Home_Talk_1", top_position = 10}
+, 
+[117210502] = {id = 117210502, bubble_text = "リーダー、どうしたっすか？　自分の歌が聞きたいっすか？", voice_path = "Aileen_Home_Talk_2", top_position = 10}
+, 
+[117210503] = {id = 117210503, bubble_text = "ララ～♪いやー、なんだか歌いたくなったっす。ここで公演とか、してみたいっすねー。", voice_path = "Aileen_Home_Talk_3", top_position = 10}
+, 
+[117210601] = {id = 117210601, bubble_text = "宝石を見分けるときは、宝石が心に話しかけてくる言葉に従って――ってリーダー、寝る時間じゃないですぞ？", voice_path = "Kiki_Home_Talk_1", top_position = 10}
+, 
+[117210602] = {id = 117210602, bubble_text = "宝石に関する依頼はないのかですぞ？何かあれば、ジブンに任せるですぞ！！", voice_path = "Kiki_Home_Talk_2", top_position = 10}
+, 
+[117210603] = {id = 117210603, bubble_text = "宝石は意志を持っているのですぞ。ジブン達が宝石を探すと同時に、宝石もジブン達を探している、ですぞ！", voice_path = "Kiki_Home_Talk_3", top_position = 10}
+, 
+[117210701] = {id = 117210701, bubble_text = "素晴らしい芸が始まりますよーっ！　…リーダーも、一緒に見に来て…ね！", voice_path = "Conchita_Home_Talk_1", top_position = 10}
+, 
+[117210702] = {id = 117210702, bubble_text = "ん…あの…この場所は安心する、けど…やっぱり、ちょっと緊張、する…", voice_path = "Conchita_Home_Talk_2", top_position = 10}
+, 
+[117210703] = {id = 117210703, bubble_text = "笑いが必要なら、私の芸をとくとご覧あれ！", voice_path = "Conchita_Home_Talk_3", top_position = 10}
+, 
+[117210801] = {id = 117210801, bubble_text = "ベルは今どこで冒険してるんだろう。あたしも先輩だしね…ここでなまけてないで、すぐに出発しようっと！", voice_path = "Dominique_Home_Talk_1", top_position = 10}
+, 
+[117210802] = {id = 117210802, bubble_text = "クエストをやり尽くすのも、なかなかいい冒険だよ。", voice_path = "Dominique_Home_Talk_2", top_position = 10}
+, 
+[117210803] = {id = 117210803, bubble_text = "この冒険録が完成したあかつきには、リーダーくんにサイン付きで本をプレゼントするよ♪", voice_path = "Dominique_Home_Talk_3", top_position = 10}
+, 
+[117210901] = {id = 117210901, bubble_text = "今日の配達はすべて完了しました。この後は読書して、勉強しています！", voice_path = "Alicia_Home_Talk_1", top_position = 10}
+, 
+[117210902] = {id = 117210902, bubble_text = "このあたりの道はもうすべて覚えましたよ。だから配達なら、任せてくださいね！", voice_path = "Alicia_Home_Talk_2", top_position = 10}
+, 
+[117210903] = {id = 117210903, bubble_text = "私はもう大人ですから…リーダーに頼ってばかりでなく、自立して、成長しなくちゃ…！", voice_path = "Alicia_Home_Talk_3", top_position = 10}
+, 
+[117211001] = {id = 117211001, bubble_text = "うぇへへ！ここは絵を描くことに最適れすね、ベロちゃんのアイディアが溢れてます！", voice_path = "veronica_Home_Talk_1", top_position = 10}
+, 
+[117211002] = {id = 117211002, bubble_text = "ベロちゃんの手伝いが必要れすか？絵を描くこと以外も大丈夫れすよ！", voice_path = "veronica_Home_Talk_2", top_position = 10}
+, 
+[117211003] = {id = 117211003, bubble_text = "アロエさんはベロちゃんにいっぱい毒薬を調和してくれましたよ！この絵を彼女のプレゼントにしましょうか～", voice_path = "veronica_Home_Talk_3", top_position = 10}
+, 
+[117220101] = {id = 117220101, bubble_text = "また迷子になるところでした～。神様の試練は、どこにでもあるものですね～。", voice_path = "Tyyne_Home_Talk_1", top_position = 10}
+, 
+[117220102] = {id = 117220102, bubble_text = "私の詩を聞きたいですか～？　声をかけてくれれば、いつでも演奏しますよ～。", voice_path = "Tyyne_Home_Talk_2", top_position = 10}
+, 
+[117220103] = {id = 117220103, bubble_text = "しばらくアイリーンさんの歌声を聴けていないんです～。後で会いに行かなくちゃ～。", voice_path = "Tyyne_Home_Talk_3", top_position = 10}
+, 
+[117220201] = {id = 117220201, bubble_text = "力加減できるようにならないと…。そうでなくちゃ、皆さんにご迷惑をかけちゃうのでっ…！", voice_path = "Marta_Home_Talk_1", top_position = 10}
+, 
+[117220202] = {id = 117220202, bubble_text = "リーダーさんの指示をしっかり聞いて、目の前のことを一つ一つ、頑張ってこなしていきます！", voice_path = "Marta_Home_Talk_2", top_position = 10}
+, 
+[117220203] = {id = 117220203, bubble_text = "皆さんがとっても優しいので…私ももっと強くなって、その優しさにお返しをしたいですっ。", voice_path = "Marta_Home_Talk_3", top_position = 10}
+, 
+[117220301] = {id = 117220301, bubble_text = "あそこにいるの、オリヴィアさんですよね？　な、なんだか、怖い目で見られてるような…", voice_path = "Noel_Home_Talk_1", top_position = 10}
+, 
+[117220302] = {id = 117220302, bubble_text = "ここのお仕事もちゃんとやり遂げます、リーダーさんのためにっ…！", voice_path = "Noel_Home_Talk_2", top_position = 10}
+, 
+[117220303] = {id = 117220303, bubble_text = "ペットたちに会いたくなりました…ふふ、今度連れて来てみようかな……", voice_path = "Noel_Home_Talk_3", top_position = 10}
+, 
+[117220401] = {id = 117220401, bubble_text = "ふぁ～…リーダーも眠そうだし、一緒に寝ちゃう～？", voice_path = "Quinn_Home_Talk_1", top_position = 10}
+, 
+[117220402] = {id = 117220402, bubble_text = "もし占ってほしかったら、いつでも声をかけてね。ワタシは、リーダーを占うのが楽しみだから。", voice_path = "Quinn_Home_Talk_2", top_position = 10}
+, 
+[117220403] = {id = 117220403, bubble_text = "運命から逃れることはできないけど、変えることはできるからね。それにリーダーと一緒なら…きっともっと簡単に、運命を変えられるよ。", voice_path = "Quinn_Home_Talk_3", top_position = 10}
+, 
+[117220501] = {id = 117220501, bubble_text = "私は忙しいんだ、特別な用事もないなら邪魔をするなよ。", voice_path = "Cate_Home_Talk_1", top_position = 10}
+, 
+[117220502] = {id = 117220502, bubble_text = "なんだ、治療してほしいのか？　…って、怪我なんてどこにもないだろう。次にからかったら、医務室から追い出すからな！", voice_path = "Cate_Home_Talk_2", top_position = 10}
+, 
+[117220503] = {id = 117220503, bubble_text = "シャノン？　そんなやつは知らないな。人に面倒をかけるだけのやつなんて、私と関係あるわけないだろう！", voice_path = "Cate_Home_Talk_3", top_position = 10}
+, 
+[117220601] = {id = 117220601, bubble_text = "冥夜の堕天使は最も孤高で特別な存在だ。貴様にもわかるだろう？　我が盟友よ！", voice_path = "Canon_Home_Talk_1", top_position = 10}
+, 
+[117220602] = {id = 117220602, bubble_text = "何か問題でもあったか？　貴様の忠誠に免じて、この我輩にすべて任せるがいい！", voice_path = "Canon_Home_Talk_2", top_position = 10}
+, 
+[117220603] = {id = 117220603, bubble_text = "ククク…冥夜の堕天使として、貴様に冥界の力を見せてやろう！　期待するがいい、我が同志よ！", voice_path = "Canon_Home_Talk_3", top_position = 10}
+, 
+[117220701] = {id = 117220701, bubble_text = "うだうだしても仕方ないぞ、リーダーはもっとスパッと決断したほうがいい。", voice_path = "Yewna_Home_Talk_1", top_position = 10}
+, 
+[117220702] = {id = 117220702, bubble_text = "あたしの鍛冶技術を上げられるなら、どんなことでもあたしに任せてくれ。", voice_path = "Yewna_Home_Talk_2", top_position = 10}
+, 
+[117220703] = {id = 117220703, bubble_text = "目指しているところがどんなに遠くても、やるしかないんだ。どんな短い時間も大切に使わないとな。", voice_path = "Yewna_Home_Talk_3", top_position = 10}
+, 
+[117300101] = {id = 117300101, bubble_text = "雰囲気もインテリアも素晴らしいな。リーダーと好みが合うようだ。", voice_path = "Gloria_Home_Talk_1", top_position = 10}
+, 
+[117300102] = {id = 117300102, bubble_text = "ここで待機しておくから、何かあったら言ってくれ。すぐに対応しよう。", voice_path = "Gloria_Home_Talk_2", top_position = 10}
+, 
+[117300103] = {id = 117300103, bubble_text = "リーダー、今日の交換日記は書いたか？　親交を深めるためだ、決して忘れるな！", voice_path = "Gloria_Home_Talk_3", top_position = 10}
+, 
+[117300201] = {id = 117300201, bubble_text = "特訓に手は抜けないんだ！　守りたいものを守れるようになるためにはな！", voice_path = "Bridget_Home_Talk_1", top_position = 10}
+, 
+[117300202] = {id = 117300202, bubble_text = "今日も一緒に特訓しようぜ！　俺の実力、見せてやる！　あっ、手は抜いてやるから安心しろって！", voice_path = "Bridget_Home_Talk_2", top_position = 10}
+, 
+[117300203] = {id = 117300203, bubble_text = "友達としても護衛としても、メイのことを守る責任は俺にある！そして、これは俺の決意でもある…！", voice_path = "Bridget_Home_Talk_3", top_position = 10}
+, 
+[117300301] = {id = 117300301, bubble_text = "ふふ…みんな消えちゃえば、リーダーさんは私のものになるんですよね…", voice_path = "Aloe_Home_Talk_1", top_position = 10}
+, 
+[117300302] = {id = 117300302, bubble_text = "リーダーさんは、何の薬が必要ですか？　痺れ薬、毒薬、眠り薬…欲しい薬はぜーんぶあげますからね…。", voice_path = "Aloe_Home_Talk_2", top_position = 10}
+, 
+[117300303] = {id = 117300303, bubble_text = "あの年中発情期のウサギのレッドと会ったら、リーダーさんに近づかないよう、ちゃんと注意しなくちゃ…！", voice_path = "Aloe_Home_Talk_3", top_position = 10}
+, 
+[117300401] = {id = 117300401, bubble_text = "フラワーは、リーダーと遊びたいな。でもね、お仕事の邪魔はしないよ。ちゃんと終わるまで、良い子で待ってるね。", voice_path = "Flower_Home_Talk_1", top_position = 10}
+, 
+[117300402] = {id = 117300402, bubble_text = "リーダー、疲れてる？　フラワーが、『よしよし』しようか？　そしたら、元気が出るよ、えへへ。", voice_path = "Flower_Home_Talk_2", top_position = 10}
+, 
+[117300403] = {id = 117300403, bubble_text = "よしよし…。フラワーは、ここにいるよ。リーダーのそばにいるよ。", voice_path = "Flower_Home_Talk_3", top_position = 10}
+, 
+[117300501] = {id = 117300501, bubble_text = "リーダーは、お姉さんのことが好きだろう？　ふふ。素直に答えてくれたら、お姉さんがご奉仕してあげるよ。", voice_path = "Sara_Home_Talk_1", top_position = 10}
+, 
+[117300502] = {id = 117300502, bubble_text = "おや、可愛いリーダー。何か悩みでもあるのかな？　お姉さんが聞いてあげよう。", voice_path = "Sara_Home_Talk_2", top_position = 10}
+, 
+[117300503] = {id = 117300503, bubble_text = "まさかオリヴィアのお嬢に認められるだなんて、リーダーは人気者だな。ふふ。", voice_path = "Sara_Home_Talk_3", top_position = 10}
+, 
+[117300601] = {id = 117300601, bubble_text = "気を抜いてる暇はないわ。一度、お宝の情報をまとめておきましょう。", voice_path = "Bell_Home_Talk_1", top_position = 10}
+, 
+[117300602] = {id = 117300602, bubble_text = "クエストなら手伝ってあげるわ。…べ、別にただ、お宝探しの計画に影響を出したくないだけよ！", voice_path = "Bell_Home_Talk_2", top_position = 10}
+, 
+[117300603] = {id = 117300603, bubble_text = "（ペラペラ）ふむ、ドミニクの冒険録は本当にいい本よね！　私もお宝を見つけたら、自伝を出版したいものだわ！", voice_path = "Bell_Home_Talk_3", top_position = 10}
+, 
+[117300701] = {id = 117300701, bubble_text = "むにゃむにゃ…もう食べられないって…ん…ふわぁ…あれ、リーダーいたの？　気づかなかったよー。", voice_path = "Monica_Home_Talk_1", top_position = 10}
+, 
+[117300702] = {id = 117300702, bubble_text = "やっほー、リーダー。一緒に外でぶらぶらしよー？", voice_path = "Monica_Home_Talk_2", top_position = 10}
+, 
+[117300703] = {id = 117300703, bubble_text = "教会じゃ、いつも人間違いしてアイリスに説教されたんだけど…シスターってみんな同じ格好してるしさ、覚えられなくて当然だよねー。", voice_path = "Monica_Home_Talk_3", top_position = 10}
+, 
+[117310101] = {id = 117310101, bubble_text = "この愛の巣では欲望に素直になって、存分にラヴィを楽しんでくださいね♪", voice_path = "Lovey_Home_Talk_1", top_position = 10}
+, 
+[117310102] = {id = 117310102, bubble_text = "リーダーさんは私の運命の人…リーダーさんのためなら、全てを捧げてみせますよ♪", voice_path = "Lovey_Home_Talk_2", top_position = 10}
+, 
+[117310103] = {id = 117310103, bubble_text = "アロエはここにいませんよね？　リーダーさんと二人きりの時間…ぜーったい邪魔させませんっ！", voice_path = "Lovey_Home_Talk_3", top_position = 10}
+, 
+[117310201] = {id = 117310201, bubble_text = "主人の意志に従い、主人の命令を実行する…これこそ、私が存在する意味です。", voice_path = "Ursula_Home_Talk_1", top_position = 10}
+, 
+[117310202] = {id = 117310202, bubble_text = "どこにいても、私はあなたの忠実なしもべです。リーダーのご命令をお待ちしています。", voice_path = "Ursula_Home_Talk_2", top_position = 10}
+, 
+[117310203] = {id = 117310203, bubble_text = "あなたが望むことであれば、いかなる努力も…いいえ、なんとしてでも叶えてみせます！", voice_path = "Ursula_Home_Talk_3", top_position = 10}
+, 
+[117310301] = {id = 117310301, bubble_text = "今のうちに、武器の手入れでもしようかしら。いつでも戦えるようにしておかなくちゃいけないもの。", voice_path = "Isabella_Home_Talk_1", top_position = 10}
+, 
+[117310302] = {id = 117310302, bubble_text = "面白い戦いができるなら、すべて私に任せていいわ！", voice_path = "Isabella_Home_Talk_2", top_position = 10}
+, 
+[117310303] = {id = 117310303, bubble_text = "みんなとできる、良い『遊び』があるんだけど…ふふ、安心しなさい。問題は起こらないようにするから。", voice_path = "Isabella_Home_Talk_3", top_position = 10}
+, 
+[117310401] = {id = 117310401, bubble_text = "ま、ここも悪くないんじゃない？　労働しなくてよくて、暇つぶしの道具があればね", voice_path = "Evanthe_Home_Talk_1", top_position = 10}
+, 
+[117310402] = {id = 117310402, bubble_text = "クエストなら、あっちの子たちに任せたら？あたしは忙しいから。…だらだらするのに。", voice_path = "Evanthe_Home_Talk_2", top_position = 10}
+, 
+[117310403] = {id = 117310403, bubble_text = "誰かゲームとかテレビ、持ってきてくれないかなー…でも電気ないから意味ないかー……", voice_path = "Evanthe_Home_Talk_3", top_position = 10}
+, 
+[117310501] = {id = 117310501, bubble_text = "能ある鷹は爪を隠す……心頭滅却すれば火もまた涼し……", voice_path = "Xiao_Home_Talk_1", top_position = 10}
+, 
+[117310502] = {id = 117310502, bubble_text = "天晴だ、こなた……寝るのに適した場所でござるな！", voice_path = "Xiao_Home_Talk_2", top_position = 10}
+, 
+[117310503] = {id = 117310503, bubble_text = "良き風景でござるな……共にお茶を飲むでござるか？", voice_path = "Xiao_Home_Talk_3", top_position = 10}
+, 
+[117310601] = {id = 117310601, bubble_text = "少しでも世界が平和になるのなら…わたくしは、強くなりたいのです。", voice_path = "May_Home_Talk_1", top_position = 10}
+, 
+[117310602] = {id = 117310602, bubble_text = "どんなことでも、わたくしにやらせていただけませんか？　わたくしはもっといろんな経験をしなくてはいけませんからっ。", voice_path = "May_Home_Talk_2", top_position = 10}
+, 
+[117310603] = {id = 117310603, bubble_text = "ブリジットは今どちらにいるでしょうか？　皆様と仲良くやっているといいのですが…", voice_path = "May_Home_Talk_3", top_position = 10}
+, 
+[117300801] = {id = 117300801, bubble_text = "いっけない、もう仕事に行かないと！まぁ、今日も喫茶店のほうだけど。", voice_path = "Lisa_Home_Talk_1", top_position = 10}
+, 
+[117300802] = {id = 117300802, bubble_text = "歌の練習は他の子に聞かれたくないのよね…。だって、まだ下手っぴだし…", voice_path = "Lisa_Home_Talk_2", top_position = 10}
+, 
+[117300803] = {id = 117300803, bubble_text = "ちょっとこのプライド、可愛い子が多すぎじゃない？あんたまさか…顔で選んでるんじゃ…", voice_path = "Lisa_Home_Talk_3", top_position = 10}
+, 
+[117110701] = {id = 117110701, bubble_text = "にひひっ…今度はどこに落とし穴を掘ろうかな…", voice_path = "Paroness_Home_Talk_1", top_position = 10}
+, 
+[117110702] = {id = 117110702, bubble_text = "ここにはパロネスを構ってくれるヤツが多い！うん、満足だ！", voice_path = "Paroness_Home_Talk_2", top_position = 10}
+, 
+[117110703] = {id = 117110703, bubble_text = "あーっ、かくれんぼ見つかっちゃった！次はリーダーが隠れる番だ！", voice_path = "Paroness_Home_Talk_3", top_position = 10}
+, 
+[117301001] = {id = 117301001, bubble_text = "物陰や死角にばかり目が向いてしまうのは、私の良くない癖ね。", voice_path = "shelly_Home_Talk_1", top_position = 10}
+, 
+[117301002] = {id = 117301002, bubble_text = "このプライドは、本当に自由ね。…嫌いな雰囲気では、ないけれど。", voice_path = "shelly_Home_Talk_2", top_position = 10}
+, 
+[117301003] = {id = 117301003, bubble_text = "私のことは気にしなくて結構よ。これでも好きにやってるの。", voice_path = "shelly_Home_Talk_3", top_position = 10}
+, 
+[117300901] = {id = 117300901, bubble_text = "リーダーは平和すぎることを退屈だと思わないのかしら？私に言ってくれれば、もっと刺激的な夏を送らせてあげるけど？", voice_path = "Isabella_mizugi_Home_Talk_1", top_position = 10}
+, 
+[117300902] = {id = 117300902, bubble_text = "この格好は涼しいし危なくて気に入ってるけど…日差しが当たる場所にずっとはいたくないわ。私はそういうレッドなの。", voice_path = "Isabella_mizugi_Home_Talk_2", top_position = 10}
+, 
+[117300903] = {id = 117300903, bubble_text = "リーダーは直接戦わないとはいえ、夏ごときでバテているようじゃ私の相手は務まらないわよ。", voice_path = "Isabella_mizugi_Home_Talk_3", top_position = 10}
+, 
+[117211201] = {id = 117211201, bubble_text = "他のみんなの水着も見てみたいな～。きっとすっごく可愛いと思うんだっ！リーダーも見てみたいよね？", voice_path = "Nonno_mizugi_Home_Talk_1", top_position = 10}
+, 
+[117211202] = {id = 117211202, bubble_text = "ノンノも上手に泳げるようになりたいなぁ…。泳げるようになったら、海の底まで探検に行きたい！そしたら楽しそうだもん！", voice_path = "Nonno_mizugi_Home_Talk_2", top_position = 10}
+, 
+[117211203] = {id = 117211203, bubble_text = "海から上がった後は、体がずーんってするよね。それがなんだか気持ち良くて不思議なの。…でも、ちょっと眠くなっちゃったりして…ふわぁ。", voice_path = "Nonno_mizugi_Home_Talk_3", top_position = 10}
+, 
+[117211101] = {id = 117211101, bubble_text = "まだまだ皆さんの顔も名前も覚えられていませんが…ここはにぎやかで、とても楽しいです。", voice_path = "Tsubaki_Home_Talk_1", top_position = 10}
+, 
+[117211102] = {id = 117211102, bubble_text = "ここにいる方々は、リーダーさんのお友達でしょうか？それとも…ご家族とか？", voice_path = "Tsubaki_Home_Talk_2", top_position = 10}
+, 
+[117211103] = {id = 117211103, bubble_text = "このお部屋は、急に寒くなったりしませんか…？　", voice_path = "Tsubaki_Home_Talk_3", top_position = 10}
+, 
+[117220801] = {id = 117220801, bubble_text = "ここさえあれば、ホテル代が浮いて助かるねー！　節約節約ーっと♪　あ、ちなみに食事とかもあれば、もっと助かるんだけど…どうかなー？", voice_path = "Hamit_Home_Talk_1", top_position = 10}
+, 
+[117220802] = {id = 117220802, bubble_text = "こういう物陰があるところは助かるよ。ルルリカは、とにかく人目につかない場所へ行くためなら手段を選ばないからね。「例え火の中水の中」…って、嘘じゃなかったんだよね…", voice_path = "Hamit_Home_Talk_2", top_position = 10}
+, 
+[117220803] = {id = 117220803, bubble_text = "むむっ、あのメンバーも女優に向いてるかも！　…なーんちゃって。あたしはルルリカの面倒を見るのに精いっぱいだからね、他の子に手出ししないよ♪", voice_path = "Hamit_Home_Talk_3", top_position = 10}
+, 
+[117301101] = {id = 117301101, bubble_text = "ふふ…ずっと宿暮らしだったから、こういう場所にいられるのはなんだか不思議な気持ちです。ずっとここに、いられたら…なんて、わがままを言っちゃいけませんよね。", voice_path = "ruru_Home_Talk_1", top_position = 10}
+, 
+[117301102] = {id = 117301102, bubble_text = "ここにいる皆さん、とっても優しくて…お芝居の練習を手伝ってくれたりするんです…。でも…恥ずかしくて目を合わせられなくて、気が付いたら物陰に隠れてしまって…うぅ、申し訳ないです…", voice_path = "ruru_Home_Talk_2", top_position = 10}
+, 
+[117301103] = {id = 117301103, bubble_text = "い、いつもなら、たくさんの人がいると緊張しちゃうんですが…ここはなんだか、とっても心地いい気がします…どうしてでしょう…？", voice_path = "ruru_Home_Talk_3", top_position = 10}
+, 
+[117301201] = {id = 117301201, bubble_text = "このハウスくらいのクローゼットが欲しいかも。パパにおねだりしよっかな？", voice_path = "mia_Home_Talk_1", top_position = 10}
+, 
+[117301202] = {id = 117301202, bubble_text = "いつもかわいくいるためには、家の中でもしっかりキメるのが大事なの！", voice_path = "mia_Home_Talk_2", top_position = 10}
+, 
+[117301203] = {id = 117301203, bubble_text = "ねえリーダー、足のマッサージとか…してほしいんですけど。", voice_path = "mia_Home_Talk_3", top_position = 10}
+, 
+[117301301] = {id = 117301301, bubble_text = "菓子で腹もいっぱいになったし、ひと眠りしたいところでござるが…この格好で昼寝などしたら、本物の死体と勘違いされそうでござるな。", voice_path = "Ha_Show_Home_Talk_1", top_position = 10}
+, 
+[117301302] = {id = 117301302, bubble_text = "ぴょんぴょんぴょんっ、もひとつおまけにぴょん！　でござる。…ふむ、少しずつ本物のキョンシーに近づいているでござるな。", voice_path = "Ha_Show_Home_Talk_2", top_position = 10}
+, 
+[117301303] = {id = 117301303, bubble_text = "拙者がぴょんぴょんと近づくと、他のメンバーがキャアっと声を上げるでござる。楽しんでもらえて何よりでござるよ。", voice_path = "Ha_Show_Home_Talk_3", top_position = 10}
+, 
+[117220901] = {id = 117220901, bubble_text = "本来見えないものが見えやすくなる季節があるんだ。それをリーダーの世界では、『ハロウィン』って呼ぶんだね。", voice_path = "Ha_Quinn_Home_Talk_1", top_position = 10}
+, 
+[117220902] = {id = 117220902, bubble_text = "お菓子が欲しくなったらいつでも言ってね。いつでも渡せるよう用意してあるの。", voice_path = "Ha_Quinn_Home_Talk_2", top_position = 10}
+, 
+[117220903] = {id = 117220903, bubble_text = "おお神よ～。…あ、今はシスターらしく練習してたところだよ。アイリスにもいろいろ教えてもらおうかなぁ。", voice_path = "Ha_Quinn_Home_Talk_3", top_position = 10}
+, 
+[117301401] = {id = 117301401, bubble_text = "うーん……改めて見てみると、きれーで目立つ人たちばっかり！　でもロールも負けないよう、目立ってみせるよー！", voice_path = "Roll_Home_Talk_1", top_position = 10}
+, 
+[117301402] = {id = 117301402, bubble_text = "ここはリーダーもみんなもいるから、全然寂しくないね、えへへ。リーダー、ロールをずーっとここにいさせてね？", voice_path = "Roll_Home_Talk_2", top_position = 10}
+, 
+[117301403] = {id = 117301403, bubble_text = "お外でひなたぼっこも大好きだけど…広いお部屋で、のんびりするのも大好き～！　今日はここでお昼寝してごろごろしよーっと！", voice_path = "Roll_Home_Talk_3", top_position = 10}
+, 
+[117221001] = {id = 117221001, bubble_text = "サンタは煙突から家に侵入すると言いますね。しかし、サンタが汚れた絵は見たことがありませんから…きっと煙突を掃除しながら入るのでしょう。サンタ、なかなか侮れませんね。", voice_path = "Xmas_neneru_Home_Talk_1", top_position = 10}
+, 
+[117221002] = {id = 117221002, bubble_text = "リーダー様、外の雪だるまをご覧になりましたか？　メンバーの方々がお作りになったようです。…さすがのわたくしも、あちらは排除いたしませんよ。", voice_path = "Xmas_neneru_Home_Talk_2", top_position = 10}
+, 
+[117221003] = {id = 117221003, bubble_text = "部屋の飾りつけをするというなら、まずはもちろん、完膚なきまでに掃除をしてからです。", voice_path = "Xmas_neneru_Home_Talk_3", top_position = 10}
+, 
+[117301501] = {id = 117301501, bubble_text = "リボンがすぐに緩んでしまうから、結び直しているところだよ。だって君以外の前でこれがほどけたら、大変だろう？", voice_path = "Xmas_sara_Home_Talk_1", top_position = 10}
+, 
+[117301502] = {id = 117301502, bubble_text = "お嬢達のプレゼントに、本や紅茶を用意しているんだ。そうそう、オリヴィアのお嬢にも可愛いぬいぐるみを贈ってあげないと。", voice_path = "Xmas_sara_Home_Talk_2", top_position = 10}
+, 
+[117301503] = {id = 117301503, bubble_text = "せっかくだから、ここもいろいろと飾り付けをしたいね。パーティが盛り上がるし、準備している時間も楽しいものだからね。", voice_path = "Xmas_sara_Home_Talk_3", top_position = 10}
+, 
+[117301601] = {id = 117301601, bubble_text = "みんな～、一休みしておやつでも食べようよ～。ほら、リーダーもたーんとお食べー♪", voice_path = "rin_Home_Talk_1", top_position = 10}
+, 
+[117301602] = {id = 117301602, bubble_text = "ばんばん撃ちたい気分だし、外へ行こうかな～ってさっきから思ってるんだ。でも、ここにいるとのんびりしたさが止まらなくてぇ～…ぐうたら～。", voice_path = "rin_Home_Talk_2", top_position = 10}
+, 
+[117301603] = {id = 117301603, bubble_text = "早くクエストや遠征に行きたいな～♪　だってほら、みんなで海とか山とか行くの楽しいから！　…あ、もちろん戦いもするよ。こう、気持ちがやるぞー！　ってなったら、ね？", voice_path = "rin_Home_Talk_3", top_position = 10}
+, 
+[117302401] = {id = 117302401, bubble_text = "ここにいるのはいい子ばっかりね♪　クリスマスプレゼントは期待しててちょうだい♪", voice_path = "youru_Home_Talk_1", top_position = 10}
+, 
+[117302402] = {id = 117302402, bubble_text = "いち、に、いち、に…ふぅ。こういう時間こそ来たるべき配達に備えて、ちょっとでも鍛えなくちゃ！", voice_path = "youru_Home_Talk_2", top_position = 10}
+, 
+[117302403] = {id = 117302403, bubble_text = "外に出て走るのは楽しいけど、家の中も好きなのよ。次の年のプレゼントについて、ゆっくり考えられるし…♪", voice_path = "youru_Home_Talk_3", top_position = 10}
+, 
+[117221401] = {id = 117221401, bubble_text = "ここじゃ変装する意味はないんですが…皆さんに可愛いって言ってもらえるので、つい♪", voice_path = "xc_Sylvie_Home_Talk_1", top_position = 10}
+, 
+[117221402] = {id = 117221402, bubble_text = "はっ、お札にこっそり記事のネタを書き込めば…より潜入取材がはかどるのでは！？", voice_path = "xc_Sylvie_Home_Talk_2", top_position = 10}
+, 
+[117221403] = {id = 117221403, bubble_text = "もしエセ巫女が必要なときは声をかけてください。それっぽいことしてみせますから！", voice_path = "xc_Sylvie_Home_Talk_3", top_position = 10}
+, 
+[117301701] = {id = 117301701, bubble_text = "…もらった餅が余っているから、メンバー達に配るところだ。…リーダーもいる？", voice_path = "xc_fran_Home_Talk_1", top_position = 10}
+, 
+[117301702] = {id = 117301702, bubble_text = "…こたつに、みかん…お雑煮に、甘酒…別に、学んだ言葉を言っているだけ。全部欲しいとか、そういうんじゃない。", voice_path = "xc_fran_Home_Talk_2", top_position = 10}
+, 
+[117301703] = {id = 117301703, bubble_text = "さっき、エイプリルに「帯回しがしたい」と言われて…断ったが、リーダーはどういうものか知っている？", voice_path = "xc_fran_Home_Talk_3", top_position = 10}
+, 
 [97010010] = {id = 97010010, bubble_text = "生活のためには、お金をたっぷり稼がないと。リーダーさんもそう思うでしょ？", expression = "exp_angry", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_1"}
 , 
 [97010011] = {id = 97010011, bubble_text = "プライドと受付嬢の掛け持ちは、たしかに疲れるわ…でもその代わり、給料は２倍になるじゃない？　そう考えるとお得だわ♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_2"}
@@ -9461,548 +10005,139 @@
 , 
 [117301903] = {id = 117301903, bubble_text = "ラヴィさんはどんなに冷たい風が吹いても、笑顔でいるんです。リリーもあれぐらい強くなりたいですっ…！", voice_path = "mizugi_Lily_Home_Talk_3", top_position = 10}
 , 
-[116100101] = {id = 116100101, bubble_text = "あらあらリーダーさん、ここでクエストの受付ができるかしら？", voice_path = "Shanon_Home_In_1", top_position = 10}
+[97030301] = {id = 97030301, bubble_text = "リーダーは、休憩中か？…私も空を眺めるのは好きだから、気持ちはわかる。何もしない時間は…いいものだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Main_1"}
 , 
-[116100201] = {id = 116100201, bubble_text = "リーダー。ここで修行はできるかしら？", voice_path = "Olivia_Home_In_1", top_position = 10}
+[97030302] = {id = 97030302, bubble_text = "…私を見つめるのが、そんなに楽しいのか？プデルのようにすぐ顔色を変えたり、尻尾を振ったり下げたりはしないが…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Main_2"}
 , 
-[116100301] = {id = 116100301, bubble_text = "わーい！　リーダー、ここって遊べる？", voice_path = "April_Home_In_1", top_position = 10}
+[97030303] = {id = 97030303, bubble_text = "『ペンデュラム』は、振り子を意味する。決して正義にも悪にも振り切らないことでこそ、手に入れられるものがあるからだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Main_3"}
 , 
-[116100401] = {id = 116100401, bubble_text = "わぁー！　すご――ごふーっ！？　…リ、リーダーさん、ティッシュは…ありますか…？", voice_path = "Lily_Home_In_1", top_position = 10}
+[97030304] = {id = 97030304, bubble_text = "あなたはいつも、メンバーを気にかけているな。それゆえに、厚い信頼が得られているんだろう。…私も見習わねばな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Main_4"}
 , 
-[116100501] = {id = 116100501, bubble_text = "ここ、書斎はある？", voice_path = "francesca_Home_In_1", top_position = 10}
+[97130301] = {id = 97130301, bubble_text = "リーダーは、休憩中か？…私も空を眺めるのは好きだから、気持ちはわかる。何もしない時間は…いいものだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Main_1"}
 , 
-[116100601] = {id = 116100601, bubble_text = "リ、リーダーさん、ここでわたしに役立てることは、あるでしょうか…？", voice_path = "Evelynn_Home_In_1", top_position = 10}
+[97130302] = {id = 97130302, bubble_text = "…私を見つめるのが、そんなに楽しいのか？プデルのようにすぐ顔色を変えたり、尻尾を振ったり下げたりはしないが…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Main_2"}
 , 
-[116110101] = {id = 116110101, bubble_text = "リーダーさん、ここに派手な服はありますか？", voice_path = "Sophia_Home_In_1", top_position = 10}
+[97130303] = {id = 97130303, bubble_text = "『ペンデュラム』は、振り子を意味する。決して正義にも悪にも振り切らないことでこそ、手に入れられるものがあるからだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Main_3"}
 , 
-[116110201] = {id = 116110201, bubble_text = "ここで支店は開けるですか、リーダー？", voice_path = "Ritta_Home_In_1", top_position = 10}
+[97130304] = {id = 97130304, bubble_text = "あなたはいつも、メンバーを気にかけているな。それゆえに、厚い信頼が得られているんだろう。…私も見習わねばな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Main_4"}
 , 
-[116110301] = {id = 116110301, bubble_text = "リーダー、ここに温泉宿は建てられる？", voice_path = "Nonno_Home_In_1", top_position = 10}
+[97230301] = {id = 97230301, bubble_text = "リーダーは、休憩中か？…私も空を眺めるのは好きだから、気持ちはわかる。何もしない時間は…いいものだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Main_1"}
 , 
-[116110401] = {id = 116110401, bubble_text = "リーダー、ここで自由に取材できますかね？", voice_path = "Sylvie_Home_In_1", top_position = 10}
+[97230302] = {id = 97230302, bubble_text = "…私を見つめるのが、そんなに楽しいのか？プデルのようにすぐ顔色を変えたり、尻尾を振ったり下げたりはしないが…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Main_2"}
 , 
-[116110501] = {id = 116110501, bubble_text = "リーダー、ここなら私も本領発揮できますか？", voice_path = "Nouet_Home_In_1", top_position = 10}
+[97230303] = {id = 97230303, bubble_text = "『ペンデュラム』は、振り子を意味する。決して正義にも悪にも振り切らないことでこそ、手に入れられるものがあるからだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Main_3"}
 , 
-[116110601] = {id = 116110601, bubble_text = "リーダー、ここに食堂を出せるかな？", voice_path = "Sierra_Home_In_1", top_position = 10}
+[97230304] = {id = 97230304, bubble_text = "あなたはいつも、メンバーを気にかけているな。それゆえに、厚い信頼が得られているんだろう。…私も見習わねばな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Main_4"}
 , 
-[116200101] = {id = 116200101, bubble_text = "ここにエマの港は作れるか？", voice_path = "Ema_Home_In_1", top_position = 10}
+[101303001] = {id = 101303001, bubble_text = "…クーニャだ。ペンデュラムのボスを務めている。リーダーに借りた恩は、必ず返させてもらうとしよう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Get_1"}
 , 
-[116200201] = {id = 116200201, bubble_text = "リーダー、みんなの願い事を叶えられるかな？", voice_path = "Cosette_Home_In_1", top_position = 10}
+[101303011] = {id = 101303011, bubble_text = "父が倒れた後、私は一人で立ち向かうしかないと思っていたが…どうやら違ったようだ。私には、プデルもリーダーもそばにいる…こんなに心強いことはない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Stage_2"}
 , 
-[116200301] = {id = 116200301, bubble_text = "ねぇ。ここに酒蔵（さがくら）は作れるかなぁリーダー？", voice_path = "Nicoleta_Home_In_1", top_position = 10}
+[101303021] = {id = 101303021, bubble_text = "恩返しをするはずが、あなたには面倒を見てもらうばかりだ。このままだと、一生あなたのもとを離れられないかもしれないな。…しかし、それも悪くはない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Stage_3"}
 , 
-[116200401] = {id = 116200401, bubble_text = "リーダー、ここに五つ星レストランはあるかな？", voice_path = "Miel_Home_In_1", top_position = 10}
+[102303001] = {id = 102303001, bubble_text = "次にどこかへ行くときには、声をかけてくれ。私も共に行動したい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_In_1"}
 , 
-[116200501] = {id = 116200501, bubble_text = "さ、最高の場所じゃないですかっ…！　ここで取材できたら、きっと小説のアイディアがわき続けて困っちゃいますっ…！", voice_path = "Hilda_Home_In_1", top_position = 10}
+[102303002] = {id = 102303002, bubble_text = "次にどこかへ行くときには、声をかけてくれ。私も共に行動したい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_In_1"}
 , 
-[116200601] = {id = 116200601, bubble_text = "リ、リーダーさん、ここって穴を掘れますか？", voice_path = "Fina_Home_In_1", top_position = 10}
+[102303003] = {id = 102303003, bubble_text = "次にどこかへ行くときには、声をかけてくれ。私も共に行動したい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_In_1"}
 , 
-[116200701] = {id = 116200701, bubble_text = "ここに劇場を作れるかな、リーダー！", voice_path = "Julian_Home_In_1", top_position = 10}
+[103303001] = {id = 103303001, bubble_text = "強くなるとは、こうも嬉しいものか…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "385:220", direction = 2, voice_path = "Coonya_Stage_1"}
 , 
-[116200801] = {id = 116200801, bubble_text = "リーダー、ここにお菓子屋さんを開けますか～？", voice_path = "Chocolat_Home_In_1", top_position = 10}
+[103303011] = {id = 103303011, bubble_text = "強くなるとは、こうも嬉しいものか…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "388:252", direction = 2, voice_path = "Coonya_Stage_1"}
 , 
-[116210101] = {id = 116210101, bubble_text = "新入り、ここを俺様の新しい基地にできるな！？", voice_path = "Wichita_Home_In_1", top_position = 10}
+[103303021] = {id = 103303021, bubble_text = "強くなるとは、こうも嬉しいものか…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "385:220", direction = 2, voice_path = "Coonya_Stage_1"}
 , 
-[116210201] = {id = 116210201, bubble_text = "リーダー様、こちらの部屋の掃除はできますか？いえ、返答はどうあれ、掃除はさせていただくのですが。", voice_path = "Nener_Home_In_1", top_position = 10}
+[104303001] = {id = 104303001, bubble_text = "私は未熟だ。だがそれはまだ、強くなれる…ということか。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "385:220", direction = 2, voice_path = "Coonya_Star_1"}
 , 
-[116210301] = {id = 116210301, bubble_text = "リーダー、ここに恋愛小説ってあるかな？", voice_path = "chelsea_Home_In_1", top_position = 10}
+[104303011] = {id = 104303011, bubble_text = "私は未熟だ。だがそれはまだ、強くなれる…ということか。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "388:252", direction = 2, voice_path = "Coonya_Star_1"}
 , 
-[116210401] = {id = 116210401, bubble_text = "リーダー、ここで募金活動はできる？", voice_path = "Iris_Home_In_1", top_position = 10}
+[104303021] = {id = 104303021, bubble_text = "私は未熟だ。だがそれはまだ、強くなれる…ということか。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "385:220", direction = 2, voice_path = "Coonya_Star_1"}
 , 
-[116210501] = {id = 116210501, bubble_text = "歌を練習できる場所はあるっすか、リーダー？", voice_path = "Aileen_Home_In_1", top_position = 10}
+[105303001] = {id = 105303001, bubble_text = "そんなことをすると、陰で見ている部下達がリーダーの命を奪いかねない。やめておいたほうがいい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Interaction_1"}
 , 
-[116210601] = {id = 116210601, bubble_text = "リーダー、宝石を扱うための部屋を一つもらいたいです", voice_path = "Kiki_Home_In_1", top_position = 10}
+[105303002] = {id = 105303002, bubble_text = "こうした立場にいると、人を判断せざるを得ない。敵か、味方か、愚か者か、そうでないか。…だから、あなたのような存在がとても頼もしいんだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Interaction_2"}
 , 
-[116210701] = {id = 116210701, bubble_text = "あの…ここでも、芸はできる…？", voice_path = "Conchita_Home_In_1", top_position = 10}
+[105303003] = {id = 105303003, bubble_text = "…ふっ。私にイタズラを仕掛けるなんて、あなたぐらいだ。お返しに、私もあなたの背中を引っかいて…痕でもつけてしまおうか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Interaction_3"}
 , 
-[116210801] = {id = 116210801, bubble_text = "リーダーくん、ここに冒険に必要なものを置けるかな？", voice_path = "Dominique_Home_In_1", top_position = 10}
+[105303004] = {id = 105303004, bubble_text = "あなたは、撫でるのが上手だな。とても気持ちがいい。…だから、もっと撫でてくれるか？　頭も、顎も…その他のところも。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Interaction_4"}
 , 
-[116210901] = {id = 116210901, bubble_text = "リーダー、ここにポストを設置できますか？", voice_path = "Alicia_Home_In_1", top_position = 10}
+[105303005] = {id = 105303005, bubble_text = "リーダー。どうか強いと言ってくれ、可愛いと言ってくれ。手を取ってくれ、撫でてくれ。…あなたのすべてが、私の力になる。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Interaction_5"}
 , 
-[116211001] = {id = 116211001, bubble_text = "リーダー、ここにアトリエはあるれすか？", voice_path = "veronica_Home_In_1", top_position = 10}
+[105303011] = {id = 105303011, bubble_text = "そんなことをすると、陰で見ている部下達がリーダーの命を奪いかねない。やめておいたほうがいい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Interaction_1"}
 , 
-[116220101] = {id = 116220101, bubble_text = "リーダーさん、ここにハープを弾ける場所はありますか～？", voice_path = "Tyyne_Home_In_1", top_position = 10}
+[105303012] = {id = 105303012, bubble_text = "こうした立場にいると、人を判断せざるを得ない。敵か、味方か、愚か者か、そうでないか。…だから、あなたのような存在がとても頼もしいんだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Interaction_2"}
 , 
-[116220201] = {id = 116220201, bubble_text = "わっ、素敵な場所ですねっ…！　どこも壊さないよう、できるかな…？", voice_path = "Marta_Home_In_1", top_position = 10}
+[105303013] = {id = 105303013, bubble_text = "…ふっ。私にイタズラを仕掛けるなんて、あなたぐらいだ。お返しに、私もあなたの背中を引っかいて…痕でもつけてしまおうか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Interaction_3"}
 , 
-[116220301] = {id = 116220301, bubble_text = "リーダーさん、ペットたちも一緒に連れてきていいですか？", voice_path = "Noel_Home_In_1", top_position = 10}
+[105303014] = {id = 105303014, bubble_text = "あなたは、撫でるのが上手だな。とても気持ちがいい。…だから、もっと撫でてくれるか？　頭も、顎も…その他のところも。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Interaction_4"}
 , 
-[116220401] = {id = 116220401, bubble_text = "リーダー。ここで占い屋、開くことはできるかな～？", voice_path = "Quinn_Home_In_1", top_position = 10}
+[105303015] = {id = 105303015, bubble_text = "リーダー。どうか強いと言ってくれ、可愛いと言ってくれ。手を取ってくれ、撫でてくれ。…あなたのすべてが、私の力になる。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Interaction_5"}
 , 
-[116220501] = {id = 116220501, bubble_text = "リーダー。ここには当然、医務室はあるだろう？", voice_path = "Cate_Home_In_1", top_position = 10}
+[105303021] = {id = 105303021, bubble_text = "そんなことをすると、陰で見ている部下達がリーダーの命を奪いかねない。やめておいたほうがいい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Interaction_1"}
 , 
-[116220601] = {id = 116220601, bubble_text = "盟友よ。今よりここを我輩、冥夜の堕天使の領地にできるな？", voice_path = "Canon_Home_In_1", top_position = 10}
+[105303022] = {id = 105303022, bubble_text = "こうした立場にいると、人を判断せざるを得ない。敵か、味方か、愚か者か、そうでないか。…だから、あなたのような存在がとても頼もしいんだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Interaction_2"}
 , 
-[116220701] = {id = 116220701, bubble_text = "ここに工房はあるか？　じっとしてられないな…", voice_path = "Yewna_Home_In_1", top_position = 10}
+[105303023] = {id = 105303023, bubble_text = "…ふっ。私にイタズラを仕掛けるなんて、あなたぐらいだ。お返しに、私もあなたの背中を引っかいて…痕でもつけてしまおうか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Interaction_3"}
 , 
-[116300101] = {id = 116300101, bubble_text = "ここに見張り場を設置できるか、リーダー", voice_path = "Gloria_Home_In_1", top_position = 10}
+[105303024] = {id = 105303024, bubble_text = "あなたは、撫でるのが上手だな。とても気持ちがいい。…だから、もっと撫でてくれるか？　頭も、顎も…その他のところも。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Interaction_4"}
 , 
-[116300201] = {id = 116300201, bubble_text = "リーダー、ここには強くなれる道具とか置いてあるか？", voice_path = "Bridget_Home_In_1", top_position = 10}
+[105303025] = {id = 105303025, bubble_text = "リーダー。どうか強いと言ってくれ、可愛いと言ってくれ。手を取ってくれ、撫でてくれ。…あなたのすべてが、私の力になる。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Interaction_5"}
 , 
-[116300301] = {id = 116300301, bubble_text = "私が薬を作る部屋はありますか、リーダーさん…？", voice_path = "Aloe_Home_In_1", top_position = 10}
+[106303001] = {id = 106303001, bubble_text = "この程度でお終いか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Win_1"}
 , 
-[116300401] = {id = 116300401, bubble_text = "リーダー、ここって好きに遊べる？", voice_path = "Flower_Home_In_1", top_position = 10}
+[106303011] = {id = 106303011, bubble_text = "この程度でお終いか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Win_1"}
 , 
-[116300501] = {id = 116300501, bubble_text = "おっと。ここでもお姉さんの体で洗う必要があるのかい？", voice_path = "Sara_Home_In_1", top_position = 10}
+[106303021] = {id = 106303021, bubble_text = "この程度でお終いか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Win_1"}
 , 
-[116300601] = {id = 116300601, bubble_text = "ここをベル様の宝庫にできるかしら！？", voice_path = "Bell_Home_In_1", top_position = 10}
+[107303001] = {id = 107303001, bubble_text = "…私は未熟者だな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "410:228", direction = 1, voice_path = "Coonya_Fail_1"}
 , 
-[116300701] = {id = 116300701, bubble_text = "リーダー、日向ぼっこできる場所はある？", voice_path = "Monica_Home_In_1", top_position = 10}
+[107303011] = {id = 107303011, bubble_text = "…私は未熟者だな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "697:253", direction = 2, voice_path = "Coonya_Fail_1"}
 , 
-[116310101] = {id = 116310101, bubble_text = "リーダーさん、ここを私たちの愛の巣にできますか？", voice_path = "Lovey_Home_In_1", top_position = 10}
+[107303021] = {id = 107303021, bubble_text = "…私は未熟者だな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:312", direction = 2, voice_path = "Coonya_Fail_1"}
 , 
-[116310201] = {id = 116310201, bubble_text = "リーダー、ここを守る仕事は私が担当できるでしょうか？", voice_path = "Ursula_Home_In_1", top_position = 10}
+[108303001] = {id = 108303001, bubble_text = "ペンデュラムの名にかけて…", voice_path = "Coonya_Go_1"}
 , 
-[116310301] = {id = 116310301, bubble_text = "ここの子たちと遊んでもいいのかしら、リーダー？", voice_path = "Isabella_Home_In_1", top_position = 10}
+[109303001] = {id = 109303001, voice_path = "Coonya_Game_1"}
 , 
-[116310401] = {id = 116310401, bubble_text = "ここにも漫画とかゲームはある？", voice_path = "Evanthe_Home_In_1", top_position = 10}
+[111303001] = {id = 111303001, voice_path = "Coonya_Battle_N_1"}
 , 
-[116310501] = {id = 116310501, bubble_text = "とてもいい場所でござるな！もっと質素な場所でも拙者は構わんでござるぞ", voice_path = "Xiao_Home_In_1", top_position = 10}
+[111303002] = {id = 111303002, voice_path = "Coonya_Battle_N_2"}
 , 
-[116310601] = {id = 116310601, bubble_text = "リーダー様、わたくしはここでお仕事ができるでしょうか…？", voice_path = "May_Home_In_1", top_position = 10}
+[111303003] = {id = 111303003, voice_path = "Coonya_Battle_N_3"}
 , 
-[116300801] = {id = 116300801, bubble_text = "歌の練習ができる場所はある？", voice_path = "Lisa_Home_In_1", top_position = 10}
+[111303004] = {id = 111303004, voice_path = "Coonya_Battle_N_4"}
 , 
-[116110701] = {id = 116110701, bubble_text = "パロネスの遊び場はあるか！？", voice_path = "Paroness_Home_In_1", top_position = 10}
+[111303005] = {id = 111303005, voice_path = "Coonya_Battle_N_5"}
 , 
-[116301001] = {id = 116301001, bubble_text = "ひとりになれる場所はあるかしら？", voice_path = "shelly_Home_In_1", top_position = 10}
+[111303006] = {id = 111303006, voice_path = "Coonya_Battle_N_6"}
 , 
-[116300901] = {id = 116300901, bubble_text = "私の相手になりそうな子はいるかしら？", voice_path = "Isabella_mizugi_Home_In_1", top_position = 10}
+[112303001] = {id = 112303001, voice_path = "Coonya_Battle_Hit_1"}
 , 
-[116211201] = {id = 116211201, bubble_text = "みんなが涼める場所はあるかなぁ？", voice_path = "Nonno_mizugi_Home_In_1", top_position = 10}
+[112303002] = {id = 112303002, voice_path = "Coonya_Battle_Hit_2"}
 , 
-[116211101] = {id = 116211101, bubble_text = "ここには、交流日誌なんてありますか？", voice_path = "Tsubaki_Home_In_1", top_position = 10}
+[112303003] = {id = 112303003, voice_path = "Coonya_Battle_Hit_3"}
 , 
-[116220801] = {id = 116220801, bubble_text = "大きな家の設計図を広げられる、大きな机はあるかなー♪", voice_path = "Hamit_Home_In_1", top_position = 10}
+[112303004] = {id = 112303004, voice_path = "Coonya_Battle_Hit_4"}
 , 
-[116301101] = {id = 116301101, bubble_text = "あの…人目につかない場所はあるでしょうか？", voice_path = "ruru_Home_In_1", top_position = 10}
+[112303005] = {id = 112303005, voice_path = "Coonya_Battle_Hit_5"}
 , 
-[116301201] = {id = 116301201, bubble_text = "ファッションチェックのための、おっきな鏡はある？", voice_path = "mia_Home_In_1", top_position = 10}
+[112303006] = {id = 112303006, voice_path = "Coonya_Battle_Hit_6"}
 , 
-[116301301] = {id = 116301301, bubble_text = "カボチャの串団子などござらんか？", voice_path = "Ha_Show_Home_In_1", top_position = 10}
+[113303001] = {id = 113303001, voice_path = "Coonya_Battle_Die_1"}
 , 
-[116220901] = {id = 116220901, bubble_text = "お菓子の材料はあるかなぁ～？", voice_path = "Ha_Quinn_Home_In_1", top_position = 10}
+[114303001] = {id = 114303001, voice_path = "Coonya_Battle_H_1"}
 , 
-[116301401] = {id = 116301401, bubble_text = "ロールと遊んでくれる人はいるかなー？", voice_path = "Roll_Home_In_1", top_position = 10}
+[114303002] = {id = 114303002, voice_path = "Coonya_Battle_H_2"}
 , 
-[116221001] = {id = 116221001, bubble_text = "こちらにもみの木はございますか？あれば掃除いたします。", voice_path = "Xmas_neneru_Home_In_1", top_position = 10}
+[115303001] = {id = 115303001, voice_path = "Coonya_Battle_C_1"}
 , 
-[116301501] = {id = 116301501, bubble_text = "パーティの準備はできてるかい？", voice_path = "Xmas_sara_Home_In_1", top_position = 10}
+[115303002] = {id = 115303002, voice_path = "Coonya_Battle_C_2"}
 , 
-[116301601] = {id = 116301601, bubble_text = "おいしいおやつはあるかな～♪", voice_path = "rin_Home_In_1", top_position = 10}
+[116303001] = {id = 116303001, bubble_text = "外から狙われやすい窓はあるか？", voice_path = "Coonya_Home_In_1", top_position = 10}
 , 
-[116302401] = {id = 116302401, bubble_text = "プレゼントが置ける、大きなもみの木はあるかしら？", voice_path = "youru_Home_In_1", top_position = 10}
+[117303001] = {id = 117303001, bubble_text = "…年頃の女性が多い場は、あまり慣れていないんだ。失礼があったら、すまない。", voice_path = "Coonya_Home_Talk_1", top_position = 10}
 , 
-[116221401] = {id = 116221401, bubble_text = "お清めの塩とかあります～？", voice_path = "xc_Sylvie_Home_In_1", top_position = 10}
+[117303002] = {id = 117303002, bubble_text = "このプライドは、とても良い組織だな。それもリーダー、あなたの人徳があってこそだろう。", voice_path = "Coonya_Home_Talk_2", top_position = 10}
 , 
-[116301701] = {id = 116301701, bubble_text = "着付けを直す場所はあるか？", voice_path = "xc_fran_Home_In_1", top_position = 10}
-, 
-[117100101] = {id = 117100101, bubble_text = "ここを売ったら、かなり儲かるんじゃない？　うふふふふふふ…", voice_path = "Shanon_Home_Talk_1", top_position = 10}
-, 
-[117100102] = {id = 117100102, bubble_text = "私ができること、きっとあるわよね？　遠慮なく言ってちょうだいね。", voice_path = "Shanon_Home_Talk_2", top_position = 10}
-, 
-[117100103] = {id = 117100103, bubble_text = "あら、リーダーさん。こんな素敵な場所を用意してくれたの？　もしかして、私のためだったりして…♪", voice_path = "Shanon_Home_Talk_3", top_position = 10}
-, 
-[117100201] = {id = 117100201, bubble_text = "ノエルもここにいるの？　なら…ち、ちょっと話でもしようかしら。", voice_path = "Olivia_Home_Talk_1", top_position = 10}
-, 
-[117100202] = {id = 117100202, bubble_text = "リーダー、手伝うべきことがあれば何でも言ってちょうだい。", voice_path = "Olivia_Home_Talk_2", top_position = 10}
-, 
-[117100203] = {id = 117100203, bubble_text = "私を見ているより、エイプリルのいたずらを止めた方がいいと思うわ。", voice_path = "Olivia_Home_Talk_3", top_position = 10}
-, 
-[117100301] = {id = 117100301, bubble_text = "そんな見つめられても、エイプリルちゃんは増えたりしないよ～？", voice_path = "April_Home_Talk_1", top_position = 10}
-, 
-[117100302] = {id = 117100302, bubble_text = "なになに？　エイプリルちゃんに何か用？", voice_path = "April_Home_Talk_2", top_position = 10}
-, 
-[117100303] = {id = 117100303, bubble_text = "んふふ～。誰にいたずらしよう…じゃなくて、誰と遊んじゃおっかな～？", voice_path = "April_Home_Talk_3", top_position = 10}
-, 
-[117100401] = {id = 117100401, bubble_text = "おおっ、リーダーさんっ！　リリー、今日も少し強くなったと思いませんかっ！？", voice_path = "Lily_Home_Talk_1", top_position = 10}
-, 
-[117100402] = {id = 117100402, bubble_text = "リリーを探してるんですか？　ここですよ、リーダーさん！", voice_path = "Lily_Home_Talk_2", top_position = 10}
-, 
-[117100403] = {id = 117100403, bubble_text = "先輩たちと一緒に修行できるなんて、リリーは面白いって思いますっ！", voice_path = "Lily_Home_Talk_3", top_position = 10}
-, 
-[117100501] = {id = 117100501, bubble_text = "別に、本を読めればどこでも同じ…", voice_path = "francesca_Home_Talk_1", top_position = 10}
-, 
-[117100502] = {id = 117100502, bubble_text = "用がないなら、邪魔しないで。", voice_path = "francesca_Home_Talk_2", top_position = 10}
-, 
-[117100503] = {id = 117100503, bubble_text = "問題がある。…ここは静かだけど、雰囲気が大図書館と違う。", voice_path = "francesca_Home_Talk_3", top_position = 10}
-, 
-[117100601] = {id = 117100601, bubble_text = "コ、コゼットさんは、とっても優しい人ですけど…ち、ちょっと怖いです……", voice_path = "Evelynn_Home_Talk_1", top_position = 10}
-, 
-[117100602] = {id = 117100602, bubble_text = "リ、リーダーさん、何か雑用はありませんか…？　やっぱり、何かしてないと不安で…", voice_path = "Evelynn_Home_Talk_2", top_position = 10}
-, 
-[117100603] = {id = 117100603, bubble_text = "い、いつかわたしも、ウルスラさんみたいに強くてかっこいい人になりたいですっ…！", voice_path = "Evelynn_Home_Talk_3", top_position = 10}
-, 
-[117110101] = {id = 117110101, bubble_text = "何か手伝うことはありますか？　できたら、とびっきり目立つお仕事を…", voice_path = "Sophia_Home_Talk_1", top_position = 10}
-, 
-[117110102] = {id = 117110102, bubble_text = "あれ？　もしかして私、もう注目の的ですかっ？", voice_path = "Sophia_Home_Talk_2", top_position = 10}
-, 
-[117110103] = {id = 117110103, bubble_text = "私、頑張りますっ！　大活躍して、大注目される人になってみせますっ…！", voice_path = "Sophia_Home_Talk_3", top_position = 10}
-, 
-[117110201] = {id = 117110201, bubble_text = "リッタはとても忙しいですからっ！　暇な子供だと思わないでくださいですっ。", voice_path = "Ritta_Home_Talk_1", top_position = 10}
-, 
-[117110202] = {id = 117110202, bubble_text = "もし助けが必要ならすぐにリッタに言うですよ。だから、余計なことはしちゃだめですっ。", voice_path = "Ritta_Home_Talk_2", top_position = 10}
-, 
-[117110203] = {id = 117110203, bubble_text = "リッタを品のない商人と比べないでください、リッタはとても良い商人ですから！", voice_path = "Ritta_Home_Talk_3", top_position = 10}
-, 
-[117110301] = {id = 117110301, bubble_text = "みんなを助けられたらね、ノンノはとっても嬉しくなるんだっ！", voice_path = "Nonno_Home_Talk_1", top_position = 10}
-, 
-[117110302] = {id = 117110302, bubble_text = "家事もクエストも、ノンノにお任せだよ〜！", voice_path = "Nonno_Home_Talk_2", top_position = 10}
-, 
-[117110303] = {id = 117110303, bubble_text = "リーダーはいつもみんなを癒してるよねっ。ノンノもリーダーを見習うよー！", voice_path = "Nonno_Home_Talk_3", top_position = 10}
-, 
-[117110401] = {id = 117110401, bubble_text = "フンフン、良いネタの匂いがします！　ここにも面白いことがたーっくさんありそうですね！", voice_path = "Sylvie_Home_Talk_1", top_position = 10}
-, 
-[117110402] = {id = 117110402, bubble_text = "新しい面白い記事が書けるなら、どんなことでも私にやらせてくださいっ！", voice_path = "Sylvie_Home_Talk_2", top_position = 10}
-, 
-[117110403] = {id = 117110403, bubble_text = "最近、大きなネタがないので退屈です…こうなったら、私たちで特大スクープネタでも作っちゃいます！？", voice_path = "Sylvie_Home_Talk_3", top_position = 10}
-, 
-[117110501] = {id = 117110501, bubble_text = "ふっふっふ…ギャンブルの必勝法を手に入れました！　今度カジノに行ったら、ディーラーをこてんぱんにしてやります！", voice_path = "Nouet_Home_Talk_1", top_position = 10}
-, 
-[117110502] = {id = 117110502, bubble_text = "リーダー、どうして冒険なんて大変な仕事をやってるんですか？　もっと楽に稼ぐ方法があるかもしれないのに…", voice_path = "Nouet_Home_Talk_2", top_position = 10}
-, 
-[117110503] = {id = 117110503, bubble_text = "エイプリルさんもいるんですか？　彼女とはしばらく会ってませんでした、また一緒に遊びたいなぁ～", voice_path = "Nouet_Home_Talk_3", top_position = 10}
-, 
-[117110601] = {id = 117110601, bubble_text = "みんな、お腹が空いてきたんじゃないかな？　そろそろご飯を作っておくね！", voice_path = "Sierra_Home_Talk_1", top_position = 10}
-, 
-[117110602] = {id = 117110602, bubble_text = "リーダー、私の手が必要ならちょっと待っててね。シエラグルメの新作メモを書き終えちゃうから…", voice_path = "Sierra_Home_Talk_2", top_position = 10}
-, 
-[117110603] = {id = 117110603, bubble_text = "今度、他の料理と一緒にシエラグルメを出して、ミエルに食べてもらう…なんてどうかな？　すぐにばれて叱られちゃうかな…？", voice_path = "Sierra_Home_Talk_3", top_position = 10}
-, 
-[117200101] = {id = 117200101, bubble_text = "ここもなかなか綺麗だな！　海に比べると、物足りないけどなっ。", voice_path = "Ema_Home_Talk_1", top_position = 10}
-, 
-[117200102] = {id = 117200102, bubble_text = "エマに何かを頼みごとはないか？　どんなことでも、エマはやりきるぞ！", voice_path = "Ema_Home_Talk_2", top_position = 10}
-, 
-[117200103] = {id = 117200103, bubble_text = "最近はいろいろ買い物しすぎて、船を買う夢がどんどん離れていってる気がするぞ…ち、ちゃんと働かないと！", voice_path = "Ema_Home_Talk_3", top_position = 10}
-, 
-[117200201] = {id = 117200201, bubble_text = "仕事の報酬をもらえたら、ここにみんなが欲しいものを買い足そうね。", voice_path = "Cosette_Home_Talk_1", top_position = 10}
-, 
-[117200202] = {id = 117200202, bubble_text = "なんでも私に任せて、必ずやりきってみせるから！", voice_path = "Cosette_Home_Talk_2", top_position = 10}
-, 
-[117200203] = {id = 117200203, bubble_text = "みんなのしたいことを手伝えたら、私はそれだけで幸せだよ。", voice_path = "Cosette_Home_Talk_3", top_position = 10}
-, 
-[117200301] = {id = 117200301, bubble_text = "アロエの薬があれば、二日酔いもすぐ治るんだよ。またアロエからたくさんもらっておかなくちゃねぇ。", voice_path = "Nicoleta_Home_Talk_1", top_position = 10}
-, 
-[117200302] = {id = 117200302, bubble_text = "ぶどうジュースととっておきのお酒、どっちがいい～？", voice_path = "Nicoleta_Home_Talk_2", top_position = 10}
-, 
-[117200303] = {id = 117200303, bubble_text = "みんなと一緒に美味し～お酒をもっと味わいたいな。だから今日も宴だよぉ！", voice_path = "Nicoleta_Home_Talk_3", top_position = 10}
-, 
-[117200401] = {id = 117200401, bubble_text = "何か美食の匂いがするんだよ、少し探してみるとしよう！", voice_path = "Miel_Home_Talk_1", top_position = 10}
-, 
-[117200402] = {id = 117200402, bubble_text = "リーダー、うちの金の皿に入ってみないかい？　きっと冒険の役に立つはずだ！", voice_path = "Miel_Home_Talk_2", top_position = 10}
-, 
-[117200403] = {id = 117200403, bubble_text = "リーダーはショコラが作ったデザートを食べたことがあるかい？　とっても人気でね、オススメだよ！", voice_path = "Miel_Home_Talk_3", top_position = 10}
-, 
-[117200501] = {id = 117200501, bubble_text = "…しーっ、静かに…今、女の子たちの日常を観察してるところなんです！　邪魔しちゃいけませんっ…！", voice_path = "Hilda_Home_Talk_1", top_position = 10}
-, 
-[117200502] = {id = 117200502, bubble_text = "あ、あの子たち、今日は一緒に出掛けるんでしょうか…？　それならぜひとも、私を連れて…！　いえっ、荷物としてでもいいのでっ…！！", voice_path = "Hilda_Home_Talk_2", top_position = 10}
-, 
-[117200503] = {id = 117200503, bubble_text = "…いい、いいですよ…！　ここの空気、女の子の甘い匂いが満ちててっ…ふひひっ…！", voice_path = "Hilda_Home_Talk_3", top_position = 10}
-, 
-[117200601] = {id = 117200601, bubble_text = "穴が掘りたいです…ちょっと時間ができただけで、穴掘り欲がどんどん湧いてきます…", voice_path = "Fina_Home_Talk_1", top_position = 10}
-, 
-[117200602] = {id = 117200602, bubble_text = "リーダーさん、井戸はいりませんか？よければリーダーさんのための、とっておきのものをひとつ掘りますよっ…！", voice_path = "Fina_Home_Talk_2", top_position = 10}
-, 
-[117200603] = {id = 117200603, bubble_text = "皆さん、忙しそうですね。私も何かお手伝いできたらいいんですけど…", voice_path = "Fina_Home_Talk_3", top_position = 10}
-, 
-[117200701] = {id = 117200701, bubble_text = "『風よ吹け！　頬を裂き、怒りを吹きつけろ！』――今の演技はどうかな、リーダー？", voice_path = "Julian_Home_Talk_1", top_position = 10}
-, 
-[117200702] = {id = 117200702, bubble_text = "何か困ってるのかい、麗しのリーダー。悲しげな顔は、君に似合わないよ。", voice_path = "Julian_Home_Talk_2", top_position = 10}
-, 
-[117200703] = {id = 117200703, bubble_text = "おや、このセリフは難しいな。リーダー、少し練習に付き合ってもらえるかい？", voice_path = "Julian_Home_Talk_3", top_position = 10}
-, 
-[117200801] = {id = 117200801, bubble_text = "みんなのお腹が空く前に、早くお菓子を作らなくちゃ♪", voice_path = "Chocolat_Home_Talk_1", top_position = 10}
-, 
-[117200802] = {id = 117200802, bubble_text = "リーダー、今のうちにお菓子、いっぱい食べてくださいね！　お腹が空いたら動けなくなっちゃいますからっ！", voice_path = "Chocolat_Home_Talk_2", top_position = 10}
-, 
-[117200803] = {id = 117200803, bubble_text = "今回の新作、なかなか美味しくできました～。今度ミエルさんにも食べてもらおうっと♪", voice_path = "Chocolat_Home_Talk_3", top_position = 10}
-, 
-[117210101] = {id = 117210101, bubble_text = "ふむ、問題なく仕事をこなしているようだな！　後でお菓子をやる、おまけもしてやろう。", voice_path = "Wichita_Home_Talk_1", top_position = 10}
-, 
-[117210102] = {id = 117210102, bubble_text = "面倒なやつがいたら教えろ。俺様がそいつを鍛え直してやるっ！", voice_path = "Wichita_Home_Talk_2", top_position = 10}
-, 
-[117210103] = {id = 117210103, bubble_text = "ふふん！　ウィチタ様は最高に賢く、機転が利いて、優秀かつ有能だと……これからはお前もそう言うように！", voice_path = "Wichita_Home_Talk_3", top_position = 10}
-, 
-[117210201] = {id = 117210201, bubble_text = "掃除をするうえで、必要なのは強靭な精神と肉体ですから。さらなる高みを目指さねばなりません。", voice_path = "Nener_Home_Talk_1", top_position = 10}
-, 
-[117210202] = {id = 117210202, bubble_text = "リーダー様、わたくしに何かご用でしょうか？", voice_path = "Nener_Home_Talk_2", top_position = 10}
-, 
-[117210203] = {id = 117210203, bubble_text = "正義のメイド？　いいえ、わたくしはただの掃除人でございます。", voice_path = "Nener_Home_Talk_3", top_position = 10}
-, 
-[117210301] = {id = 117210301, bubble_text = "ここでもきみのこと、ずーっと見てるから！　リーダー、覚悟してね！", voice_path = "chelsea_Home_Talk_1", top_position = 10}
-, 
-[117210302] = {id = 117210302, bubble_text = "恋愛に関する悩みがあったら、私に相談してね。他の悩みについては…ちょっと、答える自信ないかも…", voice_path = "chelsea_Home_Talk_2", top_position = 10}
-, 
-[117210303] = {id = 117210303, bubble_text = "好きな作者が最近ね、女の子同士の恋愛を題材にした作品を書いたの。それを読んだら私、もうすっごく気に入っちゃって…！", voice_path = "chelsea_Home_Talk_3", top_position = 10}
-, 
-[117210401] = {id = 117210401, bubble_text = "お腹空いた…今なら、どんな料理でも完食できるわ…シエラの料理以外なら！", voice_path = "Iris_Home_Talk_1", top_position = 10}
-, 
-[117210402] = {id = 117210402, bubble_text = "貧しい人々や帰る場所のない子供達を助けられるなら…どんなに辛くても、耐えてみせるわ。", voice_path = "Iris_Home_Talk_2", top_position = 10}
-, 
-[117210403] = {id = 117210403, bubble_text = "モニカにこの場所がわかるかしら…アイツは教会への帰り道も忘れるやつだもの、迷うに決まってるわ…！", voice_path = "Iris_Home_Talk_3", top_position = 10}
-, 
-[117210501] = {id = 117210501, bubble_text = "ティーネさんもここにいたら、一緒に楽しく歌えるっすね！", voice_path = "Aileen_Home_Talk_1", top_position = 10}
-, 
-[117210502] = {id = 117210502, bubble_text = "リーダー、どうしたっすか？　自分の歌が聞きたいっすか？", voice_path = "Aileen_Home_Talk_2", top_position = 10}
-, 
-[117210503] = {id = 117210503, bubble_text = "ララ～♪いやー、なんだか歌いたくなったっす。ここで公演とか、してみたいっすねー。", voice_path = "Aileen_Home_Talk_3", top_position = 10}
-, 
-[117210601] = {id = 117210601, bubble_text = "宝石を見分けるときは、宝石が心に話しかけてくる言葉に従って――ってリーダー、寝る時間じゃないですぞ？", voice_path = "Kiki_Home_Talk_1", top_position = 10}
-, 
-[117210602] = {id = 117210602, bubble_text = "宝石に関する依頼はないのかですぞ？何かあれば、ジブンに任せるですぞ！！", voice_path = "Kiki_Home_Talk_2", top_position = 10}
-, 
-[117210603] = {id = 117210603, bubble_text = "宝石は意志を持っているのですぞ。ジブン達が宝石を探すと同時に、宝石もジブン達を探している、ですぞ！", voice_path = "Kiki_Home_Talk_3", top_position = 10}
-, 
-[117210701] = {id = 117210701, bubble_text = "素晴らしい芸が始まりますよーっ！　…リーダーも、一緒に見に来て…ね！", voice_path = "Conchita_Home_Talk_1", top_position = 10}
-, 
-[117210702] = {id = 117210702, bubble_text = "ん…あの…この場所は安心する、けど…やっぱり、ちょっと緊張、する…", voice_path = "Conchita_Home_Talk_2", top_position = 10}
-, 
-[117210703] = {id = 117210703, bubble_text = "笑いが必要なら、私の芸をとくとご覧あれ！", voice_path = "Conchita_Home_Talk_3", top_position = 10}
-, 
-[117210801] = {id = 117210801, bubble_text = "ベルは今どこで冒険してるんだろう。あたしも先輩だしね…ここでなまけてないで、すぐに出発しようっと！", voice_path = "Dominique_Home_Talk_1", top_position = 10}
-, 
-[117210802] = {id = 117210802, bubble_text = "クエストをやり尽くすのも、なかなかいい冒険だよ。", voice_path = "Dominique_Home_Talk_2", top_position = 10}
-, 
-[117210803] = {id = 117210803, bubble_text = "この冒険録が完成したあかつきには、リーダーくんにサイン付きで本をプレゼントするよ♪", voice_path = "Dominique_Home_Talk_3", top_position = 10}
-, 
-[117210901] = {id = 117210901, bubble_text = "今日の配達はすべて完了しました。この後は読書して、勉強しています！", voice_path = "Alicia_Home_Talk_1", top_position = 10}
-, 
-[117210902] = {id = 117210902, bubble_text = "このあたりの道はもうすべて覚えましたよ。だから配達なら、任せてくださいね！", voice_path = "Alicia_Home_Talk_2", top_position = 10}
-, 
-[117210903] = {id = 117210903, bubble_text = "私はもう大人ですから…リーダーに頼ってばかりでなく、自立して、成長しなくちゃ…！", voice_path = "Alicia_Home_Talk_3", top_position = 10}
-, 
-[117211001] = {id = 117211001, bubble_text = "うぇへへ！ここは絵を描くことに最適れすね、ベロちゃんのアイディアが溢れてます！", voice_path = "veronica_Home_Talk_1", top_position = 10}
-, 
-[117211002] = {id = 117211002, bubble_text = "ベロちゃんの手伝いが必要れすか？絵を描くこと以外も大丈夫れすよ！", voice_path = "veronica_Home_Talk_2", top_position = 10}
-, 
-[117211003] = {id = 117211003, bubble_text = "アロエさんはベロちゃんにいっぱい毒薬を調和してくれましたよ！この絵を彼女のプレゼントにしましょうか～", voice_path = "veronica_Home_Talk_3", top_position = 10}
-, 
-[117220101] = {id = 117220101, bubble_text = "また迷子になるところでした～。神様の試練は、どこにでもあるものですね～。", voice_path = "Tyyne_Home_Talk_1", top_position = 10}
-, 
-[117220102] = {id = 117220102, bubble_text = "私の詩を聞きたいですか～？　声をかけてくれれば、いつでも演奏しますよ～。", voice_path = "Tyyne_Home_Talk_2", top_position = 10}
-, 
-[117220103] = {id = 117220103, bubble_text = "しばらくアイリーンさんの歌声を聴けていないんです～。後で会いに行かなくちゃ～。", voice_path = "Tyyne_Home_Talk_3", top_position = 10}
-, 
-[117220201] = {id = 117220201, bubble_text = "力加減できるようにならないと…。そうでなくちゃ、皆さんにご迷惑をかけちゃうのでっ…！", voice_path = "Marta_Home_Talk_1", top_position = 10}
-, 
-[117220202] = {id = 117220202, bubble_text = "リーダーさんの指示をしっかり聞いて、目の前のことを一つ一つ、頑張ってこなしていきます！", voice_path = "Marta_Home_Talk_2", top_position = 10}
-, 
-[117220203] = {id = 117220203, bubble_text = "皆さんがとっても優しいので…私ももっと強くなって、その優しさにお返しをしたいですっ。", voice_path = "Marta_Home_Talk_3", top_position = 10}
-, 
-[117220301] = {id = 117220301, bubble_text = "あそこにいるの、オリヴィアさんですよね？　な、なんだか、怖い目で見られてるような…", voice_path = "Noel_Home_Talk_1", top_position = 10}
-, 
-[117220302] = {id = 117220302, bubble_text = "ここのお仕事もちゃんとやり遂げます、リーダーさんのためにっ…！", voice_path = "Noel_Home_Talk_2", top_position = 10}
-, 
-[117220303] = {id = 117220303, bubble_text = "ペットたちに会いたくなりました…ふふ、今度連れて来てみようかな……", voice_path = "Noel_Home_Talk_3", top_position = 10}
-, 
-[117220401] = {id = 117220401, bubble_text = "ふぁ～…リーダーも眠そうだし、一緒に寝ちゃう～？", voice_path = "Quinn_Home_Talk_1", top_position = 10}
-, 
-[117220402] = {id = 117220402, bubble_text = "もし占ってほしかったら、いつでも声をかけてね。ワタシは、リーダーを占うのが楽しみだから。", voice_path = "Quinn_Home_Talk_2", top_position = 10}
-, 
-[117220403] = {id = 117220403, bubble_text = "運命から逃れることはできないけど、変えることはできるからね。それにリーダーと一緒なら…きっともっと簡単に、運命を変えられるよ。", voice_path = "Quinn_Home_Talk_3", top_position = 10}
-, 
-[117220501] = {id = 117220501, bubble_text = "私は忙しいんだ、特別な用事もないなら邪魔をするなよ。", voice_path = "Cate_Home_Talk_1", top_position = 10}
-, 
-[117220502] = {id = 117220502, bubble_text = "なんだ、治療してほしいのか？　…って、怪我なんてどこにもないだろう。次にからかったら、医務室から追い出すからな！", voice_path = "Cate_Home_Talk_2", top_position = 10}
-, 
-[117220503] = {id = 117220503, bubble_text = "シャノン？　そんなやつは知らないな。人に面倒をかけるだけのやつなんて、私と関係あるわけないだろう！", voice_path = "Cate_Home_Talk_3", top_position = 10}
-, 
-[117220601] = {id = 117220601, bubble_text = "冥夜の堕天使は最も孤高で特別な存在だ。貴様にもわかるだろう？　我が盟友よ！", voice_path = "Canon_Home_Talk_1", top_position = 10}
-, 
-[117220602] = {id = 117220602, bubble_text = "何か問題でもあったか？　貴様の忠誠に免じて、この我輩にすべて任せるがいい！", voice_path = "Canon_Home_Talk_2", top_position = 10}
-, 
-[117220603] = {id = 117220603, bubble_text = "ククク…冥夜の堕天使として、貴様に冥界の力を見せてやろう！　期待するがいい、我が同志よ！", voice_path = "Canon_Home_Talk_3", top_position = 10}
-, 
-[117220701] = {id = 117220701, bubble_text = "うだうだしても仕方ないぞ、リーダーはもっとスパッと決断したほうがいい。", voice_path = "Yewna_Home_Talk_1", top_position = 10}
-, 
-[117220702] = {id = 117220702, bubble_text = "あたしの鍛冶技術を上げられるなら、どんなことでもあたしに任せてくれ。", voice_path = "Yewna_Home_Talk_2", top_position = 10}
-, 
-[117220703] = {id = 117220703, bubble_text = "目指しているところがどんなに遠くても、やるしかないんだ。どんな短い時間も大切に使わないとな。", voice_path = "Yewna_Home_Talk_3", top_position = 10}
-, 
-[117300101] = {id = 117300101, bubble_text = "雰囲気もインテリアも素晴らしいな。リーダーと好みが合うようだ。", voice_path = "Gloria_Home_Talk_1", top_position = 10}
-, 
-[117300102] = {id = 117300102, bubble_text = "ここで待機しておくから、何かあったら言ってくれ。すぐに対応しよう。", voice_path = "Gloria_Home_Talk_2", top_position = 10}
-, 
-[117300103] = {id = 117300103, bubble_text = "リーダー、今日の交換日記は書いたか？　親交を深めるためだ、決して忘れるな！", voice_path = "Gloria_Home_Talk_3", top_position = 10}
-, 
-[117300201] = {id = 117300201, bubble_text = "特訓に手は抜けないんだ！　守りたいものを守れるようになるためにはな！", voice_path = "Bridget_Home_Talk_1", top_position = 10}
-, 
-[117300202] = {id = 117300202, bubble_text = "今日も一緒に特訓しようぜ！　俺の実力、見せてやる！　あっ、手は抜いてやるから安心しろって！", voice_path = "Bridget_Home_Talk_2", top_position = 10}
-, 
-[117300203] = {id = 117300203, bubble_text = "友達としても護衛としても、メイのことを守る責任は俺にある！そして、これは俺の決意でもある…！", voice_path = "Bridget_Home_Talk_3", top_position = 10}
-, 
-[117300301] = {id = 117300301, bubble_text = "ふふ…みんな消えちゃえば、リーダーさんは私のものになるんですよね…", voice_path = "Aloe_Home_Talk_1", top_position = 10}
-, 
-[117300302] = {id = 117300302, bubble_text = "リーダーさんは、何の薬が必要ですか？　痺れ薬、毒薬、眠り薬…欲しい薬はぜーんぶあげますからね…。", voice_path = "Aloe_Home_Talk_2", top_position = 10}
-, 
-[117300303] = {id = 117300303, bubble_text = "あの年中発情期のウサギのレッドと会ったら、リーダーさんに近づかないよう、ちゃんと注意しなくちゃ…！", voice_path = "Aloe_Home_Talk_3", top_position = 10}
-, 
-[117300401] = {id = 117300401, bubble_text = "フラワーは、リーダーと遊びたいな。でもね、お仕事の邪魔はしないよ。ちゃんと終わるまで、良い子で待ってるね。", voice_path = "Flower_Home_Talk_1", top_position = 10}
-, 
-[117300402] = {id = 117300402, bubble_text = "リーダー、疲れてる？　フラワーが、『よしよし』しようか？　そしたら、元気が出るよ、えへへ。", voice_path = "Flower_Home_Talk_2", top_position = 10}
-, 
-[117300403] = {id = 117300403, bubble_text = "よしよし…。フラワーは、ここにいるよ。リーダーのそばにいるよ。", voice_path = "Flower_Home_Talk_3", top_position = 10}
-, 
-[117300501] = {id = 117300501, bubble_text = "リーダーは、お姉さんのことが好きだろう？　ふふ。素直に答えてくれたら、お姉さんがご奉仕してあげるよ。", voice_path = "Sara_Home_Talk_1", top_position = 10}
-, 
-[117300502] = {id = 117300502, bubble_text = "おや、可愛いリーダー。何か悩みでもあるのかな？　お姉さんが聞いてあげよう。", voice_path = "Sara_Home_Talk_2", top_position = 10}
-, 
-[117300503] = {id = 117300503, bubble_text = "まさかオリヴィアのお嬢に認められるだなんて、リーダーは人気者だな。ふふ。", voice_path = "Sara_Home_Talk_3", top_position = 10}
-, 
-[117300601] = {id = 117300601, bubble_text = "気を抜いてる暇はないわ。一度、お宝の情報をまとめておきましょう。", voice_path = "Bell_Home_Talk_1", top_position = 10}
-, 
-[117300602] = {id = 117300602, bubble_text = "クエストなら手伝ってあげるわ。…べ、別にただ、お宝探しの計画に影響を出したくないだけよ！", voice_path = "Bell_Home_Talk_2", top_position = 10}
-, 
-[117300603] = {id = 117300603, bubble_text = "（ペラペラ）ふむ、ドミニクの冒険録は本当にいい本よね！　私もお宝を見つけたら、自伝を出版したいものだわ！", voice_path = "Bell_Home_Talk_3", top_position = 10}
-, 
-[117300701] = {id = 117300701, bubble_text = "むにゃむにゃ…もう食べられないって…ん…ふわぁ…あれ、リーダーいたの？　気づかなかったよー。", voice_path = "Monica_Home_Talk_1", top_position = 10}
-, 
-[117300702] = {id = 117300702, bubble_text = "やっほー、リーダー。一緒に外でぶらぶらしよー？", voice_path = "Monica_Home_Talk_2", top_position = 10}
-, 
-[117300703] = {id = 117300703, bubble_text = "教会じゃ、いつも人間違いしてアイリスに説教されたんだけど…シスターってみんな同じ格好してるしさ、覚えられなくて当然だよねー。", voice_path = "Monica_Home_Talk_3", top_position = 10}
-, 
-[117310101] = {id = 117310101, bubble_text = "この愛の巣では欲望に素直になって、存分にラヴィを楽しんでくださいね♪", voice_path = "Lovey_Home_Talk_1", top_position = 10}
-, 
-[117310102] = {id = 117310102, bubble_text = "リーダーさんは私の運命の人…リーダーさんのためなら、全てを捧げてみせますよ♪", voice_path = "Lovey_Home_Talk_2", top_position = 10}
-, 
-[117310103] = {id = 117310103, bubble_text = "アロエはここにいませんよね？　リーダーさんと二人きりの時間…ぜーったい邪魔させませんっ！", voice_path = "Lovey_Home_Talk_3", top_position = 10}
-, 
-[117310201] = {id = 117310201, bubble_text = "主人の意志に従い、主人の命令を実行する…これこそ、私が存在する意味です。", voice_path = "Ursula_Home_Talk_1", top_position = 10}
-, 
-[117310202] = {id = 117310202, bubble_text = "どこにいても、私はあなたの忠実なしもべです。リーダーのご命令をお待ちしています。", voice_path = "Ursula_Home_Talk_2", top_position = 10}
-, 
-[117310203] = {id = 117310203, bubble_text = "あなたが望むことであれば、いかなる努力も…いいえ、なんとしてでも叶えてみせます！", voice_path = "Ursula_Home_Talk_3", top_position = 10}
-, 
-[117310301] = {id = 117310301, bubble_text = "今のうちに、武器の手入れでもしようかしら。いつでも戦えるようにしておかなくちゃいけないもの。", voice_path = "Isabella_Home_Talk_1", top_position = 10}
-, 
-[117310302] = {id = 117310302, bubble_text = "面白い戦いができるなら、すべて私に任せていいわ！", voice_path = "Isabella_Home_Talk_2", top_position = 10}
-, 
-[117310303] = {id = 117310303, bubble_text = "みんなとできる、良い『遊び』があるんだけど…ふふ、安心しなさい。問題は起こらないようにするから。", voice_path = "Isabella_Home_Talk_3", top_position = 10}
-, 
-[117310401] = {id = 117310401, bubble_text = "ま、ここも悪くないんじゃない？　労働しなくてよくて、暇つぶしの道具があればね", voice_path = "Evanthe_Home_Talk_1", top_position = 10}
-, 
-[117310402] = {id = 117310402, bubble_text = "クエストなら、あっちの子たちに任せたら？あたしは忙しいから。…だらだらするのに。", voice_path = "Evanthe_Home_Talk_2", top_position = 10}
-, 
-[117310403] = {id = 117310403, bubble_text = "誰かゲームとかテレビ、持ってきてくれないかなー…でも電気ないから意味ないかー……", voice_path = "Evanthe_Home_Talk_3", top_position = 10}
-, 
-[117310501] = {id = 117310501, bubble_text = "能ある鷹は爪を隠す……心頭滅却すれば火もまた涼し……", voice_path = "Xiao_Home_Talk_1", top_position = 10}
-, 
-[117310502] = {id = 117310502, bubble_text = "天晴だ、こなた……寝るのに適した場所でござるな！", voice_path = "Xiao_Home_Talk_2", top_position = 10}
-, 
-[117310503] = {id = 117310503, bubble_text = "良き風景でござるな……共にお茶を飲むでござるか？", voice_path = "Xiao_Home_Talk_3", top_position = 10}
-, 
-[117310601] = {id = 117310601, bubble_text = "少しでも世界が平和になるのなら…わたくしは、強くなりたいのです。", voice_path = "May_Home_Talk_1", top_position = 10}
-, 
-[117310602] = {id = 117310602, bubble_text = "どんなことでも、わたくしにやらせていただけませんか？　わたくしはもっといろんな経験をしなくてはいけませんからっ。", voice_path = "May_Home_Talk_2", top_position = 10}
-, 
-[117310603] = {id = 117310603, bubble_text = "ブリジットは今どちらにいるでしょうか？　皆様と仲良くやっているといいのですが…", voice_path = "May_Home_Talk_3", top_position = 10}
-, 
-[117300801] = {id = 117300801, bubble_text = "いっけない、もう仕事に行かないと！まぁ、今日も喫茶店のほうだけど。", voice_path = "Lisa_Home_Talk_1", top_position = 10}
-, 
-[117300802] = {id = 117300802, bubble_text = "歌の練習は他の子に聞かれたくないのよね…。だって、まだ下手っぴだし…", voice_path = "Lisa_Home_Talk_2", top_position = 10}
-, 
-[117300803] = {id = 117300803, bubble_text = "ちょっとこのプライド、可愛い子が多すぎじゃない？あんたまさか…顔で選んでるんじゃ…", voice_path = "Lisa_Home_Talk_3", top_position = 10}
-, 
-[117110701] = {id = 117110701, bubble_text = "にひひっ…今度はどこに落とし穴を掘ろうかな…", voice_path = "Paroness_Home_Talk_1", top_position = 10}
-, 
-[117110702] = {id = 117110702, bubble_text = "ここにはパロネスを構ってくれるヤツが多い！うん、満足だ！", voice_path = "Paroness_Home_Talk_2", top_position = 10}
-, 
-[117110703] = {id = 117110703, bubble_text = "あーっ、かくれんぼ見つかっちゃった！次はリーダーが隠れる番だ！", voice_path = "Paroness_Home_Talk_3", top_position = 10}
-, 
-[117301001] = {id = 117301001, bubble_text = "物陰や死角にばかり目が向いてしまうのは、私の良くない癖ね。", voice_path = "shelly_Home_Talk_1", top_position = 10}
-, 
-[117301002] = {id = 117301002, bubble_text = "このプライドは、本当に自由ね。…嫌いな雰囲気では、ないけれど。", voice_path = "shelly_Home_Talk_2", top_position = 10}
-, 
-[117301003] = {id = 117301003, bubble_text = "私のことは気にしなくて結構よ。これでも好きにやってるの。", voice_path = "shelly_Home_Talk_3", top_position = 10}
-, 
-[117300901] = {id = 117300901, bubble_text = "リーダーは平和すぎることを退屈だと思わないのかしら？私に言ってくれれば、もっと刺激的な夏を送らせてあげるけど？", voice_path = "Isabella_mizugi_Home_Talk_1", top_position = 10}
-, 
-[117300902] = {id = 117300902, bubble_text = "この格好は涼しいし危なくて気に入ってるけど…日差しが当たる場所にずっとはいたくないわ。私はそういうレッドなの。", voice_path = "Isabella_mizugi_Home_Talk_2", top_position = 10}
-, 
-[117300903] = {id = 117300903, bubble_text = "リーダーは直接戦わないとはいえ、夏ごときでバテているようじゃ私の相手は務まらないわよ。", voice_path = "Isabella_mizugi_Home_Talk_3", top_position = 10}
-, 
-[117211201] = {id = 117211201, bubble_text = "他のみんなの水着も見てみたいな～。きっとすっごく可愛いと思うんだっ！リーダーも見てみたいよね？", voice_path = "Nonno_mizugi_Home_Talk_1", top_position = 10}
-, 
-[117211202] = {id = 117211202, bubble_text = "ノンノも上手に泳げるようになりたいなぁ…。泳げるようになったら、海の底まで探検に行きたい！そしたら楽しそうだもん！", voice_path = "Nonno_mizugi_Home_Talk_2", top_position = 10}
-, 
-[117211203] = {id = 117211203, bubble_text = "海から上がった後は、体がずーんってするよね。それがなんだか気持ち良くて不思議なの。…でも、ちょっと眠くなっちゃったりして…ふわぁ。", voice_path = "Nonno_mizugi_Home_Talk_3", top_position = 10}
-, 
-[117211101] = {id = 117211101, bubble_text = "まだまだ皆さんの顔も名前も覚えられていませんが…ここはにぎやかで、とても楽しいです。", voice_path = "Tsubaki_Home_Talk_1", top_position = 10}
-, 
-[117211102] = {id = 117211102, bubble_text = "ここにいる方々は、リーダーさんのお友達でしょうか？それとも…ご家族とか？", voice_path = "Tsubaki_Home_Talk_2", top_position = 10}
-, 
-[117211103] = {id = 117211103, bubble_text = "このお部屋は、急に寒くなったりしませんか…？　", voice_path = "Tsubaki_Home_Talk_3", top_position = 10}
-, 
-[117220801] = {id = 117220801, bubble_text = "ここさえあれば、ホテル代が浮いて助かるねー！　節約節約ーっと♪　あ、ちなみに食事とかもあれば、もっと助かるんだけど…どうかなー？", voice_path = "Hamit_Home_Talk_1", top_position = 10}
-, 
-[117220802] = {id = 117220802, bubble_text = "こういう物陰があるところは助かるよ。ルルリカは、とにかく人目につかない場所へ行くためなら手段を選ばないからね。「例え火の中水の中」…って、嘘じゃなかったんだよね…", voice_path = "Hamit_Home_Talk_2", top_position = 10}
-, 
-[117220803] = {id = 117220803, bubble_text = "むむっ、あのメンバーも女優に向いてるかも！　…なーんちゃって。あたしはルルリカの面倒を見るのに精いっぱいだからね、他の子に手出ししないよ♪", voice_path = "Hamit_Home_Talk_3", top_position = 10}
-, 
-[117301101] = {id = 117301101, bubble_text = "ふふ…ずっと宿暮らしだったから、こういう場所にいられるのはなんだか不思議な気持ちです。ずっとここに、いられたら…なんて、わがままを言っちゃいけませんよね。", voice_path = "ruru_Home_Talk_1", top_position = 10}
-, 
-[117301102] = {id = 117301102, bubble_text = "ここにいる皆さん、とっても優しくて…お芝居の練習を手伝ってくれたりするんです…。でも…恥ずかしくて目を合わせられなくて、気が付いたら物陰に隠れてしまって…うぅ、申し訳ないです…", voice_path = "ruru_Home_Talk_2", top_position = 10}
-, 
-[117301103] = {id = 117301103, bubble_text = "い、いつもなら、たくさんの人がいると緊張しちゃうんですが…ここはなんだか、とっても心地いい気がします…どうしてでしょう…？", voice_path = "ruru_Home_Talk_3", top_position = 10}
-, 
-[117301201] = {id = 117301201, bubble_text = "このハウスくらいのクローゼットが欲しいかも。パパにおねだりしよっかな？", voice_path = "mia_Home_Talk_1", top_position = 10}
-, 
-[117301202] = {id = 117301202, bubble_text = "いつもかわいくいるためには、家の中でもしっかりキメるのが大事なの！", voice_path = "mia_Home_Talk_2", top_position = 10}
-, 
-[117301203] = {id = 117301203, bubble_text = "ねえリーダー、足のマッサージとか…してほしいんですけど。", voice_path = "mia_Home_Talk_3", top_position = 10}
-, 
-[117301301] = {id = 117301301, bubble_text = "菓子で腹もいっぱいになったし、ひと眠りしたいところでござるが…この格好で昼寝などしたら、本物の死体と勘違いされそうでござるな。", voice_path = "Ha_Show_Home_Talk_1", top_position = 10}
-, 
-[117301302] = {id = 117301302, bubble_text = "ぴょんぴょんぴょんっ、もひとつおまけにぴょん！　でござる。…ふむ、少しずつ本物のキョンシーに近づいているでござるな。", voice_path = "Ha_Show_Home_Talk_2", top_position = 10}
-, 
-[117301303] = {id = 117301303, bubble_text = "拙者がぴょんぴょんと近づくと、他のメンバーがキャアっと声を上げるでござる。楽しんでもらえて何よりでござるよ。", voice_path = "Ha_Show_Home_Talk_3", top_position = 10}
-, 
-[117220901] = {id = 117220901, bubble_text = "本来見えないものが見えやすくなる季節があるんだ。それをリーダーの世界では、『ハロウィン』って呼ぶんだね。", voice_path = "Ha_Quinn_Home_Talk_1", top_position = 10}
-, 
-[117220902] = {id = 117220902, bubble_text = "お菓子が欲しくなったらいつでも言ってね。いつでも渡せるよう用意してあるの。", voice_path = "Ha_Quinn_Home_Talk_2", top_position = 10}
-, 
-[117220903] = {id = 117220903, bubble_text = "おお神よ～。…あ、今はシスターらしく練習してたところだよ。アイリスにもいろいろ教えてもらおうかなぁ。", voice_path = "Ha_Quinn_Home_Talk_3", top_position = 10}
-, 
-[117301401] = {id = 117301401, bubble_text = "うーん……改めて見てみると、きれーで目立つ人たちばっかり！　でもロールも負けないよう、目立ってみせるよー！", voice_path = "Roll_Home_Talk_1", top_position = 10}
-, 
-[117301402] = {id = 117301402, bubble_text = "ここはリーダーもみんなもいるから、全然寂しくないね、えへへ。リーダー、ロールをずーっとここにいさせてね？", voice_path = "Roll_Home_Talk_2", top_position = 10}
-, 
-[117301403] = {id = 117301403, bubble_text = "お外でひなたぼっこも大好きだけど…広いお部屋で、のんびりするのも大好き～！　今日はここでお昼寝してごろごろしよーっと！", voice_path = "Roll_Home_Talk_3", top_position = 10}
-, 
-[117221001] = {id = 117221001, bubble_text = "サンタは煙突から家に侵入すると言いますね。しかし、サンタが汚れた絵は見たことがありませんから…きっと煙突を掃除しながら入るのでしょう。サンタ、なかなか侮れませんね。", voice_path = "Xmas_neneru_Home_Talk_1", top_position = 10}
-, 
-[117221002] = {id = 117221002, bubble_text = "リーダー様、外の雪だるまをご覧になりましたか？　メンバーの方々がお作りになったようです。…さすがのわたくしも、あちらは排除いたしませんよ。", voice_path = "Xmas_neneru_Home_Talk_2", top_position = 10}
-, 
-[117221003] = {id = 117221003, bubble_text = "部屋の飾りつけをするというなら、まずはもちろん、完膚なきまでに掃除をしてからです。", voice_path = "Xmas_neneru_Home_Talk_3", top_position = 10}
-, 
-[117301501] = {id = 117301501, bubble_text = "リボンがすぐに緩んでしまうから、結び直しているところだよ。だって君以外の前でこれがほどけたら、大変だろう？", voice_path = "Xmas_sara_Home_Talk_1", top_position = 10}
-, 
-[117301502] = {id = 117301502, bubble_text = "お嬢達のプレゼントに、本や紅茶を用意しているんだ。そうそう、オリヴィアのお嬢にも可愛いぬいぐるみを贈ってあげないと。", voice_path = "Xmas_sara_Home_Talk_2", top_position = 10}
-, 
-[117301503] = {id = 117301503, bubble_text = "せっかくだから、ここもいろいろと飾り付けをしたいね。パーティが盛り上がるし、準備している時間も楽しいものだからね。", voice_path = "Xmas_sara_Home_Talk_3", top_position = 10}
-, 
-[117301601] = {id = 117301601, bubble_text = "みんな～、一休みしておやつでも食べようよ～。ほら、リーダーもたーんとお食べー♪", voice_path = "rin_Home_Talk_1", top_position = 10}
-, 
-[117301602] = {id = 117301602, bubble_text = "ばんばん撃ちたい気分だし、外へ行こうかな～ってさっきから思ってるんだ。でも、ここにいるとのんびりしたさが止まらなくてぇ～…ぐうたら～。", voice_path = "rin_Home_Talk_2", top_position = 10}
-, 
-[117301603] = {id = 117301603, bubble_text = "早くクエストや遠征に行きたいな～♪　だってほら、みんなで海とか山とか行くの楽しいから！　…あ、もちろん戦いもするよ。こう、気持ちがやるぞー！　ってなったら、ね？", voice_path = "rin_Home_Talk_3", top_position = 10}
-, 
-[117302401] = {id = 117302401, bubble_text = "ここにいるのはいい子ばっかりね♪　クリスマスプレゼントは期待しててちょうだい♪", voice_path = "youru_Home_Talk_1", top_position = 10}
-, 
-[117302402] = {id = 117302402, bubble_text = "いち、に、いち、に…ふぅ。こういう時間こそ来たるべき配達に備えて、ちょっとでも鍛えなくちゃ！", voice_path = "youru_Home_Talk_2", top_position = 10}
-, 
-[117302403] = {id = 117302403, bubble_text = "外に出て走るのは楽しいけど、家の中も好きなのよ。次の年のプレゼントについて、ゆっくり考えられるし…♪", voice_path = "youru_Home_Talk_3", top_position = 10}
-, 
-[117221401] = {id = 117221401, bubble_text = "ここじゃ変装する意味はないんですが…皆さんに可愛いって言ってもらえるので、つい♪", voice_path = "xc_Sylvie_Home_Talk_1", top_position = 10}
-, 
-[117221402] = {id = 117221402, bubble_text = "はっ、お札にこっそり記事のネタを書き込めば…より潜入取材がはかどるのでは！？", voice_path = "xc_Sylvie_Home_Talk_2", top_position = 10}
-, 
-[117221403] = {id = 117221403, bubble_text = "もしエセ巫女が必要なときは声をかけてください。それっぽいことしてみせますから！", voice_path = "xc_Sylvie_Home_Talk_3", top_position = 10}
-, 
-[117301701] = {id = 117301701, bubble_text = "…もらった餅が余っているから、メンバー達に配るところだ。…リーダーもいる？", voice_path = "xc_fran_Home_Talk_1", top_position = 10}
-, 
-[117301702] = {id = 117301702, bubble_text = "…こたつに、みかん…お雑煮に、甘酒…別に、学んだ言葉を言っているだけ。全部欲しいとか、そういうんじゃない。", voice_path = "xc_fran_Home_Talk_2", top_position = 10}
-, 
-[117301703] = {id = 117301703, bubble_text = "さっき、エイプリルに「帯回しがしたい」と言われて…断ったが、リーダーはどういうものか知っている？", voice_path = "xc_fran_Home_Talk_3", top_position = 10}
+[117303003] = {id = 117303003, bubble_text = "ここにいると、メンバー達がいろんなことをするから飽きないな。…だから、とても気に入っている。", voice_path = "Coonya_Home_Talk_3", top_position = 10}
 }
-

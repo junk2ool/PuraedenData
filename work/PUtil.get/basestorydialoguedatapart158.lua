@@ -583,4 +583,3 @@
 , 
 [75418911] = {id = 75418911, remark = "もっともっと、私を満たしてね、リーダー。", type = 1, option_ids = "0", next = -1, role_ids = "75200181", expression = "0", action = "0", action_type = "0", role_type = 75200181, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 0}
 }
-

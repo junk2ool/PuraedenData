@@ -495,4 +495,3 @@
 , 
 [75142613] = {id = 75142613, remark = "…気を付けて行こう。\n騒ぎを聞きつけた騎士団が、絶対に来るはず…", type = 1, option_ids = "0", next = -1, role_ids = "75201001:75201002:75201003", expression = "0:0:exp_angry", role_type = 75201003, position = "64:606:10000,418:606:10000,772:606:10050", role_admission_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020004, dialogue_sound = "francesca_Plot_571"}
 }
-

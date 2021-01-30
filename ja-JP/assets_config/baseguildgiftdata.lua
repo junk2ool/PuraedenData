@@ -61,5 +61,4 @@ BaseGuildGiftData = {
 , 
 [76540210] = {id = 76540210, type = 3, level_range = "10:10", reward = "28010210", war_reward = "2:21100019:1"}
 }
-return BaseGuildGiftData
 

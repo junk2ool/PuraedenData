@@ -4419,4 +4419,3 @@
 , 
 [47222227] = {id = 47222227, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 48015, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 42112009}
 }
-

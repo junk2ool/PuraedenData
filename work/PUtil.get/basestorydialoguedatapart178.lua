@@ -529,4 +529,3 @@
 , 
 [75458916] = {id = 75458916, remark = "あとは、イザベラさんみたいにすごい水着が似合う人！\nだからノンノ、早く大人になりたいな～！", type = 1, option_ids = "0", next = -1, role_ids = "75200581", expression = "0", action = "0", action_type = "0", role_type = 75200581, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 }
-

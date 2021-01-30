@@ -471,4 +471,3 @@
 , 
 [75138605] = {id = 75138605, remark = "じゃあ…ここはちょっと\n私の古い友人に聞いてみましょうか♪", type = 1, option_ids = "0", next = -1, role_ids = "75201003:75201005", expression = "0:BPOSE", action_type = "0", role_type = 75201005, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_path = "FX_story_motion_qingsong", expression_position = "977:189", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, effect_sound = 0, dialogue_sound = "Shanon_Plot_449"}
 }
-

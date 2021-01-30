@@ -59,6 +59,9 @@ BattleUIWindow.InitFunctionControl = function(...)
       end
       RegisterGuideAndControl(ControlID.Fight_Stop, uis.StopBtn, winName)
       RegisterGuideAndControl(ControlID.Fight_Setting, uis.SettingBtn, winName)
+      if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).ADVENTURE then
+        RegisterGuideAndControl(ControlID.BigAdventure_SkipBattle, uis.SkipBtn, winName)
+      end
     end
   end
 end

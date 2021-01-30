@@ -7,5 +7,4 @@ BaseFamilyRoomUpData = {
 , 
 [76600003] = {id = 76600003, type = 1, level = 3, farmLevel = 10, cost = "2:21100024:1440", size = "20:20:6", role_num = 5}
 }
-return BaseFamilyRoomUpData
 

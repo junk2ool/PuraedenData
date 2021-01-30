@@ -145,7 +145,13 @@ PrizeWindow.RefreshRewardPanel = function(...)
           icon.url = (Util.GetIconPathByID)(tonumber(reward[2]))
         end
         Number.text = remain
-        -- DECOMPILER ERROR at PC89: LeaveBlock: unexpected jumping out DO_STMT
+        if data.tip_id and data.tip_id > 0 then
+          (CommonWinMgr.RegisterItemLongPress)(item, data.tip_id)
+        else
+          ;
+          (CommonWinMgr.RegisterItemLongPress)(item, tonumber(reward[2]))
+        end
+        -- DECOMPILER ERROR at PC108: LeaveBlock: unexpected jumping out DO_STMT
 
       end
     end

@@ -11,5 +11,4 @@ BaseRestraintData = {
 , 
 [5] = {id = 5, damage_add = "2:1:2000", damage_sub = "2:4:2000"}
 }
-return BaseRestraintData
 

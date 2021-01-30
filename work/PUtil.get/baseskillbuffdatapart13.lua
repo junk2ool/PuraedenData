@@ -31,4 +31,3 @@
 , 
 [46702322] = {id = 46702322, name = "攻击组3_群体暴击+20%", des = "528:1:2000:2 & 挂载：战斗前 & 扣减：大回合开始前 & 回合数：10", type = 100, value = "528:1:2000:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 4, deduction_round_type = 1, settle_round_cnt = 10, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 }
-

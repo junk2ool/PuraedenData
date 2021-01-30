@@ -149,4 +149,3 @@
 , 
 [78601168] = {id = 78601168, name = "フランチェスカ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300017_2", condition = "72501008:11300017:10", sort = 933, reward_sort = 9880001, own_show = 1}
 }
-

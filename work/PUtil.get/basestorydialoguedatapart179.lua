@@ -251,4 +251,3 @@
 , 
 [75459313] = {id = 75459313, remark = "でも、伝えられてよかったです…えへへ。", type = 1, option_ids = "0", next = -1, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020008}
 }
-

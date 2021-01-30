@@ -1013,4 +1013,3 @@
 , 
 [75140949] = {id = 75140949, remark = "リーダーったら…そんなエイプリルを甘やかさないの。\nいくら叱っても足りないんだから…はぁ。", type = 1, option_ids = "0", next = -1, role_ids = "75201002:75201001", expression = "exp_shy:0", action = "angry:0", role_type = 75201002, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001, effect_sound = 0}
 }
-

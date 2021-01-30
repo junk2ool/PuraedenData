@@ -13,5 +13,4 @@ BaseAdventureBuildingData = {
 , 
 [76430302] = {id = 76430302, name = (PUtil.get)(85903006), node_id = 76410356, station_max = 3, item = "1:21110001:1", every_count = "1:7200", time_max = 86400, icon_path = "5", coordinate = "10:20"}
 }
-return BaseAdventureBuildingData
 
