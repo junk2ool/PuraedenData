@@ -1819,7 +1819,7 @@ BaseWordData = {
 , 
 [81663019] = {id = 81663019, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、ランダムに敵[color=#3cbcff]1[/color]名に[color=#3cbcff]極寒[/color]効果を付与する。\n\n[color=#ffac26]「極寒：ターン毎に与えたダメージの10%%分のダメージを与え（最大10回まで重複可能）、3ラウンド持続。」[/color]"}
 , 
-[81663030] = {id = 81663030, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B) [/color]点のダメージを与える。目標を[color=#3cbcff]2[/color]行動ターンの間出血させ、自身のSPを[color=#3cbcff]100[/color]点回復する。\n\n[color=#ffac26]「出血：ラウンド毎に今回の攻撃40%%分のダメージを与え、2ラウンド持続。」[/color]"}
+[81663030] = {id = 81663030, name = "敵後列の単体に[color=#3cbcff]（攻撃*damage_A%%damage_B) [/color]点のダメージを与える。目標を[color=#3cbcff]2[/color]行動ターンの間出血させ、自身のSPを[color=#3cbcff]100[/color]点回復する。\n\n[color=#ffac26]「出血：ラウンド毎に今回の攻撃40%%分のダメージを与え、2ラウンド持続。」[/color]"}
 , 
 [81663026] = {id = 81663026, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、[color=#3cbcff]30%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターンの間混乱させる。\n\n[color=#ffac26]「混乱：奥義と特技を使用できない。通常攻撃の目標はランダムであり、協撃を発動しない」[/color]"}
 , 
