@@ -433,6 +433,8 @@ FormationPresetNamingWindow = {name = "FormationPresetNamingWindow", package = "
 HomelandDeployCardWindow = {name = "HomelandDeployCardWindow", package = "Family", comName = "LiveWindow", hideBelow = false}
 , 
 HomelandVisitRoomWindow = {name = "HomelandVisitRoomWindow", package = "Family", comName = "VisitPlayWindow", hideBelow = false}
+, 
+FarmLevelUpWindow = {name = "FarmLevelUpWindow", package = "Family", comName = "FamilyLevelUp", hideBelow = false, notReopen = true}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV

@@ -108,8 +108,13 @@ PrizeRewardShowWindow.ItemRenderer = function(index, obj, ...)
       ChangeUIController(Item, "c1", 1)
       goods = Item:GetChild("PrizeItemA")
     else
-      ChangeUIController(Item, "c1", 0)
-      goods = Item:GetChild("PrizeItemS")
+      if PoolData.intelligence == 3 then
+        ChangeUIController(Item, "c1", 0)
+        goods = Item:GetChild("PrizeItemS")
+      else
+        ChangeUIController(Item, "c1", 3)
+        goods = Item:GetChild("PrizeItemLast")
+      end
     end
   end
   if PoolData.group_name and not (Util.StringIsNullOrEmpty)(PoolData.group_name) then

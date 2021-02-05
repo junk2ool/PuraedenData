@@ -4750,5 +4750,105 @@ BaseSoundPathData = {
 [230300401] = {id = 230300401, play_frame = 5, path = "sfx_mianyinmao_pt_wh_82fr", bank = "mianyinmao"}
 , 
 [230300402] = {id = 230300402, play_frame = 19, path = "sfx_mianyinmao_pt_tx_84fr", bank = "mianyinmao"}
+, 
+[230260101] = {id = 230260101, play_frame = 30, path = "sfx_taidigou_big_wh_30fr", bank = "taidigou"}
+, 
+[230260102] = {id = 230260102, play_frame = 70, path = "sfx_taidigou_big_wh_70fr", bank = "taidigou"}
+, 
+[230260103] = {id = 230260103, play_frame = 93, path = "sfx_taidigou_big_wh_93fr", bank = "taidigou"}
+, 
+[230260104] = {id = 230260104, play_frame = 94, path = "sfx_taidigou_big_wh_94fr", bank = "taidigou"}
+, 
+[230260105] = {id = 230260105, play_frame = 98, path = "sfx_taidigou_big_wh_98fr", bank = "taidigou"}
+, 
+[230260106] = {id = 230260106, play_frame = 108, path = "sfx_taidigou_big_wh_108fr", bank = "taidigou"}
+, 
+[230260107] = {id = 230260107, play_frame = 114, path = "sfx_taidigou_big_wh_114fr", bank = "taidigou"}
+, 
+[230260108] = {id = 230260108, play_frame = 123, path = "sfx_taidigou_big_wh_123fr", bank = "taidigou"}
+, 
+[230260109] = {id = 230260109, play_frame = 128, path = "sfx_taidigou_big_wh_128fr", bank = "taidigou"}
+, 
+[230260110] = {id = 230260110, play_frame = 135, path = "sfx_taidigou_big_wh_135fr", bank = "taidigou"}
+, 
+[230260111] = {id = 230260111, play_frame = 140, path = "sfx_taidigou_big_wh_140fr", bank = "taidigou"}
+, 
+[230260112] = {id = 230260112, play_frame = 149, path = "sfx_taidigou_big_wh_149fr", bank = "taidigou"}
+, 
+[230260113] = {id = 230260113, play_frame = 150, path = "sfx_taidigou_big_wh_150fr", bank = "taidigou"}
+, 
+[230260114] = {id = 230260114, play_frame = 154, path = "sfx_taidigou_big_wh_154fr", bank = "taidigou"}
+, 
+[230260115] = {id = 230260115, play_frame = 159, path = "sfx_taidigou_big_wh_159fr", bank = "taidigou"}
+, 
+[230260116] = {id = 230260116, play_frame = 175, path = "sfx_taidigou_big_tx_175fr", bank = "taidigou"}
+, 
+[230260117] = {id = 230260117, play_frame = 180, path = "sfx_taidigou_big_tx_180fr", bank = "taidigou"}
+, 
+[230260118] = {id = 230260118, play_frame = 203, path = "sfx_taidigou_big_tx_203fr", bank = "taidigou"}
+, 
+[230260119] = {id = 230260119, play_frame = 208, path = "sfx_taidigou_big_tx_208fr", bank = "taidigou"}
+, 
+[230260120] = {id = 230260120, play_frame = 255, path = "sfx_taidigou_big_wh_255fr", bank = "taidigou"}
+, 
+[230260121] = {id = 230260121, play_frame = 279, path = "sfx_taidigou_big_wh_279fr", bank = "taidigou"}
+, 
+[230260122] = {id = 230260122, play_frame = 288, path = "sfx_taidigou_big_wh_288fr", bank = "taidigou"}
+, 
+[230260123] = {id = 230260123, play_frame = 300, path = "sfx_taidigou_big_tx_300fr", bank = "taidigou"}
+, 
+[230260124] = {id = 230260124, play_frame = 303, path = "sfx_taidigou_big_tx_303fr", bank = "taidigou"}
+, 
+[230260125] = {id = 230260125, play_frame = 413, path = "sfx_taidigou_big_tx_413fr", bank = "taidigou"}
+, 
+[230260201] = {id = 230260201, play_frame = 15, path = "sfx_taidigou_pt_wh_15fr", bank = "taidigou"}
+, 
+[230260202] = {id = 230260202, play_frame = 20, path = "sfx_taidigou_pt_tx_20fr", bank = "taidigou"}
+, 
+[230260203] = {id = 230260203, play_frame = 25, path = "sfx_taidigou_pt_wh_25fr", bank = "taidigou"}
+, 
+[230260204] = {id = 230260204, play_frame = 32, path = "sfx_taidigou_pt_tx_32fr", bank = "taidigou"}
+, 
+[230260205] = {id = 230260205, play_frame = 40, path = "sfx_taidigou_pt_wh_40fr", bank = "taidigou"}
+, 
+[230260206] = {id = 230260206, play_frame = 43, path = "sfx_taidigou_pt_tx_43fr", bank = "taidigou"}
+, 
+[230260207] = {id = 230260207, play_frame = 65, path = "sfx_taidigou_pt_wh_65fr", bank = "taidigou"}
+, 
+[230260208] = {id = 230260208, play_frame = 72, path = "sfx_taidigou_pt_tx_72fr", bank = "taidigou"}
+, 
+[230260301] = {id = 230260301, play_frame = 14, path = "sfx_taidigou_small_wh_14fr", bank = "taidigou"}
+, 
+[230260302] = {id = 230260302, play_frame = 15, path = "sfx_taidigou_small_wh_15fr", bank = "taidigou"}
+, 
+[230260303] = {id = 230260303, play_frame = 27, path = "sfx_taidigou_small_wh_27fr", bank = "taidigou"}
+, 
+[230260304] = {id = 230260304, play_frame = 30, path = "sfx_taidigou_small_wh_30fr", bank = "taidigou"}
+, 
+[230260305] = {id = 230260305, play_frame = 33, path = "sfx_taidigou_small_tx_33fr", bank = "taidigou"}
+, 
+[230260306] = {id = 230260306, play_frame = 45, path = "sfx_taidigou_small_wh_45fr", bank = "taidigou"}
+, 
+[230260307] = {id = 230260307, play_frame = 48, path = "sfx_taidigou_small_tx_48fr", bank = "taidigou"}
+, 
+[230260308] = {id = 230260308, play_frame = 62, path = "sfx_taidigou_small_wh_62fr", bank = "taidigou"}
+, 
+[230260309] = {id = 230260309, play_frame = 63, path = "sfx_taidigou_small_wh_63fr", bank = "taidigou"}
+, 
+[230260310] = {id = 230260310, play_frame = 67, path = "sfx_taidigou_small_tx_67fr", bank = "taidigou"}
+, 
+[230260311] = {id = 230260311, play_frame = 83, path = "sfx_taidigou_small_tx_83fr", bank = "taidigou"}
+, 
+[230260312] = {id = 230260312, play_frame = 99, path = "sfx_taidigou_small_wh_99fr", bank = "taidigou"}
+, 
+[230260313] = {id = 230260313, play_frame = 112, path = "sfx_taidigou_small_wh_112fr", bank = "taidigou"}
+, 
+[230260314] = {id = 230260314, play_frame = 128, path = "sfx_taidigou_small_wh_128fr", bank = "taidigou"}
+, 
+[230260315] = {id = 230260315, play_frame = 134, path = "sfx_taidigou_small_tx_134fr", bank = "taidigou"}
+, 
+[230260401] = {id = 230260401, play_frame = 3, path = "sfx_taidigou_pt_wh_40fr", bank = "taidigou"}
+, 
+[230260402] = {id = 230260402, play_frame = 17, path = "sfx_taidigou_pt_tx_43fr", bank = "taidigou"}
 }
 

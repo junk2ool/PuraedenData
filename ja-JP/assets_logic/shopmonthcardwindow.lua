@@ -43,9 +43,17 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
     tarItem = obj
     tarType = (ActivityMgr.MouthDoubleType).AssetMouth
     activityId = 33000241
+    ;
+    ((obj:GetChildAt(0)):GetChild("WordTxt")).text = (PUtil.get)(85000001)
+    ;
+    ((obj:GetChildAt(1)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
+    ;
+    ((obj:GetChildAt(2)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
+    ;
+    ((obj:GetChildAt(3)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
   else
     do
-      -- DECOMPILER ERROR at PC71: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC115: Confused about usage of register: R6 in 'UnsetPending'
 
       if configData.type == PayProductType.BigMonthCard then
         (uis.c1Ctr).selectedIndex = 1
@@ -57,21 +65,27 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
         tarItem = obj
         tarType = (ActivityMgr.MouthDoubleType).DiamondMouth
         activityId = 33000242
+        ;
+        ((obj:GetChildAt(0)):GetChild("WordTxt")).text = (PUtil.get)(85000001)
+        ;
+        ((obj:GetChildAt(1)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
+        ;
+        ((obj:GetChildAt(2)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
       end
       do
         ;
         (ShopMonthCardWindow.InitEvent)()
-        -- DECOMPILER ERROR at PC102: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC179: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (uis.ItemNameTxt).text = (PUtil.get)(20000355)
         ;
         (ShopMonthCardWindow.SetDouble)(tarItem, tarType, activityId)
-        -- DECOMPILER ERROR at PC113: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC190: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (uis.TipsTxt).text = (PUtil.get)(20000356)
-        -- DECOMPILER ERROR at PC119: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC196: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (uis.TitleTxt).text = (PUtil.get)(20000406)

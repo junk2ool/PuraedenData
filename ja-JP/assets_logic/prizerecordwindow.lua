@@ -65,7 +65,11 @@ PrizeRecordWindow.ListRenderer = function(index, obj, ...)
         if PoolData.intelligence == 2 then
           obj = UIMgr:CreateObject("Prize", "PrizeItemA")
         else
-          obj = UIMgr:CreateObject("Prize", "PrizeItemS")
+          if PoolData.intelligence == 3 then
+            obj = UIMgr:CreateObject("Prize", "PrizeItemS")
+          else
+            obj = UIMgr:CreateObject("Prize", "PrizeItemLast")
+          end
         end
       end
       local name = obj:GetChild("NameTxt")

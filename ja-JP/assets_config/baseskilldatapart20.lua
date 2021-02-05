@@ -1063,6 +1063,8 @@ BaseSkillDataPart20 = {
 , 
 [45083024] = {id = 45083024, name = (PUtil.get)(81253024), remark = (PUtil.get)(81353024), des = (PUtil.get)(81610001, (PUtil.get)(81353024), (PUtil.get)(81603024)), icon_path = "SkillIcon:45083024", type = 6, targetType = 0, damage = 0, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 3}
 , 
+[45083026] = {id = 45083026, name = (PUtil.get)(81253026), remark = (PUtil.get)(81353026), des = (PUtil.get)(81610001, (PUtil.get)(81353026), (PUtil.get)(81603026)), icon_path = "SkillIcon:45083026", type = 6, targetType = 0, damage = 0, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 3}
+, 
 [45083030] = {id = 45083030, name = (PUtil.get)(81253030), remark = (PUtil.get)(81353030), des = (PUtil.get)(81610001, (PUtil.get)(81353030), (PUtil.get)(81603030)), icon_path = "SkillIcon:45083030", type = 6, targetType = 0, damage = 0, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 3}
 }
 

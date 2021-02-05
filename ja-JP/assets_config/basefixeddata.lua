@@ -101,7 +101,7 @@ BaseFixedData = {
 , 
 [72002064] = {id = 72002064, int_value = 0, array_value = "72501001:0:24,72504411:52310204:1"}
 , 
-[72002071] = {id = 72002071, int_value = 0, array_value = "40:80:120"}
+[72002071] = {id = 72002071, int_value = 0, array_value = "20:50:80"}
 , 
 [72002072] = {id = 72002072, int_value = 0, array_value = "2:21100001:5"}
 , 

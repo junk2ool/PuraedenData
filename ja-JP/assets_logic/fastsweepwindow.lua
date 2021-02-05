@@ -11,17 +11,26 @@ local DebrisSort = {}
 local ChooseDebris = {}
 local Consumption = 12
 local mPlotType = 0
+local IsSaveBoolStr = ""
+local SaveInfoStr = ""
 FastSweepWindow.OnInit = function(bridge, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, mPlotType, ChooseDebris, FastSweepWindow, DebrisData, Consumption
+  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, mPlotType, IsSaveBoolStr, SaveInfoStr, ChooseDebris, FastSweepWindow, DebrisData, Consumption
   bridge:SetView((WinResConfig.FastSweepWindow).package, (WinResConfig.FastSweepWindow).comName)
   contentPane = bridge.contentPane
   local argTable = bridge.argTable
   uis = GetHeroDungeon_SpeedSweepWindowUis(contentPane)
   uis = uis.SpeedSweep
   mPlotType = argTable[1]
-  local isSave = (Util.GetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD, tostring(0))
+  if mPlotType == DungeonType.ActivityDungeon then
+    IsSaveBoolStr = PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD_2
+    SaveInfoStr = PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD_INFO_2
+  else
+    IsSaveBoolStr = PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD
+    SaveInfoStr = PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD_INFO
+  end
+  local isSave = (Util.GetPlayerSetting)(IsSaveBoolStr, tostring(0))
   if isSave == tostring(1) then
-    local str = (Util.GetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD_INFO)
+    local str = (Util.GetPlayerSetting)(SaveInfoStr)
     local debris = split(str, ":")
     ChooseDebris = {}
     for _,v in ipairs(debris) do
@@ -36,10 +45,10 @@ FastSweepWindow.OnInit = function(bridge, ...)
       (FastSweepWindow.InItDebrisData)()
       ;
       (FastSweepWindow.InitDebrisList)()
-      -- DECOMPILER ERROR at PC83: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC98: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
-      (uis.DefaultBtn).selected = (Util.GetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD, 0) == tostring(1)
+      (uis.DefaultBtn).selected = (Util.GetPlayerSetting)(IsSaveBoolStr, 0) == tostring(1)
       ;
       ((uis.CloseBtn).onClick):Set(function(...)
     -- function num : 0_0_0 , upvalues : _ENV
@@ -48,16 +57,16 @@ FastSweepWindow.OnInit = function(bridge, ...)
 )
       ;
       ((uis.DefaultBtn).onChanged):Set(function(...)
-    -- function num : 0_0_1 , upvalues : uis, _ENV
+    -- function num : 0_0_1 , upvalues : uis, _ENV, IsSaveBoolStr
     if (uis.DefaultBtn).selected then
-      (Util.SetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD, 1)
+      (Util.SetPlayerSetting)(IsSaveBoolStr, 1)
     else
       ;
-      (Util.SetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD, 0)
+      (Util.SetPlayerSetting)(IsSaveBoolStr, 0)
     end
   end
 )
-      -- DECOMPILER ERROR at PC99: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC114: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.SpeedSweepBtn).text = (PUtil.get)(20000053)
@@ -107,11 +116,11 @@ FastSweepWindow.OnInit = function(bridge, ...)
 )
       ;
       (FastSweepWindow.RefreshPhysics)()
-      -- DECOMPILER ERROR at PC112: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC127: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.RewardTxt).text = (PUtil.get)(20000400)
-      -- DECOMPILER ERROR at PC118: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC133: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.DefaultTxt).text = (PUtil.get)(20000407)
@@ -246,7 +255,7 @@ FastSweepWindow.onChanged = function(debrisID, btn, ...)
 end
 
 FastSweepWindow.SaveInfoPlayerPrefs = function(...)
-  -- function num : 0_5 , upvalues : _ENV, ChooseDebris
+  -- function num : 0_5 , upvalues : _ENV, ChooseDebris, SaveInfoStr
   local str = ""
   for _,v in ipairs(ChooseDebris) do
     if not (Util.StringIsNullOrEmpty)(v) then
@@ -254,7 +263,7 @@ FastSweepWindow.SaveInfoPlayerPrefs = function(...)
     end
   end
   ;
-  (Util.SetPlayerSetting)(PlayerPrefsKeyName.FAST_SWEEP_SAVE_CARD_INFO, str)
+  (Util.SetPlayerSetting)(SaveInfoStr, str)
 end
 
 FastSweepWindow.RefreshPhysics = function(...)

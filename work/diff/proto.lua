@@ -584,6 +584,7 @@ message ExpeditionBattleData
     int32 changeFc                 = 1;//战力改变值
     int32 selfMaxFc                = 2;//玩家战斗力历史最大值
     int32 stageId                  = 3;//远征的关卡
+	int32 challengeTimes           = 4;//挑战的次数，用于做属性缩放
 }
 
 //战斗结束后,卡组状态

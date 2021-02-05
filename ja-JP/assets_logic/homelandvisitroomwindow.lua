@@ -146,11 +146,17 @@ HomelandVisitRoomWindow.RefreshPlayerItem = function(index, item, ...)
     btn.text = (PUtil.get)(60000552)
     ;
     (btn.onClick):Set(function(...)
-    -- function num : 0_9_0 , upvalues : HomelandVisitRoomWindow, _ENV, index, _currentData, data
+    -- function num : 0_9_0 , upvalues : HomelandVisitRoomWindow, _ENV, id, index, _currentData, data
     (HomelandVisitRoomWindow.ClickCloseBtn)()
-    -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
 
-    HomelandData.VisitInfo = {Index = index, Content = _currentData}
+    if (ActorData.baseInfo).playerIndex == id then
+      HomelandData.VisitInfo = {Index = index + 1, Content = _currentData}
+    else
+      -- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
+
+      HomelandData.VisitInfo = {Index = index, Content = _currentData}
+    end
     ;
     (HomelandMgr.ReqRoomCallOn)(data.objectindex or data.playerIndex, data.serverId)
   end

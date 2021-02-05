@@ -131,63 +131,51 @@ ItemTipsWindow.ShowItem = function(data, itemNum, propType, ...)
 
       ;
       (uis.ItemNameTxt).text = data.name
-      -- DECOMPILER ERROR at PC54: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC58: Confused about usage of register: R4 in 'UnsetPending'
 
-      if data.type == PropItemType.CHARACTER_DEBRIS or data.type == PropItemType.UNIVERSAL_DEBRIS then
+      if propType ~= PropType.FURNITURE and (data.type == PropItemType.CHARACTER_DEBRIS or data.type == PropItemType.UNIVERSAL_DEBRIS) then
         (uis.c1Ctr).selectedIndex = 1
         ;
         (Util.SetDebrisFrame)((uis.HeadDebrisGrp).root, data.id)
       else
-        -- DECOMPILER ERROR at PC63: Confused about usage of register: R4 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC67: Confused about usage of register: R4 in 'UnsetPending'
 
         ;
         (uis.c1Ctr).selectedIndex = 0
         ;
         (Util.SetItemFrame)((uis.ItemFrameGrp).root, data.id, 1, false, false, true)
       end
-      -- DECOMPILER ERROR at PC77: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC81: Confused about usage of register: R4 in 'UnsetPending'
 
       if itemNum then
         (uis.HaveNumberTxt).text = itemNum
       else
-        -- DECOMPILER ERROR at PC88: Confused about usage of register: R4 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC92: Confused about usage of register: R4 in 'UnsetPending'
 
         if (ItemTipsWindow.IsInConfig)(data.id) or data.own_show == 1 then
           (uis.HaveNumberGrp).visible = false
         else
-          -- DECOMPILER ERROR at PC99: Confused about usage of register: R4 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC100: Confused about usage of register: R4 in 'UnsetPending'
 
-          if propType == PropType.ITEM then
-            (uis.HaveNumberTxt).text = (ActorData.GetPropsByID)(data.id)
-          else
-            -- DECOMPILER ERROR at PC111: Confused about usage of register: R4 in 'UnsetPending'
-
-            if propType == PropType.SEED then
-              (uis.HaveNumberTxt).text = (ActorData.GetGoodsCount)(data.id, propType)
-            else
-              -- DECOMPILER ERROR at PC118: Confused about usage of register: R4 in 'UnsetPending'
-
-              ;
-              (uis.HaveNumberTxt).text = (ActorData.GetAssetCount)(data.id)
-            end
-          end
+          ;
+          (uis.HaveNumberTxt).text = (ActorData.GetGoodsCount)(data.id, propType)
         end
       end
-      -- DECOMPILER ERROR at PC126: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC108: Confused about usage of register: R4 in 'UnsetPending'
 
       if data.id and data.id == 21100022 then
         (uis.HaveNumberGrp).visible = false
       end
-      -- DECOMPILER ERROR at PC133: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC115: Confused about usage of register: R4 in 'UnsetPending'
 
       if data.can_sell == PropCanSell.Can_Sell then
         (uis.BuyGrp).visible = true
-        -- DECOMPILER ERROR at PC136: Confused about usage of register: R4 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC118: Confused about usage of register: R4 in 'UnsetPending'
 
         ;
         (uis.BuyNumberTxt).text = data.sell_price
       else
-        -- DECOMPILER ERROR at PC139: Confused about usage of register: R4 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC121: Confused about usage of register: R4 in 'UnsetPending'
 
         ;
         (uis.BuyGrp).visible = false
@@ -197,13 +185,13 @@ ItemTipsWindow.ShowItem = function(data, itemNum, propType, ...)
           local timeStamp = (LuaTime.GetTimeStamp)()
           if timeStamp < argTable[4] + data.time then
             grp.visible = true
-            -- DECOMPILER ERROR at PC159: Confused about usage of register: R5 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC141: Confused about usage of register: R5 in 'UnsetPending'
 
             ;
             (uis.LvUseTxt).visible = true
             local str = "[color=" .. Const.WhiteColor .. "]" .. (PUtil.get)(96) .. "[/color]"
             str = str .. "[color=" .. Const.GreenColor .. "]" .. (LuaTime.GetLeftTimeStr)(data.time + argTable[4], true) .. "[/color]"
-            -- DECOMPILER ERROR at PC185: Confused about usage of register: R6 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC167: Confused about usage of register: R6 in 'UnsetPending'
 
             ;
             (uis.LvUseTxt).text = str
@@ -211,28 +199,28 @@ ItemTipsWindow.ShowItem = function(data, itemNum, propType, ...)
         else
           do
             grp.visible = true
-            -- DECOMPILER ERROR at PC189: Confused about usage of register: R4 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC171: Confused about usage of register: R4 in 'UnsetPending'
 
             ;
             (uis.LvUseTxt).visible = true
             do
               local str = "[color=" .. Const.WhiteColor .. "]" .. (PUtil.get)(96) .. "[/color]"
               str = str .. "[color=" .. Const.GreenColor .. "]" .. (LuaTime.GetLeftTimeString)(data.time, true) .. "[/color]"
-              -- DECOMPILER ERROR at PC213: Confused about usage of register: R5 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC195: Confused about usage of register: R5 in 'UnsetPending'
 
               ;
               (uis.LvUseTxt).text = str
-              -- DECOMPILER ERROR at PC228: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC210: Confused about usage of register: R4 in 'UnsetPending'
 
               if propType == PropType.TITLE or propType == PropType.HEAD_ICON or propType == PropType.HEAD_FRAME then
                 (uis.ItemWordTxt).text = data.des
               else
-                -- DECOMPILER ERROR at PC232: Confused about usage of register: R4 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC214: Confused about usage of register: R4 in 'UnsetPending'
 
                 ;
                 (uis.ItemWordTxt).text = data.remark
               end
-              -- DECOMPILER ERROR at PC235: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC217: Confused about usage of register: R4 in 'UnsetPending'
 
               ;
               (uis.TipsImage).height = _originYSize

@@ -91,7 +91,11 @@ PrizeInformationWindow.RefreshWindow = function(...)
                   if PoolData.intelligence == 2 then
                     obj = UIMgr:CreateObject("Prize", "PrizeItemA")
                   else
-                    obj = UIMgr:CreateObject("Prize", "PrizeItemS")
+                    if PoolData.intelligence == 3 then
+                      obj = UIMgr:CreateObject("Prize", "PrizeItemS")
+                    else
+                      obj = UIMgr:CreateObject("Prize", "PrizeItemLast")
+                    end
                   end
                 end
                 local rewardItem = split(PoolData.reward, ":")
@@ -115,17 +119,17 @@ PrizeInformationWindow.RefreshWindow = function(...)
               end
             end
             do
-              -- DECOMPILER ERROR at PC303: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC313: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC303: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC313: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC303: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC313: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC303: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC313: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC303: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC313: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC303: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC313: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end

@@ -271,7 +271,7 @@ HomelandFarmWindow.RefreshFarmWindow = function(...)
 
   ;
   ((uis.Level).FarmLevelTxt).text = (PUtil.get)(22) .. farmInfo.farmLevel
-  if oriFarmExp < farmInfo.farmExp then
+  if oriFarmExp < farmInfo.farmExp and farmInfo.farmExp < lvlUpExp then
     ((LeanTween.value)(levelExpBar.value, farmInfo.farmExp / lvlUpExp * 100, 0.5)):setOnUpdate(function(value, ...)
     -- function num : 0_3_0 , upvalues : levelExpBar
     levelExpBar.value = value

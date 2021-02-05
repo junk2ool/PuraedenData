@@ -407,5 +407,4 @@ BaseTaskBoxData = {
 , 
 [31030206] = {id = 31030206, type = 3, group = 3, sort = 6, pre = 31030005, next = 0, reset_time = "2:10500:MX0", liveness = 240, reward = "1:21160002:10"}
 }
-return BaseTaskBoxData
 

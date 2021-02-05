@@ -44,7 +44,7 @@ BattleHurtNum.GetHurtNumRes = function(hurt_type, ...)
   return hurtObject, text
 end
 
-ShowHurtNum = function(hurt_type, num, bindObject, ...)
+ShowHurtNum = function(hurt_type, num, bindObject, isCustom, ...)
   -- function num : 0_2 , upvalues : HurtNumType, _ENV, BattleBuffWordType, BattleHurtNum, random, battleHurtObjectPool
   if hurt_type == HurtNumType.BUFF_HURT and num == 0 then
     return 
@@ -92,6 +92,11 @@ ShowHurtNum = function(hurt_type, num, bindObject, ...)
                     if hurt_type == HurtNumType.RESIST then
                       ShowBuffWord(BattleBuffWordType.RESIST, bindObject)
                       return 
+                    else
+                      if isCustom == true then
+                        ShowBuffWord(hurt_type, bindObject)
+                        return 
+                      end
                     end
                   end
                 end

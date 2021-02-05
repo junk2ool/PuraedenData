@@ -38,8 +38,8 @@ doubleAtkInfo = {}
 assistAtkInfo = {}
 , isAssist = false, isTreatment = false, 
 defCardsInfo = {}
-, isStrike = false, isFall = false, lastAtk = false, isDoubleAttack = false, moveCamera = false, atkFail = false, noAtkAction = false, targetSelf = false, movePosType = TARGET_CARD, copyCardUid = "", skillAddition = false}
-  -- DECOMPILER ERROR at PC34: Confused about usage of register: R6 in 'UnsetPending'
+, isStrike = false, isFall = false, lastAtk = false, isDoubleAttack = false, moveCamera = false, atkFail = false, noAtkAction = false, targetSelf = false, movePosType = TARGET_CARD, copyCardUid = "", skillAddition = false, skillMultiple = false}
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R6 in 'UnsetPending'
 
   BattleData.atkIndex = BattleData.atkIndex + 1
   atkInfo.atkIndex = BattleData.atkIndex
@@ -104,7 +104,7 @@ end
 
 -- DECOMPILER ERROR at PC40: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid, skillAdd, ...)
+BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid, skillAdd, multipleSkill, ...)
   -- function num : 0_3 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
   local BattleDataCount = BattleDataCount
   local BattleSkillType = BattleSkillType
@@ -114,13 +114,20 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid,
     if copyCardUid then
       atkInfo.copyCardUid = copyCardUid
     end
+    if multipleSkill == true then
+      atkInfo.skillMultiple = true
+    end
     self.curAtkInfo = atkInfo
     if atkFail == true then
       atkInfo.atkFail = true
     else
       atkInfo.atkFail = false
       atkInfo.noAtkAction = true
-      atkInfo.danderAtk = atkCard:GetDanderAtk()
+      if multipleSkill == true then
+        atkInfo.danderAtk = 0
+      else
+        atkInfo.danderAtk = atkCard:GetDanderAtk()
+      end
       if skillConfig.type == BattleSkillType.SKILL then
         atkInfo.danderAtk = atkInfo.danderAtk - atkCard:GetMaxDander()
       end
@@ -142,7 +149,7 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid,
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.BEFORE_ATTACK)
-      -- DECOMPILER ERROR at PC93: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC100: Confused about usage of register: R10 in 'UnsetPending'
 
       if (BattleBuff.IsAttackDouble)(atkCard) == true then
         BattleData.forceNextAttackFunc = function(...)
@@ -155,6 +162,21 @@ BattleAtk.InsertBuffNoAtk = function(atkCard, atkFail, skillConfig, copyCardUid,
     end
   end
 
+      else
+        -- DECOMPILER ERROR at PC111: Confused about usage of register: R10 in 'UnsetPending'
+
+        if (BattleAtk.CheckMultiplePlaySkill)(atkCard, skillConfig) then
+          BattleData.forceNextAttackFunc = function(...)
+    -- function num : 0_3_1 , upvalues : _ENV, skillConfig, atkCard
+    if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
+      (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig, nil, nil, true)
+    else
+      ;
+      (BattleAtk.InsertSmallSkillInfo)(atkCard, nil, true)
+    end
+  end
+
+        end
       end
       ;
       (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT_ALL)
@@ -172,15 +194,45 @@ end
 
 -- DECOMPILER ERROR at PC43: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsertPreRoundInfo = function(...)
-  -- function num : 0_4 , upvalues : _ENV
-  return (BattleDataCount.GetPreRoundCount)()
+BattleAtk.CheckMultiplePlaySkill = function(atkCard, skillConfig, ...)
+  -- function num : 0_4 , upvalues : _ENV, split, tonumber
+  local multiple = skillConfig.multiple_play
+  local isMultiplePlay = false
+  if multiple and not (Util.StringIsNullOrEmpty)(multiple) and multiple ~= "0" then
+    local multipleTable = split(multiple, ":")
+    local playTimes = atkCard:MultipleSkillTimes()
+    local trigger_value = tonumber(multipleTable[playTimes + 1])
+    if trigger_value then
+      local random = (BattleData.GetRandomSeed)()
+      if (Util.CompareNum)(4, random, trigger_value) == true then
+        isMultiplePlay = true
+      end
+    end
+  end
+  do
+    if isMultiplePlay then
+      local playTimes = atkCard:MultipleSkillTimes()
+      atkCard:MultipleSkillTimes(playTimes + 1)
+    else
+      do
+        atkCard:MultipleSkillTimes(0)
+        return isMultiplePlay
+      end
+    end
+  end
 end
 
 -- DECOMPILER ERROR at PC46: Confused about usage of register: R12 in 'UnsetPending'
 
+BattleAtk.InsertPreRoundInfo = function(...)
+  -- function num : 0_5 , upvalues : _ENV
+  return (BattleDataCount.GetPreRoundCount)()
+end
+
+-- DECOMPILER ERROR at PC49: Confused about usage of register: R12 in 'UnsetPending'
+
 BattleAtk.InsetAttackFailInfo = function(atkCard, ...)
-  -- function num : 0_5 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
+  -- function num : 0_6 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
   local BattleDataCount = BattleDataCount
   local BattleData = BattleData
   if IsBattleServer == nil then
@@ -204,10 +256,10 @@ BattleAtk.InsetAttackFailInfo = function(atkCard, ...)
   t_insert((BattleData.curRoundData).attackInfo, atkInfo)
 end
 
--- DECOMPILER ERROR at PC49: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC52: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, ...)
-  -- function num : 0_6 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, ipairs, t_insert
+BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, multipleSkill, ...)
+  -- function num : 0_7 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, ipairs, t_insert
   local BattleDataCount = BattleDataCount
   local BattleData = BattleData
   if IsBattleServer == nil then
@@ -223,6 +275,9 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, ...)
       if isDoubleAttack == true then
         atkInfo.isDoubleAttack = true
       end
+      if multipleSkill == true then
+        atkInfo.skillMultiple = true
+      end
       ;
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
@@ -233,10 +288,18 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, ...)
         (BattleDataCount.DealHitCritBuff)({defCardInfo}, atkInfo)
         if (BattleBuff.IsAttackDouble)(atkCard) == true then
           BattleData.forceNextAttackFunc = function(...)
-    -- function num : 0_6_0 , upvalues : _ENV, atkCard
+    -- function num : 0_7_0 , upvalues : _ENV, atkCard
     (BattleAtk.InsetNormalAttackInfo)(atkCard, true)
   end
 
+        else
+          if (BattleAtk.CheckMultiplePlaySkill)(atkCard, skillConfig) then
+            BattleData.forceNextAttackFunc = function(...)
+    -- function num : 0_7_1 , upvalues : _ENV, atkCard
+    (BattleAtk.InsetNormalAttackInfo)(atkCard, false, true)
+  end
+
+          end
         end
         ;
         (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
@@ -288,10 +351,10 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, ...)
   end
 end
 
--- DECOMPILER ERROR at PC52: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC55: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
-  -- function num : 0_7 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, ipairs, t_insert
+BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, multipleSkill, ...)
+  -- function num : 0_8 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, ipairs, t_insert
   local BattleDataCount = BattleDataCount
   local BattleData = BattleData
   if IsBattleServer == nil then
@@ -304,6 +367,9 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
     self.curAtkInfo = atkInfo
     if isDoubleAttack == true then
       atkInfo.isDoubleAttack = true
+    end
+    if multipleSkill == true then
+      atkInfo.skillMultiple = true
     end
     atkInfo.moveCamera = true
     ;
@@ -319,10 +385,14 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
         (BattleDataCount.DealTreatDirectBuff)(atkCard, atkInfo)
         if (BattleBuff.IsAttackDouble)(atkCard) == true then
           BattleData.forceNextAttackFunc = function(...)
-    -- function num : 0_7_0 , upvalues : _ENV, atkCard
+    -- function num : 0_8_0 , upvalues : _ENV, atkCard
     (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
   end
 
+        else
+          if (BattleAtk.CheckMultiplePlaySkill)(atkCard, skillConfig) then
+            (BattleAtk.InsertSmallSkillInfo)(atkCard, false, true)
+          end
         end
       else
         local defCardInfoTable = (BattleDataCount.GetSkillDataCount)(atkCard, curTargetCards, atkInfo, atkCard)
@@ -330,10 +400,14 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
         (BattleDataCount.DealHitCritBuff)(defCardInfoTable, atkInfo)
         if (BattleBuff.IsAttackDouble)(atkCard) == true then
           BattleData.forceNextAttackFunc = function(...)
-    -- function num : 0_7_1 , upvalues : _ENV, atkCard
+    -- function num : 0_8_1 , upvalues : _ENV, atkCard
     (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
   end
 
+        else
+          if (BattleAtk.CheckMultiplePlaySkill)(atkCard, skillConfig) then
+            (BattleAtk.InsertSmallSkillInfo)(atkCard, false, true)
+          end
         end
       end
       do
@@ -385,10 +459,10 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
   end
 end
 
--- DECOMPILER ERROR at PC55: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC58: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.InsertSkillInfo = function(curSkill, skillAdd, ...)
-  -- function num : 0_8 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
+  -- function num : 0_9 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert
   local BattleDataCount = BattleDataCount
   local BattleData = BattleData
   local cardUid = curSkill.cardUid
@@ -451,10 +525,10 @@ BattleAtk.InsertSkillInfo = function(curSkill, skillAdd, ...)
   end
 end
 
--- DECOMPILER ERROR at PC58: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC61: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.GetIsUseSmallSkill = function(atkCard, ...)
-  -- function num : 0_9 , upvalues : _ENV, split, tonumber
+  -- function num : 0_10 , upvalues : _ENV, split, tonumber
   if BattleConfig.onlySmallSkill == true then
     return true
   end
@@ -485,10 +559,10 @@ BattleAtk.GetIsUseSmallSkill = function(atkCard, ...)
   end
 end
 
--- DECOMPILER ERROR at PC61: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC64: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.IsAssistAtk = function(atkCard, ...)
-  -- function num : 0_10 , upvalues : _ENV, split, tonumber, ipairs, t_insert
+  -- function num : 0_11 , upvalues : _ENV, split, tonumber, ipairs, t_insert
   if atkCard:IsDead() == true then
     return {}
   end
@@ -544,10 +618,10 @@ BattleAtk.IsAssistAtk = function(atkCard, ...)
   end
 end
 
--- DECOMPILER ERROR at PC64: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC67: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.GetHpByPos = function(atkInfo, pos, ...)
-  -- function num : 0_11 , upvalues : ipairs
+  -- function num : 0_12 , upvalues : ipairs
   if atkInfo and pos then
     local defCardsInfo = atkInfo.defCardsInfo
     for _,defCardInfo in ipairs(defCardsInfo) do
@@ -561,10 +635,10 @@ BattleAtk.GetHpByPos = function(atkInfo, pos, ...)
   end
 end
 
--- DECOMPILER ERROR at PC67: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC70: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.IsDefCampByPos = function(atkInfo, pos, ...)
-  -- function num : 0_12 , upvalues : math
+  -- function num : 0_13 , upvalues : math
   do
     if atkInfo then
       local atkPos = atkInfo.atkPos
@@ -575,10 +649,10 @@ BattleAtk.IsDefCampByPos = function(atkInfo, pos, ...)
   end
 end
 
--- DECOMPILER ERROR at PC70: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC73: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.IsAtkCardByPos = function(atkInfo, pos, ...)
-  -- function num : 0_13
+  -- function num : 0_14
   do
     if atkInfo then
       local atkPos = atkInfo.atkPos
@@ -589,10 +663,10 @@ BattleAtk.IsAtkCardByPos = function(atkInfo, pos, ...)
   end
 end
 
--- DECOMPILER ERROR at PC73: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC76: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.IsDefCardByPos = function(atkInfo, pos, ...)
-  -- function num : 0_14 , upvalues : ipairs
+  -- function num : 0_15 , upvalues : ipairs
   if atkInfo then
     local defCardsInfo = atkInfo.defCardsInfo
     if defCardsInfo then
@@ -608,10 +682,10 @@ BattleAtk.IsDefCardByPos = function(atkInfo, pos, ...)
   end
 end
 
--- DECOMPILER ERROR at PC76: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC79: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.SetWaitActionCardState = function(pos, actionComplete, ...)
-  -- function num : 0_15 , upvalues : self, ipairs, t_insert
+  -- function num : 0_16 , upvalues : self, ipairs, t_insert
   local waitActionCardPosTable = self.waitActionCardPosTable
   if actionComplete == false then
     for i,v in ipairs(waitActionCardPosTable) do
@@ -631,10 +705,10 @@ BattleAtk.SetWaitActionCardState = function(pos, actionComplete, ...)
   end
 end
 
--- DECOMPILER ERROR at PC79: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC82: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.GetRealDefCard = function(defCardsInfo, ...)
-  -- function num : 0_16 , upvalues : ipairs, t_insert
+  -- function num : 0_17 , upvalues : ipairs, t_insert
   local realDefCardInfos = {}
   for i,v in ipairs(defCardsInfo) do
     if v.isSkillTarget == true then
@@ -644,10 +718,10 @@ BattleAtk.GetRealDefCard = function(defCardsInfo, ...)
   return realDefCardInfos
 end
 
--- DECOMPILER ERROR at PC82: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC85: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.GetAtkDamage = function(atkInfo, ...)
-  -- function num : 0_17 , upvalues : ipairs
+  -- function num : 0_18 , upvalues : ipairs
   local totalDamage = 0
   local defCardsInfo = atkInfo.defCardsInfo
   local atkPos = atkInfo.atkPos
@@ -659,10 +733,10 @@ BattleAtk.GetAtkDamage = function(atkInfo, ...)
   return totalDamage
 end
 
--- DECOMPILER ERROR at PC85: Confused about usage of register: R12 in 'UnsetPending'
+-- DECOMPILER ERROR at PC88: Confused about usage of register: R12 in 'UnsetPending'
 
 BattleAtk.GetAllCardDamage = function(atkInfo, ...)
-  -- function num : 0_18 , upvalues : _ENV, ipairs
+  -- function num : 0_19 , upvalues : _ENV, ipairs
   local damageTable = {}
   local defCardsInfo = atkInfo.defCardsInfo
   local allBuffTable = atkInfo.allBuffTable

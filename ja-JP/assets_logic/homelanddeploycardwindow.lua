@@ -149,18 +149,12 @@ HomelandDeployCardWindow.RefreshAllCardItem = function(index, item, ...)
     ;
     (item:GetController("c3")).selectedIndex = 0
     local clicked = false
-    do
-      (item.onClick):Set(function(...)
-    -- function num : 0_11_1 , upvalues : clicked, _ENV, data, argTable, _initRoleCount
-    if clicked then
-      return 
-    end
-    clicked = true
     ;
+    (item.onClick):Set(function(...)
+    -- function num : 0_11_1 , upvalues : _ENV, data, argTable, _initRoleCount
     (HomelandMgr.DeployCard)(data.id, (((HomelandData.RoomByLevel)[(HomelandData.RoomData).Type])[(HomelandData.RoomData).Level]).RoleAmount, argTable.Slots + _initRoleCount - #(HomelandData.RoomData).Role)
   end
 )
-    end
   end
 end
 

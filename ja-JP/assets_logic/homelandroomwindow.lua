@@ -98,48 +98,9 @@ HomelandRoomWindow.InitTopMenu = function(...)
   m.Tip = (PUtil.get)(60000585)
   m.model = uis.AssetStripGrp
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.FAMILY_SHOP_COIN}
-  m.BackBtnFun = function(...)
-    -- function num : 0_1_0 , upvalues : uis, _ENV, HomelandRoomWindow
-    if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Normal then
-      if (HomelandData.RoomData).Relation == HomelandHostRelation.Self then
-        (HomelandService.ReqInFamily)(function(...)
-      -- function num : 0_1_0_0 , upvalues : _ENV
-      UIMgr:CloseWindow((WinResConfig.HomelandRoomWindow).name)
-    end
-)
-      else
-        ;
-        (HomelandMgr.InitDefaultData)()
-        ;
-        (HomelandRoomWindow.RefreshHouse)()
-        if not ((HomelandData.RoomData).CurrentPlayInfo).isRandomVisit then
-          (HomelandRoomWindow.ClickVisitBtn)()
-        end
-      end
-    else
-      if (HomelandRoomWindow.ModifiedCheck)() then
-        (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000595), function(...)
-      -- function num : 0_1_0_1 , upvalues : HomelandRoomWindow
-      (HomelandRoomWindow.ClickSaveBtn)()
-    end
-, function(...)
-      -- function num : 0_1_0_2 , upvalues : HomelandRoomWindow
-      (HomelandRoomWindow.AbortEdit)()
-      ;
-      (HomelandRoomWindow.DeactiveEditMode)(true)
-    end
-)
-      else
-        ;
-        (HomelandRoomWindow.AbortEdit)()
-        ;
-        (HomelandRoomWindow.DeactiveEditMode)(true)
-      end
-    end
-  end
-
+  m.BackBtnFun = HomelandRoomWindow.ClickBackBtn
   m.CloseBtnFun = function(...)
-    -- function num : 0_1_1 , upvalues : _ENV
+    -- function num : 0_1_0 , upvalues : _ENV
     UIMgr:CloseWindow((WinResConfig.HomelandRoomWindow).name)
   end
 
@@ -436,17 +397,12 @@ HomelandRoomWindow.RefreshPlayerInfo = function(...)
     ;
     (((uis.PlayerInfo).NextBtn).onClick):Set(function(...)
     -- function num : 0_13_1 , upvalues : _ENV
-    -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
-
-    if (HomelandData.VisitInfo).Index == #(HomelandData.VisitInfo).Content then
-      (HomelandData.VisitInfo).Index = 1
-    else
-      -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
-
-      ;
-      (HomelandData.VisitInfo).Index = (HomelandData.VisitInfo).Index + 1
-    end
+    (HomelandData.IncreaseVisitIndex)()
     local data = ((HomelandData.VisitInfo).Content)[(HomelandData.VisitInfo).Index]
+    if (ActorData.GetPlayerIndex)() == data.objectindex or (ActorData.GetPlayerIndex)() == data.playerIndex then
+      (HomelandData.IncreaseVisitIndex)()
+      data = ((HomelandData.VisitInfo).Content)[(HomelandData.VisitInfo).Index]
+    end
     if not data.objectindex then
       (HomelandMgr.ReqRoomCallOn)(data.playerIndex, data.serverId)
     end
@@ -2391,16 +2347,17 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
       _moveComInfo.Id = config.id
       _moveComInfo.Type = config.type
       _moveComInfo.Direction = config.direction
+      _moveComInfo.Removed = false
       if _moveComInfo.Type == HomelandFurnitureType.Carpet then
         _currentEditGridUsage = _editCarpetGridUsage
       else
         _currentEditGridUsage = _editGridUsage
       end
-      -- DECOMPILER ERROR at PC135: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC136: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
       (_moveComInfo.ChangeOrientationBtn).visible = _moveComInfo.Type ~= HomelandFurnitureType.Decorate
-      -- DECOMPILER ERROR at PC149: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC150: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
       (_moveComInfo.AdjustCom).visible = _moveComInfo.Type ~= HomelandFurnitureType.Wall and _moveComInfo.Type ~= HomelandFurnitureType.Floor
@@ -2413,14 +2370,14 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
             str = split(config.resource, ":")
           end
           _moveComInfo.Furniture = (((FairyGUI.UIPackage).CreateObject)(str[1], str[2])).asImage
-          -- DECOMPILER ERROR at PC184: Confused about usage of register: R6 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC185: Confused about usage of register: R6 in 'UnsetPending'
 
           ;
           (_moveComInfo.Furniture).alpha = SELECTED_ALPHA
           ;
           (_moveComInfo.Com):AddChildAt(_moveComInfo.Furniture, 0)
         end
-        -- DECOMPILER ERROR at PC193: Confused about usage of register: R5 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC194: Confused about usage of register: R5 in 'UnsetPending'
 
         ;
         (_moveComInfo.Com).size = (_moveComInfo.Furniture).size
@@ -2448,30 +2405,30 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
                   else
                     turn = nil
                   end
-                  -- DECOMPILER ERROR at PC274: Confused about usage of register: R7 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC275: Confused about usage of register: R7 in 'UnsetPending'
 
                   if turn then
                     (_moveComInfo.Furniture).flip = (FairyGUI.FlipType).Horizontal
                   else
-                    -- DECOMPILER ERROR at PC280: Confused about usage of register: R7 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC281: Confused about usage of register: R7 in 'UnsetPending'
 
                     (_moveComInfo.Furniture).flip = (FairyGUI.FlipType).None
                   end
                   _moveComInfo.Turn = turn
                   flip = _moveComInfo.Turn
                 else
-                  -- DECOMPILER ERROR at PC288: Confused about usage of register: R6 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC289: Confused about usage of register: R6 in 'UnsetPending'
 
                   (_moveComInfo.Furniture).flip = (FairyGUI.FlipType).None
                   _moveComInfo.Turn = nil
                 end
                 ;
                 (HomelandRoomWindow.InitSelectedBelongGrid)(config.id, flip)
-                -- DECOMPILER ERROR at PC305: Confused about usage of register: R6 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC306: Confused about usage of register: R6 in 'UnsetPending'
 
                 ;
                 (_moveComInfo.Furniture).xy = (HomelandRoomWindow.GetFunritureOffset)(config, _moveComInfo.BelongTo, _moveComInfo.Size, (_moveComInfo.Furniture).width, (_moveComInfo.Furniture).height, _moveComInfo.Turn)
-                -- DECOMPILER ERROR at PC326: Confused about usage of register: R6 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC327: Confused about usage of register: R6 in 'UnsetPending'
 
                 if config.type == HomelandFurnitureType.Decorate then
                   (_moveComInfo.AdjustCom).xy = Vector2((_moveComInfo.Furniture).x + (_moveComInfo.Com).width * 0.5, (_moveComInfo.Furniture).y + (_moveComInfo.Com).height * 0.5)
@@ -2492,20 +2449,20 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
                 _moveComInfo.BelongingGrid = (HomelandRoomWindow.RecycleBelongingGrid)(_moveComInfo.BelongingGrid)
                 if not (Util.StringIsNullOrEmpty)(config.perspectivity) then
                   _moveComInfo.WindowView = (HomelandRoomWindow.SetWindowView)(config, (_moveComInfo.Furniture).x + (_moveComInfo.Com).x, (_moveComInfo.Furniture).y + (_moveComInfo.Com).y, _moveComInfo.WindowView, nil, _moveComInfo.Com, (_moveComInfo.Com):GetChildIndex(_moveComInfo.Furniture) - 1)
-                  -- DECOMPILER ERROR at PC388: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC389: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).alpha = SELECTED_ALPHA
-                  -- DECOMPILER ERROR at PC395: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC396: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).x = (_moveComInfo.Furniture).x + (_moveComInfo.WindowViewRect).x
-                  -- DECOMPILER ERROR at PC402: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC403: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).y = (_moveComInfo.Furniture).y + (_moveComInfo.WindowViewRect).y
                 else
-                  -- DECOMPILER ERROR at PC408: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC409: Confused about usage of register: R5 in 'UnsetPending'
 
                   if _moveComInfo.WindowView ~= nil then
                     (_moveComInfo.WindowView).visible = false
@@ -3075,6 +3032,8 @@ HomelandRoomWindow.AfterPlaceCom = function(context, fromUI, ...)
                   ;
                   (HomelandRoomWindow.InitMoveComSwipeGesture)()
                   if fromUI then
+                    _moveComInfo.Removed = true
+                    ;
                     (HomelandMgr.RemoveFurnitureFromUI)(_moveComInfo.Id, _moveComInfo.Uid)
                   end
                 end
@@ -3085,6 +3044,8 @@ HomelandRoomWindow.AfterPlaceCom = function(context, fromUI, ...)
                   ;
                   (HomelandRoomWindow.InitMoveComSwipeGesture)()
                   if fromUI then
+                    _moveComInfo.Removed = true
+                    ;
                     (HomelandMgr.RemoveFurnitureFromUI)(_moveComInfo.Id, _moveComInfo.Uid)
                   end
                 end
@@ -5444,8 +5405,9 @@ HomelandRoomWindow.ClickStyleBtn = function(styleId, ...)
   if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Edit then
     if _moveComInfo.Com ~= nil and (_moveComInfo.Com).visible and _moveComInfo.New then
       (HomelandRoomWindow.PlaceNewFurniture)()
-      ;
-      (HomelandMgr.RemoveFurnitureFromUI)(_moveComInfo.Id, _moveComInfo.Uid)
+      if not _moveComInfo.Removed then
+        (HomelandMgr.RemoveFurnitureFromUI)(_moveComInfo.Id, _moveComInfo.Uid)
+      end
     end
     ;
     (HomelandRoomWindow.SaveCurrentStyleEditInfo)()
@@ -5469,13 +5431,52 @@ HomelandRoomWindow.SaveCurrentStyleEditInfo = function(...)
   _editInfo[(HomelandData.RoomData).StyleId] = data
 end
 
+HomelandRoomWindow.QuitRoom = function(...)
+  -- function num : 0_151 , upvalues : _ENV, HomelandRoomWindow
+  if (HomelandData.RoomData).Relation == HomelandHostRelation.Self then
+    (HomelandService.ReqInFamily)(function(...)
+    -- function num : 0_151_0 , upvalues : _ENV
+    UIMgr:CloseWindow((WinResConfig.HomelandRoomWindow).name)
+  end
+)
+  else
+    ;
+    (HomelandMgr.InitDefaultData)()
+    ;
+    (HomelandRoomWindow.RefreshHouse)()
+    if not ((HomelandData.RoomData).CurrentPlayInfo).isRandomVisit then
+      (HomelandRoomWindow.ClickVisitBtn)()
+    end
+  end
+end
+
+HomelandRoomWindow.QuitEdit = function(...)
+  -- function num : 0_152 , upvalues : HomelandRoomWindow, _ENV
+  if (HomelandRoomWindow.ModifiedCheck)() then
+    (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000595), function(...)
+    -- function num : 0_152_0 , upvalues : HomelandRoomWindow
+    (HomelandRoomWindow.ClickSaveBtn)()
+  end
+, function(...)
+    -- function num : 0_152_1 , upvalues : HomelandRoomWindow
+    (HomelandRoomWindow.AbortEdit)()
+    ;
+    (HomelandRoomWindow.DeactiveEditMode)(true)
+  end
+)
+  else
+    ;
+    (HomelandRoomWindow.AbortEdit)()
+    ;
+    (HomelandRoomWindow.DeactiveEditMode)(true)
+  end
+end
+
 HomelandRoomWindow.ClickBlankBtn = function(...)
-  -- function num : 0_151 , upvalues : uis, _ENV, _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, _ui, _uiAnim, _topUIAnim
+  -- function num : 0_153 , upvalues : uis, _ENV, _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, _ui, _uiAnim, _topUIAnim
   if ((uis.AssetStripGrp).root).visible then
     if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Edit and (_moveComInfo.Com == nil or not (_moveComInfo.Com).visible) then
-      (HomelandRoomWindow.AbortEdit)()
-      ;
-      (HomelandRoomWindow.DeactiveEditMode)(true)
+      (HomelandRoomWindow.QuitEdit)()
     else
       if _moveComInfo.Com ~= nil and (_moveComInfo.Com).visible then
         if _moveComInfo.New then
@@ -5489,12 +5490,12 @@ HomelandRoomWindow.ClickBlankBtn = function(...)
       end
     end
   else
-    -- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     ((uis.AssetStripGrp).root).visible = true
     _ui.visible = true
-    -- DECOMPILER ERROR at PC51: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC48: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     ((uis.PlayerInfo).root).visible = true
@@ -5504,7 +5505,7 @@ HomelandRoomWindow.ClickBlankBtn = function(...)
 end
 
 HomelandRoomWindow.ClickClearBtn = function(...)
-  -- function num : 0_152 , upvalues : uis, _ENV, HomelandRoomWindow
+  -- function num : 0_154 , upvalues : uis, _ENV, HomelandRoomWindow
   if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Edit then
     (HomelandRoomWindow.EditClearRoom)()
     ;
@@ -5512,7 +5513,7 @@ HomelandRoomWindow.ClickClearBtn = function(...)
   else
     ;
     (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000551), function(...)
-    -- function num : 0_152_0 , upvalues : _ENV
+    -- function num : 0_154_0 , upvalues : _ENV
     (HomelandMgr.ReqClearRoom)()
   end
 )
@@ -5520,17 +5521,17 @@ HomelandRoomWindow.ClickClearBtn = function(...)
 end
 
 HomelandRoomWindow.ClickSaveBtn = function(...)
-  -- function num : 0_153 , upvalues : HomelandRoomWindow
+  -- function num : 0_155 , upvalues : HomelandRoomWindow
   (HomelandRoomWindow.SaveEdit)()
 end
 
 HomelandRoomWindow.ClickStorageBtn = function(...)
-  -- function num : 0_154 , upvalues : HomelandRoomWindow
+  -- function num : 0_156 , upvalues : HomelandRoomWindow
   (HomelandRoomWindow.ActiveEditMode)()
 end
 
 HomelandRoomWindow.ClickHideBtn = function(...)
-  -- function num : 0_155 , upvalues : _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, uis, _uiAnim, _ui, _topUIAnim
+  -- function num : 0_157 , upvalues : _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, uis, _uiAnim, _ui, _topUIAnim
   if _moveComInfo.Com ~= nil and (_moveComInfo.Com).visible then
     if not _moveComInfo.New then
       (HomelandRoomWindow.ChangePlacedFurnitureStatus)(_editFurnitureInfo[_moveComInfo.Uid], true)
@@ -5545,7 +5546,7 @@ HomelandRoomWindow.ClickHideBtn = function(...)
   end
   if ((uis.AssetStripGrp).root).visible then
     _uiAnim:PlayReverse(function(...)
-    -- function num : 0_155_0 , upvalues : uis, _ui
+    -- function num : 0_157_0 , upvalues : uis, _ui
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.AssetStripGrp).root).visible = false
@@ -5561,36 +5562,36 @@ HomelandRoomWindow.ClickHideBtn = function(...)
 end
 
 HomelandRoomWindow.ClickRandomVisitBtn = function(...)
-  -- function num : 0_156 , upvalues : _ENV
+  -- function num : 0_158 , upvalues : _ENV
   (HomelandMgr.ReqRandomPlayerInfo)()
 end
 
 HomelandRoomWindow.ClickVisitBtn = function(...)
-  -- function num : 0_157 , upvalues : _ENV
+  -- function num : 0_159 , upvalues : _ENV
   (HomelandMgr.OpenVisitUI)()
 end
 
 HomelandRoomWindow.ClickDeployBtn = function(...)
-  -- function num : 0_158 , upvalues : _ENV
+  -- function num : 0_160 , upvalues : _ENV
   OpenWindow((WinResConfig.HomelandDeployCardWindow).name, UILayer.HUD, (HomelandData.RoomData).CardGridCount)
 end
 
 HomelandRoomWindow.ClickShopBtn = function(...)
-  -- function num : 0_159 , upvalues : _ENV
+  -- function num : 0_161 , upvalues : _ENV
   ld("Shop")
   ;
   (HomelandService.ReqFarmShopTypeData)(ShopType.Family_NormalShop)
 end
 
 HomelandRoomWindow.ClickExtendBtn = function(...)
-  -- function num : 0_160 , upvalues : HomelandRoomWindow, _ENV
+  -- function num : 0_162 , upvalues : HomelandRoomWindow, _ENV
   (HomelandRoomWindow.HideEditGrids)()
   ;
   (HomelandMgr.ReqRoomLevelUp)((HomelandData.RoomData).Id, (HomelandData.RoomData).StyleId)
 end
 
 HomelandRoomWindow.ClickSortBtn = function(...)
-  -- function num : 0_161 , upvalues : _sort, HomelandRoomWindow, uis
+  -- function num : 0_163 , upvalues : _sort, HomelandRoomWindow, uis
   _sort = not _sort
   ;
   (HomelandRoomWindow.SortFurnitureIcon)()
@@ -5598,8 +5599,18 @@ HomelandRoomWindow.ClickSortBtn = function(...)
   ((uis.Warehouse).CardHeadList):RefreshVirtualList()
 end
 
+HomelandRoomWindow.ClickBackBtn = function(...)
+  -- function num : 0_164 , upvalues : uis, _ENV, HomelandRoomWindow
+  if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Normal then
+    (HomelandRoomWindow.QuitRoom)()
+  else
+    ;
+    (HomelandRoomWindow.QuitEdit)()
+  end
+end
+
 HomelandRoomWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_162 , upvalues : _ENV, HomelandRoomWindow, uis, _furnitureType
+  -- function num : 0_165 , upvalues : _ENV, HomelandRoomWindow, uis, _furnitureType
   if msgId == (WindowMsgEnum.Family).E_MSG_CHANGE_ROOM_LAYOUT_SUCCESS then
     (HomelandRoomWindow.SyncEditedFurnitureInfo)()
     ;

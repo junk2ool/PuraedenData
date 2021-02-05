@@ -237,7 +237,8 @@ end
 
 HomelandService.OnResLandHarvest = function(msg, ...)
   -- function num : 0_22 , upvalues : _ENV
-  print("2308返回土地收割", #msg.goods)
+  print("2308返回土地收割", #msg.goods, (msg.framInfo).farmLevel, (HomelandData.GetFarmLevel)())
+  local isNeedLvl = (HomelandData.GetFarmLevel)() < (msg.framInfo).farmLevel
   UIMgr:SendWindowMessage("HomelandFarmWindow", (WindowMsgEnum.Family).E_MSG_PLANT_HARVEST, {data = msg})
   if msg.landId == 0 then
     local items = {}
@@ -250,26 +251,31 @@ HomelandService.OnResLandHarvest = function(msg, ...)
       end
       if #items > 0 then
         (SimpleTimer.setTimeout)(0.5, function(...)
-    -- function num : 0_22_0 , upvalues : _ENV, items
-    (MessageMgr.OpenRewardShowWindow)(items)
+    -- function num : 0_22_0 , upvalues : _ENV, items, isNeedLvl, msg
+    (MessageMgr.OpenRewardShowWindow)(items, function(...)
+      -- function num : 0_22_0_0 , upvalues : isNeedLvl, _ENV, msg
+      if isNeedLvl then
+        OpenWindow((WinResConfig.FarmLevelUpWindow).name, UILayer.HUD, (msg.framInfo).farmLevel)
+      end
+    end
+)
   end
 )
       else
-        ;
         (MessageMgr.SendCenterTips)((PUtil.get)(258))
       end
     end
   else
-    do
-      for index,value in ipairs(msg.goods) do
-        (MessageMgr.OpenItemBuyTipsWindowBySingle)({id = value.id, Num = value.value})
-      end
-      do
-        ;
-        (HomelandService.CheckFarmRedDot)(msg.framInfo)
-      end
+    for index,value in ipairs(msg.goods) do
+      (MessageMgr.OpenItemBuyTipsWindowBySingle)({id = value.id, Num = value.value})
+    end
+    if isNeedLvl then
+      OpenWindow((WinResConfig.FarmLevelUpWindow).name, UILayer.HUD, (msg.framInfo).farmLevel)
     end
   end
+  ;
+  (HomelandService.CheckFarmRedDot)(msg.framInfo)
+  -- DECOMPILER ERROR: 6 unprocessed JMP targets
 end
 
 -- DECOMPILER ERROR at PC76: Confused about usage of register: R1 in 'UnsetPending'

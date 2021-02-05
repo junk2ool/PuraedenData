@@ -390,41 +390,53 @@ BattlePlay.PlayAtk = function(...)
       if defCard then
         if atkInfo.isDoubleAttack == true then
           ShowHurtNum(HurtNumType.DOUBLE_ATTACK, 0, atkCard)
-        end
-        if #assistAtkInfo > 0 then
-          (self.PlayAssistAtk)(attackType, atkCard, defCard, atkInfo, atkEndCallBack, allEndCallBack)
         else
-          atkInfo.lastAtk = true
-          ;
-          (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, atkEndCallBack, allEndCallBack)
-          UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
-          totalDamage = totalDamage + defCardInfo.hpDef
+          if atkInfo.skillMultiple == true and skillConfig and skillConfig.words_path and not (Util.StringIsNullOrEmpty)(skillConfig.words_path) then
+            local skillShow = skillConfig.words_path
+            ShowHurtNum(skillShow, 0, atkCard, true)
+          end
         end
-      end
-    else
-      do
-        if #realDefCardsInfo > 1 then
-          atkInfo.lastAtk = true
-          if atkInfo.isDoubleAttack == true then
-            ShowHurtNum(HurtNumType.DOUBLE_ATTACK, 0, atkCard)
-          end
-          local defCards = {}
-          for _,v in ipairs(realDefCardsInfo) do
-            local defCardUid = v.defCardUid
-            local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
-            ;
-            (table.insert)(defCards, defCard)
-            totalDamage = totalDamage + v.hpDef
-          end
-          ;
-          (self.StartPlay)(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack)
-        else
+        do
           do
-            atkInfo.lastAtk = true
-            ;
-            (self.StartPlay)(attackType, atkCard, {}, atkInfo, atkEndCallBack, allEndCallBack)
-            UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
-            totalDamage = totalDamage
+            if #assistAtkInfo > 0 then
+              (self.PlayAssistAtk)(attackType, atkCard, defCard, atkInfo, atkEndCallBack, allEndCallBack)
+            else
+              atkInfo.lastAtk = true
+              ;
+              (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, atkEndCallBack, allEndCallBack)
+              UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
+              totalDamage = totalDamage + defCardInfo.hpDef
+            end
+            if #realDefCardsInfo > 1 then
+              atkInfo.lastAtk = true
+              if atkInfo.isDoubleAttack == true then
+                ShowHurtNum(HurtNumType.DOUBLE_ATTACK, 0, atkCard)
+              else
+                if atkInfo.skillMultiple == true and skillConfig and skillConfig.words_path and not (Util.StringIsNullOrEmpty)(skillConfig.words_path) then
+                  local skillShow = skillConfig.words_path
+                  ShowHurtNum(skillShow, 0, atkCard, true)
+                end
+              end
+              do
+                do
+                  local defCards = {}
+                  for _,v in ipairs(realDefCardsInfo) do
+                    local defCardUid = v.defCardUid
+                    local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
+                    ;
+                    (table.insert)(defCards, defCard)
+                    totalDamage = totalDamage + v.hpDef
+                  end
+                  ;
+                  (self.StartPlay)(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack)
+                  atkInfo.lastAtk = true
+                  ;
+                  (self.StartPlay)(attackType, atkCard, {}, atkInfo, atkEndCallBack, allEndCallBack)
+                  UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
+                  totalDamage = totalDamage
+                end
+              end
+            end
           end
         end
       end

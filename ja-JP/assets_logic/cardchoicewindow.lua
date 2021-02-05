@@ -114,7 +114,8 @@ CardChoiceWindow.CreateButton = function(...)
     (CardChoiceWindow.SetCg)(selectedFashionId)
   end
 )
-  if cardData.intelligence >= 3 then
+  local funcConfig = (((TableData.gTable).BaseFunctionData)[ControlID.Card_Moive]).open_condition
+  if cardData.intelligence >= 3 and tonumber((split(funcConfig, ":"))[3]) <= (ActorData.GetLevel)() then
     local MoiveBtn = (uis.ButtonList):AddItemFromPool((UIPackage.GetItemURL)("Card", "AnimationBtn"))
     MoiveBtn.name = "MoiveBtn"
     ;
@@ -470,7 +471,8 @@ CardChoiceWindow.SetButtonState = function(fashionConfig, ...)
   end
 )
       end
-      if cardData.intelligence >= 3 then
+      local funcConfig = (((TableData.gTable).BaseFunctionData)[ControlID.Card_Moive]).open_condition
+      if cardData.intelligence >= 3 and tonumber((split(funcConfig, ":"))[3]) <= (ActorData.GetLevel)() then
         local MoiveBtn = (uis.ButtonList):AddItemFromPool((UIPackage.GetItemURL)("Card", "AnimationBtn"))
         MoiveBtn.name = "MoiveBtn"
         ;

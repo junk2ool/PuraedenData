@@ -10140,4 +10140,140 @@
 [117303002] = {id = 117303002, bubble_text = "このプライドは、とても良い組織だな。それもリーダー、あなたの人徳があってこそだろう。", voice_path = "Coonya_Home_Talk_2", top_position = 10}
 , 
 [117303003] = {id = 117303003, bubble_text = "ここにいると、メンバー達がいろんなことをするから飽きないな。…だから、とても気に入っている。", voice_path = "Coonya_Home_Talk_3", top_position = 10}
+, 
+[97030261] = {id = 97030261, bubble_text = "私って、やっぱり普通に見えちゃうかなぁ…？　いろんな作戦で動きやすいけど、もっとマフィアっぽくもなってみたいような…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Main_1"}
+, 
+[97030262] = {id = 97030262, bubble_text = "もともと癖っ毛だったんですが、レッドになってからさらに癖が強くなって、毎朝まとめるのが大変なんです。クーニャちゃんが「可愛い」って言ってくれるのが救いですかね…えへへ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Main_2"}
+, 
+[97030263] = {id = 97030263, bubble_text = "クーニャちゃんはちょっと怖く見えますが…とっても優しいんです。意外と抜けているところもあって…ふふ、可愛いんですよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Main_3"}
+, 
+[97030264] = {id = 97030264, bubble_text = "私がもっと強くなるために必要なのは、身体能力に思考に経験に…うぅ、何もかも足りないなぁ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Main_4"}
+, 
+[97130261] = {id = 97130261, bubble_text = "私って、やっぱり普通に見えちゃうかなぁ…？　いろんな作戦で動きやすいけど、もっとマフィアっぽくもなってみたいような…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Main_1"}
+, 
+[97130262] = {id = 97130262, bubble_text = "もともと癖っ毛だったんですが、レッドになってからさらに癖が強くなって、毎朝まとめるのが大変なんです。クーニャちゃんが「可愛い」って言ってくれるのが救いですかね…えへへ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Main_2"}
+, 
+[97130263] = {id = 97130263, bubble_text = "クーニャちゃんはちょっと怖く見えますが…とっても優しいんです。意外と抜けているところもあって…ふふ、可愛いんですよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Main_3"}
+, 
+[97130264] = {id = 97130264, bubble_text = "私がもっと強くなるために必要なのは、身体能力に思考に経験に…うぅ、何もかも足りないなぁ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Main_4"}
+, 
+[97230261] = {id = 97230261, bubble_text = "私って、やっぱり普通に見えちゃうかなぁ…？　いろんな作戦で動きやすいけど、もっとマフィアっぽくもなってみたいような…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Main_1"}
+, 
+[97230262] = {id = 97230262, bubble_text = "もともと癖っ毛だったんですが、レッドになってからさらに癖が強くなって、毎朝まとめるのが大変なんです。クーニャちゃんが「可愛い」って言ってくれるのが救いですかね…えへへ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Main_2"}
+, 
+[97230263] = {id = 97230263, bubble_text = "クーニャちゃんはちょっと怖く見えますが…とっても優しいんです。意外と抜けているところもあって…ふふ、可愛いんですよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Main_3"}
+, 
+[97230264] = {id = 97230264, bubble_text = "私がもっと強くなるために必要なのは、身体能力に思考に経験に…うぅ、何もかも足りないなぁ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Main_4"}
+, 
+[101302601] = {id = 101302601, bubble_text = "プデルです…ええと、私はクーニャちゃんに比べたら何にもできないですが…でも私にできることは、全力でやりますっ…！　よろしくお願いします！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Get_1"}
+, 
+[101302611] = {id = 101302611, bubble_text = "あ、ありがとうございます、リーダーさんっ…！　昔の私が見たら「まるで自分じゃないみたい」って驚きそうなぐらいです、ふふ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Stage_2"}
+, 
+[101302621] = {id = 101302621, bubble_text = "私の人生が変わった瞬間が、二度あるんです。クーニャちゃんと出会ったとき、そして…リーダーさん。あなたと出会ったときです。素敵な人達に囲まれて…本当に、この道を選んで良かったです…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Stage_3"}
+, 
+[102302601] = {id = 102302601, bubble_text = "今日の仕事のために、まずは作戦会議しましょうか！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_In_1"}
+, 
+[102302602] = {id = 102302602, bubble_text = "今日の仕事のために、まずは作戦会議しましょうか！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_In_1"}
+, 
+[102302603] = {id = 102302603, bubble_text = "今日の仕事のために、まずは作戦会議しましょうか！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_In_1"}
+, 
+[103302601] = {id = 103302601, bubble_text = "わあっ…これでもっと戦える！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:229", direction = 2, voice_path = "Pudel_Stage_1"}
+, 
+[103302611] = {id = 103302611, bubble_text = "わあっ…これでもっと戦える！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "435:220", direction = 2, voice_path = "Pudel_Stage_1"}
+, 
+[103302621] = {id = 103302621, bubble_text = "わあっ…これでもっと戦える！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "435:220", direction = 2, voice_path = "Pudel_Stage_1"}
+, 
+[104302601] = {id = 104302601, bubble_text = "私、もっと強くなれるんだ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:229", direction = 2, voice_path = "Pudel_Star_1"}
+, 
+[104302611] = {id = 104302611, bubble_text = "私、もっと強くなれるんだ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "435:220", direction = 2, voice_path = "Pudel_Star_1"}
+, 
+[104302621] = {id = 104302621, bubble_text = "私、もっと強くなれるんだ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "435:220", direction = 2, voice_path = "Pudel_Star_1"}
+, 
+[105302601] = {id = 105302601, bubble_text = "わっ…び、びっくりしたぁ…！　リーダーさん、急につつかないでください…私なんて驚かせても、面白くないですしっ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Interaction_1"}
+, 
+[105302602] = {id = 105302602, bubble_text = "どうしましたか？　もしかして何か相談事ですかね…？　ええと、お役に立てるかわかりませんが…私で良ければ一緒に考えさせてください。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Interaction_2"}
+, 
+[105302603] = {id = 105302603, bubble_text = "い、いけません、リーダーさん！　私の身体は、本当に貧相なので…！　もっと筋肉をつけて、敵を思いっきり吹っ飛ばせるようになったときには、また…って、私は何の話をっ！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Interaction_3"}
+, 
+[105302604] = {id = 105302604, bubble_text = "ううっ…リ、リーダーさんがそばにいると、尻尾が勝手にぶんぶん動いちゃって困ります…。あっ、いえっ！　し、尻尾の動きには何の意味もないですよ！　はい、本当に…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Interaction_4"}
+, 
+[105302605] = {id = 105302605, bubble_text = "私は、特別になりたいんです！　クーニャちゃんやリーダーさんみたいに、信頼される存在に…！　だってあなた達は、私にとって…代わりのいない、とても大切な人達だから…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Interaction_5"}
+, 
+[105302611] = {id = 105302611, bubble_text = "わっ…び、びっくりしたぁ…！　リーダーさん、急につつかないでください…私なんて驚かせても、面白くないですしっ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Interaction_1"}
+, 
+[105302612] = {id = 105302612, bubble_text = "どうしましたか？　もしかして何か相談事ですかね…？　ええと、お役に立てるかわかりませんが…私で良ければ一緒に考えさせてください。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Interaction_2"}
+, 
+[105302613] = {id = 105302613, bubble_text = "い、いけません、リーダーさん！　私の身体は、本当に貧相なので…！　もっと筋肉をつけて、敵を思いっきり吹っ飛ばせるようになったときには、また…って、私は何の話をっ！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Interaction_3"}
+, 
+[105302614] = {id = 105302614, bubble_text = "ううっ…リ、リーダーさんがそばにいると、尻尾が勝手にぶんぶん動いちゃって困ります…。あっ、いえっ！　し、尻尾の動きには何の意味もないですよ！　はい、本当に…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Interaction_4"}
+, 
+[105302615] = {id = 105302615, bubble_text = "私は、特別になりたいんです！　クーニャちゃんやリーダーさんみたいに、信頼される存在に…！　だってあなた達は、私にとって…代わりのいない、とても大切な人達だから…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Interaction_5"}
+, 
+[105302621] = {id = 105302621, bubble_text = "わっ…び、びっくりしたぁ…！　リーダーさん、急につつかないでください…私なんて驚かせても、面白くないですしっ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Interaction_1"}
+, 
+[105302622] = {id = 105302622, bubble_text = "どうしましたか？　もしかして何か相談事ですかね…？　ええと、お役に立てるかわかりませんが…私で良ければ一緒に考えさせてください。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Interaction_2"}
+, 
+[105302623] = {id = 105302623, bubble_text = "い、いけません、リーダーさん！　私の身体は、本当に貧相なので…！　もっと筋肉をつけて、敵を思いっきり吹っ飛ばせるようになったときには、また…って、私は何の話をっ！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Interaction_3"}
+, 
+[105302624] = {id = 105302624, bubble_text = "ううっ…リ、リーダーさんがそばにいると、尻尾が勝手にぶんぶん動いちゃって困ります…。あっ、いえっ！　し、尻尾の動きには何の意味もないですよ！　はい、本当に…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Interaction_4"}
+, 
+[105302625] = {id = 105302625, bubble_text = "私は、特別になりたいんです！　クーニャちゃんやリーダーさんみたいに、信頼される存在に…！　だってあなた達は、私にとって…代わりのいない、とても大切な人達だから…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Interaction_5"}
+, 
+[106302601] = {id = 106302601, bubble_text = "やったぁ、作戦勝ちですねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Win_1"}
+, 
+[106302611] = {id = 106302611, bubble_text = "やったぁ、作戦勝ちですねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Win_1"}
+, 
+[106302621] = {id = 106302621, bubble_text = "やったぁ、作戦勝ちですねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Win_1"}
+, 
+[107302601] = {id = 107302601, bubble_text = "うぅ、私の考えが足りなかったせいです…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "304:245", direction = 1, voice_path = "Pudel_Fail_1"}
+, 
+[107302611] = {id = 107302611, bubble_text = "うぅ、私の考えが足りなかったせいです…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:229", direction = 1, voice_path = "Pudel_Fail_1"}
+, 
+[107302621] = {id = 107302621, bubble_text = "うぅ、私の考えが足りなかったせいです…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "471:297", direction = 2, voice_path = "Pudel_Fail_1"}
+, 
+[108302601] = {id = 108302601, bubble_text = "いい作戦、思いつくかな…？", voice_path = "Pudel_Go_1"}
+, 
+[109302601] = {id = 109302601, voice_path = "Pudel_Game_1"}
+, 
+[111302601] = {id = 111302601, voice_path = "Pudel_Battle_N_1"}
+, 
+[111302602] = {id = 111302602, voice_path = "Pudel_Battle_N_2"}
+, 
+[111302603] = {id = 111302603, voice_path = "Pudel_Battle_N_3"}
+, 
+[111302604] = {id = 111302604, voice_path = "Pudel_Battle_N_4"}
+, 
+[111302605] = {id = 111302605, voice_path = "Pudel_Battle_N_5"}
+, 
+[111302606] = {id = 111302606, voice_path = "Pudel_Battle_N_6"}
+, 
+[112302601] = {id = 112302601, voice_path = "Pudel_Battle_Hit_1"}
+, 
+[112302602] = {id = 112302602, voice_path = "Pudel_Battle_Hit_2"}
+, 
+[112302603] = {id = 112302603, voice_path = "Pudel_Battle_Hit_3"}
+, 
+[112302604] = {id = 112302604, voice_path = "Pudel_Battle_Hit_4"}
+, 
+[112302605] = {id = 112302605, voice_path = "Pudel_Battle_Hit_5"}
+, 
+[112302606] = {id = 112302606, voice_path = "Pudel_Battle_Hit_6"}
+, 
+[113302601] = {id = 113302601, voice_path = "Pudel_Battle_Die_1"}
+, 
+[114302601] = {id = 114302601, voice_path = "Pudel_Battle_H_1"}
+, 
+[114302602] = {id = 114302602, voice_path = "Pudel_Battle_H_2"}
+, 
+[115302601] = {id = 115302601, voice_path = "Pudel_Battle_C_1"}
+, 
+[115302602] = {id = 115302602, voice_path = "Pudel_Battle_C_2"}
+, 
+[116302601] = {id = 116302601, bubble_text = "襲撃者が来ても逃げやすいように、出口はふたつありますか？", voice_path = "Pudel_Home_In_1", top_position = 10}
+, 
+[117302601] = {id = 117302601, bubble_text = "クエストでも遠征でも、私を使ってください！もっと戦って、経験を積んで、思考を深めたいんですっ！", voice_path = "Pudel_Home_Talk_1", top_position = 10}
+, 
+[117302602] = {id = 117302602, bubble_text = "学校にいた頃は、肩身が狭かったですが…ここはみんな自由で、落ち着きますね。えへへ。", voice_path = "Pudel_Home_Talk_2", top_position = 10}
+, 
+[117302603] = {id = 117302603, bubble_text = "どんな仕事でも、始める前は緊張します…うう、失敗しませんように…考え通りに行きますように…", voice_path = "Pudel_Home_Talk_3", top_position = 10}
 }

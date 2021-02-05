@@ -956,6 +956,11 @@ ActorData.GetGoodsCount = function(id, type, ...)
         return (HomelandData.GetSeedNumById)(id)
       else
         if type == PropType.FURNITURE then
+          if HomelandData == nil then
+            ld("Homeland")
+            ;
+            (HomelandData.InitFurnitureData)({})
+          end
           return (HomelandData.GetFurnitureAmount)(id)
         end
       end

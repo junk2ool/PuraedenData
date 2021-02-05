@@ -816,377 +816,403 @@ effectRounds = {}
                                                                                                     local cardStar = (atkCard:GetCardInfo()):GetStar()
                                                                                                     local mValue = tonumber(strTable[cardStar])
                                                                                                     totalValue = (math.ceil)(mValue / 10000 * atkCard:GetAtk(true))
-                                                                                                  end
-                                                                                                  do
-                                                                                                    if upType == BattleBuffEffectCalType.VALUE then
-                                                                                                      totalValue = totalValue + upValue
-                                                                                                    else
-                                                                                                      if upType == BattleBuffEffectCalType.ATK_PER then
-                                                                                                        if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                                                                          totalValue = totalValue + (math.ceil)(atkCard:GetAtk(true) * upValue / 10000)
-                                                                                                        else
-                                                                                                          if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                                                                            totalValue = totalValue + (math.ceil)(defCard:GetAtk(true) * upValue / 10000)
-                                                                                                          end
+                                                                                                  else
+                                                                                                    do
+                                                                                                      do
+                                                                                                        if baseType == BattleBuffEffectCalType.ATK_BASE_NEAR_CARD then
+                                                                                                          local count = (math.max)(#(BattleChoose.GetCardsByAround)(atkCard, true) - 1, 0)
+                                                                                                          totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * baseValue / 10000)
                                                                                                         end
-                                                                                                      else
-                                                                                                        if upType == BattleBuffEffectCalType.DEF_PER then
-                                                                                                          if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                                                                            totalValue = totalValue + (math.ceil)(atkCard:GetDef(true) * upValue / 10000)
-                                                                                                          else
-                                                                                                            if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                                                                              totalValue = totalValue + (math.ceil)(defCard:GetDef(true) * upValue / 10000)
-                                                                                                            end
-                                                                                                          end
+                                                                                                        if upType == BattleBuffEffectCalType.VALUE then
+                                                                                                          totalValue = totalValue + upValue
                                                                                                         else
-                                                                                                          if upType == BattleBuffEffectCalType.HP_PER then
+                                                                                                          if upType == BattleBuffEffectCalType.ATK_PER then
                                                                                                             if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                                                                              totalValue = totalValue + (math.ceil)(atkCard:GetMaxHp(true) * upValue / 10000)
+                                                                                                              totalValue = totalValue + (math.ceil)(atkCard:GetAtk(true) * upValue / 10000)
                                                                                                             else
                                                                                                               if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                                                                                totalValue = totalValue + (math.ceil)(defCard:GetMaxHp(true) * upValue / 10000)
+                                                                                                                totalValue = totalValue + (math.ceil)(defCard:GetAtk(true) * upValue / 10000)
                                                                                                               end
                                                                                                             end
                                                                                                           else
-                                                                                                            if atkInfo and upType == BattleBuffEffectCalType.HURT_PER then
-                                                                                                              local totalDamage = GetAtkDamage(atkInfo)
-                                                                                                              totalValue = totalValue + (math.ceil)((math.abs)(totalDamage) * upValue / 10000)
+                                                                                                            if upType == BattleBuffEffectCalType.DEF_PER then
+                                                                                                              if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                                                                totalValue = totalValue + (math.ceil)(atkCard:GetDef(true) * upValue / 10000)
+                                                                                                              else
+                                                                                                                if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                                                                  totalValue = totalValue + (math.ceil)(defCard:GetDef(true) * upValue / 10000)
+                                                                                                                end
+                                                                                                              end
                                                                                                             else
-                                                                                                              do
-                                                                                                                if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_DEAD then
-                                                                                                                  totalValue = totalValue + (math.ceil)((3 - self.targetCount) / self.targetCount * atkCard:GetAtk(true) * upValue / 10000)
+                                                                                                              if upType == BattleBuffEffectCalType.HP_PER then
+                                                                                                                if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                                                                  totalValue = totalValue + (math.ceil)(atkCard:GetMaxHp(true) * upValue / 10000)
                                                                                                                 else
-                                                                                                                  if upType == BattleBuffEffectCalType.ATK_BASED_SELF_DEAD then
-                                                                                                                    local count = GetCampDeadCount(atkCard:GetCampFlag())
-                                                                                                                    totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
-                                                                                                                  else
-                                                                                                                    do
-                                                                                                                      if upType == BattleBuffEffectCalType.ATK_BASED_ALL_DEAD then
-                                                                                                                        local count = GetCampDeadCount()
+                                                                                                                  if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                                                                    totalValue = totalValue + (math.ceil)(defCard:GetMaxHp(true) * upValue / 10000)
+                                                                                                                  end
+                                                                                                                end
+                                                                                                              else
+                                                                                                                if atkInfo and upType == BattleBuffEffectCalType.HURT_PER then
+                                                                                                                  local totalDamage = GetAtkDamage(atkInfo)
+                                                                                                                  totalValue = totalValue + (math.ceil)((math.abs)(totalDamage) * upValue / 10000)
+                                                                                                                else
+                                                                                                                  do
+                                                                                                                    if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_DEAD then
+                                                                                                                      totalValue = totalValue + (math.ceil)((3 - self.targetCount) / self.targetCount * atkCard:GetAtk(true) * upValue / 10000)
+                                                                                                                    else
+                                                                                                                      if upType == BattleBuffEffectCalType.ATK_BASED_SELF_DEAD then
+                                                                                                                        local count = GetCampDeadCount(atkCard:GetCampFlag())
                                                                                                                         totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
                                                                                                                       else
                                                                                                                         do
-                                                                                                                          if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP then
-                                                                                                                            local per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.1)
-                                                                                                                            totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk() * upValue / 10000)
+                                                                                                                          if upType == BattleBuffEffectCalType.ATK_BASED_ALL_DEAD then
+                                                                                                                            local count = GetCampDeadCount()
+                                                                                                                            totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
                                                                                                                           else
                                                                                                                             do
-                                                                                                                              if atkInfo and upType == BattleBuffEffectCalType.DAMAGE_BASED_TARGET_DEAD then
-                                                                                                                                local totalDamage = GetAtkDamage(atkInfo)
-                                                                                                                                totalValue = totalValue + (math.ceil)((math.abs)(totalDamage / self.targetCount) * upValue / 10000)
+                                                                                                                              if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP then
+                                                                                                                                local per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.1)
+                                                                                                                                totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk() * upValue / 10000)
                                                                                                                               else
                                                                                                                                 do
-                                                                                                                                  if upType == BattleBuffEffectCalType.ATK_BASED_CLEAR_BUFF then
-                                                                                                                                    totalValue = totalValue + (math.ceil)(self:GetClearCount() * atkCard:GetAtk(true) * upValue / 10000)
+                                                                                                                                  if atkInfo and upType == BattleBuffEffectCalType.DAMAGE_BASED_TARGET_DEAD then
+                                                                                                                                    local totalDamage = GetAtkDamage(atkInfo)
+                                                                                                                                    totalValue = totalValue + (math.ceil)((math.abs)(totalDamage / self.targetCount) * upValue / 10000)
                                                                                                                                   else
-                                                                                                                                    if upType == BattleBuffEffectCalType.SPD_PER then
-                                                                                                                                      if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                                                                                                        totalValue = totalValue + (math.ceil)(atkCard:GetSpd(true) * upValue / 10000)
+                                                                                                                                    do
+                                                                                                                                      if upType == BattleBuffEffectCalType.ATK_BASED_CLEAR_BUFF then
+                                                                                                                                        totalValue = totalValue + (math.ceil)(self:GetClearCount() * atkCard:GetAtk(true) * upValue / 10000)
                                                                                                                                       else
-                                                                                                                                        if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                                                                                                          totalValue = totalValue + (math.ceil)(defCard:GetSpd(true) * upValue / 10000)
-                                                                                                                                        end
-                                                                                                                                      end
-                                                                                                                                    else
-                                                                                                                                      if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP_DEF then
-                                                                                                                                        local per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.1)
-                                                                                                                                        totalValue = totalValue + (math.ceil)(per * atkCard:GetDef() * upValue / 10000)
-                                                                                                                                      else
-                                                                                                                                        do
-                                                                                                                                          if baseType == BattleBuffEffectCalType.DEPEND_ROUND_DIRECT then
-                                                                                                                                            local round = BattleData.roundIndex
-                                                                                                                                            totalValue = totalValue + (math.ceil)(round * upValue)
+                                                                                                                                        if upType == BattleBuffEffectCalType.SPD_PER then
+                                                                                                                                          if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                                                                                            totalValue = totalValue + (math.ceil)(atkCard:GetSpd(true) * upValue / 10000)
+                                                                                                                                          else
+                                                                                                                                            if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                                                                                              totalValue = totalValue + (math.ceil)(defCard:GetSpd(true) * upValue / 10000)
+                                                                                                                                            end
+                                                                                                                                          end
+                                                                                                                                        else
+                                                                                                                                          if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP_DEF then
+                                                                                                                                            local per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.1)
+                                                                                                                                            totalValue = totalValue + (math.ceil)(per * atkCard:GetDef() * upValue / 10000)
                                                                                                                                           else
                                                                                                                                             do
-                                                                                                                                              if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP_ATK then
-                                                                                                                                                local per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.1)
-                                                                                                                                                totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk() * upValue / 10000)
+                                                                                                                                              if baseType == BattleBuffEffectCalType.DEPEND_ROUND_DIRECT then
+                                                                                                                                                local round = BattleData.roundIndex
+                                                                                                                                                totalValue = totalValue + (math.ceil)(round * upValue)
                                                                                                                                               else
                                                                                                                                                 do
-                                                                                                                                                  if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_VALUE then
+                                                                                                                                                  if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_HP_ATK then
                                                                                                                                                     local per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.1)
-                                                                                                                                                    totalValue = totalValue + (math.ceil)(per * upValue)
+                                                                                                                                                    totalValue = totalValue + (math.ceil)(per * atkCard:GetAtk() * upValue / 10000)
                                                                                                                                                   else
                                                                                                                                                     do
-                                                                                                                                                      if upType == BattleBuffEffectCalType.ATK_DEPEND_REMAIN_DANDER then
-                                                                                                                                                        local dander = defCard:GetDander()
-                                                                                                                                                        if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                                                                                                                          dander = atkCard:GetDander()
-                                                                                                                                                        else
-                                                                                                                                                          if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                                                                                                                            dander = defCard:GetDander()
-                                                                                                                                                          end
-                                                                                                                                                        end
-                                                                                                                                                        totalValue = (math.ceil)((math.floor)(dander / 100) * upValue)
+                                                                                                                                                      if upType == BattleBuffEffectCalType.ATK_BASED_TARGET_VALUE then
+                                                                                                                                                        local per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.1)
+                                                                                                                                                        totalValue = totalValue + (math.ceil)(per * upValue)
                                                                                                                                                       else
                                                                                                                                                         do
-                                                                                                                                                          do
-                                                                                                                                                            if upType == BattleBuffEffectCalType.ATK_BASE_REMAIN_HP_PER then
-                                                                                                                                                              local per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.25)
-                                                                                                                                                              if baseDependType == BattleBuffEffectDependType.ATK_CARD then
-                                                                                                                                                                per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.25)
-                                                                                                                                                              else
-                                                                                                                                                                if baseDependType == BattleBuffEffectDependType.DEF_CARD then
-                                                                                                                                                                  per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.25)
-                                                                                                                                                                end
+                                                                                                                                                          if upType == BattleBuffEffectCalType.ATK_DEPEND_REMAIN_DANDER then
+                                                                                                                                                            local dander = defCard:GetDander()
+                                                                                                                                                            if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                                                                                                              dander = atkCard:GetDander()
+                                                                                                                                                            else
+                                                                                                                                                              if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                                                                                                                dander = defCard:GetDander()
                                                                                                                                                               end
-                                                                                                                                                              totalValue = totalValue + (math.ceil)(per * upValue)
                                                                                                                                                             end
-                                                                                                                                                            if oneEffect.effectId == BattleDisplayEffect.SHIELD and oneEffect.attributeId == BattleCardAttributeID.HP and self:GetActiveForever() == 0 then
-                                                                                                                                                              self:SetShieldHp(totalValue)
-                                                                                                                                                            end
+                                                                                                                                                            totalValue = (math.ceil)((math.floor)(dander / 100) * upValue)
+                                                                                                                                                          else
                                                                                                                                                             do
-                                                                                                                                                              if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_EXTRA then
-                                                                                                                                                                local baoji_jiacheng = (BattleDataCount.PanDingBaoJiGeDang)(atkCard, defCard)
-                                                                                                                                                                totalValue = (math.ceil)((baoji_jiacheng + 10000) / 10000 * (totalValue))
-                                                                                                                                                              end
-                                                                                                                                                              do
+                                                                                                                                                              if upType == BattleBuffEffectCalType.ATK_BASE_REMAIN_HP_PER then
+                                                                                                                                                                local per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.25)
+                                                                                                                                                                if baseDependType == BattleBuffEffectDependType.ATK_CARD then
+                                                                                                                                                                  per = (math.floor)((1 - atkCard:GetHp() / atkCard:GetMaxHp(true)) / 0.25)
+                                                                                                                                                                else
+                                                                                                                                                                  if baseDependType == BattleBuffEffectDependType.DEF_CARD then
+                                                                                                                                                                    per = (math.floor)((1 - defCard:GetHp() / defCard:GetMaxHp(true)) / 0.25)
+                                                                                                                                                                  end
+                                                                                                                                                                end
+                                                                                                                                                                totalValue = totalValue + (math.ceil)(per * upValue)
+                                                                                                                                                              else
                                                                                                                                                                 do
-                                                                                                                                                                  if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST or oneEffect.effectId == BattleDisplayEffect.DAMAGE_REPEAT or oneEffect.effectId == BattleDisplayEffect.FIX_DAMAGE_PER or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_EXTRA or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_LIKE then
-                                                                                                                                                                    local isContain, buff, effect = ContainEffectId(atkCard, BattleDisplayEffect.DAMAGE_PERSIST_UP)
-                                                                                                                                                                    if isContain == true then
-                                                                                                                                                                      totalValue = (math.ceil)(totalValue * (10000 + effect.realValue) / 10000)
+                                                                                                                                                                  do
+                                                                                                                                                                    if upType == BattleBuffEffectCalType.ATK_BASE_NEAR_CARD then
+                                                                                                                                                                      local count = (math.max)(#(BattleChoose.GetCardsByAround)(atkCard, true) - 1, 0)
+                                                                                                                                                                      totalValue = totalValue + (math.ceil)(count * atkCard:GetAtk(true) * upValue / 10000)
+                                                                                                                                                                    end
+                                                                                                                                                                    if oneEffect.effectId == BattleDisplayEffect.SHIELD and oneEffect.attributeId == BattleCardAttributeID.HP and self:GetActiveForever() == 0 then
+                                                                                                                                                                      self:SetShieldHp(totalValue)
+                                                                                                                                                                    end
+                                                                                                                                                                    do
+                                                                                                                                                                      if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_EXTRA then
+                                                                                                                                                                        local baoji_jiacheng = (BattleDataCount.PanDingBaoJiGeDang)(atkCard, defCard)
+                                                                                                                                                                        totalValue = (math.ceil)((baoji_jiacheng + 10000) / 10000 * (totalValue))
+                                                                                                                                                                      end
+                                                                                                                                                                      do
+                                                                                                                                                                        do
+                                                                                                                                                                          if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST or oneEffect.effectId == BattleDisplayEffect.DAMAGE_REPEAT or oneEffect.effectId == BattleDisplayEffect.FIX_DAMAGE_PER or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_EXTRA or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_LIKE then
+                                                                                                                                                                            local isContain, buff, effect = ContainEffectId(atkCard, BattleDisplayEffect.DAMAGE_PERSIST_UP)
+                                                                                                                                                                            if isContain == true then
+                                                                                                                                                                              totalValue = (math.ceil)(totalValue * (10000 + effect.realValue) / 10000)
+                                                                                                                                                                            end
+                                                                                                                                                                          end
+                                                                                                                                                                          t_insert(effectTable, {absorbDamage = 0, isInvincible = false, isKeepAlive = false, effectId = oneEffect.effectId, attributeId = oneEffect.attributeId, value = totalValue, realValue = totalValue})
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                                                                                                                                                                          -- DECOMPILER ERROR at PC1196: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                                                                                                                                        end
+                                                                                                                                                                      end
                                                                                                                                                                     end
                                                                                                                                                                   end
-                                                                                                                                                                  t_insert(effectTable, {absorbDamage = 0, isInvincible = false, isKeepAlive = false, effectId = oneEffect.effectId, attributeId = oneEffect.attributeId, value = totalValue, realValue = totalValue})
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out DO_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                                                                                                                                                                  -- DECOMPILER ERROR at PC1150: LeaveBlock: unexpected jumping out IF_STMT
-
                                                                                                                                                                 end
                                                                                                                                                               end
                                                                                                                                                             end
@@ -1508,6 +1534,11 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
                                                 return true
                                               end
                                             end
+                                          elseif trigger_condition == BuffTriggerCondition.TARGET_AROUND_NUM then
+                                            local count = (math.max)(#(BattleChoose.GetCardsByAround)(atkCard, true) - 1, 0)
+                                            if CompareNum(trigger_type, count, trigger_value) == true then
+                                              return true
+                                            end
                                           else
                                             local isPVE = trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PVE
                                             if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_NOT_GUILD_WAR and battleType ~= E_BATTLE_TYPE.GUILD_WAR then
@@ -1540,7 +1571,7 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
                                           end
                                           do return false end
                                           do return true end
-                                          -- DECOMPILER ERROR: 31 unprocessed JMP targets
+                                          -- DECOMPILER ERROR: 32 unprocessed JMP targets
                                         end
                                       end
                                     end

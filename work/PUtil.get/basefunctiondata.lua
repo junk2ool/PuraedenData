@@ -125,6 +125,8 @@
 , 
 [200301] = {id = 200301, limit_tab = 1, open_condition = "72501001:0:6", popup_window = 0, lock_type = 1, open_des = "「メンバーへのコメント」  Lv.6で開放"}
 , 
+[200302] = {id = 200302, limit_tab = 1, open_condition = "72501001:0:1", popup_window = 0, lock_type = 2, open_des = "機能未開放"}
+, 
 [200401] = {id = 200401, limit_tab = 0, open_condition = "72501001:0:1", popup_window = 0, lock_type = 0}
 , 
 [200501] = {id = 200501, limit_tab = 0, open_condition = "72501001:0:1", popup_window = 0, lock_type = 0}

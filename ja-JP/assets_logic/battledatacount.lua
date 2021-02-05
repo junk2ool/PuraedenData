@@ -744,6 +744,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
     (self.DealControlEnemyBuff)(atkCard, atkInfo)
   end
   local isDoubleAttack = atkInfo.isDoubleAttack
+  local isMultipleAttack = atkInfo.skillMultiple
   local killCount = 0
   local defHpBeforeAtk = defCard:GetHp()
   local gongji_A = atkCard:GetAtk()
@@ -858,7 +859,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                     if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                       killCount = killCount + 1
                     end
-                    -- DECOMPILER ERROR at PC364: LeaveBlock: unexpected jumping out DO_STMT
+                    -- DECOMPILER ERROR at PC365: LeaveBlock: unexpected jumping out DO_STMT
 
                   end
                 end
@@ -922,9 +923,9 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                             danderDef = defCardConfig.dander_hit_assist
                           end
                         else
-                          -- DECOMPILER ERROR at PC544: Unhandled construct in 'MakeBoolean' P1
+                          -- DECOMPILER ERROR at PC547: Unhandled construct in 'MakeBoolean' P1
 
-                          if isDoubleAttack == true and killCount > 0 then
+                          if (isDoubleAttack == true or isMultipleAttack == true) and killCount > 0 then
                             danderAtk = (killCount) * atkCard:GetDanderKill()
                           end
                         end
@@ -981,7 +982,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                   end
                                 end
                                 do return defCardInfo end
-                                -- DECOMPILER ERROR: 25 unprocessed JMP targets
+                                -- DECOMPILER ERROR: 26 unprocessed JMP targets
                               end
                             end
                           end
@@ -1009,6 +1010,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
   ;
   (self.DealControlEnemyBuff)(atkCard, atkInfo)
   local isDoubleAttack = atkInfo.isDoubleAttack
+  local isMultipleAttack = atkInfo.skillMultiple
   local skillLevel = (BattleSkill.GetSkillLevel)(atkCard:GetCardUid(), atkInfo.skillId) or 0
   local defCardsInfo = atkInfo.defCardsInfo
   local gongji_A = atkCard:GetAtk()
@@ -1020,7 +1022,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
   end
   local base_skill_damage = ceil(skillConfig.damage * (1 + skillConfig.damage_up * skillLevel / 10000) + gongji_A * (skillConfig.damage_rate + skillConfig.damage_rate_up * skillLevel) / 10000)
   local danderAtk = 0
-  if skillConfig.type ~= BattleSkillType.SKILL and isDoubleAttack ~= true and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+  if skillConfig.type ~= BattleSkillType.SKILL and isDoubleAttack ~= true and isMultipleAttack ~= true and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
     danderAtk = danderAtk + atkCard:GetDanderAtk()
   end
   local defCardInfoTable = {}
@@ -1127,7 +1129,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                         if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                           killCount = killCount + 1
                         end
-                        -- DECOMPILER ERROR at PC381: LeaveBlock: unexpected jumping out DO_STMT
+                        -- DECOMPILER ERROR at PC384: LeaveBlock: unexpected jumping out DO_STMT
 
                       end
                     end
@@ -1218,49 +1220,49 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                                       end
                                       defCard:SetHp(realDefHp, atkCard:GetPosIndex())
                                       t_insert(defCardInfoTable, defCardInfo)
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC682: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC687: LeaveBlock: unexpected jumping out IF_STMT
 
                                     end
                                   end
@@ -1508,6 +1510,7 @@ end
 BattleDataCount.GetTreatmentCount = function(atkCard, defCards, atkInfo, costTable, ...)
   -- function num : 0_26 , upvalues : _ENV, ceil, zhiliao_baoji_xishu, min, zhiliao_baojilv_max, max, zhiliao_baojilv_min, zhiliao_baoji_jiacheng_max, zhiliao_baoji_jiacheng_min, zhiliao_baoji_qiangdu_xishu, BattleDisplayEffect, BattleSkillType, ipairs, zhiliao_fudong_min, zhiliao_fudong_max
   atkInfo.defCardsInfo = {}
+  local isMultipleAttack = atkInfo.skillMultiple
   local defCardsInfo = atkInfo.defCardsInfo
   local gongji_A = atkCard:GetAtk()
   local skillId = atkInfo.skillId
@@ -1527,7 +1530,7 @@ BattleDataCount.GetTreatmentCount = function(atkCard, defCards, atkInfo, costTab
     baoji_jiacheng = 0
   end
   local danderAtk = 0
-  if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true then
+  if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.ATTACK_DEFEAT_NO_DANDER) ~= true and not isMultipleAttack then
     danderAtk = atkCard:GetDanderAtk()
   end
   if skillConfig.type == BattleSkillType.SKILL then
