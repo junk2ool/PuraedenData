@@ -11,13 +11,13 @@ GetAdventureGame_AdventureGameUis = function(ui, ...)
   uis.AssetStripGrp = GetCommonResource_AssetStripUis(ui:GetChild("AssetStripGrp"))
   uis.EventBtn = ui:GetChild("EventBtn")
   uis.SceneCutMove = GetAdventureGame_SceneCutMoveUis(ui:GetChild("SceneCutMove"))
-  uis.TenTimeBtn = ui:GetChild("TenTimeBtn")
   uis.OnceBtn = ui:GetChild("OnceBtn")
   uis.ControlBtn = ui:GetChild("ControlBtn")
   uis.BuildingBtn = ui:GetChild("BuildingBtn")
   uis.TaroBtn = ui:GetChild("TaroBtn")
   uis.VowBtn = ui:GetChild("VowBtn")
   uis.ThemeCardBtn = ui:GetChild("ThemeCardBtn")
+  uis.TenTimeBtn = ui:GetChild("TenTimeBtn")
   uis.root = ui
   return uis
 end

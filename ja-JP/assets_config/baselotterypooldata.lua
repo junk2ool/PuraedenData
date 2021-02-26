@@ -35,4 +35,5 @@ BaseLotteryPoolData = {
 , 
 [24100017] = {id = 24100017, drop_ids = "2029", change_num = "0"}
 }
+return BaseLotteryPoolData
 

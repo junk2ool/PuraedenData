@@ -78,8 +78,9 @@ HeadChoiceWindow.OnInit = function(bridgeObj, ...)
         end
       end
       v.isHave = isHave
-      ;
-      (table.insert)(heads, v)
+      if v.open_time == nil or tonumber(v.open_time) < (LuaTime.GetTimeStamp)() then
+        (table.insert)(heads, v)
+      end
     end
   end
   do
@@ -150,6 +151,8 @@ HeadChoiceWindow.RefreshHeadItem = function(index, item, ...)
   (item:GetChild("UseTxt")).text = (PUtil.get)(68)
   if data.id == (ActorData.GetFashionHead)() then
     selectedIndex = 1
+    ;
+    ((item:GetChild("ActorHeadGrp")):GetController("lock")).selectedIndex = 0
   else
     if data.isHave then
       selectedIndex = 0

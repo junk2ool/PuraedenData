@@ -271,6 +271,32 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
       if PrizeCom then
         (uis.LeftList):RemoveChild(PrizeCom)
       end
+      local lotteryIntergral = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).LotteryIntergral)
+      local lotteryIntergralCom = (uis.LeftList):GetChild("LotteryIntegral")
+      if lotteryIntergral == true then
+        local lotteryIntergralBtn = UIMgr:CreateObject("Home", "LotteryIntegralBtn")
+        if lotteryIntergralCom == nil then
+          lotteryIntergralBtn.name = "LotteryIntegral"
+          ;
+          (uis.LeftList):AddChild(lotteryIntergralBtn)
+          ;
+          (lotteryIntergralBtn.onClick):Set(function(...)
+    -- function num : 0_3_2 , upvalues : _ENV
+    OpenWindow((WinResConfig.LotteryIntegralWindow).name, UILayer.HUD)
+  end
+)
+        end
+        ;
+        (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_LotteryIntegral, lotteryIntergralBtn)
+        ;
+        (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
+      else
+        do
+          if lotteryIntergralCom then
+            (uis.LeftList):RemoveChild(lotteryIntergralCom)
+          end
+        end
+      end
     end
   end
 end
@@ -897,6 +923,16 @@ HomeWindow.Update = function(...)
   if (Input.GetKey)(KeyCode.A) and (Input.GetKeyDown)(KeyCode.S) then
     OpenWindow((WinResConfig.FriendsListWindow).name, UILayer.HUD)
   end
+  if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.B) then
+    ld("Relic", function(...)
+    -- function num : 0_18_0 , upvalues : _ENV
+    (RelicService.ReqTempleInit)()
+  end
+)
+  end
+  if (Input.GetKey)(KeyCode.Q) and (Input.GetKeyDown)(KeyCode.W) then
+    OpenWindow((WinResConfig.LotteryIntegralWindow).name, UILayer.HUD)
+  end
   if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.C) then
     (ActorService.RegisterMail)(0)
     ;
@@ -904,14 +940,14 @@ HomeWindow.Update = function(...)
   end
   if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.V) then
     ld("Homeland", function(...)
-    -- function num : 0_18_0 , upvalues : _ENV
+    -- function num : 0_18_1 , upvalues : _ENV
     (HomelandService.ReqInFamily)()
   end
 )
   end
   if (Input.GetKey)(KeyCode.A) and (Input.GetKeyDown)(KeyCode.D) then
     ld("Homeland", function(...)
-    -- function num : 0_18_1 , upvalues : _ENV
+    -- function num : 0_18_2 , upvalues : _ENV
     (HomelandMgr.OpenRoom)()
   end
 )

@@ -45,6 +45,8 @@ RedDotMgr.Init = function(...)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Friend, RedDotComID.Home_Main)
   ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_LotteryIntegral, RedDotComID.Home_Main)
+  ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Homeland, RedDotComID.Home_Main)
   winName = (WinResConfig.ActorInfoWindow).name
   ;
@@ -455,9 +457,12 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
       listNode.NodeValueList = valueS
     else
     end
-  else
     do
-      if activityData.type == (ActivityMgr.ActivityType).ActivityDungeon then
+      do
+        if activityData.type ~= (ActivityMgr.ActivityType).ActivityDungeon or activityData.type == (ActivityMgr.ActivityType).LotteryIntergral then
+          local listNode = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, RedDotComID.Home_LotteryIntegral)
+          listNode.NodeValue = IsAdd
+        end
         if id == RedDotComID.Shop_Main then
           for _,v in ipairs(params) do
             local node = RedDotManager:GetNodeByObj((WinResConfig.ShopWindow).name, v)

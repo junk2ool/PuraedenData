@@ -132,5 +132,10 @@ BaseChapterData = {
 [51410007] = {id = 51410007, name = (PUtil.get)(85180700), type = 101, stages = "52500701:52500702:52500703:52500704:52500705:52500706:52500707:52500708:52500709:52500710:52500711:52500712:52500713:52500714:52500715", open_condition = "72501001:0:1", pre = 0, next = "51420007", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
 [51420007] = {id = 51420007, name = (PUtil.get)(85180700), type = 101, stages = "52510701:52510702:52510703:52510704:52510705:52510706", open_condition = "72501001:0:1,72504611:52500715:1", pre = 51410007, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51410008] = {id = 51410008, name = (PUtil.get)(85180800), type = 101, stages = "52500801:52500802:52500803:52500804:52500805:52500806:52500807:52500808:52500809:52500810:52500811:52500812:52500813:52500814:52500815", open_condition = "72501001:0:1", pre = 0, next = "51420008", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51420008] = {id = 51420008, name = (PUtil.get)(85180800), type = 101, stages = "52510801:52510802:52510803:52510804:52510805:52510806", open_condition = "72501001:0:1,72504611:52500815:1", pre = 51410008, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 }
+return BaseChapterData
 

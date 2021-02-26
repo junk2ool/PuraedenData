@@ -13,10 +13,16 @@ HomelandMgr.OpenRoom = function(...)
     ;
     (HomelandService.ReqRoomInfo)()
   else
+    if ActorData.ReconnectedForHomeland then
+      (HomelandData.RefreshFurnitureData)()
+    end
     ;
     (HomelandMgr.InitDefaultData)()
     OpenWindow((WinResConfig.HomelandRoomWindow).name, UILayer.HUD)
   end
+  -- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
+
+  ActorData.ReconnectedForHomeland = false
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'

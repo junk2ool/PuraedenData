@@ -37,6 +37,8 @@ BaseRedDotData = {
 , 
 [10018] = {id = 10018, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 8}
 , 
+[10019] = {id = 10019, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 6}
+, 
 [1010000] = {id = 1010000, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 16}
 , 
 [1020000] = {id = 1020000, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 17}
@@ -205,4 +207,5 @@ BaseRedDotData = {
 , 
 [23000004] = {id = 23000004, show_level_limit = "30:999", pass_level_limit = "30:999", priority = 88}
 }
+return BaseRedDotData
 

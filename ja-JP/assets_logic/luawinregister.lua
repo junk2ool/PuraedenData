@@ -432,6 +432,8 @@ FormationPresetNamingWindow = {name = "FormationPresetNamingWindow", package = "
 , 
 HomelandDeployCardWindow = {name = "HomelandDeployCardWindow", package = "Family", comName = "LiveWindow", hideBelow = false}
 , 
+LotteryIntegralWindow = {name = "LotteryIntegralWindow", package = "LotteryIntegral", comName = "LotteryIntegral", hideBelow = true}
+, 
 HomelandVisitRoomWindow = {name = "HomelandVisitRoomWindow", package = "Family", comName = "VisitPlayWindow", hideBelow = false}
 , 
 FarmLevelUpWindow = {name = "FarmLevelUpWindow", package = "Family", comName = "FamilyLevelUp", hideBelow = false, notReopen = true}
@@ -540,6 +542,8 @@ PrizeWindow = {E_MSG_SLOTS_RESULT = 1, E_MSG_SLOTS_REFRESH = 2, E_MSG_SLOTS_SET_
 FormationPreset = {E_MSG_REFRESH_PRESET = 1, E_MSG_REFRESH_FORMATION = 2, E_MSG_REFRESH = 3, E_MSG_REFRESH_PRESET_NAME = 4}
 , 
 Family = {E_MSG_GET_SEEDS_INFO = 1, E_MSG_SEED_PLANT_SUCCESS = 2, E_MSG_PLANT_HARVEST = 3, E_MSG_ROOT_LAND = 4, E_MSG_UNLOCK_LAND = 5, E_MSG_FARMSHOP_SHOPGRIP_RES = 6, E_MSG_FARMSHOP_BUY_RES = 7, E_MSG_REFRESH_ROOM_ROLES = 8, E_MSG_CHANGE_ROOM_LAYOUT_SUCCESS = 9, E_MSG_CLEAR_ROOM = 10, E_MSG_UPGRADE_ROOM = 11, E_MSG_REFRESH_HOUSE = 12, E_MSG_REFRESH_ROOM = 13, E_MSG_REFRESH_GULID_VISIT = 14, E_MSG_REFRESH_FURNITURE_LIST = 15, E_MSG_REFRESH_FURNITURE_VIRTUAL_LIST = 16, E_MSG_CONTINUE_PATROL = 17, E_MSG_STOP_ROLE_VOICE = 18}
+, 
+LotteryIntegral = {E_MSG_GET_REWARD = 1, E_MSG_INIT_REWARD = 2}
 }
 _ENV.WindowLoadPackages = {
 LoginWindow = {"LandPic"}
@@ -689,5 +693,7 @@ FriendChatWindow = {"CardHeadIconCircle"}
 HomelandVisitRoomWindow = {"CardHeadIconCircle"}
 , 
 FamilyShopWindow = {"FamilyFurniture"}
+, 
+LotteryIntegralWindow = {"Prize", "CardHeadIconCircle", "Title", "FamilyFurniture"}
 }
 

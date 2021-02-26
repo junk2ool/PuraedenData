@@ -61,7 +61,7 @@ BaseClientGotoData = {
 , 
 [77122202] = {id = 77122202, name = (PUtil.get)(88030012), remark = (PUtil.get)(88200001, 4, 4, 6, (PUtil.get)(81012202)), icon = "ItemIcon:21160003", type = 300102, value = 52200421, sort = 10}
 , 
-[77122203] = {id = 77122203, name = (PUtil.get)(88030012), remark = (PUtil.get)(88200001, 7, 7, 6, (PUtil.get)(81013105)), icon = "ItemIcon:21160003", type = 300102, value = 52200721, sort = 10}
+[77122203] = {id = 77122203, name = (PUtil.get)(88030012), remark = (PUtil.get)(88200001, 7, 7, 6, (PUtil.get)(81012203)), icon = "ItemIcon:21160003", type = 300102, value = 52200721, sort = 10}
 , 
 [77122204] = {id = 77122204, name = (PUtil.get)(88030012), remark = (PUtil.get)(88200001, 2, 2, 10, (PUtil.get)(81012204)), icon = "ItemIcon:21160003", type = 300102, value = 52200218, sort = 10}
 , 
@@ -421,6 +421,11 @@ BaseClientGotoData = {
 , 
 [77423026] = {id = 77423026, name = (PUtil.get)(88010013), remark = (PUtil.get)(88200030), icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
+[77422213] = {id = 77422213, name = (PUtil.get)(88050012), remark = (PUtil.get)(88200031), icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423022] = {id = 77423022, name = (PUtil.get)(88010013), remark = (PUtil.get)(88200032), icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
 [77430003] = {id = 77430003, name = (PUtil.get)(88030016), remark = (PUtil.get)(88200008), icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 }
+return BaseClientGotoData
 

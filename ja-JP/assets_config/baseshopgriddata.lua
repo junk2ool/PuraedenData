@@ -309,4 +309,5 @@ BaseShopGridData = {
 , 
 [23008001] = {id = 23008001, shop_type = 8, reset_type = "1", reset_time = "0", sell_limit_time = 99999, player_level_min = 1, player_level_max = 999, sort_index = "1"}
 }
+return BaseShopGridData
 

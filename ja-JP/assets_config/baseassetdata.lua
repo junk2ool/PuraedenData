@@ -49,4 +49,5 @@ BaseAssetData = {
 , 
 [21100024] = {id = 21100024, name = (PUtil.get)(82100024), remark = (PUtil.get)(83100024), quality = 3, icon = "ItemIcon:21100024", go_to_id = "77400024", reward_sort = 9690002}
 }
+return BaseAssetData
 

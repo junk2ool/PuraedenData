@@ -1386,6 +1386,17 @@ message ResTempleInit{
 	repeated TempleCardCommonObject cards        = 9;//角色组信息
 }
 
+//请求设置随机怪物 595
+message ReqRandomMonsterGroupList{
+	int32 stageId          = 1;//关卡id
+}
+
+//596
+message ResRandomMonsterGroupList{
+	int32 randomMosterGroup   = 1;//
+}
+
+
 //神殿遗迹各种副本类型对应的角色组
 message TempleCardCommonObject{
 	int32   type                                 = 1;//类型
@@ -4984,6 +4995,9 @@ enum E_MSG_ID
 	Challenge_ReqAddOrUpdateDeckScheme  = 593;//修改,删除,新增阵容方案
 	Challenge_ResAddOrUpdateDeckScheme  = 594;//修改,删除,新增阵容方案
 	
+	Challenge_ReqRandomMonsterGroupList = 595;//设置随机怪物组
+	Challenge_ResRandomMonsterGroupList = 596;
+	
 	
 	Play_ReqPlayBuyNum                  = 601;//请求活动购买次数
 	Play_ResPlayBuyNum                  = 602;//活动购买次数
@@ -6526,6 +6540,8 @@ ReqDeckScheme = 591,
 ResDeckScheme = 592,
 ReqAddOrUpdateDeckScheme = 593,
 ResAddOrUpdateDeckScheme = 594,
+ReqRandomMonsterGroupList = 595,
+ResRandomMonsterGroupList = 596,
 ReqPlayBuyNum = 601,
 ResPlayBuyNum = 602,
 ReqPlayClearCDTime = 603,
@@ -6877,7 +6893,8 @@ ReqRandomPlayerInfo = 2361,
 ResRandomPlayerInfo = 2362,
 ReqQuitRoom = 2363,
 ResQuitRoom = 2364}
-, 
+,
+
 MsgNameByID = {[0] = "Unknown",
 [101] = "ReqRegister",
 [102] = "ResRegister",
@@ -7072,6 +7089,8 @@ MsgNameByID = {[0] = "Unknown",
 [592] = "ResDeckScheme",
 [593] = "ReqAddOrUpdateDeckScheme",
 [594] = "ResAddOrUpdateDeckScheme",
+[595] = "ReqRandomMonsterGroupList",
+[596] = "ResRandomMonsterGroupList",
 [601] = "ReqPlayBuyNum",
 [602] = "ResPlayBuyNum",
 [603] = "ReqPlayClearCDTime",
@@ -7641,6 +7660,7 @@ ResActivityInfoList = "ResActivityInfoList",
 ReqEmbattle = "ReqEmbattle",
 LimitGiftActInfo = "LimitGiftActInfo",
 ReqLotteryRecord = "ReqLotteryRecord",
+ReqRandomMonsterGroupList = "ReqRandomMonsterGroupList",
 ResAdventureStoryStage = "ResAdventureStoryStage",
 BuildingGuild = "BuildingGuild",
 ResGuildReview = "ResGuildReview",
@@ -7796,6 +7816,7 @@ ReqBeginGuildGame = "ReqBeginGuildGame",
 ReqSendNotice = "ReqSendNotice",
 ResStoryReward = "ResStoryReward",
 ResChangeFriendRelation = "ResChangeFriendRelation",
+ResRandomMonsterGroupList = "ResRandomMonsterGroupList",
 ResTalentTreeStarUp = "ResTalentTreeStarUp",
 ReqSignInReward = "ReqSignInReward",
 ReqPlayClearCDTime = "ReqPlayClearCDTime",

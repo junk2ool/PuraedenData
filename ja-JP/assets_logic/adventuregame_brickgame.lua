@@ -67,6 +67,10 @@ AdventureGame_BrickGame.InitAttr = function(...)
 
   ;
   ((uis.BrickTalkGrp).TalkTxt).text = (PUtil.get)(155)
+  -- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.BrickTalkGrp).NameTxt).text = (PUtil.get)(311)
   gameState = GameState.talk
   ;
   ((uis.TouchScreenBtn).onClick):Clear()
@@ -161,7 +165,7 @@ AdventureGame_BrickGame.InitAttr = function(...)
   rdIndex = (AdventureGame_BrickGame.Randomx)(76450001, 76450013, 13)
   for i,v in ipairs(brickGrps) do
     do
-      -- DECOMPILER ERROR at PC66: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC73: Confused about usage of register: R5 in 'UnsetPending'
 
       (v.c1Ctr).selectedIndex = 0
       ;

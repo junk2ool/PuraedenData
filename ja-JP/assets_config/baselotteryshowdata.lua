@@ -1,7 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BaseLotteryShowData = {
-[1] = {id = 1, type = 1, name = (PUtil.get)(89007001), background_path = "FX_UI_gacha_c_ani", button_asset = "CardBtn", selected_index = 0, sort = 9, asset_ids = "21100001:21100002:21100003:21160001", integral_max = 0, integral_convert = "0", integral_exchange = "0", card_ids = "11101006:11301004:11300006", content = "A,89030103,89030104,11300024:11300014:11300012:11300011:11201011:11300010:11300008:11301004:11300001:11301003:11301002:11301001:11301006:11202003:11300003:11300004:11300002:11300005:11301005|B,89030105,89030106"}
+[1] = {id = 1, type = 1, name = (PUtil.get)(89007001), background_path = "FX_UI_gacha_c_ani", button_asset = "CardBtn", selected_index = 0, sort = 9, asset_ids = "21100001:21100002:21100003:21160001", integral_max = 0, integral_convert = "0", integral_exchange = "0", card_ids = "11101006:11301004:11300006", content = "A,89030103,89030104,11300030:11300024:11300014:11300012:11300011:11201011:11300010:11300008:11301004:11300001:11301003:11301002:11301001:11301006:11202003:11300003:11300004:11300002:11300005:11301005|B,89030105,89030106"}
 , 
 [2] = {id = 2, type = 2, name = (PUtil.get)(89007002), background_path = "FX_UI_gacha_c_ani", selected_index = 1, sort = 10, asset_ids = "21100001:21100002:21100003:21160005", integral_max = 0, integral_convert = "0", integral_exchange = "0", card_ids = "0", content = "0"}
 , 
@@ -15,7 +15,7 @@ BaseLotteryShowData = {
 , 
 [8] = {id = 8, type = 8, name = (PUtil.get)(89007006), background_path = "FX_UI_gacha_c_ani", button_asset = "NewCardUp_E_Btn", selected_index = 5, sort = 7, asset_ids = "21100001:21100002:21100003:21160001", integral_max = 300, integral_convert = "3:11300010:1:300:9999999,3:11300014:1:300:9999999", integral_exchange = "2:21100003:20000:1", card_ids = "11300010:11300014", content = "A,89035101,89035102,11300010:11300014|A,89035103,89035104,11300024:11300012:11300011:11201011:11300008:11301004:11300001:11301003:11301002:11301001:11301006:11202003:11300003:11300004:11300002:11300005:11301005|B,89035105,89035106", integral_des = (PUtil.get)(88304006)}
 , 
-[9] = {id = 9, type = 9, name = (PUtil.get)(89007006), background_path = "FX_UI_gacha_c_ani", button_asset = "NewCardUp_B_Btn", selected_index = 5, sort = 8, asset_ids = "21100001:21100002:21100003:21160001", integral_max = 300, integral_convert = "3:11300012:1:300:9999999,3:11300004:1:300:9999999", integral_exchange = "2:21100003:20000:1", card_ids = "11300004:11300012", content = "A,89036101,89036102,11300012:11300004|A,89036103,89036104,11300014:11300011:11201011:11300010:11300008:11301004:11300001:11301003:11301002:11301001:11301006:11202003:11300003:11300002:11300005:11301005|B,89030105,89030106", integral_des = (PUtil.get)(88304006)}
+[9] = {id = 9, type = 9, name = (PUtil.get)(89007006), background_path = "FX_UI_gacha_c_ani", button_asset = "NewCardUp_B_Btn", selected_index = 5, sort = 8, asset_ids = "21100001:21100002:21100003:21160001", integral_max = 300, integral_convert = "3:11300022:1:300:9999999", integral_exchange = "2:21100003:20000:1", card_ids = "11300022", content = "A,89036101,89036102,11300022|A,89036103,89036104,11300030:11300024:11300014:11300012:11300011:11201011:11300010:11300008:11301004:11300001:11301003:11301002:11301001:11301006:11202003:11300003:11300004:11300002:11300005:11301005|B,89036105,89036106", integral_des = (PUtil.get)(88304006)}
 , 
 [10] = {id = 10, type = 10, name = (PUtil.get)(89007006), background_path = "FX_UI_gacha_c_ani", button_asset = "NewCardUpBtn", selected_index = 5, sort = 5, asset_ids = "21100001:21100002:21100003:21160001", integral_max = 300, integral_convert = "3:11300030:1:300:9999999", integral_exchange = "2:21100003:20000:1", card_ids = "11300030", content = "A,89037101,89037102,11300030|A,89037103,89037104,11300024:11300014:11300012:11300011:11201011:11300010:11300008:11301004:11300001:11301003:11301002:11301001:11301006:11202003:11300003:11300004:11300002:11300005:11301005|B,89037105,89037106", integral_des = (PUtil.get)(88304006)}
 , 
@@ -27,4 +27,5 @@ BaseLotteryShowData = {
 , 
 [14] = {id = 14, type = 14, name = (PUtil.get)(89007005), background_path = "FX_UI_gacha_c_ani", button_asset = "NewCardUp_B_Btn", selected_index = 6, sort = 2, asset_ids = "21100001:21100002:21100003:21160001", integral_max = 0, integral_convert = "0", integral_exchange = "0", card_ids = "HomeAd:HomeAd_029", content = "A,89033101,89033102,11301004:11300001:11301003:11301002:11301001:11301006:11202003:11300003:11300004:11300002:11300005:11301005|B,89033103,89033104"}
 }
+return BaseLotteryShowData
 

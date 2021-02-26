@@ -22,4 +22,6 @@
 [29000011] = {id = 29000011, name = "カポの支援者", goods_icon = "ItemIcon:29000011", type = 1, quality = 3, remark = "イベント「ファミリーの名にかけて！」より獲得可能。", des = "ペンデュラムの次期カポクーニャの支援者。穏健派マフィアならぬ穏健派プライドを築き上げよう。", icon = "Title:29000011", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
 [29000012] = {id = 29000012, name = "女神の本命チョコ　称号", goods_icon = "ItemIcon:29000012", type = 1, quality = 3, remark = "2021年バレンタインログインキャンペーンより獲得可能。", des = "女神の気まぐれでしょうか...？", icon = "Title:29000012", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1}
+, 
+[29000013] = {id = 29000013, name = "レイナの大ファン　称号", goods_icon = "ItemIcon:29000013", type = 1, quality = 3, remark = "イベント「無言の歌姫」より獲得可能。", des = "レイナちゃんの歌声が全大陸の人々に届きますように…！", icon = "Title:29000013", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1}
 }

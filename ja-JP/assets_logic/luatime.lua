@@ -223,14 +223,22 @@ LuaTime.GetTimeStamp = function(...)
   return (math.floor)((ActorData.GetServerTime)() * 0.001)
 end
 
-LuaTime.CountDown = function(time, text, func, showDay, perFunc, ...)
+LuaTime.CountDown = function(time, text, func, showDay, perFunc, clientWordId, ...)
   -- function num : 0_13 , upvalues : _ENV, LuaTime
   time = (math.floor)(time)
   local timerInfo = {}
-  text.text = (LuaTime.GetTimeStr)(time, showDay)
+  if clientWordId then
+    text.text = (PUtil.get)(clientWordId, (LuaTime.GetTimeStr)(time, showDay))
+  else
+    text.text = (LuaTime.GetTimeStr)(time, showDay)
+  end
   timerInfo.timer = (SimpleTimer.new)(1, time, function(timer, tickTime, ...)
-    -- function num : 0_13_0 , upvalues : text, LuaTime, time, showDay, perFunc
-    text.text = (LuaTime.GetTimeStr)(time - tickTime, showDay)
+    -- function num : 0_13_0 , upvalues : clientWordId, text, _ENV, LuaTime, time, showDay, perFunc
+    if clientWordId then
+      text.text = (PUtil.get)(clientWordId, (LuaTime.GetTimeStr)(time - tickTime, showDay))
+    else
+      text.text = (LuaTime.GetTimeStr)(time - tickTime, showDay)
+    end
     if perFunc then
       perFunc(tickTime)
     end

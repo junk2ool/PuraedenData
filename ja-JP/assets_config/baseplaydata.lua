@@ -29,4 +29,5 @@ BasePlayData = {
 , 
 [76000090] = {id = 76000090, type = 90, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", background_path = "BattleScene_1005", set_speed = 3, double_activity_id = "0"}
 }
+return BasePlayData
 

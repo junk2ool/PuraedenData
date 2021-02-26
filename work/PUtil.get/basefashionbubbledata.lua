@@ -10276,4 +10276,276 @@
 [117302602] = {id = 117302602, bubble_text = "学校にいた頃は、肩身が狭かったですが…ここはみんな自由で、落ち着きますね。えへへ。", voice_path = "Pudel_Home_Talk_2", top_position = 10}
 , 
 [117302603] = {id = 117302603, bubble_text = "どんな仕事でも、始める前は緊張します…うう、失敗しませんように…考え通りに行きますように…", voice_path = "Pudel_Home_Talk_3", top_position = 10}
+, 
+[97022131] = {id = 97022131, bubble_text = "『カメラ』というものがあれば、レイナちゃんの可愛い姿をバンバン記録できちゃうらしいんです。でも私にとってそんな都合のいいものが、本当に存在するんでしょうか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Main_1"}
+, 
+[97022132] = {id = 97022132, bubble_text = "あの、改めて考えてたんですけど…レイナちゃんって奇跡的なぐらい可愛くないですか？　もう、神様に感謝しなくちゃ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Main_2"}
+, 
+[97022133] = {id = 97022133, bubble_text = "リーダー、もし暇なら『レイナちゃんのどこが可愛いか』についておしゃべりしましょうか。もちろん、レイナちゃんはぜーんぶ可愛いですが♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Main_3"}
+, 
+[97022134] = {id = 97022134, bubble_text = "たまに怖くなるんです。レイナちゃんが日々こんなに可愛くなっていったら…この先私、どうなっちゃうんだろうって…。幸せのあまり死んでもおかしくないですよね…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Main_4"}
+, 
+[97122131] = {id = 97122131, bubble_text = "『カメラ』というものがあれば、レイナちゃんの可愛い姿をバンバン記録できちゃうらしいんです。でも私にとってそんな都合のいいものが、本当に存在するんでしょうか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Main_1"}
+, 
+[97122132] = {id = 97122132, bubble_text = "あの、改めて考えてたんですけど…レイナちゃんって奇跡的なぐらい可愛くないですか？　もう、神様に感謝しなくちゃ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Main_2"}
+, 
+[97122133] = {id = 97122133, bubble_text = "リーダー、もし暇なら『レイナちゃんのどこが可愛いか』についておしゃべりしましょうか。もちろん、レイナちゃんはぜーんぶ可愛いですが♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Main_3"}
+, 
+[97122134] = {id = 97122134, bubble_text = "たまに怖くなるんです。レイナちゃんが日々こんなに可愛くなっていったら…この先私、どうなっちゃうんだろうって…。幸せのあまり死んでもおかしくないですよね…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Main_4"}
+, 
+[97222131] = {id = 97222131, bubble_text = "『カメラ』というものがあれば、レイナちゃんの可愛い姿をバンバン記録できちゃうらしいんです。でも私にとってそんな都合のいいものが、本当に存在するんでしょうか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Main_1"}
+, 
+[97222132] = {id = 97222132, bubble_text = "あの、改めて考えてたんですけど…レイナちゃんって奇跡的なぐらい可愛くないですか？　もう、神様に感謝しなくちゃ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Main_2"}
+, 
+[97222133] = {id = 97222133, bubble_text = "リーダー、もし暇なら『レイナちゃんのどこが可愛いか』についておしゃべりしましょうか。もちろん、レイナちゃんはぜーんぶ可愛いですが♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Main_3"}
+, 
+[97222134] = {id = 97222134, bubble_text = "たまに怖くなるんです。レイナちゃんが日々こんなに可愛くなっていったら…この先私、どうなっちゃうんだろうって…。幸せのあまり死んでもおかしくないですよね…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Main_4"}
+, 
+[101221301] = {id = 101221301, bubble_text = "初めまして、タネハと言います。突然ですが、可愛い女の子はお好きですか？　なら世界一可愛い女の子を教えてあげますね。それはもちろん、レイナちゃんです！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Get_1"}
+, 
+[101221311] = {id = 101221311, bubble_text = "リーダーは、女の子を特別にする才能がありますね。ふふ…私もレイナちゃんに、少し追いつけた気がします♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Stage_2"}
+, 
+[101221321] = {id = 101221321, bubble_text = "レイナちゃんが幸せなのを見守れればいいって思っていました。今は…あなたの幸せな顔も見たいって思うんです。三人で過ごせる時間を守るためなら、私はなんにでもなってみせます。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Stage_3"}
+, 
+[102221301] = {id = 102221301, bubble_text = "今日のレイナちゃんもとっても可愛いですから、見逃しちゃいけませんよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_In_1"}
+, 
+[102221302] = {id = 102221302, bubble_text = "今日のレイナちゃんもとっても可愛いですから、見逃しちゃいけませんよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_In_1"}
+, 
+[102221303] = {id = 102221303, bubble_text = "今日のレイナちゃんもとっても可愛いですから、見逃しちゃいけませんよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_In_1"}
+, 
+[103221301] = {id = 103221301, bubble_text = "レイナちゃんへの愛も高まります♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:229", direction = 2, voice_path = "Tanesha_Stage_1"}
+, 
+[103221311] = {id = 103221311, bubble_text = "レイナちゃんへの愛も高まります♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "347:227", direction = 2, voice_path = "Tanesha_Stage_1"}
+, 
+[103221321] = {id = 103221321, bubble_text = "レイナちゃんへの愛も高まります♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "347:227", direction = 2, voice_path = "Tanesha_Stage_1"}
+, 
+[104221301] = {id = 104221301, bubble_text = "ありがとうございます、これでもっとレイナちゃんのためになれます！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:229", direction = 2, voice_path = "Tanesha_Star_1"}
+, 
+[104221311] = {id = 104221311, bubble_text = "ありがとうございます、これでもっとレイナちゃんのためになれます！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "347:227", direction = 2, voice_path = "Tanesha_Star_1"}
+, 
+[104221321] = {id = 104221321, bubble_text = "ありがとうございます、これでもっとレイナちゃんのためになれます！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "347:227", direction = 2, voice_path = "Tanesha_Star_1"}
+, 
+[105221301] = {id = 105221301, bubble_text = "ふふ、人肌恋しくなる時はありますよね。でも…もしレイナちゃんに同じことをしていたら…そのときリーダーに何をしちゃうのか、自分でも想像がつきません。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Interaction_1"}
+, 
+[105221302] = {id = 105221302, bubble_text = "私に何か用ですか？　レイナちゃんに関することなら、いつでもなんでもいくらでもおしゃべりしますよ♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Interaction_2"}
+, 
+[105221303] = {id = 105221303, bubble_text = "はっ…どうして気づいたんですか！？　胸元にレイナちゃんの似顔絵を隠し持っていることを…！　仕方がありません、リーダーには特別に一枚差し上げましょう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Interaction_3"}
+, 
+[105221304] = {id = 105221304, bubble_text = "私よりもレイナちゃんと仲良くなる人がいたら、嫉妬しちゃうんじゃないかって思ってたんです。でも…リーダーにはそんな気持ち浮かばないんです。…レイナちゃん好きの同志、だからですかね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Interaction_4"}
+, 
+[105221305] = {id = 105221305, bubble_text = "私が世界で一番好きなのはレイナちゃんで、世界で一番頼りにしているのはリーダーなんです。そしてどちらも…一緒にいるだけで、心があたたかくなるんです。こんな素敵なふたりに出会えた私は、本当に幸せ者です。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Interaction_5"}
+, 
+[105221311] = {id = 105221311, bubble_text = "ふふ、人肌恋しくなる時はありますよね。でも…もしレイナちゃんに同じことをしていたら…そのときリーダーに何をしちゃうのか、自分でも想像がつきません。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Interaction_1"}
+, 
+[105221312] = {id = 105221312, bubble_text = "私に何か用ですか？　レイナちゃんに関することなら、いつでもなんでもいくらでもおしゃべりしますよ♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Interaction_2"}
+, 
+[105221313] = {id = 105221313, bubble_text = "はっ…どうして気づいたんですか！？　胸元にレイナちゃんの似顔絵を隠し持っていることを…！　仕方がありません、リーダーには特別に一枚差し上げましょう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Interaction_3"}
+, 
+[105221314] = {id = 105221314, bubble_text = "私よりもレイナちゃんと仲良くなる人がいたら、嫉妬しちゃうんじゃないかって思ってたんです。でも…リーダーにはそんな気持ち浮かばないんです。…レイナちゃん好きの同志、だからですかね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Interaction_4"}
+, 
+[105221315] = {id = 105221315, bubble_text = "私が世界で一番好きなのはレイナちゃんで、世界で一番頼りにしているのはリーダーなんです。そしてどちらも…一緒にいるだけで、心があたたかくなるんです。こんな素敵なふたりに出会えた私は、本当に幸せ者です。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Interaction_5"}
+, 
+[105221321] = {id = 105221321, bubble_text = "ふふ、人肌恋しくなる時はありますよね。でも…もしレイナちゃんに同じことをしていたら…そのときリーダーに何をしちゃうのか、自分でも想像がつきません。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Interaction_1"}
+, 
+[105221322] = {id = 105221322, bubble_text = "私に何か用ですか？　レイナちゃんに関することなら、いつでもなんでもいくらでもおしゃべりしますよ♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Interaction_2"}
+, 
+[105221323] = {id = 105221323, bubble_text = "はっ…どうして気づいたんですか！？　胸元にレイナちゃんの似顔絵を隠し持っていることを…！　仕方がありません、リーダーには特別に一枚差し上げましょう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Interaction_3"}
+, 
+[105221324] = {id = 105221324, bubble_text = "私よりもレイナちゃんと仲良くなる人がいたら、嫉妬しちゃうんじゃないかって思ってたんです。でも…リーダーにはそんな気持ち浮かばないんです。…レイナちゃん好きの同志、だからですかね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Interaction_4"}
+, 
+[105221325] = {id = 105221325, bubble_text = "私が世界で一番好きなのはレイナちゃんで、世界で一番頼りにしているのはリーダーなんです。そしてどちらも…一緒にいるだけで、心があたたかくなるんです。こんな素敵なふたりに出会えた私は、本当に幸せ者です。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Interaction_5"}
+, 
+[106221301] = {id = 106221301, bubble_text = "えへへ、レイナちゃんに褒めてもらえるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Win_1"}
+, 
+[106221311] = {id = 106221311, bubble_text = "えへへ、レイナちゃんに褒めてもらえるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Win_1"}
+, 
+[106221321] = {id = 106221321, bubble_text = "えへへ、レイナちゃんに褒めてもらえるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Win_1"}
+, 
+[107221301] = {id = 107221301, bubble_text = "こんな姿、レイナちゃんに見せられない…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "396:242", direction = 1, voice_path = "Tanesha_Fail_1"}
+, 
+[107221311] = {id = 107221311, bubble_text = "こんな姿、レイナちゃんに見せられない…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:245", direction = 1, voice_path = "Tanesha_Fail_1"}
+, 
+[107221321] = {id = 107221321, bubble_text = "こんな姿、レイナちゃんに見せられない…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "570:245", direction = 1, voice_path = "Tanesha_Fail_1"}
+, 
+[108221301] = {id = 108221301, bubble_text = "レイナちゃんも一緒ですか？", voice_path = "Tanesha_Go_1"}
+, 
+[109221301] = {id = 109221301, bubble_text = "未定義(109221301)", voice_path = "Tanesha_Game_1"}
+, 
+[111221301] = {id = 111221301, bubble_text = "えいっ！", voice_path = "Tanesha_Battle_N_1"}
+, 
+[111221302] = {id = 111221302, bubble_text = "いくよーっ！", voice_path = "Tanesha_Battle_N_2"}
+, 
+[111221303] = {id = 111221303, bubble_text = "たあっ！", voice_path = "Tanesha_Battle_N_3"}
+, 
+[111221304] = {id = 111221304, bubble_text = "こうだ！", voice_path = "Tanesha_Battle_N_4"}
+, 
+[111221305] = {id = 111221305, bubble_text = "そこだ！", voice_path = "Tanesha_Battle_N_5"}
+, 
+[111221306] = {id = 111221306, bubble_text = "攻めますよー！", voice_path = "Tanesha_Battle_N_6"}
+, 
+[112221301] = {id = 112221301, bubble_text = "はうっ！", voice_path = "Tanesha_Battle_Hit_1"}
+, 
+[112221302] = {id = 112221302, bubble_text = "つうっ！", voice_path = "Tanesha_Battle_Hit_2"}
+, 
+[112221303] = {id = 112221303, bubble_text = "いやっ！？", voice_path = "Tanesha_Battle_Hit_3"}
+, 
+[112221304] = {id = 112221304, bubble_text = "ダメっ！", voice_path = "Tanesha_Battle_Hit_4"}
+, 
+[112221305] = {id = 112221305, bubble_text = "あっ！", voice_path = "Tanesha_Battle_Hit_5"}
+, 
+[112221306] = {id = 112221306, bubble_text = "もうだめだってばー！", voice_path = "Tanesha_Battle_Hit_6"}
+, 
+[113221301] = {id = 113221301, bubble_text = "レイナちゃん…", voice_path = "Tanesha_Battle_Die_1"}
+, 
+[114221301] = {id = 114221301, bubble_text = "レイナちゃん…私に、力を…！", voice_path = "Tanesha_Battle_H_1"}
+, 
+[114221302] = {id = 114221302, bubble_text = "ためらわないよ！", voice_path = "Tanesha_Battle_H_2"}
+, 
+[115221301] = {id = 115221301, bubble_text = "溢れるレイナちゃんへの愛を、力に変えて！", voice_path = "Tanesha_Battle_C_1"}
+, 
+[115221302] = {id = 115221302, bubble_text = "レイナちゃんのためなら、なんだってしてみせる！", voice_path = "Tanesha_Battle_C_2"}
+, 
+[116221301] = {id = 116221301, bubble_text = "レイナちゃんが落ち着けそうなところはありますか？", voice_path = "Tanesha_Home_In_1", top_position = 10}
+, 
+[117221301] = {id = 117221301, bubble_text = "はぁ～今日もレイナちゃん可愛い…いい匂い…生きる糧になるぅ…", voice_path = "Tanesha_Home_Talk_1", top_position = 10}
+, 
+[117221302] = {id = 117221302, bubble_text = "レイナちゃんの新しい衣装を作ろうと思っているんです。だから、一緒にデザインを考えてくれませんか？", voice_path = "Tanesha_Home_Talk_2", top_position = 10}
+, 
+[117221303] = {id = 117221303, bubble_text = "レイナちゃんレイナちゃん…ああ～レイナちゃんレイナちゃん、レイナちゃーん！　ふぅ…すみません、つい愛が爆発しちゃって…♪", voice_path = "Tanesha_Home_Talk_3", top_position = 10}
+, 
+[97030221] = {id = 97030221, bubble_text = "ラ～♪　…あ、えっと、すこし発声練習してて…そっか、そうですよね。…今はちゃんと周りに聞こえるんだ…えへへ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Main_1"}
+, 
+[97030222] = {id = 97030222, bubble_text = "声が届くようになってから、タネハとはずっとおしゃべりしてしまうんです。たまに、夜が明けるまで話してしまうこともあるんですけど…全然、疲れたりしなくて。ふふ、どうしてでしょうね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Main_2"}
+, 
+[97030223] = {id = 97030223, bubble_text = "次はどんな曲をみんなで歌おうかなって、考えてました。…今度はリーダーも一緒に、合唱しませんか？　大きな声を出すの、とっても楽しいですよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Main_3"}
+, 
+[97030224] = {id = 97030224, bubble_text = "おしゃべりは、誰かに届かないと寂しいけど…歌はひとりでも楽しかったから、好きになったんだと思います。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Main_4"}
+, 
+[97130221] = {id = 97130221, bubble_text = "ラ～♪　…あ、えっと、すこし発声練習してて…そっか、そうですよね。…今はちゃんと周りに聞こえるんだ…えへへ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Main_1"}
+, 
+[97130222] = {id = 97130222, bubble_text = "声が届くようになってから、タネハとはずっとおしゃべりしてしまうんです。たまに、夜が明けるまで話してしまうこともあるんですけど…全然、疲れたりしなくて。ふふ、どうしてでしょうね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Main_2"}
+, 
+[97130223] = {id = 97130223, bubble_text = "次はどんな曲をみんなで歌おうかなって、考えてました。…今度はリーダーも一緒に、合唱しませんか？　大きな声を出すの、とっても楽しいですよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Main_3"}
+, 
+[97130224] = {id = 97130224, bubble_text = "おしゃべりは、誰かに届かないと寂しいけど…歌はひとりでも楽しかったから、好きになったんだと思います。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Main_4"}
+, 
+[97230221] = {id = 97230221, bubble_text = "ラ～♪　…あ、えっと、すこし発声練習してて…そっか、そうですよね。…今はちゃんと周りに聞こえるんだ…えへへ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Main_1"}
+, 
+[97230222] = {id = 97230222, bubble_text = "声が届くようになってから、タネハとはずっとおしゃべりしてしまうんです。たまに、夜が明けるまで話してしまうこともあるんですけど…全然、疲れたりしなくて。ふふ、どうしてでしょうね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Main_2"}
+, 
+[97230223] = {id = 97230223, bubble_text = "次はどんな曲をみんなで歌おうかなって、考えてました。…今度はリーダーも一緒に、合唱しませんか？　大きな声を出すの、とっても楽しいですよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Main_3"}
+, 
+[97230224] = {id = 97230224, bubble_text = "おしゃべりは、誰かに届かないと寂しいけど…歌はひとりでも楽しかったから、好きになったんだと思います。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Main_4"}
+, 
+[101302201] = {id = 101302201, bubble_text = "わたしはレイナ。誰にも届かなかったこの声を、あなたが受け取ってくれたから、わたしはここにいるんです…。えへへ…これからよろしくお願いします。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Get_1"}
+, 
+[101302211] = {id = 101302211, bubble_text = "みんなと言葉が交わせること、この歌声が届くこと…。すべては、あなたがくれた喜びで…毎日が、怖いぐらい幸せです…ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Stage_2"}
+, 
+[101302221] = {id = 101302221, bubble_text = "わたしを見つけてくれただけでも、感謝しきれないのに…あなたはわたしも知らない、素敵なわたしをたくさん教えてくれる…。わたしを特別にしてくれてありがとう、リーダー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Stage_3"}
+, 
+[102302201] = {id = 102302201, bubble_text = "こんにちは、リーダー。ふふ、挨拶できるのって、気持ちいい…♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_In_1"}
+, 
+[102302202] = {id = 102302202, bubble_text = "こんにちは、リーダー。ふふ、挨拶できるのって、気持ちいい…♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_In_1"}
+, 
+[102302203] = {id = 102302203, bubble_text = "こんにちは、リーダー。ふふ、挨拶できるのって、気持ちいい…♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_In_1"}
+, 
+[103302201] = {id = 103302201, bubble_text = "どんどん声が、響くようになってる…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:229", direction = 2, voice_path = "Rayna_Stage_1"}
+, 
+[103302211] = {id = 103302211, bubble_text = "どんどん声が、響くようになってる…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "398:218", direction = 2, voice_path = "Rayna_Stage_1"}
+, 
+[103302221] = {id = 103302221, bubble_text = "どんどん声が、響くようになってる…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "398:218", direction = 2, voice_path = "Rayna_Stage_1"}
+, 
+[104302201] = {id = 104302201, bubble_text = "わたしの声を、歌を、もっと遠くへ届けたい…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:229", direction = 2, voice_path = "Rayna_Star_1"}
+, 
+[104302211] = {id = 104302211, bubble_text = "わたしの声を、歌を、もっと遠くへ届けたい…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "398:218", direction = 2, voice_path = "Rayna_Star_1"}
+, 
+[104302221] = {id = 104302221, bubble_text = "わたしの声を、歌を、もっと遠くへ届けたい…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "398:218", direction = 2, voice_path = "Rayna_Star_1"}
+, 
+[105302201] = {id = 105302201, bubble_text = "こ、こんにちは…！　…ご、ごめんなさい。おしゃべりが久しぶりだから、やっぱり緊張しちゃって…んん、ふぅ…挨拶の練習、したほうがいいかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Interaction_1"}
+, 
+[105302202] = {id = 105302202, bubble_text = "ひゃっ…ふふっ、や、やめて…！　く、くすぐったがりだから、変な声出ちゃう…！　はぁ…はぁ…へ、変な声を聞かれるのって、結構恥ずかしい…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Interaction_2"}
+, 
+[105302203] = {id = 105302203, bubble_text = "あの…リーダーはどんな歌が好きか、教えてくれますか？　あ、えっと、ただちょっと気になっただけで…教えてくれたら、わたしもその歌を…歌ってみたいなと思っただけで…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Interaction_3"}
+, 
+[105302204] = {id = 105302204, bubble_text = "他人の目を気にしたことは、あまりないと思うんですが…リーダーから、わたしがどう見えるのか気になります。…すこしぐらいは、可愛く映っていたらうれしいな。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Interaction_4"}
+, 
+[105302205] = {id = 105302205, bubble_text = "今ならどんな言葉でも、伝えられるはずなのに…あなたを前にすると、息が詰まって、言葉にできなくなるんです。その代わりにどうか…わたしの瞳を見てください。ここに映るすべてが、あなたへの思い、だから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Interaction_5"}
+, 
+[105302211] = {id = 105302211, bubble_text = "こ、こんにちは…！　…ご、ごめんなさい。おしゃべりが久しぶりだから、やっぱり緊張しちゃって…んん、ふぅ…挨拶の練習、したほうがいいかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Interaction_1"}
+, 
+[105302212] = {id = 105302212, bubble_text = "ひゃっ…ふふっ、や、やめて…！　く、くすぐったがりだから、変な声出ちゃう…！　はぁ…はぁ…へ、変な声を聞かれるのって、結構恥ずかしい…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Interaction_2"}
+, 
+[105302213] = {id = 105302213, bubble_text = "あの…リーダーはどんな歌が好きか、教えてくれますか？　あ、えっと、ただちょっと気になっただけで…教えてくれたら、わたしもその歌を…歌ってみたいなと思っただけで…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Interaction_3"}
+, 
+[105302214] = {id = 105302214, bubble_text = "他人の目を気にしたことは、あまりないと思うんですが…リーダーから、わたしがどう見えるのか気になります。…すこしぐらいは、可愛く映っていたらうれしいな。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Interaction_4"}
+, 
+[105302215] = {id = 105302215, bubble_text = "今ならどんな言葉でも、伝えられるはずなのに…あなたを前にすると、息が詰まって、言葉にできなくなるんです。その代わりにどうか…わたしの瞳を見てください。ここに映るすべてが、あなたへの思い、だから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Interaction_5"}
+, 
+[105302221] = {id = 105302221, bubble_text = "こ、こんにちは…！　…ご、ごめんなさい。おしゃべりが久しぶりだから、やっぱり緊張しちゃって…んん、ふぅ…挨拶の練習、したほうがいいかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Interaction_1"}
+, 
+[105302222] = {id = 105302222, bubble_text = "ひゃっ…ふふっ、や、やめて…！　く、くすぐったがりだから、変な声出ちゃう…！　はぁ…はぁ…へ、変な声を聞かれるのって、結構恥ずかしい…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Interaction_2"}
+, 
+[105302223] = {id = 105302223, bubble_text = "あの…リーダーはどんな歌が好きか、教えてくれますか？　あ、えっと、ただちょっと気になっただけで…教えてくれたら、わたしもその歌を…歌ってみたいなと思っただけで…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Interaction_3"}
+, 
+[105302224] = {id = 105302224, bubble_text = "他人の目を気にしたことは、あまりないと思うんですが…リーダーから、わたしがどう見えるのか気になります。…すこしぐらいは、可愛く映っていたらうれしいな。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Interaction_4"}
+, 
+[105302225] = {id = 105302225, bubble_text = "今ならどんな言葉でも、伝えられるはずなのに…あなたを前にすると、息が詰まって、言葉にできなくなるんです。その代わりにどうか…わたしの瞳を見てください。ここに映るすべてが、あなたへの思い、だから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Interaction_5"}
+, 
+[106302201] = {id = 106302201, bubble_text = "やったぁ…！　みんなのおかげですねっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Win_1"}
+, 
+[106302211] = {id = 106302211, bubble_text = "やったぁ…！　みんなのおかげですねっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Win_1"}
+, 
+[106302221] = {id = 106302221, bubble_text = "やったぁ…！　みんなのおかげですねっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Win_1"}
+, 
+[107302201] = {id = 107302201, bubble_text = "わたし達なら、もう一度立ち上がれます…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Rayna_Fail_1"}
+, 
+[107302211] = {id = 107302211, bubble_text = "わたし達なら、もう一度立ち上がれます…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:229", direction = 1, voice_path = "Rayna_Fail_1"}
+, 
+[107302221] = {id = 107302221, bubble_text = "わたし達なら、もう一度立ち上がれます…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "653:146", direction = 2, voice_path = "Rayna_Fail_1"}
+, 
+[108302201] = {id = 108302201, bubble_text = "皆と一緒なら、きっと大丈夫。", voice_path = "Rayna_Go_1"}
+, 
+[109302201] = {id = 109302201, voice_path = "Rayna_Game_1"}
+, 
+[111302201] = {id = 111302201, voice_path = "Rayna_Battle_N_1"}
+, 
+[111302202] = {id = 111302202, voice_path = "Rayna_Battle_N_2"}
+, 
+[111302203] = {id = 111302203, voice_path = "Rayna_Battle_N_3"}
+, 
+[111302204] = {id = 111302204, voice_path = "Rayna_Battle_N_4"}
+, 
+[111302205] = {id = 111302205, voice_path = "Rayna_Battle_N_5"}
+, 
+[111302206] = {id = 111302206, voice_path = "Rayna_Battle_N_6"}
+, 
+[112302201] = {id = 112302201, voice_path = "Rayna_Battle_Hit_1"}
+, 
+[112302202] = {id = 112302202, voice_path = "Rayna_Battle_Hit_2"}
+, 
+[112302203] = {id = 112302203, voice_path = "Rayna_Battle_Hit_3"}
+, 
+[112302204] = {id = 112302204, voice_path = "Rayna_Battle_Hit_4"}
+, 
+[112302205] = {id = 112302205, voice_path = "Rayna_Battle_Hit_5"}
+, 
+[112302206] = {id = 112302206, voice_path = "Rayna_Battle_Hit_6"}
+, 
+[113302201] = {id = 113302201, voice_path = "Rayna_Battle_Die_1"}
+, 
+[114302201] = {id = 114302201, voice_path = "Rayna_Battle_H_1"}
+, 
+[114302202] = {id = 114302202, voice_path = "Rayna_Battle_H_2"}
+, 
+[115302201] = {id = 115302201, voice_path = "Rayna_Battle_C_1"}
+, 
+[115302202] = {id = 115302202, voice_path = "Rayna_Battle_C_2"}
+, 
+[116302201] = {id = 116302201, bubble_text = "ここは…好きにおしゃべりしたり、歌っていてもいいところ…？", voice_path = "Rayna_Home_In_1", top_position = 10}
+, 
+[117302201] = {id = 117302201, bubble_text = "歌を作るのが好きなんですけど、楽譜は書けなくて…今度、誰かに教えてもらおうかな？", voice_path = "Rayna_Home_Talk_1", top_position = 10}
+, 
+[117302202] = {id = 117302202, bubble_text = "タネハが時々「新衣装のため」って言って、サイズを測ってくれるんですけど…くすぐったくて、つい逃げちゃうんです。", voice_path = "Rayna_Home_Talk_2", top_position = 10}
+, 
+[117302203] = {id = 117302203, bubble_text = "元気になる歌、落ち着く歌、悲しくなる歌…リーダーは、今どんな歌が聞きたい気分ですか？", voice_path = "Rayna_Home_Talk_3", top_position = 10}
 }

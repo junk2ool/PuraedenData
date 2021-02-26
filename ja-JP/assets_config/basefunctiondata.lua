@@ -287,4 +287,5 @@ BaseFunctionData = {
 , 
 [600201] = {id = 600201, limit_tab = 1, open_condition = "72501001:0:4", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003001)}
 }
+return BaseFunctionData
 

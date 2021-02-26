@@ -33,4 +33,5 @@ BaseDeckData = {
 , 
 [50000016] = {id = 50000016, group = 16, initCard = "2:11100002,5:11100003", initGroup = 16}
 }
+return BaseDeckData
 

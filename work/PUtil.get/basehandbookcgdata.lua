@@ -183,7 +183,11 @@
 , 
 [26300602] = {id = 26300602, name = "新年初詣", remark = "今年こそ、静かに過ごせますように…まぁ、無理だろうけどな。", des = "第一章 ロック中", type = 3, chapter_id = 51410006, index = 2, icon = "HandBookCGBanner:92108012", fashion_id = "92108012", activity_sort = 6, activity_name = "「正月 お見合い攻防戦」", open_time = 1609376400}
 , 
-[26300701] = {id = 26300701, name = "買い出しの帰り道", remark = "本当に魅力的で、素敵な人で…！クーニャちゃんと出会えたら、私は救われたんです。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 1, icon = "HandBookCGBanner:92108013", fashion_id = "92108013", activity_sort = 7, activity_name = "ファミリーの名にかけて！", open_time = 1612054800}
+[26300701] = {id = 26300701, name = "買い出しの帰り道", remark = "本当に魅力的で、素敵な人で…！クーニャちゃんと出会えたら、私は救われたんです。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 1, icon = "HandBookCGBanner:92108013", fashion_id = "92108013", activity_sort = 7, activity_name = "「ファミリーの名にかけて！」", open_time = 1612054800}
 , 
-[26300702] = {id = 26300702, name = "支え合う二人", remark = "一人で立ち向かうしかないと思っていたが、私のそばにプデルがいる…こんなに心強いことはない。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 2, icon = "HandBookCGBanner:92108014", fashion_id = "92108014", activity_sort = 7, activity_name = "ファミリーの名にかけて！", open_time = 1612054800}
+[26300702] = {id = 26300702, name = "支え合う二人", remark = "一人で立ち向かうしかないと思っていたが、私のそばにプデルがいる…こんなに心強いことはない。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 2, icon = "HandBookCGBanner:92108014", fashion_id = "92108014", activity_sort = 7, activity_name = "「ファミリーの名にかけて！」", open_time = 1612054800}
+, 
+[26300801] = {id = 26300801, name = "触れぬ天籟", remark = "私以外だけど…レイナちゃんの歌声がみんなに届くようになって本当によかったです。", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 1, icon = "HandBookCGBanner:92108017", fashion_id = "92108017", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = 1614474000}
+, 
+[26300802] = {id = 26300802, name = "タネハの夢", remark = "レイナちゃんとおしゃべりできるなんて…やっと念願の夢が叶いました！", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 2, icon = "HandBookCGBanner:92108018", fashion_id = "92108018", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = 1614474000}
 }

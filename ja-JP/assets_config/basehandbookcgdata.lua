@@ -188,5 +188,10 @@ BaseHandbookCGData = {
 [26300701] = {id = 26300701, name = (PUtil.get)(86508013), remark = (PUtil.get)(86608013), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410007, index = 1, icon = "HandBookCGBanner:92108013", fashion_id = "92108013", activity_sort = 7, activity_name = (PUtil.get)(90100007), open_time = 1612054800}
 , 
 [26300702] = {id = 26300702, name = (PUtil.get)(86508014), remark = (PUtil.get)(86608014), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410007, index = 2, icon = "HandBookCGBanner:92108014", fashion_id = "92108014", activity_sort = 7, activity_name = (PUtil.get)(90100007), open_time = 1612054800}
+, 
+[26300801] = {id = 26300801, name = (PUtil.get)(86508017), remark = (PUtil.get)(86608017), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410008, index = 1, icon = "HandBookCGBanner:92108017", fashion_id = "92108017", activity_sort = 8, activity_name = (PUtil.get)(90100008), open_time = 1614474000}
+, 
+[26300802] = {id = 26300802, name = (PUtil.get)(86508018), remark = (PUtil.get)(86608018), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410008, index = 2, icon = "HandBookCGBanner:92108018", fashion_id = "92108018", activity_sort = 8, activity_name = (PUtil.get)(90100008), open_time = 1614474000}
 }
+return BaseHandbookCGData
 

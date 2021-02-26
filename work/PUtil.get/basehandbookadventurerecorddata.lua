@@ -454,4 +454,14 @@
 [52500712] = {id = 52500712, name = "罠を仕掛ける", remark = "罠を仕掛ける", icon = "HandBookBanner:Activity_07_4", story_id = "75900771:75900772:75900781", sort = 4}
 , 
 [52500715] = {id = 52500715, name = "ボスの提案", remark = "ボスの提案", icon = "HandBookBanner:Activity_07_5", story_id = "75900791", sort = 5}
+, 
+[52500803] = {id = 52500803, name = "声なき少女", remark = "声なき少女", icon = "HandBookBanner:Activity_08_01", story_id = "75900811:75900812:75900821", sort = 1}
+, 
+[52500806] = {id = 52500806, name = "専門家の手腕", remark = "専門家の手腕", icon = "HandBookBanner:Activity_08_02", story_id = "75900831:75900832:75900833:75900841:75900842", sort = 2}
+, 
+[52500809] = {id = 52500809, name = "歌唱療法", remark = "歌唱療法", icon = "HandBookBanner:Activity_08_03", story_id = "75900851:75900852:75900861", sort = 3}
+, 
+[52500812] = {id = 52500812, name = "思いが届く", remark = "思いが届く", icon = "HandBookBanner:Activity_08_04", story_id = "75900871:75900881", sort = 4}
+, 
+[52500815] = {id = 52500815, name = "未来に向かって", remark = "未来に向かって", icon = "HandBookBanner:Activity_08_05", story_id = "75900891:75900892:75900801", sort = 5}
 }

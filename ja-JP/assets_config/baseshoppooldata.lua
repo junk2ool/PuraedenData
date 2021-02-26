@@ -1699,4 +1699,5 @@ BaseShopPoolData = {
 , 
 [23801001] = {id = 23801001, grid_id = "23008001", sell_time = "0", item = "8:21600501:1", sell_price = "2:21100001:10", sell_type = "0", prob = "10000", player_level_min = "999", player_level_max = "999"}
 }
+return BaseShopPoolData
 

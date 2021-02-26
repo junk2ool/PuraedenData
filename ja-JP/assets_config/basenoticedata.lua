@@ -15,8 +15,9 @@ BaseNoticeData = {
 , 
 [88700010] = {id = 88700010, remark = "[color=#009fa9]%s[/color]が本日の運勢で%sが出た！おめでとうございます！", param = "201", show_function_ids = "13:999:0", level_limit = "13:999", sort = 12, replace = 0, is_lottery_show = 0}
 , 
-[88700011] = {id = 88700011, remark = "ギルドのお知らせ：", param = "0", show_function_ids = "18:999:0", level_limit = "18:999", sort = 2, replace = 1, is_lottery_show = 0}
+[88700011] = {id = 88700011, remark = "ギルドのお知らせ:%s", param = "0", show_function_ids = "18:999:0", level_limit = "18:999", sort = 2, replace = 1, is_lottery_show = 0}
 , 
 [88700012] = {id = 88700012, param = "0", show_function_ids = "3:999:0", level_limit = "3:999", sort = 1, replace = 1, is_lottery_show = 0}
 }
+return BaseNoticeData
 

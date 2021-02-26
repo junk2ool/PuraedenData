@@ -91,6 +91,9 @@ end
 
 ActorMgr.RefreshAfterReconnect = function(...)
   -- function num : 0_5 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+  ActorData.ReconnectedForHomeland = true
   UIMgr:SendBroadcastMessage((WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok)
   ;
   (CommonWinMgr.RefreshAssets)()

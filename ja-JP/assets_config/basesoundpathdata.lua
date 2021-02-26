@@ -4850,5 +4850,76 @@ BaseSoundPathData = {
 [230260401] = {id = 230260401, play_frame = 3, path = "sfx_taidigou_pt_wh_40fr", bank = "taidigou"}
 , 
 [230260402] = {id = 230260402, play_frame = 17, path = "sfx_taidigou_pt_tx_43fr", bank = "taidigou"}
+, 
+[222130101] = {id = 222130101, play_frame = 8, path = "sfx_rugen_big_wh_8fr", bank = "rugen"}
+, 
+[222130102] = {id = 222130102, play_frame = 11, path = "sfx_rugen_big_wh_11fr", bank = "rugen"}
+, 
+[222130103] = {id = 222130103, play_frame = 27, path = "sfx_rugen_big_wh_27fr", bank = "rugen"}
+, 
+[222130104] = {id = 222130104, play_frame = 114, path = "sfx_rugen_big_wh_114fr", bank = "rugen"}
+, 
+[222130105] = {id = 222130105, play_frame = 204, path = "sfx_rugen_big_tx_204fr", bank = "rugen"}
+, 
+[222130201] = {id = 222130201, play_frame = 31, path = "sfx_rugen_pt_wh_31fr", bank = "rugen"}
+, 
+[222130202] = {id = 222130202, play_frame = 47, path = "sfx_rugen_pt_tx_47fr", bank = "rugen"}
+, 
+[222130301] = {id = 222130301, play_frame = 7, path = "sfx_rugen_small_wh_7fr", bank = "rugen"}
+, 
+[222130302] = {id = 222130302, play_frame = 19, path = "sfx_rugen_small_wh_19fr", bank = "rugen"}
+, 
+[222130303] = {id = 222130303, play_frame = 72, path = "sfx_rugen_small_wh_72fr", bank = "rugen"}
+, 
+[222130304] = {id = 222130304, play_frame = 96, path = "sfx_rugen_small_tx_96fr", bank = "rugen"}
+, 
+[230220101] = {id = 230220101, play_frame = 19, path = "sfx_huijing_big_tx_19fr", bank = "huijing"}
+, 
+[230220102] = {id = 230220102, play_frame = 132, path = "sfx_huijing_big_tx_132fr", bank = "huijing"}
+, 
+[230220103] = {id = 230220103, play_frame = 222, path = "sfx_huijing_big_tx_222fr", bank = "huijing"}
+, 
+[230220104] = {id = 230220104, play_frame = 248, path = "sfx_huijing_big_tx_248fr", bank = "huijing"}
+, 
+[230220105] = {id = 230220105, play_frame = 290, path = "sfx_huijing_big_tx_290fr", bank = "huijing"}
+, 
+[230220106] = {id = 230220106, play_frame = 340, path = "sfx_huijing_big_tx_340fr", bank = "huijing"}
+, 
+[230220107] = {id = 230220107, play_frame = 354, path = "sfx_huijing_big_tx_354fr", bank = "huijing"}
+, 
+[230220108] = {id = 230220108, play_frame = 402, path = "sfx_huijing_big_tx_402fr", bank = "huijing"}
+, 
+[230220109] = {id = 230220109, play_frame = 414, path = "sfx_huijing_big_tx_414fr", bank = "huijing"}
+, 
+[230220110] = {id = 230220110, play_frame = 420, path = "sfx_huijing_big_tx_420fr", bank = "huijing"}
+, 
+[230220111] = {id = 230220111, play_frame = 429, path = "sfx_huijing_big_tx_429fr", bank = "huijing"}
+, 
+[230220112] = {id = 230220112, play_frame = 442, path = "sfx_huijing_big_tx_442fr", bank = "huijing"}
+, 
+[230220113] = {id = 230220113, play_frame = 451, path = "sfx_huijing_big_tx_451fr", bank = "huijing"}
+, 
+[230220114] = {id = 230220114, play_frame = 460, path = "sfx_huijing_big_tx_460fr", bank = "huijing"}
+, 
+[230220115] = {id = 230220115, play_frame = 471, path = "sfx_huijing_big_tx_471fr", bank = "huijing"}
+, 
+[230220116] = {id = 230220116, play_frame = 529, path = "sfx_huijing_big_tx_529fr", bank = "huijing"}
+, 
+[230220201] = {id = 230220201, play_frame = 8, path = "sfx_huijing_pt_wh_8fr", bank = "huijing"}
+, 
+[230220202] = {id = 230220202, play_frame = 73, path = "sfx_huijing_pt_tx_73fr", bank = "huijing"}
+, 
+[230220301] = {id = 230220301, play_frame = 48, path = "sfx_huijing_small_wh_48fr", bank = "huijing"}
+, 
+[230220302] = {id = 230220302, play_frame = 67, path = "sfx_huijing_small_tx_67fr", bank = "huijing"}
+, 
+[230220303] = {id = 230220303, play_frame = 77, path = "sfx_huijing_small_tx_77fr", bank = "huijing"}
+, 
+[230220304] = {id = 230220304, play_frame = 89, path = "sfx_huijing_small_tx_89fr", bank = "huijing"}
+, 
+[230220305] = {id = 230220305, play_frame = 102, path = "sfx_huijing_small_tx_102fr", bank = "huijing"}
+, 
+[230220306] = {id = 230220306, play_frame = 132, path = "sfx_huijing_small_tx_132fr", bank = "huijing"}
 }
+return BaseSoundPathData
 

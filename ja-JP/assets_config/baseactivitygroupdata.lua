@@ -11,4 +11,5 @@ BaseActivityGroupData = {
 , 
 [33100005] = {id = 33100005, name = (PUtil.get)(87310005), task_list = "33200901:33200902:33200903:33201001:33201002:33201003:33201004:33201005:33201006", time_type = 1, relative_begin_time = 345600, relative_end_time = 604800}
 }
+return BaseActivityGroupData
 

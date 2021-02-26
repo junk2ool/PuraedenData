@@ -37,13 +37,27 @@ BagWindow.OnInit = function(bridge, ...)
   ((uis.FragmentBtn):GetChild("NameTxt")).text = (PUtil.get)(20000028)
   ;
   ((uis.EquipmentBtn):GetChild("NameTxt")).text = (PUtil.get)(20000029)
-  -- DECOMPILER ERROR at PC84: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC87: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  (uis.GoBtn).text = (PUtil.get)(60000615)
+  ;
+  ((uis.GoBtn).onClick):Set(function(...)
+    -- function num : 0_0_0 , upvalues : _ENV
+    ld("Shop", function(...)
+      -- function num : 0_0_0_0 , upvalues : _ENV
+      (ShopService.OnReqShopData)()
+    end
+)
+  end
+)
+  -- DECOMPILER ERROR at PC95: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.c1Ctr).selectedIndex = currentIndex
   ;
   ((uis.c1Ctr).onChanged):Add(function(...)
-    -- function num : 0_0_0 , upvalues : selectFrame, currentIndex, uis, BagWindow
+    -- function num : 0_0_1 , upvalues : selectFrame, currentIndex, uis, BagWindow
     selectFrame.visible = false
     currentIndex = (uis.c1Ctr).selectedIndex
     ;
@@ -54,7 +68,7 @@ BagWindow.OnInit = function(bridge, ...)
   list:SetVirtual()
   list.itemRenderer = BagWindow.RenderListItem
   selectFrame = UIMgr:CreateObject("CommonResource", "FrameEff")
-  -- DECOMPILER ERROR at PC108: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC119: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.NothingTxt).text = (PUtil.get)(20000351)

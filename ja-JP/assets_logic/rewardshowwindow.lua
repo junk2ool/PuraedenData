@@ -145,8 +145,14 @@ RewardShowWindow.GetCountNum = function(list, id, ...)
   -- function num : 0_5 , upvalues : _ENV
   local count = 0
   for _,v in ipairs(list) do
-    if v.id == id then
-      count = count + tonumber(v.Num)
+    if not v.Num then
+      do
+        count = count + tonumber(v.id ~= id or 0)
+        -- DECOMPILER ERROR at PC15: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+        -- DECOMPILER ERROR at PC15: LeaveBlock: unexpected jumping out IF_STMT
+
+      end
     end
   end
   return count

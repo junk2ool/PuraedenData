@@ -59,7 +59,7 @@
 , 
 [77122202] = {id = 77122202, name = "冒険者修行", remark = "第4章\n4-6 マルタ", icon = "ItemIcon:21160003", type = 300102, value = 52200421, sort = 10}
 , 
-[77122203] = {id = 77122203, name = "冒険者修行", remark = "第7章\n7-6 ショウ", icon = "ItemIcon:21160003", type = 300102, value = 52200721, sort = 10}
+[77122203] = {id = 77122203, name = "冒険者修行", remark = "第7章\n7-6 ノエル", icon = "ItemIcon:21160003", type = 300102, value = 52200721, sort = 10}
 , 
 [77122204] = {id = 77122204, name = "冒険者修行", remark = "第2章\n2-10 クイン", icon = "ItemIcon:21160003", type = 300102, value = 52200218, sort = 10}
 , 
@@ -418,6 +418,10 @@
 [77423030] = {id = 77423030, name = "募集", remark = "「ファミリーの名にかけて！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77423026] = {id = 77423026, name = "募集", remark = "「臆病なストラテジスト」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77422213] = {id = 77422213, name = "イベント", remark = "イベント 「無言の歌姫」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423022] = {id = 77423022, name = "募集", remark = "「無言の歌姫」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 }

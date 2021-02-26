@@ -298,6 +298,35 @@ AnnouncementWindow.RefreshContent = function(content, ...)
     (((CS.UnityEngine).Application).OpenURL)(eachData.Url)
   end
 )
+      elseif eachData.Type == AnnouncementDataContentType.Questionnaire then
+        imgPanel = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.AnnouncementWindow).package, AnnouncementData.CONTENT_BIG_IMG_RESOURCE))
+        local loader = imgPanel:GetChild("ImageLoader")
+        loader.loaded = function(...)
+    -- function num : 0_16_4 , upvalues : loader
+    loader:SetSize(loader.width, (loader.texture).height)
+  end
+
+        loader.url = eachData.Img
+        eachData.Component = imgPanel
+        ;
+        (imgPanel:GetController("c1")).selectedIndex = 0
+        ;
+        (AnnouncementWindow.SetDatePanel)(imgPanel)
+        if eachData.Login then
+          (imgPanel.onClick):Set(function(...)
+    -- function num : 0_16_5 , upvalues : _ENV, eachData
+    local url = (AnnouncementData.GetQuestionnaireUrl)(eachData)
+    ;
+    (((CS.UnityEngine).Application).OpenURL)(url)
+  end
+)
+        else
+          (imgPanel.onClick):Set(function(...)
+    -- function num : 0_16_6 , upvalues : _ENV, eachData
+    (((CS.UnityEngine).Application).OpenURL)(eachData.Url)
+  end
+)
+        end
       else
         local component, text = nil, nil
         if eachData.Type == AnnouncementDataContentType.Button then
@@ -308,7 +337,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
           btn.text = (PUtil.get)(60000072)
           ;
           (btn.onClick):Set(function(...)
-    -- function num : 0_16_4 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_7 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -323,7 +352,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
             (imgPanel:GetController("c1")).selectedIndex = 0
             ;
             (imgPanel.onClick):Set(function(...)
-    -- function num : 0_16_5 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_8 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -351,7 +380,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
             btn.text = (PUtil.get)(60000072)
             ;
             (btn.onClick):Set(function(...)
-    -- function num : 0_16_6 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_9 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -379,7 +408,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
       end
     end
   end
-  -- DECOMPILER ERROR: 18 unprocessed JMP targets
+  -- DECOMPILER ERROR: 20 unprocessed JMP targets
 end
 
 AnnouncementWindow.SetTextFormat = function(text, format, ...)

@@ -17,4 +17,5 @@ BaseShopData = {
 , 
 [23000008] = {id = 23000008, name = (PUtil.get)(85905008), type = "8", open_condition = "72501001:0:999", role_path = 14000401, reset_type = 0, reset_time = "1:0500:MX0", sort_index = "3", buy_type = 201}
 }
+return BaseShopData
 

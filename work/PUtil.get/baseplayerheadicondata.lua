@@ -15,6 +15,8 @@
 , 
 [78601303] = {id = 78601303, name = "バレンタインアイコン", des = "あの子と迎える初めてのバレンタイン。\n2021年バレンタインログインキャンペーンより獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_003", condition = "0", sort = 8, reward_sort = 9880001, own_show = 1}
 , 
+[78601304] = {id = 78601304, name = "無言の唄　アイコン", des = "わたしの声が、届いてますか…？\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_004", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1614477599"}
+, 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
 , 
 [78601102] = {id = 78601102, name = "オリヴィア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100002_2", condition = "72501008:11100002:10", sort = 999, reward_sort = 9880001, own_show = 1}
@@ -154,4 +156,12 @@
 [78601169] = {id = 78601169, name = "ラヴィ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300018_2", condition = "72501008:11300018:10", sort = 932, reward_sort = 9880001, own_show = 1}
 , 
 [78601170] = {id = 78601170, name = "リリー", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300019_2", condition = "72501008:11300019:10", sort = 931, reward_sort = 9880001, own_show = 1}
+, 
+[78601171] = {id = 78601171, name = "クーニャ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300030_2", condition = "72501008:11300030:10", sort = 930, reward_sort = 9880001, own_show = 1, open_time = "1612058399"}
+, 
+[78601172] = {id = 78601172, name = "プデル", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300026_2", condition = "72501008:11300026:10", sort = 929, reward_sort = 9880001, own_show = 1, open_time = "1613635199"}
+, 
+[78601173] = {id = 78601173, name = "未定義(81012214)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202014_2", condition = "72501008:11202014:10", sort = 928, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
+, 
+[78601174] = {id = 78601174, name = "レイナ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300022_2", condition = "72501008:11300022:10", sort = 927, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
 }

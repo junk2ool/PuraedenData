@@ -59,7 +59,7 @@ BaseFixedData = {
 , 
 [72002021] = {id = 72002021, int_value = 0, array_value = "3:7"}
 , 
-[72002022] = {id = 72002022, int_value = 11300006, array_value = "0"}
+[72002022] = {id = 72002022, int_value = 11202007, array_value = "0"}
 , 
 [72002023] = {id = 72002023, int_value = 0, array_value = "4,5"}
 , 
@@ -195,4 +195,5 @@ BaseFixedData = {
 , 
 [72010083] = {id = 72010083, int_value = 0, array_value = "1:1.8:3"}
 }
+return BaseFixedData
 

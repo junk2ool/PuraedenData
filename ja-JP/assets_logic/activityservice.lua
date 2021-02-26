@@ -210,6 +210,7 @@ end
 
 ActivityService.OnReqActivityInfo = function(type, mark, aId, ...)
   -- function num : 0_17 , upvalues : _ENV
+  print("=======================请求活动信息", type, aId)
   local actId = aId
   if actId == nil then
     actId = (ActivityMgr.GetOpenActivityByType)(type)
@@ -238,6 +239,7 @@ end
 
 ActivityService.ResActivityInfo = function(msg, ...)
   -- function num : 0_18 , upvalues : _ENV
+  print("=================活动信息返回")
   if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).SevenTask then
     (ActivityMgr.InitSevenDayTaskData)(msg)
     OpenWindow((WinResConfig.ActivityCarnivalWindow).name, UILayer.HUD)
@@ -265,6 +267,10 @@ ActivityService.ResActivityInfo = function(msg, ...)
             ld("Slots")
             ;
             (SlotsService.ReqSlotsData)((SlotsData.SlotType).PRIZE_SLOT)
+          else
+            if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).LotteryIntergral then
+              UIMgr:SendWindowMessage((WinResConfig.LotteryIntegralWindow).name, (WindowMsgEnum.LotteryIntegral).E_MSG_INIT_REWARD, {data = msg})
+            end
           end
         end
       end
@@ -512,26 +518,45 @@ end
 ActivityService.OnResGetReward = function(msg, ...)
   -- function num : 0_37 , upvalues : _ENV
   if msg.result then
-    local rewardConfig = ((TableData.gTable).BaseActivityLoginData)[msg.rewId]
-    local rewardStr = split(rewardConfig.rewards, ":")
-    local item = {}
-    local items = {}
-    item.Type = tonumber(rewardStr[1])
-    item.id = tonumber(rewardStr[2])
-    item.Num = tonumber(rewardStr[3])
-    ;
-    (table.insert)(items, item)
-    ;
-    (MessageMgr.OpenRewardShowWindow)(items, function(...)
-    -- function num : 0_37_0 , upvalues : _ENV
-    UIMgr:CloseWindow((WinResConfig.SignActivityMainWindow).name)
-    ld("BrithDay", function(...)
+    local activityData = ((TableData.gTable).BaseActivityData)[msg.actId]
+    do
+      local rewardConfig = nil
+      if activityData.type == (ActivityMgr.ActivityType).Total_Login then
+        rewardConfig = ((TableData.gTable).BaseActivityLoginData)[msg.rewId]
+      else
+        if activityData.type == (ActivityMgr.ActivityType).LotteryIntergral then
+          rewardConfig = ((TableData.gTable).BaseActivityPointsRewardData)[msg.rewId]
+        end
+      end
+      local rewards = split(rewardConfig.rewards, ",")
+      local items = {}
+      for index,value in ipairs(rewards) do
+        local rewardStr = split(value, ":")
+        local item = {}
+        item.Type = tonumber(rewardStr[1])
+        item.id = tonumber(rewardStr[2])
+        item.Num = tonumber(rewardStr[3])
+        ;
+        (table.insert)(items, item)
+      end
+      ;
+      (MessageMgr.OpenRewardShowWindow)(items, function(...)
+    -- function num : 0_37_0 , upvalues : activityData, _ENV, msg
+    if activityData.type == (ActivityMgr.ActivityType).Total_Login then
+      UIMgr:CloseWindow((WinResConfig.SignActivityMainWindow).name)
+      ld("BrithDay", function(...)
       -- function num : 0_37_0_0 , upvalues : _ENV
       (BrithDayService.ReqBirthdayList)()
     end
 )
+    else
+      if activityData.type == (ActivityMgr.ActivityType).LotteryIntergral then
+        UIMgr:SendWindowMessage((WinResConfig.LotteryIntegralWindow).name, (WindowMsgEnum.LotteryIntegral).E_MSG_GET_REWARD, {data = msg.rewId})
+      end
+    end
   end
 )
+    end
   end
 end
 

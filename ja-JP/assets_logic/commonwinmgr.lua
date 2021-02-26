@@ -44,21 +44,26 @@ CommonWinMgr.RegisterItemLongPress = function(item, itemId, equipInfo, Num, ResC
     return 
   end
   local data, propType = (Util.GetConfigDataByID)(itemId)
+  print("-----------------", propType, data)
   if propType == PropType.CARD or not data then
     return 
   end
+  print("=================", itemId)
   local LongPressGesture = (CommonWinMgr.GetGesture)(item)
   LongPressGesture.once = true
   LongPressGesture.trigger = 0.2
   ;
   (LongPressGesture.onAction):Set(function(...)
     -- function num : 0_7_0 , upvalues : _ENV, ResClick, itemId, Num, equipInfo, time
+    print("111111111111111")
     if UIMgr:IsWindowOpen((WinResConfig.GuideWindow).name) then
       return 
     end
+    print("2222222222222222222")
     if not ResClick then
       ((FairyGUI.Stage).inst):CancelClick(0)
     end
+    print("333333333333333")
     OpenWindow((WinResConfig.ItemTipsWindow).name, UILayer.Popup, itemId, Num, equipInfo, time)
   end
 )

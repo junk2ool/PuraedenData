@@ -3347,10 +3347,10 @@ HomelandRoomWindow.ClearEditData = function(syncCom, ...)
     -- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
 
     HomelandData.EditCurrentFurnitures = nil
-    -- DECOMPILER ERROR at PC47: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
 
-    HomelandData.EditPileFurnitures = nil
-    -- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
+    HomelandData.EditPileFurnitures = {}
+    -- DECOMPILER ERROR at PC50: Confused about usage of register: R1 in 'UnsetPending'
 
     HomelandData.EditCurrentType = nil
   end
@@ -5033,7 +5033,7 @@ HomelandRoomWindow.SaveEdit = function(...)
 end
 
 HomelandRoomWindow.SyncEditedFurnitureInfo = function(...)
-  -- function num : 0_132 , upvalues : _ENV, _editWall, _editFloor, _editFurnitureInfo, _furnitureInfo, _editGridUsage, _editCarpetGridUsage
+  -- function num : 0_132 , upvalues : _ENV, _editWall, _editFloor, _editGridUsage, _editCarpetGridUsage, HomelandRoomWindow
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
   (HomelandData.RoomData).Wall = _editWall
@@ -5041,6 +5041,20 @@ HomelandRoomWindow.SyncEditedFurnitureInfo = function(...)
 
   ;
   (HomelandData.RoomData).Floor = _editFloor
+  -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (HomelandData.RoomData).GridUsage = _editGridUsage
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (HomelandData.RoomData).CarpetGridUsage = _editCarpetGridUsage
+  ;
+  (HomelandRoomWindow.SyncEditData)()
+end
+
+HomelandRoomWindow.SyncEditData = function(...)
+  -- function num : 0_133 , upvalues : _ENV, _editFurnitureInfo, _furnitureInfo
   for k,v in pairs(_editFurnitureInfo) do
     if v.Status == FurnitureEditStatus.Remove then
       _editFurnitureInfo[k] = nil
@@ -5052,24 +5066,16 @@ HomelandRoomWindow.SyncEditedFurnitureInfo = function(...)
     end
   end
   _furnitureInfo = _editFurnitureInfo
-  -- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  (HomelandData.RoomData).GridUsage = _editGridUsage
-  -- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  (HomelandData.RoomData).CarpetGridUsage = _editCarpetGridUsage
-  -- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
 
   HomelandData.UndeployFurnitures = HomelandData.EditUndeployFurnitures
-  -- DECOMPILER ERROR at PC48: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
 
   HomelandData.PileFurnitures = HomelandData.EditPileFurnitures
 end
 
 HomelandRoomWindow.RefreshFurnitureIcon = function(type, notRefreshPile, ...)
-  -- function num : 0_133 , upvalues : _furnitureType, _ENV, HomelandRoomWindow
+  -- function num : 0_134 , upvalues : _furnitureType, _ENV, HomelandRoomWindow
   _furnitureType = type
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R2 in 'UnsetPending'
 
@@ -5081,10 +5087,10 @@ HomelandRoomWindow.RefreshFurnitureIcon = function(type, notRefreshPile, ...)
 end
 
 HomelandRoomWindow.SortFurnitureIcon = function(...)
-  -- function num : 0_134 , upvalues : _sort, _ENV
+  -- function num : 0_135 , upvalues : _sort, _ENV
   if _sort then
     (table.sort)(HomelandData.EditCurrentFurnitures, function(x, y, ...)
-    -- function num : 0_134_0 , upvalues : _ENV
+    -- function num : 0_135_0 , upvalues : _ENV
     local xConfig = ((TableData.gTable).BaseFamilyFurnitureData)[x]
     local yConfig = ((TableData.gTable).BaseFamilyFurnitureData)[y]
     if xConfig.sort == yConfig.sort then
@@ -5098,7 +5104,7 @@ HomelandRoomWindow.SortFurnitureIcon = function(...)
   else
     ;
     (table.sort)(HomelandData.EditCurrentFurnitures, function(x, y, ...)
-    -- function num : 0_134_1 , upvalues : _ENV
+    -- function num : 0_135_1 , upvalues : _ENV
     local xConfig = ((TableData.gTable).BaseFamilyFurnitureData)[x]
     local yConfig = ((TableData.gTable).BaseFamilyFurnitureData)[y]
     if xConfig.sort == yConfig.sort then
@@ -5113,14 +5119,14 @@ HomelandRoomWindow.SortFurnitureIcon = function(...)
 end
 
 HomelandRoomWindow.CheckRoomSwipeArea = function(...)
-  -- function num : 0_135 , upvalues : HomelandRoomWindow, uis
+  -- function num : 0_136 , upvalues : HomelandRoomWindow, uis
   (HomelandRoomWindow.RefreshRoomSwipeArea)()
   ;
   (HomelandRoomWindow.SetRoomXY)(((uis.Currency).root).x, ((uis.Currency).root).y)
 end
 
 HomelandRoomWindow.ZoomRoom = function(delta, ...)
-  -- function num : 0_136 , upvalues : _zoomSize, _ENV, HomelandRoomWindow
+  -- function num : 0_137 , upvalues : _zoomSize, _ENV, HomelandRoomWindow
   local zoomSize = _zoomSize + delta
   -- DECOMPILER ERROR at PC20: Unhandled construct in 'MakeBoolean' P3
 
@@ -5130,7 +5136,7 @@ HomelandRoomWindow.ZoomRoom = function(delta, ...)
 end
 
 HomelandRoomWindow.ZoomInRoom = function(...)
-  -- function num : 0_137 , upvalues : _zoomSize, _ENV, HomelandRoomWindow
+  -- function num : 0_138 , upvalues : _zoomSize, _ENV, HomelandRoomWindow
   local zoomSize = _zoomSize - 0.05
   if zoomSize >= HomelandRoomConstant.MinZoom or not HomelandRoomConstant.MinZoom then
     (HomelandRoomWindow.SetRoomZoom)(zoomSize)
@@ -5138,7 +5144,7 @@ HomelandRoomWindow.ZoomInRoom = function(...)
 end
 
 HomelandRoomWindow.ZoomOutRoom = function(...)
-  -- function num : 0_138 , upvalues : _zoomSize, _ENV, HomelandRoomWindow
+  -- function num : 0_139 , upvalues : _zoomSize, _ENV, HomelandRoomWindow
   local zoomSize = _zoomSize + 0.05
   if HomelandRoomConstant.MaxZoom >= zoomSize or not HomelandRoomConstant.MaxZoom then
     (HomelandRoomWindow.SetRoomZoom)(zoomSize)
@@ -5146,7 +5152,7 @@ HomelandRoomWindow.ZoomOutRoom = function(...)
 end
 
 HomelandRoomWindow.SetRoomZoom = function(size, force, ...)
-  -- function num : 0_139 , upvalues : _zoomSize, uis, _roomAdjustScale, _ENV, _bgImg, _bgImgOriginScale, HomelandRoomWindow
+  -- function num : 0_140 , upvalues : _zoomSize, uis, _roomAdjustScale, _ENV, _bgImg, _bgImgOriginScale, HomelandRoomWindow
   if size ~= nil and size == _zoomSize and not force then
     return 
   end
@@ -5176,7 +5182,7 @@ HomelandRoomWindow.SetRoomZoom = function(size, force, ...)
 end
 
 HomelandRoomWindow.SetWindowView = function(config, x, y, img, rect, base, index, ...)
-  -- function num : 0_140 , upvalues : _ENV, Rect, HomelandRoomWindow, _bgImg
+  -- function num : 0_141 , upvalues : _ENV, Rect, HomelandRoomWindow, _bgImg
   do
     if rect == nil then
       local rectStr = split(config.perspectivity, ":")
@@ -5206,13 +5212,13 @@ HomelandRoomWindow.SetWindowView = function(config, x, y, img, rect, base, index
 end
 
 HomelandRoomWindow.GetWindowViewRect = function(rect, ...)
-  -- function num : 0_141 , upvalues : _ENV, uis, _bgImg, Rect, _bgImgUVRect
+  -- function num : 0_142 , upvalues : _ENV, uis, _bgImg, Rect, _bgImgUVRect
   local posInBg = Vector2((rect.x * ((uis.Currency).root).scaleX + ((uis.Currency).root).x - _bgImg.x) / _bgImg.scaleX, (rect.y * ((uis.Currency).root).scaleY + ((uis.Currency).root).y - _bgImg.y) / _bgImg.scaleY)
   return Rect(_bgImgUVRect.xMin * ((_bgImg.texture).nativeTexture).width + posInBg.x, (1 - _bgImgUVRect.yMin - _bgImgUVRect.height) * ((_bgImg.texture).nativeTexture).height + posInBg.y, rect.width * ((uis.Currency).root).scaleX / _bgImg.scaleX, rect.height * ((uis.Currency).root).scaleY / _bgImg.scaleY)
 end
 
 HomelandRoomWindow.PullFromPool = function(res, base, ignoreScale, ...)
-  -- function num : 0_142 , upvalues : _reusePool, _ENV
+  -- function num : 0_143 , upvalues : _reusePool, _ENV
   if _reusePool[res] ~= nil and #_reusePool[res] > 0 then
     local com = (table.remove)(_reusePool[res], 1)
     if base ~= nil then
@@ -5236,7 +5242,7 @@ HomelandRoomWindow.PullFromPool = function(res, base, ignoreScale, ...)
 end
 
 HomelandRoomWindow.PushToPool = function(com, ...)
-  -- function num : 0_143 , upvalues : _reusePool, uis, _ENV
+  -- function num : 0_144 , upvalues : _reusePool, uis, _ENV
   if com == nil then
     return 
   end
@@ -5259,7 +5265,7 @@ HomelandRoomWindow.PushToPool = function(com, ...)
 end
 
 HomelandRoomWindow.PlayFurniutreAnim = function(furniture, coordinate, ...)
-  -- function num : 0_144 , upvalues : uis, _ENV
+  -- function num : 0_145 , upvalues : uis, _ENV
   local loader = furniture:GetChild("FurnitureItemLoader")
   loader.pivotY = 1
   local tweens = {}
@@ -5269,12 +5275,12 @@ HomelandRoomWindow.PlayFurniutreAnim = function(furniture, coordinate, ...)
   furniture.y = startPos
   furniture.visible = true
   func1 = function(value, ...)
-    -- function num : 0_144_0 , upvalues : loader
+    -- function num : 0_145_0 , upvalues : loader
     loader.scaleY = value
   end
 
   func2 = function(value, ...)
-    -- function num : 0_144_1 , upvalues : furniture, uis
+    -- function num : 0_145_1 , upvalues : furniture, uis
     if furniture then
       furniture.y = value
       ;
@@ -5302,7 +5308,7 @@ HomelandRoomWindow.PlayFurniutreAnim = function(furniture, coordinate, ...)
 end
 
 HomelandRoomWindow.ActiveEditMode = function(...)
-  -- function num : 0_145 , upvalues : HomelandRoomWindow, uis, _ENV
+  -- function num : 0_146 , upvalues : HomelandRoomWindow, uis, _ENV
   (HomelandRoomWindow.StopBubble)()
   ;
   (HomelandRoomWindow.HideCards)()
@@ -5323,7 +5329,7 @@ HomelandRoomWindow.ActiveEditMode = function(...)
 end
 
 HomelandRoomWindow.DeactiveEditMode = function(syncCom, ...)
-  -- function num : 0_146 , upvalues : HomelandRoomWindow, uis, _ENV
+  -- function num : 0_147 , upvalues : HomelandRoomWindow, uis, _ENV
   (HomelandRoomWindow.RefreshCards)()
   ;
   (HomelandRoomWindow.ClearEditData)(syncCom)
@@ -5340,7 +5346,7 @@ HomelandRoomWindow.DeactiveEditMode = function(syncCom, ...)
 end
 
 HomelandRoomWindow.ClearRoom = function(operate, ...)
-  -- function num : 0_147 , upvalues : HomelandRoomWindow, _ENV
+  -- function num : 0_148 , upvalues : HomelandRoomWindow, _ENV
   if operate.Wall then
     (HomelandRoomWindow.RefreshWall)()
     ;
@@ -5356,7 +5362,7 @@ HomelandRoomWindow.ClearRoom = function(operate, ...)
 end
 
 HomelandRoomWindow.RecycleAllFurniture = function(destroy, addToUI, ...)
-  -- function num : 0_148 , upvalues : HomelandRoomWindow, _ENV
+  -- function num : 0_149 , upvalues : HomelandRoomWindow, _ENV
   local furnitures = (HomelandRoomWindow.GetCurrentFurnitureInfo)()
   for k,v in pairs(furnitures) do
     if addToUI then
@@ -5396,7 +5402,7 @@ HomelandRoomWindow.RecycleAllFurniture = function(destroy, addToUI, ...)
 end
 
 HomelandRoomWindow.ClickStyleBtn = function(styleId, ...)
-  -- function num : 0_149 , upvalues : _asyncTimer, HomelandRoomWindow, uis, _ENV, _moveComInfo
+  -- function num : 0_150 , upvalues : _asyncTimer, HomelandRoomWindow, uis, _ENV, _moveComInfo
   if _asyncTimer ~= nil then
     _asyncTimer:stop()
   end
@@ -5419,7 +5425,7 @@ HomelandRoomWindow.ClickStyleBtn = function(styleId, ...)
 end
 
 HomelandRoomWindow.SaveCurrentStyleEditInfo = function(...)
-  -- function num : 0_150 , upvalues : _editGridUsage, _editCarpetGridUsage, _editWall, _editFloor, _editFurnitureInfo, _occupiedFurniture, _ENV, _editInfo
+  -- function num : 0_151 , upvalues : _editGridUsage, _editCarpetGridUsage, _editWall, _editFloor, _editFurnitureInfo, _occupiedFurniture, _ENV, _editInfo
   local data = {}
   data.GridUsage = _editGridUsage
   data.CarpetGridUsage = _editCarpetGridUsage
@@ -5432,10 +5438,10 @@ HomelandRoomWindow.SaveCurrentStyleEditInfo = function(...)
 end
 
 HomelandRoomWindow.QuitRoom = function(...)
-  -- function num : 0_151 , upvalues : _ENV, HomelandRoomWindow
+  -- function num : 0_152 , upvalues : _ENV, HomelandRoomWindow
   if (HomelandData.RoomData).Relation == HomelandHostRelation.Self then
     (HomelandService.ReqInFamily)(function(...)
-    -- function num : 0_151_0 , upvalues : _ENV
+    -- function num : 0_152_0 , upvalues : _ENV
     UIMgr:CloseWindow((WinResConfig.HomelandRoomWindow).name)
   end
 )
@@ -5451,14 +5457,14 @@ HomelandRoomWindow.QuitRoom = function(...)
 end
 
 HomelandRoomWindow.QuitEdit = function(...)
-  -- function num : 0_152 , upvalues : HomelandRoomWindow, _ENV
+  -- function num : 0_153 , upvalues : HomelandRoomWindow, _ENV
   if (HomelandRoomWindow.ModifiedCheck)() then
     (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000595), function(...)
-    -- function num : 0_152_0 , upvalues : HomelandRoomWindow
+    -- function num : 0_153_0 , upvalues : HomelandRoomWindow
     (HomelandRoomWindow.ClickSaveBtn)()
   end
 , function(...)
-    -- function num : 0_152_1 , upvalues : HomelandRoomWindow
+    -- function num : 0_153_1 , upvalues : HomelandRoomWindow
     (HomelandRoomWindow.AbortEdit)()
     ;
     (HomelandRoomWindow.DeactiveEditMode)(true)
@@ -5473,7 +5479,7 @@ HomelandRoomWindow.QuitEdit = function(...)
 end
 
 HomelandRoomWindow.ClickBlankBtn = function(...)
-  -- function num : 0_153 , upvalues : uis, _ENV, _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, _ui, _uiAnim, _topUIAnim
+  -- function num : 0_154 , upvalues : uis, _ENV, _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, _ui, _uiAnim, _topUIAnim
   if ((uis.AssetStripGrp).root).visible then
     if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Edit and (_moveComInfo.Com == nil or not (_moveComInfo.Com).visible) then
       (HomelandRoomWindow.QuitEdit)()
@@ -5505,7 +5511,7 @@ HomelandRoomWindow.ClickBlankBtn = function(...)
 end
 
 HomelandRoomWindow.ClickClearBtn = function(...)
-  -- function num : 0_154 , upvalues : uis, _ENV, HomelandRoomWindow
+  -- function num : 0_155 , upvalues : uis, _ENV, HomelandRoomWindow
   if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Edit then
     (HomelandRoomWindow.EditClearRoom)()
     ;
@@ -5513,7 +5519,7 @@ HomelandRoomWindow.ClickClearBtn = function(...)
   else
     ;
     (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000551), function(...)
-    -- function num : 0_154_0 , upvalues : _ENV
+    -- function num : 0_155_0 , upvalues : _ENV
     (HomelandMgr.ReqClearRoom)()
   end
 )
@@ -5521,17 +5527,17 @@ HomelandRoomWindow.ClickClearBtn = function(...)
 end
 
 HomelandRoomWindow.ClickSaveBtn = function(...)
-  -- function num : 0_155 , upvalues : HomelandRoomWindow
+  -- function num : 0_156 , upvalues : HomelandRoomWindow
   (HomelandRoomWindow.SaveEdit)()
 end
 
 HomelandRoomWindow.ClickStorageBtn = function(...)
-  -- function num : 0_156 , upvalues : HomelandRoomWindow
+  -- function num : 0_157 , upvalues : HomelandRoomWindow
   (HomelandRoomWindow.ActiveEditMode)()
 end
 
 HomelandRoomWindow.ClickHideBtn = function(...)
-  -- function num : 0_157 , upvalues : _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, uis, _uiAnim, _ui, _topUIAnim
+  -- function num : 0_158 , upvalues : _moveComInfo, HomelandRoomWindow, _editFurnitureInfo, uis, _uiAnim, _ui, _topUIAnim
   if _moveComInfo.Com ~= nil and (_moveComInfo.Com).visible then
     if not _moveComInfo.New then
       (HomelandRoomWindow.ChangePlacedFurnitureStatus)(_editFurnitureInfo[_moveComInfo.Uid], true)
@@ -5546,7 +5552,7 @@ HomelandRoomWindow.ClickHideBtn = function(...)
   end
   if ((uis.AssetStripGrp).root).visible then
     _uiAnim:PlayReverse(function(...)
-    -- function num : 0_157_0 , upvalues : uis, _ui
+    -- function num : 0_158_0 , upvalues : uis, _ui
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.AssetStripGrp).root).visible = false
@@ -5562,36 +5568,36 @@ HomelandRoomWindow.ClickHideBtn = function(...)
 end
 
 HomelandRoomWindow.ClickRandomVisitBtn = function(...)
-  -- function num : 0_158 , upvalues : _ENV
+  -- function num : 0_159 , upvalues : _ENV
   (HomelandMgr.ReqRandomPlayerInfo)()
 end
 
 HomelandRoomWindow.ClickVisitBtn = function(...)
-  -- function num : 0_159 , upvalues : _ENV
+  -- function num : 0_160 , upvalues : _ENV
   (HomelandMgr.OpenVisitUI)()
 end
 
 HomelandRoomWindow.ClickDeployBtn = function(...)
-  -- function num : 0_160 , upvalues : _ENV
+  -- function num : 0_161 , upvalues : _ENV
   OpenWindow((WinResConfig.HomelandDeployCardWindow).name, UILayer.HUD, (HomelandData.RoomData).CardGridCount)
 end
 
 HomelandRoomWindow.ClickShopBtn = function(...)
-  -- function num : 0_161 , upvalues : _ENV
+  -- function num : 0_162 , upvalues : _ENV
   ld("Shop")
   ;
   (HomelandService.ReqFarmShopTypeData)(ShopType.Family_NormalShop)
 end
 
 HomelandRoomWindow.ClickExtendBtn = function(...)
-  -- function num : 0_162 , upvalues : HomelandRoomWindow, _ENV
+  -- function num : 0_163 , upvalues : HomelandRoomWindow, _ENV
   (HomelandRoomWindow.HideEditGrids)()
   ;
   (HomelandMgr.ReqRoomLevelUp)((HomelandData.RoomData).Id, (HomelandData.RoomData).StyleId)
 end
 
 HomelandRoomWindow.ClickSortBtn = function(...)
-  -- function num : 0_163 , upvalues : _sort, HomelandRoomWindow, uis
+  -- function num : 0_164 , upvalues : _sort, HomelandRoomWindow, uis
   _sort = not _sort
   ;
   (HomelandRoomWindow.SortFurnitureIcon)()
@@ -5600,7 +5606,7 @@ HomelandRoomWindow.ClickSortBtn = function(...)
 end
 
 HomelandRoomWindow.ClickBackBtn = function(...)
-  -- function num : 0_164 , upvalues : uis, _ENV, HomelandRoomWindow
+  -- function num : 0_165 , upvalues : uis, _ENV, HomelandRoomWindow
   if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Normal then
     (HomelandRoomWindow.QuitRoom)()
   else
@@ -5610,7 +5616,7 @@ HomelandRoomWindow.ClickBackBtn = function(...)
 end
 
 HomelandRoomWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_165 , upvalues : _ENV, HomelandRoomWindow, uis, _furnitureType
+  -- function num : 0_166 , upvalues : _ENV, HomelandRoomWindow, uis, _furnitureType
   if msgId == (WindowMsgEnum.Family).E_MSG_CHANGE_ROOM_LAYOUT_SUCCESS then
     (HomelandRoomWindow.SyncEditedFurnitureInfo)()
     ;
@@ -5619,9 +5625,13 @@ HomelandRoomWindow.HandleMessage = function(msgId, para, ...)
     (MessageMgr.SendCenterTips)((PUtil.get)(60000544))
   else
     if msgId == (WindowMsgEnum.Family).E_MSG_CLEAR_ROOM then
-      (HomelandRoomWindow.ClearRoom)(para)
       if (uis.c1Ctr).selectedIndex == HomelandRoomStatus.Edit then
+        (HomelandRoomWindow.SyncEditData)()
+        ;
         (HomelandRoomWindow.DeactiveEditMode)()
+      else
+        ;
+        (HomelandRoomWindow.ClearRoom)(para)
       end
     else
       if msgId == (WindowMsgEnum.Family).E_MSG_UPGRADE_ROOM then

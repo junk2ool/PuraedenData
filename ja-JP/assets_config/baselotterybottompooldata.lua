@@ -23,4 +23,5 @@ BaseLotteryBottomPoolData = {
 , 
 [24200011] = {id = 24200011, trigger_type = 1, trigger_times = "10", drop_id = 2031, priority = 1, is_total = 0}
 }
+return BaseLotteryBottomPoolData
 

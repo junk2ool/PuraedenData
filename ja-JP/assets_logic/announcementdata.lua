@@ -2,44 +2,44 @@
 -- function num : 0 , upvalues : _ENV
 AnnouncementData = {}
 AnnouncementButtonPositionType = {NoButton = "NO", LeftBottom = "LEFT", RightBottom = "RIGHT"}
-AnnouncementDataContentType = {Text = 0, Unset = 1, ImageAndBtn = 2, ImageUrl = 3, Image = 4, Button = 5, ImageBtn = 6, BigImage = 7}
+AnnouncementDataContentType = {Text = 0, Unset = 1, ImageAndBtn = 2, ImageUrl = 3, Questionnaire = 4, Image = 5, Button = 6, ImageBtn = 7, BigImage = 8}
 AnnouncementTextFormat = {Normal = 0, Top = 1, Bottom = 2, Both = 3}
 AnnouncementDataAlignType = {Left = "left", Right = "right", Center = "center"}
 AnnouncementDataBtnType = {NoShow = 0, Normal = 1}
--- DECOMPILER ERROR at PC33: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.AutoShowAnnouncement = false
--- DECOMPILER ERROR at PC35: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.CONTENT_TITLE_RESOURCE = "Title"
--- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC38: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.CONTENT_WORD_RESOURCE = "Word"
--- DECOMPILER ERROR at PC39: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.CONTENT_BIG_IMG_RESOURCE = "BigImage"
--- DECOMPILER ERROR at PC41: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.CONTENT_IMG_RESOURCE = "MiddleImage"
--- DECOMPILER ERROR at PC43: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.CONTENT_BUTTON_RESOURCE = "Function"
--- DECOMPILER ERROR at PC46: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.ListData = {}
--- DECOMPILER ERROR at PC49: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.ContentData = {}
--- DECOMPILER ERROR at PC52: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC53: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.RedDot = {}
--- DECOMPILER ERROR at PC55: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC56: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.RedDotIndex = {}
--- DECOMPILER ERROR at PC64: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC66: Confused about usage of register: R0 in 'UnsetPending'
 
-AnnouncementData.ContentSeparater = {"<p style=\"text%-align: (%a+);\">", "<img .*src.->%[goto=#%d+%].-[/goto]", "<img .*src.->%[url=.-%]", "<img .*src.->", "%[goto=#%d+%]"}
--- DECOMPILER ERROR at PC67: Confused about usage of register: R0 in 'UnsetPending'
+AnnouncementData.ContentSeparater = {"<p style=\"text%-align: (%a+);\">", "<img .*src.->%[goto=#%d+%].-%[/goto%]", "<img .*src.->%[url=.-%]", "<img .*src.->%[que%].-%[/que%]", "<img .*src.->", "%[goto=#%d+%]"}
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.GetAnalyzedContent = function(content, noBtn, ...)
   -- function num : 0_0 , upvalues : _ENV
@@ -76,7 +76,7 @@ AnnouncementData.GetAnalyzedContent = function(content, noBtn, ...)
   return result
 end
 
--- DECOMPILER ERROR at PC70: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.AnalyzeSingeContent = function(content, noBtn, result, lastContent, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -119,7 +119,7 @@ AnnouncementData.AnalyzeSingeContent = function(content, noBtn, result, lastCont
               (table.insert)(result, {Type = AnnouncementDataContentType.ImageBtn, Align = arg, Goto = tonumber(subArg)})
             end
           else
-            subStartIndex = content:find((AnnouncementData.ContentSeparater)[1] .. (AnnouncementData.ContentSeparater)[4])
+            subStartIndex = content:find((AnnouncementData.ContentSeparater)[1] .. (AnnouncementData.ContentSeparater)[5])
             -- DECOMPILER ERROR at PC143: Overwrote pending register: R6 in 'AssignReg'
 
             -- DECOMPILER ERROR at PC144: Overwrote pending register: R11 in 'AssignReg'
@@ -163,99 +163,164 @@ AnnouncementData.AnalyzeSingeContent = function(content, noBtn, result, lastCont
           loge("subContent:" .. subContent)
           local x, y = nil, nil
           do
-            do
-              local index1, index2, type = subContent:find("%type=(%d+)")
-              if type ~= nil then
-                type = tonumber(type)
-              end
-              index1 = subContent:find("x=(%d+)")
-              -- DECOMPILER ERROR at PC263: Overwrote pending register: R15 in 'AssignReg'
+            local index1, index2, type = subContent:find("%type=(%d+)")
+            if type ~= nil then
+              type = tonumber(type)
+            end
+            index1 = subContent:find("x=(%d+)")
+            -- DECOMPILER ERROR at PC263: Overwrote pending register: R15 in 'AssignReg'
 
-              index1 = subContent:find("y=(%d+)")
-              if not noBtn then
-                (table.insert)(result, {Type = AnnouncementDataContentType.ImageBtn, Align = arg, Goto = tonumber(subArg), 
+            index1 = subContent:find("y=(%d+)")
+            if not noBtn then
+              (table.insert)(result, {Type = AnnouncementDataContentType.ImageBtn, Align = arg, Goto = tonumber(subArg), 
 Offset = {x = tonumber(x), y = tonumber(y)}
 , BtnType = type})
-              end
-              content = content:sub(endIndex + 1)
-              lastContent = result[#result]
-              do break end
-              -- DECOMPILER ERROR at PC298: Overwrote pending register: R12 in 'AssignReg'
+            end
+            content = content:sub(endIndex + 1)
+            lastContent = result[#result]
+            do break end
+            -- DECOMPILER ERROR at PC298: Overwrote pending register: R12 in 'AssignReg'
 
-              -- DECOMPILER ERROR at PC302: Overwrote pending register: R13 in 'AssignReg'
+            -- DECOMPILER ERROR at PC302: Overwrote pending register: R13 in 'AssignReg'
 
-              -- DECOMPILER ERROR at PC306: Overwrote pending register: R11 in 'AssignReg'
+            -- DECOMPILER ERROR at PC305: Overwrote pending register: R6 in 'AssignReg'
 
-              if type == x.Image then
-                startIndex = content:find("<img .*src=\"(.-)\"")
-                -- DECOMPILER ERROR at PC312: Overwrote pending register: R15 in 'AssignReg'
+            -- DECOMPILER ERROR at PC306: Overwrote pending register: R11 in 'AssignReg'
 
-                ;
-                (table.insert)(result, {Img = (index2.CheckUrlString)(arg), Type = AnnouncementDataContentType.Image})
-                -- DECOMPILER ERROR at PC325: Overwrote pending register: R11 in 'AssignReg'
+            if type == x.Questionnaire then
+              startIndex = content:find("<img .*src=\"(.-)\"")
+              local img = (AnnouncementData.CheckUrlString)(subArg)
+              -- DECOMPILER ERROR at PC313: Overwrote pending register: R15 in 'AssignReg'
 
-                startIndex = content:find(">", startIndex)
-                content = content:sub(endIndex + 1)
-                lastContent = result[#result]
-                break
-              end
-              -- DECOMPILER ERROR at PC341: Overwrote pending register: R6 in 'AssignReg'
+              -- DECOMPILER ERROR at PC315: Overwrote pending register: R7 in 'AssignReg'
 
-              -- DECOMPILER ERROR at PC342: Overwrote pending register: R11 in 'AssignReg'
+              -- DECOMPILER ERROR at PC316: Overwrote pending register: R11 in 'AssignReg'
 
-              if type == AnnouncementDataContentType.Button then
-                startIndex = content:find("%[goto=#(%d+)%]")
-                if not noBtn then
-                  (table.insert)(result, {Type = AnnouncementDataContentType.Button, Align = arg, Goto = tonumber(subArg)})
+              startIndex = content:find(index2)
+              local url, baseUrl, appId, appKey, questionnaireId, arg = nil, nil, nil, nil, nil, nil
+              local subContent = split(subContent, ",")
+              do
+                do
+                  local count = #subContent
+                  for i = 1, count do
+                    -- DECOMPILER ERROR at PC332: Overwrote pending register: R5 in 'AssignReg'
+
+                    subStartIndex = (subContent[i]):find("baseurl=")
+                    if subStartIndex ~= nil then
+                      baseUrl = (subContent[i]):sub(subEndIndex + 1)
+                    else
+                      -- DECOMPILER ERROR at PC346: Overwrote pending register: R5 in 'AssignReg'
+
+                      subStartIndex = (subContent[i]):find("url=")
+                      if subStartIndex ~= nil then
+                        url = (subContent[i]):sub(subEndIndex + 1)
+                      else
+                        -- DECOMPILER ERROR at PC360: Overwrote pending register: R5 in 'AssignReg'
+
+                        subStartIndex = (subContent[i]):find("appid=")
+                        if subStartIndex ~= nil then
+                          appId = (subContent[i]):sub(subEndIndex + 1)
+                        else
+                          -- DECOMPILER ERROR at PC374: Overwrote pending register: R5 in 'AssignReg'
+
+                          subStartIndex = (subContent[i]):find("appkey=")
+                          if subStartIndex ~= nil then
+                            appKey = (subContent[i]):sub(subEndIndex + 1)
+                          else
+                            -- DECOMPILER ERROR at PC388: Overwrote pending register: R5 in 'AssignReg'
+
+                            subStartIndex = (subContent[i]):find("id=")
+                            if subStartIndex ~= nil then
+                              questionnaireId = (subContent[i]):sub(subEndIndex + 1)
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                  ;
+                  (table.insert)(result, {Type = AnnouncementDataContentType.Questionnaire, Img = img, AppId = appId, Url = url, BaseUrl = baseUrl, AppKey = appKey, QuestionnaireId = questionnaireId, Login = not noBtn})
+                  content = content:sub(endIndex + 1)
+                  lastContent = result[#result]
+                  do break end
+                  -- DECOMPILER ERROR at PC429: Overwrote pending register: R11 in 'AssignReg'
+
+                  if type == AnnouncementDataContentType.Image then
+                    startIndex = content:find("<img .*src=\"(.-)\"")
+                    ;
+                    (table.insert)(result, {Img = (AnnouncementData.CheckUrlString)(arg), Type = AnnouncementDataContentType.Image})
+                    -- DECOMPILER ERROR at PC448: Overwrote pending register: R11 in 'AssignReg'
+
+                    startIndex = content:find(">", startIndex)
+                    content = content:sub(endIndex + 1)
+                    lastContent = result[#result]
+                    break
+                  end
+                  -- DECOMPILER ERROR at PC464: Overwrote pending register: R6 in 'AssignReg'
+
+                  -- DECOMPILER ERROR at PC465: Overwrote pending register: R11 in 'AssignReg'
+
+                  if type == AnnouncementDataContentType.Button then
+                    startIndex = content:find("%[goto=#(%d+)%]")
+                    if not noBtn then
+                      (table.insert)(result, {Type = AnnouncementDataContentType.Button, Align = arg, Goto = tonumber(subArg)})
+                    end
+                    content = content:sub(endIndex + 1)
+                    lastContent = result[#result]
+                    break
+                  end
+                  -- DECOMPILER ERROR at PC496: Overwrote pending register: R6 in 'AssignReg'
+
+                  -- DECOMPILER ERROR at PC497: Overwrote pending register: R11 in 'AssignReg'
+
+                  if type == AnnouncementDataContentType.ImageUrl then
+                    startIndex = content:find("<img .*src=\"(.-)\"")
+                    local data = {Img = (AnnouncementData.CheckUrlString)(subArg), Type = AnnouncementDataContentType.ImageUrl}
+                    -- DECOMPILER ERROR at PC511: Overwrote pending register: R6 in 'AssignReg'
+
+                    -- DECOMPILER ERROR at PC512: Overwrote pending register: R11 in 'AssignReg'
+
+                    startIndex = content:find("%[url=(.-)%]")
+                    data.Url = (AnnouncementData.CheckUrlString)(subArg)
+                    ;
+                    (table.insert)(result, data)
+                    content = content:sub(endIndex + 1)
+                    lastContent = result[#result]
+                  end
+                  do break end
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out DO_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out IF_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out DO_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out IF_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out DO_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                  -- DECOMPILER ERROR at PC531: LeaveBlock: unexpected jumping out IF_STMT
+
                 end
-                content = content:sub(endIndex + 1)
-                lastContent = result[#result]
-                break
               end
-              -- DECOMPILER ERROR at PC373: Overwrote pending register: R6 in 'AssignReg'
-
-              -- DECOMPILER ERROR at PC374: Overwrote pending register: R11 in 'AssignReg'
-
-              if type == AnnouncementDataContentType.ImageUrl then
-                startIndex = content:find("<img .*src=\"(.-)\"")
-                local data = {Img = (AnnouncementData.CheckUrlString)(subArg), Type = AnnouncementDataContentType.ImageUrl}
-                -- DECOMPILER ERROR at PC388: Overwrote pending register: R6 in 'AssignReg'
-
-                -- DECOMPILER ERROR at PC389: Overwrote pending register: R11 in 'AssignReg'
-
-                startIndex = content:find("%[url=(.-)%]")
-                data.Url = (AnnouncementData.CheckUrlString)(subArg)
-                ;
-                (table.insert)(result, data)
-                content = content:sub(endIndex + 1)
-                lastContent = result[#result]
-              end
-              do break end
-              -- DECOMPILER ERROR at PC408: LeaveBlock: unexpected jumping out DO_STMT
-
-              -- DECOMPILER ERROR at PC408: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-              -- DECOMPILER ERROR at PC408: LeaveBlock: unexpected jumping out IF_STMT
-
-              -- DECOMPILER ERROR at PC408: LeaveBlock: unexpected jumping out DO_STMT
-
-              -- DECOMPILER ERROR at PC408: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-              -- DECOMPILER ERROR at PC408: LeaveBlock: unexpected jumping out IF_STMT
-
             end
           end
         end
       end
     end
   end
-  -- DECOMPILER ERROR at PC431: Overwrote pending register: R10 in 'AssignReg'
+  -- DECOMPILER ERROR at PC554: Overwrote pending register: R10 in 'AssignReg'
 
   if (Util.StringIsNullOrEmpty)(content) == false and content ~= "<br>" then
     if lastContent ~= nil and lastContent.Type == AnnouncementDataContentType.Text and lastContent.Align == AnnouncementDataAlignType.Left then
       lastContent.Text = lastContent.Text .. "\n" .. arg
     else
-      -- DECOMPILER ERROR at PC440: Overwrote pending register: R11 in 'AssignReg'
+      -- DECOMPILER ERROR at PC563: Overwrote pending register: R11 in 'AssignReg'
 
       ;
       (table.insert)(result, {Text = content, Type = endIndex.Text, Align = AnnouncementDataAlignType.Left})
@@ -265,7 +330,7 @@ Offset = {x = tonumber(x), y = tonumber(y)}
   return lastContent
 end
 
--- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC75: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.RemoveUnusedTag = function(content, ...)
   -- function num : 0_2 , upvalues : _ENV
@@ -297,7 +362,7 @@ AnnouncementData.RemoveUnusedTag = function(content, ...)
   return content
 end
 
--- DECOMPILER ERROR at PC76: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.PreAnalyzedContent = function(content, ...)
   -- function num : 0_3 , upvalues : _ENV
@@ -335,7 +400,7 @@ AnnouncementData.PreAnalyzedContent = function(content, ...)
   return content
 end
 
--- DECOMPILER ERROR at PC79: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC81: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.DealPLabel = function(content, ...)
   -- function num : 0_4
@@ -350,7 +415,7 @@ AnnouncementData.DealPLabel = function(content, ...)
   return content
 end
 
--- DECOMPILER ERROR at PC82: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC84: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.UnifyHtmlString1 = function(content, ...)
   -- function num : 0_5 , upvalues : _ENV
@@ -363,7 +428,7 @@ AnnouncementData.UnifyHtmlString1 = function(content, ...)
   return content
 end
 
--- DECOMPILER ERROR at PC85: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC87: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.UnifyHtmlString2 = function(content, ...)
   -- function num : 0_6 , upvalues : _ENV
@@ -376,7 +441,7 @@ AnnouncementData.UnifyHtmlString2 = function(content, ...)
   return content
 end
 
--- DECOMPILER ERROR at PC88: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC90: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.CheckUrlString = function(content, ...)
   -- function num : 0_7
@@ -384,7 +449,7 @@ AnnouncementData.CheckUrlString = function(content, ...)
   return content
 end
 
--- DECOMPILER ERROR at PC91: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC93: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.SetTextFormat = function(last, current, ...)
   -- function num : 0_8 , upvalues : _ENV
@@ -398,7 +463,7 @@ AnnouncementData.SetTextFormat = function(last, current, ...)
   end
 end
 
--- DECOMPILER ERROR at PC94: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC96: Confused about usage of register: R0 in 'UnsetPending'
 
 AnnouncementData.GetNextSeparater = function(content, ...)
   -- function num : 0_9 , upvalues : _ENV
@@ -428,6 +493,20 @@ AnnouncementData.GetNextSeparater = function(content, ...)
     end
   end
   return start, type, arg
+end
+
+-- DECOMPILER ERROR at PC99: Confused about usage of register: R0 in 'UnsetPending'
+
+AnnouncementData.GetQuestionnaireUrl = function(data, ...)
+  -- function num : 0_10 , upvalues : _ENV
+  local content = (string.format)("app_id=%d&qn_id=%d&role_id=%s&role_name=%s&server_id=%d&server_name=%s&timeline=%d", data.AppId, data.QuestionnaireId, (ActorData.GetPlayerIndex)(), (ActorData.GetNickName)(), LoginMgr.curServerId, LoginMgr.curServerId, (LuaTime.GetTimeStamp)())
+  local md5 = content .. data.AppKey
+  md5 = ((CS.MD5Util).Hash)(md5)
+  content = content .. "&sign=" .. md5
+  content = (Util.EncodeBase64)(content)
+  content = (Util.EncodeURI)(content)
+  content = data.BaseUrl .. content
+  return content
 end
 
 
