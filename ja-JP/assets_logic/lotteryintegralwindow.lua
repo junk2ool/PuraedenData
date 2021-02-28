@@ -113,15 +113,16 @@ LotteryIntegralWindow.RefreshWindow = function(...)
         print("id", (rewards[shopIndex]).id)
         local shopItem = rewardItemList:AddItemFromPool()
         local rewardConfig = ((TableData.gTable).BaseActivityPointsRewardData)[(rewards[shopIndex]).id]
-        local rewardShowConfig = (Util.GetConfigDataByID)((split(rewardConfig.rewards_show, ":"))[2])
-        print("111111111111111", (split(rewardConfig.rewards_show, ":"))[2], rewardShowConfig.icon, rewardShowConfig.icon_path)
+        local rewardId = tonumber((split(rewardConfig.rewards_show, ":"))[2])
+        local rewardShowConfig = (Util.GetConfigDataByID)(rewardId)
+        print("111111111111111", rewardId, rewardShowConfig.icon, rewardShowConfig.icon_path)
         if not rewardShowConfig.icon then
           (shopItem:GetChild("IconLoader")).url = (Util.GetItemUrl)(rewardShowConfig.icon_path)
           ;
-          (CommonWinMgr.RegisterItemLongPress)(shopItem:GetChild("IconLoader"), (split(rewardConfig.rewards_show, ":"))[2])
+          (CommonWinMgr.RegisterItemLongPress)(shopItem:GetChild("IconLoader"), rewardId)
           ;
           (shopItem:GetController("c1")).selectedIndex = (rewards[shopIndex]).status
-          local itemNumber = ""
+          local itemNumber = 0
           if tonumber((split(rewardConfig.rewards_show, ":"))[3]) > 1 then
             itemNumber = (split(rewardConfig.rewards_show, ":"))[3]
           end
@@ -133,7 +134,7 @@ LotteryIntegralWindow.RefreshWindow = function(...)
             if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
               (shopItem:GetChild("NumberTxt")).text = rewardConfig.need
               local holder, effect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERYINTERGRAL_LOOP, true, shopItem, Vector2(shopItem.width / 2, shopItem.height / 2))
-              -- DECOMPILER ERROR at PC277: Confused about usage of register: R27 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC272: Confused about usage of register: R28 in 'UnsetPending'
 
               ;
               (effect.transform).localPosition = Vector3(0, ((effect.transform).localPosition).y, 0)
@@ -147,14 +148,21 @@ LotteryIntegralWindow.RefreshWindow = function(...)
                   end
                   ;
                   (shopItem.onClick):Set(function(...)
-    -- function num : 0_1_3 , upvalues : rewards, shopIndex, _ENV, integralData, shopItem, canEffect
+    -- function num : 0_1_3 , upvalues : rewards, shopIndex, _ENV, rewardId, itemNumber, integralData, shopItem, canEffect
     if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT then
       (MessageMgr.SendCenterTips)((PUtil.get)(303))
     else
       if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
+        local max = (Util.GetMaxAssetNum)(rewardId)
+        print("rewardId", rewardId, itemNumber, (ActorData.GetAssetCount)(rewardId), max)
+        if max < itemNumber + (ActorData.GetAssetCount)(rewardId) then
+          (MessageMgr.SendCenterTips)((PUtil.get)(20000184))
+          return 
+        end
+        ;
         (ActivityService.ReqGetReward)((integralData.baseActivityInfo).actId, (rewards[shopIndex]).id)
         local holder, effect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERYINTERGRAL, true, shopItem, Vector2(shopItem.width / 2, shopItem.height / 2))
-        -- DECOMPILER ERROR at PC48: Confused about usage of register: R2 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC78: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
         (effect.transform).localPosition = Vector3.zero
@@ -170,19 +178,19 @@ LotteryIntegralWindow.RefreshWindow = function(...)
     end
   end
 )
-                  -- DECOMPILER ERROR at PC304: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC304: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                  -- DECOMPILER ERROR at PC304: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_STMT
 
-                  -- DECOMPILER ERROR at PC304: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                  -- DECOMPILER ERROR at PC304: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_STMT
 
-                  -- DECOMPILER ERROR at PC304: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                  -- DECOMPILER ERROR at PC304: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_STMT
 
                 end
               end
