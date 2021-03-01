@@ -13,11 +13,10 @@ BaseActivityPointsRewardData = {
 , 
 [32030006] = {id = 32030006, need = 80, rewards = "1:21500607:1,1:21160001:3", rewards_show = "1:21500704:1"}
 , 
-[32030007] = {id = 32030007, need = 100, rewards = "1:21500307:2,1:21160001:3", rewards_show = "1:21500705:1"}
+[32030007] = {id = 32030007, need = 100, rewards = "1:21500308:2,1:21160001:3", rewards_show = "1:21500705:1"}
 , 
 [32030008] = {id = 32030008, need = 120, rewards = "1:21120000:10,1:21160001:3", rewards_show = "1:21500706:1"}
 , 
 [32030009] = {id = 32030009, need = 150, rewards = "9:78601304:1", rewards_show = "9:78601304:1"}
 }
-return BaseActivityPointsRewardData
 

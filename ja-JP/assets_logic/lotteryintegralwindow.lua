@@ -122,77 +122,72 @@ LotteryIntegralWindow.RefreshWindow = function(...)
           (CommonWinMgr.RegisterItemLongPress)(shopItem:GetChild("IconLoader"), rewardId)
           ;
           (shopItem:GetController("c1")).selectedIndex = (rewards[shopIndex]).status
-          local itemNumber = 0
+          local itemNumber = ""
           if tonumber((split(rewardConfig.rewards_show, ":"))[3]) > 1 then
             itemNumber = (split(rewardConfig.rewards_show, ":"))[3]
           end
           ;
           (shopItem:GetChild("ItemNumberTxt")).text = itemNumber
-          if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT then
-            (shopItem:GetChild("NumberTxt")).text = rewardConfig.need
-          else
-            if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
-              (shopItem:GetChild("NumberTxt")).text = rewardConfig.need
+          ;
+          (shopItem:GetChild("NumberTxt")).text = rewardConfig.need
+          do
+            if (rewards[shopIndex]).status ~= (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT or (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
               local holder, effect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERYINTERGRAL_LOOP, true, shopItem, Vector2(shopItem.width / 2, shopItem.height / 2))
-              -- DECOMPILER ERROR at PC272: Confused about usage of register: R28 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC267: Confused about usage of register: R28 in 'UnsetPending'
 
               ;
               (effect.transform).localPosition = Vector3(0, ((effect.transform).localPosition).y, 0)
               ;
               (table.insert)(canEffect, holder)
             else
+            end
+            if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
               do
-                do
-                  if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
-                    (shopItem:GetChild("NumberTxt")).text = (PUtil.get)(304)
-                  end
-                  ;
-                  (shopItem.onClick):Set(function(...)
-    -- function num : 0_1_3 , upvalues : rewards, shopIndex, _ENV, rewardId, itemNumber, integralData, shopItem, canEffect
+                (shopItem.onClick):Set(function(...)
+    -- function num : 0_1_3 , upvalues : rewards, shopIndex, _ENV, rewardConfig, rewardId, integralData, shopItem, canEffect
     if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT then
       (MessageMgr.SendCenterTips)((PUtil.get)(303))
     else
       if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
-        local max = (Util.GetMaxAssetNum)(rewardId)
-        print("rewardId", rewardId, itemNumber, (ActorData.GetAssetCount)(rewardId), max)
-        if max < itemNumber + (ActorData.GetAssetCount)(rewardId) then
+        local isCan = true
+        for index,value in ipairs(split(rewardConfig.rewards, ",")) do
+          local str = split(value, ":")
+          local rId = tonumber(str[2])
+          local rNum = tonumber(str[3])
+          local max = (Util.GetMaxAssetNum)(rId)
+          isCan = not isCan or rNum + (ActorData.GetAssetCount)(rId) <= max
+          print("rewardId", rewardId, rNum + (ActorData.GetAssetCount)(rId), max, isCan)
+        end
+        if isCan == false then
           (MessageMgr.SendCenterTips)((PUtil.get)(20000184))
           return 
         end
         ;
         (ActivityService.ReqGetReward)((integralData.baseActivityInfo).actId, (rewards[shopIndex]).id)
         local holder, effect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERYINTERGRAL, true, shopItem, Vector2(shopItem.width / 2, shopItem.height / 2))
-        -- DECOMPILER ERROR at PC78: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC104: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
         (effect.transform).localPosition = Vector3.zero
         ;
         (table.insert)(canEffect, holder)
-      else
-        do
-          if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
-            (MessageMgr.SendCenterTips)((PUtil.get)(304))
-          end
-        end
+      elseif (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
+        (MessageMgr.SendCenterTips)((PUtil.get)(304))
       end
     end
+    -- DECOMPILER ERROR: 6 unprocessed JMP targets
   end
 )
-                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_STMT
 
-                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_STMT
 
-                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-                  -- DECOMPILER ERROR at PC299: LeaveBlock: unexpected jumping out IF_STMT
-
-                end
               end
             end
           end
