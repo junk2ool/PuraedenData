@@ -74,9 +74,9 @@ end
 
 -- DECOMPILER ERROR at PC14: Confused about usage of register: R2 in 'UnsetPending'
 
-LoginService.ReqLogout = function(...)
+LoginService.ReqLogout = function(autoLogin, ...)
   -- function num : 0_3 , upvalues : _ENV, MsgWaiterObj
-  -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   LoginMgr.account = nil
   local t = {}
@@ -108,8 +108,13 @@ LoginService.ReqLogout = function(...)
   (ActorMgr.RemoveHeartUpdate)()
   UIMgr:CloseAllWindow(true)
   UIMgr:SetOnShownComplete((WinResConfig.LoginWindow).name, function(...)
-    -- function num : 0_3_0 , upvalues : _ENV
+    -- function num : 0_3_0 , upvalues : _ENV, autoLogin
     UIMgr:SendWindowMessage((WinResConfig.LoginWindow).name, (WindowMsgEnum.LoginWindow).E_MSG_REFRESH_EFFECT)
+    if autoLogin == true then
+      local LoginWindow = require("LoginWindow")
+      ;
+      (LoginWindow.onClickLoginBtn)({url = LoginMgr.selectUrlInfo})
+    end
   end
 )
   OpenWindow("LoginWindow", UILayer.HUD)

@@ -533,13 +533,13 @@ BaseStoryOptionData = {
 , 
 [75345012] = {id = 75345012, remark = (PUtil.get)(86300262), next = 75145103}
 , 
-[75345041] = {id = 75345041, remark = (PUtil.get)(86300263), next = 75145429}
+[75345031] = {id = 75345031, remark = (PUtil.get)(86300263), next = 75145329}
 , 
-[75345042] = {id = 75345042, remark = (PUtil.get)(86300264), next = 75145431}
+[75345032] = {id = 75345032, remark = (PUtil.get)(86300264), next = 75145331}
 , 
-[75346011] = {id = 75346011, remark = (PUtil.get)(86300265), next = 75146132}
+[75345051] = {id = 75345051, remark = (PUtil.get)(86300265), next = 75145532}
 , 
-[75346012] = {id = 75346012, remark = (PUtil.get)(86300266), next = 75146133}
+[75345052] = {id = 75345052, remark = (PUtil.get)(86300266), next = 75145533}
 , 
 [75346031] = {id = 75346031, remark = (PUtil.get)(86300267), next = 75146315}
 , 
@@ -2709,4 +2709,5 @@ BaseStoryOptionData = {
 , 
 [75800802] = {id = 75800802, remark = (PUtil.get)(86370154), next = 75708027}
 }
+return BaseStoryOptionData
 

@@ -55,9 +55,11 @@
 , 
 [26200421] = {id = 26200421, name = "監獄城からの脱出", remark = "プライドのみんなで協力すれば、私たちを閉じ込められるところがないはず！", des = "第四十二章 ロック中", type = 1, chapter_id = 51100042, index = 28, icon = "HandBookCGBanner:92101042", fashion_id = "92101042", open_time = 0}
 , 
-[26200431] = {id = 26200431, name = "姫と護衛", remark = "外にとても賑やかで、外に出かけてみたいなあ——", des = "第四十三章 ロック中", type = 1, chapter_id = 51100043, index = 29, icon = "HandBookCGBanner:92101043", fashion_id = "92101043", open_time = 0}
+[26200431] = {id = 26200431, name = "姫と護衛", remark = "外がとても賑やかで、外に出かけてみたいなあ——", des = "第四十三章 ロック中", type = 1, chapter_id = 51100043, index = 29, icon = "HandBookCGBanner:92101043", fashion_id = "92101043", open_time = 0}
 , 
 [26200441] = {id = 26200441, name = "古代の武器", remark = "田舎者ども！古代の武器も知らないで、今日はお前らに見せてやる！", des = "第四十四章 ロック中", type = 1, chapter_id = 51100044, index = 30, icon = "HandBookCGBanner:92101044", fashion_id = "92101044", open_time = 0}
+, 
+[26200451] = {id = 26200451, name = "一番かわいいの男の子", remark = "かわいこちゃん対決しよう！誰が世界で一番かわいい男の子を見てみて！", des = "第四十五章 ロック中", type = 1, chapter_id = 51100045, index = 31, icon = "HandBookCGBanner:92101045", fashion_id = "92101045"}
 , 
 [26110010] = {id = 26110010, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11100001, index = 1, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 

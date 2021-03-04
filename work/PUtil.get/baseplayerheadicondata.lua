@@ -161,7 +161,7 @@
 , 
 [78601172] = {id = 78601172, name = "プデル", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300026_2", condition = "72501008:11300026:10", sort = 929, reward_sort = 9880001, own_show = 1, open_time = "1613635199"}
 , 
-[78601173] = {id = 78601173, name = "未定義(81012214)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202014_2", condition = "72501008:11202014:10", sort = 928, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
+[78601173] = {id = 78601173, name = "タネハ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202013_2", condition = "72501008:11202013:10", sort = 928, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
 , 
 [78601174] = {id = 78601174, name = "レイナ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300022_2", condition = "72501008:11300022:10", sort = 927, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
 }

@@ -10371,41 +10371,41 @@ BaseFashionBubbleData = {
 , 
 [108221301] = {id = 108221301, bubble_text = (PUtil.get)(108221301), voice_path = "Tanesha_Go_1"}
 , 
-[109221301] = {id = 109221301, bubble_text = (PUtil.get)(109221301), voice_path = "Tanesha_Game_1"}
+[109221301] = {id = 109221301, voice_path = "Tanesha_Game_1"}
 , 
-[111221301] = {id = 111221301, bubble_text = (PUtil.get)(111221301), voice_path = "Tanesha_Battle_N_1"}
+[111221301] = {id = 111221301, voice_path = "Tanesha_Battle_N_1"}
 , 
-[111221302] = {id = 111221302, bubble_text = (PUtil.get)(111221302), voice_path = "Tanesha_Battle_N_2"}
+[111221302] = {id = 111221302, voice_path = "Tanesha_Battle_N_2"}
 , 
-[111221303] = {id = 111221303, bubble_text = (PUtil.get)(111221303), voice_path = "Tanesha_Battle_N_3"}
+[111221303] = {id = 111221303, voice_path = "Tanesha_Battle_N_3"}
 , 
-[111221304] = {id = 111221304, bubble_text = (PUtil.get)(111221304), voice_path = "Tanesha_Battle_N_4"}
+[111221304] = {id = 111221304, voice_path = "Tanesha_Battle_N_4"}
 , 
-[111221305] = {id = 111221305, bubble_text = (PUtil.get)(111221305), voice_path = "Tanesha_Battle_N_5"}
+[111221305] = {id = 111221305, voice_path = "Tanesha_Battle_N_5"}
 , 
-[111221306] = {id = 111221306, bubble_text = (PUtil.get)(111221306), voice_path = "Tanesha_Battle_N_6"}
+[111221306] = {id = 111221306, voice_path = "Tanesha_Battle_N_6"}
 , 
-[112221301] = {id = 112221301, bubble_text = (PUtil.get)(112221301), voice_path = "Tanesha_Battle_Hit_1"}
+[112221301] = {id = 112221301, voice_path = "Tanesha_Battle_Hit_1"}
 , 
-[112221302] = {id = 112221302, bubble_text = (PUtil.get)(112221302), voice_path = "Tanesha_Battle_Hit_2"}
+[112221302] = {id = 112221302, voice_path = "Tanesha_Battle_Hit_2"}
 , 
-[112221303] = {id = 112221303, bubble_text = (PUtil.get)(112221303), voice_path = "Tanesha_Battle_Hit_3"}
+[112221303] = {id = 112221303, voice_path = "Tanesha_Battle_Hit_3"}
 , 
-[112221304] = {id = 112221304, bubble_text = (PUtil.get)(112221304), voice_path = "Tanesha_Battle_Hit_4"}
+[112221304] = {id = 112221304, voice_path = "Tanesha_Battle_Hit_4"}
 , 
-[112221305] = {id = 112221305, bubble_text = (PUtil.get)(112221305), voice_path = "Tanesha_Battle_Hit_5"}
+[112221305] = {id = 112221305, voice_path = "Tanesha_Battle_Hit_5"}
 , 
-[112221306] = {id = 112221306, bubble_text = (PUtil.get)(112221306), voice_path = "Tanesha_Battle_Hit_6"}
+[112221306] = {id = 112221306, voice_path = "Tanesha_Battle_Hit_6"}
 , 
-[113221301] = {id = 113221301, bubble_text = (PUtil.get)(113221301), voice_path = "Tanesha_Battle_Die_1"}
+[113221301] = {id = 113221301, voice_path = "Tanesha_Battle_Die_1"}
 , 
-[114221301] = {id = 114221301, bubble_text = (PUtil.get)(114221301), voice_path = "Tanesha_Battle_H_1"}
+[114221301] = {id = 114221301, voice_path = "Tanesha_Battle_H_1"}
 , 
-[114221302] = {id = 114221302, bubble_text = (PUtil.get)(114221302), voice_path = "Tanesha_Battle_H_2"}
+[114221302] = {id = 114221302, voice_path = "Tanesha_Battle_H_2"}
 , 
-[115221301] = {id = 115221301, bubble_text = (PUtil.get)(115221301), voice_path = "Tanesha_Battle_C_1"}
+[115221301] = {id = 115221301, voice_path = "Tanesha_Battle_C_1"}
 , 
-[115221302] = {id = 115221302, bubble_text = (PUtil.get)(115221302), voice_path = "Tanesha_Battle_C_2"}
+[115221302] = {id = 115221302, voice_path = "Tanesha_Battle_C_2"}
 , 
 [116221301] = {id = 116221301, bubble_text = (PUtil.get)(116221301), voice_path = "Tanesha_Home_In_1", top_position = 10}
 , 

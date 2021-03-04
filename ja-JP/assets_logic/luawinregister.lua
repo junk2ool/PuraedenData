@@ -566,7 +566,7 @@ BagWindow = {"Equipicon", "Equipt", "FamilyFurniture"}
 , 
 GetWayWindow = {"Equipicon"}
 , 
-MailWindow = {"Equipicon"}
+MailWindow = {"Equipicon", "CharacterHeadBanner", "CardHeadIconCircle"}
 , 
 TowerWindow = {"Equipicon", "PlotUIBackGround"}
 , 

@@ -89,6 +89,8 @@ BaseHandbookAdventureChapterData = {
 , 
 [51100044] = {id = 51100044, type = 1, activity_type = 0, name = (PUtil.get)(85110044), remark = (PUtil.get)(85110044), record_ids = "52104401:52104403:52104404:52104405", sort = 44}
 , 
+[51100045] = {id = 51100045, type = 1, activity_type = 0, name = (PUtil.get)(85110045), remark = (PUtil.get)(85110045), record_ids = "52104501:52104502:52104503:52104504:52104505", sort = 45}
+, 
 [51200001] = {id = 51200001, type = 2, activity_type = 0, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52200101:52200102:52200103:52200104:52200105:52200106", sort = 1}
 , 
 [51410001] = {id = 51410001, type = 3, activity_type = 301, name = (PUtil.get)(85180100), remark = (PUtil.get)(85180100), record_ids = "52500103:52500106:52500109:52500112:52500115", sort = 1}

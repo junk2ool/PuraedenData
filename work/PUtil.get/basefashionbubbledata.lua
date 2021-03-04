@@ -23,7 +23,7 @@
 , 
 [116110601] = {id = 116110601, bubble_text = "リーダー、ここに食堂を出せるかな？", voice_path = "Sierra_Home_In_1", top_position = 10}
 , 
-[116200101] = {id = 116200101, bubble_text = "ここにエマの港は作れるか？", voice_path = "Ema_Home_In_1", top_position = 10}
+[116200101] = {id = 116200101, bubble_text = "いざ、出航だぞっ！", voice_path = "Ema_Home_In_1", top_position = 10}
 , 
 [116200201] = {id = 116200201, bubble_text = "リーダー、みんなの願い事を叶えられるかな？", voice_path = "Cosette_Home_In_1", top_position = 10}
 , 
@@ -75,7 +75,7 @@
 , 
 [116300101] = {id = 116300101, bubble_text = "ここに見張り場を設置できるか、リーダー", voice_path = "Gloria_Home_In_1", top_position = 10}
 , 
-[116300201] = {id = 116300201, bubble_text = "リーダー、ここには強くなれる道具とか置いてあるか？", voice_path = "Bridget_Home_In_1", top_position = 10}
+[116300201] = {id = 116300201, bubble_text = "リーダー、ここに特訓できる場所はあるか？", voice_path = "Bridget_Home_In_1", top_position = 10}
 , 
 [116300301] = {id = 116300301, bubble_text = "私が薬を作る部屋はありますか、リーダーさん…？", voice_path = "Aloe_Home_In_1", top_position = 10}
 , 
@@ -9861,7 +9861,7 @@
 , 
 [115301802] = {id = 115301802, voice_path = "mizugi_Lavey_Battle_C_2"}
 , 
-[116301801] = {id = 116301801, bubble_text = "ふふ、次はどんな水着がいいかな？　こっちのスケスケ水着か…それとも着てる意味がほとんどなさそうな、こっちの水着か…リーダーさんはどっちがお好みですか♪", voice_path = "mizugi_Lavey_Home_In_1", top_position = 10}
+[116301801] = {id = 116301801, bubble_text = "水着を脱いでるところを、リーダーさんが覗いてくれそうな場所はありますか？", voice_path = "mizugi_Lavey_Home_In_1", top_position = 10}
 , 
 [117301801] = {id = 117301801, bubble_text = "ふふ、次はどんな水着がいいかな？　こっちのスケスケ水着か…それとも着てる意味がほとんどなさそうな、こっちの水着か…リーダーさんはどっちがお好みですか♪", voice_path = "mizugi_Lavey_Home_Talk_1", top_position = 10}
 , 
@@ -10369,41 +10369,41 @@
 , 
 [108221301] = {id = 108221301, bubble_text = "レイナちゃんも一緒ですか？", voice_path = "Tanesha_Go_1"}
 , 
-[109221301] = {id = 109221301, bubble_text = "未定義(109221301)", voice_path = "Tanesha_Game_1"}
+[109221301] = {id = 109221301, voice_path = "Tanesha_Game_1"}
 , 
-[111221301] = {id = 111221301, bubble_text = "えいっ！", voice_path = "Tanesha_Battle_N_1"}
+[111221301] = {id = 111221301, voice_path = "Tanesha_Battle_N_1"}
 , 
-[111221302] = {id = 111221302, bubble_text = "いくよーっ！", voice_path = "Tanesha_Battle_N_2"}
+[111221302] = {id = 111221302, voice_path = "Tanesha_Battle_N_2"}
 , 
-[111221303] = {id = 111221303, bubble_text = "たあっ！", voice_path = "Tanesha_Battle_N_3"}
+[111221303] = {id = 111221303, voice_path = "Tanesha_Battle_N_3"}
 , 
-[111221304] = {id = 111221304, bubble_text = "こうだ！", voice_path = "Tanesha_Battle_N_4"}
+[111221304] = {id = 111221304, voice_path = "Tanesha_Battle_N_4"}
 , 
-[111221305] = {id = 111221305, bubble_text = "そこだ！", voice_path = "Tanesha_Battle_N_5"}
+[111221305] = {id = 111221305, voice_path = "Tanesha_Battle_N_5"}
 , 
-[111221306] = {id = 111221306, bubble_text = "攻めますよー！", voice_path = "Tanesha_Battle_N_6"}
+[111221306] = {id = 111221306, voice_path = "Tanesha_Battle_N_6"}
 , 
-[112221301] = {id = 112221301, bubble_text = "はうっ！", voice_path = "Tanesha_Battle_Hit_1"}
+[112221301] = {id = 112221301, voice_path = "Tanesha_Battle_Hit_1"}
 , 
-[112221302] = {id = 112221302, bubble_text = "つうっ！", voice_path = "Tanesha_Battle_Hit_2"}
+[112221302] = {id = 112221302, voice_path = "Tanesha_Battle_Hit_2"}
 , 
-[112221303] = {id = 112221303, bubble_text = "いやっ！？", voice_path = "Tanesha_Battle_Hit_3"}
+[112221303] = {id = 112221303, voice_path = "Tanesha_Battle_Hit_3"}
 , 
-[112221304] = {id = 112221304, bubble_text = "ダメっ！", voice_path = "Tanesha_Battle_Hit_4"}
+[112221304] = {id = 112221304, voice_path = "Tanesha_Battle_Hit_4"}
 , 
-[112221305] = {id = 112221305, bubble_text = "あっ！", voice_path = "Tanesha_Battle_Hit_5"}
+[112221305] = {id = 112221305, voice_path = "Tanesha_Battle_Hit_5"}
 , 
-[112221306] = {id = 112221306, bubble_text = "もうだめだってばー！", voice_path = "Tanesha_Battle_Hit_6"}
+[112221306] = {id = 112221306, voice_path = "Tanesha_Battle_Hit_6"}
 , 
-[113221301] = {id = 113221301, bubble_text = "レイナちゃん…", voice_path = "Tanesha_Battle_Die_1"}
+[113221301] = {id = 113221301, voice_path = "Tanesha_Battle_Die_1"}
 , 
-[114221301] = {id = 114221301, bubble_text = "レイナちゃん…私に、力を…！", voice_path = "Tanesha_Battle_H_1"}
+[114221301] = {id = 114221301, voice_path = "Tanesha_Battle_H_1"}
 , 
-[114221302] = {id = 114221302, bubble_text = "ためらわないよ！", voice_path = "Tanesha_Battle_H_2"}
+[114221302] = {id = 114221302, voice_path = "Tanesha_Battle_H_2"}
 , 
-[115221301] = {id = 115221301, bubble_text = "溢れるレイナちゃんへの愛を、力に変えて！", voice_path = "Tanesha_Battle_C_1"}
+[115221301] = {id = 115221301, voice_path = "Tanesha_Battle_C_1"}
 , 
-[115221302] = {id = 115221302, bubble_text = "レイナちゃんのためなら、なんだってしてみせる！", voice_path = "Tanesha_Battle_C_2"}
+[115221302] = {id = 115221302, voice_path = "Tanesha_Battle_C_2"}
 , 
 [116221301] = {id = 116221301, bubble_text = "レイナちゃんが落ち着けそうなところはありますか？", voice_path = "Tanesha_Home_In_1", top_position = 10}
 , 

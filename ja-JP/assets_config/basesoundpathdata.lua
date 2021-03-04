@@ -4920,6 +4920,148 @@ BaseSoundPathData = {
 [230220305] = {id = 230220305, play_frame = 102, path = "sfx_huijing_small_tx_102fr", bank = "huijing"}
 , 
 [230220306] = {id = 230220306, play_frame = 132, path = "sfx_huijing_small_tx_132fr", bank = "huijing"}
+, 
+[282420101] = {id = 282420101, play_frame = 66, path = "sfx_boss_diyuquan_big_vo_66fr", bank = "boss_diyuquan"}
+, 
+[282420102] = {id = 282420102, play_frame = 70, path = "sfx_boss_diyuquan_big_wh_70fr", bank = "boss_diyuquan"}
+, 
+[282420103] = {id = 282420103, play_frame = 78, path = "sfx_boss_diyuquan_big_wh_78fr", bank = "boss_diyuquan"}
+, 
+[282420104] = {id = 282420104, play_frame = 83, path = "sfx_boss_diyuquan_big_tx_83fr", bank = "boss_diyuquan"}
+, 
+[282420105] = {id = 282420105, play_frame = 100, path = "sfx_boss_diyuquan_big_wh_100fr", bank = "boss_diyuquan"}
+, 
+[282420106] = {id = 282420106, play_frame = 104, path = "sfx_boss_diyuquan_big_vo_104fr", bank = "boss_diyuquan"}
+, 
+[282420107] = {id = 282420107, play_frame = 108, path = "sfx_boss_diyuquan_big_wh_108fr", bank = "boss_diyuquan"}
+, 
+[282420108] = {id = 282420108, play_frame = 118, path = "sfx_boss_diyuquan_big_tx_118fr", bank = "boss_diyuquan"}
+, 
+[282420109] = {id = 282420109, play_frame = 154, path = "sfx_boss_diyuquan_big_vo_154fr", bank = "boss_diyuquan"}
+, 
+[282420110] = {id = 282420110, play_frame = 173, path = "sfx_boss_diyuquan_big_wh_173fr", bank = "boss_diyuquan"}
+, 
+[282420111] = {id = 282420111, play_frame = 178, path = "sfx_boss_diyuquan_big_wh_178fr", bank = "boss_diyuquan"}
+, 
+[282420112] = {id = 282420112, play_frame = 188, path = "sfx_boss_diyuquan_big_tx_188fr", bank = "boss_diyuquan"}
+, 
+[282420201] = {id = 282420201, play_frame = 18, path = "sfx_boss_diyuquan_pt_wh_vo_18fr", bank = "boss_diyuquan"}
+, 
+[282420202] = {id = 282420202, play_frame = 23, path = "sfx_boss_diyuquan_pt_wh_23fr", bank = "boss_diyuquan"}
+, 
+[282420203] = {id = 282420203, play_frame = 30, path = "sfx_boss_diyuquan_pt_tx_30fr", bank = "boss_diyuquan"}
+, 
+[282420204] = {id = 282420204, play_frame = 44, path = "sfx_boss_diyuquan_pt_wh_44fr", bank = "boss_diyuquan"}
+, 
+[282420205] = {id = 282420205, play_frame = 47, path = "sfx_boss_diyuquan_pt_wh_vo_47fr", bank = "boss_diyuquan"}
+, 
+[282420206] = {id = 282420206, play_frame = 52, path = "sfx_boss_diyuquan_pt_tx_52fr", bank = "boss_diyuquan"}
+, 
+[282420207] = {id = 282420207, play_frame = 73, path = "sfx_boss_diyuquan_pt_wh_vo_73fr", bank = "boss_diyuquan"}
+, 
+[282420208] = {id = 282420208, play_frame = 81, path = "sfx_boss_diyuquan_pt_wh_81fr", bank = "boss_diyuquan"}
+, 
+[282420209] = {id = 282420209, play_frame = 89, path = "sfx_boss_diyuquan_pt_tx_89fr", bank = "boss_diyuquan"}
+, 
+[282420301] = {id = 282420301, play_frame = 5, path = "sfx_boss_diyuquan_small_vo_5fr", bank = "boss_diyuquan"}
+, 
+[282420302] = {id = 282420302, play_frame = 30, path = "sfx_boss_diyuquan_small_vo_30fr", bank = "boss_diyuquan"}
+, 
+[282420303] = {id = 282420303, play_frame = 45, path = "sfx_boss_diyuquan_small_tx_45fr", bank = "boss_diyuquan"}
+, 
+[282420304] = {id = 282420304, play_frame = 59, path = "sfx_boss_diyuquan_small_tx_59fr", bank = "boss_diyuquan"}
+, 
+[282420305] = {id = 282420305, play_frame = 73, path = "sfx_boss_diyuquan_small_tx_73fr", bank = "boss_diyuquan"}
+, 
+[282420306] = {id = 282420306, play_frame = 85, path = "sfx_boss_diyuquan_small_tx_85fr", bank = "boss_diyuquan"}
+, 
+[282020101] = {id = 282020101, play_frame = 15, path = "sfx_boss_qimeila_big_tx_15fr", bank = "boss_qimeila"}
+, 
+[282020102] = {id = 282020102, play_frame = 70, path = "sfx_boss_qimeila_big_tx_70fr", bank = "boss_qimeila"}
+, 
+[282020103] = {id = 282020103, play_frame = 155, path = "sfx_boss_qimeila_big_tx_155fr", bank = "boss_qimeila"}
+, 
+[282020201] = {id = 282020201, play_frame = 26, path = "sfx_boss_qimeila_pt_vo_26fr", bank = "boss_qimeila"}
+, 
+[282020202] = {id = 282020202, play_frame = 26, path = "sfx_boss_qimeila_pt_wh_26fr", bank = "boss_qimeila"}
+, 
+[282020203] = {id = 282020203, play_frame = 32, path = "sfx_boss_qimeila_pt_tx_32fr", bank = "boss_qimeila"}
+, 
+[282020204] = {id = 282020204, play_frame = 50, path = "sfx_boss_qimeila_pt_vo_50fr", bank = "boss_qimeila"}
+, 
+[282020205] = {id = 282020205, play_frame = 56, path = "sfx_boss_qimeila_pt_wh_56fr", bank = "boss_qimeila"}
+, 
+[282020206] = {id = 282020206, play_frame = 57, path = "sfx_boss_qimeila_pt_tx_57fr", bank = "boss_qimeila"}
+, 
+[282020301] = {id = 282020301, play_frame = 12, path = "sfx_boss_qimeila_small_wh_12fr", bank = "boss_qimeila"}
+, 
+[282020302] = {id = 282020302, play_frame = 13, path = "sfx_boss_qimeila_small_vo_13fr", bank = "boss_qimeila"}
+, 
+[282020303] = {id = 282020303, play_frame = 53, path = "sfx_boss_qimeila_small_wh_53fr", bank = "boss_qimeila"}
+, 
+[282020304] = {id = 282020304, play_frame = 57, path = "sfx_boss_qimeila_small_tx_57fr", bank = "boss_qimeila"}
+, 
+[282020305] = {id = 282020305, play_frame = 63, path = "sfx_boss_qimeila_small_tx_63fr", bank = "boss_qimeila"}
+, 
+[282020306] = {id = 282020306, play_frame = 68, path = "sfx_boss_qimeila_small_tx_68fr", bank = "boss_qimeila"}
+, 
+[282020307] = {id = 282020307, play_frame = 74, path = "sfx_boss_qimeila_small_tx_74fr", bank = "boss_qimeila"}
+, 
+[282020308] = {id = 282020308, play_frame = 81, path = "sfx_boss_qimeila_small_tx_81fr", bank = "boss_qimeila"}
+, 
+[282020309] = {id = 282020309, play_frame = 88, path = "sfx_boss_qimeila_small_tx_88fr", bank = "boss_qimeila"}
+, 
+[282050101] = {id = 282050101, play_frame = 8, path = "sfx_boss_niutouren_big_vo_8fr", bank = "boss_niutouren"}
+, 
+[282050102] = {id = 282050102, play_frame = 49, path = "sfx_boss_niutouren_big_wh_49fr", bank = "boss_niutouren"}
+, 
+[282050103] = {id = 282050103, play_frame = 59, path = "sfx_boss_niutouren_big_tx_59fr", bank = "boss_niutouren"}
+, 
+[282050104] = {id = 282050104, play_frame = 85, path = "sfx_boss_niutouren_big_vo_85fr", bank = "boss_niutouren"}
+, 
+[282050105] = {id = 282050105, play_frame = 85, path = "sfx_boss_niutouren_big_wh_85fr", bank = "boss_niutouren"}
+, 
+[282050106] = {id = 282050106, play_frame = 91, path = "sfx_boss_niutouren_big_tx_91fr", bank = "boss_niutouren"}
+, 
+[282050107] = {id = 282050107, play_frame = 107, path = "sfx_boss_niutouren_big_wh_107fr", bank = "boss_niutouren"}
+, 
+[282050108] = {id = 282050108, play_frame = 113, path = "sfx_boss_niutouren_big_tx_113fr", bank = "boss_niutouren"}
+, 
+[282050109] = {id = 282050109, play_frame = 113, path = "sfx_boss_niutouren_big_vo_113fr", bank = "boss_niutouren"}
+, 
+[282050110] = {id = 282050110, play_frame = 162, path = "sfx_boss_niutouren_big_vo_162fr", bank = "boss_niutouren"}
+, 
+[282050111] = {id = 282050111, play_frame = 173, path = "sfx_boss_niutouren_big_vo_173fr", bank = "boss_niutouren"}
+, 
+[282050112] = {id = 282050112, play_frame = 176, path = "sfx_boss_niutouren_big_wh_176fr", bank = "boss_niutouren"}
+, 
+[282050113] = {id = 282050113, play_frame = 186, path = "sfx_boss_niutouren_big_tx_186fr", bank = "boss_niutouren"}
+, 
+[282050114] = {id = 282050114, play_frame = 191, path = "sfx_boss_niutouren_big_tx_191fr", bank = "boss_niutouren"}
+, 
+[282050201] = {id = 282050201, play_frame = 5, path = "sfx_boss_niutouren_pt_wh_5fr", bank = "boss_niutouren"}
+, 
+[282050202] = {id = 282050202, play_frame = 7, path = "sfx_boss_niutouren_pt_vo_7fr", bank = "boss_niutouren"}
+, 
+[282050203] = {id = 282050203, play_frame = 17, path = "sfx_boss_niutouren_pt_tx_17fr", bank = "boss_niutouren"}
+, 
+[282050204] = {id = 282050204, play_frame = 36, path = "sfx_boss_niutouren_pt_vo_36fr", bank = "boss_niutouren"}
+, 
+[282050205] = {id = 282050205, play_frame = 41, path = "sfx_boss_niutouren_pt_tx_41fr", bank = "boss_niutouren"}
+, 
+[282050301] = {id = 282050301, play_frame = 9, path = "sfx_boss_niutouren_small_vo_9fr", bank = "boss_niutouren"}
+, 
+[282050302] = {id = 282050302, play_frame = 45, path = "sfx_boss_niutouren_small_vo_45fr", bank = "boss_niutouren"}
+, 
+[282050303] = {id = 282050303, play_frame = 45, path = "sfx_boss_niutouren_small_wh_45fr", bank = "boss_niutouren"}
+, 
+[282050304] = {id = 282050304, play_frame = 58, path = "sfx_boss_niutouren_small_tx_58fr", bank = "boss_niutouren"}
+, 
+[282050305] = {id = 282050305, play_frame = 98, path = "sfx_boss_niutouren_small_vo_98fr", bank = "boss_niutouren"}
+, 
+[282050306] = {id = 282050306, play_frame = 98, path = "sfx_boss_niutouren_small_wh_98fr", bank = "boss_niutouren"}
+, 
+[282050307] = {id = 282050307, play_frame = 111, path = "sfx_boss_niutouren_small_tx_111fr", bank = "boss_niutouren"}
 }
 return BaseSoundPathData
 

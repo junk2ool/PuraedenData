@@ -64,19 +64,14 @@ end
 MailWindow.Deal = function(ori, para, mailId, receiveTime, ...)
   -- function num : 0_2 , upvalues : _ENV
   local oriTxt = (PUtil.get)(tonumber(ori))
-  print("00000000000000000000", oriTxt, mailId)
   local sp = #split(oriTxt, "{")
-  print("11111111111111", (split(oriTxt, "{"))[2], sp)
   if sp <= 1 then
     local startIndex = tonumber((string.sub)((split(oriTxt, "{"))[2], 1, 1)) + 1
-    print("22222222222222222", startIndex, type(startIndex))
     local max = startIndex + sp - 2
-    print("3333333333333333", startIndex, max)
     do
       local tempIndex = 1
       for i = startIndex, max do
         local inx = para[i]
-        print("------------inx", inx, (string.find)(inx, "&"), mailId, type(mailId))
         local fi = ""
         if (string.find)(inx, "&") and mailId == 78410008 then
           local inx2 = (string.sub)(inx, 2, (string.len)(inx))
@@ -85,20 +80,16 @@ MailWindow.Deal = function(ori, para, mailId, receiveTime, ...)
           do
             do
               fi = inx
-              if mailId == 78410008 and tempIndex == 1 then
-                print("44444444444444", receiveTime)
-                if receiveTime >= 1612368000000 and receiveTime <= 1613314740000 then
-                  fi = "パッションで雪を溶かす！"
-                end
+              if mailId == 78410008 and tempIndex == 1 and receiveTime >= 1612368000000 and receiveTime <= 1613314740000 then
+                fi = "パッションで雪を溶かす！"
               end
-              print("---111111111---", fi, oriTxt, tostring(i - 1))
               oriTxt = (string.gsub)(oriTxt, "{" .. tostring(i - 1) .. "}", fi)
               tempIndex = tempIndex + 1
-              -- DECOMPILER ERROR at PC137: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC137: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC137: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -112,7 +103,6 @@ end
 MailWindow.RefreshMailItem = function(index, item, ...)
   -- function num : 0_3 , upvalues : mailList, _ENV, MailWindow
   local data = mailList[index + 1]
-  print("==========item=", index, data.hasAnnex)
   ;
   ((item:GetChild("MailDetailed")):GetChild("SendPeopleWordTxt")).text = (PUtil.get)(81)
   ;

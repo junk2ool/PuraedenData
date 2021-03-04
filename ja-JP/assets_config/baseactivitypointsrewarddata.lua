@@ -19,4 +19,5 @@ BaseActivityPointsRewardData = {
 , 
 [32030009] = {id = 32030009, need = 150, rewards = "9:78601304:1", rewards_show = "9:78601304:1"}
 }
+return BaseActivityPointsRewardData
 

@@ -441,6 +441,16 @@ BaseDropGroupData = {
 , 
 [22104405] = {id = 22104405, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
 , 
+[22104501] = {id = 22104501, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22104502] = {id = 22104502, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22104503] = {id = 22104503, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22104504] = {id = 22104504, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22104505] = {id = 22104505, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
 [22200101] = {id = 22200101, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
 , 
 [22200102] = {id = 22200102, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
@@ -880,6 +890,16 @@ BaseDropGroupData = {
 [22204404] = {id = 22204404, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
 , 
 [22204405] = {id = 22204405, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22204501] = {id = 22204501, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22204502] = {id = 22204502, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22204503] = {id = 22204503, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22204504] = {id = 22204504, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
+, 
+[22204505] = {id = 22204505, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 3, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
 , 
 [22300101] = {id = 22300101, type = 1, propType = 1, assetType = 1, cardType = 1, equipType = 1, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", level_limit = "1:999"}
 , 

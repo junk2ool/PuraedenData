@@ -198,6 +198,9 @@ HomeWindow.OnInit = function(bridgeObj, ...)
           -- DECOMPILER ERROR at PC348: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
+          local updateCheck = require("UpdateCheckMgr")
+          ;
+          (updateCheck.CheckUpdate)()
         end
       end
     end
