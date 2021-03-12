@@ -10,6 +10,8 @@ GetAdventure_MiddleCompUis = function(ui, ...)
   uis.ArenaIconBtn = ui:GetChild("ArenaIconBtn")
   uis.HeroBtn = ui:GetChild("HeroBtn")
   uis.RichIconBtn = ui:GetChild("RichIconBtn")
+  uis.RelicBtn = ui:GetChild("RelicBtn")
+  uis.TimeCtr = ui:GetController("Time")
   uis.root = ui
   return uis
 end

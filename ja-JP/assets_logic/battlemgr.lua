@@ -910,6 +910,10 @@ BattleMgr.DealBattleOver = function(...)
     else
       if battleType == E_BATTLE_TYPE.ACTIVITY and IsBattleServer ~= true then
         battleCompleteData.expeditionBattleData = {changeFc = (PlotDungeonMgr.GetActivityDungeonPlayerFc)() - (PlotDungeonMgr.ActivityDungeonEnemyFc)(), selfMaxFc = (PlotDungeonMgr.GetActivityDungeonPlayerFc)(), stageId = BattleData.stageId}
+      else
+        if battleType == E_BATTLE_TYPE.TEMPLE and IsBattleServer ~= true then
+          battleCompleteData.expeditionBattleData = {changeFc = (RelicData.GetRelicPlayerFc)() - (PlotDungeonMgr.ActivityDungeonEnemyFc)(), selfMaxFc = (RelicData.GetRelicPlayerFc)(), stageId = BattleData.stageId, challengeTimes = (RelicData.GetEliteEnemySubNum)()}
+        end
       end
     end
     local saveErrorLog = false
@@ -925,11 +929,11 @@ BattleMgr.DealBattleOver = function(...)
     do
       if battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP then
         local totalDamage, totalHp = (BattleResultCount.GetRealTotalDamage)()
-        -- DECOMPILER ERROR at PC128: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC156: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (battleCompleteData.damageData).totalEnemyHp = totalHp
-        -- DECOMPILER ERROR at PC130: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC158: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (battleCompleteData.damageData).totalSelfDamage = totalDamage
@@ -942,7 +946,7 @@ BattleMgr.DealBattleOver = function(...)
         if IsBattleTest == true then
           for waveNum,data in ipairs((BattleData.battleData).battleProcessData) do
             local roundData = data.roundData
-            -- DECOMPILER ERROR at PC172: Confused about usage of register: R13 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC200: Confused about usage of register: R13 in 'UnsetPending'
 
             BattleTestResult.roundCount = BattleTestResult.roundCount + #roundData
           end
@@ -950,9 +954,9 @@ BattleMgr.DealBattleOver = function(...)
           print("是否获胜：", BattleResultCount.isBattleWin, "总回合数：", BattleTestResult.roundCount)
           return 
         end
-        -- DECOMPILER ERROR at PC201: Confused about usage of register: R7 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC232: Confused about usage of register: R7 in 'UnsetPending'
 
-        if (battleType == E_BATTLE_TYPE.STORY or battleType == E_BATTLE_TYPE.HERO or battleType == E_BATTLE_TYPE.ACTIVITY) and PlotDungeonService then
+        if (battleType == E_BATTLE_TYPE.STORY or battleType == E_BATTLE_TYPE.HERO or battleType == E_BATTLE_TYPE.ACTIVITY or battleType == E_BATTLE_TYPE.TEMPLE) and PlotDungeonService then
           PlotDungeonMgr.saveStageId = battleCompleteData.id
           ;
           (PlotDungeonService.ReqSettleStage)(battleCompleteData)
@@ -1011,22 +1015,22 @@ BattleMgr.DealBattleOver = function(...)
                 ;
                 ((CS.FileManager).WriteFile)("BattleResult/BattleResult" .. (LuaTime.GetStampStr)(BattleData.curBattleTime) .. ".txt", str)
               end
-              -- DECOMPILER ERROR at PC339: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC370: Confused about usage of register: R4 in 'UnsetPending'
 
               BattleData.serverBattleData = battleCompleteData
-              -- DECOMPILER ERROR at PC351: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC382: Confused about usage of register: R4 in 'UnsetPending'
 
               if IsBattleTest == true then
                 if BattleResultCount.isBattleWin == true then
                   BattleTestResult.winCount = BattleTestResult.winCount + 1
                 else
-                  -- DECOMPILER ERROR at PC357: Confused about usage of register: R4 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC388: Confused about usage of register: R4 in 'UnsetPending'
 
                   BattleTestResult.failCount = BattleTestResult.failCount + 1
                 end
                 for waveNum,data in ipairs((BattleData.battleData).battleProcessData) do
                   local roundData = data.roundData
-                  -- DECOMPILER ERROR at PC370: Confused about usage of register: R10 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC401: Confused about usage of register: R10 in 'UnsetPending'
 
                   BattleTestResult.roundCount = BattleTestResult.roundCount + #roundData
                 end

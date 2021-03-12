@@ -1698,6 +1698,8 @@ BaseShopPoolData = {
 [23701003] = {id = 23701003, grid_id = "23007003", sell_time = "0", item = "7:21600421:1", sell_price = "2:21100003:20000", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
 [23801001] = {id = 23801001, grid_id = "23008001", sell_time = "0", item = "8:21600501:1", sell_price = "2:21100001:10", sell_type = "0", prob = "10000", player_level_min = "999", player_level_max = "999"}
+, 
+[23901001] = {id = 23901001, grid_id = "23009001", sell_time = "0", item = "1:21122002:2", sell_price = "2:21100001:10", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 }
 return BaseShopPoolData
 

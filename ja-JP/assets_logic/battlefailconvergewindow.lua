@@ -527,7 +527,7 @@ BattleFailConvergeWindow.SetCardBG = function(ui, pos, ...)
       ;
       (((model.CardQGrp).root):GetChild("CardAngerBar")).value = cardDander / cardData.max_dander * 100
       PlayUITrans(ui, "Float")
-      if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION then
+      if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION or winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).TEMPLE then
         (BattleFailConvergeWindow.SetControlIndex)(ui, "c3", 2)
       else
         if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).STORY or winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).HERO then

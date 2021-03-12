@@ -48,6 +48,10 @@ BaseAssetData = {
 [21100023] = {id = 21100023, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100020", reward_sort = 9690001}
 , 
 [21100024] = {id = 21100024, name = (PUtil.get)(82100024), remark = (PUtil.get)(83100024), quality = 3, icon = "ItemIcon:21100024", go_to_id = "77400024", reward_sort = 9690002}
+, 
+[21100025] = {id = 21100025, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100025", go_to_id = "77300025", reward_sort = 9690001}
+, 
+[21100026] = {id = 21100026, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100026", reward_sort = 9690001}
 }
 return BaseAssetData
 

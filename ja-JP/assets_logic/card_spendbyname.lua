@@ -6,6 +6,7 @@ GetCard_SpendUis = function(ui, ...)
   uis.ItemImage = ui:GetChild("ItemImage")
   uis.ItemLoader = ui:GetChild("ItemLoader")
   uis.NumberTxt = ui:GetChild("NumberTxt")
+  uis.TouchBtn = ui:GetChild("TouchBtn")
   uis.root = ui
   return uis
 end

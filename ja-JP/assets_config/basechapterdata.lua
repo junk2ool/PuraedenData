@@ -131,6 +131,8 @@ BaseChapterData = {
 , 
 [51420006] = {id = 51420006, name = (PUtil.get)(85180600), type = 101, stages = "52510601:52510602:52510603:52510604:52510605:52510606", open_condition = "72501001:0:1,72504611:52500615:1", pre = 51410006, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
+[51510001] = {id = 51510001, name = (PUtil.get)(85110001), type = 20, stages = "52600101:52610101:52610102:52610103:52610104:52610105:52610106:52610107:52610108:52610109:52610110:52610111:52610112:52610113:52610114:52610115:52620101:52620102:52620103", open_condition = "72501001:0:60", pre = 0, next = "0", activity_id = 33001101, bg_res = "Relic:LayerBuildMap", story_id = "0", story_times = "0"}
+, 
 [51410007] = {id = 51410007, name = (PUtil.get)(85180700), type = 101, stages = "52500701:52500702:52500703:52500704:52500705:52500706:52500707:52500708:52500709:52500710:52500711:52500712:52500713:52500714:52500715", open_condition = "72501001:0:1", pre = 0, next = "51420007", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
 [51420007] = {id = 51420007, name = (PUtil.get)(85180700), type = 101, stages = "52510701:52510702:52510703:52510704:52510705:52510706", open_condition = "72501001:0:1,72504611:52500715:1", pre = 51410007, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}

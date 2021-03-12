@@ -254,17 +254,29 @@ TableData.GetMonsterFcConfig = function(selfMaxFc, battleType, ...)
     else
       if battleType == (ProtoEnum.E_BATTLE_TYPE).ACTIVITY then
         allConfig = (TableData.gTable).BaseMonsterAddData
+      else
+        if battleType == (ProtoEnum.E_BATTLE_TYPE).TEMPLE then
+          local t = {}
+          for key,value in pairs((TableData.gTable).BaseExpeditionMonsterData) do
+            if value.type == 2 then
+              (table.insert)(t, value)
+            end
+          end
+          allConfig = t
+        end
       end
     end
-    for _,v in pairs(allConfig) do
-      local fcRange = split(v.fc_range, ":")
-      if tonumber(fcRange[1]) <= selfMaxFc and selfMaxFc <= tonumber(fcRange[2]) then
-        return v
+    do
+      for _,v in pairs(allConfig) do
+        local fcRange = split(v.fc_range, ":")
+        if tonumber(fcRange[1]) <= selfMaxFc and selfMaxFc <= tonumber(fcRange[2]) then
+          return v
+        end
+      end
+      do
+        return 
       end
     end
-  end
-  do
-    return 
   end
 end
 

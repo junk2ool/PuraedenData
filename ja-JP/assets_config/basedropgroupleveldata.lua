@@ -315,4 +315,5 @@ BaseDropGroupLevelData = {
 , 
 [27500011] = {id = 27500011, type = 5011, level_limit = "26:999", drop_ids = "28020011"}
 }
+return BaseDropGroupLevelData
 

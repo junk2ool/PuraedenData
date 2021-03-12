@@ -253,8 +253,26 @@ end
 
 -- DECOMPILER ERROR at PC63: Confused about usage of register: R6 in 'UnsetPending'
 
+BattleBuffMgr.GetCardIsContainEffect = function(card, effectID, ...)
+  -- function num : 0_15 , upvalues : self, ipairs, _ENV
+  if card == nil then
+    return false
+  end
+  local buffList = (self.GetBuffList)()
+  local pos = card:GetPosIndex()
+  for _,v in ipairs(buffList) do
+    local curDefPos = v:GetCurDefPos()
+    if curDefPos == pos and (BattleBuff.IsBuffContainEffectId)(v, effectID) then
+      return true
+    end
+  end
+  return false
+end
+
+-- DECOMPILER ERROR at PC66: Confused about usage of register: R6 in 'UnsetPending'
+
 BattleBuffMgr.GetBuffCountById = function(card, buffId, ...)
-  -- function num : 0_15 , upvalues : self, ipairs
+  -- function num : 0_16 , upvalues : self, ipairs
   local count = 0
   local buffList = (self.GetBuffList)()
   for _,v in ipairs(buffList) do
@@ -265,10 +283,10 @@ BattleBuffMgr.GetBuffCountById = function(card, buffId, ...)
   return count
 end
 
--- DECOMPILER ERROR at PC66: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.ResetAllSameBuff = function(card, tempBuff, isReplace, ...)
-  -- function num : 0_16 , upvalues : self, ipairs, _ENV, t_insert
+  -- function num : 0_17 , upvalues : self, ipairs, _ENV, t_insert
   local resetBuffTable = {}
   local buffList = (self.GetBuffList)()
   for _,v in ipairs(buffList) do
@@ -303,10 +321,10 @@ BattleBuffMgr.ResetAllSameBuff = function(card, tempBuff, isReplace, ...)
   return resetBuffTable
 end
 
--- DECOMPILER ERROR at PC69: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.GetShieldInfo = function(posIndex, ...)
-  -- function num : 0_17 , upvalues : self, ipairs
+  -- function num : 0_18 , upvalues : self, ipairs
   local buffList = (self.GetBuffList)()
   for _,v in ipairs(buffList) do
     local buffData = v:GetBuffInfo()
@@ -316,10 +334,10 @@ BattleBuffMgr.GetShieldInfo = function(posIndex, ...)
   end
 end
 
--- DECOMPILER ERROR at PC72: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC75: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.GetBuffDataByDetailId = function(buffId, posIndex, timeStamp, ...)
-  -- function num : 0_18 , upvalues : _ENV, self, ipairs
+  -- function num : 0_19 , upvalues : _ENV, self, ipairs
   if BattleConfig.isPlayBack == true then
     local buffList = (self.GetBuffPlayBackList)()
     for _,v in ipairs(buffList) do
@@ -340,10 +358,10 @@ BattleBuffMgr.GetBuffDataByDetailId = function(buffId, posIndex, timeStamp, ...)
   end
 end
 
--- DECOMPILER ERROR at PC75: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.DealClearBuff = function(targetCard, newBuff, ...)
-  -- function num : 0_19 , upvalues : _ENV, ipairs, t_insert
+  -- function num : 0_20 , upvalues : _ENV, ipairs, t_insert
   local BattleBuffDeductionRoundType = BattleBuffDeductionRoundType
   local BattleDataCount = BattleDataCount
   local clone = Util.Copy
@@ -404,10 +422,10 @@ BattleBuffMgr.DealClearBuff = function(targetCard, newBuff, ...)
   end
 end
 
--- DECOMPILER ERROR at PC78: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC81: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.CleanBuffGroup = function(targetCard, buffGroup, newBuff, ...)
-  -- function num : 0_20 , upvalues : split, _ENV, tonumber, ipairs
+  -- function num : 0_21 , upvalues : split, _ENV, tonumber, ipairs
   local isClear = false
   local clearCount = 0
   local split = split
@@ -472,10 +490,10 @@ BattleBuffMgr.CleanBuffGroup = function(targetCard, buffGroup, newBuff, ...)
   end
 end
 
--- DECOMPILER ERROR at PC81: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC84: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleBuffMgr.SetAllBuffRoundActive = function(state, ...)
-  -- function num : 0_21 , upvalues : _ENV, ipairs
+  -- function num : 0_22 , upvalues : _ENV, ipairs
   local allBuff = (BattleBuffMgr.GetBuffList)()
   if state == false then
     for _,buff in ipairs(allBuff) do

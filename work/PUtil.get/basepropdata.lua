@@ -159,6 +159,8 @@
 , 
 [21123022] = {id = 21123022, name = "レイナの欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300022", quality = 3, type = 2, effect_value = "11300022", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423022", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
 , 
+[21123025] = {id = 21123025, name = "キキョウの欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300025", quality = 3, type = 2, effect_value = "11300025", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423025", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
+, 
 [21130001] = {id = 21130001, name = "花輪ブレスレット", remark = "冒険者の好感度30点アップ。", icon = "ItemIcon:21130001", quality = 1, type = 3, effect_value = "30", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20405, go_to_id = "77230001:77330001", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9490001, time = -1, own_show = 0}
 , 
 [21130002] = {id = 21130002, name = "蝴蝶のブローチ", remark = "冒険者の好感度60点アップ。", icon = "ItemIcon:21130002", quality = 2, type = 3, effect_value = "60", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20404, go_to_id = "77230002", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9510001, time = -1, own_show = 0}
@@ -260,6 +262,18 @@
 [21150001] = {id = 21150001, name = "星光の欠片", remark = "潜在力を上昇させる材料。", icon = "ItemIcon:21150001", quality = 2, type = 5, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20302, go_to_id = "77350001", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 0, reward_sort = 9610001, time = -1, own_show = 0}
 , 
 [21150002] = {id = 21150002, name = "神聖の星", remark = "潜在力を進級させる材料。", icon = "ItemIcon:21150002", quality = 3, type = 5, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20301, go_to_id = "77350002", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 0, reward_sort = 9620001, time = -1, own_show = 0}
+, 
+[21150101] = {id = 21150101, name = "初級･修行指南書", remark = "『シルシ』刻印（段階1～30）に使用するアイテム。", icon = "ItemIcon:21150101", quality = 1, type = 4, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20303, go_to_id = "77450101", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9630001, time = -1, own_show = 0}
+, 
+[21150102] = {id = 21150102, name = "中級･修行奥義書", remark = "『シルシ』刻印（段階31～60）に使用するアイテム。", icon = "ItemIcon:21150102", quality = 2, type = 4, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20304, go_to_id = "77450101", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9630001, time = -1, own_show = 0}
+, 
+[21150103] = {id = 21150103, name = "上級･修行秘伝書", remark = "『シルシ』刻印（段階61～75）に使用するアイテム。", icon = "ItemIcon:21150103", quality = 3, type = 4, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20305, go_to_id = "77450101", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9630001, time = -1, own_show = 0}
+, 
+[21150201] = {id = 21150201, name = "星の屑", remark = "『シルシ』才能（一番目＆二番目）の解放時に使用するアイテム。", icon = "ItemIcon:21150201", quality = 1, type = 4, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20306, go_to_id = "77450101", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9630001, time = -1, own_show = 0}
+, 
+[21150202] = {id = 21150202, name = "星の石", remark = "『シルシ』才能（三番目＆四番目）の解放時に使用するアイテム。", icon = "ItemIcon:21150202", quality = 2, type = 4, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20307, go_to_id = "77450101", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9630001, time = -1, own_show = 0}
+, 
+[21150203] = {id = 21150203, name = "星の玉", remark = "『シルシ』才能（五番目）の解放時に使用するアイテム。", icon = "ItemIcon:21150203", quality = 3, type = 4, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20308, go_to_id = "77450101", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9630001, time = -1, own_show = 0}
 , 
 [21160001] = {id = 21160001, name = "ダイヤ募集券", remark = "「冒険者募集」で使用、引くチャンスを1回獲得。", icon = "ItemIcon:21160001", quality = 4, type = 6, effect_value = "0", can_use = 0, use_level = "0", auto_open = 0, bag_type = 1, sort = 10301, superposition = 9999999, can_sell = 0, sell_warn = 1, sell_price = 100, energy_exp = 0, reward_sort = 9950001, time = -1, own_show = 0}
 , 

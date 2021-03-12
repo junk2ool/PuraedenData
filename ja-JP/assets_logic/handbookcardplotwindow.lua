@@ -110,13 +110,14 @@ HandBookCardPlotWindow.ListRenderer = function(index, obj, ...)
           name.text = oneCard.name
           local intimacy = oneCard.intimacyLv or 0
           intimacyLv.text = intimacy
-          if cardData.stageCmp > 0 or intimacy > 0 then
-            ProgressNumberTxt.text = "[color=#3cbcff]" .. cardData.stageCmp .. "[/color]" .. "/" .. (HandBookMgr.GetCardMaxNumStage)(cardID)
+          local tableData = ((TableData.gTable).BaseCardData)[cardID]
+          if tableData.is_handbookstage_open == 0 then
+            ProgressNumberTxt.text = (PUtil.get)(20000316)
           else
             if cardData.stageCmp == (HandBookMgr.GetCardMaxNumStage)(cardID) then
               ProgressNumberTxt.text = (PUtil.get)(20000317)
             else
-              ProgressNumberTxt.text = (PUtil.get)(20000316)
+              ProgressNumberTxt.text = "[color=#3cbcff]" .. cardData.stageCmp .. "[/color]" .. "/" .. (HandBookMgr.GetCardMaxNumStage)(cardID)
             end
           end
           ChangeUIController(cardObj, "c1", tonumber(oneCard.intelligence - 1))
@@ -176,23 +177,23 @@ HandBookCardPlotWindow.ListRenderer = function(index, obj, ...)
                   if i == 1 and playListUpAni then
                     PlayUITrans(obj, "up")
                   end
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out IF_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out IF_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                  -- DECOMPILER ERROR at PC225: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC227: LeaveBlock: unexpected jumping out IF_STMT
 
                 end
               end

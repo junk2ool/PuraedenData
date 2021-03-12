@@ -101,6 +101,8 @@ BaseWindowNameData = {
 , 
 [3073] = {id = 3073, window_name = "VowRewardChoiceWindow", red_dot_max = 7}
 , 
+[3080] = {id = 3080, window_name = "RelicMainWindow", rule_des = "0:88303080", red_dot_max = 7}
+, 
 [4001] = {id = 4001, window_name = "GuildMainWindow", rule_des = "0:88304001", red_dot_max = 7, pic_path = "Guide:Guild_001,Guide:Guild_002,Guide:Guild_003,Guide:Guild_004,Guide:Guild_005", pic_content = "88900101,88900102,88900103,88900104,88900105"}
 , 
 [4002] = {id = 4002, window_name = "GuildNonpartyWindow", red_dot_max = 7, pic_path = "Guide:Logon_001,Guide:Logon_002", pic_content = "88900106,88900107"}

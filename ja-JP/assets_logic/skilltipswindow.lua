@@ -318,27 +318,43 @@ SkillTipsWindow.FreeStylePosition = function(...)
 end
 
 SkillTipsWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_12 , upvalues : _ENV, skillData, cardData, skillLevel, isMovePosition, SkillTipsWindow
+  -- function num : 0_12 , upvalues : _ENV, skillData, cardData, uis, skillLevel, isMovePosition, SkillTipsWindow
   local windowMsgEnum = WindowMsgEnum.CardWindow
   if msgId == windowMsgEnum.E_MSG_CARD_SKILLDETAIL then
     skillData = {}
     skillData = para.skillData
     cardData = para.cardData
-    if para.skillLevel == nil then
-      skillLevel = 0
-    else
-      skillLevel = para.skillLevel
+    local cardID = cardData.id
+    local mData = (CardData.GetCardData)(cardID)
+    local skillId = skillData.id
+    local isSealSkill = false
+    if mData then
+      skillId = (CardData.JudgeSealSkillModify)(mData.sealSkillInfo, skillData.id)
     end
-    if para.position then
-      isMovePosition = true
-    else
-      isMovePosition = false
-    end
-    ;
-    (SkillTipsWindow.RefreshWindow_SKILL)()
-  else
-    if msgId == (WindowMsgEnum.Talent).E_MSG_TALNET_TALENT_TIPS then
-      (SkillTipsWindow.RefreshWindow_TALENT)(para)
+    skillData = (TableData.GetBaseSkillData)(skillId)
+    do
+      do
+        if isSealSkill then
+          local parent = ((uis.SkillTipsGrp).SkillFrameGrp).root
+          ;
+          (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_SEAL_TIPS_SHOW, true, parent, Vector2(parent.width / 2, parent.height / 2))
+        end
+        if para.skillLevel == nil then
+          skillLevel = 0
+        else
+          skillLevel = para.skillLevel
+        end
+        if para.position then
+          isMovePosition = true
+        else
+          isMovePosition = false
+        end
+        ;
+        (SkillTipsWindow.RefreshWindow_SKILL)()
+        if msgId == (WindowMsgEnum.Talent).E_MSG_TALNET_TALENT_TIPS then
+          (SkillTipsWindow.RefreshWindow_TALENT)(para)
+        end
+      end
     end
   end
 end

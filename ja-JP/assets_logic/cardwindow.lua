@@ -166,6 +166,7 @@ CardWindow.SetRoleScrollView = function(...)
       end
       ;
       (AudioManager.DisposeCurAudioAndBubble)(true)
+      UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION, {type = 4})
     end
   end
 , (CardData.GetCardIndex)(), uis.LeftBtn, uis.RightBtn, (WinResConfig.CardWindow).name)
@@ -387,7 +388,7 @@ CardWindow.DisposeAllButtoTrans = function(...)
 end
 
 CardWindow.PanelGrpRefresh = function(...)
-  -- function num : 0_13 , upvalues : curPageType, panelPageInt, PanelType, CardWindow
+  -- function num : 0_13 , upvalues : curPageType, panelPageInt, PanelType, CardWindow, uis
   if curPageType == panelPageInt then
     return 
   end
@@ -413,6 +414,10 @@ CardWindow.PanelGrpRefresh = function(...)
       end
     end
   end
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (uis.c3Ctr).selectedIndex = 0
 end
 
 CardWindow.LevelUpGroupInit = function(...)
@@ -622,6 +627,32 @@ CardWindow.HandleMessage = function(msgId, para, ...)
               (CardWindow.CheckEachButtonRedDot)()
               ;
               (Card_StarUpWindow.Refresh)()
+            else
+              if msgId == (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION then
+                (Card_StarUpWindow.SealMessage)(para)
+                ;
+                (CardWindow.CheckEachButtonRedDot)()
+              else
+                if msgId == (WindowMsgEnum.CardWindow).E_MSG_CARD_REFRESH_FC then
+                  cardData = (CardData.GetCardData)(cardData.id)
+                  -- DECOMPILER ERROR at PC297: Confused about usage of register: R3 in 'UnsetPending'
+
+                  ;
+                  ((uis.MessageGrp).BattleTwoTxt).text = cardData.fc
+                else
+                  if not para or not 1 then
+                    local value = msgId ~= (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_SKILL_SHOW or 0
+                  end
+                  -- DECOMPILER ERROR at PC311: Confused about usage of register: R4 in 'UnsetPending'
+
+                  ;
+                  (uis.c3Ctr).selectedIndex = value
+                  -- DECOMPILER ERROR at PC319: Confused about usage of register: R4 in 'UnsetPending'
+
+                  ;
+                  (uis.PictureLoader).alpha = value == 1 and 0.3 or 1
+                end
+              end
             end
           end
         end

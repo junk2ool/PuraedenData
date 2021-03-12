@@ -59,11 +59,16 @@ ShopService.OnResShopGridData = function(msg, ...)
       if msg.shopType == ShopType.Family_NormalShop or msg.shopType == ShopType.Family_SeedShop or msg.shopType == ShopType.Family_SecretShop then
         (HomelandService.ResShopGridDataByType)(msg)
       else
-        if not (ShopService.CheckIsContainFreeItem)(msg.shopGridData) then
-          (RedDotService.ReqRemoveRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Shop_Main, 23000000 + msg.shopType)
+        if msg.shopType == ShopType.RelicShop then
+          print("==============", msg.shopType, msg.updateTime)
+          OpenWindow((WinResConfig.RelicShopWindow).name, UILayer.HUD, msg)
+        else
+          if not (ShopService.CheckIsContainFreeItem)(msg.shopGridData) then
+            (RedDotService.ReqRemoveRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Shop_Main, 23000000 + msg.shopType)
+          end
+          ;
+          (ShopMgr.InitShopGridData)(msg)
         end
-        ;
-        (ShopMgr.InitShopGridData)(msg)
       end
     end
   end
@@ -127,9 +132,14 @@ ShopService.OnResShopBuy = function(msg, ...)
       if msg.shopType == ShopType.Family_NormalShop or msg.shopType == ShopType.Family_SeedShop or msg.shopType == ShopType.Family_SecretShop then
         (HomelandService.ResShopBuy)(msg)
       else
-        ;
-        (ShopMgr.SetShopGridData)(msg.shopGridData)
-        UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_REFRESH_ITEM)
+        if msg.shopType == ShopType.RelicShop then
+          print("====================", #msg.shopGridData)
+          UIMgr:SendWindowMessage((WinResConfig.RelicShopWindow).name, (WindowMsgEnum.Relic).E_MSG_SHOP_BUY, {data = msg.shopGridData})
+        else
+          ;
+          (ShopMgr.SetShopGridData)(msg.shopGridData)
+          UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_REFRESH_ITEM)
+        end
       end
     end
   end

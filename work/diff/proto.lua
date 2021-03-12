@@ -32,7 +32,7 @@ message SevenDayActInfo
 //限时限购礼包
 message LimitGiftActInfo
 {
-	repeated CommonObject     giftList = 1;//礼包列表（礼包ID		购买次数）
+	repeated CommonObject           giftList = 1;//礼包列表（礼包ID		购买次数）
 }
 
 //每日充值
@@ -63,6 +63,16 @@ message LotteryIntegralActInfo
 	repeated TaskSimpleObject     rewardList = 2;//奖励列表（奖励ID		状态）
 }
 
+//神殿遗迹
+message TempleActInfo
+{
+			 int32		      curGroup = 1;//当前进行任务组
+	repeated int32		   openedGroup = 2;//已经开放的任务组
+	repeated int32		  expiredGroup = 3;//已经过期的任务组
+	repeated TaskObject	      taskList = 4;//任务列表
+			 int32		    undoneTask = 5;//未完成任务数
+}
+
 
 //1701请求活动列表
 message ReqActivityList
@@ -91,7 +101,8 @@ message ResActivityInfo
 	DailyPayActInfo 		          DailyPayActInfo = 4;//每日充值
 	TotalPayActInfo 		          TotalPayActInfo = 5;//累计充值
 	LoginDayActInfo                   loginDayActInfo = 6;//累计登录
-	LotteryIntegralActInfo		lotteryIntegralActInfo= 7;//扭蛋积分
+	LotteryIntegralActInfo	   lotteryIntegralActInfo = 7;//扭蛋积分
+	TempleActInfo                       templeActInfo = 8;//神殿遗迹
 }
 
 //1705活动过期
@@ -106,7 +117,7 @@ message ResDecActivity
 }
 
 
-//==========七天嘉年华类型活动==========//
+//==========任务类型活动==========//
 
 //1707请求任务组
 message ReqTaskGroup
@@ -1438,7 +1449,7 @@ message ResSettleStage{
 	repeated CommonObject cardInfo	 = 7;//卡组(id为卡的ID,value为位置) 
 	repeated GoodsObject firstGoods  = 8;//首通奖励
 	 
-	repeated CardStateExpedition battleCardState = 9;//上阵的卡牌状态 只有神殿遗迹的精英关卡 才有值
+	repeated CardStateExpedition battleCardState = 9;//上阵的卡牌状态 只有神殿遗迹的精英,boss关卡 才有值
 	//repeated RivalCardState rivalCard            = 10;//当前关卡对手信息 只有神殿遗迹的boss关卡和精英关卡 才有值  
 	repeated StageRivalCardState rivalCardStates = 11;//对手信息
 	
@@ -1830,6 +1841,7 @@ message CardStateExpedition{
 	int32     supHp                   = 3;//卡牌剩余血量
 	int32     supDander               = 4;//卡牌剩余怒气
 	int32     pos                     = 5;//如果是上阵卡牌  需要告诉客户端 该卡牌的位置
+	int32   type                      = 6;//类型
 	
 }
 
@@ -2507,6 +2519,20 @@ enum LAND_STATUS
 	FREE                     = 1;//空闲
 	PLANTED 			     = 2;//已种植
 	HARVEST                  = 3;//可收获
+}
+
+
+//推送消息枚举
+enum E_PUSH_TYPE
+{
+	DEFAULT_PUSH_TYPE               = 0;
+	VIT_COMEBACK                    = 1;//体力回满
+	VIT_GET                         = 2;//体力领取（糖果屋奖励）
+	FARM_HARVEST                    = 3;//农场全部可收割
+	TIMING_PUSH                     = 4;//固定时间推送
+	ACTIVITY_OPEN                   = 5;//指定活动开启
+	ACTIVITY_END                    = 6;//指定活动结束
+	GM_PUSH                         = 99;//GM推送
 }
 
 
@@ -4712,6 +4738,9 @@ enum E_MSG_ID
 	
 	System_ReqOverture                  = 107;//序章日志
 	System_ResOverture                  = 108;//序章日志
+
+	System_ReqPushSet                   = 111;//推送设置
+	System_ResPushSet                   = 112;//推送设置
 	
 	System_ResAlert                     = 198;//弹出信息
 
@@ -4960,7 +4989,7 @@ enum E_MSG_ID
 	
 	Challenge_ReqSetExpedition          = 553;//设置远征地图
 	
-	Challenge_ReqInExpedition           = 555;//进入远征地图
+	Challenge_ReqInExpedition           = 555;//进入远征地图 
 	Challenge_ResInExpedition           = 556;//进入远征地图
 	
 	Challenge_ReqSettleExpedition       = 557;//远征关卡结算
@@ -5693,6 +5722,7 @@ message ResDetailInfo
 	repeated FurnitureObject   furnitureObject    = 14;//道具信息
 	repeated GoodsChangeObject changeObject       = 15;//离线期间 到期物品列表
 	         int32             galaId         = 16;//节日期间第一次登录需要发送此节日ID给客户端
+	repeated int32             pushSet        = 18;//已关闭的推送ID
 }
 
 //203
@@ -6287,6 +6317,19 @@ message ReqOverture
 }
 
 
+//111推送设置
+message ReqPushSet
+{
+	int32           pushId = 1;//推送配置ID
+	bool             value = 2;//开关（true开    false关）
+}
+//112推送设置
+message ResPushSet
+{
+	
+}
+
+
 //198通知信息
 message ResAlert
 {
@@ -6355,6 +6398,8 @@ ReqPing = 105,
 ResPing = 106,
 ReqOverture = 107,
 ResOverture = 108,
+ReqPushSet = 111,
+ResPushSet = 112,
 ResAlert = 198,
 ReqDetailInfo = 201,
 ResDetailInfo = 202,
@@ -6893,8 +6938,7 @@ ReqRandomPlayerInfo = 2361,
 ResRandomPlayerInfo = 2362,
 ReqQuitRoom = 2363,
 ResQuitRoom = 2364}
-,
-
+, 
 MsgNameByID = {[0] = "Unknown",
 [101] = "ReqRegister",
 [102] = "ResRegister",
@@ -6904,6 +6948,8 @@ MsgNameByID = {[0] = "Unknown",
 [106] = "ResPing",
 [107] = "ReqOverture",
 [108] = "ResOverture",
+[111] = "ReqPushSet",
+[112] = "ResPushSet",
 [198] = "ResAlert",
 [201] = "ReqDetailInfo",
 [202] = "ResDetailInfo",
@@ -7745,6 +7791,7 @@ ReqRoomCallOn = "ReqRoomCallOn",
 ReqSettleEncounter = "ReqSettleEncounter",
 ResLandUnlock = "ResLandUnlock",
 ResActivateMatrixNode = "ResActivateMatrixNode",
+ResPushSet = "ResPushSet",
 TotalPayActInfo = "TotalPayActInfo",
 BattleCompleteData = "BattleCompleteData",
 ReqInGuildWar = "ReqInGuildWar",
@@ -7827,6 +7874,7 @@ ReqTalentTreeStarUp = "ReqTalentTreeStarUp",
 ResActivityList = "ResActivityList",
 ReqInFamily = "ReqInFamily",
 ReqWishReward = "ReqWishReward",
+ReqPushSet = "ReqPushSet",
 TempleCardCommonObject = "TempleCardCommonObject",
 GuildWarSummaryInfo = "GuildWarSummaryInfo",
 ReqSettleStage = "ReqSettleStage",
@@ -7873,6 +7921,7 @@ ResUpdateInfo = "ResUpdateInfo",
 ReqChat = "ReqChat",
 ResQualityUp = "ResQualityUp",
 ReqSetAccpetChat = "ReqSetAccpetChat",
+TempleActInfo = "TempleActInfo",
 TaskObject = "TaskObject",
 CardEquipInfo = "CardEquipInfo",
 ResRoomLayout = "ResRoomLayout",
@@ -8131,6 +8180,8 @@ E_PLAYER_INFO = {INFO_UNKNOWN = 0, BASE = 1, BAG = 2, MAIL = 3, TASK = 4}
 GUILD_WAR_SUPPORT = {DEFAULT_SUPPORT = 0, JOIN = 1, QUIT = 2}
 , 
 E_GM_TYPE = {GM_UNKNOWN = 0, SUPER = 1, ADMIN = 2, GUEST = 3}
+, 
+E_PUSH_TYPE = {DEFAULT_PUSH_TYPE = 0, VIT_COMEBACK = 1, VIT_GET = 2, FARM_HARVEST = 3, TIMING_PUSH = 4, ACTIVITY_OPEN = 5, ACTIVITY_END = 6, GM_PUSH = 99}
 , 
 CHAT_SUB_TYPE = {DEFAULT_SUB_CHAT = 0, ADVENTURE_BULLET = 201, WORLD_CHAT = 401, SERVER_CHAT = 402}
 , 

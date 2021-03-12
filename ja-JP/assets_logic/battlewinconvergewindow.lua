@@ -408,7 +408,7 @@ BattleWinConvergeWindow.SetCardBG = function(ui, pos, ...)
         (Util.CreateMiniModel)((model.CardQGrp).CardLoader, fashionID)
         ;
         (BattleWinConvergeWindow.SetCardTexture)(fashionID, (model.CardTipsPictureGrp).CardPictureLoader)
-        if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION then
+        if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION or winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).TEMPLE then
           (BattleWinConvergeWindow.SetControlIndex)(ui, "c3", 2)
         else
           if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).STORY or winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).HERO then
@@ -440,74 +440,74 @@ BattleWinConvergeWindow.SetCardBG = function(ui, pos, ...)
           isLevel = true
           cardLv = cardData.level - 1
         end
-        -- DECOMPILER ERROR at PC211: Confused about usage of register: R13 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC217: Confused about usage of register: R13 in 'UnsetPending'
 
         ;
         ((model.CardQGrp).LevelTxt).text = (PUtil.get)(20000265, cardLv)
         for i,v in ipairs(aniTable) do
           local com = aniCom[i]
-          -- DECOMPILER ERROR at PC221: Confused about usage of register: R19 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC227: Confused about usage of register: R19 in 'UnsetPending'
 
           if v == aniType.intimacy then
             (com.c1Ctr).selectedIndex = 0
             local isUpLevel = (RedDotService.CardIntimacyIsUp)(cardId)
-            -- DECOMPILER ERROR at PC233: Confused about usage of register: R20 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC239: Confused about usage of register: R20 in 'UnsetPending'
 
             if isUpLevel then
               (com.NumberTxt).text = "+" .. winData.CardAddIntimacy .. "  UP"
             else
-              -- DECOMPILER ERROR at PC239: Confused about usage of register: R20 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC245: Confused about usage of register: R20 in 'UnsetPending'
 
               ;
               (com.NumberTxt).text = "+" .. winData.CardAddIntimacy
             end
             local AssetData = ((TableData.gTable).BaseAssetData)[AssetType.INTIMACY_EXTENT]
-            -- DECOMPILER ERROR at PC251: Confused about usage of register: R21 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC257: Confused about usage of register: R21 in 'UnsetPending'
 
             ;
             (com.IconLoader).url = (Util.GetItemUrl)(AssetData.icon)
           else
             do
-              -- DECOMPILER ERROR at PC257: Confused about usage of register: R19 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC263: Confused about usage of register: R19 in 'UnsetPending'
 
               if v == aniType.cardLV then
                 (com.c1Ctr).selectedIndex = 0
-                -- DECOMPILER ERROR at PC262: Confused about usage of register: R19 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC268: Confused about usage of register: R19 in 'UnsetPending'
 
                 ;
                 (com.NumberTxt).text = "+" .. winData.CardAddExp
                 local AssetData = ((TableData.gTable).BaseAssetData)[AssetType.CARD_EXP]
-                -- DECOMPILER ERROR at PC274: Confused about usage of register: R20 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC280: Confused about usage of register: R20 in 'UnsetPending'
 
                 ;
                 (com.IconLoader).url = (Util.GetItemUrl)(AssetData.icon)
               else
                 do
                   do
-                    -- DECOMPILER ERROR at PC280: Confused about usage of register: R19 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC286: Confused about usage of register: R19 in 'UnsetPending'
 
                     if v == aniType.cardUpLv then
                       (com.c1Ctr).selectedIndex = 1
-                      -- DECOMPILER ERROR at PC287: Confused about usage of register: R19 in 'UnsetPending'
+                      -- DECOMPILER ERROR at PC293: Confused about usage of register: R19 in 'UnsetPending'
 
                       ;
                       (com.PlayerLevelTxt).text = (PUtil.get)(20000371, cardData.level)
                     end
-                    -- DECOMPILER ERROR at PC289: Confused about usage of register: R19 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC295: Confused about usage of register: R19 in 'UnsetPending'
 
                     ;
                     (com.root).visible = true
-                    -- DECOMPILER ERROR at PC290: LeaveBlock: unexpected jumping out DO_STMT
+                    -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out DO_STMT
 
-                    -- DECOMPILER ERROR at PC290: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                    -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                    -- DECOMPILER ERROR at PC290: LeaveBlock: unexpected jumping out IF_STMT
+                    -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_STMT
 
-                    -- DECOMPILER ERROR at PC290: LeaveBlock: unexpected jumping out DO_STMT
+                    -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out DO_STMT
 
-                    -- DECOMPILER ERROR at PC290: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                    -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                    -- DECOMPILER ERROR at PC290: LeaveBlock: unexpected jumping out IF_STMT
+                    -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_STMT
 
                   end
                 end

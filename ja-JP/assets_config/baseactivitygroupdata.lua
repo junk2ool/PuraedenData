@@ -10,6 +10,8 @@ BaseActivityGroupData = {
 [33100004] = {id = 33100004, name = (PUtil.get)(87310004), task_list = "33200701:33200702:33200703:33200801:33200802:33200803:33200804:33200805:33200806", time_type = 1, relative_begin_time = 259200, relative_end_time = 604800}
 , 
 [33100005] = {id = 33100005, name = (PUtil.get)(87310005), task_list = "33200901:33200902:33200903:33201001:33201002:33201003:33201004:33201005:33201006", time_type = 1, relative_begin_time = 345600, relative_end_time = 604800}
+, 
+[33110001] = {id = 33110001, name = (PUtil.get)(87310001), task_list = "33210001:33210002", time_type = 0, begin_time = "5:202101150900:MX0", end_time = "5:202201202359:MX0"}
 }
 return BaseActivityGroupData
 

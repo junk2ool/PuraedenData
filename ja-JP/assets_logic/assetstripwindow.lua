@@ -132,7 +132,7 @@ AssetStripWindow.Init = function(params, ...)
           ;
           ((model.TeamBtn).onClick):Set(function(...)
     -- function num : 0_0_2 , upvalues : _ENV, formation, externalData
-    (FormationPresetMgr.OpenUI)(formation, externalData)
+    (FormationPresetMgr.OpenUI)(formation(), externalData)
   end
 )
         end
@@ -399,6 +399,10 @@ AssetStripWindow.OnClickMoney = function(moneyType, ...)
                     else
                       if moneyType == ParticularAssetType.CUSTOM_TICKET then
                         (Util.ShowGetWay)(ParticularAssetType.CUSTOM_TICKET)
+                      else
+                        if moneyType == AssetType.TEMPLE_HERO_COIN then
+                          (Util.ShowGetWay)(AssetType.TEMPLE_HERO_COIN)
+                        end
                       end
                     end
                   end

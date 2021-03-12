@@ -17,6 +17,8 @@
 , 
 [78601304] = {id = 78601304, name = "無言の唄　アイコン", des = "わたしの声が、届いてますか…？\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_004", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1614477599"}
 , 
+[78601305] = {id = 78601305, name = "応援　アイコン", des = "こっち見て！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_005", condition = "0", sort = 10, reward_sort = 9880001, own_show = 1, open_time = "1616515200"}
+, 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
 , 
 [78601102] = {id = 78601102, name = "オリヴィア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100002_2", condition = "72501008:11100002:10", sort = 999, reward_sort = 9880001, own_show = 1}
@@ -164,4 +166,6 @@
 [78601173] = {id = 78601173, name = "タネハ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202013_2", condition = "72501008:11202013:10", sort = 928, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
 , 
 [78601174] = {id = 78601174, name = "レイナ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300022_2", condition = "72501008:11300022:10", sort = 927, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
+, 
+[78601175] = {id = 78601175, name = "キキョウ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300025_2", condition = "72501008:11300025:10", sort = 926, reward_sort = 9880001, own_show = 1, open_time = "1615755600"}
 }

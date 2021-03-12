@@ -107,36 +107,43 @@ FormationPresetWindow.RefreshPresetItem = function(index, item, ...)
       local subItem, status = nil, nil
       local unUsed = 0
       local disable = {}
+      local lowLevel = {}
       local partialAvailable = {}
       local btnStatus = FormationPresetCardsStatus.Normal
       for i = 1, count do
         if ((data.deckSchemes)[i]).id ~= 0 then
           local card = (CardData.GetCardData)(((data.deckSchemes)[i]).id)
           subItem = list:AddItemFromPool()
-          if FormationPresetData.ExternalData and (FormationPresetData.ExternalData).Type == FormationType.Expedition then
+          if FormationPresetData.ExternalData then
             status = ((FormationPresetData.ExternalData).GetCardStatus)(card.id)
-            if status == (ExpeditionMgr.CardState).NoFight then
+            if (FormationPresetData.ExternalData).Type == FormationType.Expedition and status == (ExpeditionMgr.CardState).NoFight then
               unUsed = unUsed + 1
             end
           end
           ;
           (Util.SetHeadFrame)(subItem, card)
-          if status and (ExpeditionMgr.CardState).Normal < status then
-            (subItem:GetController("c3")).selectedIndex = status
-            ;
-            (table.insert)(disable, card.id)
-          else
-            ;
+          if status and status == 0 then
             (subItem:GetController("c3")).selectedIndex = 1
             ;
-            (table.insert)(partialAvailable, (data.deckSchemes)[i])
+            (table.insert)(lowLevel, card.id)
+          else
+            if status and (ExpeditionMgr.CardState).Normal < status then
+              (subItem:GetController("c3")).selectedIndex = status
+              ;
+              (table.insert)(disable, card.id)
+            else
+              ;
+              (subItem:GetController("c3")).selectedIndex = 1
+              ;
+              (table.insert)(partialAvailable, (data.deckSchemes)[i])
+            end
           end
         end
       end
-      if #disable == count then
+      if #disable + #lowLevel == count then
         btnStatus = FormationPresetCardsStatus.NotAvailable
       else
-        if #disable > 0 and #disable < count then
+        if (#disable > 0 and #disable < count) or #lowLevel > 0 and #lowLevel < count then
           btnStatus = FormationPresetCardsStatus.PartialAvailable
         end
         if FormationPresetData.ExternalData and (FormationPresetData.ExternalData).Type == FormationType.Expedition and ((FormationPresetData.ExternalData).GetAvailableCount)() < unUsed then
@@ -166,7 +173,13 @@ FormationPresetWindow.RefreshPresetItem = function(index, item, ...)
         (btn.onClick):Set(function(...)
     -- function num : 0_7_3 , upvalues : btnStatus, _ENV, partialAvailable, data, uis
     if btnStatus == FormationPresetCardsStatus.NotAvailable then
-      (MessageMgr.SendCenterTips)((PUtil.get)(60000609))
+      if (FormationPresetData.ExternalData).Type == FormationType.Expedition then
+        (MessageMgr.SendCenterTips)((PUtil.get)(60000609))
+      else
+        if (FormationPresetData.ExternalData).Type == FormationType.Relic then
+          (MessageMgr.SendCenterTips)((PUtil.get)(60000614))
+        end
+      end
       return 
     else
       if btnStatus == FormationPresetCardsStatus.ExpeditionOutOfLimit then
@@ -174,25 +187,31 @@ FormationPresetWindow.RefreshPresetItem = function(index, item, ...)
         return 
       else
         if btnStatus == FormationPresetCardsStatus.PartialAvailable then
-          (MessageMgr.SendCenterTips)((PUtil.get)(60000610))
-          -- DECOMPILER ERROR at PC46: Confused about usage of register: R0 in 'UnsetPending'
+          if (FormationPresetData.ExternalData).Type == FormationType.Expedition then
+            (MessageMgr.SendCenterTips)((PUtil.get)(60000610))
+          else
+            if (FormationPresetData.ExternalData).Type == FormationType.Relic then
+              (MessageMgr.SendCenterTips)((PUtil.get)(60000613))
+            end
+          end
+          -- DECOMPILER ERROR at PC90: Confused about usage of register: R0 in 'UnsetPending'
 
           ;
           (MessageMgr.formationData).myselfList = (Util.CovertRemoteFormationToLocal)(partialAvailable)
         else
           ;
           (MessageMgr.SendCenterTips)((PUtil.get)(60000606))
-          -- DECOMPILER ERROR at PC61: Confused about usage of register: R0 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC105: Confused about usage of register: R0 in 'UnsetPending'
 
           ;
           (MessageMgr.formationData).myselfList = (Util.CovertRemoteFormationToLocal)(data.deckSchemes)
         end
       end
     end
-    -- DECOMPILER ERROR at PC67: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC111: Confused about usage of register: R0 in 'UnsetPending'
 
     FormationPresetData.ChosedPreset = (Util.Copy)(data)
-    -- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC117: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     (FormationPresetData.ChosedPreset).RealFormation = (MessageMgr.formationData).myselfList
@@ -200,7 +219,7 @@ FormationPresetWindow.RefreshPresetItem = function(index, item, ...)
     (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
     ;
     (uis.BattleInformationList):RefreshVirtualList()
-    -- DECOMPILER ERROR at PC85: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC129: Confused about usage of register: R0 in 'UnsetPending'
 
     FormationPresetData.FormationData = nil
     UIMgr:SendWindowMessage((WinResConfig.FormationWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH)

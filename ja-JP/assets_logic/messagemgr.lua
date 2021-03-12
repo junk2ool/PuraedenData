@@ -95,8 +95,9 @@ end
 local m3 = {}
 local m4 = {}
 local m5 = {}
-FormationType = {Basic = 0, Single = 1, Tower = 2, Expedition = 3, CG = 4, GuildBattle = 5, Edit = 6}
+FormationType = {Basic = 0, Single = 1, Tower = 2, Expedition = 3, CG = 4, GuildBattle = 5, Edit = 6, Relic = 99}
 local m6 = {}
+local m7 = {}
 MessageMgr.formationData = {}
 MessageMgr.OpenFormationWindow = function(data, ...)
   -- function num : 0_12 , upvalues : _ENV, MessageMgr
@@ -110,6 +111,7 @@ MessageMgr.OpenFormationWindow = function(data, ...)
   formationData.stageId = data.stageId
   formationData.ExternalData = data.ExternalData
   formationData.GuildBossExternal = data.GuildBossExternal
+  formationData.RelicData = data.RelicData
   formationData.BtnData = data.BtnData
   formationData.formationType = data.formationType
   formationData.closeFun = data.closeFun
@@ -186,6 +188,10 @@ MessageMgr.OpenFormationPresetEditWindow = function(preset, closeWin, ...)
 
   formationData.closeFun = function(...)
     -- function num : 0_14_1 , upvalues : _ENV
+    -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+    FormationPresetData.FormationData = nil
+    UIMgr:SendWindowMessage((WinResConfig.FormationWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH)
     OpenWindow((WinResConfig.FormationPresetWindow).name, UILayer.HUD)
   end
 
@@ -429,7 +435,7 @@ MessageMgr.GetCostImgHtml = function(cost, txtColor, picSize, ...)
   end
 end
 
-MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, showAmount, ...)
+MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, showAmount, AimNum, ...)
   -- function num : 0_27 , upvalues : _ENV, MessageMgr
   if not ((TableData.gTable).BaseAssetData)[id] then
     local config = ((TableData.gTable).BasePropData)[id]
@@ -444,7 +450,7 @@ MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, sho
     else
       do
         local cb = function(...)
-    -- function num : 0_27_0 , upvalues : id, _ENV, needAmount, func
+    -- function num : 0_27_0 , upvalues : id, _ENV, AimNum, needAmount, func
     if id == AssetType.GOLD or id == AssetType.EQUIP_EXP then
       (Util.ShowGetWay)(id)
     else
@@ -462,8 +468,12 @@ MessageMgr.OpenAssetNotEnoughtWindow = function(id, func, func2, needAmount, sho
             if id == AssetType.PHYSICAL then
               (AssetShopService.ReqGetBuyAssistNum)((ProtoEnum.BUY_ASSIST_TYPE).VIT_BUY_TIME_TYPE)
             else
-              ;
-              (Util.ShowGetWay)(id, nil, needAmount)
+              if AimNum and AimNum > 0 then
+                (Util.ShowGetWay)(id, nil, needAmount, AimNum)
+              else
+                ;
+                (Util.ShowGetWay)(id, nil, needAmount)
+              end
             end
           end
         end

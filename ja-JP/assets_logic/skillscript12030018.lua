@@ -1,9 +1,8 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
-local SkillScript = {timelineName = "Fx_timeline_12030018_xp", totalHitCount = 12}
+local SkillScript = {timelineName = "Fx_timeline_12030018_xp", totalHitCount = 8}
 SkillScript.Play = function(time, timelineEndCall, ...)
   -- function num : 0_0 , upvalues : _ENV
-  MoveAtkCard(0, BattleConfig.positionZero, 0)
   ChangeAtkState(0, "uniqueskill", false)
   MoveAtkCard(3799, BattleConfig.positionInvisible, 0)
   DisplaySkillMask(0, 1)

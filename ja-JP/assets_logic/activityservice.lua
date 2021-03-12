@@ -270,6 +270,15 @@ ActivityService.ResActivityInfo = function(msg, ...)
           else
             if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).LotteryIntergral then
               UIMgr:SendWindowMessage((WinResConfig.LotteryIntegralWindow).name, (WindowMsgEnum.LotteryIntegral).E_MSG_INIT_REWARD, {data = msg})
+            else
+              if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Relic then
+                (ActivityMgr.InitRelicData)(msg)
+                ld("Relic", function(...)
+    -- function num : 0_18_1 , upvalues : _ENV
+    (RelicService.ReqTempleInit)()
+  end
+)
+              end
             end
           end
         end
@@ -299,6 +308,11 @@ ActivityService.ResTaskGroup = function(msg, ...)
   if activityData.type == (ActivityMgr.ActivityType).SevenTask then
     (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).taskList = msg.taskList
     UIMgr:SendWindowMessage((WinResConfig.ActivityCarnivalWindow).name, (WindowMsgEnum.ActivityCarnival).E_MSG_CHANGE_GROUP, msg.group)
+  else
+    if activityData.type == (ActivityMgr.ActivityType).Relic then
+      (ActivityMgr.InitRelicTaskData)(msg.taskList)
+      UIMgr:SendWindowMessage((WinResConfig.RelicMainWindow).name, (WindowMsgEnum.Relic).E_MSG_INIT_TASK)
+    end
   end
 end
 
@@ -318,34 +332,53 @@ end
 
 ActivityService.ResTaskReward = function(msg, ...)
   -- function num : 0_22 , upvalues : _ENV
-  local taskList = (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).taskList
-  -- DECOMPILER ERROR at PC10: Confused about usage of register: R2 in 'UnsetPending'
+  local activityData = ((TableData.gTable).BaseActivityData)[msg.actId]
+  if activityData.type == (ActivityMgr.ActivityType).Relic then
+    local taskList = (ActivityMgr.InitRelicTaskData)()
+    local isCanGet = false
+    for index,value in ipairs(taskList) do
+      if value.id == msg.taskId then
+        value.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS
+      end
+      isCanGet = isCanGet or value.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN
+    end
+    if not isCanGet then
+      (RedDotMgr.EliminateRedDot)((WinResConfig.RelicMainWindow).name, RedDotComID.Relic_Reward)
+    end
+    ;
+    (ActivityMgr.InitRelicTaskData)(taskList)
+    UIMgr:SendWindowMessage((WinResConfig.RelicMainWindow).name, (WindowMsgEnum.Relic).E_MSG_GET_TASKREWARD)
+  else
+    local taskList = (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).taskList
+    -- DECOMPILER ERROR at PC73: Confused about usage of register: R3 in 'UnsetPending'
 
-  ;
-  (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).canGet = msg.canGet
-  -- DECOMPILER ERROR at PC16: Confused about usage of register: R2 in 'UnsetPending'
+    ;
+    (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).canGet = msg.canGet
+    -- DECOMPILER ERROR at PC79: Confused about usage of register: R3 in 'UnsetPending'
 
-  ;
-  (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).points = msg.points
-  -- DECOMPILER ERROR at PC22: Confused about usage of register: R2 in 'UnsetPending'
+    ;
+    (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).points = msg.points
+    -- DECOMPILER ERROR at PC85: Confused about usage of register: R3 in 'UnsetPending'
 
-  ;
-  (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).undoneTask = msg.undoneTask
-  for _,v in ipairs(taskList) do
-    if v.id == msg.taskId then
-      v.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS
+    ;
+    (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).undoneTask = msg.undoneTask
+    for _,v in ipairs(taskList) do
+      if v.id == msg.taskId then
+        v.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS
+      end
+    end
+    UIMgr:SendWindowMessage((WinResConfig.ActivityCarnivalWindow).name, (WindowMsgEnum.ActivityCarnival).E_MSG_GET_TASK)
+    local haveRot = false
+    for _,v in ipairs(taskList) do
+      if v.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
+        haveRot = true
+      end
+    end
+    if not haveRot then
+      (RedDotMgr.EliminateRedDot)((WinResConfig.ActivityCarnivalWindow).name, RedDotComID.SevenTask_BtnList, msg.group)
     end
   end
-  UIMgr:SendWindowMessage((WinResConfig.ActivityCarnivalWindow).name, (WindowMsgEnum.ActivityCarnival).E_MSG_GET_TASK)
-  local haveRot = false
-  for _,v in ipairs(taskList) do
-    if v.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
-      haveRot = true
-    end
-  end
-  if not haveRot then
-    (RedDotMgr.EliminateRedDot)((WinResConfig.ActivityCarnivalWindow).name, RedDotComID.SevenTask_BtnList, msg.group)
-  end
+  -- DECOMPILER ERROR: 7 unprocessed JMP targets
 end
 
 -- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'

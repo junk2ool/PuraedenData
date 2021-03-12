@@ -225,28 +225,32 @@ ActorService.OnResGoodsChange = function(msg, ...)
     end
   else
     if NeedShowPromptMsg[msg.reqMsgId] ~= nil then
-      local goods = {}
-      for _,v in ipairs(msg.goods) do
-        if v.value > 0 then
+      if UIMgr:IsWindowOpen((WinResConfig.RelicMainWindow).name) then
+        (MessageMgr.ShowGetGoods)(msg.goods, msg.equip)
+      else
+        local goods = {}
+        for _,v in ipairs(msg.goods) do
+          if v.value > 0 then
+            local item = {}
+            item.id = v.id
+            item.Num = v.value
+            ;
+            (table.insert)(goods, item)
+          end
+        end
+        ;
+        (MessageMgr.OpenItemBuyTipsWindow)(goods)
+        local equips = {}
+        for _,v in ipairs(msg.equip) do
           local item = {}
           item.id = v.id
-          item.Num = v.value
+          item.Num = 1
           ;
-          (table.insert)(goods, item)
+          (table.insert)(equips, item)
         end
-      end
-      ;
-      (MessageMgr.OpenItemBuyTipsWindow)(goods)
-      local equips = {}
-      for _,v in ipairs(msg.equip) do
-        local item = {}
-        item.id = v.id
-        item.Num = 1
         ;
-        (table.insert)(equips, item)
+        (MessageMgr.OpenItemBuyTipsWindow)(equips)
       end
-      ;
-      (MessageMgr.OpenItemBuyTipsWindow)(equips)
     end
   end
   do

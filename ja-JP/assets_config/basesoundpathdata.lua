@@ -5062,6 +5062,48 @@ BaseSoundPathData = {
 [282050306] = {id = 282050306, play_frame = 98, path = "sfx_boss_niutouren_small_wh_98fr", bank = "boss_niutouren"}
 , 
 [282050307] = {id = 282050307, play_frame = 111, path = "sfx_boss_niutouren_small_tx_111fr", bank = "boss_niutouren"}
+, 
+[230250101] = {id = 230250101, play_frame = 27, path = "sfx_maotouying_big_tx_27fr", bank = "maotouying"}
+, 
+[230250102] = {id = 230250102, play_frame = 91, path = "sfx_maotouying_big_tx_91fr", bank = "maotouying"}
+, 
+[230250103] = {id = 230250103, play_frame = 123, path = "sfx_maotouying_big_tx_123fr", bank = "maotouying"}
+, 
+[230250104] = {id = 230250104, play_frame = 285, path = "sfx_maotouying_big_tx_285fr", bank = "maotouying"}
+, 
+[230250105] = {id = 230250105, play_frame = 355, path = "sfx_maotouying_big_tx_355fr", bank = "maotouying"}
+, 
+[230250106] = {id = 230250106, play_frame = 500, path = "sfx_maotouying_big_tx_500fr", bank = "maotouying"}
+, 
+[230250201] = {id = 230250201, play_frame = 9, path = "sfx_maotouying_pt_wh_9fr", bank = "maotouying"}
+, 
+[230250202] = {id = 230250202, play_frame = 17, path = "sfx_maotouying_pt_tx_17fr", bank = "maotouying"}
+, 
+[230250203] = {id = 230250203, play_frame = 42, path = "sfx_maotouying_pt_wh_42fr", bank = "maotouying"}
+, 
+[230250204] = {id = 230250204, play_frame = 43, path = "sfx_maotouying_pt_tx_43fr", bank = "maotouying"}
+, 
+[230250205] = {id = 230250205, play_frame = 65, path = "sfx_maotouying_pt_wh_65fr", bank = "maotouying"}
+, 
+[230250206] = {id = 230250206, play_frame = 86, path = "sfx_maotouying_pt_wh_86fr", bank = "maotouying"}
+, 
+[230250207] = {id = 230250207, play_frame = 99, path = "sfx_maotouying_pt_wh_99fr", bank = "maotouying"}
+, 
+[230250301] = {id = 230250301, play_frame = 33, path = "sfx_maotouying_small_wh_33fr", bank = "maotouying"}
+, 
+[230250302] = {id = 230250302, play_frame = 44, path = "sfx_maotouying_small_tx_44fr", bank = "maotouying"}
+, 
+[230250303] = {id = 230250303, play_frame = 47, path = "sfx_maotouying_small_wh_47fr", bank = "maotouying"}
+, 
+[230250304] = {id = 230250304, play_frame = 50, path = "sfx_maotouying_small_tx_50fr", bank = "maotouying"}
+, 
+[230250305] = {id = 230250305, play_frame = 74, path = "sfx_maotouying_small_wh_74fr", bank = "maotouying"}
+, 
+[230250306] = {id = 230250306, play_frame = 83, path = "sfx_maotouying_small_tx_83fr", bank = "maotouying"}
+, 
+[230250401] = {id = 230250401, play_frame = 13, path = "sfx_maotouying_pt_wh_42fr", bank = "maotouying"}
+, 
+[230250402] = {id = 230250402, play_frame = 22, path = "sfx_maotouying_pt_tx_43fr", bank = "maotouying"}
 }
 return BaseSoundPathData
 

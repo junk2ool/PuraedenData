@@ -181,7 +181,13 @@ end
 
 PlotDungeonService.OnResSettleStage = function(msg, ...)
   -- function num : 0_9 , upvalues : _ENV
-  (PlotDungeonMgr.RefreshCardState)(msg)
+  local cType = (PlotDungeonMgr.GetStageChapterType)(PlotDungeonMgr.saveStageId)
+  if cType == DungeonType.RelicDungeon then
+    (PlotDungeonMgr.SetRelicGameOver)(msg)
+  else
+    ;
+    (PlotDungeonMgr.RefreshCardState)(msg)
+  end
 end
 
 -- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'

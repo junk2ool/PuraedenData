@@ -40,45 +40,61 @@ end
 -- DECOMPILER ERROR at PC13: Confused about usage of register: R4 in 'UnsetPending'
 
 SkillGetGrpWindow.RefreshWindowData = function(...)
-  -- function num : 0_1 , upvalues : _ENV, paraData, uis
-  local skillTable = (CardData.GetHowManySkillGetFromQ)()
-  print("大家好这里是获得技能界面 我们现在播报的是这个技能    ", skillTable[1])
-  if skillTable[1] == nil then
-    UIMgr:CloseWindow((WinResConfig.SkillGetGrpWindow).name)
+  -- function num : 0_1 , upvalues : argTable, uis, _ENV, paraData
+  -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
+
+  if argTable[2] and argTable[2] == true then
+    ((uis.SkillFrameGrp).c1Ctr).selectedIndex = 4
+    local tableConfig = ((TableData.gTable).BaseCardSealSkillUpData)[argTable[1]]
+    -- DECOMPILER ERROR at PC20: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    ((uis.SkillFrameGrp).SkillLoader).url = (Util.GetResUrl)(tableConfig.icon_path)
     return 
   end
-  paraData = {}
-  paraData = (TableData.GetBaseSkillData)(skillTable[1])
-  -- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
+  do
+    local skillTable = (CardData.GetHowManySkillGetFromQ)()
+    print("大家好这里是获得技能界面 我们现在播报的是这个技能    ", skillTable[1])
+    if skillTable[1] == nil then
+      UIMgr:CloseWindow((WinResConfig.SkillGetGrpWindow).name)
+      return 
+    end
+    paraData = {}
+    paraData = (TableData.GetBaseSkillData)(skillTable[1])
+    -- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
 
-  ;
-  ((uis.SkillFrameGrp).SkillLoader).url = (Util.GetResUrl)(paraData.icon_path)
-  local skillType = paraData.type
-  -- DECOMPILER ERROR at PC36: Confused about usage of register: R2 in 'UnsetPending'
+    ;
+    ((uis.SkillFrameGrp).SkillLoader).url = (Util.GetResUrl)(paraData.icon_path)
+    local skillType = paraData.type
+    -- DECOMPILER ERROR at PC58: Confused about usage of register: R2 in 'UnsetPending'
 
-  if skillType == 2 then
-    ((uis.SkillFrameGrp).c1Ctr).selectedIndex = 2
-  else
-    -- DECOMPILER ERROR at PC42: Confused about usage of register: R2 in 'UnsetPending'
-
-    if skillType == 3 then
-      ((uis.SkillFrameGrp).c1Ctr).selectedIndex = 1
+    if skillType == 2 then
+      ((uis.SkillFrameGrp).c1Ctr).selectedIndex = 2
     else
-      -- DECOMPILER ERROR at PC48: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC64: Confused about usage of register: R2 in 'UnsetPending'
 
-      if skillType == 5 then
-        ((uis.SkillFrameGrp).c1Ctr).selectedIndex = 0
+      if skillType == 3 then
+        ((uis.SkillFrameGrp).c1Ctr).selectedIndex = 1
+      else
+        -- DECOMPILER ERROR at PC70: Confused about usage of register: R2 in 'UnsetPending'
+
+        if skillType == 5 then
+          ((uis.SkillFrameGrp).c1Ctr).selectedIndex = 0
+        end
       end
     end
+    ;
+    (CardData.SubHowManySkillGetFromQ)()
   end
-  ;
-  (CardData.SubHowManySkillGetFromQ)()
 end
 
 -- DECOMPILER ERROR at PC16: Confused about usage of register: R4 in 'UnsetPending'
 
 SkillGetGrpWindow.OnClose = function(...)
-  -- function num : 0_2 , upvalues : _ENV, argTable, uis, paraData, contentPane
+  -- function num : 0_2 , upvalues : argTable, _ENV, uis, paraData, contentPane
+  if argTable[2] and argTable[2] == true then
+    return 
+  end
   local fashionTable = (CardData.GetHowManyFashionGetFromQ)()
   local skillTable = (CardData.GetHowManySkillGetFromQ)()
   if #skillTable > 0 then

@@ -325,6 +325,8 @@ ActorData.ChangeActorData = function(msg, ...)
             cardObject.quality = cardBase.quality
             cardObject.intimacyLv = 0
             cardObject.lastStageId = 0
+            cardObject.sealLv = -1
+            cardObject.sealSkillInfo = {}
             cardObject.skillInfo = {}
             cardObject.equipInfo = {}
             local fashionConfig = (CardData.GetFashionConfig)(cardObject)
@@ -418,53 +420,53 @@ ActorData.ChangeActorData = function(msg, ...)
                                     do
                                       ;
                                       (HomelandData.UpdateFurnitureData)(v)
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC288: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
 
                                     end
                                   end

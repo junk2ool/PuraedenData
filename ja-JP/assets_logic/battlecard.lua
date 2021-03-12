@@ -275,6 +275,7 @@ BattleCard.Initial = function(data, ...)
         local changeConfig = ((TableData.gTable).BaseSkillChangeData)[shiftID]
         if changeConfig then
           local normal_atk_skill_id = changeConfig.normal_atk_skill_id
+          normal_atk_skill_id = (CardData.JudgeSealSkillModify)(self:GetSealSkillInfo(), normal_atk_skill_id)
           return (TableData.GetBaseSkillData)(normal_atk_skill_id)
         end
       end
@@ -284,6 +285,7 @@ BattleCard.Initial = function(data, ...)
         local cardConfig = self:GetCardConfig()
         if cardConfig then
           local normal_atk_skill_id = cardConfig.normal_atk_skill_id
+          normal_atk_skill_id = (CardData.JudgeSealSkillModify)(self:GetSealSkillInfo(), normal_atk_skill_id)
           normalSkillConfig = (TableData.GetBaseSkillData)(normal_atk_skill_id)
         end
       end
@@ -309,6 +311,7 @@ BattleCard.Initial = function(data, ...)
         local changeConfig = ((TableData.gTable).BaseSkillChangeData)[shiftID]
         if changeConfig then
           local special_skill_id = changeConfig.special_skill_id
+          special_skill_id = (CardData.JudgeSealSkillModify)(self:GetSealSkillInfo(), special_skill_id)
           return (TableData.GetBaseSkillData)(special_skill_id)
         end
       end
@@ -318,6 +321,7 @@ BattleCard.Initial = function(data, ...)
         local cardConfig = self:GetCardConfig()
         if cardConfig then
           local special_skill_id = cardConfig.special_skill_id
+          special_skill_id = (CardData.JudgeSealSkillModify)(self:GetSealSkillInfo(), special_skill_id)
           smallSkillConfig = (TableData.GetBaseSkillData)(special_skill_id)
         end
       end
@@ -335,6 +339,7 @@ BattleCard.Initial = function(data, ...)
         local changeConfig = ((TableData.gTable).BaseSkillChangeData)[shiftID]
         if changeConfig then
           local unique_skill_id = changeConfig.unique_skill_id
+          unique_skill_id = (CardData.JudgeSealSkillModify)(self:GetSealSkillInfo(), unique_skill_id)
           return (TableData.GetBaseSkillData)(unique_skill_id)
         end
       end
@@ -344,6 +349,7 @@ BattleCard.Initial = function(data, ...)
         local cardConfig = self:GetCardConfig()
         if cardConfig then
           local unique_skill_id = cardConfig.unique_skill_id
+          unique_skill_id = (CardData.JudgeSealSkillModify)(self:GetSealSkillInfo(), unique_skill_id)
           uniqueSkillConfig = (TableData.GetBaseSkillData)(unique_skill_id)
         end
       end
@@ -359,6 +365,7 @@ BattleCard.Initial = function(data, ...)
       local cardConfig = self:GetCardConfig()
       if cardConfig then
         local assist_skill_id = cardConfig.assist_skill_id
+        assist_skill_id = (CardData.JudgeSealSkillModify)(self:GetSealSkillInfo(), assist_skill_id)
         assistSkillConfig = (TableData.GetBaseSkillData)(assist_skill_id)
       end
     end
@@ -3347,13 +3354,18 @@ effectTable = {eff}
     return cardInfo:GetEquipInfo()
   end
 
-  battleCard.AddAttrValue = function(self, ...)
+  battleCard.GetSealSkillInfo = function(self, ...)
     -- function num : 0_0_147 , upvalues : cardInfo
+    return cardInfo:GetSealSkillInfo()
+  end
+
+  battleCard.AddAttrValue = function(self, ...)
+    -- function num : 0_0_148 , upvalues : cardInfo
     return cardInfo:AddAttrValue(...)
   end
 
   battleCard.GetBuffAttr = function(self, name, ...)
-    -- function num : 0_0_148 , upvalues : _ENV, BattleBuffMgr, ipairs
+    -- function num : 0_0_149 , upvalues : _ENV, BattleBuffMgr, ipairs
     local totalValue = 0
     local attributeId = (CardData.GetAttrIdByName)(name)
     if attributeId then
@@ -3377,77 +3389,77 @@ effectTable = {eff}
   end
 
   battleCard.GetIsReadyAtk = function(self, ...)
-    -- function num : 0_0_149 , upvalues : isReadyAtk
+    -- function num : 0_0_150 , upvalues : isReadyAtk
     return isReadyAtk
   end
 
   battleCard.GetCampFlag = function(self, ...)
-    -- function num : 0_0_150 , upvalues : campFlag
+    -- function num : 0_0_151 , upvalues : campFlag
     return campFlag
   end
 
   battleCard.GetEnemyCampFlag = function(self, ...)
-    -- function num : 0_0_151 , upvalues : enemyCampFlag
+    -- function num : 0_0_152 , upvalues : enemyCampFlag
     return enemyCampFlag
   end
 
   battleCard.GetCurState = function(self, ...)
-    -- function num : 0_0_152 , upvalues : curState
+    -- function num : 0_0_153 , upvalues : curState
     return curState
   end
 
   battleCard.GetBuffTable = function(self, ...)
-    -- function num : 0_0_153 , upvalues : buffTable
+    -- function num : 0_0_154 , upvalues : buffTable
     return buffTable
   end
 
   battleCard.GetCardInfo = function(self, ...)
-    -- function num : 0_0_154 , upvalues : cardInfo
+    -- function num : 0_0_155 , upvalues : cardInfo
     return cardInfo
   end
 
   battleCard.SetAtkInfo = function(self, info, ...)
-    -- function num : 0_0_155 , upvalues : atkInfo
+    -- function num : 0_0_156 , upvalues : atkInfo
     atkInfo = info
   end
 
   battleCard.GetAtkInfo = function(self, ...)
-    -- function num : 0_0_156 , upvalues : atkInfo
+    -- function num : 0_0_157 , upvalues : atkInfo
     return atkInfo
   end
 
   battleCard.SetFloatUpState = function(self, state, ...)
-    -- function num : 0_0_157 , upvalues : floatUpState
+    -- function num : 0_0_158 , upvalues : floatUpState
     floatUpState = state
   end
 
   battleCard.GetFloatUpState = function(self, ...)
-    -- function num : 0_0_158 , upvalues : floatUpState
+    -- function num : 0_0_159 , upvalues : floatUpState
     return floatUpState
   end
 
   battleCard.GetModel = function(self, ...)
-    -- function num : 0_0_159 , upvalues : copyModel, model
+    -- function num : 0_0_160 , upvalues : copyModel, model
     return copyModel or model
   end
 
   battleCard.GetShadow = function(self, ...)
-    -- function num : 0_0_160 , upvalues : shadow
+    -- function num : 0_0_161 , upvalues : shadow
     return shadow
   end
 
   battleCard.GetFlagNextAttack = function(self, ...)
-    -- function num : 0_0_161 , upvalues : flagNextAttack
+    -- function num : 0_0_162 , upvalues : flagNextAttack
     return flagNextAttack
   end
 
   battleCard.GetHeadInfo = function(self, ...)
-    -- function num : 0_0_162 , upvalues : headInfo
+    -- function num : 0_0_163 , upvalues : headInfo
     return headInfo
   end
 
   battleCard.SetSortingOrder = function(self, sortingOrder, ...)
-    -- function num : 0_0_163 , upvalues : copyModel, SkeletonAnimationUtil, model
+    -- function num : 0_0_164 , upvalues : copyModel, SkeletonAnimationUtil, model
     do
       if copyModel then
         local rd = (SkeletonAnimationUtil.GetSkeletonRender)(copyModel)
@@ -3468,52 +3480,52 @@ effectTable = {eff}
   end
 
   battleCard.ResetSortingOrder = function(self, ...)
-    -- function num : 0_0_164 , upvalues : BattleConfig, math
+    -- function num : 0_0_165 , upvalues : BattleConfig, math
     self:SetSortingOrder(BattleConfig.sortingOrderInit + (math.floor)(self:GetPosIndex() % 10) * 10)
   end
 
   battleCard.SetIsStun = function(self, isStun, ...)
-    -- function num : 0_0_165
+    -- function num : 0_0_166
     self.isStun = isStun
   end
 
   battleCard.GetIsStun = function(self, ...)
-    -- function num : 0_0_166
+    -- function num : 0_0_167
     return self.isStun
   end
 
   battleCard.SetIsSilent = function(self, isSilent, ...)
-    -- function num : 0_0_167
+    -- function num : 0_0_168
     self.isSilent = isSilent
   end
 
   battleCard.GetIsSilent = function(self, ...)
-    -- function num : 0_0_168
+    -- function num : 0_0_169
     return self.isSilent
   end
 
   battleCard.SetIsSleep = function(self, isSleep, ...)
-    -- function num : 0_0_169
+    -- function num : 0_0_170
     self.isSleep = isSleep
   end
 
   battleCard.GetIsSleep = function(self, ...)
-    -- function num : 0_0_170
+    -- function num : 0_0_171
     return self.isSleep
   end
 
   battleCard.SetIsCopy = function(self, isCopy, ...)
-    -- function num : 0_0_171
+    -- function num : 0_0_172
     self.isCopyState = isCopy
   end
 
   battleCard.GetIsCopy = function(self, ...)
-    -- function num : 0_0_172
+    -- function num : 0_0_173
     return self.isCopyState
   end
 
   battleCard.SetControlType = function(self, effectId, value, ...)
-    -- function num : 0_0_173 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo
+    -- function num : 0_0_174 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo
     if effectId == BattleDisplayEffect.STUN then
       self:SetIsStun(value)
       -- DECOMPILER ERROR at PC15: Unhandled construct in 'MakeBoolean' P1
@@ -3597,7 +3609,7 @@ effectTable = {eff}
   end
 
   battleCard.UpdateAtkOrder = function(self, atkOrder, ...)
-    -- function num : 0_0_174 , upvalues : headInfo
+    -- function num : 0_0_175 , upvalues : headInfo
     if headInfo then
       headInfo:UpdateAtkOrderTxt(atkOrder)
     end

@@ -19,6 +19,8 @@ BasePlayerHeadIconData = {
 , 
 [78601304] = {id = 78601304, name = (PUtil.get)(84123004), des = (PUtil.get)(84121005), type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_004", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1614477599"}
 , 
+[78601305] = {id = 78601305, name = (PUtil.get)(84123005), des = (PUtil.get)(84121006), type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_005", condition = "0", sort = 10, reward_sort = 9880001, own_show = 1, open_time = "1616515200"}
+, 
 [78601101] = {id = 78601101, name = (PUtil.get)(81011001), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
 , 
 [78601102] = {id = 78601102, name = (PUtil.get)(81011002), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100002_2", condition = "72501008:11100002:10", sort = 999, reward_sort = 9880001, own_show = 1}
@@ -166,6 +168,7 @@ BasePlayerHeadIconData = {
 [78601173] = {id = 78601173, name = (PUtil.get)(81012213), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202013_2", condition = "72501008:11202013:10", sort = 928, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
 , 
 [78601174] = {id = 78601174, name = (PUtil.get)(81013022), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300022_2", condition = "72501008:11300022:10", sort = 927, reward_sort = 9880001, own_show = 1, open_time = "1614459600"}
+, 
+[78601175] = {id = 78601175, name = (PUtil.get)(81013025), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300025_2", condition = "72501008:11300025:10", sort = 926, reward_sort = 9880001, own_show = 1, open_time = "1615755600"}
 }
-return BasePlayerHeadIconData
 

@@ -423,5 +423,11 @@
 , 
 [77423022] = {id = 77423022, name = "募集", remark = "「無言の歌姫」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
+[77423025] = {id = 77423025, name = "募集", remark = "「暁闇の葬送者」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
+, 
+[77450101] = {id = 77450101, name = "神殿遺跡", remark = "「神殿遺跡」で獲得する", icon = "ItemIcon:21160003", type = 308001, value = 0, sort = 40}
+, 
+[77300025] = {id = 77300025, name = "天の塔", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300105, value = 0, sort = 40}
 }

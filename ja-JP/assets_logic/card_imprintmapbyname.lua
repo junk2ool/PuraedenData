@@ -15,6 +15,7 @@ GetCard_ImprintMapUis = function(ui, ...)
   uis.ImprintSkill_4_Btn = ui:GetChild("ImprintSkill_4_Btn")
   uis.ImprintSkill_5_Btn = ui:GetChild("ImprintSkill_5_Btn")
   uis.c1Ctr = ui:GetController("c1")
+  uis.c2Ctr = ui:GetController("c2")
   uis.root = ui
   return uis
 end

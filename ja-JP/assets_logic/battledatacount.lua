@@ -139,8 +139,22 @@ BattleDataCount.InsertPreBattleCount = function(...)
           loge("处理被动buff效果")
           dealPreBuff(v, randomBuffs)
         end
-        -- DECOMPILER ERROR at PC139: LeaveBlock: unexpected jumping out DO_STMT
+        local sealSealTable = v:GetSealSkillInfo()
+        if sealSealTable and #sealSealTable > 0 then
+          for _,v2 in ipairs(sealSealTable) do
+            local sealSkillConfig = (CardData.GetSealSkillConfig)(v2.id, v2.value)
+            if sealSkillConfig and sealSkillConfig.buff_list and sealSkillConfig.buff_list ~= "" then
+              local Buffs = split(sealSkillConfig.buff_list, ",")
+              dealPreBuff(v, Buffs)
+            end
+          end
+        end
+        do
+          -- DECOMPILER ERROR at PC173: LeaveBlock: unexpected jumping out DO_STMT
 
+          -- DECOMPILER ERROR at PC173: LeaveBlock: unexpected jumping out DO_STMT
+
+        end
       end
     end
   end

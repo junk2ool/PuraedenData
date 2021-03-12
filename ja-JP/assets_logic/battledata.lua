@@ -107,6 +107,8 @@ BattleData.InitBattleData = function(data, ...)
   self.autoBattle = data.autoBattle
   self.selfCurWave = 1
   self.enemyCurWave = 1
+  print("@@@@@@@@@@11111111111111", data.param1)
+  self.param1 = data.param1
   self.curWaveBossId = (BattleMgr.GetCurWaveBossId)()
   self.preBattleEvent = (BattleMgr.GetPreBattleEvent)(self.battleType, self.stageId, data)
   if not data.teamInfo or not (BattleData.UpdateTeamInfo)(data.teamInfo) then
@@ -1282,6 +1284,10 @@ BattleData.GetPlayTypeByBattleType = function(battleType, ...)
                             else
                               if battleType == E_BATTLE_TYPE.FRIEND_PK then
                                 return PlayType.Friend_PK
+                              else
+                                if battleType == E_BATTLE_TYPE.TEMPLE then
+                                  return PlayType.TEMPLE
+                                end
                               end
                             end
                           end
@@ -1345,6 +1351,10 @@ BattleData.GetBattleTypeByPlayType = function(playType, ...)
                           else
                             if playType == PlayType.Friend_PK then
                               return E_BATTLE_TYPE.FRIEND_PK
+                            else
+                              if playType == PlayType.TEMPLE then
+                                return E_BATTLE_TYPE.TEMPLE
+                              end
                             end
                           end
                         end
@@ -1444,6 +1454,44 @@ BattleData.GetMonsterGroup = function(wave, stageId, battleType, ...)
                             local monsterGroup = monster_group_list[wave]
                             if monsterGroup then
                               return tonumber(monsterGroup)
+                            end
+                          end
+                        end
+                      else
+                        do
+                          if battleType == E_BATTLE_TYPE.TEMPLE then
+                            local templeConfig = nil
+                            for key,value in pairs((TableData.gTable).BaseTempleData) do
+                              if value.stage_id == stageId then
+                                templeConfig = value
+                              end
+                            end
+                            if templeConfig then
+                              local monster_group_list = nil
+                              if templeConfig.type == 1 then
+                                monster_group_list = split(templeConfig.monster_group_list, ",")
+                              else
+                                monster_group_list = split((((TableData.gTable).BaseStageData)[stageId]).monster_group_list, ":")
+                              end
+                              if monster_group_list then
+                                local monsterGroup = nil
+                                if templeConfig.type == 1 then
+                                  local waveRelic = 1
+                                  if IsBattleServer == true then
+                                    waveRelic = tonumber(self.param1)
+                                  else
+                                    waveRelic = (RelicData.GetRelicNormalWave)()
+                                  end
+                                  monsterGroup = monster_group_list[waveRelic + 1]
+                                else
+                                  do
+                                    monsterGroup = monster_group_list[wave]
+                                    if monsterGroup then
+                                      return tonumber(monsterGroup)
+                                    end
+                                  end
+                                end
+                              end
                             end
                           end
                         end
@@ -1549,6 +1597,10 @@ BattleData.GetChallengeType = function(battleType, ...)
                             else
                               if battleType == E_BATTLE_TYPE.FRIEND_PK then
                                 return E_CHALLENGE_TYPE.FRIEND_PK_CHALLENGE
+                              else
+                                if battleType == E_BATTLE_TYPE.TEMPLE then
+                                  return E_CHALLENGE_TYPE.TEMPLE_CHALLENGE
+                                end
                               end
                             end
                           end

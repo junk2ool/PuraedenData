@@ -198,9 +198,11 @@ HomeWindow.OnInit = function(bridgeObj, ...)
           -- DECOMPILER ERROR at PC348: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
-          local updateCheck = require("UpdateCheckMgr")
-          ;
-          (updateCheck.CheckUpdate)()
+          if ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).WindowsEditor and ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).OSXEditor then
+            local updateCheck = require("UpdateCheckMgr")
+            ;
+            (updateCheck.CheckUpdate)()
+          end
         end
       end
     end
@@ -336,7 +338,7 @@ HomeWindow.InitActivityBannerList = function(...)
 end
 
 HomeWindow.onClickBannerShow = function(...)
-  -- function num : 0_5 , upvalues : _ENV
+  -- function num : 0_5 , upvalues : _ENV, holder
   local fashionShow = (ActorData.GetFashionShow)()
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionShow]
   local cardID = fashionData.card_id
@@ -353,6 +355,10 @@ HomeWindow.onClickBannerShow = function(...)
     (CardData.SaveCurClickCardID)(cardID)
     ;
     (CardData.SaveCurClickCardIndex)(index)
+    if holder then
+      (LuaEffect.DestroyEffect)(holder)
+      holder = nil
+    end
     OpenWindow((WinResConfig.CardChoiceWindow).name, UILayer.HUD)
   end
 end

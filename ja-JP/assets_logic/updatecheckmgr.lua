@@ -29,7 +29,12 @@ end
 
 UpdateCheckMgr.DownloadServerList = function(serverListVersion, ...)
   -- function num : 0_2 , upvalues : _ENV, HttpDownload, UpdateCheckMgr
-  local url = CSBaseConfig.AvailableCdnUrl .. "/serverList/ServerList.json_" .. (CS.IOTools).PlatformFolderName
+  local url = nil
+  if CSBaseConfig.AvailableCdnUrl == nil then
+    url = CSBaseConfig.BaseIndexServerUrl .. "/serverList/ServerList.json_" .. (CS.IOTools).PlatformFolderName
+  else
+    url = CSBaseConfig.AvailableCdnUrl .. "/serverList/ServerList.json_" .. (CS.IOTools).PlatformFolderName
+  end
   if serverListVersion then
     url = url .. "?version=" .. serverListVersion
   end

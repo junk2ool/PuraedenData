@@ -15,10 +15,11 @@ BaseActivityLoginData = {
 , 
 [32020007] = {id = 32020007, day = 7, rewards = "1:21160001:10", type = 1}
 , 
-[32020011] = {id = 32020011, day = 1, rewards = "5:29000012:1", type = 2}
+[32020011] = {id = 32020011, day = 1, rewards = "2:21100003:200000", type = 2}
 , 
-[32020012] = {id = 32020012, day = 2, rewards = "9:78601303:1", type = 2}
+[32020012] = {id = 32020012, day = 2, rewards = "2:21100003:200000", type = 2}
 , 
-[32020013] = {id = 32020013, day = 3, rewards = "1:21160001:1", type = 2}
+[32020013] = {id = 32020013, day = 3, rewards = "2:21100003:400000", type = 2}
 }
+return BaseActivityLoginData
 

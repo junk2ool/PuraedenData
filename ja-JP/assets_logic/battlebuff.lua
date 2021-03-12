@@ -1920,10 +1920,15 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ski
                           damageReduceTotal = damageReduceTotal + value
                         end
                       end
-                      if (self.IsResist)(effectId) == true and isCanEffect == true then
-                        isResist = true
-                        buff:SetCurRoundActive(true)
-                        damageReduceTotal = 10000
+                      if (self.IsResist)(effectId) == true then
+                        local atkPos = atkInfo.atkPos
+                        local atkCard = (BattleData.GetCardInfoByPos)(atkPos)
+                        local IgnoreResist = (BattleBuffMgr.GetCardIsContainEffect)(atkCard, BattleDisplayEffect.IGNORE_RESIST)
+                        if isCanEffect == true and not IgnoreResist then
+                          isResist = true
+                          buff:SetCurRoundActive(true)
+                          damageReduceTotal = 10000
+                        end
                       end
                     end
                   end

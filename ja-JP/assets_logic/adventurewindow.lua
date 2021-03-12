@@ -12,6 +12,7 @@ local cloudHolder = nil
 local SFXoffset = (Vector2(10, -200))
 local DailyDungeonTips = nil
 local isNight = false
+local relicEffect = nil
 AdventureWindow.OnInit = function(bridge, ...)
   -- function num : 0_0 , upvalues : _ENV, canMove, uis, AdventureWindow, isNight, Swipe, endVelocity, middleMin, cloudHolder, DailyDungeonTips
   bridge:SetView((WinResConfig.AdventureWindow).package, (WinResConfig.AdventureWindow).comName)
@@ -120,6 +121,7 @@ AdventureWindow.SetLightOrDark = function(...)
   ChangeUIController((uis.MiddleComp).ArenaIconBtn, "Time", selectIndex)
   ChangeUIController((uis.MiddleComp).HeroBtn, "Time", selectIndex)
   ChangeUIController((uis.MiddleComp).RichIconBtn, "Time", selectIndex)
+  ChangeUIController((uis.MiddleComp).RelicBtn, "Time", selectIndex)
 end
 
 local dailyType = {PlayType.RoleExpDungeon, PlayType.CoinDungeon, PlayType.EquipmentExpDungeon}
@@ -175,6 +177,7 @@ AdventureWindow.BindingUI = function(...)
   BindingUI(winName, RedDotComID.Adventure_Expedition, (uis.MiddleComp).ExpeditionIconBtn)
   BindingUI(winName, RedDotComID.Adventure_BigAdventure, (uis.MiddleComp).RichIconBtn)
   BindingUI(winName, RedDotComID.Adventure_Arena, (uis.MiddleComp).ArenaIconBtn)
+  BindingUI(winName, RedDotComID.Adventure_RelicReward, (uis.MiddleComp).RelicBtn)
   ;
   (RedDotMgr.RefreshTreeUI)(winName)
 end
@@ -311,7 +314,7 @@ AdventureWindow.IsRequest = function(...)
 end
 
 AdventureWindow.InitBtn = function(...)
-  -- function num : 0_12 , upvalues : uis, AdventureWindow, _ENV
+  -- function num : 0_12 , upvalues : uis, AdventureWindow, _ENV, relicEffect
   (((uis.MiddleComp).AdventureIconBtn).onClick):Set(function(...)
     -- function num : 0_12_0 , upvalues : AdventureWindow, _ENV
     (AdventureWindow.OnClickRequestService)(function(...)
@@ -360,39 +363,74 @@ AdventureWindow.InitBtn = function(...)
 )
   end
 )
+  if relicEffect ~= nil then
+    (LuaEffect.DestroyEffect)(relicEffect)
+  end
+  local isRelicOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Relic)
   ;
-  (((uis.MiddleComp).ExpeditionIconBtn).onClick):Set(function(...)
+  (((uis.MiddleComp).RelicBtn):GetChild("RelicTips")).visible = isRelicOpen
+  ;
+  (((uis.MiddleComp).RelicBtn):GetChild("NameImage")).visible = isRelicOpen
+  do
+    if isRelicOpen then
+      local effect = nil
+      relicEffect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_RELIC_OPEN, false, (uis.MiddleComp).RelicBtn, Vector2(((uis.MiddleComp).RelicBtn).width * 0.5, ((uis.MiddleComp).RelicBtn).height * 0.5))
+      -- DECOMPILER ERROR at PC78: Confused about usage of register: R2 in 'UnsetPending'
+
+      ;
+      (effect.transform).localPosition = Vector3(-7.4, 15.7, 0)
+      ;
+      ((((uis.MiddleComp).RelicBtn):GetChild("RelicTips")):GetChild("WordTxt")).text = (PUtil.get)(313)
+    end
+    -- DECOMPILER ERROR at PC92: Overwrote pending register: R1 in 'AssignReg'
+
+    ;
+    ((effect.RelicBtn).onClick):Set(function(...)
     -- function num : 0_12_4 , upvalues : _ENV
+    if (FunctionControlMgr.GetFunctionState)(ControlID.Relic, true) then
+      if (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Relic) then
+        (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).Relic)
+      else
+        ;
+        (MessageMgr.SendCenterTips)((PUtil.get)(315))
+      end
+    end
+  end
+)
+    ;
+    (((uis.MiddleComp).ExpeditionIconBtn).onClick):Set(function(...)
+    -- function num : 0_12_5 , upvalues : _ENV
     print("ExpeditionIcon")
     ld("Expedition", function(...)
-      -- function num : 0_12_4_0 , upvalues : _ENV
+      -- function num : 0_12_5_0 , upvalues : _ENV
       (ExpeditionService.OnReqExpeditionData)()
     end
 )
   end
 )
-  ;
-  (((uis.MiddleComp).HeroBtn).onClick):Set(function(...)
-    -- function num : 0_12_5 , upvalues : AdventureWindow, _ENV
+    ;
+    (((uis.MiddleComp).HeroBtn).onClick):Set(function(...)
+    -- function num : 0_12_6 , upvalues : AdventureWindow, _ENV
     (AdventureWindow.PrepareHeroAsset)()
     ;
     (AdventureWindow.OnClickRequestService)(function(...)
-      -- function num : 0_12_5_0 , upvalues : _ENV
+      -- function num : 0_12_6_0 , upvalues : _ENV
       (PlotDungeonService.ReqStoryInfo)((ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE)
     end
 )
   end
 )
-  ;
-  (((uis.MiddleComp).MapWorkshopIconBtn).onClick):Set(function(...)
-    -- function num : 0_12_6 , upvalues : _ENV
+    ;
+    (((uis.MiddleComp).MapWorkshopIconBtn).onClick):Set(function(...)
+    -- function num : 0_12_7 , upvalues : _ENV
     ld("Tower", function(...)
-      -- function num : 0_12_6_0 , upvalues : _ENV
+      -- function num : 0_12_7_0 , upvalues : _ENV
       (TowerMgr.TryOpenTowerUI)()
     end
 )
   end
 )
+  end
 end
 
 AdventureWindow.OnClickRequestService = function(fun, ...)

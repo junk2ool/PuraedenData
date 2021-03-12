@@ -373,8 +373,13 @@ randomBuff = {}
     return self.skillInfo
   end
 
+  battleCardInfo.GetSealSkillInfo = function(self, ...)
+    -- function num : 0_0_55
+    return self.sealSkillInfo
+  end
+
   battleCardInfo.GetEquipInfo = function(self, ...)
-    -- function num : 0_0_55 , upvalues : _ENV
+    -- function num : 0_0_56 , upvalues : _ENV
     if IsBattleTest == true then
       return self.equipInfoTest
     else
@@ -383,7 +388,7 @@ randomBuff = {}
   end
 
   battleCardInfo.AddAttrValue = function(self, attributeId, value, effectId, atkInfo, ...)
-    -- function num : 0_0_56 , upvalues : _ENV, baseAttributeData, math
+    -- function num : 0_0_57 , upvalues : _ENV, baseAttributeData, math
     if (BattleBuff.IsAddIntoDamage)(effectId) == true then
       loge("伤害已加入总伤害")
       return nil

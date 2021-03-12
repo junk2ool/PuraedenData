@@ -34,6 +34,16 @@ CardService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResSetLikeCard, CardService.OnResSetLikeCard)
   ;
   (Net.AddListener)((Proto.MsgName).ResMyClickLikeRemark, CardService.OnResMyClickLikeRemark)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSealOpen, CardService.OnResSealOpen)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSealData, CardService.OnResSealData)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSealUp, CardService.OnResSealUp)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSealSkillAc, CardService.OnResSealSkillAc)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSealSkillUp, CardService.OnResSealSkillUp)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -344,6 +354,109 @@ end
 CardService.OnResMyClickLikeRemark = function(msg, ...)
   -- function num : 0_28 , upvalues : _ENV
   (CardMgr.SetCardPraiseList)(msg.remarkId)
+end
+
+-- DECOMPILER ERROR at PC91: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.ReqSealOpen = function(cardId, ...)
+  -- function num : 0_29 , upvalues : _ENV
+  local m = {}
+  m.cardId = cardId
+  ;
+  (Net.Send)((Proto.MsgName).ReqSealOpen, m, (Proto.MsgName).ResSealOpen)
+end
+
+-- DECOMPILER ERROR at PC94: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.OnResSealOpen = function(msg, ...)
+  -- function num : 0_30 , upvalues : _ENV
+  (MessageMgr.SendCenterTipsByWordID)(20000653)
+  ;
+  (CardData.SetSealLevel)(msg.cardId, 0)
+  UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION, {type = 1})
+  ;
+  (LuaSound.PlaySound)(LuaSound.CARD_UP_FLASH, SoundBank.OTHER)
+end
+
+-- DECOMPILER ERROR at PC97: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.ReqSealData = function(cardId, ...)
+  -- function num : 0_31 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqSealOpen, m, (Proto.MsgName).ResSealOpen)
+end
+
+-- DECOMPILER ERROR at PC100: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.OnResSealData = function(msg, ...)
+  -- function num : 0_32
+end
+
+-- DECOMPILER ERROR at PC103: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.ReqSealUp = function(cardId, ...)
+  -- function num : 0_33 , upvalues : _ENV
+  local m = {}
+  m.cardId = cardId
+  ;
+  (Net.Send)((Proto.MsgName).ReqSealUp, m, (Proto.MsgName).ResSealUp)
+end
+
+-- DECOMPILER ERROR at PC106: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.OnResSealUp = function(msg, ...)
+  -- function num : 0_34 , upvalues : _ENV
+  (CardData.SetSealLevel)(msg.cardId, msg.sealLv)
+  UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION, {type = 2})
+  ;
+  (CommonWinMgr.OpenCommonFcUp)(msg.cardId)
+  ;
+  (LuaSound.PlaySound)(LuaSound.CARD_UP_FLASH, SoundBank.OTHER)
+end
+
+-- DECOMPILER ERROR at PC109: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.ReqSealSkillAc = function(cardId, type, ...)
+  -- function num : 0_35 , upvalues : _ENV
+  local m = {}
+  m.cardId = cardId
+  m.skillType = type
+  ;
+  (Net.Send)((Proto.MsgName).ReqSealSkillAc, m, (Proto.MsgName).ResSealSkillAc)
+end
+
+-- DECOMPILER ERROR at PC112: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.OnResSealSkillAc = function(msg, ...)
+  -- function num : 0_36 , upvalues : _ENV
+  (CardData.SetSealSkillLevel)(msg.cardId, msg.skillType, msg.skillLv)
+  UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION, {type = 3})
+  ;
+  (LuaSound.PlaySound)(LuaSound.CARD_UP_FLASH, SoundBank.OTHER)
+  local config = (CardData.GetSealSkillConfig)(msg.skillType, msg.skillLv)
+  OpenWindow((WinResConfig.SkillGetGrpWindow).name, UILayer.HUD1, config.id, true)
+end
+
+-- DECOMPILER ERROR at PC115: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.ReqSealSkillUp = function(cardId, type, ...)
+  -- function num : 0_37 , upvalues : _ENV
+  local m = {}
+  m.cardId = cardId
+  m.skillType = type
+  ;
+  (Net.Send)((Proto.MsgName).ReqSealSkillUp, m, (Proto.MsgName).ResSealSkillUp)
+end
+
+-- DECOMPILER ERROR at PC118: Confused about usage of register: R0 in 'UnsetPending'
+
+CardService.OnResSealSkillUp = function(msg, ...)
+  -- function num : 0_38 , upvalues : _ENV
+  (CardData.SetSealSkillLevel)(msg.cardId, msg.skillType, msg.skillLv)
+  UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION, {type = 3})
+  ;
+  (LuaSound.PlaySound)(LuaSound.CARD_UP_FLASH, SoundBank.OTHER)
 end
 
 ;

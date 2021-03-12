@@ -224,6 +224,15 @@ GetWayMgr.Goto = function(id, ...)
     (ShopMgr.ExternalGotoShop)(ShopType.GiftBuy)
   end
 )
+                                                                                  else
+                                                                                    if id == ControlID.Relic and (FunctionControlMgr.GetFunctionState)(ControlID.Relic, true) then
+                                                                                      if (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Relic) then
+                                                                                        (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).Relic)
+                                                                                      else
+                                                                                        ;
+                                                                                        (MessageMgr.SendCenterTips)((PUtil.get)(207))
+                                                                                      end
+                                                                                    end
                                                                                   end
                                                                                 end
                                                                               end

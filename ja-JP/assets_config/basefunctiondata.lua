@@ -125,6 +125,8 @@ BaseFunctionData = {
 , 
 [200215] = {id = 200215, limit_tab = 0, open_condition = "72501001:0:1", popup_window = 0, lock_type = 0}
 , 
+[200216] = {id = 200216, limit_tab = 1, open_condition = "72501001:0:60", popup_window = 0, lock_type = 0, open_des = (PUtil.get)(89003046, 60)}
+, 
 [200301] = {id = 200301, limit_tab = 1, open_condition = "72501001:0:6", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003018, 6)}
 , 
 [200302] = {id = 200302, limit_tab = 1, open_condition = "72501001:0:1", popup_window = 0, lock_type = 2, open_des = (PUtil.get)(89003001)}
@@ -268,6 +270,8 @@ BaseFunctionData = {
 [307003] = {id = 307003, limit_tab = 1, open_condition = "72501001:0:13", popup_window = 0, lock_type = 2, open_des = (PUtil.get)(89003001)}
 , 
 [307004] = {id = 307004, limit_tab = 1, open_condition = "72501001:0:13", popup_window = 0, lock_type = 2, open_des = (PUtil.get)(89003001)}
+, 
+[308001] = {id = 308001, limit_tab = 1, open_condition = "72501001:0:60", popup_window = 0, lock_type = 0, open_des = (PUtil.get)(89003045, 60)}
 , 
 [400101] = {id = 400101, limit_tab = 0, open_condition = "72501001:0:18", popup_window = 0, lock_type = 1, open_des = (PUtil.get)(89003040, 18)}
 , 

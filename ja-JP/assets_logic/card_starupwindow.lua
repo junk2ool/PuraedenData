@@ -35,20 +35,66 @@ Card_StarUpWindow.Refresh = function(...)
   CardData.CurrentCardInfo = (CardData.GetCardData)((CardData.ReturnCardID)())
   ;
   (Card_StarUpWindow.RefreshStarInfo)()
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (_uis.TipsBtn).visible = true
   if (CardData.CurrentCardInfo).star < Const.MaxRoleStar then
     ((_uis.root):GetController("c1")).selectedIndex = 0
     ;
     (Card_StarUpWindow.RefreshCostInfo)()
   else
-    ;
-    ((_uis.root):GetController("c1")).selectedIndex = 1
+    local cardID = (CardData.ReturnCardID)()
+    local sealType = (CardData.GetCardSealType)(cardID)
+    local isOpen = (FunctionControlMgr.GetFunctionState)(ControlID.Card_Seal)
+    -- DECOMPILER ERROR at PC47: Confused about usage of register: R3 in 'UnsetPending'
+
+    if sealType == nil then
+      (_uis.c1Ctr).selectedIndex = 1
+      -- DECOMPILER ERROR at PC53: Confused about usage of register: R3 in 'UnsetPending'
+
+      ;
+      (_uis.ImprintTxt).text = (PUtil.get)(20000652)
+    else
+      if not isOpen then
+        local functionData = ((TableData.gTable).BaseFunctionData)[tonumber(ControlID.Card_Seal)]
+        -- DECOMPILER ERROR at PC66: Confused about usage of register: R4 in 'UnsetPending'
+
+        ;
+        (_uis.c1Ctr).selectedIndex = 1
+        -- DECOMPILER ERROR at PC69: Confused about usage of register: R4 in 'UnsetPending'
+
+        ;
+        (_uis.ImprintTxt).text = functionData.open_des
+      else
+        do
+          if sealType and sealType > 0 then
+            require("Card_SealWindow")
+            ;
+            (Card_SealWindow.Init)(_uis.root)
+          else
+            ;
+            ((_uis.root):GetController("c1")).selectedIndex = 1
+          end
+        end
+      end
+    end
   end
 end
 
 -- DECOMPILER ERROR at PC11: Confused about usage of register: R8 in 'UnsetPending'
 
+Card_StarUpWindow.SealMessage = function(data, ...)
+  -- function num : 0_2 , upvalues : _ENV
+  require("Card_SealWindow")
+  ;
+  (Card_SealWindow.Message)(data)
+end
+
+-- DECOMPILER ERROR at PC14: Confused about usage of register: R8 in 'UnsetPending'
+
 Card_StarUpWindow.InitVariable = function(...)
-  -- function num : 0_2 , upvalues : _uis
+  -- function num : 0_3 , upvalues : _uis
   _uis.StarNumberBar = (_uis.root):GetChild("StarNumberBar")
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -60,10 +106,10 @@ Card_StarUpWindow.InitVariable = function(...)
   (_uis.NumberTxt).UBBEnabled = true
 end
 
--- DECOMPILER ERROR at PC14: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC17: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.InitText = function(...)
-  -- function num : 0_3 , upvalues : _uis, _ENV
+  -- function num : 0_4 , upvalues : _uis, _ENV
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
   (_uis.ButtonOneBtn).text = (PUtil.get)(20000030)
@@ -77,10 +123,10 @@ Card_StarUpWindow.InitText = function(...)
   (_uis.TitleTxt).text = (PUtil.get)(60000060)
 end
 
--- DECOMPILER ERROR at PC17: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC20: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.InitButtonEvent = function(...)
-  -- function num : 0_4 , upvalues : _uis, _ENV
+  -- function num : 0_5 , upvalues : _uis, _ENV
   ((_uis.ButtonTwoBtn).onClick):Set(Card_StarUpWindow.ClickUpgradeStarBtn)
   ;
   ((_uis.ButtonOneBtn).onClick):Set(Card_StarUpWindow.ClickAcquireBtn)
@@ -90,10 +136,10 @@ Card_StarUpWindow.InitButtonEvent = function(...)
   ((_uis.StarDebrisChangeBtn).onClick):Set(Card_StarUpWindow.ClickStarDebrisChangeBtn)
 end
 
--- DECOMPILER ERROR at PC20: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC23: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.OnClose = function(...)
-  -- function num : 0_5 , upvalues : _attrChangePanel, _upEffectTimer, _uis
+  -- function num : 0_6 , upvalues : _attrChangePanel, _upEffectTimer, _uis, _ENV
   if _attrChangePanel ~= nil then
     _attrChangePanel:Dispose()
     _attrChangePanel = nil
@@ -103,12 +149,15 @@ Card_StarUpWindow.OnClose = function(...)
     _upEffectTimer = nil
   end
   _uis = nil
+  if Card_SealWindow then
+    (Card_SealWindow.OnClose)()
+  end
 end
 
--- DECOMPILER ERROR at PC23: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC26: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.SetHeadInfo = function(...)
-  -- function num : 0_6 , upvalues : _uis, _ENV
+  -- function num : 0_7 , upvalues : _uis, _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   ((_uis.HeadFrameGrp).LevelTxt).text = ""
@@ -131,10 +180,10 @@ Card_StarUpWindow.SetHeadInfo = function(...)
   ((_uis.HeadFrameGrp).QualityCtrlCtr).selectedIndex = (CardData.CurrentCardInfo).intelligence + 1
 end
 
--- DECOMPILER ERROR at PC26: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC29: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.RefreshStarInfo = function(...)
-  -- function num : 0_7 , upvalues : _uis, _ENV
+  -- function num : 0_8 , upvalues : _uis, _ENV
   (_uis.StarList):RemoveChildrenToPool()
   local count = (CardData.CurrentCardInfo).star
   for i = 1, count do
@@ -142,10 +191,10 @@ Card_StarUpWindow.RefreshStarInfo = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC29: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC32: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.RefreshCostInfo = function(...)
-  -- function num : 0_8 , upvalues : _ENV, _uis
+  -- function num : 0_9 , upvalues : _ENV, _uis
   local config = ((TableData.gTable).BaseCardStarUpData)[(CardData.CurrentCardInfo).id * 100 + (CardData.CurrentCardInfo).star]
   if config and config.next_cost ~= "0" then
     local costs = split(config.next_cost, ",")
@@ -195,10 +244,10 @@ Card_StarUpWindow.RefreshCostInfo = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC32: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC35: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.ShowStarUpEffect = function(afterEffect, ...)
-  -- function num : 0_9 , upvalues : _upEffectTimer, _uis, _ENV, TouchScreenBtn
+  -- function num : 0_10 , upvalues : _upEffectTimer, _uis, _ENV, TouchScreenBtn
   if _upEffectTimer ~= nil then
     _upEffectTimer:stop()
   end
@@ -207,7 +256,7 @@ Card_StarUpWindow.ShowStarUpEffect = function(afterEffect, ...)
   ;
   ((_uis.UpGrp).root).visible = true
   _upEffectTimer = (SimpleTimer.setTimeout)(2, function(...)
-    -- function num : 0_9_0 , upvalues : _uis, _upEffectTimer
+    -- function num : 0_10_0 , upvalues : _uis, _upEffectTimer
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     ((_uis.UpGrp).root).visible = false
@@ -227,7 +276,7 @@ Card_StarUpWindow.ShowStarUpEffect = function(afterEffect, ...)
   TouchScreenBtn.visible = true
   ;
   (SimpleTimer.setTimeout)(1, function(...)
-    -- function num : 0_9_1 , upvalues : TouchScreenBtn, afterEffect
+    -- function num : 0_10_1 , upvalues : TouchScreenBtn, afterEffect
     TouchScreenBtn.visible = false
     if afterEffect ~= nil then
       afterEffect()
@@ -236,38 +285,46 @@ Card_StarUpWindow.ShowStarUpEffect = function(afterEffect, ...)
 )
 end
 
--- DECOMPILER ERROR at PC35: Confused about usage of register: R8 in 'UnsetPending'
-
-Card_StarUpWindow.ClickAcquireBtn = function(...)
-  -- function num : 0_10 , upvalues : _ENV
-  (Util.ShowGetWay)(((ActorData.GetCardPieceInfo)((CardData.CurrentCardInfo).id)).id, nil, (CardData.CurrentUpgradeStarCost).pieces)
-end
-
 -- DECOMPILER ERROR at PC38: Confused about usage of register: R8 in 'UnsetPending'
 
-Card_StarUpWindow.ClickUpgradeStarBtn = function(...)
+Card_StarUpWindow.ClickAcquireBtn = function(...)
   -- function num : 0_11 , upvalues : _ENV
-  (CardMgr.TryUpgradeCardStar)()
+  (Util.ShowGetWay)(((ActorData.GetCardPieceInfo)((CardData.CurrentCardInfo).id)).id, nil, (CardData.CurrentUpgradeStarCost).pieces)
 end
 
 -- DECOMPILER ERROR at PC41: Confused about usage of register: R8 in 'UnsetPending'
 
-Card_StarUpWindow.ClickDetailBtn = function(...)
+Card_StarUpWindow.ClickUpgradeStarBtn = function(...)
   -- function num : 0_12 , upvalues : _ENV
-  (Card_StarUpWindow.ShowAttrChangePanel)()
+  (CardMgr.TryUpgradeCardStar)()
 end
 
 -- DECOMPILER ERROR at PC44: Confused about usage of register: R8 in 'UnsetPending'
 
-Card_StarUpWindow.ClickStarDebrisChangeBtn = function(...)
+Card_StarUpWindow.ClickDetailBtn = function(...)
   -- function num : 0_13 , upvalues : _ENV
-  OpenWindow((WinResConfig.StarDebrisChangeGrpWindow).name, UILayer.HUD, CardData.CurrentCardInfo)
+  (Card_StarUpWindow.ShowAttrChangePanel)()
 end
 
 -- DECOMPILER ERROR at PC47: Confused about usage of register: R8 in 'UnsetPending'
 
+Card_StarUpWindow.ClickStarDebrisChangeBtn = function(...)
+  -- function num : 0_14 , upvalues : _ENV
+  local cardID = (CardData.ReturnCardID)()
+  local sealType = (CardData.GetCardSealType)(cardID)
+  local sealLv = (CardData.GetCardSealLv)(cardID)
+  if sealType and sealType > 0 and sealLv and sealLv >= 0 then
+    OpenWindow((WinResConfig.CardSealExchangeWindow).name, UILayer.HUD, CardData.CurrentCardInfo)
+    UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION, {type = 6})
+  else
+    OpenWindow((WinResConfig.StarDebrisChangeGrpWindow).name, UILayer.HUD, CardData.CurrentCardInfo)
+  end
+end
+
+-- DECOMPILER ERROR at PC50: Confused about usage of register: R8 in 'UnsetPending'
+
 Card_StarUpWindow.ShowAttrChangePanel = function(...)
-  -- function num : 0_14 , upvalues : _attrChangePanel, _ENV
+  -- function num : 0_15 , upvalues : _attrChangePanel, _ENV
   if _attrChangePanel == nil then
     (Card_StarUpWindow.InitAttrChangePanel)()
   end
@@ -275,17 +332,17 @@ Card_StarUpWindow.ShowAttrChangePanel = function(...)
   (Card_StarUpWindow.RefreshAttrChangePanel)()
   ;
   (GRoot.inst):AddCustomPopups(_attrChangePanel, function(...)
-    -- function num : 0_14_0 , upvalues : _attrChangePanel
+    -- function num : 0_15_0 , upvalues : _attrChangePanel
     _attrChangePanel.visible = false
   end
 )
   _attrChangePanel.visible = true
 end
 
--- DECOMPILER ERROR at PC50: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC53: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.InitAttrChangePanel = function(...)
-  -- function num : 0_15 , upvalues : _attrChangePanel, _ENV, _uis, _titleText, _attrChangeList, _teamBuffList
+  -- function num : 0_16 , upvalues : _attrChangePanel, _ENV, _uis, _titleText, _attrChangeList, _teamBuffList
   _attrChangePanel = (UIPackage.CreateObject)((WinResConfig.CardWindow).package, CardData.STAR_UPGRADE_ATTR_CHANGE_PANEL)
   ;
   (((_uis.root).parent).root):AddChild(_attrChangePanel)
@@ -300,14 +357,14 @@ Card_StarUpWindow.InitAttrChangePanel = function(...)
   _teamBuffList:SetVirtual()
 end
 
--- DECOMPILER ERROR at PC53: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC56: Confused about usage of register: R8 in 'UnsetPending'
 
 Card_StarUpWindow.RefreshAttrChangePanel = function(...)
-  -- function num : 0_16 , upvalues : _titleText, _ENV, _attrChangeList, _teamBuffList
+  -- function num : 0_17 , upvalues : _titleText, _ENV, _attrChangeList, _teamBuffList
   _titleText.text = (PUtil.get)(60000074, (CardData.CurrentCardInfo).star + 1)
   local nextData = (CardData.GetNextStarCardData)(CardData.CurrentCardInfo)
   _attrChangeList.itemRenderer = function(index, item, ...)
-    -- function num : 0_16_0 , upvalues : _ENV, nextData
+    -- function num : 0_17_0 , upvalues : _ENV, nextData
     local config = ((TableData.gTable).BaseAttributeData)[(CardData.StarUpProperty)[index + 1]]
     ;
     (item:GetChild("n1")).text = config.display_name
@@ -321,7 +378,7 @@ Card_StarUpWindow.RefreshAttrChangePanel = function(...)
   local config = ((TableData.gTable).BaseCardStarUpData)[nextData.id * 100 + nextData.star]
   local teamBuff = split(config.team_add_attr, ",")
   _teamBuffList.itemRenderer = function(index, item, ...)
-    -- function num : 0_16_1 , upvalues : _ENV, teamBuff
+    -- function num : 0_17_1 , upvalues : _ENV, teamBuff
     local data = split(teamBuff[index + 1], ":")
     local subConfig = ((TableData.gTable).BaseAttributeData)[tonumber(data[2])]
     ;

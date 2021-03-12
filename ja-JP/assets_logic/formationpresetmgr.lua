@@ -36,9 +36,9 @@ FormationPresetMgr.RecvInitData = function(msg, ...)
 
   FormationPresetData.PresetData = msg.deckSchemes
   ;
-  (FormationPresetData.RefreshPresetFC)()
-  ;
   (FormationPresetData.FindChosedPreset)((FormationPresetData.ChosedPreset).deckSchemes)
+  ;
+  (FormationPresetData.RefreshPresetFC)()
   OpenWindow((WinResConfig.FormationPresetWindow).name, UILayer.HUD)
 end
 
@@ -97,10 +97,14 @@ FormationPresetMgr.RecvPresetData = function(msg, ...)
               FormationPresetData.OriginFormation = (msg.deckScheme).deckSchemes
               ;
               (table.sort)(FormationPresetData.PresetData, FormationPresetData.Sort)
-              if UIMgr:IsWindowOpen((WinResConfig.FormationPresetWindow).name) then
-                UIMgr:SendWindowMessage((WinResConfig.FormationPresetWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH_PRESET)
-              else
+              -- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
+
+              FormationPresetData.FormationData = nil
+              UIMgr:SendWindowMessage((WinResConfig.FormationWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH)
+              if msg.type ~= FormationPresetChangeType.Alter then
+                UIMgr:SendWindowMessage((WinResConfig.FormationPresetWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH_PRESET, not UIMgr:IsWindowOpen((WinResConfig.FormationPresetWindow).name))
                 OpenWindow((WinResConfig.FormationPresetWindow).name, UILayer.HUD)
+                -- DECOMPILER ERROR: 3 unprocessed JMP targets
               end
             end
           end
