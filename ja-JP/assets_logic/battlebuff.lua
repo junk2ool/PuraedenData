@@ -1481,7 +1481,11 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
   local trigger_value_up = 0
   if type(buffConfig.trigger_value) == "string" then
     local value = split(buffConfig.trigger_value, "|")
-    trigger_value = value[1]
+    if #split(value[1], ":") > 1 then
+      trigger_value = value[1]
+    else
+      trigger_value = tonumber(value[1])
+    end
     trigger_value_up = tonumber(value[2] or 0)
   else
     do
@@ -2749,8 +2753,12 @@ BattleBuff.ContainEffectId = function(card, effectId, ...)
           if v:GetCurDefPos() == card:GetPosIndex() then
             local buffData = v:GetBuffInfo()
             local effectTable = buffData.effectTable
+            print("遍历的当前buffID", buffData.buffId)
             for _,effect in ipairs(effectTable) do
+              print("\t\t当前buff带有的effecid", effect.effectId, "目标effectid", effectId)
+              print("TYPE", type(effect.effectId), type(effectId))
               if effect.effectId == effectId then
+                print("WINWINWINWINWINWINWINWINWIN", effectId)
                 return true, v, effect
               end
             end

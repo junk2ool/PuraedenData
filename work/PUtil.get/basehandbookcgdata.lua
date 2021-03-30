@@ -192,4 +192,8 @@
 [26300801] = {id = 26300801, name = "触れぬ天籟", remark = "私以外だけど…レイナちゃんの歌声がみんなに届くようになって本当によかったです。", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 1, icon = "HandBookCGBanner:92108017", fashion_id = "92108017", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = 1614474000}
 , 
 [26300802] = {id = 26300802, name = "タネハの夢", remark = "レイナちゃんとおしゃべりできるなんて…やっと念願の夢が叶いました！", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 2, icon = "HandBookCGBanner:92108018", fashion_id = "92108018", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = 1614474000}
+, 
+[26300901] = {id = 26300901, name = "自分を変えろ！", remark = "もう、逃げるのはやめます！わたしも何かしたいです！", des = "第一章 ロック中", type = 3, chapter_id = 51410009, index = 1, icon = "HandBookCGBanner:92108019", fashion_id = "92108019", activity_sort = 9, activity_name = "勇気100％　BunnyBunny", open_time = 1617152400}
+, 
+[26300902] = {id = 26300902, name = "仲間と突き進もう", remark = "シャイちゃんは、わたしたちの仲間だよ！これからも一緒に頑張ろうね♪", des = "第一章 ロック中", type = 3, chapter_id = 51410009, index = 2, icon = "HandBookCGBanner:92108020", fashion_id = "92108020", activity_sort = 9, activity_name = "勇気100％　BunnyBunny", open_time = 1617152400}
 }
