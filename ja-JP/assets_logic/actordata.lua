@@ -38,6 +38,7 @@ ActorData.InitActorData = function(...)
   self.noviceLotteryOnceNum = 0
   self.noviceLotteryMoreNum = 0
   self.otherLottery = {}
+  self.specialFashionList = {}
 end
 
 -- DECOMPILER ERROR at PC30: Confused about usage of register: R5 in 'UnsetPending'
@@ -607,14 +608,30 @@ end
 -- DECOMPILER ERROR at PC90: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.GetFashionShow = function(...)
-  -- function num : 0_21 , upvalues : self
+  -- function num : 0_21 , upvalues : self, _ENV
   if self.baseInfo then
     local fashionShow = (self.baseInfo).fashionShow
   end
   if fashionShow and fashionShow ~= 0 then
+    local fashionData = ((TableData.gTable).BaseFashionData)[fashionShow]
+    local serverTime = (LuaTime.GetTimeStamp)()
+    local limitConfig = ((TableData.gTable).BaseCardLimitData)[fashionData.card_id]
+    if (fashionData.close_time ~= nil and fashionData.close_time <= serverTime) or limitConfig ~= nil and limitConfig.hide_time ~= nil and tonumber(limitConfig.hide_time) <= serverTime then
+      fashionShow = 14000300
+      ;
+      (CardData.SaveCurClickCardID)(11100003)
+      ;
+      (CardService.ReqSetFashion)(11100003, fashionShow)
+      ;
+      (ActorData.SetFashionShow)(fashionShow)
+      ;
+      (CardService.ReqSetMainCover)(fashionShow)
+    end
     return fashionShow
   else
-    return 14000100
+    do
+      do return 14000300 end
+    end
   end
 end
 
@@ -1243,6 +1260,103 @@ ActorData.GetTitleAllAttr = function(...)
     end
   end
   return attrData
+end
+
+-- DECOMPILER ERROR at PC241: Confused about usage of register: R5 in 'UnsetPending'
+
+ActorData.GetSpecialFashionList = function(list, ...)
+  -- function num : 0_70 , upvalues : _ENV, ipairs, pairs, self
+  ld("Card", function(...)
+    -- function num : 0_70_0
+  end
+)
+  print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", list)
+  if list ~= nil then
+    local ownList = {}
+    ownList = split((Util.GetPlayerSetting)("OWN_SPECIAL_LIST", ""), ",")
+    PrintTable(ownList, "已储存的特殊皮肤列表")
+    local finalList = {}
+    local newFashion = {}
+    for index,value in ipairs(list) do
+      local aFashionId = value
+      local curFashionIdIsExsit = false
+      for j,k in ipairs(ownList) do
+        local bFashionId = tonumber(k)
+        if aFashionId == bFashionId then
+          curFashionIdIsExsit = true
+        end
+      end
+      if not curFashionIdIsExsit then
+        (table.insert)(newFashion, aFashionId)
+      end
+    end
+    for index,value in ipairs(ownList) do
+      local bFashionId = tonumber(value)
+      ;
+      (table.insert)(finalList, bFashionId)
+    end
+    for index,value in ipairs(newFashion) do
+      (table.insert)(finalList, value)
+    end
+    local serverTime = (LuaTime.GetTimeStamp)()
+    for key,value in pairs((TableData.gTable).BaseFashionSpecialData) do
+      if value.unlockType == 1 then
+        local isExsit = false
+        for j,k in ipairs(finalList) do
+          if k == value.id then
+            isExsit = true
+          end
+        end
+        if isExsit == false and value.unclockConfig <= serverTime and serverTime <= value.closeTime then
+          (table.insert)(newFashion, value.id)
+          ;
+          (table.insert)(finalList, value.id)
+        end
+      end
+    end
+    PrintTable(newFashion, "222新增特殊皮肤")
+    for index,value in ipairs(newFashion) do
+      local newId = value
+      local specialCfg = ((TableData.gTable).BaseFashionSpecialData)[value]
+      local cardIds = split(specialCfg.cardId, ",")
+      local cardId = tonumber(cardIds[1])
+      for index,value in ipairs(cardIds) do
+        local curCardId = tonumber(value)
+        if (CardData.IsObtained)(curCardId) then
+          cardId = curCardId
+          break
+        end
+      end
+      do
+        local isNeedPushWindow = specialCfg.unlockType == 0
+        if isNeedPushWindow then
+          OpenWindow((WinResConfig.NewCardGetWindow).name, UILayer.HUD, cardId, {specialCfg.fashionId})
+        end
+        do
+          local isNeedAutoReplace = specialCfg.getInHome == 1
+          if isNeedAutoReplace then
+            (CardService.ReqSetMainCover)(tonumber(specialCfg.fashionId))
+          end
+          -- DECOMPILER ERROR at PC189: LeaveBlock: unexpected jumping out DO_STMT
+
+        end
+      end
+    end
+    local saveStr = ""
+    for index,value in ipairs(finalList) do
+      if index == 1 then
+        saveStr = saveStr .. tostring(value)
+      else
+        saveStr = saveStr .. "," .. tostring(value)
+      end
+    end
+    ;
+    (Util.SetPlayerSetting)("OWN_SPECIAL_LIST", saveStr)
+    self.specialFashionList = finalList
+  else
+    return self.specialFashionList
+  end
+  -- DECOMPILER ERROR: 8 unprocessed JMP targets
 end
 
 

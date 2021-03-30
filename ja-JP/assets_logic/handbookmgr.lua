@@ -222,11 +222,22 @@ end
 -- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.CGCopySummaryData = function(data, ...)
-  -- function num : 0_14 , upvalues : self
+  -- function num : 0_14 , upvalues : self, _ENV
   if data == nil then
-    return self.CGCopySummary
+    local summaryData = {}
+    local count = #self.CGCopySummary
+    local limitConfig = nil
+    for i = 1, count do
+      limitConfig = ((TableData.gTable).BaseCardLimitData)[((self.CGCopySummary)[i]).cardId]
+      if limitConfig == nil or limitConfig.handbook_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+        (table.insert)(summaryData, (self.CGCopySummary)[i])
+      end
+    end
+    return summaryData
   else
-    self.CGCopySummary = data
+    do
+      self.CGCopySummary = data
+    end
   end
 end
 
@@ -434,22 +445,26 @@ end
 
 HandBookMgr.GetIntimacyAddAttr = function(type1, type2, type3, ...)
   -- function num : 0_30 , upvalues : _ENV
-  local cards = (CardData.GetObtainedCardList)()
+  local cards = ((CardData.GetObtainedCardList)())
+  local limitConfig = nil
   local attrCount = {}
   for _,v in ipairs(cards) do
-    local data = (HandBookMgr.GetCardIntimacyData)(v.id, v.intimacyLv)
-    local attrStr = data.team_add_attr
-    local attr = (Util.ParseConfigStr)(attrStr)
-    for _,v2 in ipairs(attr) do
-      local addType = tonumber(v2[1])
-      local attrType = tonumber(v2[2])
-      local attrValue = tonumber(v2[3])
-      if addType == 1 then
-        local value = attrCount[attrType]
-        if value == nil then
-          attrCount[attrType] = attrValue
-        else
-          attrCount[attrType] = value + attrValue
+    limitConfig = ((TableData.gTable).BaseCardLimitData)[v.id]
+    if limitConfig == nil or limitConfig.handbook_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+      local data = (HandBookMgr.GetCardIntimacyData)(v.id, v.intimacyLv)
+      local attrStr = data.team_add_attr
+      local attr = (Util.ParseConfigStr)(attrStr)
+      for _,v2 in ipairs(attr) do
+        local addType = tonumber(v2[1])
+        local attrType = tonumber(v2[2])
+        local attrValue = tonumber(v2[3])
+        if addType == 1 then
+          local value = attrCount[attrType]
+          if value == nil then
+            attrCount[attrType] = attrValue
+          else
+            attrCount[attrType] = value + attrValue
+          end
         end
       end
     end

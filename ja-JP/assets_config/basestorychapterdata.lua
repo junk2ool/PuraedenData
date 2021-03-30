@@ -3016,6 +3016,62 @@ BaseStoryChapterData = {
 [75900892] = {id = 75900892, scene_path = "92000011", dialogue_ids = "75708918", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070805), times = 0}
 , 
 [75900801] = {id = 75900801, scene_path = "92000036", dialogue_ids = "75708001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070805), times = 0}
+, 
+[75900911] = {id = 75900911, scene_path = "92000012", dialogue_ids = "75709101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070901), times = 0}
+, 
+[75900912] = {id = 75900912, scene_path = "92000012", dialogue_ids = "75709111", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070901), times = 0}
+, 
+[75900921] = {id = 75900921, scene_path = "92000011", dialogue_ids = "75709201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070901), times = 0}
+, 
+[75900922] = {id = 75900922, scene_path = "92000013", dialogue_ids = "75709213", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070901), times = 0}
+, 
+[75900931] = {id = 75900931, scene_path = "92000012", dialogue_ids = "75709301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070902), times = 0}
+, 
+[75900941] = {id = 75900941, scene_path = "92000012", dialogue_ids = "75709401", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070902), times = 0}
+, 
+[75900942] = {id = 75900942, scene_path = "92000012", dialogue_ids = "75709428", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070902), times = 0}
+, 
+[75900943] = {id = 75900943, scene_path = "92000012", dialogue_ids = "75709429", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070902), times = 0}
+, 
+[75900944] = {id = 75900944, scene_path = "92000013", dialogue_ids = "75709430", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070902), times = 0}
+, 
+[75900945] = {id = 75900945, scene_path = "92000008", dialogue_ids = "75709431", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070902), times = 0}
+, 
+[75900946] = {id = 75900946, scene_path = "92000012", dialogue_ids = "75709432", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070902), times = 0}
+, 
+[75900951] = {id = 75900951, scene_path = "92000015", dialogue_ids = "75709501", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070903), times = 0}
+, 
+[75900952] = {id = 75900952, scene_path = "92000008", dialogue_ids = "75709515", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070903), times = 0}
+, 
+[75900953] = {id = 75900953, scene_path = "92000008", dialogue_ids = "75709528", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070903), times = 0}
+, 
+[75900961] = {id = 75900961, scene_path = "92000015", dialogue_ids = "75709601", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070903), times = 0}
+, 
+[75900962] = {id = 75900962, scene_path = "92000029", dialogue_ids = "75709609", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070903), times = 0}
+, 
+[75900963] = {id = 75900963, scene_path = "92000029", dialogue_ids = "75709620", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070903), times = 0}
+, 
+[75900971] = {id = 75900971, scene_path = "92000012", dialogue_ids = "75709701", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070904), times = 0}
+, 
+[75900972] = {id = 75900972, scene_path = "92000052", dialogue_ids = "75709709", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070904), times = 0}
+, 
+[75900973] = {id = 75900973, scene_path = "92000052", dialogue_ids = "75709713", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070904), times = 0}
+, 
+[75900974] = {id = 75900974, scene_path = "92000052", dialogue_ids = "75709716", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070904), times = 0}
+, 
+[75900981] = {id = 75900981, scene_path = "92000052", dialogue_ids = "75709801", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070904), times = 0}
+, 
+[75900982] = {id = 75900982, scene_path = "92000052", dialogue_ids = "75709819", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070904), times = 0}
+, 
+[75900983] = {id = 75900983, scene_path = "92000052", dialogue_ids = "75709821", admission_type = "1:1", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070904), times = 0}
+, 
+[75900991] = {id = 75900991, scene_path = "92000053", dialogue_ids = "75709901", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070905), times = 0}
+, 
+[75900992] = {id = 75900992, scene_path = "92000042", dialogue_ids = "75709908", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070905), times = 0}
+, 
+[75900993] = {id = 75900993, scene_path = "92000053", dialogue_ids = "75709913", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070905), times = 0}
+, 
+[75900994] = {id = 75900994, scene_path = "92000009", dialogue_ids = "75709916", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = (PUtil.get)(86070905), times = 0}
 }
 return BaseStoryChapterData
 

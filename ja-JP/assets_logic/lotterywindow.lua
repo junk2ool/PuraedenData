@@ -510,75 +510,10 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
     ;
     ((uis.LotteryPanelGrp).BgImage).visible = true
   elseif msgId == windowMsgEnum.E_MSG_ONCLOSE_NEWGET then
-    if cardIndex < #cardResults then
-      cardIndex = cardIndex + 1
-      ;
-      (LotteryWindow.RunCardResultEffect)(cardIndex)
-    else
-      loge("已到最后一个 直接显示结果")
-      ;
-      (LotteryWindow_Activity.HideOrShowFxMain)(true)
-      ;
-      (LotteryWindow_Activity2.HideOrShowFxMain)(true)
-      ;
-      (LotteryWindow_Activity3.HideOrShowFxMain)(true)
-      ;
-      (LotteryWindow_Activity4.HideOrShowFxMain)(true)
-      if lotteryType == LotteryType.Card then
-        (LotteryWindow_Card.ShowResult)(drawResult)
-      elseif lotteryType == LotteryType.Fresh then
-        (LotteryWindow_Fresh.ShowResult)(drawResult)
-        local isHaveNum = (LotteryData.CheckFreshHaveNum)()
-        if not isHaveNum then
-          (LotteryWindow.ClassicInit)()
-        end
-      elseif lotteryType == LotteryType.Coupon then
-        (LotteryWindow_Coupon.ShowResult)(drawResult)
-      elseif lotteryType == LotteryType.ShilianBiChu then
-        (LotteryWindow_Sure.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.HuoDongUp then
-        (LotteryWindow_Activity.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.HuoDongUp2 then
-        (LotteryWindow_Activity2.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.HuoDongUp3 then
-        (LotteryWindow_Activity3.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.HuoDongUp4 then
-        (LotteryWindow_Activity4.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.YouChangHuoDongUp then
-        (LotteryWindow_YouChangActivity.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.YouChangHuoDongUp2 then
-        (LotteryWindow_YouChangActivity2.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.YouChangHuoDongUp3 then
-        (LotteryWindow_YouChangActivity3.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      elseif lotteryType == LotteryType.YouChangHuoDongUp4 then
-        (LotteryWindow_YouChangActivity4.ShowResult)(drawResult)
-        ;
-        (LotteryWindow.ClassicInit)()
-      end
-      -- DECOMPILER ERROR at PC573: Confused about usage of register: R3 in 'UnsetPending'
-
-      ;
-      ((uis.GechaCardEffectGrp).root).visible = false
-    end
+    (LotteryWindow.DealNextCardProcess)()
   elseif msgId == windowMsgEnum.E_MSG_ONCLICKCARDGET_SKIPBTN then
     isAutoPlay = true
-    -- DECOMPILER ERROR at PC582: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC406: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.GechaCardEffectGrp).SkipBtn).visible = false
@@ -587,11 +522,105 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
   elseif msgId == windowMsgEnum.E_MSG_CLOSEEXCHANGE then
     (LotteryService.ReqLotteryInit)(lotteryType)
   end
-  -- DECOMPILER ERROR: 46 unprocessed JMP targets
+  -- DECOMPILER ERROR: 33 unprocessed JMP targets
+end
+
+LotteryWindow.DealNextCardProcess = function(...)
+  -- function num : 0_9 , upvalues : cardIndex, cardResults, LotteryWindow, _ENV, lotteryType, drawResult, uis
+  if cardIndex < #cardResults then
+    cardIndex = cardIndex + 1
+    ;
+    (LotteryWindow.RunCardResultEffect)(cardIndex)
+  else
+    loge("已到最后一个 直接显示结果")
+    ;
+    (LotteryWindow_Activity.HideOrShowFxMain)(true)
+    ;
+    (LotteryWindow_Activity2.HideOrShowFxMain)(true)
+    ;
+    (LotteryWindow_Activity3.HideOrShowFxMain)(true)
+    ;
+    (LotteryWindow_Activity4.HideOrShowFxMain)(true)
+    if lotteryType == LotteryType.Card then
+      (LotteryWindow_Card.ShowResult)(drawResult)
+    else
+      if lotteryType == LotteryType.Fresh then
+        (LotteryWindow_Fresh.ShowResult)(drawResult)
+        local isHaveNum = (LotteryData.CheckFreshHaveNum)()
+        if not isHaveNum then
+          (LotteryWindow.ClassicInit)()
+        end
+      else
+        do
+          if lotteryType == LotteryType.Coupon then
+            (LotteryWindow_Coupon.ShowResult)(drawResult)
+          else
+            if lotteryType == LotteryType.ShilianBiChu then
+              (LotteryWindow_Sure.ShowResult)(drawResult)
+              ;
+              (LotteryWindow.ClassicInit)()
+            else
+              if lotteryType == LotteryType.HuoDongUp then
+                (LotteryWindow_Activity.ShowResult)(drawResult)
+                ;
+                (LotteryWindow.ClassicInit)()
+              else
+                if lotteryType == LotteryType.HuoDongUp2 then
+                  (LotteryWindow_Activity2.ShowResult)(drawResult)
+                  ;
+                  (LotteryWindow.ClassicInit)()
+                else
+                  if lotteryType == LotteryType.HuoDongUp3 then
+                    (LotteryWindow_Activity3.ShowResult)(drawResult)
+                    ;
+                    (LotteryWindow.ClassicInit)()
+                  else
+                    if lotteryType == LotteryType.HuoDongUp4 then
+                      (LotteryWindow_Activity4.ShowResult)(drawResult)
+                      ;
+                      (LotteryWindow.ClassicInit)()
+                    else
+                      if lotteryType == LotteryType.YouChangHuoDongUp then
+                        (LotteryWindow_YouChangActivity.ShowResult)(drawResult)
+                        ;
+                        (LotteryWindow.ClassicInit)()
+                      else
+                        if lotteryType == LotteryType.YouChangHuoDongUp2 then
+                          (LotteryWindow_YouChangActivity2.ShowResult)(drawResult)
+                          ;
+                          (LotteryWindow.ClassicInit)()
+                        else
+                          if lotteryType == LotteryType.YouChangHuoDongUp3 then
+                            (LotteryWindow_YouChangActivity3.ShowResult)(drawResult)
+                            ;
+                            (LotteryWindow.ClassicInit)()
+                          else
+                            if lotteryType == LotteryType.YouChangHuoDongUp4 then
+                              (LotteryWindow_YouChangActivity4.ShowResult)(drawResult)
+                              ;
+                              (LotteryWindow.ClassicInit)()
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+          -- DECOMPILER ERROR at PC177: Confused about usage of register: R0 in 'UnsetPending'
+
+          ;
+          ((uis.GechaCardEffectGrp).root).visible = false
+        end
+      end
+    end
+  end
 end
 
 LotteryWindow.ShowCardProcess = function(para, isShowFirst, ...)
-  -- function num : 0_9 , upvalues : _ENV, cardResults, uis, LotteryWindow, cardIndex
+  -- function num : 0_10 , upvalues : _ENV, cardResults, uis, LotteryWindow, cardIndex
   for index,value in ipairs((para.data).goods) do
     if value.type == PropType.CARD then
       local cardData = ((TableData.gTable).BaseCardData)[value.id]
@@ -614,7 +643,7 @@ LotteryWindow.ShowCardProcess = function(para, isShowFirst, ...)
 end
 
 LotteryWindow.RunCardResultEffect = function(index, ...)
-  -- function num : 0_10 , upvalues : cardResults, lotteryType, _ENV, drawResult, uis, isAutoPlay, UI_LOTTERY_REWARD_END, UI_LOTTERY_REWARD_TEXT, video, LotteryWindow
+  -- function num : 0_11 , upvalues : cardResults, lotteryType, _ENV, drawResult, uis, isAutoPlay, LotteryWindow, UI_LOTTERY_REWARD_END, UI_LOTTERY_REWARD_TEXT, video
   if #cardResults < 1 then
     if lotteryType == LotteryType.Card then
       (LotteryWindow_Card.ShowResult)(drawResult)
@@ -634,29 +663,33 @@ LotteryWindow.RunCardResultEffect = function(index, ...)
     isAutoPlay = false
     return 
   end
+  local cardInfo = cardResults[index]
+  if isAutoPlay and cardInfo.isHave then
+    (LotteryWindow.DealNextCardProcess)()
+    return 
+  end
   ;
   (AudioManager.DisposeCurAudioAndBubble)()
   if UI_LOTTERY_REWARD_END ~= nil then
     (ResHelper.DestroyGameObject)(UI_LOTTERY_REWARD_END)
     UI_LOTTERY_REWARD_END = nil
   end
-  local cardInfo = cardResults[index]
-  -- DECOMPILER ERROR at PC61: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC70: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.GechaCardEffectGrp).SkipBtn).visible = (not isAutoPlay and cardInfo.isHave)
   local isShouldPlay = cardInfo.isHave == false or isAutoPlay == false
-  -- DECOMPILER ERROR at PC79: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC88: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   ((uis.StartWord).root).visible = not isShouldPlay or cardInfo.intelligence > 1
   if isShouldPlay and cardInfo.intelligence > 1 then
     local cardExcelData = ((TableData.gTable).BaseCardData)[cardInfo.id]
     do
-      -- DECOMPILER ERROR at PC94: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC103: Confused about usage of register: R4 in 'UnsetPending'
 
       ((uis.StartWord).c1Ctr).selectedIndex = cardExcelData.intelligence - 1
-      -- DECOMPILER ERROR at PC101: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC110: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       ((uis.StartWord).LinesLoader).url = (Util.GetItemUrl)(cardExcelData.lottery_dialogue)
@@ -670,12 +703,12 @@ LotteryWindow.RunCardResultEffect = function(index, ...)
         video:PreLoadVideo(cardExcelData.lottery_show)
       end
       local fairyGuiTime = (SimpleTimer.setTimeout)(3, function(...)
-    -- function num : 0_10_0 , upvalues : _ENV, uis, UI_LOTTERY_REWARD_END, LotteryWindow, index
+    -- function num : 0_11_0 , upvalues : _ENV, uis, UI_LOTTERY_REWARD_END, LotteryWindow, index
     local holder, effect_Txt = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERY_REWARD_END, false, (uis.StartWord).root, (Vector2(((uis.StartWord).root).width * 0.5, ((uis.StartWord).root).height * 0.5)), nil, 1, true)
     UI_LOTTERY_REWARD_END = effect_Txt
     ;
     (SimpleTimer.setTimeout)(0.5, function(...)
-      -- function num : 0_10_0_0 , upvalues : LotteryWindow, index
+      -- function num : 0_11_0_0 , upvalues : LotteryWindow, index
       (LotteryWindow.PlayTimeLineOrCameraMove)(index)
     end
 )
@@ -686,7 +719,7 @@ LotteryWindow.RunCardResultEffect = function(index, ...)
       (((uis.GechaCardEffectGrp).EffcetLoader).onClick):ClearCallFunc()
       ;
       (((uis.GechaCardEffectGrp).EffcetLoader).onClick):Add(function(...)
-    -- function num : 0_10_1 , upvalues : cardInfo, trans, fairyGuiTime, _ENV
+    -- function num : 0_11_1 , upvalues : cardInfo, trans, fairyGuiTime, _ENV
     if cardInfo.isHave then
       trans:Stop(true, true)
       if fairyGuiTime ~= nil then
@@ -702,7 +735,7 @@ LotteryWindow.RunCardResultEffect = function(index, ...)
       (((uis.GechaCardEffectGrp).SkipBtn).onClick):ClearCallFunc()
       ;
       (((uis.GechaCardEffectGrp).SkipBtn).onClick):Add(function(...)
-    -- function num : 0_10_2 , upvalues : isAutoPlay, uis, cardInfo, trans, fairyGuiTime, _ENV
+    -- function num : 0_11_2 , upvalues : isAutoPlay, uis, cardInfo, trans, fairyGuiTime, _ENV
     isAutoPlay = true
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -727,7 +760,7 @@ LotteryWindow.RunCardResultEffect = function(index, ...)
 end
 
 LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
-  -- function num : 0_11 , upvalues : cardResults, _ENV, isAutoPlay, video, uis, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END
+  -- function num : 0_12 , upvalues : cardResults, _ENV, isAutoPlay, video, uis, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END
   local isTheLast = #cardResults == index
   local isTheFirst = index == 1
   local cardInfo = cardResults[index]
@@ -735,17 +768,17 @@ LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
   if cardExcelData.lottery_show then
     if cardInfo.isHave == false or isAutoPlay == false then
       video:PlayVideo(uis.VideoLoader, cardExcelData.lottery_show, function(...)
-    -- function num : 0_11_0 , upvalues : _ENV, cardInfo, isAutoPlay, isTheLast, isTheFirst, uis
-    OpenWindow("CardGetShowWindow", UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
-    -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
+    -- function num : 0_12_0 , upvalues : _ENV, cardInfo, isAutoPlay, isTheLast, isTheFirst, uis
+    OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
+    -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     (uis.VideoLoader).visible = false
   end
 , function(...)
-    -- function num : 0_11_1 , upvalues : _ENV, uis, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END
+    -- function num : 0_12_1 , upvalues : _ENV, uis, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END
     (SimpleTimer.setTimeout)(0.05, function(...)
-      -- function num : 0_11_1_0 , upvalues : uis, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END
+      -- function num : 0_12_1_0 , upvalues : uis, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END
       -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
       ((uis.StartWord).root).visible = false
@@ -763,7 +796,7 @@ LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
       (((uis.GechaCardEffectGrp).EffcetLoader).onClick):ClearCallFunc()
       ;
       (((uis.GechaCardEffectGrp).EffcetLoader).onClick):Add(function(...)
-    -- function num : 0_11_2 , upvalues : cardInfo, video, uis, _ENV
+    -- function num : 0_12_2 , upvalues : cardInfo, video, uis, _ENV
     if cardInfo.isHave then
       video:StopVideo(uis.VideoLoader, true)
     else
@@ -775,7 +808,7 @@ LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
       (((uis.GechaCardEffectGrp).SkipBtn).onClick):ClearCallFunc()
       ;
       (((uis.GechaCardEffectGrp).SkipBtn).onClick):Add(function(...)
-    -- function num : 0_11_3 , upvalues : isAutoPlay, uis, cardInfo, video, _ENV
+    -- function num : 0_12_3 , upvalues : isAutoPlay, uis, cardInfo, video, _ENV
     isAutoPlay = true
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -790,12 +823,12 @@ LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
 )
     else
       print("已获得 并且开启自动跳过timeline")
-      OpenWindow("CardGetShowWindow", UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
+      OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
     end
   else
     local moveConfig = ((TableData.gTable).BaseLotteryCameraShowData)[cardExcelData.lottery_camera_id]
-    OpenWindow("CardGetShowWindow", UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
-    -- DECOMPILER ERROR at PC94: Confused about usage of register: R6 in 'UnsetPending'
+    OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
+    -- DECOMPILER ERROR at PC98: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     ((uis.StartWord).root).visible = false
@@ -804,7 +837,7 @@ LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
 end
 
 LotteryWindow.BubbleSortGoods = function(tab, ...)
-  -- function num : 0_12
+  -- function num : 0_13
   local length = #tab
   for i = 1, #tab do
     for j = i + 1, #tab do
@@ -817,7 +850,7 @@ LotteryWindow.BubbleSortGoods = function(tab, ...)
 end
 
 LotteryWindow.SetAssetType = function(...)
-  -- function num : 0_13 , upvalues : _ENV, lotteryType, uis
+  -- function num : 0_14 , upvalues : _ENV, lotteryType, uis
   local moneyTypes = {}
   local excelData = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
   local assetIds = split(excelData.asset_ids, ":")

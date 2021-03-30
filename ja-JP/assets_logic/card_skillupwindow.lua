@@ -74,6 +74,7 @@ Card_SkillUpWindow.RefreshWindow = function(isInit, ...)
     skillsData = {}
     skills = {}
     local isHave = {isHave1 = false, isHave2 = false, isHave3 = false, isHave4 = false, isHave5 = false, isHave6 = false, isHave7 = false, isHave8 = false, isHave9 = false}
+    local limitConfig = nil
     for i,v in pairs(skillsData) do
       if v.id == cardData.unique_skill_id then
         isHave.isHave1 = true
@@ -85,8 +86,11 @@ Card_SkillUpWindow.RefreshWindow = function(isInit, ...)
       end
       for j = 1, 7 do
         if v.id == cardData["passiveSkillId" .. j] then
-          isHave["isHave" .. tostring(2 + j)] = true
-          skills[2 + j] = {id = cardData["passiveSkillId" .. j], value = v.value}
+          limitConfig = ((TableData.gTable).BaseCardLimitData)[cardData.id]
+          if limitConfig == nil or limitConfig.passiveSkill_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+            isHave["isHave" .. tostring(2 + j)] = true
+            skills[2 + j] = {id = cardData["passiveSkillId" .. j], value = v.value}
+          end
         end
       end
     end
@@ -98,7 +102,10 @@ Card_SkillUpWindow.RefreshWindow = function(isInit, ...)
     end
     for j = 1, 7 do
       if isHave["isHave" .. tostring(2 + j)] == false then
-        skills[2 + j] = {id = cardData["passiveSkillId" .. j], value = 0}
+        limitConfig = ((TableData.gTable).BaseCardLimitData)[cardData.id]
+        if limitConfig == nil or limitConfig.passiveSkill_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+          skills[2 + j] = {id = cardData["passiveSkillId" .. j], value = 0}
+        end
       end
     end
     ;

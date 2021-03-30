@@ -9,7 +9,7 @@ BaseGuideStepData = {
 , 
 [5051] = {id = 5051, full_screen = "0", req_severs = 0, window_name = 1010, ctrl_id = 101003, guide_eff_offset = "75:90", finger_state = 2, alpha = 0.45}
 , 
-[1] = {id = 1, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100101, bubble_text = "リーダー、突破してみよう！", bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
+[1] = {id = 1, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100101, bubble_text = (PUtil.get)(86720001), bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
 , 
 [2] = {id = 2, full_screen = "0", req_severs = 0, window_name = 2001, ctrl_id = 200101, guide_eff_offset = "0:10", finger_state = 2, alpha = 0.45}
 , 
@@ -27,13 +27,13 @@ BaseGuideStepData = {
 , 
 [24] = {id = 24, full_screen = "0", req_severs = 0, window_name = 1001, alpha = 0.7, plotplay_Id = 75010005}
 , 
-[25] = {id = 25, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, bubble_text = "リーダー、さっそく冒険に出発しましょう！", bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
+[25] = {id = 25, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, bubble_text = (PUtil.get)(86720002), bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
 , 
 [26] = {id = 26, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300101, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
-[27] = {id = 27, full_screen = "0", req_severs = 0, window_name = 3010, ctrl_id = 301003, bubble_text = "let\'s go", bubble_pos = "124:55", guide_eff_offset = "90:108", finger_state = 2, alpha = 0.45}
+[27] = {id = 27, full_screen = "0", req_severs = 0, window_name = 3010, ctrl_id = 301003, bubble_text = (PUtil.get)(86720003), bubble_pos = "124:55", guide_eff_offset = "90:108", finger_state = 2, alpha = 0.45}
 , 
-[51] = {id = 51, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100101, bubble_text = "リーダー、進級してみよう", bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
+[51] = {id = 51, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100101, bubble_text = (PUtil.get)(86720004), bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
 , 
 [52] = {id = 52, full_screen = "0", req_severs = 0, window_name = 2001, ctrl_id = 200101, guide_eff_offset = "0:10", finger_state = 2, alpha = 0.45}
 , 
@@ -43,11 +43,11 @@ BaseGuideStepData = {
 , 
 [55] = {id = 55, full_screen = "0", req_severs = 0, alpha = 0.7, is_stop = 1, plotplay_Id = 75010006}
 , 
-[56] = {id = 56, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, bubble_text = "リーダー、さっそく冒険に出発しましょう！", bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
+[56] = {id = 56, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, bubble_text = (PUtil.get)(86720005), bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
 , 
 [57] = {id = 57, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300101, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
-[101] = {id = 101, full_screen = "0", req_severs = 1, window_name = 1001, ctrl_id = 100109, bubble_text = "一緒に見に行きましょう！", bubble_pos = "-332:-167", guide_eff_offset = "0:0", finger_state = 4, alpha = 0.45, qc_state = "hi"}
+[101] = {id = 101, full_screen = "0", req_severs = 1, window_name = 1001, ctrl_id = 100109, bubble_text = (PUtil.get)(86720006), bubble_pos = "-332:-167", guide_eff_offset = "0:0", finger_state = 4, alpha = 0.45, qc_state = "hi"}
 , 
 [102] = {id = 102, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010007}
 , 
@@ -57,11 +57,11 @@ BaseGuideStepData = {
 , 
 [105] = {id = 105, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010008}
 , 
-[106] = {id = 106, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, bubble_text = "リーダー、さっそく冒険に出発しましょう！", bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
+[106] = {id = 106, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, bubble_text = (PUtil.get)(86720007), bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
 , 
 [107] = {id = 107, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300101, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
-[151] = {id = 151, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100101, bubble_text = "リーダー、覚醒してみよう", bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
+[151] = {id = 151, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100101, bubble_text = (PUtil.get)(86720008), bubble_pos = "40:-120", guide_eff_offset = "0:0", finger_state = 1, alpha = 0.45, qc_state = "hi"}
 , 
 [152] = {id = 152, full_screen = "0", req_severs = 0, window_name = 2001, ctrl_id = 200102, guide_eff_offset = "0:10", finger_state = 2, alpha = 0.45}
 , 
@@ -81,7 +81,7 @@ BaseGuideStepData = {
 , 
 [201] = {id = 201, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45, qc_state = "hi"}
 , 
-[202] = {id = 202, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300102, bubble_text = "リーダー、こっちこっち！", bubble_pos = "47:-60", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
+[202] = {id = 202, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300102, bubble_text = (PUtil.get)(86720009), bubble_pos = "47:-60", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
 [203] = {id = 203, full_screen = "0", req_severs = 0, window_name = 3020, ctrl_id = 302001, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
@@ -97,7 +97,7 @@ BaseGuideStepData = {
 , 
 [301] = {id = 301, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45, qc_state = "hi"}
 , 
-[302] = {id = 302, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300107, bubble_text = "リーダー、こっちこっち！", bubble_pos = "-270:-20", guide_eff_offset = "-20:10", finger_state = 3, alpha = 0.45}
+[302] = {id = 302, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300107, bubble_text = (PUtil.get)(86720009), bubble_pos = "-270:-20", guide_eff_offset = "-20:10", finger_state = 3, alpha = 0.45}
 , 
 [303] = {id = 303, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010013}
 , 
@@ -105,7 +105,7 @@ BaseGuideStepData = {
 , 
 [352] = {id = 352, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010014}
 , 
-[353] = {id = 353, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300104, bubble_text = "リーダー、こっちこっち！", bubble_pos = "39:-55", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
+[353] = {id = 353, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300104, bubble_text = (PUtil.get)(86720009), bubble_pos = "39:-55", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
 [401] = {id = 401, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100105, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45, qc_state = "hi"}
 , 
@@ -117,7 +117,7 @@ BaseGuideStepData = {
 , 
 [501] = {id = 501, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45, qc_state = "hi"}
 , 
-[502] = {id = 502, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300103, bubble_text = "リーダー、こっちこっち！", bubble_pos = "39:-55", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
+[502] = {id = 502, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300103, bubble_text = (PUtil.get)(86720009), bubble_pos = "39:-55", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
 [503] = {id = 503, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010017}
 , 
@@ -139,7 +139,7 @@ BaseGuideStepData = {
 , 
 [557] = {id = 557, full_screen = "0", req_severs = 0, window_name = 2101, ctrl_id = 210112, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
-[558] = {id = 558, full_screen = "0", req_severs = 0, window_name = 2101, ctrl_id = 210102, bubble_text = "リーダー、鑑定に行こう！", bubble_pos = "-210:25", guide_eff_offset = "75:45", finger_state = 2, alpha = 0.45}
+[558] = {id = 558, full_screen = "0", req_severs = 0, window_name = 2101, ctrl_id = 210102, bubble_text = (PUtil.get)(86720010), bubble_pos = "-210:25", guide_eff_offset = "75:45", finger_state = 2, alpha = 0.45}
 , 
 [559] = {id = 559, full_screen = "0", req_severs = 0, window_name = 2101, ctrl_id = 210113, guide_eff_offset = "60:60", finger_state = 2, alpha = 0.45}
 , 
@@ -151,7 +151,7 @@ BaseGuideStepData = {
 , 
 [563] = {id = 563, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45, qc_state = "hi"}
 , 
-[564] = {id = 564, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300105, bubble_text = "リーダー、こっちこっち！", bubble_pos = "39:-55", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
+[564] = {id = 564, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300105, bubble_text = (PUtil.get)(86720009), bubble_pos = "39:-55", guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45}
 , 
 [565] = {id = 565, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010022}
 , 
@@ -161,7 +161,7 @@ BaseGuideStepData = {
 , 
 [601] = {id = 601, full_screen = "0", req_severs = 0, window_name = 1001, ctrl_id = 100104, guide_eff_offset = "0:0", finger_state = 2, alpha = 0.45, qc_state = "hi"}
 , 
-[602] = {id = 602, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300106, bubble_text = "リーダー、こっちこっち！", bubble_pos = "-270:-20", guide_eff_offset = "-20:10", finger_state = 3, alpha = 0.45}
+[602] = {id = 602, full_screen = "0", req_severs = 1, window_name = 3001, ctrl_id = 300106, bubble_text = (PUtil.get)(86720009), bubble_pos = "-270:-20", guide_eff_offset = "-20:10", finger_state = 3, alpha = 0.45}
 , 
 [603] = {id = 603, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010023}
 , 
@@ -169,4 +169,5 @@ BaseGuideStepData = {
 , 
 [611] = {id = 611, full_screen = "0", req_severs = 0, alpha = 0.7, plotplay_Id = 75010024}
 }
+return BaseGuideStepData
 

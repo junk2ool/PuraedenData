@@ -169,13 +169,12 @@ CardWindow.SetRoleScrollView = function(...)
       UIMgr:SendWindowMessage((WinResConfig.CardWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SEAL_INFORMATION, {type = 4})
     end
   end
-, (CardData.GetCardIndex)(), uis.LeftBtn, uis.RightBtn, (WinResConfig.CardWindow).name)
+, (CardData.GetCardIndex)(), uis.LeftBtn, uis.RightBtn, (WinResConfig.CardWindow).name, false, CardData.GetCardListWithLimit)
 end
 
 CardWindow.RefreshCardList = function(...)
   -- function num : 0_5 , upvalues : concatCards, _ENV
-  concatCards = {}
-  concatCards = (CardData.GetObtainedCardList)()
+  concatCards = (CardData.GetCardListWithLimit)()
   ;
   (CardMgr.RefreshCardList)(#concatCards)
 end

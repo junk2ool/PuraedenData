@@ -72,7 +72,7 @@ end
 -- DECOMPILER ERROR at PC48: Confused about usage of register: R40 in 'UnsetPending'
 
 Card_LevelUpWindow.LevelUpGroupRefresh = function(isInit, ...)
-  -- function num : 0_1 , upvalues : scrollTimer, lvlGrp, uis, levelTxt, expBar, fakeCardData, _ENV, characType, isExpFull, MAX_LEVEL, expTxt, battleNumTxt, enableEffect
+  -- function num : 0_1 , upvalues : scrollTimer, lvlGrp, uis, levelTxt, expBar, fakeCardData, _ENV, MAX_LEVEL, characType, isExpFull, expTxt, battleNumTxt, enableEffect
   if scrollTimer ~= nil then
     scrollTimer:Comp()
     scrollTimer = nil
@@ -84,6 +84,7 @@ Card_LevelUpWindow.LevelUpGroupRefresh = function(isInit, ...)
   local cardID = (CardData.ReturnCardID)()
   fakeCardData = (Util.Copy)((CardData.GetCardData)(cardID))
   local cData = {url = (CardMgr.GetHeadIconSquareUrl)(fakeCardData), level = -1, stage = -1, star = fakeCardData.star, id = fakeCardData.id}
+  MAX_LEVEL = (CardData.GetRoleMaxLevel)(cardID)
   ;
   (Util.SetSquareCardInfo)(lvlGrp.HeadFrame, cData, true)
   local curExp = (math.floor)(fakeCardData.exp)

@@ -377,12 +377,16 @@ end
 RedDotMgr.SpecialIntimacyList = function(...)
   -- function num : 0_12 , upvalues : HandBook_Intimacy, _ENV
   HandBook_Intimacy = {}
-  local cardList = (CardData.GetObtainedCardList)()
+  local cardList = ((CardData.GetObtainedCardList)())
+  local limitConfig = nil
   for _,v in ipairs(cardList) do
-    local redDot = (Util.GetPlayerSetting)(PlayerPrefsKeyName.INTIMACY_RED_DOT .. v.id, "")
-    redDot = split(redDot, ":")
-    if redDot and #redDot > 1 and (tonumber(redDot[1]) == 1 or tonumber(redDot[2]) == 1) then
-      (table.insert)(HandBook_Intimacy, v.id)
+    limitConfig = ((TableData.gTable).BaseCardLimitData)[v.id]
+    if limitConfig == nil or limitConfig.handbook_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+      local redDot = (Util.GetPlayerSetting)(PlayerPrefsKeyName.INTIMACY_RED_DOT .. v.id, "")
+      redDot = split(redDot, ":")
+      if redDot and #redDot > 1 and (tonumber(redDot[1]) == 1 or tonumber(redDot[2]) == 1) then
+        (table.insert)(HandBook_Intimacy, v.id)
+      end
     end
   end
   local isOpen = (FunctionControlMgr.GetFunctionState)(ControlID.HandBook_Intimacy)

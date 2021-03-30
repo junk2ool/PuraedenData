@@ -277,14 +277,23 @@ end
 AudioManager.RandomGetOneAudioId = function(str, ...)
   -- function num : 0_6 , upvalues : _ENV, currentBubbleId
   local ids = split(str, ":")
-  local id = 0
+  local id = tonumber(ids[1])
   while 1 do
-    local value = (math.random)(1, #ids)
-    id = tonumber(ids[value])
-    if id ~= currentBubbleId then
-      return id
+    if #ids > 1 then
+      do
+        local value = (math.random)(1, #ids)
+        id = tonumber(ids[value])
+        if id ~= currentBubbleId then
+          return id
+        end
+        -- DECOMPILER ERROR at PC23: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+        -- DECOMPILER ERROR at PC23: LeaveBlock: unexpected jumping out IF_STMT
+
+      end
     end
   end
+  do return id end
 end
 
 AudioManager.DisposeCurAudioAndBubble = function(isSaveAudio, ...)

@@ -173,13 +173,13 @@ FxManager.SetParticleSpeed = function(self, speed, ptcs, ...)
   end
 end
 
-FxManager.SetShutterEffect = function(self, obj, image, rotate, ...)
+FxManager.SetShutterEffect = function(self, obj, image, rotate, isNeedRset, ...)
   -- function num : 0_9 , upvalues : _ENV, shutterEffect
   if (Util.IsNil)(obj) then
     return 
   end
   local materials = (obj:GetComponent(typeof((CS.UnityEngine).MeshRenderer))).materials
-  -- DECOMPILER ERROR at PC18: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC18: Confused about usage of register: R6 in 'UnsetPending'
 
   if image then
     (image.graphics).skipResetMat = true
@@ -203,15 +203,15 @@ FxManager.SetShutterEffect = function(self, obj, image, rotate, ...)
       shutterEffect.layer = 5
       ;
       ((shutterEffect:GetComponent(typeof((CS.UnityEngine).MeshRenderer))).material):SetFloat("_Cutoff", 1.1)
-      -- DECOMPILER ERROR at PC92: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC92: Confused about usage of register: R9 in 'UnsetPending'
 
       ;
       (shutterEffect.transform).parent = (obj.transform).parent
-      -- DECOMPILER ERROR at PC98: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC98: Confused about usage of register: R9 in 'UnsetPending'
 
       ;
       (shutterEffect.transform).localPosition = ((CS.UnityEngine).Vector3).zero
-      -- DECOMPILER ERROR at PC107: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC107: Confused about usage of register: R9 in 'UnsetPending'
 
       ;
       (shutterEffect.transform).localEulerAngles = ((CS.UnityEngine).Vector3)(0, 0, -28)
@@ -222,6 +222,17 @@ FxManager.SetShutterEffect = function(self, obj, image, rotate, ...)
         (obj:GetComponent(typeof((CS.UnityEngine).MeshRenderer))).materials = materials
       end
       shutterEffect:SetActive(true)
+      if isNeedRset then
+        (SimpleTimer.setTimeout)(0.45, function(...)
+    -- function num : 0_9_0 , upvalues : count, materials
+    for i = 0, count do
+      local mat = materials[i]
+      mat:SetFloat("_StencilComp", 8)
+      mat:SetFloat("_Stencil", 0)
+    end
+  end
+)
+      end
     end
   end
 end

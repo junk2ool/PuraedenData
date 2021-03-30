@@ -67,7 +67,7 @@ end
 -- DECOMPILER ERROR at PC35: Confused about usage of register: R27 in 'UnsetPending'
 
 Card_StageUpWindow.RefreshWindow = function(...)
-  -- function num : 0_1 , upvalues : cardData, isCardLevelEnable, TouchScreenBtn, _ENV, battleNumTxt, headFrame
+  -- function num : 0_1 , upvalues : cardData, isCardLevelEnable, TouchScreenBtn, _ENV, MAX_STAGE, battleNumTxt, headFrame
   cardData = {}
   isCardLevelEnable = false
   TouchScreenBtn.visible = false
@@ -75,6 +75,7 @@ Card_StageUpWindow.RefreshWindow = function(...)
   cardData = (CardData.GetCardData)(cardID)
   ;
   (Card_StageUpWindow.CheckLevelIsLocked)()
+  MAX_STAGE = (CardData.GetRoleMaxStage)(cardID)
   battleNumTxt.text = cardData.fc
   local cData = {id = cardData.id, url = (CardMgr.GetHeadIconSquareUrl)(cardData), level = -1, stage = cardData.quality, star = cardData.star}
   if cardData.quality == 0 then

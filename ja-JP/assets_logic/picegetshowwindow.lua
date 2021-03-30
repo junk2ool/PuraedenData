@@ -183,7 +183,7 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
   ;
   (Util.RecycleUIModel)(uis.CardLoader)
   local obj = (Util.CreateShowModel)(tonumber(fashionId), uis.CardLoader, true, false, true)
-  FxManager:SetShutterEffect(obj, (uis.CardLoader).image)
+  FxManager:SetShutterEffect(obj, (uis.CardLoader).image, nil, true)
   for i = 1, 3 do
     do
       local btn = (uis.root):GetChild("Cothes_" .. tostring(i) .. "_Btn")
@@ -202,7 +202,7 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
   end
   local trans = (uis.root):GetTransition("show")
   trans.invalidateBatchingEveryFrame = true
-  -- DECOMPILER ERROR at PC94: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC96: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   ((uis.StartWord).root).visible = false
@@ -217,7 +217,7 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
     clickEnable = true
   end
 )
-  -- DECOMPILER ERROR at PC118: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC120: Confused about usage of register: R5 in 'UnsetPending'
 
   if picesNum > 0 then
     (uis.c1Ctr).selectedIndex = 1
@@ -234,28 +234,28 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
         end
       end
     end
-    -- DECOMPILER ERROR at PC140: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC142: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
     ((uis.Repeat).c1Ctr).selectedIndex = piceIndex
-    -- DECOMPILER ERROR at PC144: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC146: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
     (((uis.RepeatTips).Repeat).c1Ctr).selectedIndex = piceIndex
     local imgUrl = nil
     local piecesId = tonumber((split(excelData.recruit_cost, ":"))[2])
     imgUrl = (Util.GetItemUrl)((((TableData.gTable).BasePropData)[piecesId]).icon)
-    -- DECOMPILER ERROR at PC165: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC167: Confused about usage of register: R9 in 'UnsetPending'
 
     ;
     (((uis.RepeatTips).Repeat).IconLoader).url = imgUrl
-    -- DECOMPILER ERROR at PC168: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC170: Confused about usage of register: R9 in 'UnsetPending'
 
     ;
     ((uis.Repeat).IconLoader).url = imgUrl
   else
     do
-      -- DECOMPILER ERROR at PC171: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC173: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = 0
@@ -343,9 +343,9 @@ PiceGetShowWindow.ChangeFashion = function(index, fashionIds, excelData, ...)
         do
           local obj = (Util.CreateShowModel)(fashionId, uis.CardLoader, true, false, true)
           if fashionData.type ~= 3 then
-            FxManager:SetShutterEffect(obj, (uis.CardLoader).image)
+            FxManager:SetShutterEffect(obj, (uis.CardLoader).image, nil, true)
           end
-          -- DECOMPILER ERROR at PC92: Confused about usage of register: R5 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC94: Confused about usage of register: R5 in 'UnsetPending'
 
           if fashionData.unlock_remark then
             ((uis.PicExplain).WordTxt).text = (PUtil.get)(186, fashionData.unlock_remark)

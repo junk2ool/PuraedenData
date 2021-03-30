@@ -59,9 +59,9 @@
 , 
 [81050030] = {id = 81050030, remark = "克制减免%", name = "restraint_sub_rate", display_name = "克制减免", fc_base = 70000, equip_show = 0, type = 0}
 , 
-[81050031] = {id = 81050031, remark = "增伤", name = "ext_damage", display_name = "攻撃UP", fc_base = 2520, equip_show = 0, type = 0}
+[81050031] = {id = 81050031, remark = "增伤", name = "ext_damage", display_name = "攻撃強化", fc_base = 2520, equip_show = 0, type = 0}
 , 
-[81050032] = {id = 81050032, remark = "免伤", name = "ext_damage_sub", display_name = "ダメージ減", fc_base = 2520, equip_show = 0, type = 0}
+[81050032] = {id = 81050032, remark = "免伤", name = "ext_damage_sub", display_name = "防御強化", fc_base = 2520, equip_show = 0, type = 0}
 , 
 [81050033] = {id = 81050033, remark = "治疗强度", name = "treat_add", display_name = "治癒力上昇", fc_base = 0, equip_show = 0, type = 0}
 , 

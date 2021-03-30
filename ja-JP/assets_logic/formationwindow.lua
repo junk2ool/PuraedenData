@@ -189,7 +189,11 @@ FormationWindow.Refresh = function(init, ...)
     end
   else
     do
-      cardListDate = (CardData.GetObtainedCardList)()
+      if mFormationType == FormationType.Edit then
+        cardListDate = (CardData.GetPreEditFormationCards)()
+      else
+        cardListDate = (CardData.GetFormationCards)()
+      end
       saveInitCard = cardListDate
       if mFormationType == FormationType.GuildBattle then
         local mList = mFormationData.myselfList
@@ -268,7 +272,7 @@ FormationWindow.Refresh = function(init, ...)
                   (FormationWindow.InitInfoGrpBtn)()
                   ;
                   (FormationWindow.InitGuildBattle)(mFormationData)
-                  -- DECOMPILER ERROR at PC411: Confused about usage of register: R1 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC421: Confused about usage of register: R1 in 'UnsetPending'
 
                   ;
                   ((uis.HeadListGrp).BattleStartBtn).text = (mFormationData.BtnData).btnTxt
@@ -360,11 +364,11 @@ FormationWindow.Refresh = function(init, ...)
                       (FormationWindow.InitBG)(mFormationData.battleType, mFormationData.stageId)
                     end
                   end
-                  -- DECOMPILER ERROR at PC484: Confused about usage of register: R3 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC494: Confused about usage of register: R3 in 'UnsetPending'
 
                   if mFormationType == FormationType.Edit then
                     (uis.TeamName).touchable = false
-                    -- DECOMPILER ERROR at PC488: Confused about usage of register: R3 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC498: Confused about usage of register: R3 in 'UnsetPending'
 
                     ;
                     ((uis.TeamName).NameTxt).text = mFormationData.presetName
@@ -1182,7 +1186,7 @@ FormationWindow.GetRelicUpList = function(...)
   -- function num : 0_32 , upvalues : _ENV, relicData, FormationWindow
   local mUpList = {}
   local mDownList = {}
-  local cardList = (CardData.GetObtainedCardList)()
+  local cardList = (CardData.GetFormationCards)()
   local cantList = {}
   if relicData then
     cantList = relicData.cantFight

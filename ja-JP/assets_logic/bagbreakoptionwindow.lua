@@ -334,7 +334,9 @@ BagBreakOptionWindow.SetCardList = function(...)
   -- function num : 0_11 , upvalues : cardListData, _ENV, MAX_STAGE, BagBreakOptionWindow, uis
   cardListData = {}
   local cardList = (CardData.GetObtainedCardList)()
+  ld("Card")
   for _,v in ipairs(cardList) do
+    MAX_STAGE = (CardData.GetRoleMaxStage)(v.id)
     if v.quality < MAX_STAGE then
       local mData = {}
       local StageData = (CardMgr.GetBaseCardQualityData)(v.quality + 1, v.id)
@@ -369,7 +371,7 @@ BagBreakOptionWindow.SetCardList = function(...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  -- DECOMPILER ERROR at PC78: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.CardList).numItems = #cardListData

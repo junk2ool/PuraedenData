@@ -241,6 +241,15 @@ Card_StarUpWindow.RefreshCostInfo = function(...)
 
     ;
     (_uis.StarNumberBar).value = have.haveNum / (CardData.CurrentUpgradeStarCost).pieces * 100
+  else
+    do
+      local cardID = (CardData.ReturnCardID)()
+      local sealType = (CardData.GetCardSealType)(cardID)
+      local isOpen = (FunctionControlMgr.GetFunctionState)(ControlID.Card_Seal)
+      if sealType == nil or isOpen == false or sealType <= 0 then
+        ((_uis.root):GetController("c1")).selectedIndex = 1
+      end
+    end
   end
 end
 

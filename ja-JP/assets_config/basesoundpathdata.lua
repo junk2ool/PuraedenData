@@ -5104,6 +5104,40 @@ BaseSoundPathData = {
 [230250401] = {id = 230250401, play_frame = 13, path = "sfx_maotouying_pt_wh_42fr", bank = "maotouying"}
 , 
 [230250402] = {id = 230250402, play_frame = 22, path = "sfx_maotouying_pt_tx_43fr", bank = "maotouying"}
+, 
+[230270101] = {id = 230270101, play_frame = 13, path = "sfx_beijitu_big_tx_13fr", bank = "beijitu"}
+, 
+[230270102] = {id = 230270102, play_frame = 117, path = "sfx_beijitu_big_tx_117fr", bank = "beijitu"}
+, 
+[230270103] = {id = 230270103, play_frame = 168, path = "sfx_beijitu_big_tx_168fr", bank = "beijitu"}
+, 
+[230270104] = {id = 230270104, play_frame = 185, path = "sfx_beijitu_big_tx_185fr", bank = "beijitu"}
+, 
+[230270105] = {id = 230270105, play_frame = 249, path = "sfx_beijitu_big_tx_249fr", bank = "beijitu"}
+, 
+[230270106] = {id = 230270106, play_frame = 290, path = "sfx_beijitu_big_tx_290fr", bank = "beijitu"}
+, 
+[230270107] = {id = 230270107, play_frame = 322, path = "sfx_beijitu_big_tx_322fr", bank = "beijitu"}
+, 
+[230270108] = {id = 230270108, play_frame = 398, path = "sfx_beijitu_big_tx_398fr", bank = "beijitu"}
+, 
+[230270109] = {id = 230270109, play_frame = 451, path = "sfx_beijitu_big_tx_451fr", bank = "beijitu"}
+, 
+[230270201] = {id = 230270201, play_frame = 24, path = "sfx_beijitu_pt_wh_24fr", bank = "beijitu"}
+, 
+[230270202] = {id = 230270202, play_frame = 44, path = "sfx_beijitu_pt_tx_44fr", bank = "beijitu"}
+, 
+[230270301] = {id = 230270301, play_frame = 17, path = "sfx_beijitu_small_wh_17fr", bank = "beijitu"}
+, 
+[230270302] = {id = 230270302, play_frame = 62, path = "sfx_beijitu_small_wh_62fr", bank = "beijitu"}
+, 
+[230270303] = {id = 230270303, play_frame = 64, path = "sfx_beijitu_small_tx_64fr", bank = "beijitu"}
+, 
+[230270304] = {id = 230270304, play_frame = 76, path = "sfx_beijitu_small_tx_76fr", bank = "beijitu"}
+, 
+[230270305] = {id = 230270305, play_frame = 88, path = "sfx_beijitu_small_tx_88fr", bank = "beijitu"}
+, 
+[230270306] = {id = 230270306, play_frame = 101, path = "sfx_beijitu_small_tx_101fr", bank = "beijitu"}
 }
 return BaseSoundPathData
 

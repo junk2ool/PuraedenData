@@ -24,6 +24,8 @@ ActorService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResActivityLottery, ActorService.OnResActivityLottery)
   ;
   (Net.AddListener)((Proto.MsgName).ResHeadData, ActorService.OnResHeadData)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResFashionList, ActorService.OnResFashionList)
 end
 
 local needInit = false
@@ -527,6 +529,22 @@ end
 ActorService.OnResHeadData = function(msg, ...)
   -- function num : 0_25 , upvalues : _ENV
   OpenWindow((WinResConfig.HeadChoiceWindow).name, UILayer.HUD, msg.headIcon, msg.headFrame)
+end
+
+-- DECOMPILER ERROR at PC84: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.ReqFashionList = function(...)
+  -- function num : 0_26 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqFashionList, m, (Proto.MsgName).ResFashionList)
+end
+
+-- DECOMPILER ERROR at PC87: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.OnResFashionList = function(msg, ...)
+  -- function num : 0_27 , upvalues : _ENV
+  (ActorData.GetSpecialFashionList)(msg.fashions)
 end
 
 ;

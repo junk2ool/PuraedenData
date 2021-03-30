@@ -624,7 +624,7 @@ ArenaWindow = {"BattleCharacterHead"}
 , 
 CardCommentWindow = {"CharacterHeadBanner"}
 , 
-CardChoiceWindow = {"CharacterHeadBanner"}
+CardChoiceWindow = {"CharacterHeadBanner", "CardFashionName"}
 , 
 AdventureGameWindow = {"BattleCharacterHead"}
 , 

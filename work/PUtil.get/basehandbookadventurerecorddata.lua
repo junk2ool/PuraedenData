@@ -474,4 +474,14 @@
 [52500812] = {id = 52500812, name = "思いが届く", remark = "思いが届く", icon = "HandBookBanner:Activity_08_04", story_id = "75900871:75900881", sort = 4}
 , 
 [52500815] = {id = 52500815, name = "未来に向かって", remark = "未来に向かって", icon = "HandBookBanner:Activity_08_05", story_id = "75900891:75900892:75900801", sort = 5}
+, 
+[52500903] = {id = 52500903, name = "謎のストーカー", remark = "謎のストーカー", icon = "HandBookBanner:Activity_09_1", story_id = "75900911:75900912:75900921:75900922", sort = 1}
+, 
+[52500906] = {id = 52500906, name = "弟子入り", remark = "弟子入り", icon = "HandBookBanner:Activity_09_2", story_id = "75900931:75900941:75900942:75900943:75900944:75900945:75900946", sort = 2}
+, 
+[52500909] = {id = 52500909, name = "自己への挑戦", remark = "自己への挑戦", icon = "HandBookBanner:Activity_09_3", story_id = "75900951:75900952:75900953:75900961:75900962:75900963", sort = 3}
+, 
+[52500912] = {id = 52500912, name = "学園ピンチ大混戦", remark = "学園ピンチ大混戦", icon = "HandBookBanner:Activity_09_4", story_id = "75900971:75900972:75900973:75900974:75900981:75900982:75900983", sort = 4}
+, 
+[52500915] = {id = 52500915, name = "乗り越える勇気", remark = "乗り越える勇気", icon = "HandBookBanner:Activity_09_5", story_id = "75900991:75900992:75900993:75900994", sort = 5}
 }

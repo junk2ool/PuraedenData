@@ -253,15 +253,13 @@ BattleMgr.InitCurAtkInfo = function(...)
     if forceFunc == nil then
       (BattleData.AddAutoSkill)()
       local skill_Add = false
-      local curSkill = (Util.clone)((BattleData.GetSkillAdditional)())
+      local curSkill = (BattleData.PushSkillAdditional)()
       if curSkill == nil then
         curSkill = (BattleData.GetCurSkillAtk)()
       else
         PrintTable(curSkill, " 找到奥义追加必杀技： ")
         skill_Add = true
       end
-      ;
-      (BattleData.ResetSkillAdditional)()
       if curSkill then
         PrintTable(curSkill, " 找到必杀技： ")
         local cardUid = curSkill.cardUid

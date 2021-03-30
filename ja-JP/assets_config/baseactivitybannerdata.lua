@@ -7,7 +7,7 @@ BaseActivityBannerData = {
 , 
 [34100003] = {id = 34100003, icon = "HomeAd:HomeAd_037", goto_id = 100108, time_type = 0, begin_time = "1615751999", end_time = "1617202800", sort = 1}
 , 
-[34100004] = {id = 34100004, icon = "HomeAd:HomeAd_033", goto_id = 100108, time_type = 0, begin_time = "1612054800", end_time = "1613314800", sort = 2}
+[34100004] = {id = 34100004, icon = "HomeAd:HomeAd_039", goto_id = 100108, time_type = 0, begin_time = "1617155999", end_time = "1618412400", sort = 2}
 , 
 [34100011] = {id = 34100011, icon = "HomeAd:HomeAd_008", goto_id = 300103, time_type = 0, begin_time = "1614974399", end_time = "1615147199", sort = 6}
 , 
@@ -18,7 +18,6 @@ BaseActivityBannerData = {
 [34100014] = {id = 34100014, icon = "HomeAd:HomeAd_008", goto_id = 300103, time_type = 0, begin_time = "1613764799", end_time = "1613937599", sort = 9}
 , 
 [34100021] = {id = 34100021, icon = "HomeAd:HomeAd_009", goto_id = 102006, time_type = 0, begin_time = "1595447999", end_time = "1917806399", sort = 10}
-, 
-[34100031] = {id = 34100031, icon = "HomeAd:HomeAd_100", time_type = 0, begin_time = "1614455999", end_time = "1615042800", sort = 5}
 }
+return BaseActivityBannerData
 

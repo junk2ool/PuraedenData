@@ -21,6 +21,7 @@ GetCard_SkillGetGrpUis = function(ui, ...)
   uis.Decorate_07_Image = ui:GetChild("Decorate_07_Image")
   uis.TouchScreenBtn = ui:GetChild("TouchScreenBtn")
   uis.StageUpPropertyGrp = ui:GetChild("StageUpPropertyGrp")
+  uis.c1Ctr = ui:GetController("c1")
   uis.root = ui
   return uis
 end

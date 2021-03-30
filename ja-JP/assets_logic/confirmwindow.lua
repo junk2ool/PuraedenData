@@ -71,7 +71,7 @@ ConfirmWindow.InitText = function(...)
   -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
 
   if (Util.StringIsNullOrEmpty)(_args.Title) then
-    (uis.titilenameTxt).text = ((TableData.gTable).BaseClientWordData)[60000003]
+    (uis.titilenameTxt).text = (PUtil.get)(60000003)
   else
     -- DECOMPILER ERROR at PC18: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -79,13 +79,13 @@ ConfirmWindow.InitText = function(...)
     (uis.titilenameTxt).text = _args.Title
   end
   if (Util.StringIsNullOrEmpty)(_args.ConfirmText) then
-    ((uis.ChallengeBtn):GetChild("title")).text = ((TableData.gTable).BaseClientWordData)[60000004]
+    ((uis.ChallengeBtn):GetChild("title")).text = (PUtil.get)(60000004)
   else
     ;
     ((uis.ChallengeBtn):GetChild("title")).text = _args.ConfirmText
   end
   if (Util.StringIsNullOrEmpty)(_args.CancelText) then
-    ((uis.CancleBtn):GetChild("title")).text = ((TableData.gTable).BaseClientWordData)[60000005]
+    ((uis.CancleBtn):GetChild("title")).text = (PUtil.get)(60000005)
   else
     ;
     ((uis.CancleBtn):GetChild("title")).text = _args.CancelText

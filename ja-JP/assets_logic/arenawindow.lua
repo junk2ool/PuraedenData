@@ -77,7 +77,7 @@ ArenaWindow.InitTopMenu = function(...)
   -- function num : 0_2 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.ArenaWindow).name
-  m.Tip = ((TableData.gTable).BaseClientWordData)[60000006]
+  m.Tip = (PUtil.get)(60000006)
   m.model = uis.AssetStripGrp
   m.closeToWindow = (WinResConfig.AdventureWindow).name
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.SHOP_TOKEN}

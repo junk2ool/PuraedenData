@@ -218,6 +218,8 @@ end
 CardService.ResSetFashion = function(msg, ...)
   -- function num : 0_14 , upvalues : _ENV
   print("请求更换立绘  消息回调", msg.cardId, msg.fashionId)
+  ;
+  (CardData.SaveFashionID)(msg.cardId, msg.fashionId)
   UIMgr:SendWindowMessage("CardChoiceWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_SETFASHIONID, {cardId = msg.cardId, fashionId = msg.fashionId})
   UIMgr:SendWindowMessage("NewCardGetWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_SETFASHIONID, {cardId = msg.cardId, fashionId = msg.fashionId})
 end
@@ -260,8 +262,12 @@ CardService.OnResSetMainCover = function(msg, ...)
   if msg.fashionId ~= nil then
     (ActorData.SetFashionShow)(msg.fashionId)
   end
-  UIMgr:SendWindowMessage("CardChoiceWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION, {})
-  UIMgr:SendWindowMessage("HomeWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION, {})
+  if UIMgr:IsWindowOpen((WinResConfig.CardChoiceWindow).name) then
+    UIMgr:SendWindowMessage((WinResConfig.CardChoiceWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION, {})
+  else
+    UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_BG, {})
+  end
+  UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION, {})
 end
 
 -- DECOMPILER ERROR at PC61: Confused about usage of register: R0 in 'UnsetPending'

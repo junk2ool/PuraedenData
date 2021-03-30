@@ -23,7 +23,7 @@ PlayerBusinessCardWindow.OnInit = function(bridgeObj, ...)
   argTable = bridgeObj.argTable
   contentPane:Center()
   uis = GetActorInfo_PlayerCardUis(contentPane)
-  local cards = (CardData.GetObtainedCardList)()
+  local cards = (CardData.GetCardListWithLimit)()
   local fashionShow = (ActorData.GetFashionShow)()
   local fashionConfig = ((TableData.gTable).BaseFashionData)[fashionShow]
   local selectedCardId = fashionConfig.card_id
@@ -176,7 +176,7 @@ PlayerBusinessCardWindow.InitCardList = function(...)
       (PlayerBusinessCardWindow.UpdateBg)(fashionId)
     end
   end
-, curClickedCardIndex, (uis.ListChoice).LeftBtn, (uis.ListChoice).RightBtn, (WinResConfig.PlayerBusinessCardWindow).name, true)
+, curClickedCardIndex, (uis.ListChoice).LeftBtn, (uis.ListChoice).RightBtn, (WinResConfig.PlayerBusinessCardWindow).name, true, CardData.GetCardListWithLimit)
 end
 
 PlayerBusinessCardWindow.ChangeFashion = function(index, ...)
@@ -564,7 +564,7 @@ PlayerBusinessCardWindow.InitPlayerAttr = function(...)
   ;
   (((((uis.FormShrink).Form).ContentListA).DBtn):GetChild("TitleTxt")).text = (PUtil.get)(277)
   ;
-  (((((uis.FormShrink).Form).ContentListA).DBtn):GetChild("WordTxt")).text = #(CardData.GetObtainedCardList)()
+  (((((uis.FormShrink).Form).ContentListA).DBtn):GetChild("WordTxt")).text = #(CardData.GetCardListWithLimit)()
   ;
   (((((uis.FormShrink).Form).ContentListA).DBtn).onClick):Set(function(...)
     -- function num : 0_11_4 , upvalues : visibleAttr
@@ -660,7 +660,7 @@ PlayerBusinessCardWindow.CreateAttr = function(isSave, ...)
               ;
               (item:GetChild("TitleTxt")).text = (PUtil.get)(277)
               ;
-              (item:GetChild("WordTxt")).text = #(CardData.GetObtainedCardList)()
+              (item:GetChild("WordTxt")).text = #(CardData.GetCardListWithLimit)()
               ;
               (item:GetChild("n9")).visible = false
               ;

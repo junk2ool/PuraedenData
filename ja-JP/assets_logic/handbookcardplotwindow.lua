@@ -290,8 +290,10 @@ HandBookCardPlotWindow.GetNoGainAndCloseCardList = function(...)
   local data = (TableData.gTable).BaseCardData
   local closeList = {}
   local noGainList = {}
+  local limitConfig = nil
   for _,v in pairs(data) do
-    if v.is_display_in_uncall == 1 then
+    limitConfig = ((TableData.gTable).BaseCardLimitData)[v.id]
+    if v.is_display_in_uncall == 1 and (limitConfig == nil or limitConfig.handbook_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time))) then
       local configTime = v.open_time
       local isSatisfy = true
       do
@@ -300,7 +302,7 @@ HandBookCardPlotWindow.GetNoGainAndCloseCardList = function(...)
             local serverTime = (LuaTime.GetTimeStamp)()
             isSatisfy = tonumber(configTime) <= tonumber(serverTime)
           end
-          -- DECOMPILER ERROR at PC47: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC69: Unhandled construct in 'MakeBoolean' P1
 
           if isSatisfy and openType == (HandBookMgr.CardPlotWinType).Intimacy and not (CardData.GetCardData)(v.id) then
             (table.insert)(noGainList, v)
@@ -310,11 +312,11 @@ HandBookCardPlotWindow.GetNoGainAndCloseCardList = function(...)
           end
           ;
           (table.insert)(closeList, v)
-          -- DECOMPILER ERROR at PC69: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC91: LeaveBlock: unexpected jumping out DO_STMT
 
-          -- DECOMPILER ERROR at PC69: LeaveBlock: unexpected jumping out IF_THEN_STMT
+          -- DECOMPILER ERROR at PC91: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-          -- DECOMPILER ERROR at PC69: LeaveBlock: unexpected jumping out IF_STMT
+          -- DECOMPILER ERROR at PC91: LeaveBlock: unexpected jumping out IF_STMT
 
         end
       end

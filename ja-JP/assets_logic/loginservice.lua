@@ -1,8 +1,9 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
+local luaType = type
 LoginService = {}
 local MsgWaiterObj = require("MsgWaiter")
--- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC8: Confused about usage of register: R2 in 'UnsetPending'
 
 LoginService.Init = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -24,7 +25,7 @@ local IsGuest = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC11: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC12: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.ReqLogin = function(isReconnect, ...)
   -- function num : 0_2 , upvalues : _ENV, IsGuest
@@ -72,7 +73,7 @@ LoginService.ReqLogin = function(isReconnect, ...)
   end
 end
 
--- DECOMPILER ERROR at PC14: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC15: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.ReqLogout = function(autoLogin, ...)
   -- function num : 0_3 , upvalues : _ENV, MsgWaiterObj
@@ -120,7 +121,7 @@ LoginService.ReqLogout = function(autoLogin, ...)
   OpenWindow("LoginWindow", UILayer.HUD)
 end
 
--- DECOMPILER ERROR at PC17: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC18: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.OnResLogin = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV, IsGuest
@@ -149,7 +150,9 @@ LoginService.OnResLogin = function(msg, ...)
     log("登陆成功")
     ;
     (ActorService.ReqDetailInfo)()
-    -- DECOMPILER ERROR at PC39: Confused about usage of register: R8 in 'UnsetPending'
+    ;
+    (ActorService.ReqFashionList)()
+    -- DECOMPILER ERROR at PC42: Confused about usage of register: R8 in 'UnsetPending'
 
     LoginMgr.curAccountKey = msg.key
     local SettingOpen = tonumber((Util.GetPlayerSetting)(PlayerPrefsKeyName.SCROLL_INFO, "0"))
@@ -171,11 +174,11 @@ LoginService.OnResLogin = function(msg, ...)
           ;
           (LoginMgr.ReturnToLoginWindow)()
         else
-          -- DECOMPILER ERROR at PC96: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC99: Confused about usage of register: R8 in 'UnsetPending'
 
           if result == (ProtoEnum.E_LOGIN_RESULT).REGISTER then
             LoginMgr.curServerId = serverId
-            -- DECOMPILER ERROR at PC98: Confused about usage of register: R8 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC101: Confused about usage of register: R8 in 'UnsetPending'
 
             LoginMgr.curPlatformServerId = platformServerId
             do
@@ -214,7 +217,7 @@ LoginService.OnResLogin = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC20: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC21: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.ReqRegister = function(name, ...)
   -- function num : 0_5 , upvalues : _ENV, IsGuest
@@ -246,7 +249,7 @@ LoginService.ReqRegister = function(name, ...)
   (Net.Send)((Proto.MsgName).ReqRegister, t, (Proto.MsgName).ResLogin)
 end
 
--- DECOMPILER ERROR at PC23: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC24: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.OnResRegister = function(msg, ...)
   -- function num : 0_6 , upvalues : _ENV
@@ -257,10 +260,10 @@ LoginService.OnResRegister = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC26: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC27: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.OnResAlert = function(msg, ...)
-  -- function num : 0_7 , upvalues : _ENV, MsgWaiterObj
+  -- function num : 0_7 , upvalues : _ENV, MsgWaiterObj, luaType
   PrintTable(msg, "", "收到提示消息:")
   local type = msg.type
   local msgId = msg.msgId
@@ -279,8 +282,12 @@ LoginService.OnResAlert = function(msg, ...)
   local needQuitBattle = false
   if not (Util.StringIsNullOrEmpty)(content) then
     local str = ((TableData.gTable).BaseAlertData)[content]
-    if str and str.name then
-      content = str.name
+    local name = "name"
+    if Game.gameVersion ~= nil then
+      name = "name_" .. Game.gameVersion
+    end
+    if str and str[name] then
+      content = str[name]
       if not (Util.StringIsNullOrEmpty)(param) then
         local id = tonumber(param)
         if id then
@@ -355,7 +362,11 @@ LoginService.OnResAlert = function(msg, ...)
                         local noticeContent = nil
                         if remark and not (Util.StringIsNullOrEmpty)(remark) then
                           local cons = split(content, ",")
-                          noticeContent = (string.format)(remark, cons[1], cons[2], cons[3], cons[4], cons[5], cons[6])
+                          if luaType(remark) == "number" then
+                            noticeContent = (PUtil.get)(remark, cons[1], cons[2], cons[3], cons[4], cons[5], cons[6])
+                          else
+                            noticeContent = (string.format)(remark, cons[1], cons[2], cons[3], cons[4], cons[5], cons[6])
+                          end
                         else
                           do
                             noticeContent = content
@@ -385,7 +396,7 @@ LoginService.OnResAlert = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC29: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.CheckIsShowNotice = function(str, ...)
   -- function num : 0_8 , upvalues : _ENV
@@ -410,7 +421,7 @@ LoginService.CheckIsShowNotice = function(str, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC32: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.OnReqSendChar = function(msg, ...)
   -- function num : 0_9 , upvalues : _ENV
@@ -420,7 +431,7 @@ LoginService.OnReqSendChar = function(msg, ...)
   (Net.Send)((Proto.MsgName).ReqChat, m)
 end
 
--- DECOMPILER ERROR at PC35: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.ReqUpgradeAccount = function(...)
   -- function num : 0_10 , upvalues : _ENV
@@ -429,7 +440,7 @@ LoginService.ReqUpgradeAccount = function(...)
   (Net.Send)((Proto.MsgName).ReqUpgradeAccount, m)
 end
 
--- DECOMPILER ERROR at PC38: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.ReqGetBindReward = function(...)
   -- function num : 0_11 , upvalues : _ENV
@@ -438,7 +449,7 @@ LoginService.ReqGetBindReward = function(...)
   (Net.Send)((Proto.MsgName).ReqGetBindReward, m)
 end
 
--- DECOMPILER ERROR at PC41: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R3 in 'UnsetPending'
 
 LoginService.OnResGetBindReward = function(...)
   -- function num : 0_12 , upvalues : _ENV

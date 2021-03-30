@@ -26,6 +26,8 @@ BasePlayerTitleData = {
 [29000012] = {id = 29000012, name = (PUtil.get)(84111112), goods_icon = "ItemIcon:29000012", type = 1, quality = 3, remark = (PUtil.get)(84111012), des = (PUtil.get)(84111212), icon = "Title:29000012", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
 [29000013] = {id = 29000013, name = (PUtil.get)(84111113), goods_icon = "ItemIcon:29000013", type = 1, quality = 3, remark = (PUtil.get)(84111013), des = (PUtil.get)(84111213), icon = "Title:29000013", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1}
+, 
+[29000014] = {id = 29000014, name = (PUtil.get)(84111114), goods_icon = "ItemIcon:29000014", type = 1, quality = 3, remark = (PUtil.get)(84111014), des = (PUtil.get)(84111214), icon = "Title:29000014", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1}
 }
 return BasePlayerTitleData
 

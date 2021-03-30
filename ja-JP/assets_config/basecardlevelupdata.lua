@@ -592,5 +592,8 @@ BaseCardLevelUpData = {
 [72204073] = {id = 72204073, type = 4, level = 73, next_exp = 50540, add_attr = "2:81050002:249000,2:81050003:249000,2:81050004:249000"}
 , 
 [72204074] = {id = 72204074, type = 4, level = 74, next_exp = 50680, add_attr = "2:81050002:252000,2:81050003:252000,2:81050004:252000"}
+, 
+[72205001] = {id = 72205001, type = 5, level = 1, next_exp = 40, add_attr = "0"}
 }
+return BaseCardLevelUpData
 

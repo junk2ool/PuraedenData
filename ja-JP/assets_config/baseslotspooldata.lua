@@ -227,7 +227,7 @@ BaseSlotsPoolData = {
 , 
 [24402508] = {id = 24402508, type = 15, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 5, bottom_num = 0}
 , 
-[24403101] = {id = 24403101, type = 16, reward = "5:29000013:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403101] = {id = 24403101, type = 16, reward = "5:29000014:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403102] = {id = 24403102, type = 16, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
@@ -241,7 +241,7 @@ BaseSlotsPoolData = {
 , 
 [24403107] = {id = 24403107, type = 16, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24403201] = {id = 24403201, type = 17, reward = "1:21122213:30", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403201] = {id = 24403201, type = 17, reward = "1:21122103:40", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403202] = {id = 24403202, type = 17, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
@@ -255,7 +255,7 @@ BaseSlotsPoolData = {
 , 
 [24403207] = {id = 24403207, type = 17, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24403301] = {id = 24403301, type = 18, reward = "1:21122105:50", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403301] = {id = 24403301, type = 18, reward = "1:21123003:30", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403302] = {id = 24403302, type = 18, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
@@ -269,7 +269,7 @@ BaseSlotsPoolData = {
 , 
 [24403307] = {id = 24403307, type = 18, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24403401] = {id = 24403401, type = 19, reward = "1:21122213:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403401] = {id = 24403401, type = 19, reward = "1:21122103:40", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403402] = {id = 24403402, type = 19, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 

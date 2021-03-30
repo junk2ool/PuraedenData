@@ -501,7 +501,7 @@ EquipmentWindow.Init = function(...)
             (EquipmentWindow.ChoseEquipByType)(EquiptPartsType.Weapon)
             ;
             (EquipmentWindow.RefreshChangePage)()
-            local cards = (CardData.GetObtainedCardList)()
+            local cards = (EquiptData.GetCards)()
             local count = #cards
             for i = 1, count do
               if (cards[i]).id == argTable.Arg then
@@ -588,7 +588,7 @@ EquipmentWindow.InitRoleList = function(...)
     -- function num : 0_16_0 , upvalues : EquipmentWindow
     (EquipmentWindow.ChoseRole)(index, data, true)
   end
-, _currentRoleIndex, uis.LeftBtn, uis.RightBtn, (WinResConfig.EquipmentWindow).name)
+, _currentRoleIndex, uis.LeftBtn, uis.RightBtn, (WinResConfig.EquipmentWindow).name, false, EquiptData.GetCards)
   ;
   (((uis.CardHeadList).scrollPane).onScroll):Add(function(...)
     -- function num : 0_16_1 , upvalues : _ENV
@@ -610,7 +610,7 @@ EquipmentWindow.ChoseRole = function(index, roleData, manualChose, ...)
   else
     -- DECOMPILER ERROR at PC15: Confused about usage of register: R3 in 'UnsetPending'
 
-    EquiptData.CurrentRoleData = ((CardData.GetObtainedCardList)())[index]
+    EquiptData.CurrentRoleData = ((EquiptData.GetCards)())[index]
   end
   if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Preset then
     (EquipmentWindow.RefreshChoesdRolePreset)()
@@ -3443,9 +3443,9 @@ EquipmentWindow.HandleMessage = function(msgId, para, ...)
                                 else
                                   ;
                                   (CardMgr.RefreshCardList)()
-                                  -- DECOMPILER ERROR at PC300: Confused about usage of register: R2 in 'UnsetPending'
+                                  -- DECOMPILER ERROR at PC301: Confused about usage of register: R2 in 'UnsetPending'
 
-                                  EquiptData.CurrentRoleData = ((CardData.GetObtainedCardList)())[_currentRoleIndex]
+                                  EquiptData.CurrentRoleData = (((EquiptData.GetCards)())())[_currentRoleIndex]
                                   ;
                                   (EquiptMgr.ReInitializePreset)()
                                   if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex ~= EquipmentSecondaryPageType.Preset then

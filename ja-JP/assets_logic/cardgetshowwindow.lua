@@ -251,7 +251,7 @@ CardGetShowWindow.RefreshDetailInfo = function(...)
       local holder = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_LOTTERY_SPINE_PARTICLE, false, false)
       holder:SetXY(uiMap.width / 2, uiMap.height / 2)
       uiMap:AddChild(holder)
-      if isAutoClose and isHave then
+      if isAutoClose then
         (SimpleTimer.setTimeout)(1.5, function(...)
     -- function num : 0_2_1 , upvalues : _ENV
     UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)

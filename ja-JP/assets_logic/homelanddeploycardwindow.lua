@@ -78,10 +78,19 @@ HomelandDeployCardWindow.OnShown = function(...)
 end
 
 HomelandDeployCardWindow.Init = function(...)
-  -- function num : 0_8 , upvalues : HomelandDeployCardWindow, _allCards, _ENV, uis
+  -- function num : 0_8 , upvalues : HomelandDeployCardWindow, _ENV, _allCards, uis
   (HomelandDeployCardWindow.RefreshLeftPanel)()
-  _allCards = (CardData.GetObtainedCardList)()
-  -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
+  local cards = (CardData.GetObtainedCardList)()
+  _allCards = {}
+  local count = #cards
+  local limitConfig = nil
+  for i = 1, count do
+    limitConfig = ((TableData.gTable).BaseCardLimitData)[(cards[i]).id]
+    if limitConfig == nil or limitConfig.family_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+      (table.insert)(_allCards, cards[i])
+    end
+  end
+  -- DECOMPILER ERROR at PC45: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   ((uis.Live).CardHeadList).numItems = #_allCards

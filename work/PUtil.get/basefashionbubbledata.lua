@@ -4763,7 +4763,7 @@
 , 
 [105310604] = {id = 105310604, bubble_text = "リーダー様と同じように辛抱強く、優しく、強く……そして、いつでも皆様を希望で満たす存在になりたいのです。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "May_Interaction_4"}
 , 
-[105310605] = {id = 105310605, bubble_text = "わたくしにとって、リーダー様は特別な存在です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですからどうか、あなたが苦しく思ったときには、わたくしが差し伸べる手を迷わず取ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "May_Interaction_5"}
+[105310605] = {id = 105310605, bubble_text = "わたくしにとって、リーダー様は特別な存在です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですから、あなたが苦しく思ったときには、わたくしが手を差し伸べます。どうか、その手を迷わず取ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "May_Interaction_5"}
 , 
 [105310611] = {id = 105310611, bubble_text = "リーダー様、退屈なのですか？　ふふ。ではわたくしがお付き合いしましょう。おしゃべりでもお買い物でも、なんでも言ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Interaction_1"}
 , 
@@ -4773,7 +4773,7 @@
 , 
 [105310614] = {id = 105310614, bubble_text = "リーダー様と同じように辛抱強く、優しく、強く……そして、いつでも皆様を希望で満たす存在になりたいのです。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Interaction_4"}
 , 
-[105310615] = {id = 105310615, bubble_text = "わたくしにとって、リーダー様は特別な存在です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですからどうか、あなたが苦しく思ったときには、わたくしが差し伸べる手を迷わず取ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Interaction_5"}
+[105310615] = {id = 105310615, bubble_text = "わたくしにとって、リーダー様は特別な存在です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですから、あなたが苦しく思ったときには、わたくしが手を差し伸べます。どうか、その手を迷わず取ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Interaction_5"}
 , 
 [105310621] = {id = 105310621, bubble_text = "リーダー様、退屈なのですか？　ふふ。ではわたくしがお付き合いしましょう。おしゃべりでもお買い物でも、なんでも言ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Interaction_1"}
 , 
@@ -4783,7 +4783,7 @@
 , 
 [105310624] = {id = 105310624, bubble_text = "リーダー様と同じように辛抱強く、優しく、強く……そして、いつでも皆様を希望で満たす存在になりたいのです。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Interaction_4"}
 , 
-[105310625] = {id = 105310625, bubble_text = "わたくしにとって、リーダー様は特別な存在です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですからどうか、あなたが苦しく思ったときには、わたくしが差し伸べる手を迷わず取ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Interaction_5"}
+[105310625] = {id = 105310625, bubble_text = "わたくしにとって、リーダー様は特別な存在です。わたくしを救い、知らない多くを教えてくれた方…いつまでも、この恩は忘れません。ですから、あなたが苦しく思ったときには、わたくしが手を差し伸べます。どうか、その手を迷わず取ってくださいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Interaction_5"}
 , 
 [105300801] = {id = 105300801, bubble_text = "な、何触ってんのよ、馬鹿！いやらしい！変態！すけべ！ああもうっ、ノエルに全部言ってやるんだからー！覚悟してなさいよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Interaction_1"}
 , 
@@ -10726,4 +10726,220 @@
 [117302502] = {id = 117302502, bubble_text = "――何、寝ているわけではない。少し瞑想していただけだ。", voice_path = "Kikyo_Home_Talk_2", top_position = 10}
 , 
 [117302503] = {id = 117302503, bubble_text = "…そろそろ稽古といくか。誰か、某の相手をしてはくれぬか。", voice_path = "Kikyo_Home_Talk_3", top_position = 10}
+, 
+[97030271] = {id = 97030271, bubble_text = "はぁ、はぁ…んんっ…ふぅ…。…あっ、い、息がうるさいですよね、すみません…！　暑くて、つい…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Main_1"}
+, 
+[97030272] = {id = 97030272, bubble_text = "はぁ、やっぱり暑い…。もう、全部脱いじゃおうかな…？　…って、リーダーさんいたんですか…！？　いえっあのっ…ぬ、脱ぎませんから…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Main_2"}
+, 
+[97030273] = {id = 97030273, bubble_text = "今日も汗が止まらないよぅ…においも、大丈夫かな…？　どこかで、着替えようかなぁ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Main_3"}
+, 
+[97030274] = {id = 97030274, bubble_text = "ううっ…また太って、胸元がきつくなったような…。もっと厚着して隠さないとっ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Main_4"}
+, 
+[97130271] = {id = 97130271, bubble_text = "はぁ、はぁ…んんっ…ふぅ…。…あっ、い、息がうるさいですよね、すみません…！　暑くて、つい…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Main_1"}
+, 
+[97130272] = {id = 97130272, bubble_text = "はぁ、やっぱり暑い…。もう、全部脱いじゃおうかな…？　…って、リーダーさんいたんですか…！？　いえっあのっ…ぬ、脱ぎませんから…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Main_2"}
+, 
+[97130273] = {id = 97130273, bubble_text = "今日も汗が止まらないよぅ…においも、大丈夫かな…？　どこかで、着替えようかなぁ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Main_3"}
+, 
+[97130274] = {id = 97130274, bubble_text = "ううっ…また太って、胸元がきつくなったような…。もっと厚着して隠さないとっ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Main_4"}
+, 
+[97230271] = {id = 97230271, bubble_text = "はぁ、はぁ…んんっ…ふぅ…。…あっ、い、息がうるさいですよね、すみません…！　暑くて、つい…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Main_1"}
+, 
+[97230272] = {id = 97230272, bubble_text = "はぁ、やっぱり暑い…。もう、全部脱いじゃおうかな…？　…って、リーダーさんいたんですか…！？　いえっあのっ…ぬ、脱ぎませんから…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Main_2"}
+, 
+[97230273] = {id = 97230273, bubble_text = "今日も汗が止まらないよぅ…においも、大丈夫かな…？　どこかで、着替えようかなぁ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Main_3"}
+, 
+[97230274] = {id = 97230274, bubble_text = "ううっ…また太って、胸元がきつくなったような…。もっと厚着して隠さないとっ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Main_4"}
+, 
+[101302701] = {id = 101302701, bubble_text = "は、初めまして…シャイ、です…。あの、顔が赤いのは、ただ暑いだけなので…気にしないでくださいっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Get_1"}
+, 
+[101302711] = {id = 101302711, bubble_text = "前よりも、他人の目がちょっとだけ、気にならなくなった…と思います。リーダーさんと一緒にいるようになったから、かもしれません…えへへ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Stage_2"}
+, 
+[101302721] = {id = 101302721, bubble_text = "あなたと出会ったばかりのときより…自分のいろんなことが変わりました。きっとこれが…大人になる、ってことなんですね。リーダー…わたしをもっと、大人にしてくれますか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Stage_3"}
+, 
+[102302701] = {id = 102302701, bubble_text = "ふぅ、ふぅ…今日もとっても暑いですね…。それとも、私だけ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_In_1"}
+, 
+[102302702] = {id = 102302702, bubble_text = "ふぅ、ふぅ…今日もとっても暑いですね…。それとも、私だけ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_In_1"}
+, 
+[102302703] = {id = 102302703, bubble_text = "ふぅ、ふぅ…今日もとっても暑いですね…。それとも、私だけ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_In_1"}
+, 
+[103302701] = {id = 103302701, bubble_text = "な、なんだか身体が熱くなってきました…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Shy_Stage_1"}
+, 
+[103302711] = {id = 103302711, bubble_text = "な、なんだか身体が熱くなってきました…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:236", direction = 2, voice_path = "Shy_Stage_1"}
+, 
+[103302721] = {id = 103302721, bubble_text = "な、なんだか身体が熱くなってきました…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:236", direction = 2, voice_path = "Shy_Stage_1"}
+, 
+[104302701] = {id = 104302701, bubble_text = "ま、ますます体が熱くなった気がします…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Shy_Star_1"}
+, 
+[104302711] = {id = 104302711, bubble_text = "ま、ますます体が熱くなった気がします…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:236", direction = 2, voice_path = "Shy_Star_1"}
+, 
+[104302721] = {id = 104302721, bubble_text = "ま、ますます体が熱くなった気がします…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:236", direction = 2, voice_path = "Shy_Star_1"}
+, 
+[105302701] = {id = 105302701, bubble_text = "ふぇっ…あ、あのっ…わたし、とっても汗をかいてるので…さ、触らないほうがいいと思います…はい…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Interaction_1"}
+, 
+[105302702] = {id = 105302702, bubble_text = "そ、そんなにつんつんされると、恥ずかしいです…。ううっ…恥ずかしさで、ますます熱くなった気がします…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Interaction_2"}
+, 
+[105302703] = {id = 105302703, bubble_text = "人に見つめられると、恥ずかしいですが…リーダーさんなら、ちょっと平気な気がします。むしろ、助けてくれる人ってわかってるから、安心…します。か、勝手なこと言ってすみません…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Interaction_3"}
+, 
+[105302704] = {id = 105302704, bubble_text = "もしかして…リーダーさんも、寒いんですか？　言ってくれれば、私の上着とか、貸しますよ。う、薄着になるのはもちろん、恥ずかしいですけど…リーダーさんのためなら、大丈夫です。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Interaction_4"}
+, 
+[105302705] = {id = 105302705, bubble_text = "リーダーさんには、もっと…本当の私を見てもらいたいって思うんです。身も、心も…他の誰にも見せていない…ありのままの、私を…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Interaction_5"}
+, 
+[105302711] = {id = 105302711, bubble_text = "ふぇっ…あ、あのっ…わたし、とっても汗をかいてるので…さ、触らないほうがいいと思います…はい…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Interaction_1"}
+, 
+[105302712] = {id = 105302712, bubble_text = "そ、そんなにつんつんされると、恥ずかしいです…。ううっ…恥ずかしさで、ますます熱くなった気がします…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Interaction_2"}
+, 
+[105302713] = {id = 105302713, bubble_text = "人に見つめられると、恥ずかしいですが…リーダーさんなら、ちょっと平気な気がします。むしろ、助けてくれる人ってわかってるから、安心…します。か、勝手なこと言ってすみません…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Interaction_3"}
+, 
+[105302714] = {id = 105302714, bubble_text = "もしかして…リーダーさんも、寒いんですか？　言ってくれれば、私の上着とか、貸しますよ。う、薄着になるのはもちろん、恥ずかしいですけど…リーダーさんのためなら、大丈夫です。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Interaction_4"}
+, 
+[105302715] = {id = 105302715, bubble_text = "リーダーさんには、もっと…本当の私を見てもらいたいって思うんです。身も、心も…他の誰にも見せていない…ありのままの、私を…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Interaction_5"}
+, 
+[105302721] = {id = 105302721, bubble_text = "ふぇっ…あ、あのっ…わたし、とっても汗をかいてるので…さ、触らないほうがいいと思います…はい…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Interaction_1"}
+, 
+[105302722] = {id = 105302722, bubble_text = "そ、そんなにつんつんされると、恥ずかしいです…。ううっ…恥ずかしさで、ますます熱くなった気がします…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Interaction_2"}
+, 
+[105302723] = {id = 105302723, bubble_text = "人に見つめられると、恥ずかしいですが…リーダーさんなら、ちょっと平気な気がします。むしろ、助けてくれる人ってわかってるから、安心…します。か、勝手なこと言ってすみません…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Interaction_3"}
+, 
+[105302724] = {id = 105302724, bubble_text = "もしかして…リーダーさんも、寒いんですか？　言ってくれれば、私の上着とか、貸しますよ。う、薄着になるのはもちろん、恥ずかしいですけど…リーダーさんのためなら、大丈夫です。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Interaction_4"}
+, 
+[105302725] = {id = 105302725, bubble_text = "リーダーさんには、もっと…本当の私を見てもらいたいって思うんです。身も、心も…他の誰にも見せていない…ありのままの、私を…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Interaction_5"}
+, 
+[106302701] = {id = 106302701, bubble_text = "う、嬉しくて…また暑くなっちゃった…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Win_1"}
+, 
+[106302711] = {id = 106302711, bubble_text = "う、嬉しくて…また暑くなっちゃった…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Win_1"}
+, 
+[106302721] = {id = 106302721, bubble_text = "う、嬉しくて…また暑くなっちゃった…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Win_1"}
+, 
+[107302701] = {id = 107302701, bubble_text = "ううっ…厚着しすぎたから、ですか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Shy_Fail_1"}
+, 
+[107302711] = {id = 107302711, bubble_text = "ううっ…厚着しすぎたから、ですか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:254", direction = 1, voice_path = "Shy_Fail_1"}
+, 
+[107302721] = {id = 107302721, bubble_text = "ううっ…厚着しすぎたから、ですか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "598:279", direction = 1, voice_path = "Shy_Fail_1"}
+, 
+[108302701] = {id = 108302701, bubble_text = "あ、暑いけど、めげませんっ…！", voice_path = "Shy_Go_1"}
+, 
+[109302701] = {id = 109302701, voice_path = "Shy_Game_1"}
+, 
+[111302701] = {id = 111302701, voice_path = "Shy_Battle_N_1"}
+, 
+[111302702] = {id = 111302702, voice_path = "Shy_Battle_N_2"}
+, 
+[111302703] = {id = 111302703, voice_path = "Shy_Battle_N_3"}
+, 
+[111302704] = {id = 111302704, voice_path = "Shy_Battle_N_4"}
+, 
+[111302705] = {id = 111302705, voice_path = "Shy_Battle_N_5"}
+, 
+[111302706] = {id = 111302706, voice_path = "Shy_Battle_N_6"}
+, 
+[112302701] = {id = 112302701, voice_path = "Shy_Battle_Hit_1"}
+, 
+[112302702] = {id = 112302702, voice_path = "Shy_Battle_Hit_2"}
+, 
+[112302703] = {id = 112302703, voice_path = "Shy_Battle_Hit_3"}
+, 
+[112302704] = {id = 112302704, voice_path = "Shy_Battle_Hit_4"}
+, 
+[112302705] = {id = 112302705, voice_path = "Shy_Battle_Hit_5"}
+, 
+[112302706] = {id = 112302706, voice_path = "Shy_Battle_Hit_6"}
+, 
+[113302701] = {id = 113302701, voice_path = "Shy_Battle_Die_1"}
+, 
+[114302701] = {id = 114302701, voice_path = "Shy_Battle_H_1"}
+, 
+[114302702] = {id = 114302702, voice_path = "Shy_Battle_H_2"}
+, 
+[115302701] = {id = 115302701, voice_path = "Shy_Battle_C_1"}
+, 
+[115302702] = {id = 115302702, voice_path = "Shy_Battle_C_2"}
+, 
+[116302701] = {id = 116302701, bubble_text = "風通しのいい、涼しいところはありますか…？", voice_path = "Shy_Home_In_1", top_position = 10}
+, 
+[117302701] = {id = 117302701, bubble_text = "ここにクローゼット、置いちゃダメですか…？　洋服を、たくさんしまいたいので…。はふぅ…。", voice_path = "Shy_Home_Talk_1", top_position = 10}
+, 
+[117302702] = {id = 117302702, bubble_text = "はふぅ…クエストとか行く前に、汗拭いておかないと…。本当なら、シャワーも浴びたいんだけどな…。", voice_path = "Shy_Home_Talk_2", top_position = 10}
+, 
+[117302703] = {id = 117302703, bubble_text = "女の子がたくさんだから、学校にいるときみたいで落ち着きます…♪", voice_path = "Shy_Home_Talk_3", top_position = 10}
+, 
+[97040011] = {id = 97040011, bubble_text = "とにかく身体を鍛えまくるんだ！　そうすれば、きっと女の子にチヤホヤ…むふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Arturo_Main_1"}
+, 
+[101400101] = {id = 101400101, bubble_text = "待たせたな…全世界待望の、アルトゥーロ様のお出ましだぜぇ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Arturo_Get_1"}
+, 
+[102400101] = {id = 102400101, bubble_text = "おいおい、俺に会いたいからって慌てすぎだろ？　まったく俺ってやつは、罪な男だぜ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Arturo_In_1"}
+, 
+[103400101] = {id = 103400101, expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:229", direction = 2, voice_path = "Arturo_Stage_1"}
+, 
+[104400101] = {id = 104400101, expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:229", direction = 2, voice_path = "Arturo_Star_1"}
+, 
+[105400101] = {id = 105400101, bubble_text = "ふっ、お前もこの肉体美に魅せられたか。仕方ねえな、一緒に鍛錬してやんよ、相棒！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Arturo_Interaction_1"}
+, 
+[106400101] = {id = 106400101, bubble_text = "作ってもいいんだぜ？　俺のファンクラブをな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Arturo_Win_1"}
+, 
+[107400101] = {id = 107400101, bubble_text = "くぅっ…完璧な俺の、何が足りないって言うんだ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "413:235", direction = 1, voice_path = "Arturo_Fail_1"}
+, 
+[108400101] = {id = 108400101, bubble_text = "素直に言えよ、俺の活躍が見たいってな！", voice_path = "Arturo_Go_1"}
+, 
+[113400101] = {id = 113400101, voice_path = "Arturo_Battle_Die_1"}
+, 
+[97330271] = {id = 97330271, bubble_text = "リーダー、お昼寝したいの？　じゃあエイプリルちゃんもゴロゴロしちゃおっと！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Main_1"}
+, 
+[97330272] = {id = 97330272, bubble_text = "し～。こっそり教えちゃうけど、オリヴィアちゃんはああ見えて可愛いものに弱いんだ。 あははは、可愛いでしょ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Main_2"}
+, 
+[97330273] = {id = 97330273, bubble_text = "エイプリルちゃん、すっごく暇だから～…ねぇリーダー、誰かにいたずらしに行こう！　ほらほら、オリヴィアちゃんがいないうちに早く早くー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Main_3"}
+, 
+[97330274] = {id = 97330274, bubble_text = "リーダーにいたずらの極意を教えてあげる。何よりも大事なのはね…素早い逃げ足、だよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Main_4"}
+, 
+[101302731] = {id = 101302731, bubble_text = "じゃじゃーん！　きらめくエイプリルちゃん、登場！　リーダーもこのかっこいい姿にメロメロ？　あははは。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Stage_2"}
+, 
+[102302704] = {id = 102302704, bubble_text = "リーダー、今日も一緒に楽しくいたずらしちゃおうね♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_In_1"}
+, 
+[103302731] = {id = 103302731, bubble_text = "おおっ。エイプリルちゃんってば、また強くなっちゃった～？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:368", direction = 2, voice_path = "April_Stage_1"}
+, 
+[104302731] = {id = 104302731, bubble_text = "わぁ…！　今わたし、すっごく気持ちいいよ！　リーダーにも味わってほしいぐらいっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:368", direction = 2, voice_path = "April_Star_1"}
+, 
+[105302731] = {id = 105302731, bubble_text = "あっ、リーダーってば…そんなことしたら引っかいちゃうぞ～？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Interaction_1"}
+, 
+[105302732] = {id = 105302732, bubble_text = "エイプリルちゃんは賢いんだから！　子供騙しには引っかからないよーだ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Interaction_2"}
+, 
+[105302733] = {id = 105302733, bubble_text = "リーダーはエイプリルちゃんのこと好き？　じゃあお返しに、いーっぱいいたずらしてあげる♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Interaction_3"}
+, 
+[105302734] = {id = 105302734, bubble_text = "リーダーとふたりきりで遊びたいな～。リーダーの故郷の言葉だと…デート、って言うんだっけ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Interaction_4"}
+, 
+[105302735] = {id = 105302735, bubble_text = "エイプリルちゃんのこと、もーっと好きになってもらえるように頑張るね！　だってリーダーが大好きだから！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Interaction_5"}
+, 
+[106302731] = {id = 106302731, bubble_text = "えへへ、わたし達ってやっぱり世界一のプライドだね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Win_1"}
+, 
+[107302731] = {id = 107302731, bubble_text = "うぅ…何があったの…？　ここはどこ？　私は…誰～？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "692:382", direction = 2, voice_path = "April_Fail_1"}
+, 
+[97331011] = {id = 97331011, bubble_text = "最近のラヴィは、お仕事を頑張っていると思いませんか？ だからリーダーさん、ご褒美をくれますよね…？　ふふ、いつものところで…待ってますよ♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Main_1"}
+, 
+[97331012] = {id = 97331012, bubble_text = "リーダーさんのためならどんなことでもしますから、いくらでもご命令くださいね♪　", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Main_2"}
+, 
+[97331013] = {id = 97331013, bubble_text = "リーダーさんの瞳を見ていると、 なんだか体が熱くなるんです…  まるで世界のすべてが、灰になってしまいそうなくらい…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Main_3"}
+, 
+[97331014] = {id = 97331014, bubble_text = "アロエという女は、よくわからない薬をいっぱい持っていて危険ですから！　リーダーさんは決して近づかないでください！　あとノエルとかにもっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Main_4"}
+, 
+[101310131] = {id = 101310131, bubble_text = "リーダーさんの気持ちに応えるためなら、ラヴィはなんでもしてみせますっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Stage_2"}
+, 
+[102310104] = {id = 102310104, bubble_text = "お帰りなさい、あ、な、た♪　…あぁんっ、ラヴィはもう我慢できません…っ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_In_1"}
+, 
+[103310131] = {id = 103310131, bubble_text = "リーダーさんへの愛が、ラヴィをもっと強くさせるんですっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:243", direction = 2, voice_path = "Lovey_Stage_1"}
+, 
+[104310131] = {id = 104310131, bubble_text = "ダーリンの愛があれば、ラヴィは何でもできる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "421:243", direction = 2, voice_path = "Lovey_Star_1"}
+, 
+[105310131] = {id = 105310131, bubble_text = "ああ、触れられるだけで全身が痺れちゃいます…リーダーさん…今夜はラヴィを寝かさないでください♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Interaction_1"}
+, 
+[105310132] = {id = 105310132, bubble_text = "どうかラヴィにもっと触れてください…私にとってリーダーさんは運命の人。お互いのすべてを知るべきですから♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Interaction_2"}
+, 
+[105310133] = {id = 105310133, bubble_text = "リーダーさん、どうかチャンスをください！　あなたのことをどれぐらい好きか証明させてください、毎晩…愛の巣で！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Interaction_3"}
+, 
+[105310134] = {id = 105310134, bubble_text = "初めて会ったときから、私はもうリーダーさんのものでしたが…あれから毎日リーダーさんの愛を貰えて、ラヴィは本当に幸せです！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Interaction_4"}
+, 
+[105310135] = {id = 105310135, bubble_text = "この出会いは運命ですから…何があっても、あなたのことは絶対に諦めません。この身が果てるまで…愛に生きましょう！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Interaction_5"}
+, 
+[106310131] = {id = 106310131, bubble_text = "ラヴィは最高でしょう？　ご褒美に今夜はたっぷり愛してくださいね、リーダーさん♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Win_1"}
+, 
+[107310131] = {id = 107310131, bubble_text = "もしかして…私の愛が、足りないの…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Fail_1"}
 }

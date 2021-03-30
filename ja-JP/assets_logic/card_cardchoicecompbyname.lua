@@ -8,6 +8,7 @@ GetCard_CardChoiceCompUis = function(ui, ...)
   local uis = {}
   uis.CardChoicePic = GetCard_CardChoicePicUis(ui:GetChild("CardChoicePic"))
   uis.StageState = GetCard_StageStateUis(ui:GetChild("StageState"))
+  uis.FashionNameLoader = ui:GetChild("FashionNameLoader")
   uis.StageTxtImage = ui:GetChild("StageTxtImage")
   uis.StageTxt = ui:GetChild("StageTxt")
   uis.CardChoiceEffect = GetCard_CardChoiceEffectUis(ui:GetChild("CardChoiceEffect"))

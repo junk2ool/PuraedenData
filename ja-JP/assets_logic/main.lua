@@ -292,10 +292,10 @@ end
 Game.EnlargeTextTexture = function(...)
   -- function num : 0_9 , upvalues : _ENV
   local strTable = {}
-  local wordConfig = (TableData.gTable).BaseClientWordData
   for i = 1, 10000 do
-    if wordConfig[i] then
-      (table.insert)(strTable, wordConfig[i])
+    local str = (PUtil.get)(i, "", "", "")
+    if str then
+      (table.insert)(strTable, str)
     end
   end
   local textHand = ((FairyGUI.UIObjectFactory).NewObject)((FairyGUI.ObjectType).Text)

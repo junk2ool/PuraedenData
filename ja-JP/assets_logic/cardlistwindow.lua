@@ -129,7 +129,7 @@ CardListWindow.GetOwnCards = function(...)
     end
   end
 )
-  ownCards = (CardData.GetObtainedCardList)()
+  ownCards = (CardData.GetCardListWithLimit)()
   ;
   (table.sort)(ownCards, function(a, b, ...)
     -- function num : 0_7_1

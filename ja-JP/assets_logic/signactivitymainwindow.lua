@@ -21,32 +21,33 @@ SignActivityMainWindow.OnInit = function(bridgeObj, ...)
 end
 
 SignActivityMainWindow.RefreshWindow = function(...)
-  -- function num : 0_1 , upvalues : _ENV, activityId, uis, loginData
+  -- function num : 0_1 , upvalues : activityId, _ENV, uis, loginData
+  activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).Total_Login)
   local activityData = ((TableData.gTable).BaseActivityData)[activityId]
-  -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC17: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.BgLoader).url = (Util.GetItemUrl)(activityData.bg_pic)
-  -- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.TitleLoader).url = (Util.GetItemUrl)(activityData.name_pic)
-  -- DECOMPILER ERROR at PC40: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC47: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.Time).TimeTxt).text = (PUtil.get)(260) .. "  " .. "[color=#3dffbd]" .. (LuaTime.GetFormatTimeStr)("%m/%d %H:%M", (loginData.baseActivityInfo).beginTime) .. " - " .. (LuaTime.GetFormatTimeStr)("%m/%d %H:%M", (loginData.baseActivityInfo).endTime) .. "[/color]"
-  -- DECOMPILER ERROR at PC46: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC53: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.WordTxt).text = (PUtil.get)(261)
-  -- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC56: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.Time).root).visible = false
   local curRewardId = nil
   ;
   ((uis.Reward).RewardList):RemoveChildrenToPool()
-  -- DECOMPILER ERROR at PC65: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC72: Confused about usage of register: R2 in 'UnsetPending'
 
   if #(loginData.loginDayActInfo).rewardList < 7 then
     ((uis.Reward).RewardList).align = (FairyGUI.AlignType).Center

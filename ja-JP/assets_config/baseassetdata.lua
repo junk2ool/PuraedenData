@@ -39,13 +39,13 @@ BaseAssetData = {
 , 
 [21100019] = {id = 21100019, name = (PUtil.get)(82100019), remark = (PUtil.get)(83100019), quality = 3, icon = "ItemIcon:21100019", go_to_id = "77400019", reward_sort = 9690002}
 , 
-[21100020] = {id = 21100020, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100020", reward_sort = 9690001}
+[21100020] = {id = 21100020, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100023", reward_sort = 9690001}
 , 
 [21100021] = {id = 21100021, name = (PUtil.get)(82100018), remark = (PUtil.get)(83100018), quality = 3, icon = "ItemIcon:21100018", reward_sort = 9690002}
 , 
 [21100022] = {id = 21100022, name = (PUtil.get)(82100022), remark = (PUtil.get)(83100022), quality = 3, icon = "ItemIcon:21100022", reward_sort = 9690002}
 , 
-[21100023] = {id = 21100023, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100020", reward_sort = 9690001}
+[21100023] = {id = 21100023, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100023", reward_sort = 9690001}
 , 
 [21100024] = {id = 21100024, name = (PUtil.get)(82100024), remark = (PUtil.get)(83100024), quality = 3, icon = "ItemIcon:21100024", go_to_id = "77400024", reward_sort = 9690002}
 , 

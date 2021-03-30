@@ -166,6 +166,9 @@ AnnouncementWindow.OnClose = function(...)
   uis = nil
   contentPane = nil
   argTable = {}
+  if UIMgr:IsWindowOpen((WinResConfig.HomeWindow).name) then
+    (ActorService.ReqFashionList)()
+  end
   ;
   (ActivityMgr.CheckPopupAfterAnnounceActivity)()
 end

@@ -126,9 +126,21 @@ PUtil.get = function(id, ...)
     id = tonumber(id)
   end
   if IsBattleServer == nil then
+    local name = "name"
+    if Game.gameVersion ~= nil then
+      name = "name_" .. Game.gameVersion
+    end
     local config = BaseClientWordData[id]
     if config then
-      return s_fomat(config, ...)
+      if config[name] then
+        return s_fomat(config[name], ...)
+      else
+        if type(config) == "string" then
+          return s_fomat(config, ...)
+        else
+          return "未配置：" .. id
+        end
+      end
     else
       config = GetBaseWordData(id)
       if config == nil then
@@ -140,8 +152,8 @@ PUtil.get = function(id, ...)
           end
         end
       end
-      if config and config.name then
-        return s_fomat(config.name, ...)
+      if config and config[name] then
+        return s_fomat(config[name], ...)
       end
     end
     return "未配置：" .. id
@@ -536,6 +548,10 @@ Util.GetConfigDataByID = function(itemId, ...)
   if config ~= nil then
     return config, PropType.HEAD_FRAME
   end
+  config = ((TableData.gTable).BaseFashionSpecialData)[tonumber(itemId)]
+  if config ~= nil then
+    return config, PropType.SPEICAL_SKIN
+  end
 end
 
 Util.IsTableEqual = function(table1, table2, ...)
@@ -804,9 +820,14 @@ Util.CheckCondition = function(condition, notShowMessage, ...)
 end
 
 Util.CompareNum = function(symbol, Num1, Num2, ...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_34 , upvalues : _ENV, split
   local num1 = tonumber(Num1)
-  local num2 = tonumber(Num2)
+  local values = split(Num2, ":")
+  local num2 = tonumber(values[1])
+  local num3 = 0
+  if #values > 1 and values[2] ~= nil then
+    num3 = tonumber(values[2])
+  end
   if num2 >= num1 then
     do return symbol ~= 1 end
     if num1 ~= num2 then
@@ -817,7 +838,10 @@ Util.CompareNum = function(symbol, Num1, Num2, ...)
           do return symbol ~= 4 end
           if num2 > num1 then
             do return symbol ~= 5 end
-            -- DECOMPILER ERROR: 10 unprocessed JMP targets
+            if num2 >= num1 or num1 > num3 then
+              do return symbol ~= 6 end
+              -- DECOMPILER ERROR: 13 unprocessed JMP targets
+            end
           end
         end
       end
@@ -2880,7 +2904,7 @@ Util.GetMaxAssetNum = function(assetID, ...)
       if assetID == AssetType.SPIRIT then
         fixID = Const.MaxSpiritFixedID
       else
-        return 99999999
+        return 99999999999
       end
     end
   end

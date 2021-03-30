@@ -142,8 +142,12 @@ GuildBossSupportWindow.RefreshCardList = function(...)
   -- function num : 0_4 , upvalues : _ENV, cardList, GuildBossSupportWindow, uis
   local List = (CardData.GetObtainedCardList)()
   cardList = {}
+  local limitConfig = nil
   for _,v in ipairs(List) do
-    (table.insert)(cardList, v)
+    limitConfig = ((TableData.gTable).BaseCardLimitData)[v.id]
+    if limitConfig == nil or limitConfig.guildsupport_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+      (table.insert)(cardList, v)
+    end
   end
   ;
   (table.sort)(cardList, function(a, b, ...)
@@ -152,7 +156,7 @@ GuildBossSupportWindow.RefreshCardList = function(...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC46: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.CardHeadList).numItems = #cardList

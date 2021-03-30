@@ -262,7 +262,7 @@ PlotPlayPanelWindow.SetMenuPopStatue = function(...)
 end
 
 PlotPlayPanelWindow.OnClose = function(...)
-  -- function num : 0_13 , upvalues : _ENV, _timeScale, lastBGMId, PlotPlayPanelWindow, _typingEffect, _quitTimer, uis, contentPane, _dialogueConfig, _roleConfig, _menuPopInAnim, _menuPopOutAnim, _currentMenuPop, _roleLoaders, _currentRole, _contentFadeOutTween
+  -- function num : 0_13 , upvalues : _ENV, _timeScale, lastBGMId, PlotPlayPanelWindow, _typingEffect, _quitTimer, _contentFadeOutTween, uis, contentPane, _dialogueConfig, _roleConfig, _menuPopInAnim, _menuPopOutAnim, _currentMenuPop, _roleLoaders, _currentRole
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   Time.timeScale = _timeScale
@@ -281,6 +281,10 @@ PlotPlayPanelWindow.OnClose = function(...)
     _quitTimer:stop()
     _quitTimer = nil
   end
+  if _contentFadeOutTween ~= nil then
+    _contentFadeOutTween:Kill(true)
+    _contentFadeOutTween = nil
+  end
   uis = nil
   contentPane = nil
   _dialogueConfig = nil
@@ -291,10 +295,6 @@ PlotPlayPanelWindow.OnClose = function(...)
   _currentMenuPop = nil
   _roleLoaders = nil
   _currentRole = nil
-  if _contentFadeOutTween ~= nil then
-    _contentFadeOutTween:Kill(true)
-    _contentFadeOutTween = nil
-  end
 end
 
 PlotPlayPanelWindow.ClickReviewBtn = function(...)
@@ -952,7 +952,9 @@ PlotPlayPanelWindow.QuitCharacter = function(quitEffect, callback, fadeOutConten
   end
 )
     if fadeOutContent then
-      _contentFadeOutTween = (((uis.TalkWordGrp).talkTxt):TweenFade(0, 0.5)):OnComplete(function(...)
+      _contentFadeOutTween = ((uis.TalkWordGrp).talkTxt):TweenFade(0, 0.5)
+      ;
+      ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
     -- function num : 0_34_2 , upvalues : uis, _contentFadeOutTween
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -1555,7 +1557,7 @@ PlotPlayPanelWindow.ReleseFromRT = function(roleInfo, roleCom, ...)
   if (roleInfo.Loader).CurrentResType == ResType.Live2DWithRT then
     (roleInfo.Loader):SetModelRender(roleCom)
   else
-    if not (Util.IsNil)(roleInfo.Model) then
+    if not (Util.IsNil)(roleInfo.Model) and (roleInfo.Loader).CurrentResType ~= ResType.Texture then
       (roleInfo.Loader):SetModelRender(roleCom, (roleInfo.Model).transform)
     end
   end
@@ -1614,13 +1616,15 @@ PlotPlayPanelWindow.CharacterEnter = function(roleInfo, offset, targetPos, roleC
     ;
     (roleInfo.InOutMove).Tweener = ((FairyGUI.GTween).To)(((roleInfo.Model).transform).localPosition, (roleInfo.InOutMove).RTEndPos, duration)
     ;
-    (((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
+    ((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
     -- function num : 0_48_0 , upvalues : roleInfo
     -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
     ((roleInfo.Model).transform).localPosition = (((roleInfo.InOutMove).Tweener).value).vec3
   end
-)):OnComplete(function(...)
+)
+    ;
+    ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
     -- function num : 0_48_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, targetPos, _ENV, complete
     (PlotPlayPanelWindow.ReleseFromRT)(roleInfo, roleCom)
     -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
@@ -1635,31 +1639,37 @@ PlotPlayPanelWindow.CharacterEnter = function(roleInfo, offset, targetPos, roleC
   end
 )
   else
-    -- DECOMPILER ERROR at PC142: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC147: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
     ((roleInfo.Loader).parent).x = ((roleInfo.InOutMove).StartPos).x
-    -- DECOMPILER ERROR at PC148: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC153: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
     ((roleInfo.Loader).parent).y = ((roleInfo.InOutMove).StartPos).y
-    -- DECOMPILER ERROR at PC171: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC173: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
-    (roleInfo.InOutMove).Tweener = ((((((roleInfo.Loader).parent):TweenMove((roleInfo.InOutMove).EndPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
+    (roleInfo.InOutMove).Tweener = (((((roleInfo.Loader).parent):TweenMove((roleInfo.InOutMove).EndPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
     -- function num : 0_48_2 , upvalues : roleInfo
     (roleInfo.Loader):InvalidateBatchingState()
   end
-)):OnComplete(complete)
+)
+    ;
+    ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
+    -- function num : 0_48_3 , upvalues : complete
+    complete()
   end
-  -- DECOMPILER ERROR at PC176: Confused about usage of register: R7 in 'UnsetPending'
+)
+  end
+  -- DECOMPILER ERROR at PC186: Confused about usage of register: R7 in 'UnsetPending'
 
   if not offset.WithoutAlpha then
     (roleInfo.Loader).alpha = 0
     ;
     ((roleInfo.Loader):TweenFade(1, duration)):SetDelay(delay)
   else
-    -- DECOMPILER ERROR at PC187: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC197: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
     (roleInfo.Loader).alpha = 1
@@ -1715,13 +1725,15 @@ PlotPlayPanelWindow.CharacterQuit = function(roleInfo, offset, roleCom, delay, c
     ;
     (roleInfo.InOutMove).Tweener = ((FairyGUI.GTween).To)(((roleInfo.Model).transform).localPosition, (roleInfo.InOutMove).RTEndPos, duration)
     ;
-    (((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
+    ((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
     -- function num : 0_49_0 , upvalues : roleInfo
     -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
     ((roleInfo.Model).transform).localPosition = (((roleInfo.InOutMove).Tweener).value).vec3
   end
-)):OnComplete(function(...)
+)
+    ;
+    ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
     -- function num : 0_49_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, complete
     (PlotPlayPanelWindow.ReleseFromRT)(roleInfo, roleCom)
     if complete ~= nil then
@@ -1730,16 +1742,22 @@ PlotPlayPanelWindow.CharacterQuit = function(roleInfo, offset, roleCom, delay, c
   end
 )
   else
-    -- DECOMPILER ERROR at PC150: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC152: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
-    (roleInfo.InOutMove).Tweener = ((((((roleInfo.Loader).parent):TweenMove((roleInfo.InOutMove).EndPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
+    (roleInfo.InOutMove).Tweener = (((((roleInfo.Loader).parent):TweenMove((roleInfo.InOutMove).EndPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
     -- function num : 0_49_2 , upvalues : roleInfo
     (roleInfo.Loader):InvalidateBatchingState()
   end
-)):OnComplete(complete)
+)
+    ;
+    ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
+    -- function num : 0_49_3 , upvalues : complete
+    complete()
   end
-  -- DECOMPILER ERROR at PC155: Confused about usage of register: R7 in 'UnsetPending'
+)
+  end
+  -- DECOMPILER ERROR at PC165: Confused about usage of register: R7 in 'UnsetPending'
 
   if not offset.WithoutAlpha then
     (roleInfo.Loader).alpha = 1
@@ -1788,44 +1806,54 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
               duration = (roleInfo.InOutMove).Duration - (elapseTime - (roleInfo.InOutMove).Delay)
               local wholeDis = (roleInfo.InOutMove).EndPos - (roleInfo.InOutMove).StartPos
               local movedDis = curPos - (roleInfo.InOutMove).StartPos
-              local percent = movedDis.magnitude / wholeDis.magnitude
+              local percent = nil
+              if wholeDis.magnitude == 0 then
+                percent = 1
+              else
+                percent = movedDis.magnitude / wholeDis.magnitude
+              end
               wholeDis = (roleInfo.InOutMove).RTEndPos - (roleInfo.InOutMove).RTStartPos
-              startPos = (roleInfo.InOutMove).RTStartPos + (wholeDis) * percent
+              startPos = (roleInfo.InOutMove).RTStartPos + (wholeDis) * (percent)
             end
             do
               endPos = (roleInfo.InOutMove).RTEndPos
-              -- DECOMPILER ERROR at PC96: Confused about usage of register: R11 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC102: Confused about usage of register: R11 in 'UnsetPending'
 
               ;
               ((roleInfo.Model).transform).localPosition = startPos
               if duration < 0 then
                 duration = 0
               end
-              -- DECOMPILER ERROR at PC110: Confused about usage of register: R11 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC116: Confused about usage of register: R11 in 'UnsetPending'
 
               ;
               (roleInfo.InOutMove).Tweener = ((FairyGUI.GTween).To)(((roleInfo.Model).transform).localPosition, endPos, duration)
               ;
-              (((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).QuintOut)):OnUpdate(function(...)
+              ((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).QuintOut)):OnUpdate(function(...)
     -- function num : 0_50_0 , upvalues : roleInfo
-    -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
 
-    ((roleInfo.Model).transform).localPosition = (((roleInfo.InOutMove).Tweener).value).vec3
+    if roleInfo.InOutMove then
+      ((roleInfo.Model).transform).localPosition = (((roleInfo.InOutMove).Tweener).value).vec3
+    end
   end
-)):OnComplete(function(...)
+)
+              ;
+              ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
     -- function num : 0_50_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, _ENV
     (PlotPlayPanelWindow.ReleseFromRT)(roleInfo, roleCom)
-    -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
 
-    if (roleInfo.InOutMove).RTTargetPos ~= nil then
+    if roleInfo.InOutMove and (roleInfo.InOutMove).RTTargetPos ~= nil then
       ((roleInfo.Loader).parent).x = ((roleInfo.InOutMove).RTTargetPos).x + (ResolutionHandler.AdaptOffset).X
-      -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
 
       ;
       ((roleInfo.Loader).parent).y = ((roleInfo.InOutMove).RTTargetPos).y + (ResolutionHandler.AdaptOffset).Y
     end
-    ;
-    ((roleInfo.InOutMove).Complete)()
+    if roleInfo.InOutMove then
+      ((roleInfo.InOutMove).Complete)()
+    end
     roleInfo.InOutMove = nil
   end
 )
@@ -1839,7 +1867,7 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
               (PlotPlayPanelWindow.InitRoleInfo)(roleInfo)
               if roleInfo.InOutMove ~= nil then
                 ((roleInfo.InOutMove).Tweener):Kill()
-                -- DECOMPILER ERROR at PC160: Confused about usage of register: R4 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC171: Confused about usage of register: R4 in 'UnsetPending'
 
                 ;
                 (roleInfo.Loader).size = _originLoaderSize
@@ -1855,29 +1883,42 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
                   duration = (roleInfo.InOutMove).Duration - (elapseTime - (roleInfo.InOutMove).Delay)
                   local wholeDis = (roleInfo.InOutMove).RTEndPos - (roleInfo.InOutMove).RTStartPos
                   local movedDis = curPos - (roleInfo.InOutMove).RTStartPos
-                  local percent = movedDis.magnitude / wholeDis.magnitude
+                  local percent = nil
+                  if wholeDis.magnitude == 0 then
+                    percent = 1
+                  else
+                    percent = movedDis.magnitude / wholeDis.magnitude
+                  end
                   wholeDis = (roleInfo.InOutMove).EndPos - (roleInfo.InOutMove).StartPos
-                  startPos = (roleInfo.InOutMove).StartPos + (wholeDis) * percent
+                  startPos = (roleInfo.InOutMove).StartPos + (wholeDis) * (percent)
                 end
                 do
                   do
                     endPos = (roleInfo.InOutMove).EndPos
-                    -- DECOMPILER ERROR at PC216: Confused about usage of register: R9 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC233: Confused about usage of register: R9 in 'UnsetPending'
 
                     ;
                     ((roleInfo.Loader).parent).xy = startPos
                     if duration < 0 then
                       duration = 0
                     end
-                    -- DECOMPILER ERROR at PC242: Confused about usage of register: R9 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC255: Confused about usage of register: R9 in 'UnsetPending'
 
                     ;
-                    (roleInfo.InOutMove).Tweener = ((((((roleInfo.Loader).parent):TweenMove(endPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).QuintOut)):OnUpdate(function(...)
+                    (roleInfo.InOutMove).Tweener = (((((roleInfo.Loader).parent):TweenMove(endPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).QuintOut)):OnUpdate(function(...)
     -- function num : 0_50_2 , upvalues : roleInfo
     (roleInfo.Loader):InvalidateBatchingState()
   end
-)):OnComplete((roleInfo.InOutMove).Complete)
-                    -- DECOMPILER ERROR at PC245: Confused about usage of register: R4 in 'UnsetPending'
+)
+                    ;
+                    ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
+    -- function num : 0_50_3 , upvalues : roleInfo
+    if roleInfo.InOutMove then
+      ((roleInfo.InOutMove).Complete)()
+    end
+  end
+)
+                    -- DECOMPILER ERROR at PC266: Confused about usage of register: R4 in 'UnsetPending'
 
                     ;
                     (roleInfo.Loader).alpha = 1
@@ -1916,7 +1957,9 @@ PlotPlayPanelWindow.SetCharacterPos = function(roleInfo, arg, ...)
         _roleAnimDuration = duration
       end
       ;
-      ((((roleInfo.Loader).parent):TweenMove({x = ((roleInfo.Loader).parent).x + offset.x, y = ((roleInfo.Loader).parent).y + offset.y}, _roleAnimDuration)):SetEase((FairyGUI.EaseType).QuadInOut)):OnComplete(function(...)
+      (((roleInfo.Loader).parent):TweenMove({x = ((roleInfo.Loader).parent).x + offset.x, y = ((roleInfo.Loader).parent).y + offset.y}, _roleAnimDuration)):SetEase((FairyGUI.EaseType).QuadInOut)
+      ;
+      ((FairyGUI.Timers).inst):Add(_roleAnimDuration, 1, function(...)
     -- function num : 0_51_0 , upvalues : _movingRole, roleInfo
     if _movingRole[roleInfo.id] then
       _movingRole[roleInfo.id] = nil
@@ -2499,11 +2542,15 @@ PlotPlayPanelWindow.ShowAside = function(callback, ...)
     ;
     ((uis.CutGrp).WordTxt).text = (PlotPlayData.CurrentChapterDataConfig).aside_content
     ;
-    (((uis.CutGrp).WordTxt):TweenFade(1, 0.5)):OnComplete(function(...)
+    ((uis.CutGrp).WordTxt):TweenFade(1, 0.5)
+    ;
+    ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
     -- function num : 0_75_0 , upvalues : _ENV, uis, callback
     (SimpleTimer.setTimeout)(2, function(...)
-      -- function num : 0_75_0_0 , upvalues : uis, callback
-      (((uis.CutGrp).WordTxt):TweenFade(0, 0.5)):OnComplete(function(...)
+      -- function num : 0_75_0_0 , upvalues : uis, _ENV, callback
+      ((uis.CutGrp).WordTxt):TweenFade(0, 0.5)
+      ;
+      ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
         -- function num : 0_75_0_0_0 , upvalues : uis, callback
         -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -2516,7 +2563,7 @@ PlotPlayPanelWindow.ShowAside = function(callback, ...)
   end
 )
   else
-    -- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     ((uis.CutGrp).WordTxt).text = ""
@@ -2744,7 +2791,9 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
       if enter then
         (uis.backsceneLoader).scale = Vector2.one * scale
         ;
-        ((uis.backsceneLoader):TweenScale(Vector2.one, tonumber(effect[3]))):OnComplete(function(...)
+        (uis.backsceneLoader):TweenScale(Vector2.one, tonumber(effect[3]))
+        ;
+        ((FairyGUI.Timers).inst):Add(tonumber(effect[3]), 1, function(...)
     -- function num : 0_81_2 , upvalues : uis, _ENV, effect, finishCallback
     -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -2758,12 +2807,14 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
           finishCallback()
         end
       else
-        -- DECOMPILER ERROR at PC118: Confused about usage of register: R9 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC125: Confused about usage of register: R9 in 'UnsetPending'
 
         ;
         (uis.backsceneLoader).scale = Vector2.one
         ;
-        ((uis.backsceneLoader):TweenScale(Vector2.one * scale, tonumber(effect[3]))):OnComplete(function(...)
+        (uis.backsceneLoader):TweenScale(Vector2.one * scale, tonumber(effect[3]))
+        ;
+        ((FairyGUI.Timers).inst):Add(tonumber(effect[3]), 1, function(...)
     -- function num : 0_81_3 , upvalues : uis, _ENV, effect, finishCallback
     -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -2789,8 +2840,9 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             (PlotPlayPanelWindow.ResetSolidMask)()
             _solidMask.visible = true
             _solidMask.alpha = 1
+            _solidMask:TweenFade(0, DEFAULT_WHITE_SCREEN_DURATION)
             ;
-            (_solidMask:TweenFade(0, DEFAULT_WHITE_SCREEN_DURATION)):OnComplete(function(...)
+            ((FairyGUI.Timers).inst):Add(DEFAULT_WHITE_SCREEN_DURATION, 1, function(...)
     -- function num : 0_81_4 , upvalues : PlotPlayPanelWindow, _solidMask, finishCallback
     (PlotPlayPanelWindow.ResetSolidMask)()
     _solidMask.visible = false
@@ -2801,8 +2853,13 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             ;
             (PlotPlayPanelWindow.ShowBlackBg)()
             _solidMask.alpha = 0
+            _solidMask:TweenFade(1, DEFAULT_WHITE_SCREEN_DURATION)
             ;
-            (_solidMask:TweenFade(1, DEFAULT_WHITE_SCREEN_DURATION)):OnComplete(finishCallback)
+            ((FairyGUI.Timers).inst):Add(DEFAULT_WHITE_SCREEN_DURATION, 1, function(...)
+    -- function num : 0_81_5 , upvalues : finishCallback
+    finishCallback()
+  end
+)
           end
         else
           if effectType == PlotPlayBGEffect.Effect then
@@ -2813,7 +2870,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             if effect[5] ~= nil and tonumber(effect[5]) == 1 then
               (PlotPlayPanelWindow.ChangeUIStatus)(false, true)
               for k,v in pairs(_roleLoaders) do
-                -- DECOMPILER ERROR at PC217: Confused about usage of register: R13 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC241: Confused about usage of register: R13 in 'UnsetPending'
 
                 (v.Loader).visible = false
               end
@@ -2821,7 +2878,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             do
               ;
               (SimpleTimer.setTimeout)(tonumber(effect[3]), function(...)
-    -- function num : 0_81_5 , upvalues : _ENV, _roleLoaders, finishCallback, effect, uis, _transitionEffect, _transitionalMask
+    -- function num : 0_81_6 , upvalues : _ENV, _roleLoaders, finishCallback, effect, uis, _transitionEffect, _transitionalMask
     for k,v in pairs(_roleLoaders) do
       -- DECOMPILER ERROR at PC5: Confused about usage of register: R5 in 'UnsetPending'
 
@@ -2839,7 +2896,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
               if effectType == PlotPlayBGEffect.WhiteScreen then
                 if not enter and (PlotPlayData.HaveNextPlot)() == false and index == #effects then
                   (PlotPlayPanelWindow.ShowWhiteScreenEffect)(enter, function(...)
-    -- function num : 0_81_6 , upvalues : enter, _transitionEffect, PlotPlayPanelWindow, callback
+    -- function num : 0_81_7 , upvalues : enter, _transitionEffect, PlotPlayPanelWindow, callback
     if not enter and _transitionEffect ~= nil then
       _transitionEffect:Dispose()
       _transitionEffect = nil
@@ -2851,7 +2908,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
                 else
                   ;
                   (PlotPlayPanelWindow.ShowWhiteScreenEffect)(enter, function(...)
-    -- function num : 0_81_7 , upvalues : enter, _transitionEffect, callback
+    -- function num : 0_81_8 , upvalues : enter, _transitionEffect, callback
     if not enter and _transitionEffect ~= nil then
       _transitionEffect:Dispose()
       _transitionEffect = nil
@@ -2902,8 +2959,11 @@ PlotPlayPanelWindow.ChangeSolidMaskStatus = function(showChoice, ...)
 end
 
 PlotPlayPanelWindow.ShowBGQuit = function(callback, keep, recycleRole, ...)
-  -- function num : 0_84 , upvalues : _bgAnimPlaying, _ENV, _dialogueConfig, PlotPlayPanelWindow, _bgMask
+  -- function num : 0_84 , upvalues : _bgAnimPlaying, _dialogueConfig, _ENV, PlotPlayPanelWindow, _bgMask
   _bgAnimPlaying = true
+  if _dialogueConfig == nil then
+    return 
+  end
   if (PlotPlayData.CheckNextPlotBGM)(_dialogueConfig.bgm) then
     (LuaSound.StopBGM)()
   end
@@ -3066,14 +3126,20 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
   if direction == PlotPlayBGDirection.LeftToRight then
     local distance = component1.width + component2.width - MASK_GAP_FIXER
     do
-      (((component1:TweenMoveX(component1.x + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
+      ((component1:TweenMoveX(component1.x + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
     -- function num : 0_87_1 , upvalues : component1
     component1:InvalidateBatchingState()
   end
-)):OnComplete(done)
+)
+      ;
+      ((FairyGUI.Timers).inst):Add(MASK_MOVE_DURATION, 1, function(...)
+    -- function num : 0_87_2 , upvalues : done
+    done()
+  end
+)
       ;
       ((component2:TweenMoveX(component2.x + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_87_2 , upvalues : component2
+    -- function num : 0_87_3 , upvalues : component2
     component2:InvalidateBatchingState()
   end
 )
@@ -3083,14 +3149,20 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
       if direction == PlotPlayBGDirection.TopToBottom then
         local distance = component1.height + component2.width - MASK_GAP_FIXER
         ;
-        (((component1:TweenMoveY(component1.y + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_87_3 , upvalues : component1
+        ((component1:TweenMoveY(component1.y + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
+    -- function num : 0_87_4 , upvalues : component1
     component1:InvalidateBatchingState()
   end
-)):OnComplete(done)
+)
+        ;
+        ((FairyGUI.Timers).inst):Add(MASK_MOVE_DURATION, 1, function(...)
+    -- function num : 0_87_5 , upvalues : done
+    done()
+  end
+)
         ;
         ((component2:TweenMoveY(component2.y + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_87_4 , upvalues : component2
+    -- function num : 0_87_6 , upvalues : component2
     component2:InvalidateBatchingState()
   end
 )
@@ -3102,14 +3174,24 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
               distance = -distance
             end
             ;
-            ((component1:TweenMove(component1.xy + distance * 0.2, MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)):OnComplete(function(...)
-    -- function num : 0_87_5 , upvalues : component1, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV, done
-    ((component1:TweenMove(component1.xy + distance * 0.8, MASK_MOVE_DURATION - MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)):OnComplete(done)
+            (component1:TweenMove(component1.xy + distance * 0.2, MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
+            ;
+            ((FairyGUI.Timers).inst):Add(MASK_MOVE_PHASE_1, 1, function(...)
+    -- function num : 0_87_7 , upvalues : component1, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV, done
+    (component1:TweenMove(component1.xy + distance * 0.8, MASK_MOVE_DURATION - MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
+    ;
+    ((FairyGUI.Timers).inst):Add(MASK_MOVE_DURATION - MASK_MOVE_PHASE_1, 1, function(...)
+      -- function num : 0_87_7_0 , upvalues : done
+      done()
+    end
+)
   end
 )
             ;
-            ((component2:TweenMove(component2.xy + distance * 0.2, MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)):OnComplete(function(...)
-    -- function num : 0_87_6 , upvalues : component2, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV
+            (component2:TweenMove(component2.xy + distance * 0.2, MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
+            ;
+            ((FairyGUI.Timers).inst):Add(MASK_MOVE_PHASE_1, 1, function(...)
+    -- function num : 0_87_8 , upvalues : component2, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV
     (component2:TweenMove(component2.xy + distance * 0.8, MASK_MOVE_DURATION - MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
   end
 )
@@ -3264,7 +3346,9 @@ PlotPlayPanelWindow.HandleMessage = function(msgId, para, ...)
                     _contentOutAnim:Play()
                     if (((uis.TalkWordGrp).CardName_01_Grp).root).visible then
                       _nameOutAnim:Play()
-                      _contentFadeOutTween = (((uis.TalkWordGrp).talkTxt):TweenFade(0, 0.5)):OnComplete(function(...)
+                      _contentFadeOutTween = ((uis.TalkWordGrp).talkTxt):TweenFade(0, 0.5)
+                      ;
+                      ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
     -- function num : 0_91_1 , upvalues : uis, _contentFadeOutTween
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -3290,7 +3374,7 @@ PlotPlayPanelWindow.HandleMessage = function(msgId, para, ...)
                     else
                       if msgId == (WindowMsgEnum.PlotPlay).E_MSG_RECYCLE_ROLE_RES then
                         (PlotPlayPanelWindow.RecycleUnusedRole)(false)
-                        -- DECOMPILER ERROR at PC178: Confused about usage of register: R2 in 'UnsetPending'
+                        -- DECOMPILER ERROR at PC183: Confused about usage of register: R2 in 'UnsetPending'
 
                         if uis.TalkWordGrp then
                           ((uis.TalkWordGrp).root).visible = false

@@ -29,8 +29,9 @@ end
 
 NewCardGetWindow.RefreshWindow = function(...)
   -- function num : 0_1 , upvalues : _ENV, cardId, uis, fashionIds, holder, contentPane, showModel, NewCardGetWindow, FxManager
+  print("11111111111111111111")
   local excelData = ((TableData.gTable).BaseCardData)[cardId]
-  -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.TipsTxt).text = (PUtil.get)(33)
@@ -51,7 +52,7 @@ NewCardGetWindow.RefreshWindow = function(...)
   end
   ;
   (Util.RecycleUIModel)(uis.CardLoader)
-  -- DECOMPILER ERROR at PC52: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC55: Confused about usage of register: R3 in 'UnsetPending'
 
   if fashionData.show_cg ~= nil then
     (uis.c2Ctr).selectedIndex = 0
@@ -64,9 +65,9 @@ NewCardGetWindow.RefreshWindow = function(...)
     end
   else
     do
-      -- DECOMPILER ERROR at PC87: Overwrote pending register: R3 in 'AssignReg'
+      -- DECOMPILER ERROR at PC90: Overwrote pending register: R3 in 'AssignReg'
 
-      -- DECOMPILER ERROR at PC89: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC92: Confused about usage of register: R3 in 'UnsetPending'
 
       effect.selectedIndex = excelData.intelligence
       ;
@@ -91,7 +92,6 @@ NewCardGetWindow.HandleMessage = function(msgId, para, ...)
   -- function num : 0_2 , upvalues : _ENV
   local windowMsgEnum = WindowMsgEnum.CardWindow
   if msgId == windowMsgEnum.E_MSG_CARD_SETFASHIONID then
-    (CardData.SaveFashionID)(para.cardId, para.fashionId)
     local showCardId = (((TableData.gTable).BaseFashionData)[(ActorData.GetFashionShow)()]).card_id
     local newFashionData = ((TableData.gTable).BaseFashionData)[para.fashionId]
     local getCardId = newFashionData.card_id
@@ -133,6 +133,7 @@ end
 
 NewCardGetWindow.OnClose = function(...)
   -- function num : 0_4 , upvalues : _ENV, cardId, uis, contentPane, argTable, holder, showModel
+  print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
   if isfromStageUp then
     (CommonWinMgr.OpenCommonFcUp)(cardId)
     UIMgr:SendWindowMessage("CardWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_STAGEUP_TRUE, {})

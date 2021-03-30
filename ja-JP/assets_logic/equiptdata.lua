@@ -992,7 +992,7 @@ end
     ;
     ((EquiptData.PresetEditEquipments).EquipDetail)[equipInfo.objectIndex] = equipInfo
   end
-  local cards = (CardData.GetObtainedCardList)()
+  local cards = (EquiptData.GetCards)()
   -- DECOMPILER ERROR at PC59: Confused about usage of register: R6 in 'UnsetPending'
 
   EquiptData.NPEquipBelongToCard = {}
@@ -1610,7 +1610,7 @@ end
 
   EquiptData.GetRedDotList = function(...)
   -- function num : 0_53 , upvalues : _ENV
-  local list = (CardData.GetObtainedCardList)()
+  local list = (EquiptData.GetCards)()
   local count = (math.min)(#list, Const.MAX_SHOW_RED_DOT_ROLE_INDEX)
   local result = {}
   local found, eachResult = nil, nil
@@ -1778,6 +1778,22 @@ end
   end
 )
   return data
+end
+
+  -- DECOMPILER ERROR at PC483: Confused about usage of register: R0 in 'UnsetPending'
+
+  EquiptData.GetCards = function(...)
+  -- function num : 0_60 , upvalues : _ENV
+  local List = (CardData.GetObtainedCardList)()
+  local cardList = {}
+  local limitConfig = nil
+  for _,v in ipairs(List) do
+    limitConfig = ((TableData.gTable).BaseCardLimitData)[v.id]
+    if limitConfig == nil or limitConfig.equip_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time)) then
+      (table.insert)(cardList, v)
+    end
+  end
+  return cardList
 end
 
   ;

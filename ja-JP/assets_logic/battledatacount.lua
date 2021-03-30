@@ -660,7 +660,8 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
           if card and card:IsDead() ~= true then
             local buffClone = clone(newBuff)
             buffClone:SetCurDefPos(card:GetPosIndex())
-            if buff.atkPos == 0 then
+            local buffConfigTemp = buffClone:GetBuffConfig()
+            if buff.atkPos == 0 or buffConfigTemp.forceAtk and buffConfigTemp.forceAtk == 1 then
               buffClone.atkPos = buff.curDefPos
             else
               buffClone.atkPos = buff.atkPos
@@ -678,7 +679,7 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
           end
         end
         do
-          -- DECOMPILER ERROR at PC127: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC135: LeaveBlock: unexpected jumping out DO_STMT
 
         end
       end

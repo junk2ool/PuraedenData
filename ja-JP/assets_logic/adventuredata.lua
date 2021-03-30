@@ -395,10 +395,12 @@ AdventureData.InitBuildingInfo = function(buildings, ...)
     data.totalOutput = (AdventureData.UnifyBuildingOutput)(data.totalOutput)
     data.upperOutput = (AdventureData.UnifyBuildingOutput)(data.upperOutput)
   end
+  local limitConfig = nil
   count = #allCards
   for i = 1, count do
     data = allCards[i]
-    if usedCards[data.id] == nil then
+    limitConfig = ((TableData.gTable).BaseCardLimitData)[data.id]
+    if usedCards[data.id] == nil and (limitConfig == nil or limitConfig.bigadventure_display ~= 0 and (limitConfig.hide_time == nil or (LuaTime.GetTimeStamp)() < tonumber(limitConfig.hide_time))) then
       (table.insert)(AdventureData.AvailableCards, data.id)
     end
   end

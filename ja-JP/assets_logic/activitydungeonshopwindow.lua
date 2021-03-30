@@ -130,7 +130,7 @@ end
 
 ActivityDungeonShopWindow.InitCardList = function(...)
   -- function num : 0_3 , upvalues : cardListData, _ENV, selectCardId, uis
-  cardListData = (CardData.GetObtainedCardList)()
+  cardListData = (ActivityData.GetCards)()
   selectCardId = (cardListData[1]).id
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -187,7 +187,9 @@ ActivityDungeonShopWindow.SetBreakArticleShow = function(...)
   -- function num : 0_5 , upvalues : _ENV, selectCardId, mGoodInfo, MAX_STAGE, uis
   local cardData = (CardData.GetCardData)(selectCardId)
   mGoodInfo = {}
-  -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
+  ld("Card")
+  MAX_STAGE = (CardData.GetRoleMaxStage)(selectCardId)
+  -- DECOMPILER ERROR at PC20: Confused about usage of register: R1 in 'UnsetPending'
 
   if cardData.quality < MAX_STAGE then
     ((uis.StageList).c1Ctr).selectedIndex = 0
@@ -202,17 +204,17 @@ ActivityDungeonShopWindow.SetBreakArticleShow = function(...)
         (table.insert)(mGoodInfo, {id = itemID, have = haveNum, need = needNum})
       end
     end
-    -- DECOMPILER ERROR at PC58: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC66: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.StageList).StageList).numItems = #mGoodInfo
   else
     do
-      -- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC70: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       ((uis.StageList).c1Ctr).selectedIndex = 1
-      -- DECOMPILER ERROR at PC66: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       ((uis.StageList).WordTxt).text = cardData.name
