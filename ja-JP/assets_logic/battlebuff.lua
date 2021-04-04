@@ -215,7 +215,7 @@ effectRounds = {}
     end
   end
 
-    battleBuff.DealAttribute = function(self, atkInfo, ...)
+    battleBuff.DealAttribute = function(self, atkInfo, buff, ...)
     -- function num : 0_0_18 , upvalues : _ENV, ipairs, BattleDisplayEffect, math
     local BattleData = BattleData
     local active_forever = self:GetActiveForever()
@@ -249,7 +249,7 @@ effectRounds = {}
                     v.realValue = (math.ceil)(v.realValue * (10000 + effect.realValue) / 10000)
                   end
                 end
-                local realValue, absorbDamage, specialEffect = card:AddAttrValue(attributeId, v.realValue, effectId, atkInfo)
+                local realValue, absorbDamage, specialEffect = card:AddAttrValue(attributeId, v.realValue, effectId, atkInfo, buff)
                 if realValue ~= nil then
                   v.realValue = realValue
                 end
@@ -270,13 +270,13 @@ effectRounds = {}
                       (BattleResultCount.UpdateDamageDataBuff)(atkCard, card, (math.abs)(changeHp) + v.absorbDamage)
                     end
                   end
-                  -- DECOMPILER ERROR at PC125: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC125: LeaveBlock: unexpected jumping out DO_STMT
+                  -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out DO_STMT
 
-                  -- DECOMPILER ERROR at PC125: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                  -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                  -- DECOMPILER ERROR at PC125: LeaveBlock: unexpected jumping out IF_STMT
+                  -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_STMT
 
                 end
               end
@@ -2753,12 +2753,8 @@ BattleBuff.ContainEffectId = function(card, effectId, ...)
           if v:GetCurDefPos() == card:GetPosIndex() then
             local buffData = v:GetBuffInfo()
             local effectTable = buffData.effectTable
-            print("遍历的当前buffID", buffData.buffId)
             for _,effect in ipairs(effectTable) do
-              print("\t\t当前buff带有的effecid", effect.effectId, "目标effectid", effectId)
-              print("TYPE", type(effect.effectId), type(effectId))
               if effect.effectId == effectId then
-                print("WINWINWINWINWINWINWINWINWIN", effectId)
                 return true, v, effect
               end
             end

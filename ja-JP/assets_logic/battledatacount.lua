@@ -711,7 +711,7 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
         if IsBattleServer == nil then
           (BattleData.SaveBattleProcess)("  更新buff 已生效次数：" .. buff:GetActiveCount() + 1 .. " 总次数：" .. buff:GetTotalCount())
         end
-        buff:DealAttribute(atkInfo)
+        buff:DealAttribute(atkInfo, buff)
         buff:SetActiveCount(curActiveCount + 1)
         buff:DealSpecialEffect()
         t_insert(allBuffTable, {buff = buff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.UPDATE})
@@ -1306,7 +1306,8 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
       do
         danderAtk = danderAtk - atkCard:GetMaxDander(true)
         atkInfo.danderAtk = danderAtk
-        atkCard:SetDander(atkCard:GetDander() + (danderAtk))
+        atkCard:SetDander(atkCard:GetDander() + (danderAtk) + atkCard:GetExtraDander())
+        atkCard:ClearExtraDander()
         if killCount > 0 and mainAtkCard then
           for i = 1, killCount do
             (self.DealDamageKill)(mainAtkCard, atkInfo)
