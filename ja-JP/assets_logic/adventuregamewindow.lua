@@ -2,6 +2,7 @@
 -- function num : 0 , upvalues : _ENV
 require("AdventureGame_AdventureGameByName")
 local LayerChangeType = {None = 0, Finish = 1, Middle = 2}
+local ThemeType = {Card = 0, Prop = 1}
 local AdventureGameWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
@@ -22,7 +23,7 @@ local _mapLimit, _forkNodes = nil, nil
 local _currentDragStatue = true
 local _shadow, _shadowOffset, _dice, _remoteDice, _currentMapPkg = nil, nil, nil, nil, nil
 local _obstacles = {}
-local _lastObstacle, _mapNameAnim, _startEffect, _finishEffect = nil, nil, nil, nil
+local _lastObstacle, _mapNameAnim, _startEffect, _finishEffect, _themeCtr = nil, nil, nil, nil, nil
 AdventureGameWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, AdventureGameWindow
   bridgeObj:SetView((WinResConfig.AdventureGameWindow).package, (WinResConfig.AdventureGameWindow).comName)
@@ -93,7 +94,7 @@ AdventureGameWindow.InitTopMenu = function(...)
 end
 
 AdventureGameWindow.InitVariable = function(...)
-  -- function num : 0_4 , upvalues : _mapNameAnim, uis, _shadow, _shadowOffset, _themeCardDes, AdventureGameWindow, _roleOffset
+  -- function num : 0_4 , upvalues : _mapNameAnim, uis, _shadow, _shadowOffset, _themeCardDes, AdventureGameWindow, _roleOffset, _themeCtr
   _mapNameAnim = ((uis.SceneCutMove).root):GetTransition("move")
   _shadow = (uis.root):GetChild("ShadowImage")
   _shadowOffset = {x = (uis.CardLoader).x - _shadow.x, y = (uis.CardLoader).y - _shadow.y}
@@ -102,6 +103,7 @@ AdventureGameWindow.InitVariable = function(...)
   _themeCardDes[3] = (AdventureGameWindow.InitThemeCardData)("Three")
   _roleOffset.X = (uis.CardLoader).actualWidth * 0.5 - (uis.CardLoader).actualWidth * (uis.CardLoader).pivotX
   _roleOffset.Y = (uis.CardLoader).actualHeight - (uis.CardLoader).actualHeight * (uis.CardLoader).pivotY
+  _themeCtr = (uis.ThemeCardBtn):GetController("c1")
 end
 
 AdventureGameWindow.InitThemeCardData = function(name, ...)
@@ -208,34 +210,47 @@ AdventureGameWindow.RefreshBuildingRedDot = function(...)
 end
 
 AdventureGameWindow.InitThemeCard = function(...)
-  -- function num : 0_16 , upvalues : _ENV, uis, AdventureGameWindow, _themeCardDes
-  local cardId = (((TableData.gTable).BaseFixedData)[Const.THEME_CARD]).int_value
-  local cardConfig = ((TableData.gTable).BaseCardData)[cardId]
-  ;
-  ((uis.ThemeCardBtn):GetChild("CardHeadLoader")).url = (CardMgr.GetHeadIconBattle)(cardConfig)
-  ;
-  ((uis.ThemeCardBtn):GetChild("CardNameLoader")).url = (Util.GetItemUrl)(cardConfig.name_pic)
-  local config = ((TableData.gTable).BaseCardData)[cardId]
-  ;
-  ((uis.ThemeCardBtn).onClick):Set(function(...)
-    -- function num : 0_16_0 , upvalues : AdventureGameWindow, cardId
-    (AdventureGameWindow.ClickThemeCardBtn)(cardId)
+  -- function num : 0_16 , upvalues : _ENV, _themeCtr, ThemeType, uis, AdventureGameWindow, _themeCardDes
+  local themeId = (((TableData.gTable).BaseFixedData)[Const.ADVENTURE_THEME]).int_value
+  local config = ((TableData.gTable).BaseCardData)[themeId]
+  if config ~= nil then
+    _themeCtr.selectedIndex = ThemeType.Card
+    ;
+    ((uis.ThemeCardBtn):GetChild("CardHeadLoader")).url = (CardMgr.GetHeadIconBattle)(config)
+    ;
+    ((uis.ThemeCardBtn):GetChild("CardNameLoader")).url = (Util.GetItemUrl)(config.name_pic)
+    ;
+    ((uis.ThemeCardBtn).onClick):Set(function(...)
+    -- function num : 0_16_0 , upvalues : AdventureGameWindow, config
+    (AdventureGameWindow.ClickThemeCardBtn)(config.id)
   end
 )
-  local labels = split(config.card_label_show, ":")
-  local count = #_themeCardDes
-  local labelsCount = #labels
-  for i = 1, count do
-    -- DECOMPILER ERROR at PC55: Confused about usage of register: R10 in 'UnsetPending'
+    local labels = split(config.card_label_show, ":")
+    local count = #_themeCardDes
+    local labelsCount = #labels
+    for i = 1, count do
+      -- DECOMPILER ERROR at PC55: Confused about usage of register: R9 in 'UnsetPending'
 
-    ((_themeCardDes[i]).Root).visible = i <= labelsCount
-    -- DECOMPILER ERROR at PC66: Confused about usage of register: R10 in 'UnsetPending'
+      ((_themeCardDes[i]).Root).visible = i <= labelsCount
+      -- DECOMPILER ERROR at PC66: Confused about usage of register: R9 in 'UnsetPending'
 
-    if i <= labelsCount then
-      ((_themeCardDes[i]).Text).text = (PUtil.get)(tonumber(labels[i]))
+      if i <= labelsCount then
+        ((_themeCardDes[i]).Text).text = (PUtil.get)(tonumber(labels[i]))
+      end
     end
+  else
+    _themeCtr.selectedIndex = ThemeType.Prop
+    config = ((TableData.gTable).BasePropData)[themeId]
+    ;
+    ((uis.ThemeCardBtn):GetChild("ItemLoader")).url = (Util.GetItemUrl)(config.icon)
+    ;
+    ((uis.ThemeCardBtn):GetChild("ItemNameTxt")).text = config.name
+    ;
+    (((uis.ThemeCardBtn):GetChild("ItemWord")):GetChild("LabelTxt")).text = config.remark
+    ;
+    ((uis.ThemeCardBtn).onClick):Clear()
   end
-  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
 AdventureGameWindow.SetCharacterPosition = function(pos, ...)

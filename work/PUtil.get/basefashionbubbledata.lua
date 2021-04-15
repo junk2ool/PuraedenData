@@ -10942,4 +10942,140 @@
 [106310131] = {id = 106310131, bubble_text = "ラヴィは最高でしょう？　ご褒美に今夜はたっぷり愛してくださいね、リーダーさん♪", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Win_1"}
 , 
 [107310131] = {id = 107310131, bubble_text = "もしかして…私の愛が、足りないの…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:246", direction = 2, voice_path = "Lovey_Fail_1"}
+, 
+[97030281] = {id = 97030281, bubble_text = "あの…どうしてあたしのこと、そんなに見てるの？　あんまり見られると…なんだか視線を、感じちゃうっていうか…うぅ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Main_1"}
+, 
+[97030282] = {id = 97030282, bubble_text = "は、早く冒険とか行かないの…？　そうじゃないと…あたしまた、全身がたまらなくなってきて…んんっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Main_2"}
+, 
+[97030283] = {id = 97030283, bubble_text = "すー…はー…落ち着いて―…感覚を鈍らせてー…雨にも負けずー…風にも負けずー………ああんっ、だめっ…木が揺れる音でっ…鼓膜がくすぐられてぇ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Main_3"}
+, 
+[97030284] = {id = 97030284, bubble_text = "寒いところは体が冷えてぞくぞくして崩れ落ちそうになるし、暑いところは汗が体を伝って変な声が出ちゃうし…もう、どうすればいいんだろ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Main_4"}
+, 
+[97130281] = {id = 97130281, bubble_text = "あの…どうしてあたしのこと、そんなに見てるの？　あんまり見られると…なんだか視線を、感じちゃうっていうか…うぅ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Main_1"}
+, 
+[97130282] = {id = 97130282, bubble_text = "は、早く冒険とか行かないの…？　そうじゃないと…あたしまた、全身がたまらなくなってきて…んんっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Main_2"}
+, 
+[97130283] = {id = 97130283, bubble_text = "すー…はー…落ち着いて―…感覚を鈍らせてー…雨にも負けずー…風にも負けずー………ああんっ、だめっ…木が揺れる音でっ…鼓膜がくすぐられてぇ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Main_3"}
+, 
+[97130284] = {id = 97130284, bubble_text = "寒いところは体が冷えてぞくぞくして崩れ落ちそうになるし、暑いところは汗が体を伝って変な声が出ちゃうし…もう、どうすればいいんだろ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Main_4"}
+, 
+[97230281] = {id = 97230281, bubble_text = "あの…どうしてあたしのこと、そんなに見てるの？　あんまり見られると…なんだか視線を、感じちゃうっていうか…うぅ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Main_1"}
+, 
+[97230282] = {id = 97230282, bubble_text = "は、早く冒険とか行かないの…？　そうじゃないと…あたしまた、全身がたまらなくなってきて…んんっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Main_2"}
+, 
+[97230283] = {id = 97230283, bubble_text = "すー…はー…落ち着いて―…感覚を鈍らせてー…雨にも負けずー…風にも負けずー………ああんっ、だめっ…木が揺れる音でっ…鼓膜がくすぐられてぇ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Main_3"}
+, 
+[97230284] = {id = 97230284, bubble_text = "寒いところは体が冷えてぞくぞくして崩れ落ちそうになるし、暑いところは汗が体を伝って変な声が出ちゃうし…もう、どうすればいいんだろ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Main_4"}
+, 
+[101302801] = {id = 101302801, bubble_text = "初めまして、あたしはデリケだよ。冒険者してるんだけど…ええっと、レッドの影響でちょっと変な体質で――ああっ！？　だ、だめっ、風が吹いたら…気持ちいいっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Get_1"}
+, 
+[101302811] = {id = 101302811, bubble_text = "えへっ…これならあたし、もっと戦えるよ。でも…なんだかもっと敏感になったような気も…うぅ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Stage_2"}
+, 
+[101302821] = {id = 101302821, bubble_text = "自分の体質が受け入れられないときもあったけど…リーダーのおかげで、あたしはまた自分を好きになることができたんだよ。えへっ。だってこんなに強くて可愛くなった自分を、嫌ったりできないもんね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Stage_3"}
+, 
+[102302801] = {id = 102302801, bubble_text = "ひゃわぁんっ…リ、リーダー！　急に来られたら、その、吐息とかでびっくりしちゃうからっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_In_1"}
+, 
+[102302802] = {id = 102302802, bubble_text = "ひゃわぁんっ…リ、リーダー！　急に来られたら、その、吐息とかでびっくりしちゃうからっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_In_1"}
+, 
+[102302803] = {id = 102302803, bubble_text = "ひゃわぁんっ…リ、リーダー！　急に来られたら、その、吐息とかでびっくりしちゃうからっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_In_1"}
+, 
+[103302801] = {id = 103302801, bubble_text = "はわぅっ…ぞ、ぞくぞくするぅ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Delike_Stage_1"}
+, 
+[103302811] = {id = 103302811, bubble_text = "はわぅっ…ぞ、ぞくぞくするぅ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Delike_Stage_1"}
+, 
+[103302821] = {id = 103302821, bubble_text = "はわぅっ…ぞ、ぞくぞくするぅ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Delike_Stage_1"}
+, 
+[104302801] = {id = 104302801, bubble_text = "もっと敏感になっちゃうかも…でも、めげずに強くなってみせるよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Delike_Star_1"}
+, 
+[104302811] = {id = 104302811, bubble_text = "もっと敏感になっちゃうかも…でも、めげずに強くなってみせるよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Delike_Star_1"}
+, 
+[104302821] = {id = 104302821, bubble_text = "もっと敏感になっちゃうかも…でも、めげずに強くなってみせるよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "404:217", direction = 2, voice_path = "Delike_Star_1"}
+, 
+[105302801] = {id = 105302801, bubble_text = "ひゃわあんっ…！　っば、ばかばかリーダー！　どうして急につんってするの！　もうっ、そんなことするリーダーは嫌いだよっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Interaction_1"}
+, 
+[105302802] = {id = 105302802, bubble_text = "ふわぁっ…ど、どうしてそうやってつつくの…！　こうなったら…リーダーも気持ちよくし返してやるんだから！　…あっ、い、今のはつい張り合っただけで…変なことするつもりはなくてぇっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Interaction_2"}
+, 
+[105302803] = {id = 105302803, bubble_text = "っふ、ふふん。もう変な声出したりしないんだからっ。リーダーのいたずらには屈しない――はぁん…緊張が解けたら、腰が抜けてぇ…リ、リーダー助けてぇ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Interaction_3"}
+, 
+[105302804] = {id = 105302804, bubble_text = "ひとりで戦ってた頃よりも、感覚が落ち着いてきてる気がするんだ。えへっ。でも…リーダーに触れられるのは、もっと気持ち良くなってるような…う、ううん、気のせいだよね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Interaction_4"}
+, 
+[105302805] = {id = 105302805, bubble_text = "リーダーの手も…何か不思議な力があるのかな…。他の何よりも…触れられると、全身が甘くしびれて…胸がすっごくドキドキして…感じたことがない、気持ち良さで…。これ、なんなんだろ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Interaction_5"}
+, 
+[105302811] = {id = 105302811, bubble_text = "ひゃわあんっ…！　っば、ばかばかリーダー！　どうして急につんってするの！　もうっ、そんなことするリーダーは嫌いだよっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Interaction_1"}
+, 
+[105302812] = {id = 105302812, bubble_text = "ふわぁっ…ど、どうしてそうやってつつくの…！　こうなったら…リーダーも気持ちよくし返してやるんだから！　…あっ、い、今のはつい張り合っただけで…変なことするつもりはなくてぇっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Interaction_2"}
+, 
+[105302813] = {id = 105302813, bubble_text = "っふ、ふふん。もう変な声出したりしないんだからっ。リーダーのいたずらには屈しない――はぁん…緊張が解けたら、腰が抜けてぇ…リ、リーダー助けてぇ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Interaction_3"}
+, 
+[105302814] = {id = 105302814, bubble_text = "ひとりで戦ってた頃よりも、感覚が落ち着いてきてる気がするんだ。えへっ。でも…リーダーに触れられるのは、もっと気持ち良くなってるような…う、ううん、気のせいだよね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Interaction_4"}
+, 
+[105302815] = {id = 105302815, bubble_text = "リーダーの手も…何か不思議な力があるのかな…。他の何よりも…触れられると、全身が甘くしびれて…胸がすっごくドキドキして…感じたことがない、気持ち良さで…。これ、なんなんだろ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Interaction_5"}
+, 
+[105302821] = {id = 105302821, bubble_text = "ひゃわあんっ…！　っば、ばかばかリーダー！　どうして急につんってするの！　もうっ、そんなことするリーダーは嫌いだよっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Interaction_1"}
+, 
+[105302822] = {id = 105302822, bubble_text = "ふわぁっ…ど、どうしてそうやってつつくの…！　こうなったら…リーダーも気持ちよくし返してやるんだから！　…あっ、い、今のはつい張り合っただけで…変なことするつもりはなくてぇっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Interaction_2"}
+, 
+[105302823] = {id = 105302823, bubble_text = "っふ、ふふん。もう変な声出したりしないんだからっ。リーダーのいたずらには屈しない――はぁん…緊張が解けたら、腰が抜けてぇ…リ、リーダー助けてぇ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Interaction_3"}
+, 
+[105302824] = {id = 105302824, bubble_text = "ひとりで戦ってた頃よりも、感覚が落ち着いてきてる気がするんだ。えへっ。でも…リーダーに触れられるのは、もっと気持ち良くなってるような…う、ううん、気のせいだよね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Interaction_4"}
+, 
+[105302825] = {id = 105302825, bubble_text = "リーダーの手も…何か不思議な力があるのかな…。他の何よりも…触れられると、全身が甘くしびれて…胸がすっごくドキドキして…感じたことがない、気持ち良さで…。これ、なんなんだろ…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Interaction_5"}
+, 
+[106302801] = {id = 106302801, bubble_text = "やっぱり勝つのって、気持ちいいっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Win_1"}
+, 
+[106302811] = {id = 106302811, bubble_text = "やっぱり勝つのって、気持ちいいっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Win_1"}
+, 
+[106302821] = {id = 106302821, bubble_text = "やっぱり勝つのって、気持ちいいっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Win_1"}
+, 
+[107302801] = {id = 107302801, bubble_text = "が、我慢するので精一杯だよぉ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "430:232", direction = 1, voice_path = "Delike_Fail_1"}
+, 
+[107302811] = {id = 107302811, bubble_text = "が、我慢するので精一杯だよぉ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:235", direction = 1, voice_path = "Delike_Fail_1"}
+, 
+[107302821] = {id = 107302821, bubble_text = "が、我慢するので精一杯だよぉ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "549:374", direction = 1, voice_path = "Delike_Fail_1"}
+, 
+[108302801] = {id = 108302801, bubble_text = "行かなくちゃ、だめ…？", voice_path = "Delike_Go_1"}
+, 
+[109302801] = {id = 109302801, voice_path = "Delike_Game_1"}
+, 
+[111302801] = {id = 111302801, voice_path = "Delike_Battle_N_1"}
+, 
+[111302802] = {id = 111302802, voice_path = "Delike_Battle_N_2"}
+, 
+[111302803] = {id = 111302803, voice_path = "Delike_Battle_N_3"}
+, 
+[111302804] = {id = 111302804, voice_path = "Delike_Battle_N_4"}
+, 
+[111302805] = {id = 111302805, voice_path = "Delike_Battle_N_5"}
+, 
+[111302806] = {id = 111302806, voice_path = "Delike_Battle_N_6"}
+, 
+[112302801] = {id = 112302801, voice_path = "Delike_Battle_Hit_1"}
+, 
+[112302802] = {id = 112302802, voice_path = "Delike_Battle_Hit_2"}
+, 
+[112302803] = {id = 112302803, voice_path = "Delike_Battle_Hit_3"}
+, 
+[112302804] = {id = 112302804, voice_path = "Delike_Battle_Hit_4"}
+, 
+[112302805] = {id = 112302805, voice_path = "Delike_Battle_Hit_5"}
+, 
+[112302806] = {id = 112302806, voice_path = "Delike_Battle_Hit_6"}
+, 
+[113302801] = {id = 113302801, voice_path = "Delike_Battle_Die_1"}
+, 
+[114302801] = {id = 114302801, voice_path = "Delike_Battle_H_1"}
+, 
+[114302802] = {id = 114302802, voice_path = "Delike_Battle_H_2"}
+, 
+[115302801] = {id = 115302801, voice_path = "Delike_Battle_C_1"}
+, 
+[115302802] = {id = 115302802, voice_path = "Delike_Battle_C_2"}
+, 
+[116302801] = {id = 116302801, bubble_text = "刺激的なものとか、置いてある…？", voice_path = "Delike_Home_In_1", top_position = 10}
+, 
+[117302801] = {id = 117302801, bubble_text = "ふぅ…ここなら突然風が吹いたりしないから、一安心…", voice_path = "Delike_Home_Talk_1", top_position = 10}
+, 
+[117302802] = {id = 117302802, bubble_text = "ここにはたくさん仲間がいるから…えへっ、なんだか嬉しいな♪", voice_path = "Delike_Home_Talk_2", top_position = 10}
+, 
+[117302803] = {id = 117302803, bubble_text = "畑仕事を手伝いたいけど…うぅ、葉っぱが肌に触れると…腰が抜けちゃって…", voice_path = "Delike_Home_Talk_3", top_position = 10}
 }

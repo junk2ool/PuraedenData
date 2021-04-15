@@ -188,6 +188,8 @@ LoginWindow.OnInit = function(bridgeObj, ...)
   (SimpleTimer.setTimeout)(0.01, function(...)
     -- function num : 0_7_3 , upvalues : _ENV
     (SuperSDKUtil.OpenLoginPage)()
+    ;
+    (SuperSDKUtil.SetIsUseSDKPush)()
   end
 )
 end

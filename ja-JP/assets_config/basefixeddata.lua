@@ -31,9 +31,9 @@ BaseFixedData = {
 , 
 [72000015] = {id = 72000015, int_value = 100, array_value = "0"}
 , 
-[72000016] = {id = 72000016, int_value = 74, array_value = "0"}
+[72000016] = {id = 72000016, int_value = 78, array_value = "0"}
 , 
-[72000017] = {id = 72000017, int_value = 20, array_value = "0"}
+[72000017] = {id = 72000017, int_value = 21, array_value = "0"}
 , 
 [72000018] = {id = 72000018, int_value = 3, array_value = "0"}
 , 
@@ -59,7 +59,7 @@ BaseFixedData = {
 , 
 [72002021] = {id = 72002021, int_value = 0, array_value = "3:7"}
 , 
-[72002022] = {id = 72002022, int_value = 11202007, array_value = "0"}
+[72002022] = {id = 72002022, int_value = 21120002, array_value = "0"}
 , 
 [72002023] = {id = 72002023, int_value = 0, array_value = "4,5"}
 , 
@@ -169,7 +169,7 @@ BaseFixedData = {
 , 
 [72010040] = {id = 72010040, int_value = 0, array_value = "89040001:89040002:89040003:89040004"}
 , 
-[72010041] = {id = 72010041, int_value = 0, array_value = "92305001:92305005:92305008"}
+[72010041] = {id = 72010041, int_value = 0, array_value = "92305001:92305002:92305003:92305004:92305005:92305006:92305007:92305008:92305009:92305010"}
 , 
 [72010050] = {id = 72010050, int_value = 0, array_value = "0"}
 , 
@@ -197,4 +197,5 @@ BaseFixedData = {
 , 
 [72010083] = {id = 72010083, int_value = 0, array_value = "1:1.8:3"}
 }
+return BaseFixedData
 

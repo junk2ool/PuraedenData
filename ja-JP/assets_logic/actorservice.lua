@@ -140,6 +140,13 @@ ActorService.OnResDetailInfo = function(msg, ...)
     (ActorData.SaveActorData)(msg, callBack)
     ;
     (ActorMgr.InitHeartMessageUpdate)()
+    if SDKUtil.IsUseSDKPush == true then
+      (MessageMgr.SetCandyGetPush)(PushType.Candy_Get)
+      ;
+      (MessageMgr.SetFixTimePush)(PushType.Fix_Time)
+      ;
+      (MessageMgr.SetFullPhysicalPush)(PushType.Full_Physical)
+    end
     if Game.jumpOverture == true and Game.jumpNewHand == true then
       (LoginService.OnReqSendChar)("gm,funcOpen,1")
     end
@@ -542,8 +549,19 @@ end
 
 -- DECOMPILER ERROR at PC87: Confused about usage of register: R2 in 'UnsetPending'
 
-ActorService.OnResFashionList = function(msg, ...)
+ActorService.OnReqPushSet = function(type, value, ...)
   -- function num : 0_27 , upvalues : _ENV
+  local m = {}
+  m.pushType = type
+  m.value = value
+  ;
+  (Net.Send)((Proto.MsgName).ReqPushSet, m)
+end
+
+-- DECOMPILER ERROR at PC90: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.OnResFashionList = function(msg, ...)
+  -- function num : 0_28 , upvalues : _ENV
   (ActorData.GetSpecialFashionList)(msg.fashions)
 end
 

@@ -5,10 +5,12 @@ require("ActorInfo_BattleSetByName")
 require("ActorInfo_MassageSetByName")
 require("ActorInfo_SoundSetByName")
 require("ActorInfo_UISetByName")
+require("ActorInfo_PushSetByName")
 local SystemSetWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
-local _battleGrp, _uiSetGrp, _messageSetGrp, _soundSetGrp, isPause = nil, nil, nil, nil, nil
+local pushSetData = {}
+local _battleGrp, _uiSetGrp, _messageSetGrp, _soundSetGrp, isPause, _pushSetGrp, _isShowPushSet = nil, nil, nil, nil, nil, nil, nil
 SystemSetWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, isPause, uis, SystemSetWindow
   bridgeObj:SetView((WinResConfig.SystemSetWindow).package, (WinResConfig.SystemSetWindow).comName)
@@ -35,15 +37,34 @@ SystemSetWindow.OnInit = function(bridgeObj, ...)
 end
 
 SystemSetWindow.InitVariable = function(...)
-  -- function num : 0_1 , upvalues : _battleGrp, _ENV, uis, _uiSetGrp, _messageSetGrp, _soundSetGrp
-  _battleGrp = GetActorInfo_BattleSetUis(((uis.SystemSetGrp).SetList):GetChildAt(0))
-  _uiSetGrp = GetActorInfo_UISetUis(((uis.SystemSetGrp).SetList):GetChildAt(1))
-  _messageSetGrp = GetActorInfo_MassageSetUis(((uis.SystemSetGrp).SetList):GetChildAt(2))
-  _soundSetGrp = GetActorInfo_SoundSetUis(((uis.SystemSetGrp).SetList):GetChildAt(3))
+  -- function num : 0_1 , upvalues : _isShowPushSet, _ENV, _battleGrp, uis, _uiSetGrp, _pushSetGrp, _messageSetGrp, _soundSetGrp
+  _isShowPushSet = SuperSDKUtil.IsUseSDKPush
+  if _isShowPushSet == true then
+    _battleGrp = GetActorInfo_BattleSetUis(((uis.SystemSetGrp).SetList):GetChildAt(0))
+    _uiSetGrp = GetActorInfo_UISetUis(((uis.SystemSetGrp).SetList):GetChildAt(1))
+    _pushSetGrp = GetActorInfo_PushSetUis(((uis.SystemSetGrp).SetList):GetChildAt(2))
+    _messageSetGrp = GetActorInfo_MassageSetUis(((uis.SystemSetGrp).SetList):GetChildAt(3))
+    _soundSetGrp = GetActorInfo_SoundSetUis(((uis.SystemSetGrp).SetList):GetChildAt(4))
+  else
+    ;
+    ((uis.SystemSetGrp).SetList):RemoveChildrenToPool()
+    ;
+    ((uis.SystemSetGrp).SetList):AddItemFromPool((UIPackage.GetItemURL)("ActorInfo", "BattleSet"))
+    ;
+    ((uis.SystemSetGrp).SetList):AddItemFromPool((UIPackage.GetItemURL)("ActorInfo", "UISet"))
+    ;
+    ((uis.SystemSetGrp).SetList):AddItemFromPool((UIPackage.GetItemURL)("ActorInfo", "MassageSet"))
+    ;
+    ((uis.SystemSetGrp).SetList):AddItemFromPool((UIPackage.GetItemURL)("ActorInfo", "SoundSet"))
+    _battleGrp = GetActorInfo_BattleSetUis(((uis.SystemSetGrp).SetList):GetChildAt(0))
+    _uiSetGrp = GetActorInfo_UISetUis(((uis.SystemSetGrp).SetList):GetChildAt(1))
+    _messageSetGrp = GetActorInfo_MassageSetUis(((uis.SystemSetGrp).SetList):GetChildAt(2))
+    _soundSetGrp = GetActorInfo_SoundSetUis(((uis.SystemSetGrp).SetList):GetChildAt(3))
+  end
 end
 
 SystemSetWindow.InitText = function(...)
-  -- function num : 0_2 , upvalues : uis, _ENV, argTable, _battleGrp, SystemSetWindow, _uiSetGrp, _messageSetGrp, _soundSetGrp
+  -- function num : 0_2 , upvalues : uis, _ENV, argTable, _battleGrp, SystemSetWindow, _uiSetGrp, _messageSetGrp, _soundSetGrp, _isShowPushSet, _pushSetGrp, pushSetData
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.SystemSetGrp).TitleTxt).text = (PUtil.get)(114)
@@ -115,10 +136,96 @@ SystemSetWindow.InitText = function(...)
 
   ;
   ((_soundSetGrp.SoundControl_03_Grp).NameTxt).text = (PUtil.get)(60000359)
+  -- DECOMPILER ERROR at PC173: Confused about usage of register: R0 in 'UnsetPending'
+
+  if _isShowPushSet == true then
+    (_pushSetGrp.NameTxt).text = (PUtil.get)(20000658)
+    -- DECOMPILER ERROR at PC179: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    (_pushSetGrp.ExplainTxt).text = (PUtil.get)(20000659)
+    local pushData = (TableData.gTable).BaseMessagePushData
+    local pushList = {}
+    for key,value in pairs(pushData) do
+      if pushList[value.push_type] == nil then
+        pushList[value.push_type] = value
+        ;
+        (table.insert)(pushSetData, value)
+      end
+    end
+    ;
+    (table.sort)(pushSetData, function(a, b, ...)
+    -- function num : 0_2_0
+    do return a.push_type < b.push_type end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+    ;
+    (SystemSetWindow.InitPushSetList)()
+    -- DECOMPILER ERROR at PC211: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (_pushSetGrp.PushTipsList).numItems = #pushSetData
+  end
+end
+
+SystemSetWindow.PushListRenderer = function(index, obj, ...)
+  -- function num : 0_3 , upvalues : pushSetData, SystemSetWindow
+  local data = pushSetData[index + 1]
+  ;
+  (SystemSetWindow.SetPushSet)(obj, data)
+end
+
+SystemSetWindow.InitPushSetList = function(...)
+  -- function num : 0_4 , upvalues : _pushSetGrp, SystemSetWindow
+  -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+  (_pushSetGrp.PushTipsList).itemRenderer = SystemSetWindow.PushListRenderer
+end
+
+SystemSetWindow.SetPushSet = function(obj, data, ...)
+  -- function num : 0_5 , upvalues : _ENV, SystemSetWindow
+  if data == nil then
+    obj.visible = false
+    return 
+  end
+  obj.visible = true
+  ;
+  (obj:GetChild("Content_01_Txt")).text = (PUtil.get)(data.option_name)
+  ;
+  (((obj:GetChild("Content_01_Grp")):GetChild("Switch_A_Btn")):GetChild("WordTxt")).text = (PUtil.get)(60000360)
+  ;
+  (((obj:GetChild("Content_01_Grp")):GetChild("Switch_B_Btn")):GetChild("WordTxt")).text = (PUtil.get)(60000361)
+  ;
+  (((obj:GetChild("Content_01_Grp")):GetChild("Switch_A_Btn")).onClick):Set(function(...)
+    -- function num : 0_5_0 , upvalues : SystemSetWindow, data, obj
+    (SystemSetWindow.ClickPushBtn)(data, obj)
+  end
+)
+  ;
+  (((obj:GetChild("Content_01_Grp")):GetChild("Switch_B_Btn")).onClick):Set(function(...)
+    -- function num : 0_5_1 , upvalues : SystemSetWindow, data, obj
+    (SystemSetWindow.ClickPushBtn)(data, obj)
+  end
+)
+  for k,v in ipairs(ActorData.pushSetInfo) do
+    if v ~= true then
+      do
+        local isOpen = k ~= data.push_type
+        ;
+        ((obj:GetChild("Content_01_Grp")):GetController("c1")).selectedIndex = isOpen and 0 or 1
+        -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+        -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_STMT
+
+      end
+    end
+  end
+  -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
 SystemSetWindow.InitSingleGrpText = function(grp, index, title, option1, option2, ...)
-  -- function num : 0_3 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV
   -- DECOMPILER ERROR at PC11: Confused about usage of register: R5 in 'UnsetPending'
 
   (grp["Content_0" .. tostring(index) .. "_Txt"]).text = (PUtil.get)(title)
@@ -129,7 +236,7 @@ SystemSetWindow.InitSingleGrpText = function(grp, index, title, option1, option2
 end
 
 SystemSetWindow.InitButtonEvent = function(...)
-  -- function num : 0_4 , upvalues : _battleGrp, SystemSetWindow, _uiSetGrp, _messageSetGrp, _soundSetGrp, uis
+  -- function num : 0_7 , upvalues : _battleGrp, SystemSetWindow, _uiSetGrp, _messageSetGrp, _soundSetGrp, uis
   (((_battleGrp.Content_01_Grp).Switch_A_Btn).onClick):Add(SystemSetWindow.ClickActionBarBtn)
   ;
   (((_battleGrp.Content_01_Grp).Switch_B_Btn).onClick):Add(SystemSetWindow.ClickActionBarBtn)
@@ -202,26 +309,26 @@ SystemSetWindow.InitButtonEvent = function(...)
 end
 
 SystemSetWindow.InitEvent = function(...)
-  -- function num : 0_5
+  -- function num : 0_8
 end
 
 SystemSetWindow.RemoveEvent = function(...)
-  -- function num : 0_6
+  -- function num : 0_9
 end
 
 SystemSetWindow.OnShown = function(...)
-  -- function num : 0_7 , upvalues : SystemSetWindow
+  -- function num : 0_10 , upvalues : SystemSetWindow
   (SystemSetWindow.InitEvent)()
   ;
   (SystemSetWindow.Init)()
 end
 
 SystemSetWindow.OnHide = function(...)
-  -- function num : 0_8
+  -- function num : 0_11
 end
 
 SystemSetWindow.Init = function(...)
-  -- function num : 0_9 , upvalues : argTable, _ENV, uis, _battleGrp, SystemSetWindow, _uiSetGrp, _messageSetGrp, _soundSetGrp
+  -- function num : 0_12 , upvalues : argTable, _ENV, uis, _battleGrp, SystemSetWindow, _uiSetGrp, _messageSetGrp, _soundSetGrp
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
   if argTable.Type == SystemSetType.Battle or argTable.Replay then
@@ -301,7 +408,7 @@ SystemSetWindow.Init = function(...)
 end
 
 SystemSetWindow.InitSoundSet = function(grp, muteKey, volumeKey, ...)
-  -- function num : 0_10 , upvalues : _ENV, SystemSetWindow
+  -- function num : 0_13 , upvalues : _ENV, SystemSetWindow
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R3 in 'UnsetPending'
 
   (grp.SoundSlider).value = (Util.GetFloatPlayerSetting)(volumeKey, 1) * 100
@@ -316,7 +423,7 @@ SystemSetWindow.InitSoundSet = function(grp, muteKey, volumeKey, ...)
 end
 
 SystemSetWindow.InitSoundSlider = function(grp, on, ...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_14 , upvalues : _ENV
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R2 in 'UnsetPending'
 
   (grp.SoundSlider).touchable = on
@@ -334,19 +441,21 @@ SystemSetWindow.InitSoundSlider = function(grp, on, ...)
 end
 
 SystemSetWindow.OnClose = function(...)
-  -- function num : 0_12 , upvalues : argTable, _ENV, isPause, SystemSetWindow, uis, contentPane
+  -- function num : 0_15 , upvalues : argTable, _ENV, isPause, _pushSetGrp, SystemSetWindow, uis, contentPane, pushSetData
   if argTable.Type ~= SystemSetType.NonBattle and isPause ~= true then
     (BattleMgr.ContinueBattle)()
   end
+  _pushSetGrp = nil
   ;
   (SystemSetWindow.RemoveEvent)()
   uis = nil
   contentPane = nil
   argTable = {}
+  pushSetData = {}
 end
 
 SystemSetWindow.ChangeValue = function(keyName, ...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   local curValue = tonumber((Util.GetPlayerSetting)(keyName, "0"))
   if curValue == 1 then
     curValue = 0
@@ -359,7 +468,7 @@ SystemSetWindow.ChangeValue = function(keyName, ...)
 end
 
 SystemSetWindow.ClickBattleOutBtn = function(...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).GUILD_WAR then
     (GuildBossService.ReqGuildBattleInfo)(true)
   end
@@ -371,12 +480,23 @@ SystemSetWindow.ClickBattleOutBtn = function(...)
 end
 
 SystemSetWindow.ClickCloseBtn = function(...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV
   UIMgr:CloseWindow((WinResConfig.SystemSetWindow).name)
 end
 
+SystemSetWindow.ClickPushBtn = function(data, obj, ...)
+  -- function num : 0_19 , upvalues : _ENV
+  local state = ((obj:GetChild("Content_01_Grp")):GetController("c1")).selectedIndex
+  local receive = state == 0
+  ;
+  (ActorData.SetPushData)(data.push_type, receive)
+  ;
+  (MessageMgr.SetPushTypeData)(data.push_type, true)
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+end
+
 SystemSetWindow.ClickActionBarBtn = function(...)
-  -- function num : 0_16 , upvalues : SystemSetWindow, _ENV, _battleGrp, argTable
+  -- function num : 0_20 , upvalues : SystemSetWindow, _ENV, _battleGrp, argTable
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.BATTLE_SETTING_SPEED)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -394,7 +514,7 @@ SystemSetWindow.ClickActionBarBtn = function(...)
 end
 
 SystemSetWindow.ClickTopInfoBtn = function(...)
-  -- function num : 0_17 , upvalues : SystemSetWindow, _battleGrp, _ENV, argTable
+  -- function num : 0_21 , upvalues : SystemSetWindow, _battleGrp, _ENV, argTable
   -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
 
   if (SystemSetWindow.ClickWithHideBattle)(_battleGrp.Content_02_Grp) ~= true then
@@ -406,7 +526,7 @@ SystemSetWindow.ClickTopInfoBtn = function(...)
 end
 
 SystemSetWindow.ClickAttackInfoBtn = function(...)
-  -- function num : 0_18 , upvalues : SystemSetWindow, _battleGrp, _ENV, argTable
+  -- function num : 0_22 , upvalues : SystemSetWindow, _battleGrp, _ENV, argTable
   -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
 
   if (SystemSetWindow.ClickWithHideBattle)(_battleGrp.Content_03_Grp) ~= true then
@@ -418,7 +538,7 @@ SystemSetWindow.ClickAttackInfoBtn = function(...)
 end
 
 SystemSetWindow.ClickHpBtn = function(...)
-  -- function num : 0_19 , upvalues : SystemSetWindow, _ENV, _battleGrp, argTable
+  -- function num : 0_23 , upvalues : SystemSetWindow, _ENV, _battleGrp, argTable
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.BATTLE_SETTING_HP)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -436,7 +556,7 @@ SystemSetWindow.ClickHpBtn = function(...)
 end
 
 SystemSetWindow.ClickHpBarBtn = function(...)
-  -- function num : 0_20 , upvalues : _battleGrp, SystemSetWindow, _ENV, argTable
+  -- function num : 0_24 , upvalues : _battleGrp, SystemSetWindow, _ENV, argTable
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   ((_battleGrp.Content_05_Grp).c1Ctr).selectedIndex = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.BATTLE_SETTING_HP_BAR)
@@ -448,7 +568,7 @@ SystemSetWindow.ClickHpBarBtn = function(...)
 end
 
 SystemSetWindow.ClickRageBarBtn = function(...)
-  -- function num : 0_21 , upvalues : SystemSetWindow, _ENV, _battleGrp, argTable
+  -- function num : 0_25 , upvalues : SystemSetWindow, _ENV, _battleGrp, argTable
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.BATTLE_SETTING_RAGE_BAR)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -466,7 +586,7 @@ SystemSetWindow.ClickRageBarBtn = function(...)
 end
 
 SystemSetWindow.ClickBattleFrameBtn = function(...)
-  -- function num : 0_22 , upvalues : SystemSetWindow, _ENV, _uiSetGrp, argTable
+  -- function num : 0_26 , upvalues : SystemSetWindow, _ENV, _uiSetGrp, argTable
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.BATTLE_SETTING_FRAME)
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -478,7 +598,7 @@ SystemSetWindow.ClickBattleFrameBtn = function(...)
 end
 
 SystemSetWindow.ClickWithHideBattle = function(clickItem, ...)
-  -- function num : 0_23 , upvalues : _ENV, _battleGrp, SystemSetWindow
+  -- function num : 0_27 , upvalues : _ENV, _battleGrp, SystemSetWindow
   local visible = (BattleConfig.IsHideBattleHeadInfo)() == false
   do
     if visible == false then
@@ -515,7 +635,7 @@ SystemSetWindow.ClickWithHideBattle = function(clickItem, ...)
 end
 
 SystemSetWindow.UpdateBattleSelection = function(init, ...)
-  -- function num : 0_24 , upvalues : _ENV, _battleGrp
+  -- function num : 0_28 , upvalues : _ENV, _battleGrp
   local visible = (BattleConfig.IsHideBattleHeadInfo)() == false
   -- DECOMPILER ERROR at PC19: Confused about usage of register: R2 in 'UnsetPending'
 
@@ -561,7 +681,7 @@ SystemSetWindow.UpdateBattleSelection = function(init, ...)
 end
 
 SystemSetWindow.ClickFrameBtn = function(...)
-  -- function num : 0_25 , upvalues : SystemSetWindow, _ENV, _uiSetGrp
+  -- function num : 0_29 , upvalues : SystemSetWindow, _ENV, _uiSetGrp
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.SETTING_FRAME)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -578,7 +698,7 @@ SystemSetWindow.ClickFrameBtn = function(...)
 end
 
 SystemSetWindow.ClickQualityBtn = function(...)
-  -- function num : 0_26 , upvalues : _ENV, _uiSetGrp
+  -- function num : 0_30 , upvalues : _ENV, _uiSetGrp
   local launch = (CS.Launch).Singleton
   local value = tonumber((PlayerPrefs.GetString)(PlayerPrefsKeyName.SETTING_QUALITY, "1"))
   if value == 1 then
@@ -600,7 +720,7 @@ SystemSetWindow.ClickQualityBtn = function(...)
 end
 
 SystemSetWindow.ClickScrollInfoBtn = function(...)
-  -- function num : 0_27 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
+  -- function num : 0_31 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.SCROLL_INFO)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -622,7 +742,7 @@ SystemSetWindow.ClickScrollInfoBtn = function(...)
 end
 
 SystemSetWindow.ClickConsumTipBtn = function(...)
-  -- function num : 0_28 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
+  -- function num : 0_32 , upvalues : SystemSetWindow, _ENV, _messageSetGrp
   local value = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.IGNORE_DIAMOND_CONSUM_TIPS)
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -631,7 +751,7 @@ SystemSetWindow.ClickConsumTipBtn = function(...)
 end
 
 SystemSetWindow.ClickSoundMuteBtn = function(...)
-  -- function num : 0_29 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
+  -- function num : 0_33 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
   local on = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.SOUND_MUTE) == 0
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -645,7 +765,7 @@ SystemSetWindow.ClickSoundMuteBtn = function(...)
 end
 
 SystemSetWindow.ClickMusicMuteBtn = function(...)
-  -- function num : 0_30 , upvalues : SystemSetWindow, _ENV, _soundSetGrp, argTable
+  -- function num : 0_34 , upvalues : SystemSetWindow, _ENV, _soundSetGrp, argTable
   local on = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.MUSIC_MUTE) == 0
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -666,7 +786,7 @@ SystemSetWindow.ClickMusicMuteBtn = function(...)
 end
 
 SystemSetWindow.ClickCVMuteBtn = function(...)
-  -- function num : 0_31 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
+  -- function num : 0_35 , upvalues : SystemSetWindow, _ENV, _soundSetGrp
   local on = (SystemSetWindow.ChangeValue)(PlayerPrefsKeyName.CV_MUTE) == 0
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -678,7 +798,7 @@ SystemSetWindow.ClickCVMuteBtn = function(...)
 end
 
 SystemSetWindow.SoundVolumeChanged = function(...)
-  -- function num : 0_32 , upvalues : _soundSetGrp, _ENV
+  -- function num : 0_36 , upvalues : _soundSetGrp, _ENV
   local value = ((_soundSetGrp.SoundControl_01_Grp).SoundSlider).value / 100
   ;
   (Util.SetFloatPlayerSetting)(PlayerPrefsKeyName.SOUND_VOLUME, value)
@@ -687,7 +807,7 @@ SystemSetWindow.SoundVolumeChanged = function(...)
 end
 
 SystemSetWindow.MusicVolumeChanged = function(...)
-  -- function num : 0_33 , upvalues : _soundSetGrp, _ENV
+  -- function num : 0_37 , upvalues : _soundSetGrp, _ENV
   local value = ((_soundSetGrp.SoundControl_02_Grp).SoundSlider).value / 100
   ;
   (LuaSound.ChangeBGMVolume)(value)
@@ -696,14 +816,14 @@ SystemSetWindow.MusicVolumeChanged = function(...)
 end
 
 SystemSetWindow.CVVolumeChanged = function(...)
-  -- function num : 0_34 , upvalues : _soundSetGrp, _ENV
+  -- function num : 0_38 , upvalues : _soundSetGrp, _ENV
   local value = ((_soundSetGrp.SoundControl_03_Grp).SoundSlider).value / 100
   ;
   (Util.SetFloatPlayerSetting)(PlayerPrefsKeyName.CV_VOLUME, value)
 end
 
 SystemSetWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_35
+  -- function num : 0_39
 end
 
 return SystemSetWindow

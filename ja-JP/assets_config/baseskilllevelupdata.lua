@@ -151,6 +151,14 @@ BaseSkillLevelUpData = {
 , 
 [72401074] = {id = 72401074, type = 1, level = 74, unique_skill_cost = "2:21100003:62400", special_skill_cost = "2:21100003:52800", passive_skill_cost1 = "2:21100003:28800", passive_skill_cost2 = "2:21100003:33600", passive_skill_cost3 = "2:21100003:38400", passive_skill_cost4 = "2:21100003:43200", passive_skill_cost5 = "2:21100003:48000", passive_skill_cost6 = "2:21100003:52800", passive_skill_cost7 = "2:21100003:57600"}
 , 
+[72401075] = {id = 72401075, type = 1, level = 75, unique_skill_cost = "2:21100003:65520", special_skill_cost = "2:21100003:55440", passive_skill_cost1 = "2:21100003:30240", passive_skill_cost2 = "2:21100003:35280", passive_skill_cost3 = "2:21100003:40320", passive_skill_cost4 = "2:21100003:45360", passive_skill_cost5 = "2:21100003:50400", passive_skill_cost6 = "2:21100003:55440", passive_skill_cost7 = "2:21100003:60480"}
+, 
+[72401076] = {id = 72401076, type = 1, level = 76, unique_skill_cost = "2:21100003:68640", special_skill_cost = "2:21100003:58080", passive_skill_cost1 = "2:21100003:31680", passive_skill_cost2 = "2:21100003:36960", passive_skill_cost3 = "2:21100003:42240", passive_skill_cost4 = "2:21100003:47520", passive_skill_cost5 = "2:21100003:52800", passive_skill_cost6 = "2:21100003:58080", passive_skill_cost7 = "2:21100003:63360"}
+, 
+[72401077] = {id = 72401077, type = 1, level = 77, unique_skill_cost = "2:21100003:71760", special_skill_cost = "2:21100003:60720", passive_skill_cost1 = "2:21100003:33120", passive_skill_cost2 = "2:21100003:38640", passive_skill_cost3 = "2:21100003:44160", passive_skill_cost4 = "2:21100003:49680", passive_skill_cost5 = "2:21100003:55200", passive_skill_cost6 = "2:21100003:60720", passive_skill_cost7 = "2:21100003:66240"}
+, 
+[72401078] = {id = 72401078, type = 1, level = 78, unique_skill_cost = "2:21100003:74880", special_skill_cost = "2:21100003:63360", passive_skill_cost1 = "2:21100003:34560", passive_skill_cost2 = "2:21100003:40320", passive_skill_cost3 = "2:21100003:46080", passive_skill_cost4 = "2:21100003:51840", passive_skill_cost5 = "2:21100003:57600", passive_skill_cost6 = "2:21100003:63360", passive_skill_cost7 = "2:21100003:69120"}
+, 
 [72402000] = {id = 72402000, type = 2, level = 0, unique_skill_cost = "0", special_skill_cost = "0", passive_skill_cost1 = "0", passive_skill_cost2 = "0", passive_skill_cost3 = "0", passive_skill_cost4 = "0", passive_skill_cost5 = "0", passive_skill_cost6 = "0", passive_skill_cost7 = "0"}
 , 
 [72402001] = {id = 72402001, type = 2, level = 1, unique_skill_cost = "2:21100003:80", special_skill_cost = "2:21100003:65", passive_skill_cost1 = "2:21100003:35", passive_skill_cost2 = "2:21100003:40", passive_skill_cost3 = "2:21100003:50", passive_skill_cost4 = "2:21100003:55", passive_skill_cost5 = "2:21100003:60", passive_skill_cost6 = "2:21100003:65", passive_skill_cost7 = "2:21100003:70"}
@@ -300,6 +308,14 @@ BaseSkillLevelUpData = {
 [72402073] = {id = 72402073, type = 2, level = 73, unique_skill_cost = "2:21100003:74100", special_skill_cost = "2:21100003:62700", passive_skill_cost1 = "2:21100003:34200", passive_skill_cost2 = "2:21100003:39900", passive_skill_cost3 = "2:21100003:45600", passive_skill_cost4 = "2:21100003:51300", passive_skill_cost5 = "2:21100003:57000", passive_skill_cost6 = "2:21100003:62700", passive_skill_cost7 = "2:21100003:68400"}
 , 
 [72402074] = {id = 72402074, type = 2, level = 74, unique_skill_cost = "2:21100003:78000", special_skill_cost = "2:21100003:66000", passive_skill_cost1 = "2:21100003:36000", passive_skill_cost2 = "2:21100003:42000", passive_skill_cost3 = "2:21100003:48000", passive_skill_cost4 = "2:21100003:54000", passive_skill_cost5 = "2:21100003:60000", passive_skill_cost6 = "2:21100003:66000", passive_skill_cost7 = "2:21100003:72000"}
+, 
+[72402075] = {id = 72402075, type = 2, level = 75, unique_skill_cost = "2:21100003:81900", special_skill_cost = "2:21100003:69300", passive_skill_cost1 = "2:21100003:37800", passive_skill_cost2 = "2:21100003:44100", passive_skill_cost3 = "2:21100003:50400", passive_skill_cost4 = "2:21100003:56700", passive_skill_cost5 = "2:21100003:63000", passive_skill_cost6 = "2:21100003:69300", passive_skill_cost7 = "2:21100003:75600"}
+, 
+[72402076] = {id = 72402076, type = 2, level = 76, unique_skill_cost = "2:21100003:85800", special_skill_cost = "2:21100003:72600", passive_skill_cost1 = "2:21100003:39600", passive_skill_cost2 = "2:21100003:46200", passive_skill_cost3 = "2:21100003:52800", passive_skill_cost4 = "2:21100003:59400", passive_skill_cost5 = "2:21100003:66000", passive_skill_cost6 = "2:21100003:72600", passive_skill_cost7 = "2:21100003:79200"}
+, 
+[72402077] = {id = 72402077, type = 2, level = 77, unique_skill_cost = "2:21100003:89700", special_skill_cost = "2:21100003:75900", passive_skill_cost1 = "2:21100003:41400", passive_skill_cost2 = "2:21100003:48300", passive_skill_cost3 = "2:21100003:55200", passive_skill_cost4 = "2:21100003:62100", passive_skill_cost5 = "2:21100003:69000", passive_skill_cost6 = "2:21100003:75900", passive_skill_cost7 = "2:21100003:82800"}
+, 
+[72402078] = {id = 72402078, type = 2, level = 78, unique_skill_cost = "2:21100003:93600", special_skill_cost = "2:21100003:79200", passive_skill_cost1 = "2:21100003:43200", passive_skill_cost2 = "2:21100003:50400", passive_skill_cost3 = "2:21100003:57600", passive_skill_cost4 = "2:21100003:64800", passive_skill_cost5 = "2:21100003:72000", passive_skill_cost6 = "2:21100003:79200", passive_skill_cost7 = "2:21100003:86400"}
 , 
 [72403000] = {id = 72403000, type = 3, level = 0, unique_skill_cost = "0", special_skill_cost = "0", passive_skill_cost1 = "0", passive_skill_cost2 = "0", passive_skill_cost3 = "0", passive_skill_cost4 = "0", passive_skill_cost5 = "0", passive_skill_cost6 = "0", passive_skill_cost7 = "0"}
 , 
@@ -451,6 +467,14 @@ BaseSkillLevelUpData = {
 , 
 [72403074] = {id = 72403074, type = 3, level = 74, unique_skill_cost = "2:21100003:109200", special_skill_cost = "2:21100003:92400", passive_skill_cost1 = "2:21100003:50400", passive_skill_cost2 = "2:21100003:58800", passive_skill_cost3 = "2:21100003:67200", passive_skill_cost4 = "2:21100003:75600", passive_skill_cost5 = "2:21100003:84000", passive_skill_cost6 = "2:21100003:92400", passive_skill_cost7 = "2:21100003:100800"}
 , 
+[72403075] = {id = 72403075, type = 3, level = 75, unique_skill_cost = "2:21100003:114660", special_skill_cost = "2:21100003:97020", passive_skill_cost1 = "2:21100003:52920", passive_skill_cost2 = "2:21100003:61740", passive_skill_cost3 = "2:21100003:70560", passive_skill_cost4 = "2:21100003:79380", passive_skill_cost5 = "2:21100003:88200", passive_skill_cost6 = "2:21100003:97020", passive_skill_cost7 = "2:21100003:105840"}
+, 
+[72403076] = {id = 72403076, type = 3, level = 76, unique_skill_cost = "2:21100003:120120", special_skill_cost = "2:21100003:101640", passive_skill_cost1 = "2:21100003:55440", passive_skill_cost2 = "2:21100003:64680", passive_skill_cost3 = "2:21100003:73920", passive_skill_cost4 = "2:21100003:83160", passive_skill_cost5 = "2:21100003:92400", passive_skill_cost6 = "2:21100003:101640", passive_skill_cost7 = "2:21100003:110880"}
+, 
+[72403077] = {id = 72403077, type = 3, level = 77, unique_skill_cost = "2:21100003:125580", special_skill_cost = "2:21100003:106260", passive_skill_cost1 = "2:21100003:57960", passive_skill_cost2 = "2:21100003:67620", passive_skill_cost3 = "2:21100003:77280", passive_skill_cost4 = "2:21100003:86940", passive_skill_cost5 = "2:21100003:96600", passive_skill_cost6 = "2:21100003:106260", passive_skill_cost7 = "2:21100003:115920"}
+, 
+[72403078] = {id = 72403078, type = 3, level = 78, unique_skill_cost = "2:21100003:131040", special_skill_cost = "2:21100003:110880", passive_skill_cost1 = "2:21100003:60480", passive_skill_cost2 = "2:21100003:70560", passive_skill_cost3 = "2:21100003:80640", passive_skill_cost4 = "2:21100003:90720", passive_skill_cost5 = "2:21100003:100800", passive_skill_cost6 = "2:21100003:110880", passive_skill_cost7 = "2:21100003:120960"}
+, 
 [72404000] = {id = 72404000, type = 4, level = 0, unique_skill_cost = "0", special_skill_cost = "0", passive_skill_cost1 = "0", passive_skill_cost2 = "0", passive_skill_cost3 = "0", passive_skill_cost4 = "0", passive_skill_cost5 = "0", passive_skill_cost6 = "0", passive_skill_cost7 = "0"}
 , 
 [72404001] = {id = 72404001, type = 4, level = 1, unique_skill_cost = "2:21100003:110", special_skill_cost = "2:21100003:95", passive_skill_cost1 = "2:21100003:50", passive_skill_cost2 = "2:21100003:60", passive_skill_cost3 = "2:21100003:70", passive_skill_cost4 = "2:21100003:75", passive_skill_cost5 = "2:21100003:85", passive_skill_cost6 = "2:21100003:95", passive_skill_cost7 = "2:21100003:100"}
@@ -600,5 +624,14 @@ BaseSkillLevelUpData = {
 [72404073] = {id = 72404073, type = 4, level = 73, unique_skill_cost = "2:21100003:103740", special_skill_cost = "2:21100003:87780", passive_skill_cost1 = "2:21100003:47880", passive_skill_cost2 = "2:21100003:55860", passive_skill_cost3 = "2:21100003:63840", passive_skill_cost4 = "2:21100003:71820", passive_skill_cost5 = "2:21100003:79800", passive_skill_cost6 = "2:21100003:87780", passive_skill_cost7 = "2:21100003:95760"}
 , 
 [72404074] = {id = 72404074, type = 4, level = 74, unique_skill_cost = "2:21100003:109200", special_skill_cost = "2:21100003:92400", passive_skill_cost1 = "2:21100003:50400", passive_skill_cost2 = "2:21100003:58800", passive_skill_cost3 = "2:21100003:67200", passive_skill_cost4 = "2:21100003:75600", passive_skill_cost5 = "2:21100003:84000", passive_skill_cost6 = "2:21100003:92400", passive_skill_cost7 = "2:21100003:100800"}
+, 
+[72404075] = {id = 72404075, type = 4, level = 75, unique_skill_cost = "2:21100003:114660", special_skill_cost = "2:21100003:97020", passive_skill_cost1 = "2:21100003:52920", passive_skill_cost2 = "2:21100003:61740", passive_skill_cost3 = "2:21100003:70560", passive_skill_cost4 = "2:21100003:79380", passive_skill_cost5 = "2:21100003:88200", passive_skill_cost6 = "2:21100003:97020", passive_skill_cost7 = "2:21100003:105840"}
+, 
+[72404076] = {id = 72404076, type = 4, level = 76, unique_skill_cost = "2:21100003:120120", special_skill_cost = "2:21100003:101640", passive_skill_cost1 = "2:21100003:55440", passive_skill_cost2 = "2:21100003:64680", passive_skill_cost3 = "2:21100003:73920", passive_skill_cost4 = "2:21100003:83160", passive_skill_cost5 = "2:21100003:92400", passive_skill_cost6 = "2:21100003:101640", passive_skill_cost7 = "2:21100003:110880"}
+, 
+[72404077] = {id = 72404077, type = 4, level = 77, unique_skill_cost = "2:21100003:125580", special_skill_cost = "2:21100003:106260", passive_skill_cost1 = "2:21100003:57960", passive_skill_cost2 = "2:21100003:67620", passive_skill_cost3 = "2:21100003:77280", passive_skill_cost4 = "2:21100003:86940", passive_skill_cost5 = "2:21100003:96600", passive_skill_cost6 = "2:21100003:106260", passive_skill_cost7 = "2:21100003:115920"}
+, 
+[72404078] = {id = 72404078, type = 4, level = 78, unique_skill_cost = "2:21100003:131040", special_skill_cost = "2:21100003:110880", passive_skill_cost1 = "2:21100003:60480", passive_skill_cost2 = "2:21100003:70560", passive_skill_cost3 = "2:21100003:80640", passive_skill_cost4 = "2:21100003:90720", passive_skill_cost5 = "2:21100003:100800", passive_skill_cost6 = "2:21100003:110880", passive_skill_cost7 = "2:21100003:120960"}
 }
+return BaseSkillLevelUpData
 

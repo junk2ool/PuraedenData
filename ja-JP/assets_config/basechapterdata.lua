@@ -91,7 +91,9 @@ BaseChapterData = {
 , 
 [51100044] = {id = 51100044, name = (PUtil.get)(85110000, (PUtil.get)(86400044), (PUtil.get)(85110044)), type = 1, stages = "52104401:52104402:52104403:52104404:52104405", open_condition = "72501001:0:74,72504111:52104305:1", pre = 51100043, next = "51100045", activity_id = 0, bg_res = "PlotDungeon:PlotDungeon006", story_id = "75044111", story_times = "100"}
 , 
-[51100045] = {id = 51100045, name = (PUtil.get)(85110000, (PUtil.get)(86400045), (PUtil.get)(85110045)), type = 1, stages = "52104501:52104502:52104503:52104504:52104505", open_condition = "72501001:0:75,72504111:52104405:1", pre = 51100044, next = "0", activity_id = 0, bg_res = "PlotDungeon:PlotDungeon006", story_id = "75045111", story_times = "100"}
+[51100045] = {id = 51100045, name = (PUtil.get)(85110000, (PUtil.get)(86400045), (PUtil.get)(85110045)), type = 1, stages = "52104501:52104502:52104503:52104504:52104505", open_condition = "72501001:0:75,72504111:52104405:1", pre = 51100044, next = "51100046", activity_id = 0, bg_res = "PlotDungeon:PlotDungeon006", story_id = "75045111", story_times = "100"}
+, 
+[51100046] = {id = 51100046, name = (PUtil.get)(85110000, (PUtil.get)(86400046), (PUtil.get)(85110046)), type = 1, stages = "52104601:52104602:52104603:52104604:52104605", open_condition = "72501001:0:76,72504111:52104505:1", pre = 51100045, next = "0", activity_id = 0, bg_res = "PlotDungeon:PlotDungeon003", story_id = "75045111", story_times = "100"}
 , 
 [51200001] = {id = 51200001, name = (PUtil.get)(85120001), type = 2, stages = "52200101:52200102:52200103:52200104:52200105:52200106:52200107:52200108:52200109:52200110", open_condition = "72501001:0:9", pre = 0, next = "51200002", activity_id = 0, bg_res = "HeroDungeon:HeroPlotMap001", book_show = "plot_book001", book_monter_show = "CardSpine_11202001", story_id = "0", story_times = "0"}
 , 

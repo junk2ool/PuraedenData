@@ -73,6 +73,7 @@ CardData.InitCardAttr = function(card, cardData, battleType, battleAttrData, isS
               if card.posIndex > 100 then
                 needAddPercent = true
               end
+              card.RoundDamage = 0
               if not cardData.level then
                 card.level = card.level
                 if not cardData.id then

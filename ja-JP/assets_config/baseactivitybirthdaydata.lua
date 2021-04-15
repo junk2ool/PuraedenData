@@ -101,28 +101,39 @@ BaseActivityBirthdayData = {
 , 
 [11301006] = {id = 11301006, card_name = (PUtil.get)(81013106), fashion_id = 14310601, remark = (PUtil.get)(89200050), server_date = "9:07210500:MX0", date_remark = "7/21", rewards = "2:21100001:50"}
 , 
-[11300008] = {id = 11300008, card_name = (PUtil.get)(81013008), fashion_id = 14300801, remark = (PUtil.get)(89200051), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300008] = {id = 11300008, card_name = (PUtil.get)(81013008), fashion_id = 14300801, remark = (PUtil.get)(89200051), server_date = "9:10020500:MX0", date_remark = "10/2", rewards = "2:21100001:50"}
 , 
-[11101007] = {id = 11101007, card_name = (PUtil.get)(81011107), fashion_id = 14110701, remark = (PUtil.get)(89200052), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11101007] = {id = 11101007, card_name = (PUtil.get)(81011107), fashion_id = 14110701, remark = (PUtil.get)(89200052), server_date = "9:08040500:MX0", date_remark = "8/4", rewards = "2:21100001:50"}
 , 
-[11300010] = {id = 11300010, card_name = (PUtil.get)(81013010), fashion_id = 14301001, remark = (PUtil.get)(89200053), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300010] = {id = 11300010, card_name = (PUtil.get)(81013010), fashion_id = 14301001, remark = (PUtil.get)(89200053), server_date = "9:12010500:MX0", date_remark = "12/1", rewards = "2:21100001:50"}
 , 
-[11300009] = {id = 11300009, card_name = (PUtil.get)(81013103), fashion_id = 14300901, remark = (PUtil.get)(89200054), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11201011] = {id = 11201011, card_name = (PUtil.get)(81013103), fashion_id = 14211101, remark = (PUtil.get)(89200054), server_date = "9:06190500:MX0", date_remark = "6/19", rewards = "2:21100001:50"}
 , 
-[11201012] = {id = 11201012, card_name = (PUtil.get)(81011103), fashion_id = 14211201, remark = (PUtil.get)(89200055), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11202008] = {id = 11202008, card_name = (PUtil.get)(81011103), fashion_id = 14220801, remark = (PUtil.get)(89200055), server_date = "9:08190500:MX0", date_remark = "8/19", rewards = "2:21100001:50"}
 , 
-[11201011] = {id = 11201011, card_name = (PUtil.get)(81012111), fashion_id = 14211101, remark = (PUtil.get)(89200056), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300011] = {id = 11300011, card_name = (PUtil.get)(81012111), fashion_id = 14301101, remark = (PUtil.get)(89200056), server_date = "9:05270500:MX0", date_remark = "5/27", rewards = "2:21100001:50"}
 , 
-[11202008] = {id = 11202008, card_name = (PUtil.get)(81012208), fashion_id = 14220801, remark = (PUtil.get)(89200057), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300012] = {id = 11300012, card_name = (PUtil.get)(81012208), fashion_id = 14301201, remark = (PUtil.get)(89200057), server_date = "9:09070500:MX0", date_remark = "9/7", rewards = "2:21100001:50"}
 , 
-[11300011] = {id = 11300011, card_name = (PUtil.get)(81013011), fashion_id = 14301101, remark = (PUtil.get)(89200058), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300014] = {id = 11300014, card_name = (PUtil.get)(81013011), fashion_id = 14301401, remark = (PUtil.get)(89200058), server_date = "9:12310500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
 , 
-[11300012] = {id = 11300012, card_name = (PUtil.get)(81013012), fashion_id = 14301201, remark = (PUtil.get)(89200059), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300016] = {id = 11300016, card_name = (PUtil.get)(81013012), fashion_id = 14301601, remark = (PUtil.get)(89200059), server_date = "9:09280500:MX0", date_remark = "9/28", rewards = "2:21100001:50"}
 , 
-[11202009] = {id = 11202009, card_name = (PUtil.get)(81012209), fashion_id = 14220901, remark = (PUtil.get)(89200060), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300024] = {id = 11300024, card_name = (PUtil.get)(81012209), fashion_id = 14302401, remark = (PUtil.get)(89200060), server_date = "9:12240500:MX0", date_remark = "12/24", rewards = "2:21100001:50"}
 , 
-[11300013] = {id = 11300013, card_name = (PUtil.get)(81013013), fashion_id = 14301301, remark = (PUtil.get)(89200061), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300030] = {id = 11300030, card_name = (PUtil.get)(81013013), fashion_id = 14303001, remark = (PUtil.get)(89200061), server_date = "9:03310500:MX0", date_remark = "3/31", rewards = "2:21100001:50"}
 , 
-[11300014] = {id = 11300014, card_name = (PUtil.get)(81013014), fashion_id = 14301401, remark = (PUtil.get)(89200062), voice_path = "Shanon_Main_1", server_date = "9:10210500:MX0", date_remark = "12/31", rewards = "2:21100001:50"}
+[11300026] = {id = 11300026, card_name = (PUtil.get)(81013014), fashion_id = 14302601, remark = (PUtil.get)(89200062), server_date = "9:11190500:MX0", date_remark = "11/19", rewards = "2:21100001:50"}
+, 
+[11202013] = {id = 11202013, card_name = (PUtil.get)(81012213), fashion_id = 14221301, remark = (PUtil.get)(89200063), server_date = "9:02070500:MX0", date_remark = "2/7", rewards = "2:21100001:50"}
+, 
+[11300022] = {id = 11300022, card_name = (PUtil.get)(81013022), fashion_id = 14302201, remark = (PUtil.get)(89200064), server_date = "9:05080500:MX0", date_remark = "5/8", rewards = "2:21100001:50"}
+, 
+[11300025] = {id = 11300025, card_name = (PUtil.get)(81013025), fashion_id = 14302501, remark = (PUtil.get)(89200065), server_date = "9:02280500:MX0", date_remark = "2/28", rewards = "2:21100001:50"}
+, 
+[11300027] = {id = 11300027, card_name = (PUtil.get)(81013027), fashion_id = 14302701, remark = (PUtil.get)(89200066), server_date = "9:08310500:MX0", date_remark = "8/31", rewards = "2:21100001:50"}
+, 
+[11300028] = {id = 11300028, card_name = (PUtil.get)(81013028), fashion_id = 14302801, remark = (PUtil.get)(89200067), server_date = "9:04040500:MX0", date_remark = "4/4", rewards = "2:21100001:50"}
 }
+return BaseActivityBirthdayData
 

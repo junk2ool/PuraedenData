@@ -57,7 +57,7 @@ end
 -- DECOMPILER ERROR at PC33: Confused about usage of register: R5 in 'UnsetPending'
 
 ActorData.SaveActorData = function(msg, completeCallBack, ...)
-  -- function num : 0_2 , upvalues : self, _ENV, ipairs, t_insert
+  -- function num : 0_2 , upvalues : self, _ENV, pairs, ipairs, t_insert
   if msg.noviceLotteryOnceNum then
     self.noviceLotteryOnceNum = msg.noviceLotteryOnceNum
   end
@@ -85,6 +85,15 @@ ActorData.SaveActorData = function(msg, completeCallBack, ...)
   if msg.furnitureObject and #msg.furnitureObject > 0 then
     self.tempFurniture = msg.furnitureObject
   end
+  self.pushSetInfo = {}
+  local ListData = {}
+  local tableData = (TableData.gTable).BaseMessagePushData
+  for k,v in pairs(tableData) do
+    if ListData[v.push_type] == nil then
+      ListData[v.push_type] = true
+    end
+  end
+  self.pushSetInfo = ListData
   for index,value in ipairs(msg.otherLottery) do
     print("=============", value.lotteryId)
   end
@@ -1357,6 +1366,29 @@ ActorData.GetSpecialFashionList = function(list, ...)
     return self.specialFashionList
   end
   -- DECOMPILER ERROR: 8 unprocessed JMP targets
+end
+
+-- DECOMPILER ERROR at PC244: Confused about usage of register: R5 in 'UnsetPending'
+
+ActorData.SetPushData = function(type, value, ...)
+  -- function num : 0_71 , upvalues : self
+  -- DECOMPILER ERROR at PC3: Confused about usage of register: R2 in 'UnsetPending'
+
+  if value == true then
+    (self.pushSetInfo)[type] = true
+  else
+    -- DECOMPILER ERROR at PC6: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (self.pushSetInfo)[type] = false
+  end
+end
+
+-- DECOMPILER ERROR at PC247: Confused about usage of register: R5 in 'UnsetPending'
+
+ActorData.GetPushStatus = function(type, ...)
+  -- function num : 0_72 , upvalues : self
+  return (self.pushSetInfo)[type]
 end
 
 

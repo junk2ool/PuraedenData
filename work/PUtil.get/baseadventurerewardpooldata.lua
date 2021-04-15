@@ -1,11 +1,11 @@
 {
 [25101000] = {id = 25101000, reward_pool = 10, type = 0, reward = "2:21100003:500", level_range = "13:999"}
 , 
-[25110100] = {id = 25110100, reward_pool = 100, type = 10, reward = "1:21122207:2,1:21110001:5", level_range = "13:999"}
+[25110100] = {id = 25110100, reward_pool = 100, type = 10, reward = "1:21120002:20,1:21110001:5", level_range = "13:999"}
 , 
 [25110200] = {id = 25110200, reward_pool = 100, type = 11, reward = "1:21110001:5", level_range = "13:999"}
 , 
-[25110300] = {id = 25110300, reward_pool = 100, type = 12, reward = "1:21122207:1,1:21110001:5", level_range = "13:999"}
+[25110300] = {id = 25110300, reward_pool = 100, type = 12, reward = "1:21120002:10,1:21110001:5", level_range = "13:999"}
 , 
 [25111000] = {id = 25111000, reward_pool = 110, type = 20, reward = "1:21110001:5", level_range = "13:999"}
 , 
@@ -27,7 +27,7 @@
 , 
 [25113200] = {id = 25113200, reward_pool = 132, type = 31, reward = "2:21100001:1", level_range = "13:999"}
 , 
-[25114100] = {id = 25114100, reward_pool = 140, type = 10, reward = "1:21122207:1,1:21110001:2", level_range = "13:999"}
+[25114100] = {id = 25114100, reward_pool = 140, type = 10, reward = "1:21120002:1,1:21110001:2", level_range = "13:999"}
 , 
 [25114200] = {id = 25114200, reward_pool = 140, type = 11, reward = "1:21110001:2", level_range = "13:999"}
 , 
@@ -45,19 +45,19 @@
 , 
 [25120106] = {id = 25120106, reward_pool = 201, type = -1, reward = "2:21100003:25000", level_range = "70:999", show_fate_type = 3, show_fate_des = "めでたし"}
 , 
-[25120200] = {id = 25120200, reward_pool = 202, type = -1, reward = "1:21122207:1", level_range = "13:19", show_fate_type = 0, show_fate_des = "運が悪くない"}
+[25120200] = {id = 25120200, reward_pool = 202, type = -1, reward = "1:21120002:10", level_range = "13:19", show_fate_type = 0, show_fate_des = "運が悪くない"}
 , 
-[25120201] = {id = 25120201, reward_pool = 202, type = -1, reward = "1:21122207:1", level_range = "20:29", show_fate_type = 0, show_fate_des = "運が悪くない"}
+[25120201] = {id = 25120201, reward_pool = 202, type = -1, reward = "1:21120002:10", level_range = "20:29", show_fate_type = 0, show_fate_des = "運が悪くない"}
 , 
-[25120202] = {id = 25120202, reward_pool = 202, type = -1, reward = "1:21122207:1", level_range = "30:39", show_fate_type = 0, show_fate_des = "運が悪くない"}
+[25120202] = {id = 25120202, reward_pool = 202, type = -1, reward = "1:21120002:10", level_range = "30:39", show_fate_type = 0, show_fate_des = "運が悪くない"}
 , 
-[25120203] = {id = 25120203, reward_pool = 202, type = -1, reward = "1:21122207:1", level_range = "40:49", show_fate_type = 0, show_fate_des = "運が悪くない"}
+[25120203] = {id = 25120203, reward_pool = 202, type = -1, reward = "1:21120002:10", level_range = "40:49", show_fate_type = 0, show_fate_des = "運が悪くない"}
 , 
-[25120204] = {id = 25120204, reward_pool = 202, type = -1, reward = "1:21122207:1", level_range = "50:59", show_fate_type = 0, show_fate_des = "運が悪くない"}
+[25120204] = {id = 25120204, reward_pool = 202, type = -1, reward = "1:21120002:10", level_range = "50:59", show_fate_type = 0, show_fate_des = "運が悪くない"}
 , 
-[25120205] = {id = 25120205, reward_pool = 202, type = -1, reward = "1:21122207:1", level_range = "60:69", show_fate_type = 0, show_fate_des = "運が悪くない"}
+[25120205] = {id = 25120205, reward_pool = 202, type = -1, reward = "1:21120002:10", level_range = "60:69", show_fate_type = 0, show_fate_des = "運が悪くない"}
 , 
-[25120206] = {id = 25120206, reward_pool = 202, type = -1, reward = "1:21122207:1", level_range = "70:999", show_fate_type = 0, show_fate_des = "運が悪くない"}
+[25120206] = {id = 25120206, reward_pool = 202, type = -1, reward = "1:21120002:10", level_range = "70:999", show_fate_type = 0, show_fate_des = "運が悪くない"}
 , 
 [25120300] = {id = 25120300, reward_pool = 203, type = -1, reward = "1:21500405:1", level_range = "13:19", show_fate_type = 1, show_fate_des = "まあまあ"}
 , 
@@ -145,19 +145,19 @@
 , 
 [25130406] = {id = 25130406, reward_pool = 304, type = -1, reward = "1:21500405:9", level_range = "70:999"}
 , 
-[25130500] = {id = 25130500, reward_pool = 305, type = -1, reward = "1:21122207:3", level_range = "13:19"}
+[25130500] = {id = 25130500, reward_pool = 305, type = -1, reward = "1:21120002:30", level_range = "13:19"}
 , 
-[25130501] = {id = 25130501, reward_pool = 305, type = -1, reward = "1:21122207:3", level_range = "20:29"}
+[25130501] = {id = 25130501, reward_pool = 305, type = -1, reward = "1:21120002:30", level_range = "20:29"}
 , 
-[25130502] = {id = 25130502, reward_pool = 305, type = -1, reward = "1:21122207:3", level_range = "30:39"}
+[25130502] = {id = 25130502, reward_pool = 305, type = -1, reward = "1:21120002:30", level_range = "30:39"}
 , 
-[25130503] = {id = 25130503, reward_pool = 305, type = -1, reward = "1:21122207:4", level_range = "40:49"}
+[25130503] = {id = 25130503, reward_pool = 305, type = -1, reward = "1:21120002:40", level_range = "40:49"}
 , 
-[25130504] = {id = 25130504, reward_pool = 305, type = -1, reward = "1:21122207:5", level_range = "50:59"}
+[25130504] = {id = 25130504, reward_pool = 305, type = -1, reward = "1:21120002:50", level_range = "50:59"}
 , 
-[25130505] = {id = 25130505, reward_pool = 305, type = -1, reward = "1:21122207:6", level_range = "60:69"}
+[25130505] = {id = 25130505, reward_pool = 305, type = -1, reward = "1:21120002:60", level_range = "60:69"}
 , 
-[25130506] = {id = 25130506, reward_pool = 305, type = -1, reward = "1:21122207:7", level_range = "70:999"}
+[25130506] = {id = 25130506, reward_pool = 305, type = -1, reward = "1:21120002:70", level_range = "70:999"}
 , 
 [25130600] = {id = 25130600, reward_pool = 306, type = -1, reward = "2:21100003:40000", level_range = "13:19"}
 , 

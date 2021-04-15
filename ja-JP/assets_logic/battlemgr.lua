@@ -266,6 +266,9 @@ BattleMgr.InitCurAtkInfo = function(...)
         local skillConfig = curSkill.skillConfig
         local killCount = -1
         local atkCard = (BattleData.GetCardInfoByUid)(cardUid)
+        if atkCard.waitingSkill then
+          atkCard.waitingSkill = false
+        end
         if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
           (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig, curSkill.copyCardUid, skill_Add)
         else

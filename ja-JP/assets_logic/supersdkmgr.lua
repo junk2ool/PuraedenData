@@ -104,7 +104,7 @@ end
 -- DECOMPILER ERROR at PC32: Confused about usage of register: R6 in 'UnsetPending'
 
 SuperSDKMgr.DealSDKCallback = function(moduleName, funcName, result, ...)
-  -- function num : 0_6 , upvalues : _ENV, SuperSDKPlatform
+  -- function num : 0_6 , upvalues : _ENV, SuperSDKPlatform, SuperSDKConstants
   local result_table = (Json.decode)(result)
   PrintTable(result_table, "sdk 返回 ：")
   -- DECOMPILER ERROR at PC27: Confused about usage of register: R4 in 'UnsetPending'
@@ -162,10 +162,73 @@ SuperSDKMgr.DealSDKCallback = function(moduleName, funcName, result, ...)
     end
   else
   end
-  if ((moduleName == "xsdk" and moduleName ~= "push") or moduleName == "mobsharesdk") and funcName == "mobShare" then
-    loge("---------------SuperSDK mobsharesdk ---------------------")
-    ;
-    (SuperSDKMgr.DealSDKShare)(result_table)
+  if moduleName ~= "xsdk" or moduleName == "push" then
+    if funcName == "receiveLocalNotification" then
+      loge("---------------SuperSDK receiveLocalNotification ---------------------")
+    else
+    end
+    if funcName == "fetchLocalNotification" and result_table and result_table.code == SuperSDKConstants.SUCCESS then
+      if funcName == "addLocalNotifcation" then
+        loge("---------------SuperSDK addLocalNotifcation ---------------------")
+        if result_table then
+          if result_table.code == SuperSDKConstants.SUCCESS then
+            loge("---------------add push success ---------------------")
+          else
+            if result_table.code == SuperSDKConstants.SUCCESS then
+              loge("already have identifier " .. (result_table.data).identifier)
+            else
+              loge("add push failed " .. result_table.msg)
+            end
+          end
+        end
+      else
+        if funcName == "addLocalNotification" then
+          loge("---------------SuperSDK addLocalNotification ---------------------")
+          if result_table then
+            if result_table.code == SuperSDKConstants.SUCCESS then
+              loge("---------------add push success ---------------------")
+            else
+              if result_table.code == SuperSDKConstants.SUCCESS then
+                loge("already have identifier " .. (result_table.data).identifier)
+              else
+                loge("add push failed " .. result_table.msg)
+              end
+            end
+          end
+        end
+      end
+    end
+  else
+    -- DECOMPILER ERROR at PC210: Unhandled construct in 'MakeBoolean' P1
+
+    if moduleName == "mobsharesdk" and funcName == "mobShare" then
+      loge("---------------SuperSDK mobsharesdk ---------------------")
+      ;
+      (SuperSDKMgr.DealSDKShare)(result_table)
+    end
+  end
+  if moduleName == MOBPushConst.MODULE_NAME then
+    if funcName == MOBPushConst.BINDUSER then
+      loge("---------------SuperSDK MOBPush Bind User ---------------------")
+      if result_table.code == 0 then
+        loge("---------------SuperSDK MOBPush Bind Success ---------------------")
+      end
+    else
+      if funcName == MOBPushConst.RECEIVEREMOTE then
+        loge("---------------SuperSDK MOBPush receivePushCallBack ---------------------")
+      else
+        if funcName == MOBPushConst.ADDLOCAL then
+          if result_table.code == MOBPushConst.SUCCESS then
+            loge("---------------SuperSDK MOBPush addLocal Already ---------------------")
+          else
+          end
+        end
+      end
+    end
+  end
+  if result_table.code == -2 then
+    loge("SuperSDK MOBPush addLocal failure ")
+    loge(result_table.msg)
   end
 end
 
@@ -197,6 +260,8 @@ local loginGame = function(result_table, isGuestLogin, ...)
   end
   ;
   ((SuperSDK.getInstance)()):Invoke(SuperSDKPlatform.MODULE_NAME, SuperSDKPlatform.FUNC_OTHER_FUNCTION, {otherFuncName = "getDataForTx"})
+  ;
+  (SuperSDKUtil.RegisterPushService)()
 end
 
 -- DECOMPILER ERROR at PC36: Confused about usage of register: R7 in 'UnsetPending'

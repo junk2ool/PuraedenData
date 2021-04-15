@@ -61,7 +61,11 @@ BaseHandbookCGData = {
 , 
 [26200441] = {id = 26200441, name = (PUtil.get)(86501044), remark = (PUtil.get)(86601044), des = (PUtil.get)(90000001, (PUtil.get)(86400044)), type = 1, chapter_id = 51100044, index = 30, icon = "HandBookCGBanner:92101044", fashion_id = "92101044", open_time = 0}
 , 
-[26200451] = {id = 26200451, name = (PUtil.get)(86501045), remark = (PUtil.get)(86601045), des = (PUtil.get)(90000001, (PUtil.get)(86400045)), type = 1, chapter_id = 51100045, index = 31, icon = "HandBookCGBanner:92101045", fashion_id = "92101045"}
+[26200451] = {id = 26200451, name = (PUtil.get)(86501045), remark = (PUtil.get)(86601045), des = (PUtil.get)(90000001, (PUtil.get)(86400045)), type = 1, chapter_id = 51100045, index = 31, icon = "HandBookCGBanner:92101045", fashion_id = "92101045", open_time = 0}
+, 
+[26200461] = {id = 26200461, name = (PUtil.get)(86501046), remark = (PUtil.get)(86601046), des = (PUtil.get)(90000001, (PUtil.get)(86400046)), type = 1, chapter_id = 51100046, index = 31, icon = "HandBookCGBanner:92101046", fashion_id = "92101046", open_time = 0}
+, 
+[26200462] = {id = 26200462, name = (PUtil.get)(86501047), remark = (PUtil.get)(86601047), des = (PUtil.get)(90000001, (PUtil.get)(86400046)), type = 1, chapter_id = 51100046, index = 32, icon = "HandBookCGBanner:92101047", fashion_id = "92101047", open_time = 0}
 , 
 [26110010] = {id = 26110010, name = (PUtil.get)(86502001), remark = (PUtil.get)(86602001), des = (PUtil.get)(90000001, (PUtil.get)(86400040)), type = 2, chapter_id = 11100001, index = 1, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 

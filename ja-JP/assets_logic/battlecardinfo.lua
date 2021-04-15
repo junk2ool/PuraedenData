@@ -132,23 +132,34 @@ randomBuff = {}
     return self.fashionId
   end
 
-  battleCardInfo.SetOriHp = function(self, hp, ...)
+  battleCardInfo.GetRoundDamage = function(self, ...)
     -- function num : 0_0_9
+    return self.RoundDamage
+  end
+
+  battleCardInfo.SetRoundDamage = function(self, value, ...)
+    -- function num : 0_0_10 , upvalues : _ENV
+    logw("SetRoundDamage:" .. value .. "  " .. value - self.RoundDamage .. " " .. self.id)
+    self.RoundDamage = value
+  end
+
+  battleCardInfo.SetOriHp = function(self, hp, ...)
+    -- function num : 0_0_11
     self.oriHp = hp
   end
 
   battleCardInfo.GetOriHp = function(self, ...)
-    -- function num : 0_0_10
+    -- function num : 0_0_12
     return self.oriHp
   end
 
   battleCardInfo.GetHp = function(self, ...)
-    -- function num : 0_0_11
+    -- function num : 0_0_13
     return self.hp
   end
 
   battleCardInfo.SetHp = function(self, hp, ...)
-    -- function num : 0_0_12 , upvalues : _ENV, math
+    -- function num : 0_0_14 , upvalues : _ENV, math
     if IsBattleServer == nil then
       print("改变血量 ： 位置：", self:GetPosIndex(), " 血量变化：", hp, " 实际变化：", (math.min)(hp, self:GetMaxHp()))
     end
@@ -157,139 +168,139 @@ randomBuff = {}
   end
 
   battleCardInfo.GetStar = function(self, ...)
-    -- function num : 0_0_13
+    -- function num : 0_0_15
     return self.star
   end
 
   battleCardInfo.GetQuality = function(self, ...)
-    -- function num : 0_0_14
+    -- function num : 0_0_16
     return self.quality
   end
 
   battleCardInfo.GetMaxHp = function(self, ...)
-    -- function num : 0_0_15
+    -- function num : 0_0_17
     return self.max_hp
   end
 
   battleCardInfo.GetAtk = function(self, ...)
-    -- function num : 0_0_16
+    -- function num : 0_0_18
     return self.atk
   end
 
   battleCardInfo.GetDef = function(self, ...)
-    -- function num : 0_0_17
+    -- function num : 0_0_19
     return self.def
   end
 
   battleCardInfo.GetCrt = function(self, ...)
-    -- function num : 0_0_18
+    -- function num : 0_0_20
     return self.crt
   end
 
   battleCardInfo.GetRec = function(self, ...)
-    -- function num : 0_0_19
+    -- function num : 0_0_21
     return self.rec
   end
 
   battleCardInfo.GetBlk = function(self, ...)
-    -- function num : 0_0_20
+    -- function num : 0_0_22
     return self.blk
   end
 
   battleCardInfo.GetReb = function(self, ...)
-    -- function num : 0_0_21
+    -- function num : 0_0_23
     return self.reb
   end
 
   battleCardInfo.GetHit = function(self, ...)
-    -- function num : 0_0_22
+    -- function num : 0_0_24
     return self.hit
   end
 
   battleCardInfo.GetEva = function(self, ...)
-    -- function num : 0_0_23
+    -- function num : 0_0_25
     return self.eva
   end
 
   battleCardInfo.GetArp = function(self, ...)
-    -- function num : 0_0_24
+    -- function num : 0_0_26
     return self.arp
   end
 
   battleCardInfo.GetRea = function(self, ...)
-    -- function num : 0_0_25
+    -- function num : 0_0_27
     return self.rea
   end
 
   battleCardInfo.GetCrtInt = function(self, ...)
-    -- function num : 0_0_26
+    -- function num : 0_0_28
     return self.crt_int
   end
 
   battleCardInfo.GetRecInt = function(self, ...)
-    -- function num : 0_0_27
+    -- function num : 0_0_29
     return self.rec_int
   end
 
   battleCardInfo.GetBlkInt = function(self, ...)
-    -- function num : 0_0_28
+    -- function num : 0_0_30
     return self.blk_int
   end
 
   battleCardInfo.GetRebInt = function(self, ...)
-    -- function num : 0_0_29
+    -- function num : 0_0_31
     return self.reb_int
   end
 
   battleCardInfo.GetAddInt = function(self, ...)
-    -- function num : 0_0_30
+    -- function num : 0_0_32
     return self.add_int
   end
 
   battleCardInfo.GetExdInt = function(self, ...)
-    -- function num : 0_0_31
+    -- function num : 0_0_33
     return self.exd_int
   end
 
   battleCardInfo.GetArpInt = function(self, ...)
-    -- function num : 0_0_32
+    -- function num : 0_0_34
     return self.arp_int
   end
 
   battleCardInfo.GetReaInt = function(self, ...)
-    -- function num : 0_0_33
+    -- function num : 0_0_35
     return self.rea_int
   end
 
   battleCardInfo.GetSpd = function(self, ...)
-    -- function num : 0_0_34
+    -- function num : 0_0_36
     return self.spd
   end
 
   battleCardInfo.GetLuck = function(self, ...)
-    -- function num : 0_0_35
+    -- function num : 0_0_37
     return self.luck
   end
 
   battleCardInfo.GetMaxDander = function(self, ...)
-    -- function num : 0_0_36
+    -- function num : 0_0_38
     return self.max_dander
   end
 
   battleCardInfo.GetMaxDanderLimit = function(self, ...)
-    -- function num : 0_0_37
+    -- function num : 0_0_39
     if not self.max_dander_limit then
       return self:GetMaxDander()
     end
   end
 
   battleCardInfo.GetDander = function(self, ...)
-    -- function num : 0_0_38
+    -- function num : 0_0_40
     return self.dander
   end
 
   battleCardInfo.SetDander = function(self, dander, ...)
-    -- function num : 0_0_39 , upvalues : math, _ENV
+    -- function num : 0_0_41 , upvalues : math, _ENV
     dander = (math.min)(dander, self:GetMaxDanderLimit())
     dander = (math.max)(dander, 0)
     self.dander = dander
@@ -299,102 +310,102 @@ randomBuff = {}
   end
 
   battleCardInfo.GetExtraDander = function(self, ...)
-    -- function num : 0_0_40
+    -- function num : 0_0_42
     return self.extraDander or 0
   end
 
   battleCardInfo.SetExtraDander = function(self, dander, ...)
-    -- function num : 0_0_41
+    -- function num : 0_0_43
     self.extraDander = dander
   end
 
   battleCardInfo.ClearExtraDander = function(self, ...)
-    -- function num : 0_0_42
+    -- function num : 0_0_44
     self.extraDander = 0
   end
 
   battleCardInfo.GetDanderRound = function(self, ...)
-    -- function num : 0_0_43
+    -- function num : 0_0_45
     return self.dander_round
   end
 
   battleCardInfo.GetDanderAtk = function(self, ...)
-    -- function num : 0_0_44
+    -- function num : 0_0_46
     return self.dander_atk
   end
 
   battleCardInfo.GetDanderHit = function(self, ...)
-    -- function num : 0_0_45
+    -- function num : 0_0_47
     return self.dander_hit
   end
 
   battleCardInfo.GetDanderKill = function(self, ...)
-    -- function num : 0_0_46
+    -- function num : 0_0_48
     return self.dander_kill
   end
 
   battleCardInfo.GetExtDamage = function(self, ...)
-    -- function num : 0_0_47
+    -- function num : 0_0_49
     return self.ext_damage
   end
 
   battleCardInfo.GetExtDamageSub = function(self, ...)
-    -- function num : 0_0_48
+    -- function num : 0_0_50
     return self.ext_damage_sub
   end
 
   battleCardInfo.GetTreatAdd = function(self, ...)
-    -- function num : 0_0_49
+    -- function num : 0_0_51
     return self.treat_add
   end
 
   battleCardInfo.GetTreatSub = function(self, ...)
-    -- function num : 0_0_50
+    -- function num : 0_0_52
     return self.treat_sub
   end
 
   battleCardInfo.GetBeTreatAdd = function(self, ...)
-    -- function num : 0_0_51
+    -- function num : 0_0_53
     return self.be_treat_add
   end
 
   battleCardInfo.GetBeTreatSub = function(self, ...)
-    -- function num : 0_0_52
+    -- function num : 0_0_54
     return self.be_treat_sub
   end
 
   battleCardInfo.GetAtkEvaProb = function(self, ...)
-    -- function num : 0_0_53
+    -- function num : 0_0_55
     return self.atk_eva_prob
   end
 
   battleCardInfo.GetSkillEvaProb = function(self, ...)
-    -- function num : 0_0_54
+    -- function num : 0_0_56
     return self.skill_eva_prob
   end
 
   battleCardInfo.GetCrtProp = function(self, ...)
-    -- function num : 0_0_55
+    -- function num : 0_0_57
     return self.crt_prob or 0
   end
 
   battleCardInfo.GetBlkProp = function(self, ...)
-    -- function num : 0_0_56
+    -- function num : 0_0_58
     return self.blk_prob or 0
   end
 
   battleCardInfo.GetSkillInfo = function(self, ...)
-    -- function num : 0_0_57
+    -- function num : 0_0_59
     return self.skillInfo
   end
 
   battleCardInfo.GetSealSkillInfo = function(self, ...)
-    -- function num : 0_0_58
+    -- function num : 0_0_60
     return self.sealSkillInfo
   end
 
   battleCardInfo.GetEquipInfo = function(self, ...)
-    -- function num : 0_0_59 , upvalues : _ENV
+    -- function num : 0_0_61 , upvalues : _ENV
     if IsBattleTest == true then
       return self.equipInfoTest
     else
@@ -403,7 +414,7 @@ randomBuff = {}
   end
 
   battleCardInfo.AddAttrValue = function(self, attributeId, value, effectId, atkInfo, buff, ...)
-    -- function num : 0_0_60 , upvalues : _ENV, baseAttributeData, math
+    -- function num : 0_0_62 , upvalues : _ENV, baseAttributeData, math
     if (BattleBuff.IsAddIntoDamage)(effectId) == true then
       loge("伤害已加入总伤害")
       return nil
@@ -448,43 +459,56 @@ randomBuff = {}
             end
           end
           do
-            do
+            if curValue + value <= 0 then
               do
-                if curValue + value <= 0 and (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
+                if (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
                   local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
                   if isTrigger then
                     value = -curValue + 1
                   end
                 end
-                self:SetHp(curValue + (value))
-                if curValue + (value) <= 0 then
-                  (BattleDataCount.UpdateEquipBuff)(atkInfo.atkPos, BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
-                end
-                do return value, absorbDamage, specialEffect end
-                if attributeId == BattleCardAttributeID.DANDER then
-                  local t = curValue + (value)
-                  -- DECOMPILER ERROR at PC176: Overwrote pending register: R12 in 'AssignReg'
-
-                  local maxDander = self:GetMaxDander()
-                  -- DECOMPILER ERROR at PC182: Overwrote pending register: R13 in 'AssignReg'
-
-                  if maxDander < t then
-                    if buff and (buff:GetBuffConfig()).sp_save then
-                      self:SetExtraDander(t - maxDander + self:GetExtraDander())
-                    end
-                    t = maxDander
+                if card.waitingSkill or (BattleBuff.ContainDeductionRoundType)(card, BattleBuffDeductionRoundType.DIE_SKILL_DIE) then
+                  if not card.waitingSkill then
+                    local curAtkPos = buff:GetAtkPos()
+                    local atkCard = (BattleData.GetCardInfoByPos)(curAtkPos)
+                    ;
+                    (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.DIE_SKILL_DIE, atkCard)
                   end
-                  self:SetDander(t)
-                  if IsBattleServer == nil then
-                    SaveBattleProcess("\tbuff改变怒气 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
-                  end
-                else
                   do
-                    self[attrConfig.name] = curValue + (value)
-                    if IsBattleServer == nil then
-                      SaveBattleProcess("\tbuff属性变化 位置：" .. self:GetPosIndex() .. " 属性变化：" .. (CardData.GetAttrRemarkById)(attributeId) .. " 变化值：" .. value)
+                    do
+                      value = -curValue + 1
+                      self:SetHp(curValue + (value))
+                      if curValue + (value) <= 0 then
+                        (BattleDataCount.UpdateEquipBuff)(atkInfo.atkPos, BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
+                      end
+                      do return value, absorbDamage, specialEffect end
+                      if attributeId == BattleCardAttributeID.DANDER then
+                        local t = curValue + (value)
+                        -- DECOMPILER ERROR at PC205: Overwrote pending register: R12 in 'AssignReg'
+
+                        local maxDander = self:GetMaxDander()
+                        -- DECOMPILER ERROR at PC211: Overwrote pending register: R13 in 'AssignReg'
+
+                        if maxDander < t then
+                          if buff and (buff:GetBuffConfig()).sp_save then
+                            self:SetExtraDander(t - maxDander + self:GetExtraDander())
+                          end
+                          t = maxDander
+                        end
+                        self:SetDander(t)
+                        if IsBattleServer == nil then
+                          SaveBattleProcess("\tbuff改变怒气 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
+                        end
+                      else
+                        do
+                          self[attrConfig.name] = curValue + (value)
+                          if IsBattleServer == nil then
+                            SaveBattleProcess("\tbuff属性变化 位置：" .. self:GetPosIndex() .. " 属性变化：" .. (CardData.GetAttrRemarkById)(attributeId) .. " 变化值：" .. value)
+                          end
+                          self[attrConfig.name] = value
+                        end
+                      end
                     end
-                    self[attrConfig.name] = value
                   end
                 end
               end

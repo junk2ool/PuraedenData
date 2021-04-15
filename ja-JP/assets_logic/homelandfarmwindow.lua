@@ -800,6 +800,8 @@ HomelandFarmWindow.ClearAllLandPlants = function(...)
     if lastChild then
       lastChild:Dispose()
     end
+    ;
+    (SuperSDKUtil.DeleteLocalPush)(102)
   end
 end
 

@@ -141,14 +141,23 @@ BaseSkillAttrData = {
 , 
 [49201069] = {id = 49201069, remark = (PUtil.get)(81640201, 70, 80), type = 1, level = 69, add_attr = "1:81050024:100", fc = 0}
 , 
-[49201070] = {id = 49201070, remark = (PUtil.get)(81640201, 70, 80), type = 1, level = 70, add_attr = "1:81050024:180", fc = 0}
+[49201070] = {id = 49201070, type = 1, level = 70, add_attr = "1:81050024:180", fc = 0}
 , 
-[49201071] = {id = 49201071, remark = (PUtil.get)(81640201, 70, 80), type = 1, level = 71, add_attr = "1:81050024:180", fc = 0}
+[49201071] = {id = 49201071, type = 1, level = 71, add_attr = "1:81050024:180", fc = 0}
 , 
-[49201072] = {id = 49201072, remark = (PUtil.get)(81640201, 70, 80), type = 1, level = 72, add_attr = "1:81050024:180", fc = 0}
+[49201072] = {id = 49201072, type = 1, level = 72, add_attr = "1:81050024:180", fc = 0}
 , 
-[49201073] = {id = 49201073, remark = (PUtil.get)(81640201, 70, 80), type = 1, level = 73, add_attr = "1:81050024:180", fc = 0}
+[49201073] = {id = 49201073, type = 1, level = 73, add_attr = "1:81050024:180", fc = 0}
 , 
 [49201074] = {id = 49201074, type = 1, level = 74, add_attr = "1:81050024:180", fc = 0}
+, 
+[49201075] = {id = 49201075, type = 1, level = 75, add_attr = "1:81050024:180", fc = 0}
+, 
+[49201076] = {id = 49201076, type = 1, level = 76, add_attr = "1:81050024:180", fc = 0}
+, 
+[49201077] = {id = 49201077, type = 1, level = 77, add_attr = "1:81050024:180", fc = 0}
+, 
+[49201078] = {id = 49201078, type = 1, level = 78, add_attr = "1:81050024:180", fc = 0}
 }
+return BaseSkillAttrData
 

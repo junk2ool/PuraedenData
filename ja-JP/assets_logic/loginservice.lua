@@ -162,6 +162,9 @@ LoginService.OnResLogin = function(msg, ...)
     if IsGuest() == false then
       (LoginService.ReqUpgradeAccount)()
     end
+    if Game.useSDK == true then
+      (SuperSDKUtil.BindingPushService)()
+    end
   else
     do
       if result == (ProtoEnum.E_LOGIN_RESULT).FAIL then
@@ -174,11 +177,11 @@ LoginService.OnResLogin = function(msg, ...)
           ;
           (LoginMgr.ReturnToLoginWindow)()
         else
-          -- DECOMPILER ERROR at PC99: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC106: Confused about usage of register: R8 in 'UnsetPending'
 
           if result == (ProtoEnum.E_LOGIN_RESULT).REGISTER then
             LoginMgr.curServerId = serverId
-            -- DECOMPILER ERROR at PC101: Confused about usage of register: R8 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC108: Confused about usage of register: R8 in 'UnsetPending'
 
             LoginMgr.curPlatformServerId = platformServerId
             do

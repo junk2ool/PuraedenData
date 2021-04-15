@@ -52,14 +52,14 @@ FormationWindow.OnInit = function(bridge, ...)
   uis = GetFormation_FormationWindowUis(contentPane)
   GuildBossCantCard = {}
   if Application.platform == RuntimePlatform.Android then
-    if Application.version > "1.0.5" then
+    if (Util.CompareVersion)(Application.version, "1.0.6") then
       ModelScale = 0.22
     else
       ModelScale = 0.15
     end
   else
     if Application.platform == RuntimePlatform.IPhonePlayer then
-      if Application.version > "1.0.8" then
+      if (Util.CompareVersion)(Application.version, "1.0.9") then
         ModelScale = 0.22
       else
         ModelScale = 0.15
@@ -2322,6 +2322,9 @@ FormationWindow.AddFightDate = function(IsCard, startPos, endPos, BanVoice, isSu
       myselfFightDate[endPos] = dragData
     else
       if IsCard then
+        if myselfFightDate[endPos] ~= nil and myselfFightDate[endPos] == supportID then
+          supportID = 0
+        end
         myselfFightDate[endPos] = dragData
       else
         local receiveDate = (Util.clone)(myselfFightDate[endPos])

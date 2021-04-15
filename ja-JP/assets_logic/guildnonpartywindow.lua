@@ -298,19 +298,19 @@ GuildNonpartyWindow.RefreshMyApplyList = function(...)
 end
 
 GuildNonpartyWindow.RefreshList = function(...)
-  -- function num : 0_18 , upvalues : _applyDic, _ENV, _listData, uis
+  -- function num : 0_18 , upvalues : _applyDic, _ENV, uis, _listData
   _applyDic = {}
   local count = #GuildData.MyApplyList
   for i = 1, count do
     _applyDic[((GuildData.MyApplyList)[i]).id] = true
   end
-  if #_listData > 0 then
-    ((uis.ApplyGrp).ApplyTipsList):ScrollToView(0, false)
-  end
-  -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.ApplyGrp).ApplyTipsList).numItems = #_listData
+  if #_listData > 0 then
+    ((uis.ApplyGrp).ApplyTipsList):ScrollToView(0, false)
+  end
 end
 
 GuildNonpartyWindow.RefreshGuildItem = function(index, item, ...)

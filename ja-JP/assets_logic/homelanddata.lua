@@ -1083,4 +1083,56 @@ HomelandData.GetSeedNumById = function(seedId, ...)
   end
 end
 
+-- DECOMPILER ERROR at PC292: Confused about usage of register: R2 in 'UnsetPending'
+
+HomelandData.SetCropMaturityPush = function(...)
+  -- function num : 0_32 , upvalues : _ENV
+  local id = ((SuperSDKUtil.GetPushIDByType)(3))[1]
+  local status = (ActorData.GetPushStatus)(3)
+  local pushData = ((TableData.gTable).BaseMessagePushData)[tonumber(id)]
+  if status == true then
+    local time = (HomelandData.FindLongestTime)()
+    ;
+    (SuperSDKUtil.DeleteLocalPush)(id)
+    if time > 0 then
+      local longestTime = time + (os.time)()
+      ;
+      (SuperSDKUtil.AddLocalPush)(id, longestTime + pushData.relative_push_time)
+    else
+      do
+        ;
+        (SuperSDKUtil.DeleteLocalPush)(id)
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC295: Confused about usage of register: R2 in 'UnsetPending'
+
+HomelandData.FindLongestTime = function(...)
+  -- function num : 0_33 , upvalues : _ENV
+  local landInfo = {
+serverData = {}
+, 
+configData = {}
+}
+  local landList = {}
+  for key,value in pairs((HomelandData.farmInfo).landInfo) do
+    local landConfig = ((TableData.gTable).BaseFamilyFarmLandData)[value.id]
+    local type = landConfig.type
+    landInfo = {serverData = value, configData = landConfig}
+    ;
+    (table.insert)(landList, landInfo)
+  end
+  ;
+  (table.sort)(landList, function(a, b, ...)
+    -- function num : 0_33_0
+    do return (b.serverData).countDown < (a.serverData).countDown end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+  local longestTime = ((landList[1]).serverData).countDown
+  return longestTime
+end
+
 

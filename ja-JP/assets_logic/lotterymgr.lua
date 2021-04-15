@@ -140,6 +140,8 @@ LotteryMgr.PlayLotteryEffects = function(_callBack, para, ...)
   lotteryData = para
   local effect = ((CS.PostManager).Instance):ReturnLotteryPrefab()
   effect:SetActive(true)
+  ;
+  (Util.SetStageCameraActive)(false)
   lotteryEffect = effect
   tipsEffect = ((effect.transform):Find("jiantou")).gameObject
   ;
@@ -272,6 +274,8 @@ LotteryMgr.Update = function(...)
     gachaEndEffect:SetActive(false)
     ;
     (LotteryMgr.ResetCardQualityEffects)()
+    ;
+    (Util.SetStageCameraActive)(true)
     lotteryEffect:SetActive(false)
   end
 )

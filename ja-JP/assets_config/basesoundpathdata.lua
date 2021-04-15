@@ -5138,6 +5138,52 @@ BaseSoundPathData = {
 [230270305] = {id = 230270305, play_frame = 88, path = "sfx_beijitu_small_tx_88fr", bank = "beijitu"}
 , 
 [230270306] = {id = 230270306, play_frame = 101, path = "sfx_beijitu_small_tx_101fr", bank = "beijitu"}
+, 
+[230280101] = {id = 230280101, play_frame = 18, path = "sfx_xuetu_big_tx_18fr", bank = "xuetu"}
+, 
+[230280102] = {id = 230280102, play_frame = 85, path = "sfx_xuetu_big_tx_85fr", bank = "xuetu"}
+, 
+[230280103] = {id = 230280103, play_frame = 143, path = "sfx_xuetu_big_tx_143fr", bank = "xuetu"}
+, 
+[230280104] = {id = 230280104, play_frame = 147, path = "sfx_xuetu_big_tx_147fr", bank = "xuetu"}
+, 
+[230280105] = {id = 230280105, play_frame = 191, path = "sfx_xuetu_big_tx_191fr", bank = "xuetu"}
+, 
+[230280106] = {id = 230280106, play_frame = 216, path = "sfx_xuetu_big_tx_216fr", bank = "xuetu"}
+, 
+[230280107] = {id = 230280107, play_frame = 299, path = "sfx_xuetu_big_tx_299fr", bank = "xuetu"}
+, 
+[230280108] = {id = 230280108, play_frame = 302, path = "sfx_xuetu_big_tx_302fr", bank = "xuetu"}
+, 
+[230280109] = {id = 230280109, play_frame = 366, path = "sfx_xuetu_big_tx_366fr", bank = "xuetu"}
+, 
+[230280201] = {id = 230280201, play_frame = 4, path = "sfx_xuetu_pt_wh_4fr", bank = "xuetu"}
+, 
+[230280202] = {id = 230280202, play_frame = 8, path = "sfx_xuetu_pt_tx_8fr", bank = "xuetu"}
+, 
+[230280203] = {id = 230280203, play_frame = 14, path = "sfx_xuetu_pt_wh_14fr", bank = "xuetu"}
+, 
+[230280204] = {id = 230280204, play_frame = 17, path = "sfx_xuetu_pt_tx_17fr", bank = "xuetu"}
+, 
+[230280205] = {id = 230280205, play_frame = 33, path = "sfx_xuetu_pt_wh_33fr", bank = "xuetu"}
+, 
+[230280206] = {id = 230280206, play_frame = 34, path = "sfx_xuetu_pt_tx_34fr", bank = "xuetu"}
+, 
+[230280301] = {id = 230280301, play_frame = 8, path = "sfx_xuetu_small_wh_8fr", bank = "xuetu"}
+, 
+[230280302] = {id = 230280302, play_frame = 13, path = "sfx_xuetu_small_tx_13fr", bank = "xuetu"}
+, 
+[230280303] = {id = 230280303, play_frame = 35, path = "sfx_xuetu_small_wh_35fr", bank = "xuetu"}
+, 
+[230280304] = {id = 230280304, play_frame = 38, path = "sfx_xuetu_small_tx_38fr", bank = "xuetu"}
+, 
+[230280305] = {id = 230280305, play_frame = 67, path = "sfx_xuetu_small_wh_67fr", bank = "xuetu"}
+, 
+[230280306] = {id = 230280306, play_frame = 72, path = "sfx_xuetu_small_tx_72fr", bank = "xuetu"}
+, 
+[230280401] = {id = 230280401, play_frame = 19, path = "sfx_xuetu_pt_wh_4fr", bank = "xuetu"}
+, 
+[230280402] = {id = 230280402, play_frame = 24, path = "sfx_xuetu_pt_tx_8fr", bank = "xuetu"}
 }
 return BaseSoundPathData
 

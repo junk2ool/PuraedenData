@@ -390,4 +390,119 @@ SuperSDKUtil.SendAdOnLevel40 = function(level, ...)
   ((SuperSDK.getInstance)()):Invoke("advert", "track", sendProduct)
 end
 
+MOBPushConst = {MODULE_NAME = "mobpushsdk", REGISTERPUSH = "registerPush", BINDUSER = "bindUser", RECEIVEREMOTE = "receiveRemoteNotification", ADDLOCAL = "addLocalNotification", DELETELOCAL = "deleteLocalNotification", DELETEALLLOCAL = "deleteAllLocalNotifications", SUCCESS = 0}
+PushType = {Full_Physical = 1, Candy_Get = 2, Farm_Ripe = 3, Fix_Time = 4, Activity_Open = 5, Activity_End = 6}
+-- DECOMPILER ERROR at PC132: Confused about usage of register: R2 in 'UnsetPending'
+
+SuperSDKUtil.SetIsUseSDKPush = function(...)
+  -- function num : 0_33 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
+
+  SuperSDKUtil.IsUseSDKPush = (Util.GetPushSetState)()
+end
+
+-- DECOMPILER ERROR at PC135: Confused about usage of register: R2 in 'UnsetPending'
+
+SuperSDKUtil.RegisterPushService = function(...)
+  -- function num : 0_34 , upvalues : _ENV, SuperSDK
+  if SuperSDKUtil.IsUseSDKPush == false then
+    return 
+  end
+  loge("---------------SuperSDK Register Push ---------------------")
+  ;
+  ((SuperSDK.getInstance)()):Invoke(MOBPushConst.MODULE_NAME, MOBPushConst.REGISTERPUSH, nil)
+end
+
+-- DECOMPILER ERROR at PC138: Confused about usage of register: R2 in 'UnsetPending'
+
+SuperSDKUtil.BindingPushService = function(...)
+  -- function num : 0_35 , upvalues : _ENV, SuperSDK
+  if SuperSDKUtil.IsUseSDKPush == false then
+    return 
+  end
+  loge("---------------SuperSDK Binding Push ---------------------")
+  local params = {}
+  params.osdk_user_id = (SuperSDKData.GetLoginUserId)()
+  ;
+  ((SuperSDK.getInstance)()):Invoke(MOBPushConst.MODULE_NAME, MOBPushConst.BINDUSER, params)
+end
+
+-- DECOMPILER ERROR at PC141: Confused about usage of register: R2 in 'UnsetPending'
+
+SuperSDKUtil.AddLocalPush = function(pushID, time, ...)
+  -- function num : 0_36 , upvalues : _ENV, SuperSDK
+  if SuperSDKUtil.IsUseSDKPush == false then
+    return 
+  end
+  if Game.useSDK == false then
+    return 
+  end
+  loge("---------------SuperSDK AddLocal Push ---------------------")
+  local pushData = ((TableData.gTable).BaseMessagePushData)[pushID]
+  if pushData == nil then
+    loge("---------------SuperSDK AddLocal error ---------------------")
+    return 
+  end
+  local paramsDic = {}
+  paramsDic.identifier = tostring(pushID)
+  paramsDic.alertTitle = pushData.name
+  paramsDic.alertBody = pushData.remark
+  paramsDic.fireDate = tostring(time) * 1000
+  paramsDic.isAlarm = 1
+  ;
+  ((SuperSDK.getInstance)()):Invoke(MOBPushConst.MODULE_NAME, MOBPushConst.ADDLOCAL, paramsDic)
+  PrintTable(paramsDic, "推送参数")
+end
+
+-- DECOMPILER ERROR at PC144: Confused about usage of register: R2 in 'UnsetPending'
+
+SuperSDKUtil.DeleteLocalPush = function(pushID, ...)
+  -- function num : 0_37 , upvalues : _ENV, SuperSDK
+  if SuperSDKUtil.IsUseSDKPush == false then
+    return 
+  end
+  if Game.useSDK == false then
+    return 
+  end
+  loge("---------------SuperSDK DeleteLocal Push ---------------------")
+  local pushData = ((TableData.gTable).BaseMessagePushData)[pushID]
+  if pushData == nil then
+    loge("---------------SuperSDK DeleteLocal error ---------------------")
+    return 
+  end
+  local paramsDic = {}
+  paramsDic.identifier = tostring(pushID)
+  ;
+  ((SuperSDK.getInstance)()):Invoke(MOBPushConst.MODULE_NAME, MOBPushConst.DELETELOCAL, paramsDic)
+end
+
+-- DECOMPILER ERROR at PC147: Confused about usage of register: R2 in 'UnsetPending'
+
+SuperSDKUtil.DeleteAllLocalPush = function(...)
+  -- function num : 0_38 , upvalues : _ENV, SuperSDK
+  if SuperSDKUtil.IsUseSDKPush == false then
+    return 
+  end
+  if Game.useSDK == false then
+    return 
+  end
+  loge("---------------SuperSDK DeleteAllLocal Push ---------------------")
+  ;
+  ((SuperSDK.getInstance)()):Invoke(MOBPushConst.MODULE_NAME, MOBPushConst.DELETEALLLOCAL, nil)
+end
+
+-- DECOMPILER ERROR at PC150: Confused about usage of register: R2 in 'UnsetPending'
+
+SuperSDKUtil.GetPushIDByType = function(type, ...)
+  -- function num : 0_39 , upvalues : _ENV
+  local ids = {}
+  local pushData = (TableData.gTable).BaseMessagePushData
+  for _,v in pairs(pushData) do
+    if v.push_type == type then
+      (table.insert)(ids, v.id)
+    end
+  end
+  return ids
+end
+
 

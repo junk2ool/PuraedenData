@@ -473,7 +473,12 @@ BattleAtk.InsertSkillInfo = function(curSkill, skillAdd, ...)
   if IsBattleServer == nil then
     (BattleData.SaveBattleProcess)("攻击回合：" .. BattleData.atkIndex .. " 攻击者位置：" .. atkCard:GetPosIndex() .. " 攻击类型：必杀技")
   end
-  local curTargetCards = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
+  local curTargetCards = nil
+  if curSkill.specifyTarget then
+    curTargetCards = curSkill.specifyTarget
+  else
+    curTargetCards = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
+  end
   local killCount = -1
   if #curTargetCards > 0 then
     local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig, nil, skillAdd)

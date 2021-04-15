@@ -330,7 +330,15 @@ LuaTime.InitConfigStr = function(value, ...)
 
   local array = .end
   local TimeType = TimeType
-  if (((timeType == TimeType.EVERYDAY_TIME and timeType ~= TimeType.EVERY_WEEK_TIME) or timeType == TimeType.EVERY_MOON_DAY_TIME) and timeType ~= TimeType.EVERY_MOON_WEEKDAY_TIME) or timeType == TimeType.SPECIFIED_TIME then
+  if timeType == TimeType.EVERYDAY_TIME then
+    array = (LuaTime.HourMin)(strS[2])
+  else
+  end
+  if timeType ~= TimeType.EVERY_WEEK_TIME or timeType == TimeType.EVERY_MOON_DAY_TIME then
+    array = (LuaTime.DayHourMin)(strS[2])
+  else
+  end
+  if timeType ~= TimeType.EVERY_MOON_WEEKDAY_TIME or timeType == TimeType.SPECIFIED_TIME then
     return (LuaTime.AnalyseSpecifedTime)(strS[2], strS[3])
   else
   end
@@ -414,8 +422,24 @@ LuaTime.GetTimeZone = function(...)
   return (os.difftime)(now, (os.time)((os.date)("!*t", now)))
 end
 
-LuaTime.HourMin = function(str, ...)
+LuaTime.DayHourMin = function(str, ...)
   -- function num : 0_19 , upvalues : _ENV
+  local array = {}
+  local day = tonumber((string.sub)(str, 1, 2))
+  local hour = tonumber((string.sub)(str, 3, 4))
+  local minute = tonumber((string.sub)(str, 5))
+  if day < 0 or day > 31 or hour < 0 or hour > 24 or minute < 0 or minute > 60 then
+    loge("配置错误")
+    return 
+  end
+  array[1] = day
+  array[2] = hour
+  array[3] = minute
+  return array
+end
+
+LuaTime.HourMin = function(str, ...)
+  -- function num : 0_20 , upvalues : _ENV
   local array = {}
   local hour = tonumber((string.sub)(str, 1, 2))
   local minute = tonumber((string.sub)(str, 3))
@@ -429,7 +453,7 @@ LuaTime.HourMin = function(str, ...)
 end
 
 LuaTime.keepTime = function(str, ...)
-  -- function num : 0_20 , upvalues : _ENV
+  -- function num : 0_21 , upvalues : _ENV
   if (string.len)(str) < 2 then
     loge("配置错误")
     return 
@@ -457,7 +481,7 @@ LuaTime.keepTime = function(str, ...)
 end
 
 LuaTime.GetRangeTime = function(str, ...)
-  -- function num : 0_21 , upvalues : LuaTime, _ENV
+  -- function num : 0_22 , upvalues : LuaTime, _ENV
   local time, keep = (LuaTime.InitConfigStr)(str)
   local startTime = (string.format)("%02d:%02d", time[1], time[2])
   local keepHour, keepMin = (LuaTime.GetTimeNum)(keep)
@@ -467,15 +491,49 @@ LuaTime.GetRangeTime = function(str, ...)
 end
 
 LuaTime.GetGameHour = function(time, ...)
-  -- function num : 0_22 , upvalues : _ENV
+  -- function num : 0_23 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return tonumber((os.date)("%H", (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)))
 end
 
 LuaTime.GetTimeWithTimezone = function(time, ...)
-  -- function num : 0_23 , upvalues : _ENV
+  -- function num : 0_24 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)
+end
+
+LuaTime.GetTimeWithParameter = function(str, ...)
+  -- function num : 0_25 , upvalues : LuaTime, _ENV
+  local time, keep = (LuaTime.InitConfigStr)(str)
+  local curTime = (LuaTime.GetTimeStamp)()
+  local strDate = (os.date)("%Y/%m/%d %H:%M:%S", curTime)
+  local _, _, y, m, d, hour, min, sec = (string.find)(strDate, "(%d+)/(%d+)/(%d+)%s*(%d+):(%d+):(%d+)")
+  local type = tonumber((split(str, ":"))[1])
+  local pushTime = (os.time)()
+  if type == 1 then
+    local timeConfig = (os.time)({year = y, month = m, day = d, hour = time[1], min = time[2], sec = 0})
+    if timeConfig < curTime then
+      timeConfig = pushTime + 86400
+    end
+    pushTime = timeConfig
+  else
+    do
+      do
+        if type == 3 then
+          local timeConfig = (os.time)({year = y, month = m, day = time[1], hour = time[2], min = time[3], sec = 0})
+          if timeConfig < curTime then
+            if tonumber(m) ~= 12 then
+              timeConfig = (os.time)({year = y, month = m + 1, day = time[1], hour = time[2], min = time[3], sec = 0})
+            else
+              timeConfig = (os.time)({year = y + 1, month = 1, day = time[1], hour = time[2], min = time[3], sec = 0})
+            end
+          end
+          pushTime = timeConfig
+        end
+        return pushTime
+      end
+    end
+  end
 end
 
 return LuaTime

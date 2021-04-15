@@ -167,6 +167,12 @@
 , 
 [77140044] = {id = 77140044, name = "ストーリー", remark = "第40章\n40-2 薬の研究員", icon = "ItemIcon:21160003", type = 300101, value = 52104002, sort = 10}
 , 
+[77140045] = {id = 77140045, name = "ストーリー", remark = "第41章\n41-1 監獄城に収監されて", icon = "ItemIcon:21160003", type = 300101, value = 52104101, sort = 10}
+, 
+[77140046] = {id = 77140046, name = "ストーリー", remark = "第41章\n41-4 思わぬ災難", icon = "ItemIcon:21160003", type = 300101, value = 52104104, sort = 10}
+, 
+[77140047] = {id = 77140047, name = "ストーリー", remark = "第42章\n42-2 イザベラの挑戦", icon = "ItemIcon:21160003", type = 300101, value = 52104202, sort = 10}
+, 
 [77200001] = {id = 77200001, name = "中央闘技場", remark = "「中央闘技場－生涯報酬」で獲得する", icon = "ItemIcon:21160003", type = 304004, value = 0, sort = 20}
 , 
 [77221001] = {id = 77221001, name = "冒険者修行", remark = "第6章\n6-1 シャノン", icon = "ItemIcon:21160003", type = 300102, value = 52200601, sort = 20}
@@ -426,6 +432,8 @@
 [77423025] = {id = 77423025, name = "募集", remark = "「暁闇の葬送者」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77423027] = {id = 77423027, name = "募集", remark = "「勇気100％　BunnyBunny」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423028] = {id = 77423028, name = "募集", remark = "「微風の鼓動」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 , 

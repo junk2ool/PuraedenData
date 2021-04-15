@@ -221,6 +221,8 @@ HomelandService.OnResLandPlanting = function(msg, ...)
   -- function num : 0_20 , upvalues : _ENV
   print("2306返回土地种植")
   UIMgr:SendWindowMessage("HomelandFarmWindow", (WindowMsgEnum.Family).E_MSG_SEED_PLANT_SUCCESS, {data = msg})
+  ;
+  (HomelandData.SetCropMaturityPush)()
 end
 
 -- DECOMPILER ERROR at PC70: Confused about usage of register: R1 in 'UnsetPending'
@@ -261,6 +263,8 @@ HomelandService.OnResLandHarvest = function(msg, ...)
 )
   end
 )
+        ;
+        (HomelandData.SetCropMaturityPush)()
       else
         (MessageMgr.SendCenterTips)((PUtil.get)(258))
       end
@@ -344,6 +348,8 @@ HomelandService.OnResLandUproot = function(msg, ...)
   local seedData = ((TableData.gTable).BaseFamilyFarmSeedData)[msg.seedId]
   ;
   (MessageMgr.OpenItemBuyTipsWindowBySingle)({id = msg.seedId, Num = seedData.use_num})
+  ;
+  (HomelandData.SetCropMaturityPush)()
 end
 
 -- DECOMPILER ERROR at PC85: Confused about usage of register: R1 in 'UnsetPending'

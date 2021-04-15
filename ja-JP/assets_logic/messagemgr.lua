@@ -1119,5 +1119,121 @@ MessageMgr.IsInSpecialList = function(list, str, ...)
   return false
 end
 
+MessageMgr.SetFullPhysicalPush = function(type, ...)
+  -- function num : 0_54 , upvalues : _ENV
+  local status = (ActorData.GetPushStatus)(type)
+  if status ~= false then
+    local PushIDs = (SuperSDKUtil.GetPushIDByType)(type)
+    for _,v in ipairs(PushIDs) do
+      (SuperSDKUtil.DeleteLocalPush)(v)
+    end
+    for _,v in ipairs(PushIDs) do
+      local current = (ActorData.GetAssetCount)(AssetType.PHYSICAL)
+      local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[(ActorData.GetLevel)() + 72300000]
+      local max = LevelUpData.max_vit
+      if max <= current then
+        return -1
+      end
+      local FixedData = ((TableData.gTable).BaseFixedData)[Const.MaxPhysicalFixedID]
+      local configData = split(FixedData.array_value, ":")
+      local singleTime = tonumber(configData[1])
+      local playTime = (os.time)() + singleTime * (max - current)
+      local pushData = ((TableData.gTable).BaseMessagePushData)[tonumber(v)]
+      ;
+      (SuperSDKUtil.AddLocalPush)(v, playTime + pushData.relative_push_time)
+    end
+  end
+end
+
+MessageMgr.SetCandyGetPush = function(type, ...)
+  -- function num : 0_55 , upvalues : _ENV
+  local status = (ActorData.GetPushStatus)(type)
+  if status ~= false then
+    local PushIDs = (SuperSDKUtil.GetPushIDByType)(type)
+    for _,v in ipairs(PushIDs) do
+      (SuperSDKUtil.DeleteLocalPush)(v)
+    end
+    for _,v in ipairs(PushIDs) do
+      local pushData = ((TableData.gTable).BaseMessagePushData)[tonumber(v)]
+      local pushTime = (LuaTime.GetTimeWithParameter)(pushData.push_parameter)
+      ;
+      (SuperSDKUtil.AddLocalPush)(v, pushTime + pushData.relative_push_time)
+    end
+  end
+end
+
+MessageMgr.SetFixTimePush = function(type, ...)
+  -- function num : 0_56 , upvalues : _ENV
+  local status = (ActorData.GetPushStatus)(type)
+  if status ~= false then
+    local PushIDs = (SuperSDKUtil.GetPushIDByType)(type)
+    for _,v in ipairs(PushIDs) do
+      (SuperSDKUtil.DeleteLocalPush)(v)
+    end
+    for _,v in ipairs(PushIDs) do
+      local pushData = ((TableData.gTable).BaseMessagePushData)[tonumber(v)]
+      local pushTime = (LuaTime.GetTimeWithParameter)(pushData.push_parameter)
+      ;
+      (SuperSDKUtil.AddLocalPush)(v, pushTime + pushData.relative_push_time)
+    end
+  end
+end
+
+MessageMgr.SetPushTypeData = function(type, isAdd, ...)
+  -- function num : 0_57 , upvalues : _ENV, MessageMgr
+  local status = not (ActorData.GetPushStatus)(type) or isAdd
+  local PushIDs = (SuperSDKUtil.GetPushIDByType)(type)
+  if PushType.Full_Physical == type then
+    if status then
+      for _,v in ipairs(PushIDs) do
+        (MessageMgr.SetFullPhysicalPush)(type)
+      end
+    else
+      do
+        for _,v in ipairs(PushIDs) do
+          (SuperSDKUtil.DeleteLocalPush)(v)
+        end
+        do
+          -- DECOMPILER ERROR at PC50: Unhandled construct in 'MakeBoolean' P1
+
+          if PushType.Farm_Ripe == type and status and HomelandData ~= nil then
+            local time = (HomelandData.FindLongestTime)()
+            if time > 0 then
+              local pushData = ((TableData.gTable).BaseMessagePushData)[tonumber(PushIDs[1])]
+              ;
+              (SuperSDKUtil.AddLocalPush)(type, time + pushData.relative_push_time)
+            end
+          end
+          do
+            ;
+            (SuperSDKUtil.DeleteLocalPush)(PushIDs[1])
+            if PushType.Candy_Get == type then
+              if status then
+                (MessageMgr.SetCandyGetPush)(type)
+              else
+                for _,v in ipairs(PushIDs) do
+                  (SuperSDKUtil.DeleteLocalPush)(v)
+                end
+              end
+            else
+              do
+                if PushType.Fix_Time == type then
+                  if status then
+                    (MessageMgr.SetFixTimePush)(type)
+                  else
+                    for _,v in ipairs(PushIDs) do
+                      (SuperSDKUtil.DeleteLocalPush)(v)
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
 return MessageMgr
 
