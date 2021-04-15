@@ -3921,8 +3921,12 @@ end
 Util.GetPushSetState = function(...)
   -- function num : 0_187 , upvalues : _ENV, Util
   local show = false
-  if Application.platform == RuntimePlatform.Android and (Util.CompareVersion)(Application.version, "1.0.15") then
+  if Game.gameVersion == "cn" then
     show = true
+  else
+    if Application.platform == RuntimePlatform.Android and (Util.CompareVersion)(Application.version, "1.0.15") then
+      show = true
+    end
   end
   if Application.platform == RuntimePlatform.IPhonePlayer and (Util.CompareVersion)(Application.version, "1.0.14") then
     show = true

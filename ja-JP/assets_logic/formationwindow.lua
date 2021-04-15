@@ -52,14 +52,14 @@ FormationWindow.OnInit = function(bridge, ...)
   uis = GetFormation_FormationWindowUis(contentPane)
   GuildBossCantCard = {}
   if Application.platform == RuntimePlatform.Android then
-    if (Util.CompareVersion)(Application.version, "1.0.6") then
+    if (Util.CompareVersion)(Application.version, "1.0.6") or Game.gameVersion == "cn" then
       ModelScale = 0.22
     else
       ModelScale = 0.15
     end
   else
     if Application.platform == RuntimePlatform.IPhonePlayer then
-      if (Util.CompareVersion)(Application.version, "1.0.9") then
+      if (Util.CompareVersion)(Application.version, "1.0.9") or Game.gameVersion == "cn" then
         ModelScale = 0.22
       else
         ModelScale = 0.15

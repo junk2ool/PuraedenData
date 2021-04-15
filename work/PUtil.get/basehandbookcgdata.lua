@@ -61,9 +61,9 @@
 , 
 [26200451] = {id = 26200451, name = "一番かわいいの男の子", remark = "かわいこちゃん対決しよう！誰が世界で一番かわいい男の子かを見てみて！", des = "第四十五章 ロック中", type = 1, chapter_id = 51100045, index = 31, icon = "HandBookCGBanner:92101045", fashion_id = "92101045", open_time = 0}
 , 
-[26200461] = {id = 26200461, name = "アネモネの秘密", remark = "…エイプリル様。あなたは…この国の、もうひとりの姫なのです。", des = "第四十六章 ロック中", type = 1, chapter_id = 51100046, index = 31, icon = "HandBookCGBanner:92101046", fashion_id = "92101046", open_time = 0}
+[26200461] = {id = 26200461, name = "アネモネの秘密", remark = "…エイプリル様。あなたは…この国の、もうひとりの姫なのです。", des = "第四十六章 ロック中", type = 1, chapter_id = 51100046, index = 32, icon = "HandBookCGBanner:92101046", fashion_id = "92101046", open_time = 0}
 , 
-[26200462] = {id = 26200462, name = "最も頼もしい助太刀", remark = "あなた達はもっと重要な事があるだろう？ではここは……私たちに任せといて！", des = "第四十六章 ロック中", type = 1, chapter_id = 51100046, index = 32, icon = "HandBookCGBanner:92101047", fashion_id = "92101047", open_time = 0}
+[26200462] = {id = 26200462, name = "最も頼もしい助太刀", remark = "あなた達はもっと重要な事があるだろう？ではここは……私たちに任せといて！", des = "第四十六章 ロック中", type = 1, chapter_id = 51100046, index = 33, icon = "HandBookCGBanner:92101047", fashion_id = "92101047", open_time = 0}
 , 
 [26110010] = {id = 26110010, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11100001, index = 1, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 

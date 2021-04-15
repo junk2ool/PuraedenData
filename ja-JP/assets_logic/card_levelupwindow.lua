@@ -126,7 +126,7 @@ end
 -- DECOMPILER ERROR at PC51: Confused about usage of register: R40 in 'UnsetPending'
 
 Card_LevelUpWindow.UpdateItem = function(...)
-  -- function num : 0_2 , upvalues : lvlGrp, _ENV, lvlNeedItems, needItemsObj, frame, totalFrame, isExpFull, isLongPress, fakeCardData, MAX_LEVEL, expPool, selectedIndex, scrollTimer, isFakeplaying, TotalNum, TotalCostNum, fakeMax, tips1IsTip, tips2IsTip, tips3IsTip, totalFakeCost, longPressMatEffectTimer
+  -- function num : 0_2 , upvalues : lvlGrp, _ENV, lvlNeedItems, needItemsObj, characType, frame, totalFrame, isExpFull, isLongPress, fakeCardData, MAX_LEVEL, expPool, selectedIndex, scrollTimer, isFakeplaying, TotalNum, TotalCostNum, fakeMax, tips1IsTip, tips2IsTip, tips3IsTip, totalFakeCost, longPressMatEffectTimer
   local itemExpText = {(lvlGrp.ItemOneGrp).EXPNumberTxt, (lvlGrp.ItemTwoGrp).EXPNumberTxt, (lvlGrp.ItemThreeGrp).EXPNumberTxt, (lvlGrp.ItemFourGrp).EXPNumberTxt}
   local curItems = {}
   for i = 1, 4 do
@@ -172,7 +172,10 @@ Card_LevelUpWindow.UpdateItem = function(...)
     (LuaSound.SetClickSound)(icon, LuaSound.CARD_USE_EXP_ITEM)
     ;
     (icon.onClick):Add(function(...)
-    -- function num : 0_2_0 , upvalues : frame, totalFrame, _ENV, isExpFull, isLongPress, curItems, i, isLockGetWay, fakeCardData, MAX_LEVEL, expPool, selectedIndex
+    -- function num : 0_2_0 , upvalues : characType, frame, totalFrame, _ENV, isExpFull, isLongPress, curItems, i, isLockGetWay, fakeCardData, MAX_LEVEL, expPool, selectedIndex
+    if characType == 5 then
+      return 
+    end
     if frame < totalFrame then
       print("这个是单次点击", frame, isExpFull)
       if isLongPress == true then
@@ -249,7 +252,10 @@ Card_LevelUpWindow.UpdateItem = function(...)
   end
 )
     longPress:AddEventListener("onLongPressAction", function(...)
-    -- function num : 0_2_2 , upvalues : TotalNum, tips1IsTip, isLockGetWay, _ENV, numberTxt, icon, itemInfoObj, fakeCardData, MAX_LEVEL, isExpFull, tips2IsTip, tips3IsTip, i, itemExcelData
+    -- function num : 0_2_2 , upvalues : characType, TotalNum, tips1IsTip, isLockGetWay, _ENV, numberTxt, icon, itemInfoObj, fakeCardData, MAX_LEVEL, isExpFull, tips2IsTip, tips3IsTip, i, itemExcelData
+    if characType == 5 then
+      return 
+    end
     if TotalNum <= 0 then
       if tips1IsTip == false then
         if isLockGetWay then
@@ -257,7 +263,7 @@ Card_LevelUpWindow.UpdateItem = function(...)
         end
         numberTxt.visible = false
         icon.color = ((CS.UnityEngine).Color).gray
-        -- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
 
         ;
         (itemInfoObj.PlusImage).visible = isLockGetWay

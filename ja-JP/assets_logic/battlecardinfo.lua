@@ -139,7 +139,9 @@ randomBuff = {}
 
   battleCardInfo.SetRoundDamage = function(self, value, ...)
     -- function num : 0_0_10 , upvalues : _ENV
-    logw("SetRoundDamage:" .. value .. "  " .. value - self.RoundDamage .. " " .. self.id)
+    if IsBattleServer == nil then
+      logw("SetRoundDamage:" .. value .. "  " .. value - self.RoundDamage .. " " .. self.id)
+    end
     self.RoundDamage = value
   end
 
@@ -459,6 +461,7 @@ randomBuff = {}
             end
           end
           do
+            local dieLater = false
             if curValue + value <= 0 then
               do
                 if (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
@@ -473,21 +476,22 @@ randomBuff = {}
                     local atkCard = (BattleData.GetCardInfoByPos)(curAtkPos)
                     ;
                     (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.DIE_SKILL_DIE, atkCard)
+                    dieLater = true
                   end
                   do
                     do
                       value = -curValue + 1
                       self:SetHp(curValue + (value))
-                      if curValue + (value) <= 0 then
+                      if curValue + (value) <= 0 or dieLater then
                         (BattleDataCount.UpdateEquipBuff)(atkInfo.atkPos, BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
                       end
                       do return value, absorbDamage, specialEffect end
                       if attributeId == BattleCardAttributeID.DANDER then
                         local t = curValue + (value)
-                        -- DECOMPILER ERROR at PC205: Overwrote pending register: R12 in 'AssignReg'
+                        -- DECOMPILER ERROR at PC209: Overwrote pending register: R12 in 'AssignReg'
 
                         local maxDander = self:GetMaxDander()
-                        -- DECOMPILER ERROR at PC211: Overwrote pending register: R13 in 'AssignReg'
+                        -- DECOMPILER ERROR at PC215: Overwrote pending register: R13 in 'AssignReg'
 
                         if maxDander < t then
                           if buff and (buff:GetBuffConfig()).sp_save then

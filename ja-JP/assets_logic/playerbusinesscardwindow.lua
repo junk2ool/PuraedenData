@@ -98,10 +98,12 @@ PlayerBusinessCardWindow.OnInit = function(bridgeObj, ...)
   ;
   ((uis.ScreenBtn).onClick):Set(function(...)
     -- function num : 0_0_7 , upvalues : _ENV, PlayerBusinessCardWindow
-    if Application.platform == RuntimePlatform.Android and (Util.CompareVersion)(Application.version, "1.0.11") then
+    -- DECOMPILER ERROR at PC20: Unhandled construct in 'MakeBoolean' P1
+
+    if Application.platform == RuntimePlatform.Android and ((Util.CompareVersion)(Application.version, "1.0.11") or Game.gameVersion == "cn") then
       (PlayerBusinessCardWindow.CreateAttr)(true)
     end
-    if Application.platform == RuntimePlatform.IPhonePlayer and (Util.CompareVersion)(Application.version, "1.0.12") then
+    if Application.platform == RuntimePlatform.IPhonePlayer and ((Util.CompareVersion)(Application.version, "1.0.12") or Game.gameVersion == "cn") then
       (PlayerBusinessCardWindow.CreateAttr)(true)
     end
   end

@@ -801,10 +801,8 @@ HomeWindow.InitSend = function(...)
 )
       ;
       ((model.physicalBtn).onClick):Set(function(...)
-    -- function num : 0_17_3 , upvalues : _ENV
-    local time = (os.time)() + 30
-    ;
-    (SuperSDKUtil.AddLocalPush)(101, time)
+    -- function num : 0_17_3 , upvalues : _ENV, GmCommand
+    (LoginService.OnReqSendChar)(GmCommand.physical)
   end
 )
       ;

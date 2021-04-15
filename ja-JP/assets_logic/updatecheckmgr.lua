@@ -60,7 +60,7 @@ UpdateCheckMgr.DownloadServerList = function(serverListVersion, ...)
 end
 
 UpdateCheckMgr.NeedDownload = function(...)
-  -- function num : 0_3 , upvalues : _ENV
+  -- function num : 0_3 , upvalues : _ENV, UpdateCheckMgr
   local launch = (CS.Launch).Singleton
   local localVer = launch.resVersion
   local serverVer = CSServerList.ResVersion
@@ -70,8 +70,23 @@ UpdateCheckMgr.NeedDownload = function(...)
   print("远端包版本", serverAppVer, tonumber(serverAppVer))
   print("本地资源版本", localVer, tonumber(localVer))
   print("远端资源版本", serverVer, tonumber(serverVer))
-  do return (localAppVer ~= serverAppVer and tonumber(localAppVer) < tonumber(serverAppVer)) or (localVer ~= serverVer and tonumber(localVer) < tonumber(serverVer)) end
-  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  do return (UpdateCheckMgr.NeedUpdate)(serverAppVer, localAppVer) or (localVer ~= serverVer and tonumber(localVer) < tonumber(serverVer)) end
+  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+end
+
+UpdateCheckMgr.NeedUpdate = function(serverAppVer, localAppVer, ...)
+  -- function num : 0_4 , upvalues : _ENV
+  local need = false
+  local se = split(serverAppVer, ".")
+  local lo = split(localAppVer, ".")
+  if tonumber(s[1]) < tonumber(s[1]) then
+    need = true
+  else
+    if tonumber(s[1]) == tonumber(s[1]) and tonumber(s[2]) < tonumber(s[2]) then
+      need = true
+    end
+  end
+  return need
 end
 
 return UpdateCheckMgr
