@@ -100,7 +100,7 @@ CardData.InitCardAttr = function(card, cardData, battleType, battleAttrData, isS
                                       card.sealSkillInfo = card.sealSkillInfo
                                       do
                                         if isSelfCard == false and cardDetailInfo ~= nil then
-                                          local fc = nil
+                                          local fc = 0
                                           for _,attrTable in ipairs(cardDetailInfo.attr) do
                                             local id = attrTable.id
                                             local value = attrTable.value
