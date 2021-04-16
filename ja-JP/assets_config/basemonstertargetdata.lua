@@ -69,6 +69,8 @@ BaseMonsterTargetData = {
 , 
 [2161] = {id = 2161, target_num = "1"}
 , 
+[2162] = {id = 2162, target_num = "2"}
+, 
 [2163] = {id = 2163, target_num = "3"}
 , 
 [2164] = {id = 2164, target_num = "4"}
@@ -147,4 +149,5 @@ BaseMonsterTargetData = {
 , 
 [5005] = {id = 5005, target_num = "1"}
 }
+return BaseMonsterTargetData
 

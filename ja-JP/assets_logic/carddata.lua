@@ -106,12 +106,8 @@ CardData.InitCardAttr = function(card, cardData, battleType, battleAttrData, isS
                                             local value = attrTable.value
                                             if id and value and id ~= 81050001 then
                                               local attrConfig = baseAttributeData[id]
-                                              if card[attrConfig.name] then
-                                                card[attrConfig.name] = card[attrConfig.name] + value
-                                              else
-                                                card[attrConfig.name] = value
-                                              end
-                                              fc = fc + value * attrConfig.fc_base / 10000
+                                              card[attrConfig.name] = value
+                                              fc = fc + value * attrConfig.fc_base * 0.0001
                                             end
                                           end
                                           card.fc = ceil(fc)
