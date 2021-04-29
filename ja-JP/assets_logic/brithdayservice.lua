@@ -17,6 +17,9 @@ BrithDayService.ReqBirthdayList = function(...)
   local isOpen = (FunctionControlMgr.GetFunctionState)(ControlID.Card_BrithDay)
   print("419请求卡牌生日列表（登录请求）", isOpen)
   if isOpen == false then
+    ld("ActivityReturn")
+    ;
+    (ActivityReturnMgr.CheckNeedOpenUI)()
     return 
   end
   local m = {}
@@ -33,6 +36,15 @@ BrithDayService.OnResBirthdayList = function(msg, ...)
   (BrithDayData.SetCardBrithDayData)(msg.cardId)
   if #msg.cardId >= 1 then
     (BrithDayMgr.OpenBrithDayWindow)(1)
+  else
+    ;
+    (SimpleTimer.setTimeout)(0.1, function(...)
+    -- function num : 0_2_0 , upvalues : _ENV
+    ld("ActivityReturn")
+    ;
+    (ActivityReturnMgr.CheckNeedOpenUI)()
+  end
+)
   end
 end
 

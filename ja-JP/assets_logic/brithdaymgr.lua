@@ -8,6 +8,9 @@ BrithDayMgr.OpenBrithDayWindow = function(index, ...)
   -- function num : 0_0 , upvalues : _ENV
   print("0000000000000", index, #BrithDayData.brithDayData)
   if #BrithDayData.brithDayData < index then
+    ld("ActivityReturn")
+    ;
+    (ActivityReturnMgr.CheckNeedOpenUI)()
     return 
   end
   local cardId = (BrithDayData.brithDayData)[index] or nil

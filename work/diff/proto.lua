@@ -52,8 +52,8 @@ message TotalPayActInfo
 //累计登录
 message LoginDayActInfo
 {
-	repeated TaskSimpleObject     rewardList = 1;//奖励列表（奖励ID		状态）
-	         bool                   todayGet = 2;//今日奖励是否已领取
+	repeated TaskSimpleObject     rewardList = 1;//登录奖励列表（奖励ID		状态）
+	         bool                   todayGet = 2;//今日登录奖励是否已领取
 }
 
 //扭蛋积分
@@ -71,6 +71,17 @@ message TempleActInfo
 	repeated int32		  expiredGroup = 3;//已经过期的任务组
 	repeated TaskObject	      taskList = 4;//任务列表
 			 int32		    undoneTask = 5;//未完成任务数
+}
+
+//回归登录
+message ReturnLoginActInfo
+{
+	repeated TaskSimpleObject     rewardList = 1;//登录奖励列表（奖励ID		状态）
+	         bool                   todayGet = 2;//今日登录奖励是否已领取
+	repeated TaskSimpleObject      pointList = 3;//积分奖励列表（奖励ID		状态）
+			 int32		          totalPoint = 4;//总积分
+			 int32                    dayNum = 5;//当前活动进行到第几天
+			 int32                 initLevel = 6;//活动开启时玩家等级
 }
 
 
@@ -103,6 +114,7 @@ message ResActivityInfo
 	LoginDayActInfo                   loginDayActInfo = 6;//累计登录
 	LotteryIntegralActInfo	   lotteryIntegralActInfo = 7;//扭蛋积分
 	TempleActInfo                       templeActInfo = 8;//神殿遗迹
+	ReturnLoginActInfo             returnLoginActInfo = 9;//回归登录
 }
 
 //1705活动过期
@@ -151,19 +163,21 @@ message ResTaskReward
 	int32        canGet = 6;//可领取奖励的积分
 }
 
+//==========普通领奖活动==========//
+
 //1711请求领取积分奖励
 message ReqPointReward
 {
 	int32 actId = 1;//活动ID
+	int32 rewId = 2;//奖励ID
 }
 //1712返回领取积分奖励
 message ResPointReward
 {
 	int32 actId = 1;//活动ID
+	int32 rewId = 2;//奖励ID
+	bool result	= 3;//状态（true：成功	false：失败）
 }
-
-
-//==========普通领奖活动==========//
 
 //1713请求领取活动奖励
 message ReqGetReward
@@ -1335,6 +1349,7 @@ message StageInfo
 	bool	isGeted        = 2;//是否已经获取过奖励
 	int32 extraRewardState = 3;//关卡额外奖励状态  1为没有额外奖励  2为有额外奖励尚未领取 3为有额外奖励并且已领取
 	int32	surplusNum     = 4;//剩余次数(为0表示不能再挑战或者领奖)
+	int32 buyNum           = 5;//购买次数
 }
 
 //503领取关卡奖励请求
@@ -2046,116 +2061,15 @@ message ResAddOrUpdateDeckScheme{
 	DeckScheme deckScheme = 2;//阵容方案
 }
 
-//请求冒险数据 2400
-message ReqRiskData{
-	int32  id        = 1;
+//关卡次数购买 597
+message ReqStageBuyNum{
+	int32 stageId        = 1;
 }
 
-//冒险数据 这里只返回正在进行的冒险数据 2401
-message ResRiskData{
-	RiskData riskData  = 1;//
-}
-
-//请求初始化冒险数据 2406
-message ReqRiskDataInit{
-
-}
-
-//请求初始化冒险数据 2407
-message ResRiskDataInit{
-	repeated RiskData riskDataList = 1;
-}
-
-message RiskData{
-	int32   id                  = 1;//id
-	int64  beginTime            = 2;//开始时间
-	int64  endTime              = 3;//结束时间
-	repeated GoodsObject reward = 4;//奖励
-	repeated int32 eventId      = 5;//事件
-}
-
-//开始冒险 2402
-message ReqBeginRisk{
-	int32 id                      = 1;//冒险地图id
-	repeated GoodsObject costList = 2;//冒险消耗
-}
-
-//开始冒险 2403
-message ResBeginRisk{
-    RiskData riskData  = 1;//冒险数据
-}
-
-//结束冒险 2404
-message ReqEndRisk{
-	int32   id         = 1;
-}
-
-//结束冒险 2405
-message ResEndRisk{
-	repeated GoodsObject rewards = 1;//冒险奖励
-		int32   id         = 2;
-}
-
-//请求初始化协助战斗
-message ReqAssistFightInit{
-
-}
-
-message ResAssistFightInit{
-	AssistFightData data	= 1;
-}
-
-message AssistFightData{
-	int32 id                = 1;//id
-	int32 remainHp          = 2;//BOSS剩余百分比血量
-	int32 assistedTime		= 3;//当日已协助次数
-	int32 challengedTime	= 4;//当日已挑战次数
-}
-
-//请求挑战BOSS
-message ReqChallengeAssistFight{
-	repeated CommonObject cardInfo  = 1;//卡牌信息(id为卡的ID,value为位置) 布阵
-}
-
-message ResChallengeAssistFight{
-	bool success            = 1;//是否能进行挑战
-}
-
-//结算挑战BOSS
-message ReqSettleAssistFight{
-	BattleCompleteData battleCompleteData   = 1;//战斗数据
-}
-
-//
-message ResSettleAssistFight{
-	bool success            = 1;//挑战是否成功
-	int32 remainHp          = 2;//BOSS剩余百分比血量
-}
-
-
-//请求协助公会成员战斗
-message ReqAssistGuildMember{
-	string playerIndex			= 1;//玩家唯一id
-}
-
-message ResAssistGuildMember{
-	bool success				= 1;
-	int32 availableTime			= 2;//可协助次数
-	int32 remainHp				= 3;//BOSS剩余百分比血量
-}
-
-
-///通知BOSS血量变化
-message ResAssistFightData{
-	int32 remainHp          = 1;//BOSS剩余百分比血量
-}
-
-///请求保持通知BOSS血量变化
-message ReqNeedNoticeBossHP{
-	bool notify            = 1;//true表示通知
-}
-
-message ResNeedNoticeBossHP{
+message ResStageBuyNum{
+	int32 stageId        = 1;//
+	int32 num            = 2;//购买之后的副本次数
+	int32 buyNum         = 3;//该关卡已经购买的次数
 }
 
 
@@ -2424,6 +2338,7 @@ enum E_EMBATTLE_TYPE
 	EMBATTLE_ARENA_GUARD     = 8;//竞技场防守布阵
 	EMBATTLE_TOWER           = 9;//天之塔布阵
 	EMBATTLE_ENCOUNTER       = 10;//天之塔遭遇战布阵
+	EMBATTLE_ASSIST_BOSS 	 = 11;//协助战斗BOSS
 }
 
 //副本类型
@@ -2446,8 +2361,8 @@ enum E_CHALLENGE_TYPE
 	FRIEND_PK_CHALLENGE  	= 15;//好友切磋
 	TEMPLE_CHALLENGE     	= 20;//神殿遗迹
 	ACTIVITY_CHALLENGE   	= 101;//活动副本
-	NEW_ACTIVITY_CHALLENGE	= 102;//新活动副本
     NEW_ACTIVITY_ASSIST     = 103;//新活动副本协助战斗类型
+	NEW_ACTIVITY_CHALLENGE	= 201;//新活动副本
 }
 
 enum E_SET_TYPE
@@ -2707,7 +2622,7 @@ message CardObject
 
 message CardDetail
 {
-             int32		        uid = 1;//UID
+             string		        uid = 1;//UID
     repeated CommonObject      attr = 2;//详细属性列表
 }
 
@@ -4860,6 +4775,7 @@ enum E_MSG_TYPE
 	MsgType_GuildWar			= 2100;//公会战
 	MsgType_Friend              = 2200;//好友
 	MsgType_Family              = 2300;//家园
+	MsgType_Risk                = 2400;//冒险
 }
 
 enum E_MSG_ID
@@ -5168,34 +5084,8 @@ enum E_MSG_ID
 	Challenge_ReqRandomMonsterGroupList = 595;//设置随机怪物组
 	Challenge_ResRandomMonsterGroupList = 596;
 	
-	Challenge_ReqRiskData               = 2400;//请求冒险数据
-	Challenge_ResRiskData               = 2401;//请求冒险数据
-	
-	Challenge_ReqBeginRisk              = 2402;//开始冒险
-	Challenge_ResBeginRisk              = 2403;//开始冒险
-
-	Challenge_ReqEndRisk                = 2404;//结束冒险
-	Challenge_ResEndRisk                = 2405;//结束冒险
-	
-	Challenge_ReqRiskDataInit           = 2406;//初始化冒险数据
-	Challenge_ResRiskDataInit           = 2407;//
-	
-	Challenge_ReqAssistFightInit		= 2408;//初始化新活动副本协助战斗数据
-	Challenge_ResAssistFightInit		= 2409;
-	
-	Challenge_ReqChallengeAssistFight	= 2410;//请求挑战协助战斗BOSS
-	Challenge_ResChallengeAssistFight	= 2411;//
-	
-	Challenge_ReqSettleAssistFight		= 2412;//请求结算协助战斗BOSS
-	Challenge_ResSettleAssistFight		= 2413;//
-	
-	Challenge_ReqGuildAssistData		= 2414;//请求公会协助数据
-	Challenge_ResGuildAssistData		= 2415;//
-	
-	Challenge_ReqAssistGuildMember		= 2416;//请求协助公会成员战斗
-	Challenge_ResAssistGuildMember		= 2417;//
-	
-	Challenge_ResAssistFightData		= 2418;//通知BOSS血量变化
+	Challenge_ReqStageBuyNum            = 597;//关卡购买
+	Challenge_ResStageBuyNum            = 598;
 	
 	Play_ReqPlayBuyNum                  = 601;//请求活动购买次数
 	Play_ResPlayBuyNum                  = 602;//活动购买次数
@@ -5727,6 +5617,41 @@ enum E_MSG_ID
 	
 	Family_ReqQuitRoom                     = 2363;//退出房间
 	Family_ResQuitRoom                     = 2364;
+	
+	Risk_ReqRiskData                    = 2400;//请求冒险数据
+	Risk_ResRiskData                    = 2401;//请求冒险数据
+	
+	Risk_ReqBeginRisk           	    = 2402;//开始冒险
+	Risk_ResBeginRisk           	    = 2403;//开始冒险
+
+	Risk_ReqEndRisk             	    = 2404;//结束冒险
+	Risk_ResEndRisk             	    = 2405;//结束冒险
+	
+	Risk_ReqRiskDataInit         	    = 2406;//初始化冒险数据
+	Risk_ResRiskDataInit        	    = 2407;//
+	
+	Risk_ReqAssistFightInit				= 2408;//初始化新活动副本协助战斗数据
+	Risk_ResAssistFightInit				= 2409;
+	
+	Risk_ReqChallengeAssistFight		= 2410;//请求挑战协助战斗BOSS
+	Risk_ResChallengeAssistFight		= 2411;//
+	
+	Risk_ReqSettleAssistFight			= 2412;//请求结算协助战斗BOSS
+	Risk_ResSettleAssistFight			= 2413;//
+	
+	Risk_ReqGuildAssistData				= 2414;//请求公会协助数据
+	Risk_ResGuildAssistData				= 2415;//
+	
+	Risk_ReqAssistGuildMember			= 2416;//请求协助公会成员战斗
+	Risk_ResAssistGuildMember			= 2417;//
+	
+	Risk_ResAssistFightData				= 2418;//通知BOSS血量变化
+	
+	Risk_ReqNeedNoticeBossHP			= 2419;//请求保持通知BOSS血量变化
+	Risk_ResNeedNoticeBossHP			= 2420;//
+	
+	Risk_ReqChallengeReward				= 2421;//请求领取挑战BOSS奖励
+	Risk_ResChallengeReward				= 2422;//
 
 
 }
@@ -6313,6 +6238,142 @@ message ResGuideNotice
 
 
 
+
+//请求冒险数据 2400
+message ReqRiskData{
+	int32  id        = 1;
+}
+
+//冒险数据 这里只返回正在进行的冒险数据 2401
+message ResRiskData{
+	RiskData riskData  = 1;//
+}
+
+//请求初始化冒险数据 2406
+message ReqRiskDataInit{
+
+}
+
+//请求初始化冒险数据 2407
+message ResRiskDataInit{
+	repeated RiskData riskDataList = 1;
+}
+
+message RiskData{
+	int32   id                  = 1;//id
+	int64  beginTime            = 2;//开始时间
+	int64  endTime              = 3;//结束时间
+	repeated GoodsObject reward = 4;//奖励
+	repeated int32 eventId      = 5;//事件
+	int64 riskTime              = 6;//探险时长(单位 毫秒)
+}
+
+//开始冒险 2402
+message ReqBeginRisk{
+	int32 id                      = 1;//冒险地图id
+	int64 riskTime                = 2;//冒险时长(单位 毫秒)
+}
+
+//开始冒险 2403
+message ResBeginRisk{
+    RiskData riskData  = 1;//冒险数据
+}
+
+//结束冒险 2404
+message ReqEndRisk{
+	int32   id         = 1;
+}
+
+//结束冒险 2405
+message ResEndRisk{
+	repeated GoodsObject rewards = 1;//冒险奖励
+		int32   id               = 2;
+		int64 riskTime           = 3;//冒险时间
+}
+
+//请求初始化协助战斗 2408
+message ReqAssistFightInit{
+
+}
+
+//2409
+message ResAssistFightInit{
+	AssistFightData data	= 1;
+}
+
+message AssistFightData{
+	int32 id                		= 1;//id
+	int32 remainHp          		= 2;//BOSS剩余百分比血量
+	int32 assistedTime				= 3;//当日已协助次数
+	int32 challengedTime			= 4;//当日已挑战次数
+	repeated CommonObject cardInfo	= 5;//卡牌信息(id为卡的ID,value为位置)
+	repeated int32 gotReward		= 6;//已经领取的奖励id
+	int32 fc                        = 7;//玩家战斗力
+}
+
+//请求挑战BOSS 2410
+message ReqChallengeAssistFight{
+	repeated CommonObject cardInfo  = 1;//卡牌信息(id为卡的ID,value为位置) 布阵
+}
+
+//2409
+message ResChallengeAssistFight{
+	bool success            = 1;//是否能进行挑战
+}
+
+//结算挑战BOSS 2411
+message ReqSettleAssistFight{
+	BattleCompleteData battleCompleteData   = 1;//战斗数据
+}
+
+//2413
+message ResSettleAssistFight{
+	bool success            = 1;//挑战是否成功
+	int32 remainHp          = 2;//BOSS剩余百分比血量
+}
+
+
+//请求协助公会成员战斗 2416
+message ReqAssistGuildMember{
+	string playerIndex			= 1;//玩家唯一id
+}
+
+//2417
+message ResAssistGuildMember{
+	bool success				= 1;
+	int32 byAssistTime			= 2;//当日被协助次数
+	int32 assistTime            = 3;//当日协助次数
+	int32 remainHp				= 4;//BOSS剩余百分比血量
+	string playerIndex			= 5;//玩家唯一id
+}
+
+
+///通知BOSS血量变化  2418
+message ResAssistFightData{
+	int32 remainHp          = 1;//BOSS剩余百分比血量
+}
+
+///请求保持通知BOSS血量变化  2419
+message ReqNeedNoticeBossHP{
+	bool notify            = 1;//true表示通知
+}
+
+// 2420
+message ResNeedNoticeBossHP{
+}
+
+//请求领取挑战BOSS奖励  2421
+message ReqChallengeReward{
+	int32 id			= 1;
+}
+
+//
+message ResChallengeReward{
+	int32 id		= 1;//已经领取的奖励id
+}
+
+
+
 //请求商店类型
 message ReqShopData{
 	int32                  flag = 1;//消息标记（用于客户端界面区分，原样返回）
@@ -6756,25 +6817,8 @@ ReqAddOrUpdateDeckScheme = 593,
 ResAddOrUpdateDeckScheme = 594,
 ReqRandomMonsterGroupList = 595,
 ResRandomMonsterGroupList = 596,
-ReqRiskData = 2400,
-ResRiskData = 2401,
-ReqBeginRisk = 2402,
-ResBeginRisk = 2403,
-ReqEndRisk = 2404,
-ResEndRisk = 2405,
-ReqRiskDataInit = 2406,
-ResRiskDataInit = 2407,
-ReqAssistFightInit = 2408,
-ResAssistFightInit = 2409,
-ReqChallengeAssistFight = 2410,
-ResChallengeAssistFight = 2411,
-ReqSettleAssistFight = 2412,
-ResSettleAssistFight = 2413,
-ReqGuildAssistData = 2414,
-ResGuildAssistData = 2415,
-ReqAssistGuildMember = 2416,
-ResAssistGuildMember = 2417,
-ResAssistFightData = 2418,
+ReqStageBuyNum = 597,
+ResStageBuyNum = 598,
 ReqPlayBuyNum = 601,
 ResPlayBuyNum = 602,
 ReqPlayClearCDTime = 603,
@@ -7125,7 +7169,30 @@ ResRoomCallOn = 2360,
 ReqRandomPlayerInfo = 2361,
 ResRandomPlayerInfo = 2362,
 ReqQuitRoom = 2363,
-ResQuitRoom = 2364}
+ResQuitRoom = 2364,
+ReqRiskData = 2400,
+ResRiskData = 2401,
+ReqBeginRisk = 2402,
+ResBeginRisk = 2403,
+ReqEndRisk = 2404,
+ResEndRisk = 2405,
+ReqRiskDataInit = 2406,
+ResRiskDataInit = 2407,
+ReqAssistFightInit = 2408,
+ResAssistFightInit = 2409,
+ReqChallengeAssistFight = 2410,
+ResChallengeAssistFight = 2411,
+ReqSettleAssistFight = 2412,
+ResSettleAssistFight = 2413,
+ReqGuildAssistData = 2414,
+ResGuildAssistData = 2415,
+ReqAssistGuildMember = 2416,
+ResAssistGuildMember = 2417,
+ResAssistFightData = 2418,
+ReqNeedNoticeBossHP = 2419,
+ResNeedNoticeBossHP = 2420,
+ReqChallengeReward = 2421,
+ResChallengeReward = 2422}
 , 
 MsgNameByID = {[0] = "Unknown",
 [101] = "ReqRegister",
@@ -7327,25 +7394,8 @@ MsgNameByID = {[0] = "Unknown",
 [594] = "ResAddOrUpdateDeckScheme",
 [595] = "ReqRandomMonsterGroupList",
 [596] = "ResRandomMonsterGroupList",
-[2400] = "ReqRiskData",
-[2401] = "ResRiskData",
-[2402] = "ReqBeginRisk",
-[2403] = "ResBeginRisk",
-[2404] = "ReqEndRisk",
-[2405] = "ResEndRisk",
-[2406] = "ReqRiskDataInit",
-[2407] = "ResRiskDataInit",
-[2408] = "ReqAssistFightInit",
-[2409] = "ResAssistFightInit",
-[2410] = "ReqChallengeAssistFight",
-[2411] = "ResChallengeAssistFight",
-[2412] = "ReqSettleAssistFight",
-[2413] = "ResSettleAssistFight",
-[2414] = "ReqGuildAssistData",
-[2415] = "ResGuildAssistData",
-[2416] = "ReqAssistGuildMember",
-[2417] = "ResAssistGuildMember",
-[2418] = "ResAssistFightData",
+[597] = "ReqStageBuyNum",
+[598] = "ResStageBuyNum",
 [601] = "ReqPlayBuyNum",
 [602] = "ResPlayBuyNum",
 [603] = "ReqPlayClearCDTime",
@@ -7696,7 +7746,30 @@ MsgNameByID = {[0] = "Unknown",
 [2361] = "ReqRandomPlayerInfo",
 [2362] = "ResRandomPlayerInfo",
 [2363] = "ReqQuitRoom",
-[2364] = "ResQuitRoom"}
+[2364] = "ResQuitRoom",
+[2400] = "ReqRiskData",
+[2401] = "ResRiskData",
+[2402] = "ReqBeginRisk",
+[2403] = "ResBeginRisk",
+[2404] = "ReqEndRisk",
+[2405] = "ResEndRisk",
+[2406] = "ReqRiskDataInit",
+[2407] = "ResRiskDataInit",
+[2408] = "ReqAssistFightInit",
+[2409] = "ResAssistFightInit",
+[2410] = "ReqChallengeAssistFight",
+[2411] = "ResChallengeAssistFight",
+[2412] = "ReqSettleAssistFight",
+[2413] = "ResSettleAssistFight",
+[2414] = "ReqGuildAssistData",
+[2415] = "ResGuildAssistData",
+[2416] = "ReqAssistGuildMember",
+[2417] = "ResAssistGuildMember",
+[2418] = "ResAssistFightData",
+[2419] = "ReqNeedNoticeBossHP",
+[2420] = "ResNeedNoticeBossHP",
+[2421] = "ReqChallengeReward",
+[2422] = "ResChallengeReward"}
 , 
 MsgName = {ResTrialInit = "ResTrialInit",
 ReqInCGCopyStage = "ReqInCGCopyStage",
@@ -7750,6 +7823,7 @@ IntimacyPropInfo = "IntimacyPropInfo",
 TotalPayInfo = "TotalPayInfo",
 ReqStorySweep = "ReqStorySweep",
 ChallengeSummarizeData = "ChallengeSummarizeData",
+ResChallengeReward = "ResChallengeReward",
 ReqGetLikeCard = "ReqGetLikeCard",
 FurnitureData = "FurnitureData",
 ReqSettleAdventureBattle = "ReqSettleAdventureBattle",
@@ -7920,6 +7994,7 @@ ResInGuildWar = "ResInGuildWar",
 ResFriendInfo = "ResFriendInfo",
 ReqMyClickLikeRemark = "ReqMyClickLikeRemark",
 ResActivityInfoList = "ResActivityInfoList",
+ReturnLoginActInfo = "ReturnLoginActInfo",
 ReqEmbattle = "ReqEmbattle",
 LimitGiftActInfo = "LimitGiftActInfo",
 ReqLotteryRecord = "ReqLotteryRecord",
@@ -8072,6 +8147,7 @@ ReqOpenCG = "ReqOpenCG",
 ReqHurtReport = "ReqHurtReport",
 ResInFriendPK = "ResInFriendPK",
 ResDisbandGuild = "ResDisbandGuild",
+ResStageBuyNum = "ResStageBuyNum",
 ReqFastSweep = "ReqFastSweep",
 ReqAddRedDot = "ReqAddRedDot",
 ReqGuildGameRecord = "ReqGuildGameRecord",
@@ -8180,6 +8256,7 @@ ReqRemoveBannerId = "ReqRemoveBannerId",
 ReqUpdateEquipSchemeName = "ReqUpdateEquipSchemeName",
 ResShopReset = "ResShopReset",
 MatrixInfo = "MatrixInfo",
+ReqChallengeReward = "ReqChallengeReward",
 ResSweepTrial = "ResSweepTrial",
 ResNormalGuide = "ResNormalGuide",
 ReqSetFashion = "ReqSetFashion",
@@ -8198,6 +8275,7 @@ ResSupportInfo = "ResSupportInfo",
 ReqHeadData = "ReqHeadData",
 ResCGList = "ResCGList",
 ResSetGuildInfo = "ResSetGuildInfo",
+ReqStageBuyNum = "ReqStageBuyNum",
 ReqHandbookInit = "ReqHandbookInit",
 ReqTalentReset = "ReqTalentReset",
 DefendCardInfo = "DefendCardInfo",
@@ -8418,7 +8496,7 @@ E_PUSH_TYPE = {DEFAULT_PUSH_TYPE = 0, VIT_COMEBACK = 1, VIT_GET = 2, FARM_HARVES
 , 
 CHAT_SUB_TYPE = {DEFAULT_SUB_CHAT = 0, ADVENTURE_BULLET = 201, WORLD_CHAT = 401, SERVER_CHAT = 402}
 , 
-E_MSG_TYPE = {MsgType_Unknown = 0, MsgType_System = 100, MsgType_Player = 200, MsgType_Bag = 300, MsgType_Card = 400, MsgType_Challenge = 500, MsgType_Play = 600, MsgType_Battle = 700, MsgType_Shop = 800, MsgType_Boon = 900, MsgType_GM = 1000, MsgType_Task = 1100, MsgType_Mail = 1200, MsgType_Handbook = 1300, MsgType_Adventure = 1400, MsgType_Guild = 1500, MsgType_Chat = 1600, MsgType_Activity = 1700, MsgType_Function = 1800, MsgType_RedDot = 1900, MsgType_Pay = 2000, MsgType_GuildWar = 2100, MsgType_Friend = 2200, MsgType_Family = 2300}
+E_MSG_TYPE = {MsgType_Unknown = 0, MsgType_System = 100, MsgType_Player = 200, MsgType_Bag = 300, MsgType_Card = 400, MsgType_Challenge = 500, MsgType_Play = 600, MsgType_Battle = 700, MsgType_Shop = 800, MsgType_Boon = 900, MsgType_GM = 1000, MsgType_Task = 1100, MsgType_Mail = 1200, MsgType_Handbook = 1300, MsgType_Adventure = 1400, MsgType_Guild = 1500, MsgType_Chat = 1600, MsgType_Activity = 1700, MsgType_Function = 1800, MsgType_RedDot = 1900, MsgType_Pay = 2000, MsgType_GuildWar = 2100, MsgType_Friend = 2200, MsgType_Family = 2300, MsgType_Risk = 2400}
 , 
 GUILD_APPLY = {DEFAULT_APPLY = 0, PASS_APPLY = 1, REFUSE_APPLY = 2}
 , 
@@ -8426,7 +8504,7 @@ E_LOGIN_TYPE = {LOGIN_TYPE_UNKNOWN = 0, DEFAULT = 1, RELINK = 2}
 , 
 GUILD_ACTION = {DEFAULT_ACTION = 0, JOIN_ACTION = 1, APPLY_ACTION = 2, CANCEL_ACTION = 3}
 , 
-E_EMBATTLE_TYPE = {EMBATTLE_UNKNOWN = 0, EMBATTLE_DEFAULT = 1, EMBATTLE_STORE = 2, EMBATTLE_ELITE = 3, EMBATTLE_GOLD = 4, EMBATTLE_EXP = 5, EMBATTLE_EQUIPEXP = 6, EMBATTLE_ATTA = 7, EMBATTLE_ARENA_GUARD = 8, EMBATTLE_TOWER = 9, EMBATTLE_ENCOUNTER = 10}
+E_EMBATTLE_TYPE = {EMBATTLE_UNKNOWN = 0, EMBATTLE_DEFAULT = 1, EMBATTLE_STORE = 2, EMBATTLE_ELITE = 3, EMBATTLE_GOLD = 4, EMBATTLE_EXP = 5, EMBATTLE_EQUIPEXP = 6, EMBATTLE_ATTA = 7, EMBATTLE_ARENA_GUARD = 8, EMBATTLE_TOWER = 9, EMBATTLE_ENCOUNTER = 10, EMBATTLE_ASSIST_BOSS = 11}
 , 
 E_ALERT_TYPE = {ALERT_TYPE_UNKNOWN = 0, NOTICE = 1, WARN = 2, HIDE = 3}
 , 
@@ -8460,7 +8538,7 @@ E_MAIL_TYPE = {MAIL_TYPE_UNKNOWN = 0, MAIL_SYSTEM = 1, MAIL_BACKEND = 2, MAIL_MA
 , 
 E_CHAPTER_OPEN_CONDITION = {COC_UNKNOWN = 0, PLAYER_LEVEL = 1, PASS_STAGE = 2}
 , 
-E_CHALLENGE_TYPE = {UNKNOW_CHALLENGE = 0, STORE_CHALLENGE = 1, ELITE_CHALLENGE = 2, GOLD_CHALLENGE = 3, EXP_CHALLENGE = 4, EQUIPEXP_CHALLENGE = 5, ARENA_CHALLENGE = 6, TOWER_CHALLENGE = 7, EXPEDITION_CHALLENGE = 8, CG_CHALLENGE = 9, ADVENTURE_CHALLENGE = 10, GUILD_PK_CHALLENGE = 11, ENCOUNTER_CHALLENGE = 13, GUILD_WAR_CHALLENGE = 14, FRIEND_PK_CHALLENGE = 15, TEMPLE_CHALLENGE = 20, ACTIVITY_CHALLENGE = 101, NEW_ACTIVITY_CHALLENGE = 102, NEW_ACTIVITY_ASSIST = 103}
+E_CHALLENGE_TYPE = {UNKNOW_CHALLENGE = 0, STORE_CHALLENGE = 1, ELITE_CHALLENGE = 2, GOLD_CHALLENGE = 3, EXP_CHALLENGE = 4, EQUIPEXP_CHALLENGE = 5, ARENA_CHALLENGE = 6, TOWER_CHALLENGE = 7, EXPEDITION_CHALLENGE = 8, CG_CHALLENGE = 9, ADVENTURE_CHALLENGE = 10, GUILD_PK_CHALLENGE = 11, ENCOUNTER_CHALLENGE = 13, GUILD_WAR_CHALLENGE = 14, FRIEND_PK_CHALLENGE = 15, TEMPLE_CHALLENGE = 20, ACTIVITY_CHALLENGE = 101, NEW_ACTIVITY_ASSIST = 103, NEW_ACTIVITY_CHALLENGE = 201}
 , 
 BUY_ASSIST_TYPE = {DEFAULT_BUY_TIME = 0, GOLD_BUY_TIME_TYPE = 1, VIT_BUY_TIME_TYPE = 2, STA_BUY_TIME_TYPE = 3, ENERGY_BUY_TIME_TYPE = 4}
 , 

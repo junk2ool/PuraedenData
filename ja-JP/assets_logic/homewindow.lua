@@ -232,16 +232,16 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
   if (uis.CarnivalBtn).visible == false and (uis.ActivityDungeonBtn).visible == true then
     (uis.ActivityDungeonBtn).xy = ActivityPos[1]
   end
+  ;
+  (uis.LeftList):RemoveChildrenToPool()
   local TenMailID = (ActorService.RegisterMail)()
   local Appointment = (uis.LeftList):GetChild("Appointment")
   do
-    -- DECOMPILER ERROR at PC45: Unhandled construct in 'MakeBoolean' P1
+    -- DECOMPILER ERROR at PC51: Unhandled construct in 'MakeBoolean' P1
 
     if TenMailID and TenMailID > 0 and Appointment == nil then
-      local AppointmentBtn = UIMgr:CreateObject("Home", "AppointmentBtn")
+      local AppointmentBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "AppointmentBtn"))
       AppointmentBtn.name = "Appointment"
-      ;
-      (uis.LeftList):AddChild(AppointmentBtn)
       ;
       (AppointmentBtn.onClick):Set(function(...)
     -- function num : 0_3_0 , upvalues : _ENV
@@ -259,13 +259,11 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
     local PrizeCom = (uis.LeftList):GetChild("Prize")
     local Prize = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Prize)
     do
-      -- DECOMPILER ERROR at PC80: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC85: Unhandled construct in 'MakeBoolean' P1
 
       if Prize == true and PrizeCom == nil then
-        local PrizeBtn = UIMgr:CreateObject("Home", "PrizeBtn")
+        local PrizeBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "PrizeBtn"))
         PrizeBtn.name = "Prize"
-        ;
-        (uis.LeftList):AddChild(PrizeBtn)
         ;
         (PrizeBtn.onClick):Set(function(...)
     -- function num : 0_3_1 , upvalues : _ENV
@@ -279,11 +277,9 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
       local lotteryIntergral = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).LotteryIntergral)
       local lotteryIntergralCom = (uis.LeftList):GetChild("LotteryIntegral")
       if lotteryIntergral == true then
-        local lotteryIntergralBtn = UIMgr:CreateObject("Home", "LotteryIntegralBtn")
+        local lotteryIntergralBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "LotteryIntegralBtn"))
         if lotteryIntergralCom == nil then
           lotteryIntergralBtn.name = "LotteryIntegral"
-          ;
-          (uis.LeftList):AddChild(lotteryIntergralBtn)
           ;
           (lotteryIntergralBtn.onClick):Set(function(...)
     -- function num : 0_3_2 , upvalues : _ENV
@@ -299,6 +295,22 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
         do
           if lotteryIntergralCom then
             (uis.LeftList):RemoveChild(lotteryIntergralCom)
+          end
+          local returnOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Return)
+          if returnOpen then
+            local returnBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "ReturnBtn"))
+            ;
+            (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityReturn, returnBtn)
+            ;
+            (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
+            ;
+            (returnBtn.onClick):Set(function(...)
+    -- function num : 0_3_3 , upvalues : _ENV
+    ld("ActivityReturn")
+    ;
+    (ActivityReturnMgr.TryOpenUI)()
+  end
+)
           end
         end
       end

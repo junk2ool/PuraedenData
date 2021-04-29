@@ -288,4 +288,6 @@
 [600101] = {id = 600101, limit_tab = 1, open_condition = "72501001:0:4", popup_window = 0, lock_type = 1, open_des = "機能未開放"}
 , 
 [600201] = {id = 600201, limit_tab = 1, open_condition = "72501001:0:4", popup_window = 0, lock_type = 1, open_des = "機能未開放"}
+, 
+[600301] = {id = 600301, limit_tab = 1, open_condition = "72501001:0:50", popup_window = 0, lock_type = 1}
 }

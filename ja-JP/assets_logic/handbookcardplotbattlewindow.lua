@@ -484,7 +484,7 @@ HandBookCardPlotBattleWindow.InitAssetStrip = function(...)
   local m = {}
   m.windowName = (WinResConfig.HandBookCardPlotBattleWindow).name
   m.Tip = (PUtil.get)(20000129)
-  m.closeToWindow = (WinResConfig.HandBookMainWindow).name
+  m.closeToWindow = (WinResConfig.HomeWindow).name
   m.model = uis.AssetStripGrp
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
   m.BackBtnFun = function(...)
@@ -498,7 +498,7 @@ HandBookCardPlotBattleWindow.InitAssetStrip = function(...)
 
   m.CloseBtnFun = function(...)
     -- function num : 0_18_1 , upvalues : _ENV
-    UIMgr:CloseToWindow((WinResConfig.HandBookMainWindow).name)
+    UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
     ;
     (HandBookMgr.ReserveStagePos)(-1)
   end

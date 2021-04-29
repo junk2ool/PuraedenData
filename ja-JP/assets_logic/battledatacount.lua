@@ -598,29 +598,33 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, murder
                       else
                         if deduction_round_type == BattleBuffDeductionRoundType.NOW then
                           (self.RealUpdateBuffCount)(buff, atkInfo)
+                        else
+                          if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
+                            (self.RealUpdateBuffCount)(buff, atkInfo)
+                          end
                         end
                       end
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC402: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
@@ -862,6 +866,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
             damage = realDamage
             local isInvincible = specialEffect.isInvincible
             local isKeepAlive = specialEffect.isKeepAlive
+            local isResist = specialEffect.isResist
             local skillId = atkInfo.skillId
             local skillConfig = (TableData.GetBaseSkillData)(skillId)
             local defFashion = defCard:GetOriginFashionConfig()
@@ -880,7 +885,11 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
             defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
             defCardInfo.isInvincible = isInvincible
             defCardInfo.isKeepAlive = isKeepAlive
+            defCardInfo.isResist = isResist
             defCardInfo.isSkillTarget = true
+            if defCardInfo.isBlock and isAssist ~= true then
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_DEF_BLK)
+            end
             if divideCardInfo and #divideCardInfo > 0 then
               for i,info in ipairs(divideCardInfo) do
                 local card = info.card
@@ -909,16 +918,17 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                       defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
                       defCardInfo.isInvincible = specialEffect.isInvincible
                       defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                      defCardInfo.isResist = specialEffect.isResist
                       card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
                       card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
                       if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                         killCount = killCount + 1
                       end
-                      -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC438: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC438: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC424: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC438: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
@@ -957,6 +967,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                       defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
                       defCardInfo.isInvincible = specialEffect.isInvincible
                       defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                      defCardInfo.isResist = specialEffect.isResist
                       defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
                       card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
                       card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
@@ -1004,7 +1015,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                 danderDef = defCardConfig.dander_hit_assist
                               end
                             else
-                              -- DECOMPILER ERROR at PC661: Unhandled construct in 'MakeBoolean' P1
+                              -- DECOMPILER ERROR at PC677: Unhandled construct in 'MakeBoolean' P1
 
                               if (isDoubleAttack == true or isMultipleAttack == true) and killCount > 0 then
                                 danderAtk = (killCount) * atkCard:GetDanderKill()
@@ -1054,6 +1065,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                       defCardInfo.absorbDamage = absorbDamage
                                       defCardInfo.isInvincible = specialEffect.isInvincible
                                       defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                                      defCardInfo.isResist = specialEffect.isResist
                                       defCardInfo.isCounter = true
                                       if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == true then
                                         defCardInfo.hpDef = 0
@@ -1075,7 +1087,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                         end
                                       end
                                       do return defCardInfo end
-                                      -- DECOMPILER ERROR: 39 unprocessed JMP targets
+                                      -- DECOMPILER ERROR: 40 unprocessed JMP targets
                                     end
                                   end
                                 end
@@ -1194,6 +1206,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
               damage = realDamage
               local isInvincible = specialEffect.isInvincible
               local isKeepAlive = specialEffect.isKeepAlive
+              local isResist = specialEffect.isResist
               local skillId = atkInfo.skillId
               local skillConfig = (TableData.GetBaseSkillData)(skillId)
               local defFashion = defCard:GetOriginFashionConfig()
@@ -1213,7 +1226,11 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                 defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
                 defCardInfo.isInvincible = isInvincible
                 defCardInfo.isKeepAlive = isKeepAlive
+                defCardInfo.isResist = isResist
                 defCardInfo.isSkillTarget = true
+                if defCardInfo.isBlock then
+                  (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_DEF_BLK)
+                end
                 if divideCardInfo and #divideCardInfo > 0 then
                   for i,info in ipairs(divideCardInfo) do
                     local card = info.card
@@ -1242,16 +1259,17 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                           defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
                           defCardInfo.isInvincible = specialEffect.isInvincible
                           defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                          defCardInfo.isResist = specialEffect.isResist
                           card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
                           card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
                           if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                             killCount = killCount + 1
                           end
-                          -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out DO_STMT
+                          -- DECOMPILER ERROR at PC455: LeaveBlock: unexpected jumping out DO_STMT
 
-                          -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                          -- DECOMPILER ERROR at PC455: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                          -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out IF_STMT
+                          -- DECOMPILER ERROR at PC455: LeaveBlock: unexpected jumping out IF_STMT
 
                         end
                       end
@@ -1290,6 +1308,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                           defCardInfo.absorbDamage = absorbDamage + defCardInfo.absorbDamage
                           defCardInfo.isInvincible = specialEffect.isInvincible
                           defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                          defCardInfo.isResist = specialEffect.isResist
                           defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
                           card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
                           card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
@@ -1359,6 +1378,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                                           defCardInfo.absorbDamage = defCardInfo.absorbDamage + absorbDamage
                                           defCardInfo.isInvincible = specialEffect.isInvincible
                                           defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                                          defCardInfo.isResist = specialEffect.isResist
                                           defCardInfo.isCounter = true
                                           if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == true then
                                             defCardInfo.hpDef = 0
@@ -1376,61 +1396,61 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                                             end
                                             defCard:SetHp(realDefHp, atkCard:GetPosIndex())
                                             t_insert(defCardInfoTable, defCardInfo)
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                            -- DECOMPILER ERROR at PC833: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC849: LeaveBlock: unexpected jumping out IF_STMT
 
                                           end
                                         end
@@ -1470,7 +1490,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
           end
         end
         do return defCardInfoTable, killCount end
-        -- DECOMPILER ERROR: 35 unprocessed JMP targets
+        -- DECOMPILER ERROR: 36 unprocessed JMP targets
       end
     end
   end

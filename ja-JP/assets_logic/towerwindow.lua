@@ -68,7 +68,7 @@ TowerWindow.InitTopMenu = function(...)
 
   m.CloseBtnFun = function(...)
     -- function num : 0_1_1 , upvalues : _ENV
-    UIMgr:CloseWindow((WinResConfig.TowerWindow).name)
+    UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
   end
 
   m.isSelfClose = true

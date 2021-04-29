@@ -29,7 +29,7 @@ BaseAdventureRewardPoolData = {
 , 
 [25113200] = {id = 25113200, reward_pool = 132, type = 31, reward = "2:21100001:1", level_range = "13:999"}
 , 
-[25114100] = {id = 25114100, reward_pool = 140, type = 10, reward = "1:21120002:1,1:21110001:2", level_range = "13:999"}
+[25114100] = {id = 25114100, reward_pool = 140, type = 10, reward = "1:21120002:10,1:21110001:2", level_range = "13:999"}
 , 
 [25114200] = {id = 25114200, reward_pool = 140, type = 11, reward = "1:21110001:2", level_range = "13:999"}
 , 

@@ -2359,33 +2359,33 @@
 , 
 [75604601] = {id = 75604601, scene_path = "92000015", dialogue_ids = "75446001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
 , 
-[75604711] = {id = 75604711, scene_path = "92000010", dialogue_ids = "75447101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604711] = {id = 75604711, scene_path = "92000010", dialogue_ids = "75447101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストの帰り道、お菓子職人のショコラと出会った。私心のあるショウはショコラにプライドへの加入を勧める。", times = 0}
 , 
-[75604712] = {id = 75604712, scene_path = "92000009", dialogue_ids = "75447103", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604712] = {id = 75604712, scene_path = "92000009", dialogue_ids = "75447103", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストの帰り道、お菓子職人のショコラと出会った。私心のあるショウはショコラにプライドへの加入を勧める。", times = 0}
 , 
-[75604721] = {id = 75604721, scene_path = "92000025", dialogue_ids = "75447201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604721] = {id = 75604721, scene_path = "92000033", dialogue_ids = "75447201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分に何ができるのか疑問に思ったショコラは、リーダーとシエラの励ましでこれからプライドのみんなをお菓子で応援しようと意気込む。", times = 0}
 , 
-[75604731] = {id = 75604731, scene_path = "92000013", dialogue_ids = "75447301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604731] = {id = 75604731, scene_path = "92000033", dialogue_ids = "75447301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "アフタヌーンティーの算段をしていたところ、たまたま現れたリーダーにショコラはどんなケーキがいいか訪ねてくる…", times = 0}
 , 
-[75604741] = {id = 75604741, scene_path = "92000008", dialogue_ids = "75447401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604741] = {id = 75604741, scene_path = "92000008", dialogue_ids = "75447401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "お菓子の材料を探すため、ショコラと付き添いを頼まれたリーダーは、森を訪れていた。思わずに茂みからモンスターが飛び出してきた。", times = 0}
 , 
-[75604742] = {id = 75604742, scene_path = "92000008", dialogue_ids = "75447406", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604742] = {id = 75604742, scene_path = "92000008", dialogue_ids = "75447406", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "お菓子の材料を探すため、ショコラと付き添いを頼まれたリーダーは、森を訪れていた。思わずに茂みからモンスターが飛び出してきた。", times = 0}
 , 
-[75604751] = {id = 75604751, scene_path = "92000017", dialogue_ids = "75447501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604751] = {id = 75604751, scene_path = "92000017", dialogue_ids = "75447501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ショコラは図書館にレシピ本を借りに来ているようだが、フランに止められて中に入れないようだった…", times = 0}
 , 
-[75604761] = {id = 75604761, scene_path = "92000009", dialogue_ids = "75447601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604761] = {id = 75604761, scene_path = "92000009", dialogue_ids = "75447601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リーダーと二人きりのクエストで、リーダーを守ってみせると豪語するショコラだったが、無事勝利にいたく感動している。", times = 0}
 , 
-[75604762] = {id = 75604762, scene_path = "92000009", dialogue_ids = "75447603", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604762] = {id = 75604762, scene_path = "92000009", dialogue_ids = "75447603", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リーダーと二人きりのクエストで、リーダーを守ってみせると豪語するショコラだったが、無事勝利にいたく感動している。", times = 0}
 , 
-[75604771] = {id = 75604771, scene_path = "92000013", dialogue_ids = "75447701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604771] = {id = 75604771, scene_path = "92000033", dialogue_ids = "75447701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ショコラからの手紙が気になったエイプリルたちは川に辿り着くと、無心で泳いでいるショコラの姿があった。", times = 0}
 , 
-[75604772] = {id = 75604772, scene_path = "92000009", dialogue_ids = "75447704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604772] = {id = 75604772, scene_path = "92000033", dialogue_ids = "75447704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ショコラからの手紙が気になったエイプリルたちは川に辿り着くと、無心で泳いでいるショコラの姿があった。", times = 0}
 , 
-[75604781] = {id = 75604781, scene_path = "92000011", dialogue_ids = "75447801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604781] = {id = 75604781, scene_path = "92000011", dialogue_ids = "75447801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "荷物運ぶの手伝いながら、ショコラに何を作るのかと聞くと、実は以前教えてもらったリーダーの世界のお菓子を作ろうと思ったのだという。", times = 0}
 , 
-[75604791] = {id = 75604791, scene_path = "92000015", dialogue_ids = "75447901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604791] = {id = 75604791, scene_path = "92000015", dialogue_ids = "75447901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "太っていることに悩んでいたショコラが、太っている女の子のことをどう思うかリーダーに聞く。", times = 0}
 , 
-[75604701] = {id = 75604701, scene_path = "92000012", dialogue_ids = "75447001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604701] = {id = 75604701, scene_path = "92000033", dialogue_ids = "75447001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ショコラは、リーダーに出会ったことでこのプライドに入れたのだとお礼を述べつつ、これからも一緒にお菓子を食べたいという気持ちも伝えた。", times = 0}
 , 
 [75604811] = {id = 75604811, scene_path = "92000009", dialogue_ids = "75448101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
 , 
@@ -2437,45 +2437,45 @@
 , 
 [75604901] = {id = 75604901, scene_path = "92000013", dialogue_ids = "75449001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラは感謝の意を表し、まだ迷うことがあるけど、リーダーと共に生きていきたいと言い切った。", times = 0}
 , 
-[75605011] = {id = 75605011, scene_path = "92000013", dialogue_ids = "75450101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605011] = {id = 75605011, scene_path = "92000013", dialogue_ids = "75450101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノンノはリーダーの『癒しの力』に興味を持ち、自分もプライドに入れて欲しいと頼む。", times = 0}
 , 
-[75605012] = {id = 75605012, scene_path = "92000013", dialogue_ids = "75450105", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605012] = {id = 75605012, scene_path = "92000013", dialogue_ids = "75450105", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノンノはリーダーの『癒しの力』に興味を持ち、自分もプライドに入れて欲しいと頼む。", times = 0}
 , 
-[75605021] = {id = 75605021, scene_path = "92000009", dialogue_ids = "75450201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605021] = {id = 75605021, scene_path = "92000009", dialogue_ids = "75450201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "モンスターとの戦いで腕にかすり傷を負ったことをきっかけに、ノンノは自家の温泉には傷とか病気を癒す効果があると説明する。", times = 0}
 , 
-[75605022] = {id = 75605022, scene_path = "92000009", dialogue_ids = "75450203", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605022] = {id = 75605022, scene_path = "92000009", dialogue_ids = "75450203", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "モンスターとの戦いで腕にかすり傷を負ったことをきっかけに、ノンノは自家の温泉には傷とか病気を癒す効果があると説明する。", times = 0}
 , 
-[75605031] = {id = 75605031, scene_path = "92000025", dialogue_ids = "75450301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605031] = {id = 75605031, scene_path = "92000015", dialogue_ids = "75450301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエスト受付所の掃除をしていたところ、軽々と屋根に上り掃除をしようとしたノンノだったが、一部壊れていることに気付く。", times = 0}
 , 
-[75605032] = {id = 75605032, scene_path = "92000025", dialogue_ids = "75450308", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605032] = {id = 75605032, scene_path = "92000015", dialogue_ids = "75450308", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエスト受付所の掃除をしていたところ、軽々と屋根に上り掃除をしようとしたノンノだったが、一部壊れていることに気付く。", times = 0}
 , 
-[75605033] = {id = 75605033, scene_path = "92000025", dialogue_ids = "75450312", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605033] = {id = 75605033, scene_path = "92000015", dialogue_ids = "75450312", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエスト受付所の掃除をしていたところ、軽々と屋根に上り掃除をしようとしたノンノだったが、一部壊れていることに気付く。", times = 0}
 , 
-[75605041] = {id = 75605041, scene_path = "92000012", dialogue_ids = "75450401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605041] = {id = 75605041, scene_path = "92000012", dialogue_ids = "75450401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "話しの末、ノンノは改めてリーダーから癒しについて学ぼうという気持ちを強くするのだった。", times = 0}
 , 
-[75605051] = {id = 75605051, scene_path = "92000013", dialogue_ids = "75450501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605051] = {id = 75605051, scene_path = "92000013", dialogue_ids = "75450501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "訓練でケガをしたコンチータを、ノンノがてきぱきと手当てをしてくれた。コンチータは手当のお礼に芸を見せ、ノンノを喜ばせるのだった。", times = 0}
 , 
-[75605052] = {id = 75605052, scene_path = "92000013", dialogue_ids = "75450505", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605052] = {id = 75605052, scene_path = "92000013", dialogue_ids = "75450505", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "訓練でケガをしたコンチータを、ノンノがてきぱきと手当てをしてくれた。コンチータは手当のお礼に芸を見せ、ノンノを喜ばせるのだった。", times = 0}
 , 
-[75605061] = {id = 75605061, scene_path = "92000025", dialogue_ids = "75450601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605061] = {id = 75605061, scene_path = "92000012", dialogue_ids = "75450601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リーダーの元いた世界での温泉について興味津々で尋ねるノンノ。いつか自分を連れていくと約束した。", times = 0}
 , 
-[75605071] = {id = 75605071, scene_path = "92000015", dialogue_ids = "75450701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605071] = {id = 75605071, scene_path = "92000015", dialogue_ids = "75450701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "一日リーダーの癒し術を学ぼうと、リーダーと行動を共にするノンノだったが、癒しは与え合うものだと学んだのだった。", times = 0}
 , 
-[75605072] = {id = 75605072, scene_path = "92000017", dialogue_ids = "75450704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605072] = {id = 75605072, scene_path = "92000015", dialogue_ids = "75450704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "一日リーダーの癒し術を学ぼうと、リーダーと行動を共にするノンノだったが、癒しは与え合うものだと学んだのだった。", times = 0}
 , 
-[75605073] = {id = 75605073, scene_path = "92000011", dialogue_ids = "75450705", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605073] = {id = 75605073, scene_path = "92000011", dialogue_ids = "75450705", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "一日リーダーの癒し術を学ぼうと、リーダーと行動を共にするノンノだったが、癒しは与え合うものだと学んだのだった。", times = 0}
 , 
-[75605074] = {id = 75605074, scene_path = "92000028", dialogue_ids = "75450706", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605074] = {id = 75605074, scene_path = "92000028", dialogue_ids = "75450706", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "一日リーダーの癒し術を学ぼうと、リーダーと行動を共にするノンノだったが、癒しは与え合うものだと学んだのだった。", times = 0}
 , 
-[75605075] = {id = 75605075, scene_path = "92000015", dialogue_ids = "75450707", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605075] = {id = 75605075, scene_path = "92000015", dialogue_ids = "75450707", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "一日リーダーの癒し術を学ぼうと、リーダーと行動を共にするノンノだったが、癒しは与え合うものだと学んだのだった。", times = 0}
 , 
-[75605081] = {id = 75605081, scene_path = "92000008", dialogue_ids = "75450801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605081] = {id = 75605081, scene_path = "92000008", dialogue_ids = "75450801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "森にいるモンスターを討伐しに来たノンノ達だったが、モンスターを倒すと、そのモンスターの巣に湯気が立っているところがあることに気づく。", times = 0}
 , 
-[75605082] = {id = 75605082, scene_path = "92000008", dialogue_ids = "75450803", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605082] = {id = 75605082, scene_path = "92000008", dialogue_ids = "75450803", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "森にいるモンスターを討伐しに来たノンノ達だったが、モンスターを倒すと、そのモンスターの巣に湯気が立っているところがあることに気づく。", times = 0}
 , 
-[75605091] = {id = 75605091, scene_path = "92000012", dialogue_ids = "75450901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605091] = {id = 75605091, scene_path = "92000012", dialogue_ids = "75450901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "長風呂のせいでのぼせてしまったリーダーを、ノンノはうちわであおいだり、水を飲ませたりして看病する。", times = 0}
 , 
-[75605001] = {id = 75605001, scene_path = "92000025", dialogue_ids = "75450001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605001] = {id = 75605001, scene_path = "92000025", dialogue_ids = "75450001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノンノはこれからもリーダーから自分にない癒し方を見て学ぶだけでなく、リーダーを癒す人になりたいと言う。", times = 0}
 , 
 [75605111] = {id = 75605111, scene_path = "92000028", dialogue_ids = "75451101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
 , 

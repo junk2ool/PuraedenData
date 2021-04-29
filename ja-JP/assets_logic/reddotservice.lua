@@ -41,6 +41,14 @@ RedDotService.ReqRemoveRedDot = function(winName, id, param, ...)
   end
   if id == RedDotComID.SevenTask_GetBtn or RedDotComID.SevenTask_BtnList == id then
     id = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).SevenTask)
+  else
+    if id == RedDotComID.Home_LotteryIntegral then
+      id = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).LotteryIntergral)
+    else
+      if id == RedDotComID.ActivityReturn_Vigour_Reward then
+        id = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).Return)
+      end
+    end
   end
   local m = {}
   local RedDotInfo = {}

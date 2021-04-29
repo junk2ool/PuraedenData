@@ -1374,7 +1374,7 @@ HandBookIntimacyWindow.InitAssetStrip = function(...)
   -- function num : 0_46 , upvalues : _ENV, uis, currentID
   local m = {}
   m.windowName = (WinResConfig.HandBookIntimacyWindow).name
-  m.closeToWindow = (WinResConfig.HandBookMainWindow).name
+  m.closeToWindow = (WinResConfig.HomeWindow).name
   m.Tip = (PUtil.get)(20000150)
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
   m.model = uis.AssetStripGrp
@@ -1389,7 +1389,7 @@ HandBookIntimacyWindow.InitAssetStrip = function(...)
   m.CloseBtnFun = function(...)
     -- function num : 0_46_1 , upvalues : _ENV, currentID
     (RedDotMgr.RemoveIntimacyInfoRedDot)(currentID, true, true)
-    UIMgr:CloseToWindow((WinResConfig.HandBookMainWindow).name)
+    UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
   end
 
   m.isSelfClose = true

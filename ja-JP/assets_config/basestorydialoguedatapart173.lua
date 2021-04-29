@@ -61,9 +61,9 @@ BaseStoryDialogueDataPart173 = {
 , 
 [75447115] = {id = 75447115, remark = (PUtil.get)(86246421), type = 1, option_ids = "0", next = 75447116, role_ids = "75200221:75209052", expression = "0", action = "0", action_type = "0", role_type = 75200221, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
-[75447116] = {id = 75447116, remark = (PUtil.get)(86246422), type = 1, option_ids = "0", next = 75447117, role_ids = "75200221:75209052", expression = "0", action = "0", action_type = "0", role_type = 75209052, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+[75447116] = {id = 75447116, remark = (PUtil.get)(86246422), type = 1, option_ids = "0", next = 75447117, role_ids = "75200221:75209052", expression = "0", action = "0", action_type = "0", role_type = 75200471, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
-[75447117] = {id = 75447117, remark = (PUtil.get)(86246423), type = 1, option_ids = "0", next = -1, role_ids = "75200221:75209052", expression = "0", action = "0", action_type = "0", role_type = 75209052, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+[75447117] = {id = 75447117, remark = (PUtil.get)(86246423), type = 1, option_ids = "0", next = -1, role_ids = "75200221:75209052", expression = "0", action = "0", action_type = "0", role_type = 75200471, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
 [75447201] = {id = 75447201, remark = (PUtil.get)(86246424), type = 1, option_ids = "0", next = 75447202, role_ids = "75200471", expression = "0", action = "0", action_type = "0", role_type = 75200471, position = "418:606:10050", role_admission_type = "75200471:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 

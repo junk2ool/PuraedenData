@@ -776,7 +776,7 @@ PlotPlayWindow.InitAssetStrip = function(...)
     if canClick == false then
       return 
     end
-    UIMgr:CloseToWindow((WinResConfig.AdventureWindow).name)
+    UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
   end
 
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}

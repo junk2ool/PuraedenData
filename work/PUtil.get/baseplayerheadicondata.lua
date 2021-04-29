@@ -19,6 +19,8 @@
 , 
 [78601305] = {id = 78601305, name = "応援　アイコン", des = "こっち見て！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_005", condition = "0", sort = 10, reward_sort = 9880001, own_show = 1, open_time = "1616515200"}
 , 
+[78601306] = {id = 78601306, name = "鎧を着たウサギ アイコン", des = "ウサギちゃんの勇姿を見なさい！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_006", condition = "0", sort = 11, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
+, 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
 , 
 [78601102] = {id = 78601102, name = "オリヴィア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100002_2", condition = "72501008:11100002:10", sort = 999, reward_sort = 9880001, own_show = 1}
@@ -172,4 +174,8 @@
 [78601176] = {id = 78601176, name = "シャイ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300027_2", condition = "72501008:11300027:10", sort = 925, reward_sort = 9880001, own_show = 1, open_time = "1617155999"}
 , 
 [78601177] = {id = 78601177, name = "デリケ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300028_2", condition = "72501008:11300028:10", sort = 924, reward_sort = 9880001, own_show = 1, open_time = "1618434000"}
+, 
+[78601178] = {id = 78601178, name = "ウィルド", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202015_2", condition = "72501008:11202015:10", sort = 923, reward_sort = 9880001, own_show = 1, open_time = "1619744400"}
+, 
+[78601179] = {id = 78601179, name = "メリア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300029_2", condition = "72501008:11300029:10", sort = 922, reward_sort = 9880001, own_show = 1, open_time = "1619744400"}
 }

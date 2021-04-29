@@ -35,6 +35,8 @@ BaseConditionData = {
 , 
 [72501017] = {id = 72501017, type = 1000, judge = 5, field = "sealSkillLv"}
 , 
+[72501018] = {id = 72501018, type = 1000, judge = 5, field = "logoutTime"}
+, 
 [72502101] = {id = 72502101, type = 2100, save = 1, accu = 1, judge = 5}
 , 
 [72502201] = {id = 72502201, type = 2200, save = 1, accu = 1, judge = 5}
@@ -136,6 +138,8 @@ BaseConditionData = {
 [72506601] = {id = 72506601, type = 6600, save = 1, accu = 1, judge = 5}
 , 
 [72506611] = {id = 72506611, type = 6610, save = 1, accu = 1, judge = 5}
+, 
+[72506621] = {id = 72506621, type = 6620, save = 1, accu = 1, judge = 5}
 , 
 [72507101] = {id = 72507101, type = 7100, save = 1, accu = 1, judge = 5}
 , 

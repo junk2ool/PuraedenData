@@ -2533,6 +2533,7 @@ effectTable = {eff}
     local isBlock = false
     local isCounter = false
     local isKeepAlive = false
+    local isResist = false
     local isImmune = false
     local absorbDamage = 0
     if not atkInfo or not atkInfo.defCardsInfo then
@@ -2558,10 +2559,11 @@ effectTable = {eff}
               absorbDamage = defCardInfo.absorbDamage
               isKeepAlive = defCardInfo.isKeepAlive
               isSkillTarget = defCardInfo.isSkillTarget
+              isResist = defCardInfo.isResist
               hpDef = defCardInfo.hpDef
-              -- DECOMPILER ERROR at PC47: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC49: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC47: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC49: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -2594,11 +2596,11 @@ effectTable = {eff}
           local timeScale = Time.timeScale
           if BattleMgr.endTimer1 then
             (LeanTween.cancel)((BattleMgr.endTimer1).uniqueId)
-            -- DECOMPILER ERROR at PC115: Confused about usage of register: R26 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC117: Confused about usage of register: R27 in 'UnsetPending'
 
             BattleMgr.endTimer1 = nil
           end
-          -- DECOMPILER ERROR at PC126: Confused about usage of register: R26 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC128: Confused about usage of register: R27 in 'UnsetPending'
 
           BattleMgr.endTimer1 = (tweenValue(Time.timeScale, 0.3, 0.3)):setOnUpdate(function(x, ...)
       -- function num : 0_0_81_0 , upvalues : _ENV
@@ -2609,11 +2611,11 @@ effectTable = {eff}
 )
           if BattleMgr.endTimer3 then
             (LeanTween.cancel)((BattleMgr.endTimer3).uniqueId)
-            -- DECOMPILER ERROR at PC137: Confused about usage of register: R26 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC139: Confused about usage of register: R27 in 'UnsetPending'
 
             BattleMgr.endTimer3 = nil
           end
-          -- DECOMPILER ERROR at PC143: Confused about usage of register: R26 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC145: Confused about usage of register: R27 in 'UnsetPending'
 
           BattleMgr.endTimer3 = delayedCall(0.85, function(...)
       -- function num : 0_0_81_1 , upvalues : _ENV, LeanTween, tweenValue, timeScale
@@ -2662,7 +2664,7 @@ effectTable = {eff}
           hurtNumType = HurtNumType.BLOCK_HURT
         end
         ShowHurtNum(hurtNumType, hurtHp, self)
-        -- DECOMPILER ERROR at PC205: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC207: Unhandled construct in 'MakeBoolean' P1
 
         if (not atkInfo or self:GetCardUid() ~= atkInfo.atkCardUid or isBuffHurt == true) and self:GetDisPlayHp() <= 0 then
           print("已死亡，buff导致 阵位：", self:GetPosIndex())
@@ -2694,18 +2696,18 @@ effectTable = {eff}
             ShowHurtNum(hurtNumType, absorb, self)
           elseif isTreatment == true then
             hurtNumType = HurtNumType.UNTREATMENT
-          elseif hpDef == 0 then
+          elseif hpDef == 0 and isResist then
             hurtNumType = HurtNumType.RESIST
           end
         end
-        -- DECOMPILER ERROR at PC274: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC278: Unhandled construct in 'MakeBoolean' P1
 
         if isCounter == true and absorb == 0 and isImmune == true then
           hurtNumType = HurtNumType.IMMUNE
           ShowHurtNum(hurtNumType, 0, self)
         end
       end
-      -- DECOMPILER ERROR at PC296: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC300: Unhandled construct in 'MakeBoolean' P1
 
       if hurtNumType == HurtNumType.ABSORB_HURT and curHitIndex == 1 and self:IsDead() == false then
         (AudioManager.PlayBattleVoice)(self:GetFashionId(), CVAudioType.HitBubble)

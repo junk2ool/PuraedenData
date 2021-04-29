@@ -79,7 +79,7 @@ ArenaWindow.InitTopMenu = function(...)
   m.windowName = (WinResConfig.ArenaWindow).name
   m.Tip = (PUtil.get)(60000006)
   m.model = uis.AssetStripGrp
-  m.closeToWindow = (WinResConfig.AdventureWindow).name
+  m.closeToWindow = (WinResConfig.HomeWindow).name
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.SHOP_TOKEN}
   ;
   (CommonWinMgr.RegisterAssets)(m)
@@ -685,7 +685,7 @@ ArenaWindow.ClickSetFormationBtn = function(...)
     -- function num : 0_36_0 , upvalues : _ENV
     (ArenaMgr.BeforeCloseFormation)(formation, function(...)
       -- function num : 0_36_0_0 , upvalues : _ENV
-      UIMgr:CloseToWindow((WinResConfig.AdventureWindow).name)
+      UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
     end
 )
   end
@@ -772,7 +772,7 @@ ArenaWindow.ClickFightBtn = function(...)
     -- function num : 0_42_1 , upvalues : _ENV
     (ArenaMgr.BeforeCloseFormation)(formation, function(...)
       -- function num : 0_42_1_0 , upvalues : _ENV
-      UIMgr:CloseToWindow((WinResConfig.AdventureWindow).name)
+      UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
     end
 , true)
   end

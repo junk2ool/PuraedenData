@@ -149,7 +149,7 @@ TowerMgr.TryEnterTower = function(layerId, stageId, smash, skipSetFormation, rew
       -- function num : 0_8_0_1 , upvalues : _ENV
       (TowerMgr.BeforeCloseFormation)(formation, function(...)
         -- function num : 0_8_0_1_0 , upvalues : _ENV
-        UIMgr:CloseToWindow((WinResConfig.AdventureWindow).name)
+        UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
       end
 )
     end

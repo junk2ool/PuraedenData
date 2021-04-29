@@ -192,7 +192,7 @@ MessageMgr.OpenFormationPresetEditWindow = function(preset, closeWin, ...)
 
     FormationPresetData.FormationData = nil
     UIMgr:SendWindowMessage((WinResConfig.FormationWindow).name, (WindowMsgEnum.FormationPreset).E_MSG_REFRESH)
-    OpenWindow((WinResConfig.FormationPresetWindow).name, UILayer.HUD)
+    UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
   end
 
   formationData.isSelfClose = true

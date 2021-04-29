@@ -85,6 +85,8 @@ BaseMonsterTargetData = {
 , 
 [2211] = {id = 2211, target_num = "1"}
 , 
+[2221] = {id = 2221, target_num = "1"}
+, 
 [3001] = {id = 3001, target_num = "1"}
 , 
 [3002] = {id = 3002, target_num = "4"}

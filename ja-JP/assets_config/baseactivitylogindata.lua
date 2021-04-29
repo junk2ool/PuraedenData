@@ -15,7 +15,19 @@ BaseActivityLoginData = {
 , 
 [32020007] = {id = 32020007, day = 7, rewards = "1:21160001:10", type = 1}
 , 
-[32020011] = {id = 32020011, day = 1, rewards = "3:11400001:1", type = 2}
+[32020011] = {id = 32020011, day = 1, rewards = "2:21100004:120", type = 2}
+, 
+[32020012] = {id = 32020012, day = 2, rewards = "1:21160001:1", type = 2}
+, 
+[32020013] = {id = 32020013, day = 3, rewards = "1:21110004:20", type = 2}
+, 
+[32020014] = {id = 32020014, day = 4, rewards = "2:21100003:300000", type = 2}
+, 
+[32020015] = {id = 32020015, day = 5, rewards = "1:21160001:1", type = 2}
+, 
+[32020016] = {id = 32020016, day = 6, rewards = "2:21100003:500000", type = 2}
+, 
+[32020017] = {id = 32020017, day = 7, rewards = "1:21160001:2", type = 2}
 , 
 [32020021] = {id = 32020021, day = 1, rewards = "2:21100004:120", type = 3}
 , 
@@ -44,6 +56,36 @@ BaseActivityLoginData = {
 [32020033] = {id = 32020033, day = 13, rewards = "2:21100003:500000", type = 3}
 , 
 [32020034] = {id = 32020034, day = 14, rewards = "1:21160001:3", type = 3}
+, 
+[32020101] = {id = 32020101, day = 1, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:100", type = 100, point = 50, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601001), pointBackground = "92101001", levelLimit = "1,999"}
+, 
+[32020102] = {id = 32020102, day = 2, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:100", type = 100, point = 120, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601002), pointBackground = "92101002", levelLimit = "1,999"}
+, 
+[32020103] = {id = 32020103, day = 3, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:100", type = 100, point = 200, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601005), pointBackground = "92101005", levelLimit = "1,999"}
+, 
+[32020201] = {id = 32020201, day = 1, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:120", type = 101, point = 50, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601006), pointBackground = "92101006", levelLimit = "1,999"}
+, 
+[32020202] = {id = 32020202, day = 2, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:120", type = 101, point = 120, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601010), pointBackground = "92101010", levelLimit = "1,999"}
+, 
+[32020203] = {id = 32020203, day = 3, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:120", type = 101, point = 200, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601022), pointBackground = "92101022", levelLimit = "1,999"}
+, 
+[32020204] = {id = 32020204, day = 4, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:120", type = 101, point = 280, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601024), pointBackground = "92101024", levelLimit = "1,999"}
+, 
+[32020205] = {id = 32020205, day = 5, rewards = "2:21100001:150,2:21100003:1000000,1:21500405:120", type = 101, point = 360, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:20", pointDesc = (PUtil.get)(86601028), pointBackground = "92101028", levelLimit = "1,999"}
+, 
+[32020301] = {id = 32020301, day = 1, rewards = "2:21100001:150,2:21100003:1200000,1:21500405:150", type = 102, point = 50, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:25", pointDesc = (PUtil.get)(86601032), pointBackground = "92101032", levelLimit = "1,999"}
+, 
+[32020302] = {id = 32020302, day = 2, rewards = "2:21100001:150,2:21100003:1200000,1:21500405:150", type = 102, point = 120, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:25", pointDesc = (PUtil.get)(86601034), pointBackground = "92101034", levelLimit = "1,999"}
+, 
+[32020303] = {id = 32020303, day = 3, rewards = "2:21100001:150,2:21100003:1200000,1:21500405:150", type = 102, point = 200, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:25", pointDesc = (PUtil.get)(86601036), pointBackground = "92101036", levelLimit = "1,999"}
+, 
+[32020304] = {id = 32020304, day = 4, rewards = "2:21100001:150,2:21100003:1200000,1:21500405:150", type = 102, point = 280, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:25", pointDesc = (PUtil.get)(86601037), pointBackground = "92101037", levelLimit = "1,999"}
+, 
+[32020305] = {id = 32020305, day = 5, rewards = "2:21100001:150,2:21100003:1200000,1:21500405:150", type = 102, point = 360, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:25", pointDesc = (PUtil.get)(86601038), pointBackground = "92101038", levelLimit = "1,999"}
+, 
+[32020306] = {id = 32020306, day = 6, rewards = "2:21100001:150,2:21100003:1200000,1:21500405:150", type = 102, point = 440, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:25", pointDesc = (PUtil.get)(86601041), pointBackground = "92101041", levelLimit = "1,999"}
+, 
+[32020307] = {id = 32020307, day = 7, rewards = "2:21100001:150,2:21100003:1200000,1:21500405:150", type = 102, point = 540, pointRewards = "1:21120000:3,2:21100001:100,1:21150002:25", pointDesc = (PUtil.get)(86601045), pointBackground = "92101045", levelLimit = "1,999"}
 }
 return BaseActivityLoginData
 

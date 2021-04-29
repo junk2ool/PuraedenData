@@ -33,6 +33,10 @@ BaseMailData = {
 , 
 [78400032] = {id = 78400032, title = 88400032, sender = 88500004, content = 88600032, rewards = "0", date = 30, prior = 0, delete = 0}
 , 
+[78400033] = {id = 78400033, title = 88400033, sender = 88500002, content = 88600033, rewards = "0", date = 30, prior = 0, delete = 0}
+, 
+[78400034] = {id = 78400034, title = 88400034, sender = 88500002, content = 88600034, rewards = "0", date = 30, prior = 0, delete = 0}
+, 
 [78410001] = {id = 78410001, title = 88410001, sender = 88500006, content = 88610001, rewards = "3:11101002:1,1:21160005:10", date = -1, prior = 1, delete = 1}
 , 
 [78410002] = {id = 78410002, title = 88410002, sender = 88500005, content = 88610002, rewards = "0", date = 30, prior = 0, delete = 0}

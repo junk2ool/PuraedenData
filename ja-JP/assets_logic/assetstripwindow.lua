@@ -16,57 +16,59 @@ AssetStripWindow.Init = function(params, ...)
   local windowName = params.windowName
   local Tip = params.Tip
   local openName = params.closeToWindow
-  local moneyTypes = params.moneyTypes
-  local BackBtnFun = params.BackBtnFun
-  local CloseBtnFun = params.CloseBtnFun
-  local isShowConfirm = params.isShowConfirm
-  local ConfirmContent = params.ConfirmContent
-  local isSelfClose = params.isSelfClose
-  local activityId = params.activityId
-  local activityIds = params.activityIds
-  local explainFunc = params.explainFunc
-  local formation = params.Formation
-  local externalData = params.ExternalData
-  openWindowList[windowName] = params
-  assetList[windowName] = moneyTypes
-  if model.BackBtn then
-    (LuaSound.SetClickSound)(model.BackBtn, LuaSound.COMMON_WIN_BACK)
-  end
-  if model.CloseBtn then
-    (LuaSound.SetClickSound)(model.CloseBtn, LuaSound.COMMON_WIN_CLOSE)
-  end
-  -- DECOMPILER ERROR at PC38: Confused about usage of register: R16 in 'UnsetPending'
-
-  ;
-  ((model.Double_01_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC41: Confused about usage of register: R16 in 'UnsetPending'
-
-  ;
-  ((model.Double_02_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC44: Confused about usage of register: R16 in 'UnsetPending'
-
-  ;
-  ((model.Double_03_Grp).root).visible = false
-  do
-    if activityId then
-      local isActive = (ActivityMgr.GetActivityIsOpenByID)(activityId)
-      if isActive then
-        (ActivityService.OnReqActivityInfo)(nil, 1, activityId)
-      end
+  if not params.moneyTypes then
+    params.moneyTypes = {}
+    local moneyTypes = params.moneyTypes
+    local BackBtnFun = params.BackBtnFun
+    local CloseBtnFun = params.CloseBtnFun
+    local isShowConfirm = params.isShowConfirm
+    local ConfirmContent = params.ConfirmContent
+    local isSelfClose = params.isSelfClose
+    local activityId = params.activityId
+    local activityIds = params.activityIds
+    local explainFunc = params.explainFunc
+    local formation = params.Formation
+    local externalData = params.ExternalData
+    openWindowList[windowName] = params
+    assetList[windowName] = moneyTypes
+    if model.BackBtn then
+      (LuaSound.SetClickSound)(model.BackBtn, LuaSound.COMMON_WIN_BACK)
     end
-    if activityIds and #activityIds > 0 then
-      do
-        for index,value in ipairs(activityIds) do
-          local isActive = (ActivityMgr.GetActivityIsOpenByID)(value)
-          if isActive then
-            (ActivityService.OnReqActivityInfo)(nil, 1, value)
+    if model.CloseBtn then
+      (LuaSound.SetClickSound)(model.CloseBtn, LuaSound.COMMON_WIN_CLOSE)
+    end
+    -- DECOMPILER ERROR at PC43: Confused about usage of register: R16 in 'UnsetPending'
+
+    ;
+    ((model.Double_01_Grp).root).visible = false
+    -- DECOMPILER ERROR at PC46: Confused about usage of register: R16 in 'UnsetPending'
+
+    ;
+    ((model.Double_02_Grp).root).visible = false
+    -- DECOMPILER ERROR at PC49: Confused about usage of register: R16 in 'UnsetPending'
+
+    ;
+    ((model.Double_03_Grp).root).visible = false
+    do
+      if activityId then
+        local isActive = (ActivityMgr.GetActivityIsOpenByID)(activityId)
+        if isActive then
+          (ActivityService.OnReqActivityInfo)(nil, 1, activityId)
+        end
+      end
+      if activityIds and #activityIds > 0 then
+        do
+          for index,value in ipairs(activityIds) do
+            local isActive = (ActivityMgr.GetActivityIsOpenByID)(value)
+            if isActive then
+              (ActivityService.OnReqActivityInfo)(nil, 1, value)
+            end
           end
         end
       end
-    end
-    do
-      ;
-      (AssetStripWindow.inItButton)(model.BackBtn, function(...)
+      do
+        ;
+        (AssetStripWindow.inItButton)(model.BackBtn, function(...)
     -- function num : 0_0_0 , upvalues : isShowConfirm, _ENV, ConfirmContent, BackBtnFun, isSelfClose, windowName
     if isShowConfirm then
       (MessageMgr.OpenConfirmWindow)(ConfirmContent, function(...)
@@ -89,52 +91,53 @@ AssetStripWindow.Init = function(params, ...)
     end
   end
 )
-      local wordID = (AssetStripWindow.GetFunctionRuleIdByName)(windowName)
-      if wordID and wordID > 0 then
-        local ruleDes = (PUtil.get)(tonumber(wordID))
-        -- DECOMPILER ERROR at PC100: Confused about usage of register: R18 in 'UnsetPending'
+        local wordID = (AssetStripWindow.GetFunctionRuleIdByName)(windowName)
+        if wordID and wordID > 0 then
+          local ruleDes = (PUtil.get)(tonumber(wordID))
+          -- DECOMPILER ERROR at PC105: Confused about usage of register: R18 in 'UnsetPending'
 
-        ;
-        (model.ExplainBtn).visible = true
-        ;
-        ((model.ExplainBtn).onClick):Set(function(...)
+          ;
+          (model.ExplainBtn).visible = true
+          ;
+          ((model.ExplainBtn).onClick):Set(function(...)
     -- function num : 0_0_1 , upvalues : _ENV, ruleDes
     OpenWindow((WinResConfig.ExplainWindow).name, UILayer.HUD1, tostring(ruleDes))
   end
 )
-      else
-        do
-          -- DECOMPILER ERROR at PC109: Confused about usage of register: R17 in 'UnsetPending'
+        else
+          do
+            -- DECOMPILER ERROR at PC114: Confused about usage of register: R17 in 'UnsetPending'
 
-          ;
-          (model.ExplainBtn).visible = false
-          -- DECOMPILER ERROR at PC113: Confused about usage of register: R17 in 'UnsetPending'
-
-          if explainFunc ~= nil then
-            (model.ExplainBtn).visible = true
             ;
-            (AssetStripWindow.inItButton)(model.ExplainBtn, explainFunc)
-          end
-          ;
-          (AssetStripWindow.inItCloseBtn)(model.CloseBtn, openName, CloseBtnFun, isShowConfirm, ConfirmContent, isSelfClose, windowName)
-          ;
-          (AssetStripWindow.inItAsset)(params, moneyTypes)
-          -- DECOMPILER ERROR at PC132: Confused about usage of register: R17 in 'UnsetPending'
+            (model.ExplainBtn).visible = false
+            -- DECOMPILER ERROR at PC118: Confused about usage of register: R17 in 'UnsetPending'
 
-          ;
-          (model.FunctionNameTxt).text = Tip
-          ;
-          ((model.root):GetTransition("in")).invalidateBatchingEveryFrame = true
-          -- DECOMPILER ERROR at PC139: Confused about usage of register: R17 in 'UnsetPending'
+            if explainFunc ~= nil then
+              (model.ExplainBtn).visible = true
+              ;
+              (AssetStripWindow.inItButton)(model.ExplainBtn, explainFunc)
+            end
+            ;
+            (AssetStripWindow.inItCloseBtn)(model.CloseBtn, openName, CloseBtnFun, isShowConfirm, ConfirmContent, isSelfClose, windowName)
+            ;
+            (AssetStripWindow.inItAsset)(params, moneyTypes)
+            -- DECOMPILER ERROR at PC137: Confused about usage of register: R17 in 'UnsetPending'
 
-          ;
-          (model.TeamBtn).visible = formation
-          ;
-          ((model.TeamBtn).onClick):Set(function(...)
+            ;
+            (model.FunctionNameTxt).text = Tip
+            ;
+            ((model.root):GetTransition("in")).invalidateBatchingEveryFrame = true
+            -- DECOMPILER ERROR at PC144: Confused about usage of register: R17 in 'UnsetPending'
+
+            ;
+            (model.TeamBtn).visible = formation
+            ;
+            ((model.TeamBtn).onClick):Set(function(...)
     -- function num : 0_0_2 , upvalues : _ENV, formation, externalData
     (FormationPresetMgr.OpenUI)(formation(), externalData)
   end
 )
+          end
         end
       end
     end
@@ -163,9 +166,7 @@ end
 AssetStripWindow.inItCloseBtn = function(model, winName, func, isShowConfirm, content, isSelfClose, windowName, ...)
   -- function num : 0_2 , upvalues : _ENV
   local openWindow = winName
-  if not openWindow then
-    openWindow = (WinResConfig.HomeWindow).name
-  end
+  openWindow = (WinResConfig.HomeWindow).name
   ;
   (model.onClick):Set(function(...)
     -- function num : 0_2_0 , upvalues : _ENV, openWindow, windowName, isShowConfirm, content, func, isSelfClose

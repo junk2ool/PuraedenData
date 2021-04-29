@@ -447,6 +447,8 @@ RelicBattlePreviewWindow = {name = "RelicBattlePreviewWindow", package = "Relic"
 CardSealExchangeWindow = {name = "CardSealExchangeWindow", package = "Card", comName = "ImprintDebrisChangeWindow", hideBelow = false}
 , 
 CardSealSkillTipsWindow = {name = "CardSealSkillTipsWindow", package = "DescriptionTips", comName = "SkillTipsWindow", hideBelow = false}
+, 
+ActivityReturnWindow = {name = "ActivityReturnWindow", package = "ActivityReturn", comName = "ReturnMain", hideBelow = true}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -556,6 +558,8 @@ LotteryIntegral = {E_MSG_GET_REWARD = 1, E_MSG_INIT_REWARD = 2}
 PrizeWindow = {E_MSG_SLOTS_RESULT = 1, E_MSG_SLOTS_REFRESH = 2, E_MSG_SLOTS_SET_POOLS = 3}
 , 
 Relic = {E_MSG_SHOP_BUY = 1, E_MSG_RANDOM_MONSTER = 2, E_MSG_INIT_TASK = 3, E_MSG_GET_TASKREWARD = 4}
+, 
+ActivityReturn = {E_MSG_REFRESH_LOGIN = 1, E_MSG_REFRESH_SCORE = 2}
 }
 _ENV.WindowLoadPackages = {
 LoginWindow = {"LandPic"}

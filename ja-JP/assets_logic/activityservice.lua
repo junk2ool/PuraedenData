@@ -278,6 +278,10 @@ ActivityService.ResActivityInfo = function(msg, ...)
     (RelicService.ReqTempleInit)()
   end
 )
+              else
+                if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Return then
+                  (ActivityReturnMgr.RecvActivityData)(msg)
+                end
               end
             end
           end
@@ -383,10 +387,11 @@ end
 
 -- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'
 
-ActivityService.OnReqPointReward = function(actId, ...)
+ActivityService.OnReqPointReward = function(actId, rewId, ...)
   -- function num : 0_23 , upvalues : _ENV
   local m = {}
   m.actId = actId
+  m.rewId = rewId
   ;
   (Net.Send)((Proto.MsgName).ReqPointReward, m, (Proto.MsgName).ResPointReward)
 end
@@ -401,6 +406,10 @@ ActivityService.ResPointReward = function(msg, ...)
   if activityData.type == (ActivityMgr.ActivityType).SevenTask then
     (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).canGet = 0
     UIMgr:SendWindowMessage((WinResConfig.ActivityCarnivalWindow).name, (WindowMsgEnum.ActivityCarnival).E_MSG_GET_INTEGER)
+  else
+    if activityData.type == (ActivityMgr.ActivityType).Return then
+      (ActivityReturnMgr.RecvPointReward)(msg)
+    end
   end
   local actId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).SevenTask)
   ;
@@ -553,8 +562,11 @@ ActivityService.OnResGetReward = function(msg, ...)
   if msg.result then
     local activityData = ((TableData.gTable).BaseActivityData)[msg.actId]
     do
+      if activityData.type == (ActivityMgr.ActivityType).Return then
+        (ActivityReturnMgr.RecvGetReward)(msg)
+      end
       local rewardConfig = nil
-      if activityData.type == (ActivityMgr.ActivityType).Total_Login then
+      if activityData.type == (ActivityMgr.ActivityType).Total_Login or activityData.type == (ActivityMgr.ActivityType).Return then
         rewardConfig = ((TableData.gTable).BaseActivityLoginData)[msg.rewId]
       else
         if activityData.type == (ActivityMgr.ActivityType).LotteryIntergral then

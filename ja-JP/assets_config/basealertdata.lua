@@ -444,6 +444,8 @@ deck_scheme_is_full = {id = "deck_scheme_is_full", name = "登録した陣容が
 not_call_on_myself = {id = "not_call_on_myself", name = "自分自身を訪問することができません", name_cn = "家园随机访问不能访问自己"}
 , 
 farm_level_no_enough = {id = "farm_level_no_enough", name = "農場レベルが Lv.%d に達すると部屋を拡張できる", name_cn = "农场等级不足d%,不能升级家园"}
+, 
+arena_rank_busy = {id = "arena_rank_busy", name = "ランキングリセット中、しばらくお待ちください", name_cn = "排行榜初始化中，请稍后"}
 }
 return BaseAlertData
 

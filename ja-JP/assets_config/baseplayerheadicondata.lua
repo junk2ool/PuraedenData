@@ -21,6 +21,8 @@ BasePlayerHeadIconData = {
 , 
 [78601305] = {id = 78601305, name = (PUtil.get)(84123005), des = (PUtil.get)(84121006), type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_005", condition = "0", sort = 10, reward_sort = 9880001, own_show = 1, open_time = "1616515200"}
 , 
+[78601306] = {id = 78601306, name = (PUtil.get)(84123006), des = (PUtil.get)(84121007), type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_006", condition = "0", sort = 11, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
+, 
 [78601101] = {id = 78601101, name = (PUtil.get)(81011001), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
 , 
 [78601102] = {id = 78601102, name = (PUtil.get)(81011002), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100002_2", condition = "72501008:11100002:10", sort = 999, reward_sort = 9880001, own_show = 1}
@@ -174,6 +176,10 @@ BasePlayerHeadIconData = {
 [78601176] = {id = 78601176, name = (PUtil.get)(81013027), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300027_2", condition = "72501008:11300027:10", sort = 925, reward_sort = 9880001, own_show = 1, open_time = "1617155999"}
 , 
 [78601177] = {id = 78601177, name = (PUtil.get)(81013028), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300028_2", condition = "72501008:11300028:10", sort = 924, reward_sort = 9880001, own_show = 1, open_time = "1618434000"}
+, 
+[78601178] = {id = 78601178, name = (PUtil.get)(81012215), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202015_2", condition = "72501008:11202015:10", sort = 923, reward_sort = 9880001, own_show = 1, open_time = "1619744400"}
+, 
+[78601179] = {id = 78601179, name = (PUtil.get)(81013029), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300029_2", condition = "72501008:11300029:10", sort = 922, reward_sort = 9880001, own_show = 1, open_time = "1619744400"}
 }
 return BasePlayerHeadIconData
 
