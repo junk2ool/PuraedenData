@@ -106,8 +106,22 @@ CardData.InitCardAttr = function(card, cardData, battleType, battleAttrData, isS
                                             local value = attrTable.value
                                             if id and value and id ~= 81050001 then
                                               local attrConfig = baseAttributeData[id]
-                                              card[attrConfig.name] = value
-                                              fc = fc + value * attrConfig.fc_base * 0.0001
+                                              do
+                                                do
+                                                  if battleType == (ProtoEnum.E_BATTLE_TYPE).GUILD_WAR and id == BattleCardAttributeID.DANDER then
+                                                    local addAttrs = (self.GetSkillAddAttrList)(card.skillInfo)
+                                                    value = value + (addAttrs[id] and (addAttrs[id]).value or 0)
+                                                  end
+                                                  card[attrConfig.name] = value
+                                                  fc = fc + (value) * attrConfig.fc_base * 0.0001
+                                                  -- DECOMPILER ERROR at PC159: LeaveBlock: unexpected jumping out DO_STMT
+
+                                                  -- DECOMPILER ERROR at PC159: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                                                  -- DECOMPILER ERROR at PC159: LeaveBlock: unexpected jumping out IF_STMT
+
+                                                end
+                                              end
                                             end
                                           end
                                           card.fc = ceil(fc)
