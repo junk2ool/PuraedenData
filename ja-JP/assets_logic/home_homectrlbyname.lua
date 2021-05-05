@@ -1,6 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 require("Home_LotteryTipsByName")
+require("Home_LotteryTenTipsByName")
 require("Home_HeadByName")
 require("Home_BtnPanelByName")
 require("Home_ActivityByName")
@@ -23,6 +24,7 @@ GetHome_HomeCtrlUis = function(ui, ...)
   uis.Top_BagBtn = ui:GetChild("Top_BagBtn")
   uis.DailyBtn = ui:GetChild("DailyBtn")
   uis.LotteryTips = GetHome_LotteryTipsUis(ui:GetChild("LotteryTips"))
+  uis.LotteryTenTips = GetHome_LotteryTenTipsUis(ui:GetChild("LotteryTenTips"))
   uis.LeftList = ui:GetChild("LeftList")
   uis.Mainhead_04_Grp = ui:GetChild("Mainhead_04_Grp")
   uis.HeadGrp = GetHome_HeadUis(ui:GetChild("HeadGrp"))

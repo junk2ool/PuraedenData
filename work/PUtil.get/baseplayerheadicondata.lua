@@ -21,6 +21,8 @@
 , 
 [78601306] = {id = 78601306, name = "鎧を着たウサギ アイコン", des = "ウサギちゃんの勇姿を見なさい！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_006", condition = "0", sort = 11, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
 , 
+[78601401] = {id = 78601401, name = "嘘？！　アイコン", des = "200回連続募集でSSR冒険者が出現しなかった際に贈られるアイコン。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1}
+, 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
 , 
 [78601102] = {id = 78601102, name = "オリヴィア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100002_2", condition = "72501008:11100002:10", sort = 999, reward_sort = 9880001, own_show = 1}

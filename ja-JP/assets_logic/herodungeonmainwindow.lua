@@ -277,6 +277,7 @@ end
 
 HeroDungeonMainWindow.SetStageShowing = function(HeroMonster, stageID, pos, ...)
   -- function num : 0_12 , upvalues : _ENV, Sweep_type, uis
+  local stageID = tonumber(stageID)
   local stageData = ((TableData.gTable).BaseStageData)[tonumber(stageID)]
   if not stageData then
     return 
@@ -284,88 +285,126 @@ HeroDungeonMainWindow.SetStageShowing = function(HeroMonster, stageID, pos, ...)
   local model = GetHeroDungeon_HeroDungeonMonsterUis(HeroMonster)
   local isPass = (PlotDungeonMgr.IsPassDungeon)(stageID)
   local canChange = (PlotDungeonMgr.IsCanChallenge)(stageID, false)
-  -- DECOMPILER ERROR at PC25: Confused about usage of register: R7 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R8 in 'UnsetPending'
 
   if canChange then
     (model.c2Ctr).selectedIndex = 0
   else
-    -- DECOMPILER ERROR at PC28: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC31: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (model.c2Ctr).selectedIndex = 1
   end
-  -- DECOMPILER ERROR at PC38: Confused about usage of register: R7 in 'UnsetPending'
+  if isPass then
+    print("================", stageID, stageData.remark, "==================")
+    print("可扫荡次数", (PlotDungeonMgr.GetCanChangeTimesDungeon)(stageID))
+    print("可购买额外扫荡次数", (PlotDungeonMgr.GetCanBuySwipeNum)(stageID))
+    -- DECOMPILER ERROR at PC61: Confused about usage of register: R8 in 'UnsetPending'
 
-  if (PlotDungeonMgr.GetCanChangeTimesDungeon)(stageID) > 0 and isPass then
-    (model.c1Ctr).selectedIndex = 0
-  else
-    -- DECOMPILER ERROR at PC41: Confused about usage of register: R7 in 'UnsetPending'
+    if (PlotDungeonMgr.GetCanChangeTimesDungeon)(stageID) > 0 then
+      (model.c1Ctr).selectedIndex = 0
+    else
+      -- DECOMPILER ERROR at PC70: Confused about usage of register: R8 in 'UnsetPending'
 
+      if (PlotDungeonMgr.GetCanBuySwipeNum)(stageID) > 0 then
+        (model.c1Ctr).selectedIndex = 1
+        if stageData.sweep_type == 1 then
+          ((model.NumberBtn).onClick):Set(function(...)
+    -- function num : 0_12_0 , upvalues : _ENV, stageID
+    local stageBuyConfig = ((TableData.gTable).BaseStageBuyData)[tonumber(stageID)]
+    local buyConstArr = split(stageBuyConfig.buyCost, ",")
+    local costStr = buyConstArr[#buyConstArr - (PlotDungeonMgr.GetCanBuySwipeNum)(stageID) + 1]
     ;
-    (model.c1Ctr).selectedIndex = 1
+    (MessageMgr.OpenCostResConfirmWindow)(316, costStr, function(...)
+      -- function num : 0_12_0_0 , upvalues : _ENV, stageID
+      (PlotDungeonService.ReqStageBuyNum)(stageID)
+    end
+)
+  end
+)
+        end
+      else
+        -- DECOMPILER ERROR at PC84: Confused about usage of register: R8 in 'UnsetPending'
+
+        if stageData.sweep_type == 1 then
+          (model.c1Ctr).selectedIndex = 2
+        end
+      end
+    end
+  else
+    -- DECOMPILER ERROR at PC90: Confused about usage of register: R8 in 'UnsetPending'
+
+    if stageData.sweep_type == 1 then
+      (model.c1Ctr).selectedIndex = 2
+    end
   end
   if stageData.sweep_type == Sweep_type.AllowSweep then
     local monsterModel = (model.CharacterLoader).Model
     if not monsterModel then
       monsterModel = (Util.CreateMiniModelByPath)(model.CharacterLoader, stageData.monster_icon, function(model, ...)
-    -- function num : 0_12_0 , upvalues : _ENV
+    -- function num : 0_12_1 , upvalues : _ENV
     (SkeletonAnimationUtil.SetFlip)(model, true, false)
   end
 )
     end
-    -- DECOMPILER ERROR at PC62: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC111: Confused about usage of register: R9 in 'UnsetPending'
 
     ;
     (model.Btn).text = (PUtil.get)(60000007)
     ;
     ((model.Btn).onClick):Set(function(...)
-    -- function num : 0_12_1 , upvalues : _ENV, stageData
+    -- function num : 0_12_2 , upvalues : _ENV, stageData
     (PlotDungeonMgr.StartSweep)(stageData.id, 1)
   end
 )
-    -- DECOMPILER ERROR at PC79: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC128: Confused about usage of register: R9 in 'UnsetPending'
 
     if (PlotDungeonMgr.IsPassDungeon)(stageData.id) then
       (model.ChallengeTimeTxt).text = (PUtil.get)(20000056)
-      -- DECOMPILER ERROR at PC81: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC130: Confused about usage of register: R9 in 'UnsetPending'
 
       ;
       (model.ChallengeTimeTxt).width = 100
       local times = (PlotDungeonMgr.GetCanChangeTimesDungeon)(stageData.id)
-      -- DECOMPILER ERROR at PC91: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC140: Confused about usage of register: R10 in 'UnsetPending'
 
       if times <= 0 then
         (model.ChallengeNumberTxt).color = Const.LackColorRGB
+      else
+        -- DECOMPILER ERROR at PC145: Confused about usage of register: R10 in 'UnsetPending'
+
+        ;
+        (model.ChallengeNumberTxt).color = Const.EnoughColorRGB
       end
-      -- DECOMPILER ERROR at PC93: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC147: Confused about usage of register: R10 in 'UnsetPending'
 
       ;
       (model.ChallengeNumberTxt).text = times
     else
       do
         do
-          -- DECOMPILER ERROR at PC100: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC154: Confused about usage of register: R9 in 'UnsetPending'
 
           ;
           (model.ChallengeTimeTxt).text = (PUtil.get)(20000057)
-          -- DECOMPILER ERROR at PC102: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC156: Confused about usage of register: R9 in 'UnsetPending'
 
           ;
           (model.ChallengeTimeTxt).width = 120
-          -- DECOMPILER ERROR at PC104: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC158: Confused about usage of register: R9 in 'UnsetPending'
 
           ;
           (model.ChallengeNumberTxt).visible = false
-          -- DECOMPILER ERROR at PC107: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC161: Confused about usage of register: R9 in 'UnsetPending'
 
           ;
           (model.MonsterNumberTxt).text = stageData.remark
           local isPass = (PlotDungeonMgr.IsPassDungeon)(stageData.id)
-          -- DECOMPILER ERROR at PC115: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC169: Confused about usage of register: R9 in 'UnsetPending'
 
           ;
           (model.CharacterLoader).visible = not isPass
-          -- DECOMPILER ERROR at PC124: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC178: Confused about usage of register: R9 in 'UnsetPending'
 
           if not isPass then
             (model.CharacterLoader).url = UIMgr:GetItemUrl("HeroDungeon", "Animation")
@@ -403,7 +442,7 @@ HeroDungeonMainWindow.SetStageShowing = function(HeroMonster, stageID, pos, ...)
           do
             ;
             ((model.CharacterLoader).onClick):Set(function(...)
-    -- function num : 0_12_2 , upvalues : _ENV, stageID, uis
+    -- function num : 0_12_3 , upvalues : _ENV, stageID, uis
     if (PlotDungeonMgr.CheckSatisfyContent)(stageID) then
       (PlotDungeonMgr.OnClickStage)(stageID, false)
       ;
@@ -412,7 +451,7 @@ HeroDungeonMainWindow.SetStageShowing = function(HeroMonster, stageID, pos, ...)
   end
 )
             local isFirst = (PlotDungeonMgr.IsFirstChallengeStage)(stageID)
-            -- DECOMPILER ERROR at PC214: Confused about usage of register: R8 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC268: Confused about usage of register: R9 in 'UnsetPending'
 
             ;
             ((model.ChoiceGrp).root).visible = isFirst

@@ -1,12 +1,11 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
+require("CommonResource_Line_03ByName")
 require("CommonResource_HeadDebrisByName")
 GetHeroDungeon_SweepCardGrpUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
-  uis.DecorateImage = ui:GetChild("DecorateImage")
-  uis.DecorateImage = ui:GetChild("DecorateImage")
-  uis.DecorateImage = ui:GetChild("DecorateImage")
+  uis.n20 = GetCommonResource_Line_03Uis(ui:GetChild("n20"))
   uis.IconImage = ui:GetChild("IconImage")
   uis.HeadDebrisGrp = GetCommonResource_HeadDebrisUis(ui:GetChild("HeadDebrisGrp"))
   uis.PlayerNameTxt = ui:GetChild("PlayerNameTxt")

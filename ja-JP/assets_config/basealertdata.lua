@@ -446,6 +446,14 @@ not_call_on_myself = {id = "not_call_on_myself", name = "自分自身を訪問�
 farm_level_no_enough = {id = "farm_level_no_enough", name = "農場レベルが Lv.%d に達すると部屋を拡張できる", name_cn = "农场等级不足d%,不能升级家园"}
 , 
 arena_rank_busy = {id = "arena_rank_busy", name = "ランキングリセット中、しばらくお待ちください", name_cn = "排行榜初始化中，请稍后"}
+, 
+temple_stage_not_open_time = {id = "temple_stage_not_open_time", name = "毎月10日5：00より開放！", name_cn = "神殿遗迹关卡未到开启时间"}
+, 
+no_stage_buy_time = {id = "no_stage_buy_time", name = "これ以上掃討回数をリセットできません", name_cn = "关卡已经没有购买次数"}
+, 
+have_num_not_buy = {id = "have_num_not_buy", name = "掃討回数をリセットするには、残り回数が「0」になる必要があります", name_cn = "剩余次数为0时才能购买次数"}
+, 
+not_use_stage_num = {id = "not_use_stage_num", name = "残り回数を使い切ってからリセットしてください", name_cn = "次数已满,无法购买次数"}
 }
 return BaseAlertData
 

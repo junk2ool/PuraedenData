@@ -2817,8 +2817,39 @@ end
 
 -- DECOMPILER ERROR at PC199: Confused about usage of register: R14 in 'UnsetPending'
 
-BattleBuff.ContainDeductionRoundType = function(card, id, ...)
+BattleBuff.ContainBuffId = function(card, buffId, ...)
   -- function num : 0_59 , upvalues : _ENV, BattleBuffMgr, ipairs
+  if card and buffId then
+    if BattleConfig.isPlayBack == true then
+      local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
+      for _,v in ipairs(buffTable) do
+        if v.curDefPos == card:GetPosIndex() and v.buffId == buffId then
+          return true
+        end
+      end
+    else
+      do
+        local buffTable = (BattleBuffMgr.GetBuffList)()
+        for _,v in ipairs(buffTable) do
+          if v:GetCurDefPos() == card:GetPosIndex() then
+            local config = v:GetBuffConfig()
+            if v:GetBuffId() == buffId then
+              return true
+            end
+          end
+        end
+        do
+          return false
+        end
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC202: Confused about usage of register: R14 in 'UnsetPending'
+
+BattleBuff.ContainDeductionRoundType = function(card, id, ...)
+  -- function num : 0_60 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and id then
     if BattleConfig.isPlayBack == true then
       local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
@@ -2849,10 +2880,10 @@ BattleBuff.ContainDeductionRoundType = function(card, id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC202: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC205: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainBuffGroup = function(card, type, ...)
-  -- function num : 0_60 , upvalues : BattleBuffMgr, ipairs
+  -- function num : 0_61 , upvalues : BattleBuffMgr, ipairs
   if card and type then
     local buffTable = (BattleBuffMgr.GetBuffList)()
     for _,v in ipairs(buffTable) do
@@ -2867,10 +2898,10 @@ BattleBuff.ContainBuffGroup = function(card, type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC205: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC208: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
-  -- function num : 0_61 , upvalues : ipairs
+  -- function num : 0_62 , upvalues : ipairs
   if buff and effectId then
     local effectTable = nil
     if buff.GetEffectTable then
@@ -2889,10 +2920,10 @@ BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC208: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC211: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetDamageDivideCards = function(card, ...)
-  -- function num : 0_62 , upvalues : _ENV, ipairs
+  -- function num : 0_63 , upvalues : _ENV, ipairs
   local cards = {}
   local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
   for i,v in ipairs(allCard) do
@@ -2904,10 +2935,10 @@ BattleBuff.GetDamageDivideCards = function(card, ...)
   return cards
 end
 
--- DECOMPILER ERROR at PC211: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC214: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetExtraDamageDivideCards = function(card, ...)
-  -- function num : 0_63 , upvalues : _ENV, ipairs
+  -- function num : 0_64 , upvalues : _ENV, ipairs
   local cards = {}
   local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
   for i,v in ipairs(allCard) do
@@ -2919,10 +2950,10 @@ BattleBuff.GetExtraDamageDivideCards = function(card, ...)
   return cards
 end
 
--- DECOMPILER ERROR at PC214: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC217: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetUniqueSkillDamageAdd = function(atkCard, ...)
-  -- function num : 0_64 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
+  -- function num : 0_65 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
   local totalAddPercent = 0
   local buffTable = BattleBuffMgr.buffList
   for _,buff in ipairs(buffTable) do

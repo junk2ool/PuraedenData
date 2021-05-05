@@ -22,6 +22,8 @@ BaseLotteryBottomPoolData = {
 [24200010] = {id = 24200010, trigger_type = 2, trigger_times = "10", drop_id = 2030, priority = 2, is_total = 0}
 , 
 [24200011] = {id = 24200011, trigger_type = 1, trigger_times = "10", drop_id = 2031, priority = 1, is_total = 0}
+, 
+[24200012] = {id = 24200012, trigger_type = 3, trigger_times = "179", drop_id = 2032, priority = 1, is_total = 0}
 }
 return BaseLotteryBottomPoolData
 

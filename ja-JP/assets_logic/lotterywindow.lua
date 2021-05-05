@@ -75,8 +75,21 @@ LotteryWindow.BindingUI = function(...)
   if lotteryBtns[LotteryType.HuoDongUp4] then
     (RedDotMgr.BindingUI)(winName, RedDotComID.LotteryActivty_Score4, lotteryBtns[LotteryType.HuoDongUp4])
   end
-  ;
-  (RedDotMgr.RefreshTreeUI)(winName)
+  local freeType = nil
+  local configs = (TableData.gTable).BaseActivityData
+  for k,v in pairs(configs) do
+    if v.type == (ActivityMgr.ActivityType).Free_Lottery then
+      freeType = (((TableData.gTable).BaseLotteryData)[tonumber(v.parameter1)]).type
+      break
+    end
+  end
+  do
+    if lotteryBtns[freeType] then
+      (RedDotMgr.BindingUI)(winName, RedDotComID.Lottery_FreeMultiple, lotteryBtns[freeType])
+    end
+    ;
+    (RedDotMgr.RefreshTreeUI)(winName)
+  end
 end
 
 LotteryWindow.InitFunctionControl = function(...)

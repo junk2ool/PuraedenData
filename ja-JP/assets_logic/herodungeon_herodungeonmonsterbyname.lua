@@ -12,6 +12,7 @@ GetHeroDungeon_HeroDungeonMonsterUis = function(ui, ...)
   uis.ChallengeTimeTxt = ui:GetChild("ChallengeTimeTxt")
   uis.ChallengeNumberTxt = ui:GetChild("ChallengeNumberTxt")
   uis.BattelNumberGrp = ui:GetChild("BattelNumberGrp")
+  uis.NumberBtn = ui:GetChild("NumberBtn")
   uis.c1Ctr = ui:GetController("c1")
   uis.c2Ctr = ui:GetController("c2")
   uis.root = ui

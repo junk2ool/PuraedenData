@@ -1,4 +1,4 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
-BaseStoryDialogueData = {minId = 75101001, maxId = 75709933, step = 2000}
+BaseStoryDialogueData = {minId = 75101001, maxId = 75710959, step = 2000}
 

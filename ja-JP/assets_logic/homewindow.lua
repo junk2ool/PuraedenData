@@ -1427,6 +1427,11 @@ HomeWindow.OnShown = function(...)
 
   ;
   ((uis.LotteryTips).root).visible = (TenNum > 0 and actorLv > 3 and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Newbie_Lottery))
+  if actorLv > 3 and not ((uis.LotteryTips).root).visible and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Free_Lottery) then
+    ld("Lottery")
+    ;
+    (LotteryService.ReqLotteryInit)(LotteryType.Card)
+  end
   ;
   (SimpleTimer.setTimeout)(0.3, function(...)
     -- function num : 0_53_0 , upvalues : _ENV
@@ -1463,7 +1468,7 @@ HomeWindow.OnShown = function(...)
     end
   end
 )
-  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
 HomeWindow.OnHide = function(...)
@@ -1556,6 +1561,16 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
           else
             if msgId == (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_BANNER_REDDOT then
               ((uis.Activity).PicList):RefreshVirtualList()
+            else
+              -- DECOMPILER ERROR at PC57: Confused about usage of register: R2 in 'UnsetPending'
+
+              if msgId == (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_FREE_10_LOTTERY then
+                ((uis.LotteryTenTips).root).touchable = false
+                -- DECOMPILER ERROR at PC64: Confused about usage of register: R2 in 'UnsetPending'
+
+                ;
+                ((uis.LotteryTenTips).root).visible = para > 0
+              end
             end
           end
         end
@@ -1565,6 +1580,7 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
   if msgId == (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION then
     (HomeWindow.AutoPlayVoiceAndBubble)()
   end
+  -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
 HomeWindow.CheckActivityIcon = function(...)

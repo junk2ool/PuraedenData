@@ -419,6 +419,18 @@
 , 
 [75200703] = {id = 75200703, name = "シャイ", role_path = "img_11300027_2", effect_path = "FIGHT_KILL", fashion_id = "14302701", offset = "0:-400"}
 , 
+[75200711] = {id = 75200711, name = "???", role_path = "img_11300029_1", effect_path = "FIGHT_KILL", fashion_id = "14302900", offset = "116:-163"}
+, 
+[75200712] = {id = 75200712, name = "メリア", role_path = "img_11300029_1", effect_path = "FIGHT_KILL", fashion_id = "14302900", offset = "116:-163"}
+, 
+[75200713] = {id = 75200713, name = "メリア", role_path = "img_11300029_2", effect_path = "FIGHT_KILL", fashion_id = "14302901", offset = "116:-163"}
+, 
+[75200721] = {id = 75200721, name = "???", role_path = "img_11202015_1", effect_path = "FIGHT_KILL", fashion_id = "14221500", offset = "35:-219"}
+, 
+[75200722] = {id = 75200722, name = "ウィルド", role_path = "img_11202015_1", effect_path = "FIGHT_KILL", fashion_id = "14221500", offset = "35:-219"}
+, 
+[75200723] = {id = 75200723, name = "ウィルド", role_path = "img_11202015_2", effect_path = "FIGHT_KILL", fashion_id = "14221501", offset = "35:-219"}
+, 
 [75210001] = {id = 75210001, name = "リルス", role_path = "img_12010001", effect_path = "FIGHT_KILL", fashion_id = "15010001", offset = "10:80"}
 , 
 [75210002] = {id = 75210002, name = "コニー", role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
@@ -626,6 +638,8 @@
 [75210103] = {id = 75210103, name = "構成員の男", role_path = "img_12010006", effect_path = "FIGHT_KILL", fashion_id = "15010006", offset = "20:60"}
 , 
 [75210104] = {id = 75210104, name = "男の仲間", role_path = "img_13010001", effect_path = "FIGHT_KILL", fashion_id = "15040001", offset = "0:15"}
+, 
+[75210105] = {id = 75210105, name = "村民", role_path = "img_13010001", effect_path = "FIGHT_KILL", fashion_id = "15040001", offset = "0:15"}
 , 
 [75203001] = {id = 75203001, name = "犀角山豚", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 
@@ -927,6 +941,10 @@
 , 
 [75206090] = {id = 75206090, name = "市民", role_path = "l2d_13000002", effect_path = "FIGHT_KILL", fashion_id = "15040002", offset = "-10:45"}
 , 
+[75206091] = {id = 75206091, name = "メリアの信者たち", role_path = "img_12010003", effect_path = "FIGHT_KILL", fashion_id = "15010003"}
+, 
+[75206092] = {id = 75206092, name = "狩人たち", role_path = "img_12010006", effect_path = "FIGHT_KILL", fashion_id = "15010006"}
+, 
 [75209000] = {id = 75209000, name = "？？？", role_path = "npcCardSpine_11301004", effect_path = "FIGHT_KILL", fashion_id = "14310401", expression_type = 1, offset = "-40:80"}
 , 
 [75209001] = {id = 75209001, name = "？？？", role_path = "l2d_11100003", effect_path = "FIGHT_KILL", fashion_id = "14000300", offset = "-10:-80"}
@@ -1044,4 +1062,6 @@
 [75209056] = {id = 75209056, name = "教師", effect_path = "FIGHT_KILL"}
 , 
 [75209057] = {id = 75209057, name = "生徒", effect_path = "FIGHT_KILL"}
+, 
+[75209058] = {id = 75209058, name = "モンスターたち", effect_path = "FIGHT_KILL"}
 }

@@ -20,6 +20,8 @@ PlotDungeonService.init = function(...)
   (Net.AddListener)((Proto.MsgName).ResExtraReward, PlotDungeonService.OnResExtraReward)
   ;
   (Net.AddListener)((Proto.MsgName).ResFastSweep, PlotDungeonService.OnResFastSweep)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResStageBuyNum, PlotDungeonService.OnResStageBuyNum)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -266,6 +268,39 @@ PlotDungeonService.ReqFastSweep = function(stageIds, ...)
   m.stageId = stageIds
   ;
   (Net.Send)((Proto.MsgName).ReqFastSweep, m, (Proto.MsgName).ResFastSweep)
+end
+
+-- DECOMPILER ERROR at PC55: Confused about usage of register: R0 in 'UnsetPending'
+
+PlotDungeonService.ReqStageBuyNum = function(stageId, ...)
+  -- function num : 0_17 , upvalues : _ENV
+  print("=====================购买额外挑战次数", stageId)
+  local m = {}
+  m.stageId = stageId
+  ;
+  (Net.Send)((Proto.MsgName).ReqStageBuyNum, m, (Proto.MsgName).ResStageBuyNum)
+end
+
+-- DECOMPILER ERROR at PC58: Confused about usage of register: R0 in 'UnsetPending'
+
+PlotDungeonService.OnResStageBuyNum = function(msg, ...)
+  -- function num : 0_18 , upvalues : _ENV
+  print("===========购买额外挑战次数返回", msg.stageId, msg.buyNum)
+  ;
+  (PlotDungeonMgr.SetCanBuySwipeNum)(msg.stageId, msg.buyNum)
+  local stageConfig = ((TableData.gTable).BaseStageData)[msg.stageId]
+  local buyConfig = ((TableData.gTable).BaseStageBuyData)[msg.stageId]
+  local extraNum = 1
+  if buyConfig.buyTime == 1 then
+    extraNum = stageConfig.challenge_num
+  else
+    if buyConfig.buyTime == 2 then
+      extraNum = 1
+    end
+  end
+  ;
+  (PlotDungeonMgr.SetCanChangeTimesDungeon)(msg.stageId, extraNum)
+  UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.HeroDungeonMainWindow).E_MSG_REFRESH)
 end
 
 ;

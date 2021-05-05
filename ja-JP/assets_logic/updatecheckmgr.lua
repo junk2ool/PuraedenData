@@ -44,7 +44,11 @@ UpdateCheckMgr.DownloadServerList = function(serverListVersion, ...)
     local serverList = (HttpDownload.GetString)(unityWebRequest)
     print("ServerList下载成功：", serverList)
     CSServerList:Init(serverList)
-    if (UpdateCheckMgr.NeedDownload)() == true then
+    local startIndex, endIndex, minVersion = serverList:find("\"MinVersion\":.-\"(%d+)\"")
+    if not (Util.StringIsNullOrEmpty)(minVersion) then
+      minVersion = tonumber(minVersion)
+    end
+    if (UpdateCheckMgr.NeedDownload)(minVersion) == true then
       (MessageMgr.OpenSoloConfirmWindow)((PUtil.get)(40002070), function(...)
       -- function num : 0_2_0_0 , upvalues : _ENV
       -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
@@ -59,7 +63,7 @@ UpdateCheckMgr.DownloadServerList = function(serverListVersion, ...)
 )
 end
 
-UpdateCheckMgr.NeedDownload = function(...)
+UpdateCheckMgr.NeedDownload = function(minVersion, ...)
   -- function num : 0_3 , upvalues : _ENV, UpdateCheckMgr
   local launch = (CS.Launch).Singleton
   local localVer = launch.resVersion
@@ -70,8 +74,13 @@ UpdateCheckMgr.NeedDownload = function(...)
   print("远端包版本", serverAppVer, tonumber(serverAppVer))
   print("本地资源版本", localVer, tonumber(localVer))
   print("远端资源版本", serverVer, tonumber(serverVer))
-  do return (UpdateCheckMgr.NeedUpdate)(serverAppVer, localAppVer) or (localVer ~= serverVer and tonumber(localVer) < tonumber(serverVer)) end
-  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  local resUpdate = nil
+  if localVer == serverVer or tonumber(localVer) >= tonumber(serverVer) then
+    resUpdate = minVersion ~= nil
+    resUpdate = localVer ~= serverVer and tonumber(localVer) < tonumber(serverVer) and tonumber(localVer) < minVersion
+    do return (UpdateCheckMgr.NeedUpdate)(serverAppVer, localAppVer) or resUpdate end
+    -- DECOMPILER ERROR: 6 unprocessed JMP targets
+  end
 end
 
 UpdateCheckMgr.NeedUpdate = function(serverAppVer, localAppVer, ...)

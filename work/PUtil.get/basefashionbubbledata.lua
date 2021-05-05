@@ -11103,7 +11103,7 @@
 , 
 [97222154] = {id = 97222154, bubble_text = "…オフロ、嫌い…。熱い水、たくさん。わからない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "668:211", direction = 2, voice_path = "Willd_Main_4"}
 , 
-[101221501] = {id = 101221501, bubble_text = "…リーダー、待ってた。嫌いじゃない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Willd_Get_1"}
+[101221501] = {id = 101221501, bubble_text = "名前…お前、名付けた。ウィルド。…お前、リーダー。覚えた。リーダー、リーダー。…覚えた。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Willd_Get_1"}
 , 
 [101221511] = {id = 101221511, bubble_text = "昔のワタシ、人間、嫌いだった。今、そんなに嫌いじゃない。プライドの仲間と…リーダー、いるから…。リーダーは、いいやつ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "700:234", direction = 2, voice_path = "Willd_Stage_2"}
 , 
@@ -11215,139 +11215,139 @@
 , 
 [117221503] = {id = 117221503, bubble_text = "人間の家、変なもの、多い…変な奴も、多い。", voice_path = "Willd_Home_Talk_3", top_position = 10}
 , 
-[97030291] = {id = 97030291, bubble_text = "未定義(97030291)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Main_1"}
+[97030291] = {id = 97030291, bubble_text = "さて、今日は何をいたしましょうか…。お茶か、お散歩か、血で血を洗う戦いか…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Main_1"}
 , 
-[97030292] = {id = 97030292, bubble_text = "未定義(97030292)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Main_2"}
+[97030292] = {id = 97030292, bubble_text = "ふふ、リーダー様ったら。わたくしにガンをつけてどうなさったんですか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Main_2"}
 , 
-[97030293] = {id = 97030293, bubble_text = "未定義(97030293)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Main_3"}
+[97030293] = {id = 97030293, bubble_text = "もっとお姫様らしくなるために必要なのは、なんでしょうか…？　やはり…度胸、ですかね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Main_3"}
 , 
-[97030294] = {id = 97030294, bubble_text = "未定義(97030294)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Main_4"}
+[97030294] = {id = 97030294, bubble_text = "わたくしを慕ってくださる方々のことはとても嬉しいのですが…なぜか何度言っても『姐さん』と呼ぶのです。どうしてだと思いますか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Main_4"}
 , 
-[97130291] = {id = 97130291, bubble_text = "未定義(97130291)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Main_1"}
+[97130291] = {id = 97130291, bubble_text = "さて、今日は何をいたしましょうか…。お茶か、お散歩か、血で血を洗う戦いか…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Main_1"}
 , 
-[97130292] = {id = 97130292, bubble_text = "未定義(97130292)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Main_2"}
+[97130292] = {id = 97130292, bubble_text = "ふふ、リーダー様ったら。わたくしにガンをつけてどうなさったんですか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Main_2"}
 , 
-[97130293] = {id = 97130293, bubble_text = "未定義(97130293)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Main_3"}
+[97130293] = {id = 97130293, bubble_text = "もっとお姫様らしくなるために必要なのは、なんでしょうか…？　やはり…度胸、ですかね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Main_3"}
 , 
-[97130294] = {id = 97130294, bubble_text = "未定義(97130294)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Main_4"}
+[97130294] = {id = 97130294, bubble_text = "わたくしを慕ってくださる方々のことはとても嬉しいのですが…なぜか何度言っても『姐さん』と呼ぶのです。どうしてだと思いますか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Main_4"}
 , 
-[97230291] = {id = 97230291, bubble_text = "未定義(97230291)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Main_1"}
+[97230291] = {id = 97230291, bubble_text = "さて、今日は何をいたしましょうか…。お茶か、お散歩か、血で血を洗う戦いか…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Main_1"}
 , 
-[97230292] = {id = 97230292, bubble_text = "未定義(97230292)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Main_2"}
+[97230292] = {id = 97230292, bubble_text = "ふふ、リーダー様ったら。わたくしにガンをつけてどうなさったんですか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Main_2"}
 , 
-[97230293] = {id = 97230293, bubble_text = "未定義(97230293)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Main_3"}
+[97230293] = {id = 97230293, bubble_text = "もっとお姫様らしくなるために必要なのは、なんでしょうか…？　やはり…度胸、ですかね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Main_3"}
 , 
-[97230294] = {id = 97230294, bubble_text = "未定義(97230294)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Main_4"}
+[97230294] = {id = 97230294, bubble_text = "わたくしを慕ってくださる方々のことはとても嬉しいのですが…なぜか何度言っても『姐さん』と呼ぶのです。どうしてだと思いますか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Main_4"}
 , 
-[101302901] = {id = 101302901, bubble_text = "未定義(101302901)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Get_1"}
+[101302901] = {id = 101302901, bubble_text = "メリアと申します。育ちが悪くてお恥ずかしい限りなのですが…もし礼儀が悪い時には遠慮なくどついてくださいまし。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Get_1"}
 , 
-[101302911] = {id = 101302911, bubble_text = "未定義(101302911)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Stage_2"}
+[101302911] = {id = 101302911, bubble_text = "こんなにきらきらと、綺麗になれるなんて…リーダー様がいれば、わたくし、本当のお姫様になれるかもしれませんね。ふふ、ありがとうございます。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Stage_2"}
 , 
-[101302921] = {id = 101302921, bubble_text = "未定義(101302921)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Stage_3"}
+[101302921] = {id = 101302921, bubble_text = "少しでも、お姫様に近づきたいと思っていました。リーダー様のそばで成長した今のわたくしなら…少しぐらいは、胸を張ってもいいですよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Stage_3"}
 , 
-[102302901] = {id = 102302901, bubble_text = "未定義(102302901)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_In_1"}
+[102302901] = {id = 102302901, bubble_text = "リーダー様、オツトメご苦労様です。一緒に外の空気でも吸いましょうか", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_In_1"}
 , 
-[102302902] = {id = 102302902, bubble_text = "未定義(102302902)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_In_1"}
+[102302902] = {id = 102302902, bubble_text = "リーダー様、オツトメご苦労様です。一緒に外の空気でも吸いましょうか", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_In_1"}
 , 
-[102302903] = {id = 102302903, bubble_text = "未定義(102302903)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_In_1"}
+[102302903] = {id = 102302903, bubble_text = "リーダー様、オツトメご苦労様です。一緒に外の空気でも吸いましょうか", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_In_1"}
 , 
-[103302901] = {id = 103302901, bubble_text = "未定義(103302901)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "373:231", direction = 2, voice_path = "Delike_Stage_1"}
+[103302901] = {id = 103302901, bubble_text = "あなたの手で、どんどん自分が変わっていく…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "373:231", direction = 2, voice_path = "Meria_Stage_1"}
 , 
-[103302911] = {id = 103302911, bubble_text = "未定義(103302911)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Delike_Stage_1"}
+[103302911] = {id = 103302911, bubble_text = "あなたの手で、どんどん自分が変わっていく…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Meria_Stage_1"}
 , 
-[103302921] = {id = 103302921, bubble_text = "未定義(103302921)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Delike_Stage_1"}
+[103302921] = {id = 103302921, bubble_text = "あなたの手で、どんどん自分が変わっていく…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Meria_Stage_1"}
 , 
-[104302901] = {id = 104302901, bubble_text = "未定義(104302901)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "373:231", direction = 2, voice_path = "Delike_Star_1"}
+[104302901] = {id = 104302901, bubble_text = "ありがとうございます、リーダー様。受けた恩義は、必ずお返しいたしますから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "373:231", direction = 2, voice_path = "Meria_Star_1"}
 , 
-[104302911] = {id = 104302911, bubble_text = "未定義(104302911)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Delike_Star_1"}
+[104302911] = {id = 104302911, bubble_text = "ありがとうございます、リーダー様。受けた恩義は、必ずお返しいたしますから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Meria_Star_1"}
 , 
-[104302921] = {id = 104302921, bubble_text = "未定義(104302921)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Delike_Star_1"}
+[104302921] = {id = 104302921, bubble_text = "ありがとうございます、リーダー様。受けた恩義は、必ずお返しいたしますから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "383:198", direction = 2, voice_path = "Meria_Star_1"}
 , 
-[105302901] = {id = 105302901, bubble_text = "未定義(105302901)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Interaction_1"}
+[105302901] = {id = 105302901, bubble_text = "ああ、組長――じゃなくて、リーダー様。すみません、うっかり間違えてしまいました。それで、わたくしにどんな御用でしょう？？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Interaction_1"}
 , 
-[105302902] = {id = 105302902, bubble_text = "未定義(105302902)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Interaction_2"}
+[105302902] = {id = 105302902, bubble_text = "ああ、驚きました。てっきりしかとに刺されたかと…ふふ、つつくだけだなんて…リーダー様は可愛らしい方ですね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Interaction_2"}
 , 
-[105302903] = {id = 105302903, bubble_text = "未定義(105302903)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Interaction_3"}
+[105302903] = {id = 105302903, bubble_text = "わたくしに御用があれば、いつでも言ってくださいね。リーダー様のためならどんな事でも、お手伝いいたしますから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Interaction_3"}
 , 
-[105302904] = {id = 105302904, bubble_text = "未定義(105302904)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Interaction_4"}
+[105302904] = {id = 105302904, bubble_text = "わたくし、プライドの皆様もリーダー様も本当に信頼していて…だから、いつか…その…盃を交わさせていただきたくて…よろしいですか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Interaction_4"}
 , 
-[105302905] = {id = 105302905, bubble_text = "未定義(105302905)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Interaction_5"}
+[105302905] = {id = 105302905, bubble_text = "あなたと出会ってから、今までよりずっとお姫様に近づけたと思うんです。…このままいけば、あなたのお姫様にもなれるでしょうか？　ふふ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Interaction_5"}
 , 
-[105302911] = {id = 105302911, bubble_text = "未定義(105302911)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Interaction_1"}
+[105302911] = {id = 105302911, bubble_text = "ああ、組長――じゃなくて、リーダー様。すみません、うっかり間違えてしまいました。それで、わたくしにどんな御用でしょう？？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Interaction_1"}
 , 
-[105302912] = {id = 105302912, bubble_text = "未定義(105302912)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Interaction_2"}
+[105302912] = {id = 105302912, bubble_text = "ああ、驚きました。てっきりしかとに刺されたかと…ふふ、つつくだけだなんて…リーダー様は可愛らしい方ですね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Interaction_2"}
 , 
-[105302913] = {id = 105302913, bubble_text = "未定義(105302913)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Interaction_3"}
+[105302913] = {id = 105302913, bubble_text = "わたくしに御用があれば、いつでも言ってくださいね。リーダー様のためならどんな事でも、お手伝いいたしますから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Interaction_3"}
 , 
-[105302914] = {id = 105302914, bubble_text = "未定義(105302914)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Interaction_4"}
+[105302914] = {id = 105302914, bubble_text = "わたくし、プライドの皆様もリーダー様も本当に信頼していて…だから、いつか…その…盃を交わさせていただきたくて…よろしいですか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Interaction_4"}
 , 
-[105302915] = {id = 105302915, bubble_text = "未定義(105302915)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Interaction_5"}
+[105302915] = {id = 105302915, bubble_text = "あなたと出会ってから、今までよりずっとお姫様に近づけたと思うんです。…このままいけば、あなたのお姫様にもなれるでしょうか？　ふふ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Interaction_5"}
 , 
-[105302921] = {id = 105302921, bubble_text = "未定義(105302921)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Interaction_1"}
+[105302921] = {id = 105302921, bubble_text = "ああ、組長――じゃなくて、リーダー様。すみません、うっかり間違えてしまいました。それで、わたくしにどんな御用でしょう？？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Interaction_1"}
 , 
-[105302922] = {id = 105302922, bubble_text = "未定義(105302922)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Interaction_2"}
+[105302922] = {id = 105302922, bubble_text = "ああ、驚きました。てっきりしかとに刺されたかと…ふふ、つつくだけだなんて…リーダー様は可愛らしい方ですね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Interaction_2"}
 , 
-[105302923] = {id = 105302923, bubble_text = "未定義(105302923)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Interaction_3"}
+[105302923] = {id = 105302923, bubble_text = "わたくしに御用があれば、いつでも言ってくださいね。リーダー様のためならどんな事でも、お手伝いいたしますから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Interaction_3"}
 , 
-[105302924] = {id = 105302924, bubble_text = "未定義(105302924)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Interaction_4"}
+[105302924] = {id = 105302924, bubble_text = "わたくし、プライドの皆様もリーダー様も本当に信頼していて…だから、いつか…その…盃を交わさせていただきたくて…よろしいですか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Interaction_4"}
 , 
-[105302925] = {id = 105302925, bubble_text = "未定義(105302925)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Interaction_5"}
+[105302925] = {id = 105302925, bubble_text = "あなたと出会ってから、今までよりずっとお姫様に近づけたと思うんです。…このままいけば、あなたのお姫様にもなれるでしょうか？　ふふ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Interaction_5"}
 , 
-[106302901] = {id = 106302901, bubble_text = "未定義(106302901)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Win_1"}
+[106302901] = {id = 106302901, bubble_text = "うちのプライドに手を出すと、どうなるかわかりました？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Win_1"}
 , 
-[106302911] = {id = 106302911, bubble_text = "未定義(106302911)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Win_1"}
+[106302911] = {id = 106302911, bubble_text = "うちのプライドに手を出すと、どうなるかわかりました？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Win_1"}
 , 
-[106302921] = {id = 106302921, bubble_text = "未定義(106302921)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Win_1"}
+[106302921] = {id = 106302921, bubble_text = "うちのプライドに手を出すと、どうなるかわかりました？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Win_1"}
 , 
-[107302901] = {id = 107302901, bubble_text = "未定義(107302901)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Delike_Fail_1"}
+[107302901] = {id = 107302901, bubble_text = "土下座を…させてくださいまし…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "378:238", direction = 1, voice_path = "Meria_Fail_1"}
 , 
-[107302911] = {id = 107302911, bubble_text = "未定義(107302911)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Delike_Fail_1"}
+[107302911] = {id = 107302911, bubble_text = "土下座を…させてくださいまし…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:228", direction = 1, voice_path = "Meria_Fail_1"}
 , 
-[107302921] = {id = 107302921, bubble_text = "未定義(107302921)", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Delike_Fail_1"}
+[107302921] = {id = 107302921, bubble_text = "土下座を…させてくださいまし…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "621:312", direction = 2, voice_path = "Meria_Fail_1"}
 , 
-[108302901] = {id = 108302901, bubble_text = "未定義(108302901)", voice_path = "Delike_Go_1"}
+[108302901] = {id = 108302901, bubble_text = "さあ、まいりましょうか", voice_path = "Meria_Go_1"}
 , 
-[109302901] = {id = 109302901, voice_path = "Delike_Game_1"}
+[109302901] = {id = 109302901, voice_path = "Meria_Game_1"}
 , 
-[111302901] = {id = 111302901, voice_path = "Delike_Battle_N_1"}
+[111302901] = {id = 111302901, voice_path = "Meria_Battle_N_1"}
 , 
-[111302902] = {id = 111302902, voice_path = "Delike_Battle_N_2"}
+[111302902] = {id = 111302902, voice_path = "Meria_Battle_N_2"}
 , 
-[111302903] = {id = 111302903, voice_path = "Delike_Battle_N_3"}
+[111302903] = {id = 111302903, voice_path = "Meria_Battle_N_3"}
 , 
-[111302904] = {id = 111302904, voice_path = "Delike_Battle_N_4"}
+[111302904] = {id = 111302904, voice_path = "Meria_Battle_N_4"}
 , 
-[111302905] = {id = 111302905, voice_path = "Delike_Battle_N_5"}
+[111302905] = {id = 111302905, voice_path = "Meria_Battle_N_5"}
 , 
-[111302906] = {id = 111302906, voice_path = "Delike_Battle_N_6"}
+[111302906] = {id = 111302906, voice_path = "Meria_Battle_N_6"}
 , 
-[112302901] = {id = 112302901, voice_path = "Delike_Battle_Hit_1"}
+[112302901] = {id = 112302901, voice_path = "Meria_Battle_Hit_1"}
 , 
-[112302902] = {id = 112302902, voice_path = "Delike_Battle_Hit_2"}
+[112302902] = {id = 112302902, voice_path = "Meria_Battle_Hit_2"}
 , 
-[112302903] = {id = 112302903, voice_path = "Delike_Battle_Hit_3"}
+[112302903] = {id = 112302903, voice_path = "Meria_Battle_Hit_3"}
 , 
-[112302904] = {id = 112302904, voice_path = "Delike_Battle_Hit_4"}
+[112302904] = {id = 112302904, voice_path = "Meria_Battle_Hit_4"}
 , 
-[112302905] = {id = 112302905, voice_path = "Delike_Battle_Hit_5"}
+[112302905] = {id = 112302905, voice_path = "Meria_Battle_Hit_5"}
 , 
-[112302906] = {id = 112302906, voice_path = "Delike_Battle_Hit_6"}
+[112302906] = {id = 112302906, voice_path = "Meria_Battle_Hit_6"}
 , 
-[113302901] = {id = 113302901, voice_path = "Delike_Battle_Die_1"}
+[113302901] = {id = 113302901, voice_path = "Meria_Battle_Die_1"}
 , 
-[114302901] = {id = 114302901, voice_path = "Delike_Battle_H_1"}
+[114302901] = {id = 114302901, voice_path = "Meria_Battle_H_1"}
 , 
-[114302902] = {id = 114302902, voice_path = "Delike_Battle_H_2"}
+[114302902] = {id = 114302902, voice_path = "Meria_Battle_H_2"}
 , 
-[115302901] = {id = 115302901, voice_path = "Delike_Battle_C_1"}
+[115302901] = {id = 115302901, voice_path = "Meria_Battle_C_1"}
 , 
-[115302902] = {id = 115302902, voice_path = "Delike_Battle_C_2"}
+[115302902] = {id = 115302902, voice_path = "Meria_Battle_C_2"}
 , 
-[116302901] = {id = 116302901, bubble_text = "未定義(116302901)", voice_path = "Delike_Home_In_1", top_position = 10}
+[116302901] = {id = 116302901, bubble_text = "乗り込まれたときの逃げ道はありますか？", voice_path = "Meria_Home_In_1", top_position = 10}
 , 
-[117302901] = {id = 117302901, bubble_text = "未定義(117302901)", voice_path = "Delike_Home_Talk_1", top_position = 10}
+[117302901] = {id = 117302901, bubble_text = "本当に素敵なお家ですね。わたくし、ずっとここにいたいぐらいです。", voice_path = "Meria_Home_Talk_1", top_position = 10}
 , 
-[117302902] = {id = 117302902, bubble_text = "未定義(117302902)", voice_path = "Delike_Home_Talk_2", top_position = 10}
+[117302902] = {id = 117302902, bubble_text = "もしやこちらにいる皆さんは…リーダー様の…いわゆる『コレ』なのでしょうか…？", voice_path = "Meria_Home_Talk_2", top_position = 10}
 , 
-[117302903] = {id = 117302903, bubble_text = "未定義(117302903)", voice_path = "Delike_Home_Talk_3", top_position = 10}
+[117302903] = {id = 117302903, bubble_text = "ここはかならずや、わたくしがお守りいたしますね", voice_path = "Meria_Home_Talk_3", top_position = 10}
 }

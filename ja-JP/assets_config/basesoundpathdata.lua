@@ -5184,6 +5184,80 @@ BaseSoundPathData = {
 [230280401] = {id = 230280401, play_frame = 19, path = "sfx_xuetu_pt_wh_4fr", bank = "xuetu"}
 , 
 [230280402] = {id = 230280402, play_frame = 24, path = "sfx_xuetu_pt_tx_8fr", bank = "xuetu"}
+, 
+[222150101] = {id = 222150101, play_frame = 8, path = "sfx_houhou_big_tx_8fr", bank = "houhou"}
+, 
+[222150102] = {id = 222150102, play_frame = 50, path = "sfx_houhou_big_tx_50fr", bank = "houhou"}
+, 
+[222150103] = {id = 222150103, play_frame = 117, path = "sfx_houhou_big_tx_117fr", bank = "houhou"}
+, 
+[222150104] = {id = 222150104, play_frame = 158, path = "sfx_houhou_big_tx_158fr", bank = "houhou"}
+, 
+[222150201] = {id = 222150201, play_frame = 18, path = "sfx_houhou_pt_ch_18fr", bank = "houhou"}
+, 
+[222150202] = {id = 222150202, play_frame = 49, path = "sfx_houhou_pt_cast_49fr", bank = "houhou"}
+, 
+[222150203] = {id = 222150203, play_frame = 63, path = "sfx_houhou_pt_tx_63fr", bank = "houhou"}
+, 
+[222150301] = {id = 222150301, play_frame = 8, path = "sfx_houhou_small_ch_8fr", bank = "houhou"}
+, 
+[222150302] = {id = 222150302, play_frame = 39, path = "sfx_houhou_small_cast_39fr", bank = "houhou"}
+, 
+[222150303] = {id = 222150303, play_frame = 53, path = "sfx_houhou_small_tx_53fr", bank = "houhou"}
+, 
+[230290101] = {id = 230290101, play_frame = 6, path = "sfx_meiduan_big_tx_6fr", bank = "meiduan"}
+, 
+[230290102] = {id = 230290102, play_frame = 30, path = "sfx_meiduan_big_tx_30fr", bank = "meiduan"}
+, 
+[230290103] = {id = 230290103, play_frame = 34, path = "sfx_meiduan_big_wh_34fr", bank = "meiduan"}
+, 
+[230290104] = {id = 230290104, play_frame = 39, path = "sfx_meiduan_big_wh_39fr", bank = "meiduan"}
+, 
+[230290105] = {id = 230290105, play_frame = 46, path = "sfx_meiduan_big_wh_46fr", bank = "meiduan"}
+, 
+[230290106] = {id = 230290106, play_frame = 92, path = "sfx_meiduan_big_wh_92fr", bank = "meiduan"}
+, 
+[230290107] = {id = 230290107, play_frame = 93, path = "sfx_meiduan_big_wh_102fr", bank = "meiduan"}
+, 
+[230290108] = {id = 230290108, play_frame = 96, path = "sfx_meiduan_big_wh_105fr", bank = "meiduan"}
+, 
+[230290109] = {id = 230290109, play_frame = 142, path = "sfx_meiduan_big_wh_151fr", bank = "meiduan"}
+, 
+[230290110] = {id = 230290110, play_frame = 154, path = "sfx_meiduan_big_wh_163fr", bank = "meiduan"}
+, 
+[230290111] = {id = 230290111, play_frame = 160, path = "sfx_meiduan_big_wh_169fr", bank = "meiduan"}
+, 
+[230290112] = {id = 230290112, play_frame = 174, path = "sfx_meiduan_big_wh_183fr", bank = "meiduan"}
+, 
+[230290113] = {id = 230290113, play_frame = 178, path = "sfx_meiduan_big_wh_187fr", bank = "meiduan"}
+, 
+[230290114] = {id = 230290114, play_frame = 203, path = "sfx_meiduan_big_wh_212fr", bank = "meiduan"}
+, 
+[230290115] = {id = 230290115, play_frame = 212, path = "sfx_meiduan_big_wh_221fr", bank = "meiduan"}
+, 
+[230290116] = {id = 230290116, play_frame = 235, path = "sfx_meiduan_big_wh_244fr", bank = "meiduan"}
+, 
+[230290117] = {id = 230290117, play_frame = 254, path = "sfx_meiduan_big_tx_263fr", bank = "meiduan"}
+, 
+[230290118] = {id = 230290118, play_frame = 320, path = "sfx_meiduan_big_tx_329fr", bank = "meiduan"}
+, 
+[230290119] = {id = 230290119, play_frame = 361, path = "sfx_meiduan_big_tx_370fr", bank = "meiduan"}
+, 
+[230290120] = {id = 230290120, play_frame = 398, path = "sfx_meiduan_big_tx_407fr", bank = "meiduan"}
+, 
+[230290121] = {id = 230290121, play_frame = 412, path = "sfx_meiduan_big_tx_421fr", bank = "meiduan"}
+, 
+[230290122] = {id = 230290122, play_frame = 424, path = "sfx_meiduan_big_tx_433fr", bank = "meiduan"}
+, 
+[230290201] = {id = 230290201, play_frame = 8, path = "sfx_meiduan_pt_ch_8fr", bank = "meiduan"}
+, 
+[230290202] = {id = 230290202, play_frame = 38, path = "sfx_meiduan_pt_wh_38fr", bank = "meiduan"}
+, 
+[230290203] = {id = 230290203, play_frame = 40, path = "sfx_meiduan_pt_tx_40fr", bank = "meiduan"}
+, 
+[230290301] = {id = 230290301, play_frame = 13, path = "sfx_meiduan_small_wh_13fr", bank = "meiduan"}
+, 
+[230290302] = {id = 230290302, play_frame = 96, path = "sfx_meiduan_small_tx_96fr", bank = "meiduan"}
 }
 return BaseSoundPathData
 

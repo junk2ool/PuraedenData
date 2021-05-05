@@ -15,9 +15,9 @@ GetHeroDungeon_HeroPlotMap001Uis = function(ui, ...)
   uis.Monster_05_Grp = GetHeroDungeon_HeroDungeonMonsterOtherUis(ui:GetChild("Monster_05_Grp"))
   uis.Monster_06_Grp = GetHeroDungeon_HeroDungeonMonsterUis(ui:GetChild("Monster_06_Grp"))
   uis.Monster_07_Grp = GetHeroDungeon_HeroDungeonMonsterOtherUis(ui:GetChild("Monster_07_Grp"))
-  uis.Monster_08_Grp = GetHeroDungeon_HeroDungeonMonsterOtherUis(ui:GetChild("Monster_08_Grp"))
-  uis.Monster_09_Grp = GetHeroDungeon_HeroDungeonMonsterUis(ui:GetChild("Monster_09_Grp"))
-  uis.Monster_10_Grp = GetHeroDungeon_HeroDungeonMonsterOtherUis(ui:GetChild("Monster_10_Grp"))
+  uis.Monster_08_Grp = GetHeroDungeon_HeroDungeonMonsterUis(ui:GetChild("Monster_08_Grp"))
+  uis.Monster_09_Grp = GetHeroDungeon_HeroDungeonMonsterOtherUis(ui:GetChild("Monster_09_Grp"))
+  uis.Monster_10_Grp = GetHeroDungeon_HeroDungeonMonsterUis(ui:GetChild("Monster_10_Grp"))
   uis.MonsterGrp = ui:GetChild("MonsterGrp")
   uis.root = ui
   return uis

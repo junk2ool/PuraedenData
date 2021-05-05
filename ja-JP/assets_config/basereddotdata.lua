@@ -61,6 +61,8 @@ BaseRedDotData = {
 , 
 [2040004] = {id = 2040004, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 21}
 , 
+[2050000] = {id = 2050000, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 19}
+, 
 [3010000] = {id = 3010000, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 22}
 , 
 [3020000] = {id = 3020000, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 23}

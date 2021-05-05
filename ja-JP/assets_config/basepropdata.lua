@@ -381,11 +381,23 @@ BasePropData = {
 , 
 [21500703] = {id = 21500703, name = (PUtil.get)(82500703), remark = (PUtil.get)(83500703), icon = "ItemIcon:21500703", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
-[21500704] = {id = 21500704, name = (PUtil.get)(82500704), remark = (PUtil.get)(83500704, "3:6", "4:7"), icon = "ItemIcon:21500704", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+[21500704] = {id = 21500704, name = (PUtil.get)(82500704), remark = (PUtil.get)(83500704, "4:8", "5:9"), icon = "ItemIcon:21500704", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
 [21500705] = {id = 21500705, name = (PUtil.get)(82500705), remark = (PUtil.get)(83500705), icon = "ItemIcon:21500705", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
 [21500706] = {id = 21500706, name = (PUtil.get)(82500706), remark = (PUtil.get)(83500706), icon = "ItemIcon:21500706", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+, 
+[21500707] = {id = 21500707, name = (PUtil.get)(82500707), remark = (PUtil.get)(83500707), icon = "ItemIcon:21500707", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+, 
+[21500708] = {id = 21500708, name = (PUtil.get)(82500708), remark = (PUtil.get)(83500708), icon = "ItemIcon:21500708", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+, 
+[21500709] = {id = 21500709, name = (PUtil.get)(82500709), remark = (PUtil.get)(83500709), icon = "ItemIcon:21500709", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+, 
+[21500710] = {id = 21500710, name = (PUtil.get)(82500710), remark = (PUtil.get)(83500710), icon = "ItemIcon:21500710", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+, 
+[21500711] = {id = 21500711, name = (PUtil.get)(82500711), remark = (PUtil.get)(83500711), icon = "ItemIcon:21500709", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+, 
+[21500712] = {id = 21500712, name = (PUtil.get)(82500712), remark = (PUtil.get)(83500712), icon = "ItemIcon:21500709", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 }
 return BasePropData
 

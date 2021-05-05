@@ -6,7 +6,6 @@ require("HeroDungeon_BookComponentByName")
 GetHeroDungeon_HeroDungeonWindowUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
-  uis.Decorate_01_Image = ui:GetChild("Decorate_01_Image")
   uis.BackgroundEffectLoader = ui:GetChild("BackgroundEffectLoader")
   uis.AssetStrip = GetCommonResource_AssetStripUis(ui:GetChild("AssetStrip"))
   uis.CardQ = GetHeroDungeon_CardQUis(ui:GetChild("CardQ"))

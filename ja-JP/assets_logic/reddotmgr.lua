@@ -160,6 +160,8 @@ RedDotMgr.Init = function(...)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Lottery_Card, RedDotComID.Lottery_Main)
   ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Lottery_FreeMultiple, RedDotComID.Lottery_Main)
+  ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.LotteryActivty_Score1, RedDotComID.Lottery_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.LotteryActivty_Score2, RedDotComID.Lottery_Main)
@@ -482,158 +484,165 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
       else
         do
           if activityData.type == (ActivityMgr.ActivityType).Relic then
-            local listNode = RedDotManager:GetNodeByObj((WinResConfig.RelicMainWindow).name, RedDotComID.Relic_Reward)
+            local listNode = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, RedDotComID.Home_Lottery)
             listNode.NodeValue = IsAdd
           else
             do
-              do
-                if activityData.type == (ActivityMgr.ActivityType).Return then
-                  local listNode = RedDotManager:GetNodeByObj((WinResConfig.ActivityReturnWindow).name, RedDotComID.ActivityReturn_Vigour_Reward)
-                  listNode.NodeValue = IsAdd
-                end
-                if id == RedDotComID.Shop_Main then
-                  for _,v in ipairs(params) do
-                    local node = RedDotManager:GetNodeByObj((WinResConfig.ShopWindow).name, v)
-                    if node then
-                      loge(logStr .. "商店红点ID" .. v)
-                      node.NodeValue = IsAdd
-                    end
-                  end
-                else
+              if activityData.type == (ActivityMgr.ActivityType).Free_Lottery then
+                local listNode = RedDotManager:GetNodeByObj((WinResConfig.RelicMainWindow).name, RedDotComID.Relic_Reward)
+                listNode.NodeValue = IsAdd
+              else
+                do
                   do
-                    if id == RedDotComID.Adventure_Story then
-                      local node = RedDotManager:GetNodeByObj((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Story)
-                      if IsAdd then
-                        for _,v in ipairs(params) do
-                          if not (RedDotMgr.IsContainStoryPlotData)(v) then
-                            loge(logStr .. "剧情副本ID" .. v)
-                            ;
-                            (table.insert)(StoryData, v)
-                          end
+                    if activityData.type == (ActivityMgr.ActivityType).Return then
+                      local listNode = RedDotManager:GetNodeByObj((WinResConfig.ActivityReturnWindow).name, RedDotComID.ActivityReturn_Vigour_Reward)
+                      listNode.NodeValue = IsAdd
+                    end
+                    if id == RedDotComID.Shop_Main then
+                      for _,v in ipairs(params) do
+                        local node = RedDotManager:GetNodeByObj((WinResConfig.ShopWindow).name, v)
+                        if node then
+                          loge(logStr .. "商店红点ID" .. v)
+                          node.NodeValue = IsAdd
                         end
-                      else
-                        do
-                          for _,v in ipairs(params) do
-                            loge(logStr .. "剧情副本ID" .. v)
-                            for i,v2 in ipairs(StoryData) do
-                              if v == v2 then
-                                (table.remove)(StoryData, i)
+                      end
+                    else
+                      do
+                        if id == RedDotComID.Adventure_Story then
+                          local node = RedDotManager:GetNodeByObj((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Story)
+                          if IsAdd then
+                            for _,v in ipairs(params) do
+                              if not (RedDotMgr.IsContainStoryPlotData)(v) then
+                                loge(logStr .. "剧情副本ID" .. v)
+                                ;
+                                (table.insert)(StoryData, v)
                               end
                             end
-                          end
-                          do
+                          else
                             do
-                              if StoryData and #StoryData > 0 then
-                                node.NodeValue = true
-                              else
-                                node.NodeValue = false
-                              end
-                              if UIMgr:IsWindowOpen((WinResConfig.PlotPlayWindow).name) then
-                                UIMgr:SendWindowMessage((WinResConfig.PlotPlayWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_CHECK_RED_DOT)
-                              end
-                              if id == RedDotComID.Adventure_Hero then
-                                local node = RedDotManager:GetNodeByObj((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Hero)
-                                if IsAdd then
-                                  for _,v in ipairs(params) do
-                                    if not (RedDotMgr.IsContainHeroPlotData)(v) then
-                                      loge(logStr .. "英雄副本ID" .. v)
-                                      ;
-                                      (table.insert)(HeroData, v)
-                                    end
+                              for _,v in ipairs(params) do
+                                loge(logStr .. "剧情副本ID" .. v)
+                                for i,v2 in ipairs(StoryData) do
+                                  if v == v2 then
+                                    (table.remove)(StoryData, i)
                                   end
-                                else
-                                  do
-                                    for _,v in ipairs(params) do
-                                      loge(logStr .. "英雄副本ID" .. v)
-                                      for i,v2 in ipairs(HeroData) do
-                                        if v == v2 then
-                                          (table.remove)(HeroData, i)
+                                end
+                              end
+                              do
+                                do
+                                  if StoryData and #StoryData > 0 then
+                                    node.NodeValue = true
+                                  else
+                                    node.NodeValue = false
+                                  end
+                                  if UIMgr:IsWindowOpen((WinResConfig.PlotPlayWindow).name) then
+                                    UIMgr:SendWindowMessage((WinResConfig.PlotPlayWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_CHECK_RED_DOT)
+                                  end
+                                  if id == RedDotComID.Adventure_Hero then
+                                    local node = RedDotManager:GetNodeByObj((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Hero)
+                                    if IsAdd then
+                                      for _,v in ipairs(params) do
+                                        if not (RedDotMgr.IsContainHeroPlotData)(v) then
+                                          loge(logStr .. "英雄副本ID" .. v)
+                                          ;
+                                          (table.insert)(HeroData, v)
                                         end
                                       end
-                                    end
-                                    do
+                                    else
                                       do
-                                        if HeroData and #HeroData > 0 then
-                                          node.NodeValue = true
-                                        else
-                                          node.NodeValue = false
-                                        end
-                                        if id == RedDotComID.Equipt_Role_List then
-                                          local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
-                                          if node then
-                                            loge(logStr .. "装备角色列表ID" .. id)
-                                            node.NodeValueList = params
+                                        for _,v in ipairs(params) do
+                                          loge(logStr .. "英雄副本ID" .. v)
+                                          for i,v2 in ipairs(HeroData) do
+                                            if v == v2 then
+                                              (table.remove)(HeroData, i)
+                                            end
                                           end
-                                        else
+                                        end
+                                        do
                                           do
-                                            if id == RedDotComID.Equipt_Equipment_List then
-                                              local node = RedDotManager:GetNodeByObj((WinResConfig.EquipmentWindow).name, id)
+                                            if HeroData and #HeroData > 0 then
+                                              node.NodeValue = true
+                                            else
+                                              node.NodeValue = false
+                                            end
+                                            if id == RedDotComID.Equipt_Role_List then
+                                              local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
                                               if node then
-                                                loge(logStr .. "装备列表ID" .. id)
+                                                loge(logStr .. "装备角色列表ID" .. id)
                                                 node.NodeValueList = params
                                               end
                                             else
                                               do
-                                                if id == RedDotComID.Announcement_List then
-                                                  local node = RedDotManager:GetNodeByObj((WinResConfig.AnnouncementWindow).name, id)
+                                                if id == RedDotComID.Equipt_Equipment_List then
+                                                  local node = RedDotManager:GetNodeByObj((WinResConfig.EquipmentWindow).name, id)
                                                   if node then
-                                                    loge(logStr .. "公告列表ID" .. id)
+                                                    loge(logStr .. "装备列表ID" .. id)
                                                     node.NodeValueList = params
                                                   end
                                                 else
                                                   do
-                                                    if id == RedDotComID.HandBook_Story_List then
-                                                      local node = RedDotManager:GetNodeByObj((WinResConfig.HandBookCardPlotWindow).name, RedDotComID.HandBook_Story_List)
+                                                    if id == RedDotComID.Announcement_List then
+                                                      local node = RedDotManager:GetNodeByObj((WinResConfig.AnnouncementWindow).name, id)
                                                       if node then
-                                                        if IsAdd then
-                                                          for _,v in ipairs(params) do
-                                                            (table.insert)(HandBookStory, v)
-                                                          end
-                                                        else
-                                                          do
-                                                            for _,v in ipairs(params) do
-                                                              for i,v2 in ipairs(HandBookStory) do
-                                                                if v == v2 then
-                                                                  (table.remove)(HandBookStory, i)
-                                                                end
+                                                        loge(logStr .. "公告列表ID" .. id)
+                                                        node.NodeValueList = params
+                                                      end
+                                                    else
+                                                      do
+                                                        if id == RedDotComID.HandBook_Story_List then
+                                                          local node = RedDotManager:GetNodeByObj((WinResConfig.HandBookCardPlotWindow).name, RedDotComID.HandBook_Story_List)
+                                                          if node then
+                                                            if IsAdd then
+                                                              for _,v in ipairs(params) do
+                                                                (table.insert)(HandBookStory, v)
                                                               end
-                                                            end
-                                                            do
+                                                            else
                                                               do
-                                                                if HandBookStory and #HandBookStory > 0 then
-                                                                  node.NodeValue = true
-                                                                else
-                                                                  node.NodeValue = false
+                                                                for _,v in ipairs(params) do
+                                                                  for i,v2 in ipairs(HandBookStory) do
+                                                                    if v == v2 then
+                                                                      (table.remove)(HandBookStory, i)
+                                                                    end
+                                                                  end
                                                                 end
-                                                                if UIMgr:IsWindowOpen((WinResConfig.HandBookCardPlotWindow).name) then
-                                                                  UIMgr:SendWindowMessage((WinResConfig.HandBookCardPlotWindow).name, 2)
-                                                                end
-                                                                if id == RedDotComID.Title_List then
-                                                                  local node = RedDotManager:GetNodeByObj((WinResConfig.TitleWindow).name, RedDotComID.Title_List)
-                                                                  if node then
-                                                                    (RedDotMgr.ListProcessor)(Title_RedList, params, IsAdd)
-                                                                  end
-                                                                  loge("称号红点更新")
-                                                                  if Title_RedList and #Title_RedList > 0 then
-                                                                    node.NodeValue = true
-                                                                  else
-                                                                    node.NodeValue = false
-                                                                  end
-                                                                  if UIMgr:IsWindowOpen((WinResConfig.TitleWindow).name) then
-                                                                    UIMgr:SendWindowMessage((WinResConfig.TitleWindow).name, (WindowMsgEnum.Title).E_MSG_RED_DOT)
-                                                                  end
-                                                                else
+                                                                do
                                                                   do
-                                                                    do
-                                                                      local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
+                                                                    if HandBookStory and #HandBookStory > 0 then
+                                                                      node.NodeValue = true
+                                                                    else
+                                                                      node.NodeValue = false
+                                                                    end
+                                                                    if UIMgr:IsWindowOpen((WinResConfig.HandBookCardPlotWindow).name) then
+                                                                      UIMgr:SendWindowMessage((WinResConfig.HandBookCardPlotWindow).name, 2)
+                                                                    end
+                                                                    if id == RedDotComID.Title_List then
+                                                                      local node = RedDotManager:GetNodeByObj((WinResConfig.TitleWindow).name, RedDotComID.Title_List)
                                                                       if node then
-                                                                        loge(logStr .. "普通红点ID" .. id)
-                                                                        node.NodeValue = IsAdd
-                                                                      else
-                                                                        loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")
+                                                                        (RedDotMgr.ListProcessor)(Title_RedList, params, IsAdd)
                                                                       end
-                                                                      if id == RedDotComID.FREE_GIFT then
-                                                                        UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_FREEGIFTREDDOT)
+                                                                      loge("称号红点更新")
+                                                                      if Title_RedList and #Title_RedList > 0 then
+                                                                        node.NodeValue = true
+                                                                      else
+                                                                        node.NodeValue = false
+                                                                      end
+                                                                      if UIMgr:IsWindowOpen((WinResConfig.TitleWindow).name) then
+                                                                        UIMgr:SendWindowMessage((WinResConfig.TitleWindow).name, (WindowMsgEnum.Title).E_MSG_RED_DOT)
+                                                                      end
+                                                                    else
+                                                                      do
+                                                                        do
+                                                                          local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
+                                                                          if node then
+                                                                            loge(logStr .. "普通红点ID" .. id)
+                                                                            node.NodeValue = IsAdd
+                                                                          else
+                                                                            loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")
+                                                                          end
+                                                                          if id == RedDotComID.FREE_GIFT then
+                                                                            UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_FREEGIFTREDDOT)
+                                                                          end
+                                                                        end
                                                                       end
                                                                     end
                                                                   end

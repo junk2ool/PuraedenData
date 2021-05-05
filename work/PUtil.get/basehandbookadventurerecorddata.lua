@@ -1,13 +1,13 @@
 {
-[52100101] = {id = 52100101, name = "熱心な獣耳少女", remark = "熱心な獣耳少女", icon = "HandBookBanner:handbook_03_1", story_id = "75001101:75001102:75001103:75001104:75001105:75001106:75001107:75001108:75001109", sort = 1}
+[52100101] = {id = 52100101, name = "熱心な獣耳少女", remark = "熱心な獣耳少女", icon = "HandBookBanner:handbook_03_1", story_id = "75901111:75901112:75901121", sort = 1}
 , 
-[52100102] = {id = 52100102, name = "熱心な獣耳少女", remark = "異世界の大ピンチ", icon = "HandBookBanner:handbook_03_2", story_id = "75001231:75001251", sort = 2}
+[52100102] = {id = 52100102, name = "熱心な獣耳少女", remark = "異世界の大ピンチ", icon = "HandBookBanner:handbook_03_2", story_id = "75901131:75901141:75901142", sort = 2}
 , 
-[52100103] = {id = 52100103, name = "熱心な獣耳少女", remark = "見習い団長", icon = "HandBookBanner:handbook_03_3", story_id = "75001331:75001332:75001333:75001334", sort = 3}
+[52100103] = {id = 52100103, name = "熱心な獣耳少女", remark = "見習い団長", icon = "HandBookBanner:handbook_03_3", story_id = "75901151:75901152:75901161", sort = 3}
 , 
-[52100104] = {id = 52100104, name = "熱心な獣耳少女", remark = "依頼を処理しよう", icon = "HandBookBanner:handbook_03_4", story_id = "75001441:75001451", sort = 4}
+[52100104] = {id = 52100104, name = "熱心な獣耳少女", remark = "依頼を処理しよう", icon = "HandBookBanner:handbook_03_4", story_id = "75901171:75901181:75901182", sort = 4}
 , 
-[52100105] = {id = 52100105, name = "熱心な獣耳少女", remark = "謎のお客様", icon = "HandBookBanner:handbook_03_5", story_id = "75001521", sort = 5}
+[52100105] = {id = 52100105, name = "熱心な獣耳少女", remark = "謎のお客様", icon = "HandBookBanner:handbook_03_5", story_id = "75901191:75901192:75901101", sort = 5}
 , 
 [52100201] = {id = 52100201, name = "異世界の大ピンチ", remark = "天才美少女騎士", icon = "HandBookBanner:handbook_08_1", story_id = "75002111:75002131", sort = 1}
 , 
@@ -494,4 +494,14 @@
 [52500912] = {id = 52500912, name = "学園ピンチ大混戦", remark = "学園ピンチ大混戦", icon = "HandBookBanner:Activity_09_4", story_id = "75900971:75900972:75900973:75900974:75900981:75900982:75900983", sort = 4}
 , 
 [52500915] = {id = 52500915, name = "乗り越える勇気", remark = "乗り越える勇気", icon = "HandBookBanner:Activity_09_5", story_id = "75900991:75900992:75900993:75900994", sort = 5}
+, 
+[52501003] = {id = 52501003, name = "失踪の崇拝者", remark = "失踪の崇拝者", icon = "HandBookBanner:handbook_01_1", story_id = "75901011:75901021", sort = 1}
+, 
+[52501006] = {id = 52501006, name = "山中へ向かう", remark = "山中へ向かう", icon = "HandBookBanner:handbook_01_2", story_id = "75901031:75901041", sort = 2}
+, 
+[52501009] = {id = 52501009, name = "危機一髪", remark = "危機一髪", icon = "HandBookBanner:handbook_01_3", story_id = "75901051:75901052:75901061", sort = 3}
+, 
+[52501012] = {id = 52501012, name = "狩人撃退作戦！", remark = "狩人撃退作戦！", icon = "HandBookBanner:handbook_01_4", story_id = "75901071:75901081", sort = 4}
+, 
+[52501015] = {id = 52501015, name = "仲間二人加入", remark = "仲間二人加入", icon = "HandBookBanner:handbook_01_5", story_id = "75901091:75901092", sort = 5}
 }

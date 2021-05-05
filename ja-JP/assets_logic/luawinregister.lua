@@ -465,7 +465,7 @@ _ENV.RegisterAllLuaWindowType = function(...)
 end
 
 _ENV.WindowMsgEnum = {
-HomeWindow = {E_MSG_UPDATE_ACTOR_INFO = 1, E_MSG_UPDATE_ACTIVITY_VISIBLE = 2, E_MSG_RESET_TASK_SPINE = 3, E_MSG_UPDATE_BG = 4, E_MSG_UPDATE_BANNER = 5, E_MSG_UPDATE_BANNER_REDDOT = 6}
+HomeWindow = {E_MSG_UPDATE_ACTOR_INFO = 1, E_MSG_UPDATE_ACTIVITY_VISIBLE = 2, E_MSG_RESET_TASK_SPINE = 3, E_MSG_UPDATE_BG = 4, E_MSG_UPDATE_BANNER = 5, E_MSG_UPDATE_BANNER_REDDOT = 6, E_MSG_UPDATE_FREE_10_LOTTERY = 7}
 , 
 LoadingWindow = {E_MSG_UPDATE_LOADING_PROCESS = 1, E_MSG_UPDATE_LOADING_PROCESS_TWEEN = 2, E_MSG_UPDATE_LOADING_PROCESS_TWEEN_ADD = 3}
 , 
@@ -691,6 +691,8 @@ FriendsListWindow = {"CharacterHeadBanner", "Title"}
 FriendAddWindow = {"CharacterHeadBanner", "CardHeadIconCircle"}
 , 
 FriendChatWindow = {"CardHeadIconCircle"}
+, 
+TaskWindow = {"CardHeadIconCircle"}
 , 
 PrizeWindow = {"Equipicon", "CardHeadIconCircle"}
 , 

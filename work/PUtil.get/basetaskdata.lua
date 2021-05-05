@@ -1683,6 +1683,12 @@
 , 
 [31150001] = {id = 31150001, name = "リーダー戦力", remark = "リーダー戦力が100万に到達", type = 1, is_inherit = 1, pre_id = 0, next_id = 0, level_required = 1, icon_path = "Task:texture_1", sort_weight = 14, target_href_id = 0, complete_lv_limit = 1, target_type = "72501015:0:1000000", reset_time = "0", liveness = 0, reward = "1:999|10:78610004:1"}
 , 
+[31160001] = {id = 31160001, name = "冒険者募集", remark = "150回連続募集でSSR冒険者なし", type = 1, is_inherit = 1, pre_id = 0, next_id = 31160002, level_required = 1, icon_path = "Task:texture_1", sort_weight = 15, target_href_id = 100108, complete_lv_limit = 1, target_type = "72506621:0:150", reset_time = "0", liveness = 0, reward = "1:999|1:21160001:10"}
+, 
+[31160002] = {id = 31160002, name = "冒険者募集", remark = "200回連続募集でSSR冒険者なし", type = 1, is_inherit = 1, pre_id = 31160001, next_id = 31160003, level_required = 1, icon_path = "Task:texture_1", sort_weight = 15, target_href_id = 100108, complete_lv_limit = 1, target_type = "72506621:0:200", reset_time = "0", liveness = 0, reward = "1:999|9:78601401:1,1:21160001:10"}
+, 
+[31160003] = {id = 31160003, name = "冒険者募集", remark = "250回連続募集でSSR冒険者なし", type = 1, is_inherit = 1, pre_id = 31160002, next_id = 0, level_required = 1, icon_path = "Task:texture_1", sort_weight = 15, target_href_id = 100108, complete_lv_limit = 1, target_type = "72506621:0:250", reset_time = "0", liveness = 0, reward = "1:999|5:29000101:1,1:21160001:10"}
+, 
 [31200001] = {id = 31200001, name = "募集", remark = "任意の募集を3回完了", type = 2, is_inherit = 0, pre_id = 0, next_id = 0, level_required = 6, icon_path = "Task:texture_4", sort_weight = 4, target_href_id = 100108, complete_lv_limit = 6, target_type = "72506601:0:3", reset_time = "1:0500:MX0", liveness = 5, reward = "1:999|2:21100009:18,1:21110001:5"}
 , 
 [31200002] = {id = 31200002, name = "メイン＆イベントステージ", remark = "メインまたはイベントステージを5回クリア", type = 2, is_inherit = 0, pre_id = 0, next_id = 0, level_required = 5, icon_path = "Task:texture_2", sort_weight = 3, target_href_id = 300101, complete_lv_limit = 5, target_type = "72504121:0:5", reset_time = "1:0500:MX0", liveness = 10, reward = "1:999|2:21100009:24,2:21100003:5000"}
