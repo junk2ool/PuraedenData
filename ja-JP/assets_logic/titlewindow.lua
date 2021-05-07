@@ -253,7 +253,9 @@ TitleWindow.InitLeftList = function(...)
   listData = {}
   local configData = (TableData.gTable).BasePlayerTitleData
   for _,v in pairs(configData) do
-    (table.insert)(listData, v)
+    if _ ~= 29000101 then
+      (table.insert)(listData, v)
+    end
   end
   ;
   (table.sort)(listData, function(a, b, ...)
@@ -262,15 +264,15 @@ TitleWindow.InitLeftList = function(...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.Title_A).TitleList).numItems = #listData
-  -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.Title_A).NameTxt).text = (PUtil.get)(20000441, #titleList, #listData)
-  -- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC41: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.Title_A).TitleList).selectedIndex = 0
