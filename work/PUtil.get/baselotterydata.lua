@@ -37,11 +37,11 @@
 , 
 [24000083] = {id = 24000083, name_id = 89007045, name = "一日一回", type = 9, activity_id = 33000604, count_type = 1, mode = 3, first_cost = "0", cost = "2:21100002:50", integral = 1, cost_final = "2:21100002:50", day_limit_num = 1, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100012", bottom_pool_list = "0", act_integral = 1}
 , 
-[24000091] = {id = 24000091, name_id = 89007043, name = "10回募集", type = 10, activity_id = 33000605, count_type = 1, mode = 1, first_cost = "1:21160001:1", cost = "2:21100001:150", integral = 1, cost_final = "2:21100002:150", day_limit_num = 9999999, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100014", bottom_pool_list = "0", act_integral = 1}
+[24000091] = {id = 24000091, name_id = 89007048, name = "10回募集", type = 10, activity_id = 33000605, count_type = 1, mode = 1, first_cost = "1:21160001:1", cost = "2:21100001:150", integral = 1, cost_final = "2:21100002:150", day_limit_num = 9999999, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100014", bottom_pool_list = "0", act_integral = 1}
 , 
-[24000092] = {id = 24000092, name_id = 89007043, name = "1回募集", type = 10, activity_id = 33000605, count_type = 1, mode = 2, first_cost = "1:21160001:10", cost = "2:21100001:1500", integral = 10, cost_final = "2:21100002:1500", day_limit_num = 9999999, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100015", bottom_pool_list = "24200007", act_integral = 10}
+[24000092] = {id = 24000092, name_id = 89007048, name = "1回募集", type = 10, activity_id = 33000605, count_type = 1, mode = 2, first_cost = "1:21160001:10", cost = "2:21100001:1500", integral = 10, cost_final = "2:21100002:1500", day_limit_num = 9999999, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100015", bottom_pool_list = "24200007", act_integral = 10}
 , 
-[24000093] = {id = 24000093, name_id = 89007043, name = "一日一回", type = 10, activity_id = 33000605, count_type = 1, mode = 3, first_cost = "0", cost = "2:21100002:50", integral = 1, cost_final = "2:21100002:50", day_limit_num = 1, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100014", bottom_pool_list = "0", act_integral = 1}
+[24000093] = {id = 24000093, name_id = 89007048, name = "一日一回", type = 10, activity_id = 33000605, count_type = 1, mode = 3, first_cost = "0", cost = "2:21100002:50", integral = 1, cost_final = "2:21100002:50", day_limit_num = 1, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100014", bottom_pool_list = "0", act_integral = 1}
 , 
 [24003011] = {id = 24003011, name = "1回募集", type = 5, count_type = 1, mode = 1, first_cost = "0", cost = "2:21100018:1", integral = 0, cost_final = "0", day_limit_num = 9999999, day_free_num = 0, free_cd = 0, limit_num = 0, drop_pool = "0:6:24100003", bottom_pool_list = "0", act_integral = 0}
 , 

@@ -5063,6 +5063,76 @@ BaseSoundPathData = {
 , 
 [282050307] = {id = 282050307, play_frame = 111, path = "sfx_boss_niutouren_small_tx_111fr", bank = "boss_niutouren"}
 , 
+[282320101] = {id = 282320101, play_frame = 8, path = "sfx_boss_pan_big_tx_8fr", bank = "boss_pan"}
+, 
+[282320102] = {id = 282320102, play_frame = 77, path = "sfx_boss_pan_big_tx_77fr", bank = "boss_pan"}
+, 
+[282320103] = {id = 282320103, play_frame = 133, path = "sfx_boss_pan_big_tx_133fr", bank = "boss_pan"}
+, 
+[282320104] = {id = 282320104, play_frame = 144, path = "sfx_boss_pan_big_tx_144fr", bank = "boss_pan"}
+, 
+[282320105] = {id = 282320105, play_frame = 154, path = "sfx_boss_pan_big_tx_154fr", bank = "boss_pan"}
+, 
+[282320106] = {id = 282320106, play_frame = 157, path = "sfx_boss_pan_big_tx_157fr", bank = "boss_pan"}
+, 
+[282320107] = {id = 282320107, play_frame = 163, path = "sfx_boss_pan_big_tx_163fr", bank = "boss_pan"}
+, 
+[282320108] = {id = 282320108, play_frame = 167, path = "sfx_boss_pan_big_tx_167fr", bank = "boss_pan"}
+, 
+[282320109] = {id = 282320109, play_frame = 172, path = "sfx_boss_pan_big_tx_172fr", bank = "boss_pan"}
+, 
+[282320110] = {id = 282320110, play_frame = 176, path = "sfx_boss_pan_big_tx_176fr", bank = "boss_pan"}
+, 
+[282320111] = {id = 282320111, play_frame = 184, path = "sfx_boss_pan_big_tx_184fr", bank = "boss_pan"}
+, 
+[282320112] = {id = 282320112, play_frame = 188, path = "sfx_boss_pan_big_tx_188fr", bank = "boss_pan"}
+, 
+[282320113] = {id = 282320113, play_frame = 194, path = "sfx_boss_pan_big_tx_194fr", bank = "boss_pan"}
+, 
+[282320114] = {id = 282320114, play_frame = 202, path = "sfx_boss_pan_big_tx_202fr", bank = "boss_pan"}
+, 
+[282320115] = {id = 282320115, play_frame = 207, path = "sfx_boss_pan_big_tx_207fr", bank = "boss_pan"}
+, 
+[282320116] = {id = 282320116, play_frame = 231, path = "sfx_boss_pan_big_tx_231fr", bank = "boss_pan"}
+, 
+[282320201] = {id = 282320201, play_frame = 33, path = "sfx_boss_pan_pt_wh_33fr", bank = "boss_pan"}
+, 
+[282320202] = {id = 282320202, play_frame = 41, path = "sfx_boss_pan_pt_wh_41fr", bank = "boss_pan"}
+, 
+[282320203] = {id = 282320203, play_frame = 43, path = "sfx_boss_pan_pt_tx_43fr", bank = "boss_pan"}
+, 
+[282320301] = {id = 282320301, play_frame = 18, path = "sfx_boss_pan_small_tx_18fr", bank = "boss_pan"}
+, 
+[282320302] = {id = 282320302, play_frame = 41, path = "sfx_boss_pan_small_tx_41fr", bank = "boss_pan"}
+, 
+[282320303] = {id = 282320303, play_frame = 73, path = "sfx_boss_pan_small_tx_73fr", bank = "boss_pan"}
+, 
+[282520101] = {id = 282520101, play_frame = 21, path = "sfx_boss_heermosi_big_tx_21fr", bank = "boss_heermosi"}
+, 
+[282520102] = {id = 282520102, play_frame = 29, path = "sfx_boss_heermosi_big_tx_29fr", bank = "boss_heermosi"}
+, 
+[282520103] = {id = 282520103, play_frame = 34, path = "sfx_boss_heermosi_big_tx_34fr", bank = "boss_heermosi"}
+, 
+[282520104] = {id = 282520104, play_frame = 98, path = "sfx_boss_heermosi_big_tx_98fr", bank = "boss_heermosi"}
+, 
+[282520105] = {id = 282520105, play_frame = 111, path = "sfx_boss_heermosi_big_tx_111fr", bank = "boss_heermosi"}
+, 
+[282520106] = {id = 282520106, play_frame = 171, path = "sfx_boss_heermosi_big_tx_171fr", bank = "boss_heermosi"}
+, 
+[282520201] = {id = 282520201, play_frame = 46, path = "sfx_boss_heermosi_pt_wh_46fr", bank = "boss_heermosi"}
+, 
+[282520202] = {id = 282520202, play_frame = 59, path = "sfx_boss_heermosi_pt_tx_59fr", bank = "boss_heermosi"}
+, 
+[282520301] = {id = 282520301, play_frame = 34, path = "sfx_boss_heermosi_small_tx_34fr", bank = "boss_heermosi"}
+, 
+[282520302] = {id = 282520302, play_frame = 43, path = "sfx_boss_heermosi_small_tx_43fr", bank = "boss_heermosi"}
+, 
+[282520303] = {id = 282520303, play_frame = 68, path = "sfx_boss_heermosi_small_wh_68fr", bank = "boss_heermosi"}
+, 
+[282520304] = {id = 282520304, play_frame = 72, path = "sfx_boss_heermosi_small_tx_72fr", bank = "boss_heermosi"}
+, 
+[282520305] = {id = 282520305, play_frame = 91, path = "sfx_boss_heermosi_small_tx_91fr", bank = "boss_heermosi"}
+, 
 [230250101] = {id = 230250101, play_frame = 27, path = "sfx_maotouying_big_tx_27fr", bank = "maotouying"}
 , 
 [230250102] = {id = 230250102, play_frame = 91, path = "sfx_maotouying_big_tx_91fr", bank = "maotouying"}
@@ -5258,6 +5328,54 @@ BaseSoundPathData = {
 [230290301] = {id = 230290301, play_frame = 13, path = "sfx_meiduan_small_wh_13fr", bank = "meiduan"}
 , 
 [230290302] = {id = 230290302, play_frame = 96, path = "sfx_meiduan_small_tx_96fr", bank = "meiduan"}
+, 
+[230310101] = {id = 230310101, play_frame = 13, path = "sfx_zanghu_big_tx_13fr", bank = "zanghu"}
+, 
+[230310102] = {id = 230310102, play_frame = 138, path = "sfx_zanghu_big_tx_138fr", bank = "zanghu"}
+, 
+[230310103] = {id = 230310103, play_frame = 197, path = "sfx_zanghu_big_tx_197fr", bank = "zanghu"}
+, 
+[230310104] = {id = 230310104, play_frame = 243, path = "sfx_zanghu_big_tx_243fr", bank = "zanghu"}
+, 
+[230310105] = {id = 230310105, play_frame = 283, path = "sfx_zanghu_big_tx_283fr", bank = "zanghu"}
+, 
+[230310106] = {id = 230310106, play_frame = 293, path = "sfx_zanghu_big_tx_293fr", bank = "zanghu"}
+, 
+[230310107] = {id = 230310107, play_frame = 324, path = "sfx_zanghu_big_tx_324fr", bank = "zanghu"}
+, 
+[230310108] = {id = 230310108, play_frame = 332, path = "sfx_zanghu_big_tx_332fr", bank = "zanghu"}
+, 
+[230310109] = {id = 230310109, play_frame = 345, path = "sfx_zanghu_big_tx_345fr", bank = "zanghu"}
+, 
+[230310110] = {id = 230310110, play_frame = 370, path = "sfx_zanghu_big_tx_370fr", bank = "zanghu"}
+, 
+[230310111] = {id = 230310111, play_frame = 534, path = "sfx_zanghu_big_tx_534fr", bank = "zanghu"}
+, 
+[230310201] = {id = 230310201, play_frame = 12, path = "sfx_zanghu_pt_wh_12fr", bank = "zanghu"}
+, 
+[230310202] = {id = 230310202, play_frame = 14, path = "sfx_zanghu_pt_tx_14fr", bank = "zanghu"}
+, 
+[230310203] = {id = 230310203, play_frame = 24, path = "sfx_zanghu_pt_wh_24fr", bank = "zanghu"}
+, 
+[230310204] = {id = 230310204, play_frame = 37, path = "sfx_zanghu_pt_tx_37fr", bank = "zanghu"}
+, 
+[230310205] = {id = 230310205, play_frame = 39, path = "sfx_zanghu_pt_wh_39fr", bank = "zanghu"}
+, 
+[230310206] = {id = 230310206, play_frame = 53, path = "sfx_zanghu_pt_tx_53fr", bank = "zanghu"}
+, 
+[230310207] = {id = 230310207, play_frame = 56, path = "sfx_zanghu_pt_wh_56fr", bank = "zanghu"}
+, 
+[230310301] = {id = 230310301, play_frame = 5, path = "sfx_zanghu_small_tx_5fr", bank = "zanghu"}
+, 
+[230310302] = {id = 230310302, play_frame = 39, path = "sfx_zanghu_small_wh_39fr", bank = "zanghu"}
+, 
+[230310303] = {id = 230310303, play_frame = 57, path = "sfx_zanghu_small_tx_57fr", bank = "zanghu"}
+, 
+[230310304] = {id = 230310304, play_frame = 62, path = "sfx_zanghu_small_tx_62fr", bank = "zanghu"}
+, 
+[230310401] = {id = 230310401, play_frame = 13, path = "sfx_zanghu_pt_wh_56fr", bank = "zanghu"}
+, 
+[230310402] = {id = 230310402, play_frame = 21, path = "sfx_zanghu_pt_tx_53fr", bank = "zanghu"}
 }
 return BaseSoundPathData
 

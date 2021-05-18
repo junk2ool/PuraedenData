@@ -222,6 +222,13 @@ BattleDataCount.GetPreRoundCount = function(...)
   end
   ;
   (self.DealActiveBuff)(nil, preRoundInfo, BattleBuffSettleRoundType.BEFORE_ROUND)
+  local oe = curRound % 2
+  if oe == 1 then
+    (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.ODD_NUMBER)
+  else
+    ;
+    (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.EVEN_NUMBER)
+  end
   ;
   (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.BEFORE_ROUND)
   if curRound > 1 then
@@ -485,8 +492,8 @@ end
 
 -- DECOMPILER ERROR at PC190: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, murderer, ...)
-  -- function num : 0_15 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, self, tonumber
+BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, ...)
+  -- function num : 0_15 , upvalues : BattleBuffMgr, ipairs, t_insert, _ENV, BattleBuffDeductionRoundType, BattleBuffSettleRoundType, self, tonumber, math
   local isTrigger = true
   local buffList = (BattleBuffMgr.GetBuffList)()
   local idStr = ""
@@ -575,7 +582,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, murder
                   else
                     if deduction_round_type == BattleBuffDeductionRoundType.DIE_SKILL_DIE then
                       defCard.waitingSkill = true
-                      buff:SetAtkPos(murderer:GetPosIndex())
+                      buff:SetAtkPos(arg:GetPosIndex())
                       ;
                       (self.RealUpdateBuffCount)(buff, atkInfo)
                     else
@@ -601,30 +608,43 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, murder
                         else
                           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
                             (self.RealUpdateBuffCount)(buff, atkInfo)
+                          else
+                            -- DECOMPILER ERROR at PC422: Unhandled construct in 'MakeBoolean' P1
+
+                            if deduction_round_type == BattleBuffDeductionRoundType.AFTER_ENEMY_HEAL and (math.abs)(arg - defPos) > 50 then
+                              (self.RealUpdateBuffCount)(buff, atkInfo)
+                            end
                           end
                         end
                       end
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out DO_STMT
+                      if deduction_round_type == BattleBuffDeductionRoundType.ODD_NUMBER then
+                        (self.RealUpdateBuffCount)(buff, atkInfo)
+                      else
+                        if deduction_round_type == BattleBuffDeductionRoundType.EVEN_NUMBER then
+                          (self.RealUpdateBuffCount)(buff, atkInfo)
+                        end
+                      end
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC410: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
@@ -643,7 +663,7 @@ end
 -- DECOMPILER ERROR at PC193: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
-  -- function num : 0_16 , upvalues : _ENV, ipairs, t_insert, BattleBuffDeductionRoundType, clone, self
+  -- function num : 0_16 , upvalues : _ENV, ipairs, t_insert, BattleBuffDeductionRoundType, BattleDisplayEffect, BattleSkillType, clone, pairs, self
   local isTrigger = false
   local buffConfig = buff:GetBuffConfig()
   local curDefPos = buff:GetCurDefPos()
@@ -657,58 +677,99 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
       local card = (BattleData.GetCardInfoByPos)(cardInfo.defPos)
       t_insert(defCards, card)
     end
-    local newBuffTable, murderer = nil, nil
+    local newBuffTable, murderer, normal, skill1, skill2 = nil, nil, nil, nil, nil
     if buffConfig.deduction_round_type == BattleBuffDeductionRoundType.DIE_SKILL_DIE then
       murderer = buff:GetAtkPos()
-    end
-    newBuffTable = (BattleSkill.GetAllBuffByBuffList)(defCard, defCards, buff_list, nil, atkInfo)
-    for _,newBuff in ipairs(newBuffTable) do
-      local targetId = newBuff.targetId
-      local targetCards = {}
-      if targetId == 1001 or targetId == 1002 then
-        targetCards = buff:GetTargetCard(newBuff.targetId)
-      else
-        local targetPosTable = newBuff:GetTargetPosTable()
-        for _,pos in ipairs(targetPosTable) do
-          t_insert(targetCards, (BattleData.GetCardInfoByPos)(pos))
-        end
-      end
-      do
-        for _,card in ipairs(targetCards) do
-          if card and card:IsDead() ~= true then
-            local buffClone = clone(newBuff)
-            buffClone:SetCurDefPos(card:GetPosIndex())
-            local buffConfigTemp = buffClone:GetBuffConfig()
-            if murderer then
-              buffClone.atkPos = murderer
+    else
+      if buffConfig.deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
+        for k,v in ipairs(atkInfo.allBuffTable) do
+          if (v.buff).atkPos == atkInfo.atkPos and ((v.buff).effectTable)[1] then
+            if (((v.buff).effectTable)[1]).effectId == BattleDisplayEffect.ATK_NO_HEAL and atkInfo.skillType == BattleSkillType.NORMAL then
+              normal = true
             else
-              if buff.atkPos == 0 or buffConfigTemp.forceAtk and buffConfigTemp.forceAtk == 1 then
-                buffClone.atkPos = buff.curDefPos
+              if (((v.buff).effectTable)[1]).effectId == BattleDisplayEffect.SMALL_SKILL_NO_HEAL and atkInfo.skillType == BattleSkillType.SMALL then
+                skill1 = true
               else
-                buffClone.atkPos = buff.atkPos
+                if (((v.buff).effectTable)[1]).effectId == BattleDisplayEffect.SKILL_NO_HEAL and atkInfo.skillType == BattleSkillType.SKILL then
+                  skill2 = true
+                end
               end
-            end
-            local canAdd = (self.DealAddBuff)(card, buffClone, atkInfo)
-            if canAdd == true then
-              isTrigger = true
-              local deductionRoundType = buffClone:GetDeductionRoundType()
-              if deductionRoundType == BattleBuffDeductionRoundType.NOW then
-                (self.RealUpdateBuffCount)(buffClone, atkInfo, true)
-              end
-              ;
-              (BattleDataCount.DealEquipBuff)(card, buffClone, atkInfo)
             end
           end
         end
-        do
-          -- DECOMPILER ERROR at PC148: LeaveBlock: unexpected jumping out DO_STMT
-
-        end
       end
     end
-  end
-  do
-    return isTrigger
+    do
+      do
+        newBuffTable = (BattleSkill.GetAllBuffByBuffList)(defCard, defCards, buff_list, nil, atkInfo)
+        for _,newBuff in ipairs(newBuffTable) do
+          local targetId = newBuff.targetId
+          local targetCards = {}
+          if targetId == 1001 or targetId == 1002 then
+            targetCards = buff:GetTargetCard(newBuff.targetId)
+          else
+            local targetPosTable = newBuff:GetTargetPosTable()
+            for _,pos in ipairs(targetPosTable) do
+              t_insert(targetCards, (BattleData.GetCardInfoByPos)(pos))
+            end
+          end
+          do
+            do
+              for _,card in ipairs(targetCards) do
+                if card and card:IsDead() ~= true then
+                  local buffClone = clone(newBuff)
+                  buffClone:SetCurDefPos(card:GetPosIndex())
+                  local buffConfigTemp = buffClone:GetBuffConfig()
+                  local trigger = true
+                  if normal or skill1 or skill2 then
+                    local effectTable = buffClone:GetEffectTable()
+                    for k,v in pairs(effectTable) do
+                      if v.effectId == BattleDisplayEffect.TREATMENT_EXTRA or v.effectId == BattleDisplayEffect.TREATMENT_PERSIST then
+                        trigger = false
+                      end
+                    end
+                  end
+                  do
+                    if trigger then
+                      if murderer then
+                        buffClone.atkPos = murderer
+                      else
+                        if buff.atkPos == 0 or buffConfigTemp.forceAtk and buffConfigTemp.forceAtk == 1 then
+                          buffClone.atkPos = buff.curDefPos
+                        else
+                          buffClone.atkPos = buff.atkPos
+                        end
+                      end
+                      local canAdd = (self.DealAddBuff)(card, buffClone, atkInfo)
+                      if canAdd == true then
+                        isTrigger = true
+                        local deductionRoundType = buffClone:GetDeductionRoundType()
+                        if deductionRoundType == BattleBuffDeductionRoundType.NOW then
+                          (self.RealUpdateBuffCount)(buffClone, atkInfo, true)
+                        end
+                        ;
+                        (BattleDataCount.DealEquipBuff)(card, buffClone, atkInfo)
+                      end
+                    end
+                    do
+                      -- DECOMPILER ERROR at PC231: LeaveBlock: unexpected jumping out DO_STMT
+
+                      -- DECOMPILER ERROR at PC231: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                      -- DECOMPILER ERROR at PC231: LeaveBlock: unexpected jumping out IF_STMT
+
+                    end
+                  end
+                end
+              end
+              -- DECOMPILER ERROR at PC233: LeaveBlock: unexpected jumping out DO_STMT
+
+            end
+          end
+        end
+        return isTrigger
+      end
+    end
   end
 end
 

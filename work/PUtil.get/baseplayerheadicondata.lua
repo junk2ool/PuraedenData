@@ -21,7 +21,9 @@
 , 
 [78601306] = {id = 78601306, name = "鎧を着たウサギ アイコン", des = "ウサギちゃんの勇姿を見なさい！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_006", condition = "0", sort = 11, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
 , 
-[78601401] = {id = 78601401, name = "嘘？！　アイコン", des = "200回連続募集でSSR冒険者が出現しなかった際に贈られるアイコン。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1, open_time = "1871672400"}
+[78601307] = {id = 78601307, name = "チベスナ顔　アイコン", des = "お前のことをいつも見ているぞ。\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_007", condition = "0", sort = 12, reward_sort = 9880001, own_show = 1, open_time = "1621803600"}
+, 
+[78601401] = {id = 78601401, name = "嘘？！　アイコン", des = "200回連続募集でSSR冒険者が出現しなかった際に贈られるアイコン。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
 , 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
 , 
@@ -180,4 +182,6 @@
 [78601178] = {id = 78601178, name = "ウィルド", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202015_2", condition = "72501008:11202015:10", sort = 923, reward_sort = 9880001, own_show = 1, open_time = "1619744400"}
 , 
 [78601179] = {id = 78601179, name = "メリア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300029_2", condition = "72501008:11300029:10", sort = 922, reward_sort = 9880001, own_show = 1, open_time = "1619744400"}
+, 
+[78601180] = {id = 78601180, name = "サンド", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300031_2", condition = "72501008:11300031:10", sort = 921, reward_sort = 9880001, own_show = 1, open_time = "1621040400"}
 }

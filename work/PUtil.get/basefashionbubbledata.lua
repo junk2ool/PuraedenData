@@ -9007,6 +9007,34 @@
 , 
 [125301801] = {id = 125301801, voice_path = "MB_Cerberus_Battle_C_1"}
 , 
+[121301901] = {id = 121301901, voice_path = "MB_Pan_Battle_N_1"}
+, 
+[121301902] = {id = 121301902, voice_path = "MB_Pan_Battle_N_2"}
+, 
+[122301901] = {id = 122301901, voice_path = "MB_Pan_Battle_Hit_1"}
+, 
+[122301902] = {id = 122301902, voice_path = "MB_Pan_Battle_Hit_2"}
+, 
+[122301903] = {id = 122301903, voice_path = "MB_Pan_Battle_Hit_3"}
+, 
+[124301901] = {id = 124301901, voice_path = "MB_Pan_Battle_H_1"}
+, 
+[125301901] = {id = 125301901, voice_path = "MB_Pan_Battle_C_1"}
+, 
+[121302001] = {id = 121302001, voice_path = "MB_Hermes_Battle_N_1"}
+, 
+[121302002] = {id = 121302002, voice_path = "MB_Hermes_Battle_N_2"}
+, 
+[122302001] = {id = 122302001, voice_path = "MB_Hermes_Battle_Hit_1"}
+, 
+[122302002] = {id = 122302002, voice_path = "MB_Hermes_Battle_Hit_2"}
+, 
+[122302003] = {id = 122302003, voice_path = "MB_Hermes_Battle_Hit_3"}
+, 
+[124302001] = {id = 124302001, voice_path = "MB_Hermes_Battle_H_1"}
+, 
+[125302001] = {id = 125302001, voice_path = "MB_Hermes_Battle_C_1"}
+, 
 [97022101] = {id = 97022101, bubble_text = "サンタというものは、想像以上に体力が必要なのですね。一軒一軒掃除をしながら、プレゼントを渡して回らないといけないだなんて…。わたくしもさらに鍛えなければなりませんね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_1"}
 , 
 [97022102] = {id = 97022102, bubble_text = "特別な夜を迎えるなら、いつも以上に徹底的に掃除しないといけませんね。さぁ、まずは積もった雪をすべて排除いたしましょう。リーダー様もお時間があるなら手を貸してください。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_2"}
@@ -11350,4 +11378,140 @@
 [117302902] = {id = 117302902, bubble_text = "もしやこちらにいる皆さんは…リーダー様の…いわゆる『コレ』なのでしょうか…？", voice_path = "Meria_Home_Talk_2", top_position = 10}
 , 
 [117302903] = {id = 117302903, bubble_text = "ここはかならずや、わたくしがお守りいたしますね", voice_path = "Meria_Home_Talk_3", top_position = 10}
+, 
+[97030311] = {id = 97030311, bubble_text = "自然を舐める奴も壊す奴も許せねぇ。そんな奴らは、俺が全員ぶっ潰す！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Main_1"}
+, 
+[97030312] = {id = 97030312, bubble_text = "よっし、修行でもするか。さて…今日はどこに行くかな？　荒れ地に山に川に…海でもいいな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Main_2"}
+, 
+[97030313] = {id = 97030313, bubble_text = "…なんだよ、俺がぼんやりしてちゃ悪ぃか？　風を浴びんのが好きなんだよ、ほっとけ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Main_3"}
+, 
+[97030314] = {id = 97030314, bubble_text = "時間が経つ以上、ずっとそのまんまなんてものはねぇ。自然も…人もな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Main_4"}
+, 
+[97130311] = {id = 97130311, bubble_text = "自然を舐める奴も壊す奴も許せねぇ。そんな奴らは、俺が全員ぶっ潰す！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Main_1"}
+, 
+[97130312] = {id = 97130312, bubble_text = "よっし、修行でもするか。さて…今日はどこに行くかな？　荒れ地に山に川に…海でもいいな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Main_2"}
+, 
+[97130313] = {id = 97130313, bubble_text = "…なんだよ、俺がぼんやりしてちゃ悪ぃか？　風を浴びんのが好きなんだよ、ほっとけ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Main_3"}
+, 
+[97130314] = {id = 97130314, bubble_text = "時間が経つ以上、ずっとそのまんまなんてものはねぇ。自然も…人もな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Main_4"}
+, 
+[97230311] = {id = 97230311, bubble_text = "自然を舐める奴も壊す奴も許せねぇ。そんな奴らは、俺が全員ぶっ潰す！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Main_1"}
+, 
+[97230312] = {id = 97230312, bubble_text = "よっし、修行でもするか。さて…今日はどこに行くかな？　荒れ地に山に川に…海でもいいな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Main_2"}
+, 
+[97230313] = {id = 97230313, bubble_text = "…なんだよ、俺がぼんやりしてちゃ悪ぃか？　風を浴びんのが好きなんだよ、ほっとけ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Main_3"}
+, 
+[97230314] = {id = 97230314, bubble_text = "時間が経つ以上、ずっとそのまんまなんてものはねぇ。自然も…人もな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Main_4"}
+, 
+[101303101] = {id = 101303101, bubble_text = "俺はサンドだ。言っとくが、馴れ合うつもりはねえ。俺は森さえ守れればなんでもいい。近寄んな。潰すぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Get_1"}
+, 
+[101303111] = {id = 101303111, bubble_text = "アンタが修行に付き合ってくれたおかげで、俺はもっと強くなれるよ。自然を守るために、もっと俺を鍛えてくれ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Stage_2"}
+, 
+[101303121] = {id = 101303121, bubble_text = "今ならどんな奴にも負ける気がしねぇぜ！　ここまでリーダー…アンタが俺の修行に付き合ってくれたからだ…！　こうなりゃ、どんな敵が来ても俺に任せろ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Stage_3"}
+, 
+[102303101] = {id = 102303101, bubble_text = "…テメェを待ってたわけじゃねえ。おら、やることあんなら、さっさと行くぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_In_1"}
+, 
+[102303102] = {id = 102303102, bubble_text = "…テメェを待ってたわけじゃねえ。おら、やることあんなら、さっさと行くぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_In_1"}
+, 
+[102303103] = {id = 102303103, bubble_text = "…テメェを待ってたわけじゃねえ。おら、やることあんなら、さっさと行くぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_In_1"}
+, 
+[103303101] = {id = 103303101, bubble_text = "へっ、アンタとの修行の成果が出たみたいだな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "371:216", direction = 2, voice_path = "Sand_Stage_1"}
+, 
+[103303111] = {id = 103303111, bubble_text = "へっ、アンタとの修行の成果が出たみたいだな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "356:217", direction = 2, voice_path = "Sand_Stage_1"}
+, 
+[103303121] = {id = 103303121, bubble_text = "へっ、アンタとの修行の成果が出たみたいだな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "356:217", direction = 2, voice_path = "Sand_Stage_1"}
+, 
+[104303101] = {id = 104303101, bubble_text = "力がみなぎってきたぜ…へっ、いい気分だ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "371:216", direction = 2, voice_path = "Sand_Star_1"}
+, 
+[104303111] = {id = 104303111, bubble_text = "力がみなぎってきたぜ…へっ、いい気分だ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "356:217", direction = 2, voice_path = "Sand_Star_1"}
+, 
+[104303121] = {id = 104303121, bubble_text = "力がみなぎってきたぜ…へっ、いい気分だ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "356:217", direction = 2, voice_path = "Sand_Star_1"}
+, 
+[105303101] = {id = 105303101, bubble_text = "うるせぇ。俺はテメェと仲良くやるつもりはねぇ。ただ、自然が守れりゃそれでいいんだよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Interaction_1"}
+, 
+[105303102] = {id = 105303102, bubble_text = "…この着てるやつが気になんのか？　これは昔、親父からもらったやつだよ。…触り心地がいいのはまぁ、俺も気に入ってる。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Interaction_2"}
+, 
+[105303103] = {id = 105303103, bubble_text = "俺に構って、テメェに何の得があんだよ？　…ったく、変なヤツだぜ。んな暇なら修行に行くぞ。オラ、早くしろ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Interaction_3"}
+, 
+[105303104] = {id = 105303104, bubble_text = "俺は人間が好きじゃねぇ。けど…アンタのそばやこのプライドは、そう居心地が悪くねぇな。ったく、まさか自分がこんなこと言う日が来るなんて、思ってもみなかったぜ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Interaction_4"}
+, 
+[105303105] = {id = 105303105, bubble_text = "リーダー。アンタのあるがままに受け入れるその姿勢…まさに自然そのものだと思う。俺もアンタみたいになりてぇ。だから、もうしばらくは隣で見させてもらうぜ。…いいよな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Interaction_5"}
+, 
+[105303111] = {id = 105303111, bubble_text = "うるせぇ。俺はテメェと仲良くやるつもりはねぇ。ただ、自然が守れりゃそれでいいんだよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Interaction_1"}
+, 
+[105303112] = {id = 105303112, bubble_text = "…この着てるやつが気になんのか？　これは昔、親父からもらったやつだよ。…触り心地がいいのはまぁ、俺も気に入ってる。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Interaction_2"}
+, 
+[105303113] = {id = 105303113, bubble_text = "俺に構って、テメェに何の得があんだよ？　…ったく、変なヤツだぜ。んな暇なら修行に行くぞ。オラ、早くしろ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Interaction_3"}
+, 
+[105303114] = {id = 105303114, bubble_text = "俺は人間が好きじゃねぇ。けど…アンタのそばやこのプライドは、そう居心地が悪くねぇな。ったく、まさか自分がこんなこと言う日が来るなんて、思ってもみなかったぜ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Interaction_4"}
+, 
+[105303115] = {id = 105303115, bubble_text = "リーダー。アンタのあるがままに受け入れるその姿勢…まさに自然そのものだと思う。俺もアンタみたいになりてぇ。だから、もうしばらくは隣で見させてもらうぜ。…いいよな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Interaction_5"}
+, 
+[105303121] = {id = 105303121, bubble_text = "うるせぇ。俺はテメェと仲良くやるつもりはねぇ。ただ、自然が守れりゃそれでいいんだよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Interaction_1"}
+, 
+[105303122] = {id = 105303122, bubble_text = "…この着てるやつが気になんのか？　これは昔、親父からもらったやつだよ。…触り心地がいいのはまぁ、俺も気に入ってる。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Interaction_2"}
+, 
+[105303123] = {id = 105303123, bubble_text = "俺に構って、テメェに何の得があんだよ？　…ったく、変なヤツだぜ。んな暇なら修行に行くぞ。オラ、早くしろ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Interaction_3"}
+, 
+[105303124] = {id = 105303124, bubble_text = "俺は人間が好きじゃねぇ。けど…アンタのそばやこのプライドは、そう居心地が悪くねぇな。ったく、まさか自分がこんなこと言う日が来るなんて、思ってもみなかったぜ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Interaction_4"}
+, 
+[105303125] = {id = 105303125, bubble_text = "リーダー。アンタのあるがままに受け入れるその姿勢…まさに自然そのものだと思う。俺もアンタみたいになりてぇ。だから、もうしばらくは隣で見させてもらうぜ。…いいよな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Interaction_5"}
+, 
+[106303101] = {id = 106303101, bubble_text = "歯ごたえがねぇ奴らだぜ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Win_1"}
+, 
+[106303111] = {id = 106303111, bubble_text = "歯ごたえがねぇ奴らだぜ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Win_1"}
+, 
+[106303121] = {id = 106303121, bubble_text = "歯ごたえがねぇ奴らだぜ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Win_1"}
+, 
+[107303101] = {id = 107303101, bubble_text = "この借り、必ず返してやるよ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:217", direction = 1, voice_path = "Sand_Fail_1"}
+, 
+[107303111] = {id = 107303111, bubble_text = "この借り、必ず返してやるよ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "303:268", direction = 1, voice_path = "Sand_Fail_1"}
+, 
+[107303121] = {id = 107303121, bubble_text = "この借り、必ず返してやるよ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "784:227", direction = 2, voice_path = "Sand_Fail_1"}
+, 
+[108303101] = {id = 108303101, bubble_text = "俺一人で行ける。", voice_path = "Sand_Go_1"}
+, 
+[109303101] = {id = 109303101, voice_path = "Sand_Game_1"}
+, 
+[111303101] = {id = 111303101, voice_path = "Sand_Battle_N_1"}
+, 
+[111303102] = {id = 111303102, voice_path = "Sand_Battle_N_2"}
+, 
+[111303103] = {id = 111303103, voice_path = "Sand_Battle_N_3"}
+, 
+[111303104] = {id = 111303104, voice_path = "Sand_Battle_N_4"}
+, 
+[111303105] = {id = 111303105, voice_path = "Sand_Battle_N_5"}
+, 
+[111303106] = {id = 111303106, voice_path = "Sand_Battle_N_6"}
+, 
+[112303101] = {id = 112303101, voice_path = "Sand_Battle_Hit_1"}
+, 
+[112303102] = {id = 112303102, voice_path = "Sand_Battle_Hit_2"}
+, 
+[112303103] = {id = 112303103, voice_path = "Sand_Battle_Hit_3"}
+, 
+[112303104] = {id = 112303104, voice_path = "Sand_Battle_Hit_4"}
+, 
+[112303105] = {id = 112303105, voice_path = "Sand_Battle_Hit_5"}
+, 
+[112303106] = {id = 112303106, voice_path = "Sand_Battle_Hit_6"}
+, 
+[113303101] = {id = 113303101, voice_path = "Sand_Battle_Die_1"}
+, 
+[114303101] = {id = 114303101, voice_path = "Sand_Battle_H_1"}
+, 
+[114303102] = {id = 114303102, voice_path = "Sand_Battle_H_2"}
+, 
+[115303101] = {id = 115303101, voice_path = "Sand_Battle_C_1"}
+, 
+[115303102] = {id = 115303102, voice_path = "Sand_Battle_C_2"}
+, 
+[116303101] = {id = 116303101, bubble_text = "木や花はあんのか？", voice_path = "Sand_Home_In_1", top_position = 10}
+, 
+[117303101] = {id = 117303101, bubble_text = "こういうちゃんとした家は、あんまり慣れてねぇんだ。…変なことしたら悪ぃな。", voice_path = "Sand_Home_Talk_1", top_position = 10}
+, 
+[117303102] = {id = 117303102, bubble_text = "じっとしてても仕方がねぇだろ。さっさと遠征にでも行くぞオラッ！", voice_path = "Sand_Home_Talk_2", top_position = 10}
+, 
+[117303103] = {id = 117303103, bubble_text = "…女ばっかりいて、落ち着かねぇな。俺がこんなとこにいていいのかよ…", voice_path = "Sand_Home_Talk_3", top_position = 10}
 }

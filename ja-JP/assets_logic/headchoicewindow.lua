@@ -102,8 +102,9 @@ HeadChoiceWindow.OnInit = function(bridgeObj, ...)
           end
         end
         v.isHave = isHave
-        ;
-        (table.insert)(frames, v)
+        if v.open_time == nil or tonumber(v.open_time) < (LuaTime.GetTimeStamp)() then
+          (table.insert)(frames, v)
+        end
       end
     end
     do

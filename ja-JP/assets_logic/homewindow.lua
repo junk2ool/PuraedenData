@@ -257,12 +257,25 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
       (uis.LeftList):RemoveChild(Appointment)
     end
     local PrizeCom = (uis.LeftList):GetChild("Prize")
-    local Prize = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Prize)
+    local Prize = ((ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Prize))
+    local data = nil
+    local timeTip = ""
+    local configTable = (TableData.gTable).BaseActivityData
+    for _,v in pairs(configTable) do
+      if v.type == 11 then
+        data = v
+      end
+    end
+    if data ~= nil then
+      timeTip = (LuaTime.GetBeginAndEndTime)(data.begin_time, data.end_time)
+    end
     do
-      -- DECOMPILER ERROR at PC85: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC108: Unhandled construct in 'MakeBoolean' P1
 
       if Prize == true and PrizeCom == nil then
         local PrizeBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "PrizeBtn"))
+        ;
+        (PrizeBtn:GetChild("TimeTxt")).text = timeTip
         PrizeBtn.name = "Prize"
         ;
         (PrizeBtn.onClick):Set(function(...)

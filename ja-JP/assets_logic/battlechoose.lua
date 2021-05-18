@@ -758,7 +758,7 @@ end
 -- DECOMPILER ERROR at PC94: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, isBuff, skillConfig, atkInfo, banMultiple, ...)
-  -- function num : 0_27 , upvalues : self, _ENV, t_insert, ipairs, math
+  -- function num : 0_27 , upvalues : self, _ENV, t_insert, ipairs, math, t_sort
   local targetCards = {}
   local switch = {[1000] = function(...)
     -- function num : 0_27_0 , upvalues : self, targetCards, defCards
@@ -985,130 +985,134 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     -- function num : 0_27_40 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopDefCards)(atkCard, false, 1, true)
   end
+, [2231] = function(...)
+    -- function num : 0_27_41 , upvalues : targetCards, self, atkCard
+    targetCards = (self.GetTopSpeedCards)(atkCard, false, 1)
+  end
 , [3001] = function(...)
-    -- function num : 0_27_41 , upvalues : t_insert, targetCards, atkCard
+    -- function num : 0_27_42 , upvalues : t_insert, targetCards, atkCard
     t_insert(targetCards, atkCard)
   end
 , [3002] = function(...)
-    -- function num : 0_27_42 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_43 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetCardsByCross)(atkCard, true, true)
   end
 , [3003] = function(...)
-    -- function num : 0_27_43 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_44 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetCardsByAround)(atkCard, true)
   end
 , [3004] = function(...)
-    -- function num : 0_27_44 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_45 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetCardsBySide)(atkCard, true)
   end
 , [3005] = function(...)
-    -- function num : 0_27_45 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_46 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetFrontCards)(atkCard, true)
     if #targetCards == 0 then
       targetCards = (self.GetBehindCards)(atkCard, true)
     end
   end
 , [3006] = function(...)
-    -- function num : 0_27_46 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_47 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetBehindCards)(atkCard, true)
     if #targetCards == 0 then
       targetCards = (self.GetFrontCards)(atkCard, true)
     end
   end
 , [3007] = function(...)
-    -- function num : 0_27_47 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_48 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetVerticalCards)(atkCard, true)
   end
 , [3008] = function(...)
-    -- function num : 0_27_48 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_49 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetHorizontalCards)(atkCard, true)
   end
 , [3009] = function(...)
-    -- function num : 0_27_49 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_50 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetVerticalCards)(atkCard, true, true)
   end
 , [3011] = function(...)
-    -- function num : 0_27_50 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_51 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopHpCards)(atkCard, true, 1, true)
   end
 , [3012] = function(...)
-    -- function num : 0_27_51 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_52 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopHpCards)(atkCard, true, 2, true)
   end
 , [3013] = function(...)
-    -- function num : 0_27_52 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_53 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopHpCards)(atkCard, true, 3, true)
   end
 , [3016] = function(...)
-    -- function num : 0_27_53 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_54 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopHpCards)(atkCard, true, 1, true, true)
   end
 , [3017] = function(...)
-    -- function num : 0_27_54 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_55 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetFrontCards)(atkCard, true, true)
   end
 , [3018] = function(...)
-    -- function num : 0_27_55 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_56 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetBehindCards)(atkCard, true, true)
   end
 , [3019] = function(...)
-    -- function num : 0_27_56 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_57 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetCardsBySide)(atkCard, true, true)
   end
 , [3021] = function(...)
-    -- function num : 0_27_57 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_58 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopDanderCards)(atkCard, true, 1, true)
   end
 , [3022] = function(...)
-    -- function num : 0_27_58 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_59 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopDanderCards)(atkCard, true, 2, true)
   end
 , [3023] = function(...)
-    -- function num : 0_27_59 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_60 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopDanderCards)(atkCard, true, 3, true)
   end
 , [3031] = function(...)
-    -- function num : 0_27_60 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_61 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetRandomCards)(atkCard, true, 1)
   end
 , [3032] = function(...)
-    -- function num : 0_27_61 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_62 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetRandomCards)(atkCard, true, 2)
   end
 , [3033] = function(...)
-    -- function num : 0_27_62 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_63 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetRandomCards)(atkCard, true, 3)
   end
 , [3034] = function(...)
-    -- function num : 0_27_63 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_64 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetRandomCards)(atkCard, true, 1, true)
   end
 , [3041] = function(...)
-    -- function num : 0_27_64 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_65 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopHpCards)(atkCard, true, 1)
   end
 , [3051] = function(...)
-    -- function num : 0_27_65 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_66 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopSpeedCards)(atkCard, true, 1)
   end
 , [3061] = function(...)
-    -- function num : 0_27_66 , upvalues : _ENV, targetCards, self, atkCard
+    -- function num : 0_27_67 , upvalues : _ENV, targetCards, self, atkCard
     (table.insert)(targetCards, (self.GetNextSpeedCard)(atkCard, true))
   end
 , [3071] = function(...)
-    -- function num : 0_27_67 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_68 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetCrossCards)(atkCard, true)
   end
 , [3081] = function(...)
-    -- function num : 0_27_68 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_69 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopDanderCards)(atkCard, true, 1, false)
   end
 , [4001] = function(...)
-    -- function num : 0_27_69 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_70 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetRandomCards)(atkCard, nil, 1, true)
   end
 , [5002] = function(...)
-    -- function num : 0_27_70 , upvalues : atkCard, _ENV, t_insert, targetCards
+    -- function num : 0_27_71 , upvalues : atkCard, _ENV, t_insert, targetCards
     local pos = atkCard:GetFoePos()
     if pos then
       local card = (BattleData.GetCardInfoByPos)(pos)
@@ -1118,7 +1122,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5003] = function(...)
-    -- function num : 0_27_71 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_72 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardHaveEffect)(atkCard, BattleDisplayEffect.OFFER_REWARD, false)
     if #cards > 0 then
       targetCards = cards
@@ -1128,7 +1132,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5005] = function(...)
-    -- function num : 0_27_72 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_73 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardHaveEffect)(atkCard, BattleDisplayEffect.FOCUS_ATTACK, false)
     if #cards > 0 then
       targetCards = cards
@@ -1138,7 +1142,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5006] = function(...)
-    -- function num : 0_27_73 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_74 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardHaveEffect)(atkCard, 809, false)
     if #cards > 0 then
       targetCards = cards
@@ -1148,7 +1152,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5007] = function(...)
-    -- function num : 0_27_74 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_75 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardNotHaveEffect)(atkCard, 809, 1, false)
     if #cards > 0 then
       targetCards = cards
@@ -1158,7 +1162,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5008] = function(...)
-    -- function num : 0_27_75 , upvalues : _ENV, atkCard, targetCards, t_insert
+    -- function num : 0_27_76 , upvalues : _ENV, atkCard, targetCards, t_insert
     local cards = (BattleChoose.GetCardNotHaveEffect)(atkCard, 809, 1, true)
     if #cards > 0 then
       targetCards = cards
@@ -1167,7 +1171,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5009] = function(...)
-    -- function num : 0_27_76 , upvalues : skillConfig, _ENV, self, atkCard, t_insert, ipairs, targetCards
+    -- function num : 0_27_77 , upvalues : skillConfig, _ENV, self, atkCard, t_insert, t_sort, ipairs, targetCards
     if skillConfig and skillConfig.target_buff then
       local strArr = split(skillConfig.target_buff, ":")
       local preChooseId = tonumber(strArr[2])
@@ -1183,6 +1187,15 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
         end
       end
       do
+        t_sort(preChooseCards, function(a, b, ...)
+      -- function num : 0_27_77_0
+      if a.tempRandom >= b.tempRandom then
+        do return a:GetHp() / a:GetMaxHp() ~= b:GetHp() / b:GetMaxHp() end
+        do return b:GetHp() / b:GetMaxHp() < a:GetHp() / a:GetMaxHp() end
+        -- DECOMPILER ERROR: 4 unprocessed JMP targets
+      end
+    end
+)
         for index,value in ipairs(preChooseCards) do
           print("备用选址", value:GetPosIndex())
         end
@@ -1269,7 +1282,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
           for _,v in ipairs(temp) do
             local target_type = v:GetBossIsMultiplyChoose()
             do
-              -- DECOMPILER ERROR at PC259: Unhandled construct in 'MakeBoolean' P1
+              -- DECOMPILER ERROR at PC261: Unhandled construct in 'MakeBoolean' P1
 
               if target_type and target_type == 1 and isBuff and targetId == 1000 then
                 local data = (Util.clone)(targetCards[1])
@@ -1289,7 +1302,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
                 end
               end
               do
-                -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC298: LeaveBlock: unexpected jumping out DO_STMT
 
               end
             end

@@ -27,7 +27,7 @@
 , 
 [29000014] = {id = 29000014, name = "シャイの隣席　称号", goods_icon = "ItemIcon:29000014", type = 1, quality = 3, remark = "イベント「勇気100％　BunnyBunny」より獲得可能。", des = "放課後は一緒に帰りましょう？", icon = "Title:29000014", date = -1, sort = 11, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
-[29000015] = {id = 29000015, name = "野生児　称号", goods_icon = "ItemIcon:29000015", type = 1, quality = 3, remark = "イベント「野生児の反撃‐守りたい人の為に‐」より獲得可能。", des = "ウィルドの養父母を助けた者に贈られる称号。", icon = "Title:29000015", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1}
+[29000015] = {id = 29000015, name = "野生児　称号", goods_icon = "ItemIcon:29000015", type = 1, quality = 3, remark = "イベント「野生児の反撃‐守りたい人の為に‐」より獲得可能。", des = "ウィルドの養父母を助けた者に贈られる称号。", icon = "Title:29000015", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1619834399"}
 , 
-[29000101] = {id = 29000101, name = "気丈な心持ち主　称号", goods_icon = "ItemIcon:29000101", type = 1, quality = 3, remark = "250回連続募集でSSR冒険者が出現しなかった際に贈られる称号。", des = "気丈な心の持ち主　称号", icon = "Title:29000101", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1}
+[29000101] = {id = 29000101, name = "気丈な心持ち主　称号", goods_icon = "ItemIcon:29000101", type = 1, quality = 3, remark = "250回連続募集でSSR冒険者が出現しなかった際に贈られる称号。", des = "気丈な心の持ち主　称号", icon = "Title:29000101", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1620403200"}
 }

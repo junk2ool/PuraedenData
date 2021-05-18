@@ -160,12 +160,15 @@ randomBuff = {}
     return self.hp
   end
 
-  battleCardInfo.SetHp = function(self, hp, ...)
+  battleCardInfo.SetHp = function(self, hp, switchHp, ...)
     -- function num : 0_0_14 , upvalues : _ENV, math
     if IsBattleServer == nil then
       print("改变血量 ： 位置：", self:GetPosIndex(), " 血量变化：", hp, " 实际变化：", (math.min)(hp, self:GetMaxHp()))
     end
     hp = (math.min)(hp, self:GetMaxHp())
+    if not switchHp and self.hp < hp then
+      (BattleDataCount.UpdateBuffCount)(BattleAtk.curAtkInfo, BattleBuffDeductionRoundType.AFTER_ENEMY_HEAL, self.posIndex)
+    end
     self.hp = hp
   end
 
@@ -434,7 +437,7 @@ randomBuff = {}
           local card = ((BattleData.GetCardInfoByPos)(self:GetPosIndex()))
           local realDamage, absorbDamage, specialEffect = nil, nil, nil
           if effectId == BattleDisplayEffect.EXCHANGE_HP or effectId == BattleDisplayEffect.EXCHANGE_HP_SELF then
-            self:SetHp(curValue + value)
+            self:SetHp(curValue + value, true)
             return value, 0, {isKeepAlive = false, isInvincible = false}
           end
           if value < 0 then
@@ -488,10 +491,10 @@ randomBuff = {}
                       do return value, absorbDamage, specialEffect end
                       if attributeId == BattleCardAttributeID.DANDER then
                         local t = curValue + (value)
-                        -- DECOMPILER ERROR at PC209: Overwrote pending register: R12 in 'AssignReg'
+                        -- DECOMPILER ERROR at PC210: Overwrote pending register: R12 in 'AssignReg'
 
                         local maxDander = self:GetMaxDander()
-                        -- DECOMPILER ERROR at PC215: Overwrote pending register: R13 in 'AssignReg'
+                        -- DECOMPILER ERROR at PC216: Overwrote pending register: R13 in 'AssignReg'
 
                         if maxDander < t then
                           if buff and (buff:GetBuffConfig()).sp_save then

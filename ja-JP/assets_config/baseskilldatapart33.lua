@@ -29,6 +29,14 @@ BaseSkillDataPart33 = {
 , 
 [47700073] = {id = 47700073, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[47700081] = {id = 47700081, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47700082] = {id = 47700082, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47700083] = {id = 47700083, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47700084] = {id = 47700084, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [47701011] = {id = 47701011, type = 3, targetType = 2131, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47720111:3001:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47701021] = {id = 47701021, type = 3, targetType = 2161, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47720211:1000:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -56,6 +64,14 @@ BaseSkillDataPart33 = {
 [47701072] = {id = 47701072, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 16500, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47720721:3001:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47701073] = {id = 47701073, type = 3, targetType = 2006, damage = 0, damage_up = 10000, damage_rate = 8800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47720731:3001:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47701081] = {id = 47701081, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47701082] = {id = 47701082, type = 3, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47701083] = {id = 47701083, type = 3, targetType = 2161, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47701084] = {id = 47701084, type = 3, targetType = 2161, damage = 0, damage_up = 10000, damage_rate = 14300, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47702011] = {id = 47702011, type = 2, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 23800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47710111:3001:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
@@ -85,6 +101,14 @@ BaseSkillDataPart33 = {
 , 
 [47702073] = {id = 47702073, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 11500, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[47702081] = {id = 47702081, type = 2, targetType = 2001, damage = 0, damage_up = 10000, damage_rate = 23800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47710811:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47702082] = {id = 47702082, type = 2, targetType = 2003, damage = 0, damage_up = 10000, damage_rate = 13000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47710811:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47702083] = {id = 47702083, type = 2, targetType = 2161, damage = 0, damage_up = 10000, damage_rate = 22500, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47710831:1000:5000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47702084] = {id = 47702084, type = 2, targetType = 2162, damage = 0, damage_up = 10000, damage_rate = 22500, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47710831:1000:5000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [47703011] = {id = 47703011, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47703021] = {id = 47703021, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -112,5 +136,13 @@ BaseSkillDataPart33 = {
 [47703072] = {id = 47703072, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47703073] = {id = 47703073, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47703081] = {id = 47703081, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47703082] = {id = 47703082, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47703083] = {id = 47703083, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47703084] = {id = 47703084, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 }
 

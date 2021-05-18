@@ -845,6 +845,32 @@
 , 
 [75046631] = {id = 75046631, scene_path = "92000028", dialogue_ids = "75146601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノエルのおかげで、リーダーたちを助けにきてくれたプライドメンバーたちが集結！", times = 1}
 , 
+[75047111] = {id = 75047111, name = "第四十七章", remark = "PlotChapterRes:Plot_0047", scene_path = "92000028", dialogue_ids = "75148102", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルたちの前に現れたのは、目に光のないジンジャーとサスキスだった。薬を大量に飲んだせいで、自我や理性を失っていたらしい。友達のために、一行は戦いに挑むことに。", times = 1}
+, 
+[75047141] = {id = 75047141, scene_path = "92000028", dialogue_ids = "75148120", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルたちの前に現れたのは、目に光のないジンジャーとサスキスだった。薬を大量に飲んだせいで、自我や理性を失っていたらしい。友達のために、一行は戦いに挑むことに。", times = 1}
+, 
+[75047151] = {id = 75047151, scene_path = "92000028", dialogue_ids = "75148201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルたちの前に現れたのは、目に光のないジンジャーとサスキスだった。薬を大量に飲んだせいで、自我や理性を失っていたらしい。友達のために、一行は戦いに挑むことに。", times = 1}
+, 
+[75047152] = {id = 75047152, scene_path = "92000028", dialogue_ids = "75148301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルたちの前に現れたのは、目に光のないジンジャーとサスキスだった。薬を大量に飲んだせいで、自我や理性を失っていたらしい。友達のために、一行は戦いに挑むことに。", times = 1}
+, 
+[75047241] = {id = 75047241, scene_path = "92000028", dialogue_ids = "75148313", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ギルバードはめげず、薬で強化された騎士団員達を投入する。またピンチに陥ったところで、イロハ率いるキャストレッド軍団が登場。", times = 1}
+, 
+[75047251] = {id = 75047251, scene_path = "92000028", dialogue_ids = "75148401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ギルバードはめげず、薬で強化された騎士団員達を投入する。またピンチに陥ったところで、イロハ率いるキャストレッド軍団が登場。", times = 1}
+, 
+[75047252] = {id = 75047252, scene_path = "92000028", dialogue_ids = "75148407", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ギルバードはめげず、薬で強化された騎士団員達を投入する。またピンチに陥ったところで、イロハ率いるキャストレッド軍団が登場。", times = 1}
+, 
+[75047331] = {id = 75047331, scene_path = "92000028", dialogue_ids = "75148421", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルが姫であることを明かすかと躊躇うオリヴィア達だったが、メイはずっと前から知っていたことを告白した。", times = 1}
+, 
+[75047332] = {id = 75047332, scene_path = "92000008", dialogue_ids = "75148501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルが姫であることを明かすかと躊躇うオリヴィア達だったが、メイはずっと前から知っていたことを告白した。", times = 1}
+, 
+[75047431] = {id = 75047431, scene_path = "92000031", dialogue_ids = "75149001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "イロハから集めてくれた情報のおかげで、騎士団の集会場所にやってくる一行。騎士団長が団員達を煽動しているところにエイプリルが飛び出る…", times = 1}
+, 
+[75047432] = {id = 75047432, scene_path = "92000022", dialogue_ids = "75149201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "イロハから集めてくれた情報のおかげで、騎士団の集会場所にやってくる一行。騎士団長が団員達を煽動しているところにエイプリルが飛び出る…", times = 1}
+, 
+[75047541] = {id = 75047541, scene_path = "92000022", dialogue_ids = "75149216", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "子どもの頃、過激派レッドたちに村を滅ぼされ、両親も殺された経験がある騎士団長は、レッドの存在を許すかわりに、レッドを軍隊にし『武力』となり、他国を制圧しようと提案する。", times = 1}
+, 
+[75047631] = {id = 75047631, scene_path = "92000022", dialogue_ids = "75149302", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "子どもの頃、過激派レッドたちに村を滅ぼされ、両親も殺された経験がある騎士団長は、レッドの存在を許すかわりに、レッドを軍隊にし『武力』となり、他国を制圧しようと提案する。", times = 1}
+, 
 [75010001] = {id = 75010001, scene_path = "92000013", dialogue_ids = "75140702", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 2, skip_content = "ストーリーをスキップしますか？", times = 1}
 , 
 [75010002] = {id = 75010002, scene_path = "0", dialogue_ids = "75140701", admission_type = "0", departure_type = "0", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 2, skip_content = "ストーリーをスキップしますか？", times = 1}

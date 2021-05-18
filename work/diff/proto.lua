@@ -2550,6 +2550,7 @@ enum GUIDE_TYPE
 	HANDBOOK_STAGE_TYPE             = 8;//角色解锁幕间物语关卡，参数：卡牌ID
 	COPY_TOWER_TYPE                 = 9;//天之塔开启新章节（首章不提示）
 	GUILD_WAR_TYPE                  = 10;//公会战增加挑战次数，参数：新增加的挑战次数
+	HANDBOOK_CHAPTER                = 11;//手账积分剧情解锁，参数：解锁的配置ID（HandbookAdventureChapterConfig中的ID）
 }
 
 
@@ -4200,7 +4201,7 @@ message CardSealSkillInfo
 	int32                          value = 2;
 }
 
-//公会战战斗信息
+//公会战战斗记录
 message WarBattleInfo
 {
 	string                            playerIndex = 1;//玩家ID
@@ -4208,10 +4209,30 @@ message WarBattleInfo
 	int32         			             integral = 3;//本次积分
 	int64                              settleTime = 4;//结算时间
 	BattleData                         battleData = 5;//战斗数据
+	int32                                 stageId = 6;//关卡ID
+	E_BATTLE_DATA_TYPE             battleDataType = 7;//战斗数据类型
 }
 message BattleData
 {
 	repeated ChallengeSummarizeData challengeSummarizeData = 1;//战斗中所有参战卡片的伤害统计
+}
+
+//公会战战斗中信息
+message InBattleInfo
+{
+	string                            playerIndex = 1;//玩家ID
+	string                             playerName = 2;//玩家昵称
+	int64                                  inTime = 3;//进入时间
+	int32                                 stageId = 4;//关卡ID
+	E_BATTLE_DATA_TYPE             battleDataType = 5;//战斗数据类型
+}
+
+//主界面战斗数据类型
+enum E_BATTLE_DATA_TYPE
+{
+	BATTLE_DATA_UNKNOWN = 0;
+	BATTLE_DATA_RECORD     = 1;//战斗记录
+	BATTLE_DATA_IN_BATTLE  = 2;//战斗中信息
 }
 
 
@@ -4232,6 +4253,19 @@ message ResGuildWarInfo
 	repeated WarBattleInfo                  battleRecord = 7;//最近10条战斗记录
 	         bool                                passAll = 8;//全部通关
 	         bool                                request = 9;//是否客户端主动请求
+	repeated InBattleInfo                   inBattleInfo = 10;//最近30条战斗中信息
+}
+
+//2103请求刷新战斗数据
+message ReqRefreshBattleInfo
+{
+	
+}
+//2104请求刷新战斗数据
+message ResRefreshBattleInfo
+{
+	repeated WarBattleInfo                  battleRecord = 1;//最近10条战斗记录
+	repeated InBattleInfo                   inBattleInfo = 2;//最近30条战斗中信息
 }
 
 
@@ -4551,6 +4585,7 @@ message ResAdventureStoryChapter
 {
 	E_BATTLE_TYPE	battleType = 1;
 	repeated int32	chapterId  = 2;
+	repeated PointPlotInfo pointPlotInfo        = 3;//积分解锁的剧情数据
 }
 
 //1315
@@ -4671,6 +4706,25 @@ message ResOpenLetter
 
 }
 
+
+//积分解锁的剧情信息
+message PointPlotInfo
+{
+	int32 plotId 				                = 1;//剧情ID（ID为HandbookAdventureChapterConfig中的ID）
+	int32 point 				                = 2;//当前积分
+	bool click                                  = 3;//是否已查看（查看过后设为true）
+}
+
+//1331请求查看新解锁剧情（new=false时不要再请求该剧情ID）
+message ReqClickPointPlot
+{
+	int32 plotId 				                = 1;//剧情ID
+}
+//1332返回查看新解锁剧情
+message ResClickPointPlot
+{
+	
+}
 
 
 
@@ -5280,6 +5334,9 @@ enum E_MSG_ID
 
 	Handbook_ReqOpenLetter       		= 1329;//请求打开手信
 	Handbook_ResOpenLetter       		= 1330;//返回打开手信
+
+	Handbook_ReqClickPointPlot          = 1331;//请求查看新解锁剧情
+	Handbook_ResClickPointPlot       	= 1332;//返回查看新解锁剧情
 	
 	
 	Adventure_ReqAdventureInit          = 1401;//初始化大冒险
@@ -5506,6 +5563,9 @@ enum E_MSG_ID
 
 	GuildWar_ReqGuildWarInfo               = 2101;//请求公会战信息
 	GuildWar_ResGuildWarInfo               = 2102;//返回公会战信息
+
+	GuildWar_ReqRefreshBattleInfo          = 2103;//请求刷新战斗数据
+	GuildWar_ResRefreshBattleInfo          = 2104;//返回刷新战斗数据
 
 	GuildWar_ReqWarAdvisory                = 2111;//请求讨伐资讯
 	GuildWar_ResWarAdvisory                = 2112;//返回讨伐资讯
@@ -6948,6 +7008,8 @@ ReqOpenCG = 1327,
 ResOpenCG = 1328,
 ReqOpenLetter = 1329,
 ResOpenLetter = 1330,
+ReqClickPointPlot = 1331,
+ResClickPointPlot = 1332,
 ReqAdventureInit = 1401,
 ResAdventureInit = 1402,
 ReqPlayDice = 1403,
@@ -7098,6 +7160,8 @@ ReqPaySuccess = 2007,
 ResPaySuccess = 2008,
 ReqGuildWarInfo = 2101,
 ResGuildWarInfo = 2102,
+ReqRefreshBattleInfo = 2103,
+ResRefreshBattleInfo = 2104,
 ReqWarAdvisory = 2111,
 ResWarAdvisory = 2112,
 ReqHurtReport = 2113,
@@ -7525,6 +7589,8 @@ MsgNameByID = {[0] = "Unknown",
 [1328] = "ResOpenCG",
 [1329] = "ReqOpenLetter",
 [1330] = "ResOpenLetter",
+[1331] = "ReqClickPointPlot",
+[1332] = "ResClickPointPlot",
 [1401] = "ReqAdventureInit",
 [1402] = "ResAdventureInit",
 [1403] = "ReqPlayDice",
@@ -7675,6 +7741,8 @@ MsgNameByID = {[0] = "Unknown",
 [2008] = "ResPaySuccess",
 [2101] = "ReqGuildWarInfo",
 [2102] = "ResGuildWarInfo",
+[2103] = "ReqRefreshBattleInfo",
+[2104] = "ResRefreshBattleInfo",
 [2111] = "ReqWarAdvisory",
 [2112] = "ResWarAdvisory",
 [2113] = "ReqHurtReport",
@@ -7866,6 +7934,7 @@ ReqPopUpLevelUp = "ReqPopUpLevelUp",
 ConfigTime = "ConfigTime",
 ResMailList = "ResMailList",
 OtherLottery = "OtherLottery",
+PointPlotInfo = "PointPlotInfo",
 ReqSupportSet = "ReqSupportSet",
 ReqLandHarvest = "ReqLandHarvest",
 BaseInfo = "BaseInfo",
@@ -8003,6 +8072,7 @@ ResAdventureStoryStage = "ResAdventureStoryStage",
 ReqAssistGuildMember = "ReqAssistGuildMember",
 BuildingGuild = "BuildingGuild",
 ResGuildReview = "ResGuildReview",
+ReqClickPointPlot = "ReqClickPointPlot",
 RedDotInfo = "RedDotInfo",
 BattleAtkInfo = "BattleAtkInfo",
 ResGetReward = "ResGetReward",
@@ -8209,6 +8279,7 @@ EquipScheme = "EquipScheme",
 ReqWearTitle = "ReqWearTitle",
 BattleTeam = "BattleTeam",
 ResShopGridData = "ResShopGridData",
+InBattleInfo = "InBattleInfo",
 ResActivityInfo = "ResActivityInfo",
 ReqExtraReward = "ReqExtraReward",
 ReqRemoveGuildMember = "ReqRemoveGuildMember",
@@ -8341,6 +8412,7 @@ ReqUpgradeAccount = "ReqUpgradeAccount",
 ResEncounterBattleEmba = "ResEncounterBattleEmba",
 LandInfo = "LandInfo",
 ReqLandUproot = "ReqLandUproot",
+ResRefreshBattleInfo = "ResRefreshBattleInfo",
 CardSealSkillInfo = "CardSealSkillInfo",
 ResGMDel = "ResGMDel",
 ArenaData = "ArenaData",
@@ -8420,6 +8492,7 @@ ReqRegister = "ReqRegister",
 Tower = "Tower",
 ResStorySweep = "ResStorySweep",
 SevenDayActInfo = "SevenDayActInfo",
+ResClickPointPlot = "ResClickPointPlot",
 ResSearchGuild = "ResSearchGuild",
 CardStateExpedition = "CardStateExpedition",
 ResActivateFetter = "ResActivateFetter",
@@ -8434,6 +8507,7 @@ StoryData = "StoryData",
 ResFunctionList = "ResFunctionList",
 ReqMatrixInfo = "ReqMatrixInfo",
 ResLogout = "ResLogout",
+ReqRefreshBattleInfo = "ReqRefreshBattleInfo",
 ResSwitchCard = "ResSwitchCard",
 MemberInfo = "MemberInfo",
 ChatData = "ChatData",
@@ -8522,6 +8596,8 @@ E_GOODS_TYPE = {GOODS_TYPE_UNKNOWN = 0, PROP = 1, ASSET = 2, CARD = 3, EQUIP = 4
 , 
 E_REGISTER_RESULT = {REGISTER_RESULT_UNKNOWN = 0, REPEATED = 1, REGISTER_ING = 2}
 , 
+E_BATTLE_DATA_TYPE = {BATTLE_DATA_UNKNOWN = 0, BATTLE_DATA_RECORD = 1, BATTLE_DATA_IN_BATTLE = 2}
+, 
 FriendOperationType = {UNKNOWN = 0, ADD_FRIEND = 1, DEL_FRIEND = 2, AGREE_INVITE = 3, REFUSE_INVITE = 4, CANCAL_INVITE = 5}
 , 
 WAR_SETTLE_TYPE = {DEFAULT_SETTLE_TYPE = 0, SIMULATION = 1, MURDERER = 2, PASSED = 3}
@@ -8558,7 +8634,7 @@ CHAT_TYPE = {DEFAULT_CHAT = 0, GUILD_CHAT = 1, BULLET_CHAT = 2, PRIVATE_CHAT = 3
 , 
 E_CHANNEL = {CHANNEL_UNKNOW = 0, QUICK = 1, PHONE = 2, YOOZOO = 3, YINJI = 4}
 , 
-GUIDE_TYPE = {DEFAULT_TYPE = 0, COPY_STORY_TYPE = 1, COPY_HERO_TYPE = 2, COPY_DAILY_TYPE = 3, COPY_DAILY_STAGE_TYPE = 4, COPY_EXPEDITION_TYPE = 5, TASK_TYPE = 6, SHOP_TYPE = 7, HANDBOOK_STAGE_TYPE = 8, COPY_TOWER_TYPE = 9, GUILD_WAR_TYPE = 10}
+GUIDE_TYPE = {DEFAULT_TYPE = 0, COPY_STORY_TYPE = 1, COPY_HERO_TYPE = 2, COPY_DAILY_TYPE = 3, COPY_DAILY_STAGE_TYPE = 4, COPY_EXPEDITION_TYPE = 5, TASK_TYPE = 6, SHOP_TYPE = 7, HANDBOOK_STAGE_TYPE = 8, COPY_TOWER_TYPE = 9, GUILD_WAR_TYPE = 10, HANDBOOK_CHAPTER = 11}
 , 
 GUILD_LOG = {DEFAULT_LOG = 0, JOIN_LOG = 1, QUIT_LOG = 2, OUT_LOG = 3, PROMOTION_LOG = 4, DOWNGRADE_LOG = 5, TRANSFER_LOG = 6, CREATE_LOG = 7, RENAME_LOG = 8}
 , 

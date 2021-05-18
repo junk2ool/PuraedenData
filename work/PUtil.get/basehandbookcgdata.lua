@@ -65,6 +65,10 @@
 , 
 [26200462] = {id = 26200462, name = "最も頼もしい助太刀", remark = "あなた達はもっと重要な事があるだろう？ではここは……私たちに任せといて！", des = "第四十六章 ロック中", type = 1, chapter_id = 51100046, index = 33, icon = "HandBookCGBanner:92101047", fashion_id = "92101047", open_time = 0}
 , 
+[26200471] = {id = 26200471, name = "意外な助太刀", remark = "せやからレッドの子らが傷つく前に、うちが先にこの国、滅ぼしに来てあげたんよ～", des = "第四十七章 ロック中", type = 1, chapter_id = 51100047, index = 34, icon = "HandBookCGBanner:92101048", fashion_id = "92101048", open_time = 0}
+, 
+[26200472] = {id = 26200472, name = "同盟騎士団", remark = "国のため、骑士団団長のため、我等はすべてを捧げます！", des = "第四十七章 ロック中", type = 1, chapter_id = 51100047, index = 35, icon = "HandBookCGBanner:92101049", fashion_id = "92101049", open_time = 0}
+, 
 [26110010] = {id = 26110010, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11100001, index = 1, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 
 [26110020] = {id = 26110020, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11100002, index = 2, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
@@ -201,7 +205,7 @@
 , 
 [26300902] = {id = 26300902, name = "仲間と突き進もう", remark = "シャイちゃんは、わたしたちの仲間だよ！これからも一緒に頑張ろうね♪", des = "第一章 ロック中", type = 3, chapter_id = 51410009, index = 2, icon = "HandBookCGBanner:92108020", fashion_id = "92108020", activity_sort = 9, activity_name = "勇気100％　BunnyBunny", open_time = 1617152400}
 , 
-[26301001] = {id = 26301001, name = "罠に落ちたメンバー達", remark = "…人間、捕らえた。父さん、母さん、傷つけたやつら…！", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 1, icon = "HandBookCGBanner:92108021", fashion_id = "92108021", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1619744400}
+[26301001] = {id = 26301001, name = "罠に落ちたメンバー達", remark = "…人間、捕らえた。父さん、母さん、傷つけたやつら…！", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 1, icon = "HandBookCGBanner:92108021", fashion_id = "92108021", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1617152400}
 , 
-[26301002] = {id = 26301002, name = "新たな冒険の旅へ", remark = "…お前と、一緒に行ける。ワタシ、すごく嬉しい。", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 2, icon = "HandBookCGBanner:92108022", fashion_id = "92108022", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1619744400}
+[26301002] = {id = 26301002, name = "新たな冒険の旅へ", remark = "…お前と、一緒に行ける。ワタシ、すごく嬉しい。", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 2, icon = "HandBookCGBanner:92108022", fashion_id = "92108022", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1617152400}
 }

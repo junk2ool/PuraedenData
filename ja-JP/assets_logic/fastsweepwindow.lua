@@ -227,10 +227,15 @@ FastSweepWindow.CreateDebrisTemplate = function(debrisID, times, ...)
 end
 
 FastSweepWindow.onChanged = function(debrisID, btn, ...)
-  -- function num : 0_4 , upvalues : FastSweepWindow, _ENV, ChooseDebris
+  -- function num : 0_4 , upvalues : FastSweepWindow, mPlotType, _ENV, ChooseDebris
   if btn.selected then
     if (FastSweepWindow.NeedTimes)(debrisID) <= 0 then
-      (MessageMgr.SendCenterTips)((PUtil.get)(20000054))
+      if mPlotType == DungeonType.HeroDungeon then
+        (MessageMgr.SendCenterTips)((PUtil.get)(20000054))
+      else
+        ;
+        (MessageMgr.SendCenterTips)((PUtil.get)(40002075))
+      end
       btn.selected = false
     else
       ;

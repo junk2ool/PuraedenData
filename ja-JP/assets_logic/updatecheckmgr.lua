@@ -88,10 +88,10 @@ UpdateCheckMgr.NeedUpdate = function(serverAppVer, localAppVer, ...)
   local need = false
   local se = split(serverAppVer, ".")
   local lo = split(localAppVer, ".")
-  if tonumber(s[1]) < tonumber(s[1]) then
+  if tonumber(lo[1]) < tonumber(se[1]) then
     need = true
   else
-    if tonumber(s[1]) == tonumber(s[1]) and tonumber(s[2]) < tonumber(s[2]) then
+    if tonumber(se[1]) == tonumber(lo[1]) and tonumber(lo[2]) < tonumber(se[2]) then
       need = true
     end
   end

@@ -490,20 +490,28 @@ LuaTime.GetRangeTime = function(str, ...)
   return startTime, (string.format)("%02d:%02d", endHour, endMin)
 end
 
-LuaTime.GetGameHour = function(time, ...)
+LuaTime.GetBeginAndEndTime = function(startTime, endTime, ...)
   -- function num : 0_23 , upvalues : _ENV
+  local strS = (split(startTime, ":"))[2]
+  local strE = (split(endTime, ":"))[2]
+  local str = (string.format)("%02d/%01d", strS:sub(5, 6), strS:sub(7, 8)) .. "-" .. (string.format)("%02d/%01d", strE:sub(5, 6), strE:sub(7, 8))
+  return str
+end
+
+LuaTime.GetGameHour = function(time, ...)
+  -- function num : 0_24 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return tonumber((os.date)("%H", (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)))
 end
 
 LuaTime.GetTimeWithTimezone = function(time, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   local deviceZone = tonumber((os.date)("%z", 0)) / 100
   return (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)
 end
 
 LuaTime.GetTimeWithParameter = function(str, ...)
-  -- function num : 0_25 , upvalues : LuaTime, _ENV
+  -- function num : 0_26 , upvalues : LuaTime, _ENV
   local time, keep = (LuaTime.InitConfigStr)(str)
   local curTime = (LuaTime.GetTimeStamp)()
   local strDate = (os.date)("%Y/%m/%d %H:%M:%S", curTime)

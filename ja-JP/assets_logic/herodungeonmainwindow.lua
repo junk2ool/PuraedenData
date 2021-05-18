@@ -525,6 +525,11 @@ HeroDungeonMainWindow.HandleMessage = function(msgId, ...)
   if msgId == (WindowMsgEnum.HeroDungeonMainWindow).E_MSG_REFRESH then
     (HeroDungeonMainWindow.InitStageList)(false)
   end
+  if msgId == (WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok then
+    (HeroDungeonMainWindow.RefreshChapterBox)()
+    ;
+    (HeroDungeonMainWindow.InitStageList)(false)
+  end
 end
 
 return HeroDungeonMainWindow
