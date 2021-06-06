@@ -527,7 +527,7 @@ PlotDungeonMgr.SetCanBuySwipeNum = function(stageId, num, ...)
   -- DECOMPILER ERROR at PC15: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
-  ((self.stage)[stageId]).buyNum = t
+  ((self.stageStates)[stageId]).buyNum = t
 end
 
 -- DECOMPILER ERROR at PC120: Confused about usage of register: R2 in 'UnsetPending'
@@ -537,12 +537,17 @@ PlotDungeonMgr.GetCanBuySwipeNum = function(stageId, ...)
   local stageId = tonumber(stageId)
   local remain = 0
   local stageBuyConfig = ((TableData.gTable).BaseStageBuyData)[stageId]
-  local buyed = ((self.stage)[stageId]).buyNum or 0
-  if stageBuyConfig then
-    print("获取副本可购买扫荡次数", stageBuyConfig.buyLimit, buyed)
-    remain = stageBuyConfig.buyLimit - buyed
+  do
+    if stageBuyConfig then
+      local buyed = 0
+      if (self.stageStates)[stageId] and ((self.stageStates)[stageId]).buyNum then
+        buyed = ((self.stageStates)[stageId]).buyNum
+      end
+      print("获取副本可购买扫荡次数", stageBuyConfig.buyLimit, buyed)
+      remain = stageBuyConfig.buyLimit - buyed
+    end
+    return remain
   end
-  return remain
 end
 
 -- DECOMPILER ERROR at PC123: Confused about usage of register: R2 in 'UnsetPending'

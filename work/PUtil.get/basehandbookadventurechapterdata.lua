@@ -93,7 +93,7 @@
 , 
 [51100047] = {id = 51100047, type = 1, activity_type = 0, name = "「レッド」と手を携えて", remark = "「レッド」と手を携えて", record_ids = "52104701:52104702:52104703:52104704:52104705", sort = 47, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_06_5"}
 , 
-[51100048] = {id = 51100048, type = 1, activity_type = 0, name = "未定義(85110048)", remark = "未定義(85110048)", record_ids = "52104801:52104802:52104803:52104804:52104805", sort = 48, unlockPoints = 50, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_24_1"}
+[51100048] = {id = 51100048, type = 1, activity_type = 0, name = "「レッド」と手を携えて", remark = "「レッド」と手を携えて", record_ids = "52104801:52104802:52104803:52104804:52104805", sort = 48, unlockPoints = 50, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_24_1"}
 , 
 [51200001] = {id = 51200001, type = 2, activity_type = 0, name = "始まりの森", remark = "始まりの森", record_ids = "52200101:52200102:52200103:52200104:52200105:52200106", sort = 1, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
@@ -116,4 +116,6 @@
 [51410009] = {id = 51410009, type = 3, activity_type = 309, name = "勇気100％　BunnyBunny", remark = "勇気100％　BunnyBunny", record_ids = "52500903:52500906:52500909:52500912:52500915", sort = 9, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
 [51410010] = {id = 51410010, type = 3, activity_type = 310, name = "野生児の反撃", remark = "野生児の反撃", record_ids = "52501003:52501006:52501009:52501012:52501015", sort = 10, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51410011] = {id = 51410011, type = 3, activity_type = 311, name = "嘘の契り", remark = "嘘の契り", record_ids = "52501103:52501106:52501109:52501112:52501115", sort = 11, unlockPoints = 0, nextId = 0, needStage = 0}
 }

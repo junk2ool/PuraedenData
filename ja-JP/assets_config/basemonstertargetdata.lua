@@ -152,6 +152,8 @@ BaseMonsterTargetData = {
 [5005] = {id = 5005, target_num = "1"}
 , 
 [5009] = {id = 5009, target_num = "2"}
+, 
+[5010] = {id = 5010, target_num = "1"}
 }
 return BaseMonsterTargetData
 

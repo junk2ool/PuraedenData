@@ -173,6 +173,10 @@
 , 
 [21123031] = {id = 21123031, name = "サンドの欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300031", quality = 3, type = 2, effect_value = "11300031", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423031", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
 , 
+[21122216] = {id = 21122216, name = "マシロの欠片", remark = "欠片を30個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11202016", quality = 3, type = 2, effect_value = "11202016", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77422216", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
+, 
+[21123032] = {id = 21123032, name = "リューゲの欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300032", quality = 3, type = 2, effect_value = "11300032", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423032", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
+, 
 [21130001] = {id = 21130001, name = "花輪ブレスレット", remark = "冒険者の好感度30点アップ。", icon = "ItemIcon:21130001", quality = 1, type = 3, effect_value = "30", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20405, go_to_id = "77230001:77330001", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9490001, time = -1, own_show = 0}
 , 
 [21130002] = {id = 21130002, name = "蝴蝶のブローチ", remark = "冒険者の好感度60点アップ。", icon = "ItemIcon:21130002", quality = 2, type = 3, effect_value = "60", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20404, go_to_id = "77230002", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9510001, time = -1, own_show = 0}
@@ -377,13 +381,13 @@
 , 
 [21500701] = {id = 21500701, name = "感謝祭証明書パック・松", remark = "冒険ギルドからの特別補給。開けると高級証明書x2、ダイヤ募集券x1を獲得できる。", icon = "ItemIcon:21500701", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
-[21500702] = {id = 21500702, name = "感謝祭金貨パック", remark = "冒険ギルドからの特別補給。開けると金貨x1200000、ダイヤ募集券x1を獲得できる。", icon = "ItemIcon:21500702", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+[21500702] = {id = 21500702, name = "感謝祭金貨パック", remark = "冒険ギルドからの特別補給。開けると金貨x700000、ダイヤ募集券x2を獲得できる。", icon = "ItemIcon:21500702", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
 [21500703] = {id = 21500703, name = "感謝祭証明書パック・竹", remark = "冒険ギルドからの特別補給。開けると高級証明書x5、ダイヤ募集券x2を獲得できる。", icon = "ItemIcon:21500703", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
-[21500704] = {id = 21500704, name = "感謝祭突破素材パック", remark = "冒険ギルドからの特別補給。開けると(8)突破素材パックx1、ダイヤ募集券x3を獲得できる。", icon = "ItemIcon:21500704", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+[21500704] = {id = 21500704, name = "感謝祭突破素材パック", remark = "冒険ギルドからの特別補給。開けると(6)突破素材パックx1、ダイヤ募集券x3を獲得できる。", icon = "ItemIcon:21500704", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
-[21500705] = {id = 21500705, name = "感謝祭装備パック", remark = "冒険ギルドからの特別補給。開けると★5装備パックx4、ダイヤ募集券x2を獲得できる。", icon = "ItemIcon:21500705", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
+[21500705] = {id = 21500705, name = "感謝祭装備パック", remark = "冒険ギルドからの特別補給。開けると★5装備パックx2、ダイヤ募集券x3を獲得できる。", icon = "ItemIcon:21500705", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 
 [21500706] = {id = 21500706, name = "感謝祭証明書パック・梅", remark = "冒険ギルドからの特別補給。開けると高級証明書x10、ダイヤ募集券x3を獲得できる。", icon = "ItemIcon:21500706", quality = 4, type = 4, effect_value = "0", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000, time = -1, own_show = 1}
 , 

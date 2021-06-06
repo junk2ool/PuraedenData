@@ -358,4 +358,124 @@
 [78720544] = {id = 78720544, name = "一発逆転", remark = "奥義倍率が132%まで上昇する；沈黙率+15%", icon_path = "SkillIconImprint:SealSkillIcon_43001105", type = 11055, level = 4, next_id = 78720545, change_skill = "42001105:49711054", need_seal_level = 75, need_skill_id = 78720531, next_cost = "1:21121105:5,1:21140012:20,1:21140013:20,1:21140014:20,1:21140015:20,1:21140016:20,1:21150002:30"}
 , 
 [78720545] = {id = 78720545, name = "一発逆転", remark = "奥義倍率が141%まで上昇する；沈黙率+25%", icon_path = "SkillIconImprint:SealSkillIcon_43001105", type = 11055, level = 5, next_id = 0, change_skill = "42001105:49711055", need_seal_level = 75, need_skill_id = 78720531, next_cost = "0"}
+, 
+[78720600] = {id = 78720600, name = "栄光の庇護", remark = "自身の攻撃を上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_3", type = 11031, level = 0, next_id = 78720601, need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121103:20,1:21150201:10"}
+, 
+[78720601] = {id = 78720601, name = "栄光の庇護", remark = "自身の攻撃を1%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_3", type = 11031, level = 1, next_id = 78720602, buff_list = "49300010", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121103:5,1:21140001:10,1:21140002:10,1:21140003:5,1:21140004:5,1:21150002:10"}
+, 
+[78720602] = {id = 78720602, name = "栄光の庇護", remark = "自身の攻撃を2.5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_3", type = 11031, level = 2, next_id = 78720603, buff_list = "49300020", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121103:5,1:21140001:20,1:21140002:20,1:21140003:10,1:21140004:10,1:21150002:10"}
+, 
+[78720603] = {id = 78720603, name = "栄光の庇護", remark = "自身の攻撃を4.5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_3", type = 11031, level = 3, next_id = 78720604, buff_list = "49300030", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121103:5,1:21140001:30,1:21140002:30,1:21140003:15,1:21140004:15,1:21150002:10"}
+, 
+[78720604] = {id = 78720604, name = "栄光の庇護", remark = "自身の攻撃を7.5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_3", type = 11031, level = 4, next_id = 78720605, buff_list = "49300040", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121103:5,1:21140001:40,1:21140002:40,1:21140003:20,1:21140004:20,1:21150002:10"}
+, 
+[78720605] = {id = 78720605, name = "栄光の庇護", remark = "自身の攻撃を10%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_3", type = 11031, level = 5, next_id = 0, buff_list = "49300050", need_seal_level = 15, need_skill_id = 0, next_cost = "0"}
+, 
+[78720610] = {id = 78720610, name = "能力還流", remark = "戦闘開始時、SP回復量がアップする", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 11032, level = 0, next_id = 78720611, need_seal_level = 30, need_skill_id = 78720601, next_cost = "1:21121103:40,1:21150201:10"}
+, 
+[78720611] = {id = 78720611, name = "能力還流", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 11032, level = 1, next_id = 78720612, buff_list = "49300210", need_seal_level = 30, need_skill_id = 78720601, next_cost = "1:21121103:5,1:21140003:5,1:21140004:5,1:21140005:10,1:21140006:5,1:21140007:5,1:21150002:15"}
+, 
+[78720612] = {id = 78720612, name = "能力還流", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 11032, level = 2, next_id = 78720613, buff_list = "49300220", need_seal_level = 30, need_skill_id = 78720601, next_cost = "1:21121103:5,1:21140003:10,1:21140004:10,1:21140005:20,1:21140006:10,1:21140007:10,1:21150002:15"}
+, 
+[78720613] = {id = 78720613, name = "能力還流", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 11032, level = 3, next_id = 78720614, buff_list = "49300230", need_seal_level = 30, need_skill_id = 78720601, next_cost = "1:21121103:5,1:21140003:15,1:21140004:15,1:21140005:30,1:21140006:15,1:21140007:15,1:21150002:15"}
+, 
+[78720614] = {id = 78720614, name = "能力還流", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 11032, level = 4, next_id = 78720615, buff_list = "49300240", need_seal_level = 30, need_skill_id = 78720601, next_cost = "1:21121103:5,1:21140003:20,1:21140004:20,1:21140005:40,1:21140006:20,1:21140007:20,1:21150002:15"}
+, 
+[78720615] = {id = 78720615, name = "能力還流", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 11032, level = 5, next_id = 0, buff_list = "49300250", need_seal_level = 30, need_skill_id = 78720601, next_cost = "0"}
+, 
+[78720620] = {id = 78720620, name = "とろとろ温泉", remark = "特技倍率UP；睡眠率UP", icon_path = "SkillIconImprint:SealSkillIcon_42001103", type = 11033, level = 0, next_id = 78720621, need_seal_level = 45, need_skill_id = 78720611, next_cost = "1:21121103:60,1:21150202:10"}
+, 
+[78720621] = {id = 78720621, name = "とろとろ温泉", remark = "特技倍率が126%まで上昇する；睡眠率+10%", icon_path = "SkillIconImprint:SealSkillIcon_42001103", type = 11033, level = 1, next_id = 78720622, change_skill = "43001103:49811031", need_seal_level = 45, need_skill_id = 78720611, next_cost = "1:21121103:5,1:21140006:5,1:21140007:5,1:21140008:10,1:21140009:5,1:21140010:5,1:21150002:20"}
+, 
+[78720622] = {id = 78720622, name = "とろとろ温泉", remark = "特技倍率が130%まで上昇する；睡眠率+10%", icon_path = "SkillIconImprint:SealSkillIcon_42001103", type = 11033, level = 2, next_id = 78720623, change_skill = "43001103:49811032", need_seal_level = 45, need_skill_id = 78720611, next_cost = "1:21121103:5,1:21140006:10,1:21140007:10,1:21140008:20,1:21140009:10,1:21140010:10,1:21150002:20"}
+, 
+[78720623] = {id = 78720623, name = "とろとろ温泉", remark = "特技倍率が136%まで上昇する；睡眠率+20%", icon_path = "SkillIconImprint:SealSkillIcon_42001103", type = 11033, level = 3, next_id = 78720624, change_skill = "43001103:49811033", need_seal_level = 45, need_skill_id = 78720611, next_cost = "1:21121103:5,1:21140006:15,1:21140007:15,1:21140008:30,1:21140009:15,1:21140010:15,1:21150002:20"}
+, 
+[78720624] = {id = 78720624, name = "とろとろ温泉", remark = "特技倍率が145%まで上昇する；睡眠率+20%", icon_path = "SkillIconImprint:SealSkillIcon_42001103", type = 11033, level = 4, next_id = 78720625, change_skill = "43001103:49811034", need_seal_level = 45, need_skill_id = 78720611, next_cost = "1:21121103:5,1:21140006:20,1:21140007:20,1:21140008:40,1:21140009:20,1:21140010:20,1:21150002:20"}
+, 
+[78720625] = {id = 78720625, name = "とろとろ温泉", remark = "特技倍率が155%まで上昇する；睡眠率+30%", icon_path = "SkillIconImprint:SealSkillIcon_42001103", type = 11033, level = 5, next_id = 0, change_skill = "43001103:49811035", need_seal_level = 45, need_skill_id = 78720611, next_cost = "0"}
+, 
+[78720630] = {id = 78720630, name = "神恩冥加", remark = "攻撃強化と防御強化が上昇する", icon_path = "SkillIconImprint:SealSkillIcon_3_3", type = 11034, level = 0, next_id = 78720631, need_seal_level = 60, need_skill_id = 78720621, next_cost = "1:21121103:80,1:21150202:10"}
+, 
+[78720631] = {id = 78720631, name = "神恩冥加", remark = "攻撃強化＋7620、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_3", type = 11034, level = 1, next_id = 78720632, add_attr = "1:81050031:7620,1:81050032:1910", need_seal_level = 60, need_skill_id = 78720621, next_cost = "1:21121103:5,1:21140009:5,1:21140010:5,1:21140011:10,1:21140012:5,1:21140013:5,1:21150002:25"}
+, 
+[78720632] = {id = 78720632, name = "神恩冥加", remark = "攻撃強化＋19050、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_3", type = 11034, level = 2, next_id = 78720633, add_attr = "1:81050031:19050,1:81050032:4770", need_seal_level = 60, need_skill_id = 78720621, next_cost = "1:21121103:5,1:21140009:10,1:21140010:10,1:21140011:20,1:21140012:10,1:21140013:10,1:21150002:25"}
+, 
+[78720633] = {id = 78720633, name = "神恩冥加", remark = "攻撃強化＋34290、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_3", type = 11034, level = 3, next_id = 78720634, add_attr = "1:81050031:34290,1:81050032:8580", need_seal_level = 60, need_skill_id = 78720621, next_cost = "1:21121103:5,1:21140009:15,1:21140010:15,1:21140011:30,1:21140012:15,1:21140013:15,1:21150002:25"}
+, 
+[78720634] = {id = 78720634, name = "神恩冥加", remark = "攻撃強化＋53350、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_3", type = 11034, level = 4, next_id = 78720635, add_attr = "1:81050031:53350,1:81050032:13340", need_seal_level = 60, need_skill_id = 78720621, next_cost = "1:21121103:5,1:21140009:20,1:21140010:20,1:21140011:40,1:21140012:20,1:21140013:20,1:21150002:25"}
+, 
+[78720635] = {id = 78720635, name = "神恩冥加", remark = "攻撃強化＋76220、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_3", type = 11034, level = 5, next_id = 0, add_attr = "1:81050031:76220,1:81050032:19060", need_seal_level = 60, need_skill_id = 78720621, next_cost = "0"}
+, 
+[78720640] = {id = 78720640, name = "癒しの天使", remark = "奥義倍率UP；味方全体攻撃UPの効果がアップする", icon_path = "SkillIconImprint:SealSkillIcon_43001103", type = 11035, level = 0, next_id = 78720641, need_seal_level = 75, need_skill_id = 78720631, next_cost = "1:21121103:100,1:21150203:10"}
+, 
+[78720641] = {id = 78720641, name = "癒しの天使", remark = "奥義倍率が211%まで上昇する；味方全体の攻撃を2%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_43001103", type = 11035, level = 1, next_id = 78720642, change_skill = "42001103:49711031", need_seal_level = 75, need_skill_id = 78720631, next_cost = "1:21121103:5,1:21140012:5,1:21140013:5,1:21140014:5,1:21140015:5,1:21140016:5,1:21150002:30"}
+, 
+[78720642] = {id = 78720642, name = "癒しの天使", remark = "奥義倍率が217%まで上昇する；味方全体の攻撃を5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_43001103", type = 11035, level = 2, next_id = 78720643, change_skill = "42001103:49711032", need_seal_level = 75, need_skill_id = 78720631, next_cost = "1:21121103:5,1:21140012:10,1:21140013:10,1:21140014:10,1:21140015:10,1:21140016:10,1:21150002:30"}
+, 
+[78720643] = {id = 78720643, name = "癒しの天使", remark = "奥義倍率が228%まで上昇する；味方全体の攻撃を5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_43001103", type = 11035, level = 3, next_id = 78720644, change_skill = "42001103:49711033", need_seal_level = 75, need_skill_id = 78720631, next_cost = "1:21121103:5,1:21140012:15,1:21140013:15,1:21140014:15,1:21140015:15,1:21140016:15,1:21150002:30"}
+, 
+[78720644] = {id = 78720644, name = "癒しの天使", remark = "奥義倍率が242%まで上昇する；味方全体の攻撃を5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_43001103", type = 11035, level = 4, next_id = 78720645, change_skill = "42001103:49711034", need_seal_level = 75, need_skill_id = 78720631, next_cost = "1:21121103:5,1:21140012:20,1:21140013:20,1:21140014:20,1:21140015:20,1:21140016:20,1:21150002:30"}
+, 
+[78720645] = {id = 78720645, name = "癒しの天使", remark = "奥義倍率が259%まで上昇する；味方全体の攻撃を5%上昇させる；ランダムに味方2名に浄化効果を付与する", icon_path = "SkillIconImprint:SealSkillIcon_43001103", type = 11035, level = 5, next_id = 0, change_skill = "42001103:49711035", need_seal_level = 75, need_skill_id = 78720631, next_cost = "0"}
+, 
+[78720700] = {id = 78720700, name = "戦意高揚", remark = "自身の攻撃を上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10031, level = 0, next_id = 78720701, need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121003:20,1:21150201:10"}
+, 
+[78720701] = {id = 78720701, name = "戦意高揚", remark = "自身の攻撃を1%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10031, level = 1, next_id = 78720702, buff_list = "49300010", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121003:5,1:21140001:10,1:21140002:10,1:21140003:5,1:21140004:5,1:21150002:10"}
+, 
+[78720702] = {id = 78720702, name = "戦意高揚", remark = "自身の攻撃を2.5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10031, level = 2, next_id = 78720703, buff_list = "49300020", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121003:5,1:21140001:20,1:21140002:20,1:21140003:10,1:21140004:10,1:21150002:10"}
+, 
+[78720703] = {id = 78720703, name = "戦意高揚", remark = "自身の攻撃を4.5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10031, level = 3, next_id = 78720704, buff_list = "49300030", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121003:5,1:21140001:30,1:21140002:30,1:21140003:15,1:21140004:15,1:21150002:10"}
+, 
+[78720704] = {id = 78720704, name = "戦意高揚", remark = "自身の攻撃を7.5%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10031, level = 4, next_id = 78720705, buff_list = "49300040", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121003:5,1:21140001:40,1:21140002:40,1:21140003:20,1:21140004:20,1:21150002:10"}
+, 
+[78720705] = {id = 78720705, name = "戦意高揚", remark = "自身の攻撃を10%上昇させる", icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10031, level = 5, next_id = 0, buff_list = "49300050", need_seal_level = 15, need_skill_id = 0, next_cost = "0"}
+, 
+[78720710] = {id = 78720710, name = "能力昇進", remark = "戦闘開始時、SP回復量がアップする", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10032, level = 0, next_id = 78720711, need_seal_level = 30, need_skill_id = 78720701, next_cost = "1:21121003:40,1:21150201:10"}
+, 
+[78720711] = {id = 78720711, name = "能力昇進", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10032, level = 1, next_id = 78720712, buff_list = "49300210", need_seal_level = 30, need_skill_id = 78720701, next_cost = "1:21121003:5,1:21140003:5,1:21140004:5,1:21140005:10,1:21140006:5,1:21140007:5,1:21150002:15"}
+, 
+[78720712] = {id = 78720712, name = "能力昇進", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10032, level = 2, next_id = 78720713, buff_list = "49300220", need_seal_level = 30, need_skill_id = 78720701, next_cost = "1:21121003:5,1:21140003:10,1:21140004:10,1:21140005:20,1:21140006:10,1:21140007:10,1:21150002:15"}
+, 
+[78720713] = {id = 78720713, name = "能力昇進", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10032, level = 3, next_id = 78720714, buff_list = "49300230", need_seal_level = 30, need_skill_id = 78720701, next_cost = "1:21121003:5,1:21140003:15,1:21140004:15,1:21140005:30,1:21140006:15,1:21140007:15,1:21150002:15"}
+, 
+[78720714] = {id = 78720714, name = "能力昇進", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10032, level = 4, next_id = 78720715, buff_list = "49300240", need_seal_level = 30, need_skill_id = 78720701, next_cost = "1:21121003:5,1:21140003:20,1:21140004:20,1:21140005:40,1:21140006:20,1:21140007:20,1:21150002:15"}
+, 
+[78720715] = {id = 78720715, name = "能力昇進", remark = "戦闘開始時、SP回復量+%d", icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10032, level = 5, next_id = 0, buff_list = "49300250", need_seal_level = 30, need_skill_id = 78720701, next_cost = "0"}
+, 
+[78720720] = {id = 78720720, name = "いたずらの極意", remark = "特技倍率UP；会心UP", icon_path = "SkillIconImprint:SealSkillIcon_42001003", type = 10033, level = 0, next_id = 78720721, need_seal_level = 45, need_skill_id = 78720711, next_cost = "1:21121003:60,1:21150202:10"}
+, 
+[78720721] = {id = 78720721, name = "いたずらの極意", remark = "特技倍率が121%まで上昇する；会心+10%", icon_path = "SkillIconImprint:SealSkillIcon_42001003", type = 10033, level = 1, next_id = 78720722, change_skill = "43001003:49810031", need_seal_level = 45, need_skill_id = 78720711, next_cost = "1:21121003:5,1:21140006:5,1:21140007:5,1:21140008:10,1:21140009:5,1:21140010:5,1:21150002:20"}
+, 
+[78720722] = {id = 78720722, name = "いたずらの極意", remark = "特技倍率が125%まで上昇する；会心+10%", icon_path = "SkillIconImprint:SealSkillIcon_42001003", type = 10033, level = 2, next_id = 78720723, change_skill = "43001003:49810032", need_seal_level = 45, need_skill_id = 78720711, next_cost = "1:21121003:5,1:21140006:10,1:21140007:10,1:21140008:20,1:21140009:10,1:21140010:10,1:21150002:20"}
+, 
+[78720723] = {id = 78720723, name = "いたずらの極意", remark = "特技倍率が131%まで上昇する；会心+20%", icon_path = "SkillIconImprint:SealSkillIcon_42001003", type = 10033, level = 3, next_id = 78720724, change_skill = "43001003:49810033", need_seal_level = 45, need_skill_id = 78720711, next_cost = "1:21121003:5,1:21140006:15,1:21140007:15,1:21140008:30,1:21140009:15,1:21140010:15,1:21150002:20"}
+, 
+[78720724] = {id = 78720724, name = "いたずらの極意", remark = "特技倍率が139%まで上昇する；会心+20%", icon_path = "SkillIconImprint:SealSkillIcon_42001003", type = 10033, level = 4, next_id = 78720725, change_skill = "43001003:49810034", need_seal_level = 45, need_skill_id = 78720711, next_cost = "1:21121003:5,1:21140006:20,1:21140007:20,1:21140008:40,1:21140009:20,1:21140010:20,1:21150002:20"}
+, 
+[78720725] = {id = 78720725, name = "いたずらの極意", remark = "特技倍率が149%まで上昇する；会心+30%", icon_path = "SkillIconImprint:SealSkillIcon_42001003", type = 10033, level = 5, next_id = 0, change_skill = "43001003:49810035", need_seal_level = 45, need_skill_id = 78720711, next_cost = "0"}
+, 
+[78720730] = {id = 78720730, name = "血脈猛爆", remark = "攻撃強化と防御強化が上昇する", icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10034, level = 0, next_id = 78720731, need_seal_level = 60, need_skill_id = 78720721, next_cost = "1:21121003:80,1:21150202:10"}
+, 
+[78720731] = {id = 78720731, name = "血脈猛爆", remark = "攻撃強化＋8570、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10034, level = 1, next_id = 78720732, add_attr = "1:81050031:8570,1:81050032:950", need_seal_level = 60, need_skill_id = 78720721, next_cost = "1:21121003:5,1:21140009:5,1:21140010:5,1:21140011:10,1:21140012:5,1:21140013:5,1:21150002:25"}
+, 
+[78720732] = {id = 78720732, name = "血脈猛爆", remark = "攻撃強化＋21430、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10034, level = 2, next_id = 78720733, add_attr = "1:81050031:21430,1:81050032:2380", need_seal_level = 60, need_skill_id = 78720721, next_cost = "1:21121003:5,1:21140009:10,1:21140010:10,1:21140011:20,1:21140012:10,1:21140013:10,1:21150002:25"}
+, 
+[78720733] = {id = 78720733, name = "血脈猛爆", remark = "攻撃強化＋38580、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10034, level = 3, next_id = 78720734, add_attr = "1:81050031:38580,1:81050032:4290", need_seal_level = 60, need_skill_id = 78720721, next_cost = "1:21121003:5,1:21140009:15,1:21140010:15,1:21140011:30,1:21140012:15,1:21140013:15,1:21150002:25"}
+, 
+[78720734] = {id = 78720734, name = "血脈猛爆", remark = "攻撃強化＋60020、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10034, level = 4, next_id = 78720735, add_attr = "1:81050031:60020,1:81050032:6670", need_seal_level = 60, need_skill_id = 78720721, next_cost = "1:21121003:5,1:21140009:20,1:21140010:20,1:21140011:40,1:21140012:20,1:21140013:20,1:21150002:25"}
+, 
+[78720735] = {id = 78720735, name = "血脈猛爆", remark = "攻撃強化＋85740、防御強化＋%d", icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10034, level = 5, next_id = 0, add_attr = "1:81050031:85740,1:81050032:9530", need_seal_level = 60, need_skill_id = 78720721, next_cost = "0"}
+, 
+[78720740] = {id = 78720740, name = "一緒に遊ぼう♪", remark = "奥義倍率UP；会心力UP", icon_path = "SkillIconImprint:SealSkillIcon_43001003", type = 10035, level = 0, next_id = 78720741, need_seal_level = 75, need_skill_id = 78720731, next_cost = "1:21121003:100,1:21150203:10"}
+, 
+[78720741] = {id = 78720741, name = "一緒に遊ぼう♪", remark = "奥義倍率が202%まで上昇する；会心力+10%", icon_path = "SkillIconImprint:SealSkillIcon_43001003", type = 10035, level = 1, next_id = 78720742, change_skill = "42001003:49710031", need_seal_level = 75, need_skill_id = 78720731, next_cost = "1:21121003:5,1:21140012:5,1:21140013:5,1:21140014:5,1:21140015:5,1:21140016:5,1:21150002:30"}
+, 
+[78720742] = {id = 78720742, name = "一緒に遊ぼう♪", remark = "奥義倍率が208%まで上昇する；会心力+10%", icon_path = "SkillIconImprint:SealSkillIcon_43001003", type = 10035, level = 2, next_id = 78720743, change_skill = "42001003:49710032", need_seal_level = 75, need_skill_id = 78720731, next_cost = "1:21121003:5,1:21140012:10,1:21140013:10,1:21140014:10,1:21140015:10,1:21140016:10,1:21150002:30"}
+, 
+[78720743] = {id = 78720743, name = "一緒に遊ぼう♪", remark = "奥義倍率が218%まで上昇する；会心力+15%", icon_path = "SkillIconImprint:SealSkillIcon_43001003", type = 10035, level = 3, next_id = 78720744, change_skill = "42001003:49710033", need_seal_level = 75, need_skill_id = 78720731, next_cost = "1:21121003:5,1:21140012:15,1:21140013:15,1:21140014:15,1:21140015:15,1:21140016:15,1:21150002:30"}
+, 
+[78720744] = {id = 78720744, name = "一緒に遊ぼう♪", remark = "奥義倍率が232%まで上昇する；会心力+15%", icon_path = "SkillIconImprint:SealSkillIcon_43001003", type = 10035, level = 4, next_id = 78720745, change_skill = "42001003:49710034", need_seal_level = 75, need_skill_id = 78720731, next_cost = "1:21121003:5,1:21140012:20,1:21140013:20,1:21140014:20,1:21140015:20,1:21140016:20,1:21150002:30"}
+, 
+[78720745] = {id = 78720745, name = "一緒に遊ぼう♪", remark = "奥義倍率が248%まで上昇する；会心力+20%", icon_path = "SkillIconImprint:SealSkillIcon_43001003", type = 10035, level = 5, next_id = 0, change_skill = "42001003:49710035", need_seal_level = 75, need_skill_id = 78720731, next_cost = "0"}
 }

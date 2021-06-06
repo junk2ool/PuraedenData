@@ -25,9 +25,9 @@ MessageMgr.RefreshRewardWindow = function(id, state, ...)
 end
 
 MessageMgr.CloseRewardWindow = function(id, state, ...)
-  -- function num : 0_3 , upvalues : _ENV, MessageMgr
+  -- function num : 0_3 , upvalues : _ENV
   local window = UIMgr:GetWindow((WinResConfig.RewardDisplayWindow).name)
-  if window and window.isShowing and tonumber(MessageMgr.RewardID) == tonumber(id) and state then
+  if window and window.isShowing and state then
     UIMgr:CloseWindow((WinResConfig.RewardDisplayWindow).name)
   end
 end

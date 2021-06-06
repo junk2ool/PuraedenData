@@ -16,4 +16,6 @@
 [78610008] = {id = 78610008, name = "Bunny！ アイコン枠", des = "立ち上がると実は足が長い。\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0009", condition = "0", sort = 8, reward_sort = 9880001, own_show = 1, open_time = "1619834399"}
 , 
 [78610009] = {id = 78610009, name = "野生児！　アイコン枠", des = "乱獲、ダメ、ゼッタイ。\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0010", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1620403200"}
+, 
+[78610010] = {id = 78610010, name = "操り人形師　アイコン枠", des = "腕一本でもあげようか？\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0012", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
 }

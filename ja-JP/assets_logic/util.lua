@@ -3936,19 +3936,19 @@ end
 
 Util.CompareVersion = function(nVersion, version, ...)
   -- function num : 0_188 , upvalues : split, _ENV
-  local engouh = false
+  local enough = false
   local nVersionList = split(nVersion, ".")
   local VersionList = split(version, ".")
   if tonumber(VersionList[1]) < tonumber(nVersionList[1]) then
-    engouh = true
+    enough = true
   else
     if tonumber(VersionList[1]) <= tonumber(nVersionList[1]) and tonumber(VersionList[2]) < tonumber(nVersionList[2]) then
-      engouh = true
+      enough = true
     else
       if tonumber(VersionList[1]) <= tonumber(nVersionList[1]) and tonumber(VersionList[2]) <= tonumber(nVersionList[2]) and tonumber(VersionList[3]) <= tonumber(nVersionList[3]) then
-        engouh = true
+        enough = true
       else
-        engouh = false
+        enough = false
       end
     end
   end

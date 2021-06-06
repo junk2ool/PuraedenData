@@ -208,6 +208,13 @@ CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, le
     concatCards = specifyCard()
     specifyCards[tag] = specifyCard
   end
+  ;
+  (table.sort)(concatCards, function(a, b, ...)
+    -- function num : 0_13_0
+    do return b.fc < a.fc end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
   clickedFunc[tag] = _clickedFunc
   cardList[tag] = _cardList
   currentTag = tag
@@ -215,16 +222,16 @@ CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, le
   (cardList[tag]):SetVirtual()
   ;
   (((cardList[tag]).scrollPane).onScroll):Add(function(...)
-    -- function num : 0_13_0 , upvalues : _ENV, tag
+    -- function num : 0_13_1 , upvalues : _ENV, tag
     (CardMgr.CheckArrow)(tag)
   end
 )
-  -- DECOMPILER ERROR at PC30: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R8 in 'UnsetPending'
 
   if withoutRed == true then
     (cardList[tag]).itemRenderer = CardMgr.RefreshCardItemWithOutRedDot
   else
-    -- DECOMPILER ERROR at PC35: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC40: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (cardList[tag]).itemRenderer = CardMgr.RefreshCardItem
@@ -235,7 +242,7 @@ CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, le
   else
     selectedCard = 0
   end
-  -- DECOMPILER ERROR at PC52: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC57: Confused about usage of register: R8 in 'UnsetPending'
 
   ;
   (cardList[tag]).numItems = #concatCards

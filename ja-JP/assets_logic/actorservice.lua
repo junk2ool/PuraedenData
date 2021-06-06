@@ -140,7 +140,7 @@ ActorService.OnResDetailInfo = function(msg, ...)
     (ActorData.SaveActorData)(msg, callBack)
     ;
     (ActorMgr.InitHeartMessageUpdate)()
-    if SDKUtil.IsUseSDKPush == true then
+    if SuperSDKUtil.IsUseSDKPush == true then
       (MessageMgr.SetCandyGetPush)(PushType.Candy_Get)
       ;
       (MessageMgr.SetFixTimePush)(PushType.Fix_Time)

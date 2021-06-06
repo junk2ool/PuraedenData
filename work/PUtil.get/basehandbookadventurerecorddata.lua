@@ -514,4 +514,14 @@
 [52501012] = {id = 52501012, name = "狩人撃退作戦！", remark = "狩人撃退作戦！", icon = "HandBookBanner:handbook_01_4", story_id = "75901071:75901081", sort = 4}
 , 
 [52501015] = {id = 52501015, name = "仲間二人加入", remark = "仲間二人加入", icon = "HandBookBanner:handbook_01_5", story_id = "75901091:75901092", sort = 5}
+, 
+[52501103] = {id = 52501103, name = "謎の二人組", remark = "謎の二人組", icon = "HandBookBanner:Activity_11_1", story_id = "75900011:75900021:75900022", sort = 1}
+, 
+[52501106] = {id = 52501106, name = "姉妹と残酷な真実", remark = "姉妹と残酷な真実", icon = "HandBookBanner:Activity_11_2", story_id = "75900031:75900041", sort = 2}
+, 
+[52501109] = {id = 52501109, name = "謎の集団", remark = "謎の集団", icon = "HandBookBanner:Activity_11_3", story_id = "75900051:75900052:75900053:75900061:75900062:75900063:75900064", sort = 3}
+, 
+[52501112] = {id = 52501112, name = "『守る』のために！", remark = "『守る』のために！", icon = "HandBookBanner:Activity_11_4", story_id = "75900071:75900081:75900082", sort = 4}
+, 
+[52501115] = {id = 52501115, name = "欺きと真実", remark = "欺きと真実", icon = "HandBookBanner:Activity_11_5", story_id = "75900091", sort = 5}
 }

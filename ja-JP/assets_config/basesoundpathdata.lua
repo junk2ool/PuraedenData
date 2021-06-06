@@ -4579,11 +4579,17 @@ BaseSoundPathData = {
 , 
 [230180115] = {id = 230180115, play_frame = 496, path = "sfx_labi_yongzhuang_big_tx_496fr", bank = "labi_yongzhuang"}
 , 
-[230180201] = {id = 230180201, play_frame = 18, path = "sfx_labi_yongzhuang_pt_tx_18fr", bank = "labi_yongzhuang"}
+[230180201] = {id = 230180201, play_frame = 13, path = "sfx_labi_yongzhuang_pt_wh_13fr", bank = "labi_yongzhuang"}
 , 
-[230180202] = {id = 230180202, play_frame = 40, path = "sfx_labi_yongzhuang_pt_tx_40fr", bank = "labi_yongzhuang"}
+[230180202] = {id = 230180202, play_frame = 18, path = "sfx_labi_yongzhuang_pt_tx_18fr", bank = "labi_yongzhuang"}
 , 
-[230180203] = {id = 230180203, play_frame = 75, path = "sfx_labi_yongzhuang_pt_tx_75fr", bank = "labi_yongzhuang"}
+[230180203] = {id = 230180203, play_frame = 35, path = "sfx_labi_yongzhuang_pt_wh_35fr", bank = "labi_yongzhuang"}
+, 
+[230180204] = {id = 230180204, play_frame = 40, path = "sfx_labi_yongzhuang_pt_tx_40fr", bank = "labi_yongzhuang"}
+, 
+[230180205] = {id = 230180205, play_frame = 73, path = "sfx_labi_yongzhuang_pt_wh_73fr", bank = "labi_yongzhuang"}
+, 
+[230180206] = {id = 230180206, play_frame = 75, path = "sfx_labi_yongzhuang_pt_tx_75fr", bank = "labi_yongzhuang"}
 , 
 [230180301] = {id = 230180301, play_frame = 22, path = "sfx_labi_yongzhuang_small_wh_22fr", bank = "labi_yongzhuang"}
 , 
@@ -5376,6 +5382,112 @@ BaseSoundPathData = {
 [230310401] = {id = 230310401, play_frame = 13, path = "sfx_zanghu_pt_wh_56fr", bank = "zanghu"}
 , 
 [230310402] = {id = 230310402, play_frame = 21, path = "sfx_zanghu_pt_tx_53fr", bank = "zanghu"}
+, 
+[222160101] = {id = 222160101, play_frame = 2, path = "sfx_zhurutu_big_tx_2fr", bank = "zhurutu"}
+, 
+[222160102] = {id = 222160102, play_frame = 44, path = "sfx_zhurutu_big_wh_44fr", bank = "zhurutu"}
+, 
+[222160103] = {id = 222160103, play_frame = 92, path = "sfx_zhurutu_big_wh_92fr", bank = "zhurutu"}
+, 
+[222160104] = {id = 222160104, play_frame = 105, path = "sfx_zhurutu_big_wh_105fr", bank = "zhurutu"}
+, 
+[222160105] = {id = 222160105, play_frame = 154, path = "sfx_zhurutu_big_wh_154fr", bank = "zhurutu"}
+, 
+[222160106] = {id = 222160106, play_frame = 183, path = "sfx_zhurutu_big_wh_183fr", bank = "zhurutu"}
+, 
+[222160107] = {id = 222160107, play_frame = 268, path = "sfx_zhurutu_big_wh_268fr", bank = "zhurutu"}
+, 
+[222160108] = {id = 222160108, play_frame = 291, path = "sfx_zhurutu_big_wh_291fr", bank = "zhurutu"}
+, 
+[222160109] = {id = 222160109, play_frame = 306, path = "sfx_zhurutu_big_wh_306fr", bank = "zhurutu"}
+, 
+[222160110] = {id = 222160110, play_frame = 342, path = "sfx_zhurutu_big_wh_342fr", bank = "zhurutu"}
+, 
+[222160201] = {id = 222160201, play_frame = 25, path = "sfx_zhurutu_pt_wh_25fr", bank = "zhurutu"}
+, 
+[222160202] = {id = 222160202, play_frame = 38, path = "sfx_zhurutu_pt_tx_38fr", bank = "zhurutu"}
+, 
+[222160301] = {id = 222160301, play_frame = 39, path = "sfx_zhurutu_small_wh_39fr", bank = "zhurutu"}
+, 
+[222160302] = {id = 222160302, play_frame = 48, path = "sfx_zhurutu_small_tx_48fr", bank = "zhurutu"}
+, 
+[222160303] = {id = 222160303, play_frame = 62, path = "sfx_zhurutu_small_tx_62fr", bank = "zhurutu"}
+, 
+[230320101] = {id = 230320101, play_frame = 37, path = "sfx_ribenlang_big_tx_37fr", bank = "ribenlang"}
+, 
+[230320102] = {id = 230320102, play_frame = 131, path = "sfx_ribenlang_big_tx_131fr", bank = "ribenlang"}
+, 
+[230320103] = {id = 230320103, play_frame = 144, path = "sfx_ribenlang_big_tx_144fr", bank = "ribenlang"}
+, 
+[230320104] = {id = 230320104, play_frame = 200, path = "sfx_ribenlang_big_tx_200fr", bank = "ribenlang"}
+, 
+[230320105] = {id = 230320105, play_frame = 214, path = "sfx_ribenlang_big_tx_214fr", bank = "ribenlang"}
+, 
+[230320106] = {id = 230320106, play_frame = 229, path = "sfx_ribenlang_big_tx_229fr", bank = "ribenlang"}
+, 
+[230320107] = {id = 230320107, play_frame = 273, path = "sfx_ribenlang_big_tx_273fr", bank = "ribenlang"}
+, 
+[230320108] = {id = 230320108, play_frame = 285, path = "sfx_ribenlang_big_tx_285fr", bank = "ribenlang"}
+, 
+[230320109] = {id = 230320109, play_frame = 303, path = "sfx_ribenlang_big_tx_313fr", bank = "ribenlang"}
+, 
+[230320110] = {id = 230320110, play_frame = 327, path = "sfx_ribenlang_big_tx_337fr", bank = "ribenlang"}
+, 
+[230320111] = {id = 230320111, play_frame = 354, path = "sfx_ribenlang_big_wh_369fr", bank = "ribenlang"}
+, 
+[230320112] = {id = 230320112, play_frame = 359, path = "sfx_ribenlang_big_tx_374fr", bank = "ribenlang"}
+, 
+[230320113] = {id = 230320113, play_frame = 369, path = "sfx_ribenlang_big_wh_384fr", bank = "ribenlang"}
+, 
+[230320114] = {id = 230320114, play_frame = 373, path = "sfx_ribenlang_big_tx_388fr", bank = "ribenlang"}
+, 
+[230320115] = {id = 230320115, play_frame = 379, path = "sfx_ribenlang_big_wh_394fr", bank = "ribenlang"}
+, 
+[230320116] = {id = 230320116, play_frame = 384, path = "sfx_ribenlang_big_tx_399fr", bank = "ribenlang"}
+, 
+[230320117] = {id = 230320117, play_frame = 394, path = "sfx_ribenlang_big_wh_409fr", bank = "ribenlang"}
+, 
+[230320118] = {id = 230320118, play_frame = 399, path = "sfx_ribenlang_big_tx_414fr", bank = "ribenlang"}
+, 
+[230320119] = {id = 230320119, play_frame = 415, path = "sfx_ribenlang_big_wh_430fr", bank = "ribenlang"}
+, 
+[230320120] = {id = 230320120, play_frame = 426, path = "sfx_ribenlang_big_wh_441fr", bank = "ribenlang"}
+, 
+[230320121] = {id = 230320121, play_frame = 427, path = "sfx_ribenlang_big_tx_442fr", bank = "ribenlang"}
+, 
+[230320122] = {id = 230320122, play_frame = 439, path = "sfx_ribenlang_big_tx_454fr", bank = "ribenlang"}
+, 
+[230320123] = {id = 230320123, play_frame = 452, path = "sfx_ribenlang_big_wh_467fr", bank = "ribenlang"}
+, 
+[230320124] = {id = 230320124, play_frame = 466, path = "sfx_ribenlang_big_tx_481fr", bank = "ribenlang"}
+, 
+[230320201] = {id = 230320201, play_frame = 13, path = "sfx_ribenlang_pt_wh_13fr", bank = "ribenlang"}
+, 
+[230320202] = {id = 230320202, play_frame = 24, path = "sfx_ribenlang_pt_tx_24fr", bank = "ribenlang"}
+, 
+[230320203] = {id = 230320203, play_frame = 33, path = "sfx_ribenlang_pt_wh_33fr", bank = "ribenlang"}
+, 
+[230320204] = {id = 230320204, play_frame = 47, path = "sfx_ribenlang_pt_tx_47fr", bank = "ribenlang"}
+, 
+[230320301] = {id = 230320301, play_frame = 13, path = "sfx_ribenlang_small_wh_13fr", bank = "ribenlang"}
+, 
+[230320302] = {id = 230320302, play_frame = 22, path = "sfx_ribenlang_small_tx_22fr", bank = "ribenlang"}
+, 
+[230320303] = {id = 230320303, play_frame = 41, path = "sfx_ribenlang_small_wh_41fr", bank = "ribenlang"}
+, 
+[230320304] = {id = 230320304, play_frame = 46, path = "sfx_ribenlang_small_tx_46fr", bank = "ribenlang"}
+, 
+[230320305] = {id = 230320305, play_frame = 54, path = "sfx_ribenlang_small_wh_54fr", bank = "ribenlang"}
+, 
+[230320306] = {id = 230320306, play_frame = 58, path = "sfx_ribenlang_small_tx_58fr", bank = "ribenlang"}
+, 
+[230320307] = {id = 230320307, play_frame = 87, path = "sfx_ribenlang_small_wh_87fr", bank = "ribenlang"}
+, 
+[230320308] = {id = 230320308, play_frame = 92, path = "sfx_ribenlang_small_tx_92fr", bank = "ribenlang"}
+, 
+[230320401] = {id = 230320401, play_frame = 3, path = "sfx_ribenlang_pt_wh_33fr", bank = "ribenlang"}
+, 
+[230320402] = {id = 230320402, play_frame = 22, path = "sfx_ribenlang_pt_tx_47fr", bank = "ribenlang"}
 }
 return BaseSoundPathData
 

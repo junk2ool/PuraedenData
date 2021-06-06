@@ -118,6 +118,8 @@ BaseHandbookAdventureChapterData = {
 [51410009] = {id = 51410009, type = 3, activity_type = 309, name = (PUtil.get)(85180900), remark = (PUtil.get)(85180900), record_ids = "52500903:52500906:52500909:52500912:52500915", sort = 9, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
 [51410010] = {id = 51410010, type = 3, activity_type = 310, name = (PUtil.get)(85181000), remark = (PUtil.get)(85181000), record_ids = "52501003:52501006:52501009:52501012:52501015", sort = 10, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51410011] = {id = 51410011, type = 3, activity_type = 311, name = (PUtil.get)(85181100), remark = (PUtil.get)(85181100), record_ids = "52501103:52501106:52501109:52501112:52501115", sort = 11, unlockPoints = 0, nextId = 0, needStage = 0}
 }
 return BaseHandbookAdventureChapterData
 

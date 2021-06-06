@@ -1245,6 +1245,74 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
       end
     end
   end
+, [5010] = function(...)
+    -- function num : 0_27_78 , upvalues : skillConfig, _ENV, self, atkCard, t_sort, ipairs, targetCards, t_insert
+    if skillConfig and skillConfig.target_buff then
+      local strArr = split(skillConfig.target_buff, ":")
+      local preChooseId = tonumber(strArr[2])
+      local tarBuffId = tonumber(strArr[1])
+      local preChooseCards = {}
+      print("备用选址5010type", preChooseId)
+      if preChooseId == 2111 then
+        preChooseCards = (self.GetTopDanderCards)(atkCard, false, 1)
+      end
+      t_sort(preChooseCards, function(a, b, ...)
+      -- function num : 0_27_78_0
+      if a.tempRandom >= b.tempRandom then
+        do return a:GetHp() / a:GetMaxHp() ~= b:GetHp() / b:GetMaxHp() end
+        do return b:GetHp() / b:GetMaxHp() < a:GetHp() / a:GetMaxHp() end
+        -- DECOMPILER ERROR: 4 unprocessed JMP targets
+      end
+    end
+)
+      for index,value in ipairs(preChooseCards) do
+        print("备用选址", value:GetPosIndex())
+      end
+      local buffedCards = (BattleChoose.GetCardHaveBuffId)(atkCard, tarBuffId, false)
+      local t_buffedCards = {}
+      for index,value in ipairs(buffedCards) do
+        print("携带buffid为", tarBuffId, "的卡片位置为", value:GetPosIndex())
+        ;
+        (table.insert)(t_buffedCards, {card = value, isExsit = false})
+      end
+      local t_preChooseCards = {}
+      for index,value in ipairs(preChooseCards) do
+        (table.insert)(t_preChooseCards, {card = value, isBuffed = false})
+      end
+      local exsitNum = 0
+      for i,j in ipairs(t_preChooseCards) do
+        for n,m in ipairs(t_buffedCards) do
+          if (m.card):GetPosIndex() == (j.card):GetPosIndex() then
+            m.isExsit = true
+            j.isBuffed = true
+            exsitNum = exsitNum + 1
+          end
+        end
+      end
+      for i,j in ipairs(t_preChooseCards) do
+        print("备用选址卡片位置", (j.card):GetPosIndex(), "是否拥有buffid", j.isBuffed)
+      end
+      for index,value in ipairs(t_buffedCards) do
+        print("实际拥有buffid的卡片位置", (value.card):GetPosIndex(), "是否已存在备选卡片中", value.isExsit)
+      end
+      if exsitNum == #preChooseCards then
+        targetCards = preChooseCards
+      else
+        for i,j in ipairs(t_preChooseCards) do
+          for n,m in ipairs(t_buffedCards) do
+            if j.isBuffed == false and m.isExsit == false then
+              j.card = m.card
+              j.isBuffed = true
+              m.isExsit = true
+            end
+          end
+        end
+        for index,value in ipairs(t_preChooseCards) do
+          t_insert(targetCards, value.card)
+        end
+      end
+    end
+  end
 }
   if self.onlyChoosePos ~= true and isBuff ~= true and (BattleSkill.IsAttackSkill)(skillConfig) == true then
     local isAttract, buff = (BattleBuff.IsAttract)(atkCard)
@@ -1282,7 +1350,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
           for _,v in ipairs(temp) do
             local target_type = v:GetBossIsMultiplyChoose()
             do
-              -- DECOMPILER ERROR at PC261: Unhandled construct in 'MakeBoolean' P1
+              -- DECOMPILER ERROR at PC263: Unhandled construct in 'MakeBoolean' P1
 
               if target_type and target_type == 1 and isBuff and targetId == 1000 then
                 local data = (Util.clone)(targetCards[1])
@@ -1302,7 +1370,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
                 end
               end
               do
-                -- DECOMPILER ERROR at PC298: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC300: LeaveBlock: unexpected jumping out DO_STMT
 
               end
             end

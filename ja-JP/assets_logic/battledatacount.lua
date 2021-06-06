@@ -681,7 +681,7 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
     if buffConfig.deduction_round_type == BattleBuffDeductionRoundType.DIE_SKILL_DIE then
       murderer = buff:GetAtkPos()
     else
-      if buffConfig.deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
+      if buffConfig.deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK or buffConfig.deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT then
         for k,v in ipairs(atkInfo.allBuffTable) do
           if (v.buff).atkPos == atkInfo.atkPos and ((v.buff).effectTable)[1] then
             if (((v.buff).effectTable)[1]).effectId == BattleDisplayEffect.ATK_NO_HEAL and atkInfo.skillType == BattleSkillType.NORMAL then
@@ -752,17 +752,17 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
                       end
                     end
                     do
-                      -- DECOMPILER ERROR at PC231: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC235: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC231: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC235: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC231: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC235: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
                 end
               end
-              -- DECOMPILER ERROR at PC233: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC237: LeaveBlock: unexpected jumping out DO_STMT
 
             end
           end

@@ -208,4 +208,8 @@
 [26301001] = {id = 26301001, name = "罠に落ちたメンバー達", remark = "…人間、捕らえた。父さん、母さん、傷つけたやつら…！", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 1, icon = "HandBookCGBanner:92108021", fashion_id = "92108021", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1617152400}
 , 
 [26301002] = {id = 26301002, name = "新たな冒険の旅へ", remark = "…お前と、一緒に行ける。ワタシ、すごく嬉しい。", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 2, icon = "HandBookCGBanner:92108022", fashion_id = "92108022", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1617152400}
+, 
+[26301101] = {id = 26301101, name = "゙ゲームスタート", remark = "細かいことを気にしている場合かい？さぁ、思う存分戦うといい。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 1, icon = "HandBookCGBanner:92108023", fashion_id = "92108023", activity_sort = 11, activity_name = "嘘の契り", open_time = 1622422800}
+, 
+[26301102] = {id = 26301102, name = "隠された真実", remark = "はは、君はどこまで私を傷つけられるのか…興味深いね。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 2, icon = "HandBookCGBanner:92108024", fashion_id = "92108024", activity_sort = 11, activity_name = "嘘の契り", open_time = 1622422800}
 }

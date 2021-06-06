@@ -1,7 +1,8 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 LotteryService = {}
--- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
+local drawEnable = true
+-- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.Init = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -16,7 +17,7 @@ LotteryService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResLotteryConversion, LotteryService.OnResLotteryConversion)
 end
 
--- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.ReqLotteryInit = function(lType, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -26,7 +27,7 @@ LotteryService.ReqLotteryInit = function(lType, ...)
   (Net.Send)((Proto.MsgName).ReqLotteryInit, send, (Proto.MsgName).ResLotteryInit)
 end
 
--- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.OnResLotteryInit = function(msg, ...)
   -- function num : 0_2 , upvalues : _ENV
@@ -35,17 +36,26 @@ LotteryService.OnResLotteryInit = function(msg, ...)
   UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_FREE_10_LOTTERY, msg.moreFreeNum)
 end
 
--- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.ReqLotteryDraw = function(id, ...)
-  -- function num : 0_3 , upvalues : _ENV
-  print("抽奖    id", id)
-  local send = {lotteryId = id}
-  ;
-  (Net.Send)((Proto.MsgName).ReqLotteryDraw, send, (Proto.MsgName).ResLotteryDraw)
+  -- function num : 0_3 , upvalues : drawEnable, _ENV
+  if drawEnable then
+    drawEnable = false
+    print("抽奖    id", id)
+    local send = {lotteryId = id}
+    ;
+    (Net.Send)((Proto.MsgName).ReqLotteryDraw, send, (Proto.MsgName).ResLotteryDraw)
+    ;
+    (SimpleTimer.setTimeout)(1, function(...)
+    -- function num : 0_3_0 , upvalues : drawEnable
+    drawEnable = true
+  end
+)
+  end
 end
 
--- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC17: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.OnResLotteryDraw = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
@@ -138,7 +148,7 @@ LotteryService.OnResLotteryDraw = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC20: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.ReqLotteryRecord = function(...)
   -- function num : 0_5 , upvalues : _ENV
@@ -148,7 +158,7 @@ LotteryService.ReqLotteryRecord = function(...)
   (Net.Send)((Proto.MsgName).ReqLotteryRecord, m, (Proto.MsgName).ResLotteryRecord)
 end
 
--- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.OnResLotteryRecord = function(msg, ...)
   -- function num : 0_6 , upvalues : _ENV
@@ -166,7 +176,7 @@ LotteryService.OnResLotteryRecord = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC26: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.ReqInitConversion = function(type, ...)
   -- function num : 0_7 , upvalues : _ENV
@@ -176,14 +186,14 @@ LotteryService.ReqInitConversion = function(type, ...)
   (Net.Send)((Proto.MsgName).ReqInitConversion, m, (Proto.MsgName).ResInitConversion)
 end
 
--- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.OnResInitConversion = function(msg, ...)
   -- function num : 0_8 , upvalues : _ENV
   OpenWindow((WinResConfig.LotteryScoreExchangeWindow).name, UILayer.HUD, msg.integral, msg.type, msg.initConversion)
 end
 
--- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC32: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.ReqLotteryConversion = function(type, id, ...)
   -- function num : 0_9 , upvalues : _ENV
@@ -194,7 +204,7 @@ LotteryService.ReqLotteryConversion = function(type, id, ...)
   (Net.Send)((Proto.MsgName).ReqLotteryConversion, m, (Proto.MsgName).ResLotteryConversion)
 end
 
--- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryService.OnResLotteryConversion = function(msg, ...)
   -- function num : 0_10 , upvalues : _ENV

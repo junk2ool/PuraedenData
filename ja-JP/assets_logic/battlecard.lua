@@ -3152,7 +3152,7 @@ effectTable = {eff}
   battleCard.GetCrtInt = function(self, baseAttr, ...)
     -- function num : 0_0_116 , upvalues : cardInfo
     if baseAttr ~= true or not cardInfo:GetCrtInt() then
-      return cardInfo:GetCrtInt() + self:GetBuffAttr("ctr_int")
+      return cardInfo:GetCrtInt() + self:GetBuffAttr("crt_int")
     end
   end
 

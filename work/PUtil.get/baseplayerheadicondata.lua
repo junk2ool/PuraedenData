@@ -184,4 +184,8 @@
 [78601179] = {id = 78601179, name = "メリア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300029_2", condition = "72501008:11300029:10", sort = 922, reward_sort = 9880001, own_show = 1, open_time = "1619744400"}
 , 
 [78601180] = {id = 78601180, name = "サンド", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300031_2", condition = "72501008:11300031:10", sort = 921, reward_sort = 9880001, own_show = 1, open_time = "1621040400"}
+, 
+[78601181] = {id = 78601181, name = "マシロ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202016_2", condition = "72501008:11202016:10", sort = 920, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
+, 
+[78601182] = {id = 78601182, name = "リューゲ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300032_2", condition = "72501008:11300032:10", sort = 919, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
 }
