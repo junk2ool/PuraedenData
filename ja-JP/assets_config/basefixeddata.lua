@@ -199,7 +199,7 @@ BaseFixedData = {
 , 
 [72010090] = {id = 72010090, int_value = 0, array_value = "50:0:0"}
 , 
-[72010100] = {id = 72010100, int_value = 0, array_value = "92000010"}
+[72010100] = {id = 72010100, int_value = 0, array_value = "92101001"}
 }
 return BaseFixedData
 

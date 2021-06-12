@@ -449,9 +449,9 @@
 , 
 [75711813] = {id = 75711813, remark = "自らの罪を、しっかり償え――", type = 1, option_ids = "0", next = 75711814, role_ids = "75200261:75200732", role_type = 75200261, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
 , 
-[75711814] = {id = 75711814, remark = "ま、待ってください…グローリアさん！", type = 1, option_ids = "0", next = 75711815, role_ids = "75200261:75200732", role_type = 75200732, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+[75711814] = {id = 75711814, remark = "ま、待ってください…グローリアさん！", type = 0, option_ids = "0", next = 75711815, role_ids = "75209099", role_type = 75200401, position = "195:606:10000,642:606:10050", role_admission_type = "75209099:0:0", role_departure_type = "75200261:0:0,75200732:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
 , 
-[75711815] = {id = 75711815, remark = "その声は…イヴリン？", type = 1, option_ids = "0", next = 75711816, role_ids = "75200261:75200732", role_type = 75200261, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+[75711815] = {id = 75711815, remark = "その声は…イヴリン？", type = 1, option_ids = "0", next = 75711816, role_ids = "75200261:75200732", role_type = 75200261, position = "195:606:10050,642:606:10000", role_admission_type = "75200261:0:0,75200732:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
 , 
 [75711816] = {id = 75711816, remark = "はぁ、はぁ…\n間に合ってよかったです…！", type = 1, option_ids = "0", next = 75711817, role_ids = "75200401", role_type = 75200401, position = "418:606:10050", role_admission_type = "75200401:0:0", role_departure_type = "75200732:0:0,75200261:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
 , 

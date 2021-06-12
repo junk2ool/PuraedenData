@@ -1107,12 +1107,16 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     -- function num : 0_27_69 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetTopDanderCards)(atkCard, true, 1, false)
   end
-, [4001] = function(...)
+, [3091] = function(...)
     -- function num : 0_27_70 , upvalues : targetCards, self, atkCard
+    targetCards = (self.GetTopAtkCards)(atkCard, true, 1, false)
+  end
+, [4001] = function(...)
+    -- function num : 0_27_71 , upvalues : targetCards, self, atkCard
     targetCards = (self.GetRandomCards)(atkCard, nil, 1, true)
   end
 , [5002] = function(...)
-    -- function num : 0_27_71 , upvalues : atkCard, _ENV, t_insert, targetCards
+    -- function num : 0_27_72 , upvalues : atkCard, _ENV, t_insert, targetCards
     local pos = atkCard:GetFoePos()
     if pos then
       local card = (BattleData.GetCardInfoByPos)(pos)
@@ -1122,7 +1126,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5003] = function(...)
-    -- function num : 0_27_72 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_73 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardHaveEffect)(atkCard, BattleDisplayEffect.OFFER_REWARD, false)
     if #cards > 0 then
       targetCards = cards
@@ -1132,7 +1136,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5005] = function(...)
-    -- function num : 0_27_73 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_74 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardHaveEffect)(atkCard, BattleDisplayEffect.FOCUS_ATTACK, false)
     if #cards > 0 then
       targetCards = cards
@@ -1142,7 +1146,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5006] = function(...)
-    -- function num : 0_27_74 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_75 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardHaveEffect)(atkCard, 809, false)
     if #cards > 0 then
       targetCards = cards
@@ -1152,7 +1156,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5007] = function(...)
-    -- function num : 0_27_75 , upvalues : _ENV, atkCard, targetCards, self, t_insert
+    -- function num : 0_27_76 , upvalues : _ENV, atkCard, targetCards, self, t_insert
     local cards = (BattleChoose.GetCardNotHaveEffect)(atkCard, 809, 1, false)
     if #cards > 0 then
       targetCards = cards
@@ -1162,7 +1166,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5008] = function(...)
-    -- function num : 0_27_76 , upvalues : _ENV, atkCard, targetCards, t_insert
+    -- function num : 0_27_77 , upvalues : _ENV, atkCard, targetCards, t_insert
     local cards = (BattleChoose.GetCardNotHaveEffect)(atkCard, 809, 1, true)
     if #cards > 0 then
       targetCards = cards
@@ -1171,7 +1175,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5009] = function(...)
-    -- function num : 0_27_77 , upvalues : skillConfig, _ENV, self, atkCard, t_insert, t_sort, ipairs, targetCards
+    -- function num : 0_27_78 , upvalues : skillConfig, _ENV, self, atkCard, t_insert, t_sort, ipairs, targetCards
     if skillConfig and skillConfig.target_buff then
       local strArr = split(skillConfig.target_buff, ":")
       local preChooseId = tonumber(strArr[2])
@@ -1188,7 +1192,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
       end
       do
         t_sort(preChooseCards, function(a, b, ...)
-      -- function num : 0_27_77_0
+      -- function num : 0_27_78_0
       if a.tempRandom >= b.tempRandom then
         do return a:GetHp() / a:GetMaxHp() ~= b:GetHp() / b:GetMaxHp() end
         do return b:GetHp() / b:GetMaxHp() < a:GetHp() / a:GetMaxHp() end
@@ -1246,7 +1250,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     end
   end
 , [5010] = function(...)
-    -- function num : 0_27_78 , upvalues : skillConfig, _ENV, self, atkCard, t_sort, ipairs, targetCards, t_insert
+    -- function num : 0_27_79 , upvalues : skillConfig, _ENV, self, atkCard, t_sort, ipairs, targetCards, t_insert
     if skillConfig and skillConfig.target_buff then
       local strArr = split(skillConfig.target_buff, ":")
       local preChooseId = tonumber(strArr[2])
@@ -1257,7 +1261,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
         preChooseCards = (self.GetTopDanderCards)(atkCard, false, 1)
       end
       t_sort(preChooseCards, function(a, b, ...)
-      -- function num : 0_27_78_0
+      -- function num : 0_27_79_0
       if a.tempRandom >= b.tempRandom then
         do return a:GetHp() / a:GetMaxHp() ~= b:GetHp() / b:GetMaxHp() end
         do return b:GetHp() / b:GetMaxHp() < a:GetHp() / a:GetMaxHp() end
@@ -1350,7 +1354,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
           for _,v in ipairs(temp) do
             local target_type = v:GetBossIsMultiplyChoose()
             do
-              -- DECOMPILER ERROR at PC263: Unhandled construct in 'MakeBoolean' P1
+              -- DECOMPILER ERROR at PC265: Unhandled construct in 'MakeBoolean' P1
 
               if target_type and target_type == 1 and isBuff and targetId == 1000 then
                 local data = (Util.clone)(targetCards[1])
@@ -1370,7 +1374,7 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
                 end
               end
               do
-                -- DECOMPILER ERROR at PC300: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC302: LeaveBlock: unexpected jumping out DO_STMT
 
               end
             end

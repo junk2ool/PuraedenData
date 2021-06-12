@@ -709,23 +709,23 @@
 , 
 [75040521] = {id = 75040521, scene_path = "92000018", dialogue_ids = "75140601", admission_type = "4:4", departure_type = "4:4", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "改良した薬を飲んだモイラは強くなったが、結局一行に倒された。オリヴィアは彼女のことを騎士団に報告すると決めた。", times = 1}
 , 
-[75041111] = {id = 75041111, name = "第四十一章", remark = "PlotChapterRes:Plot_0041", scene_path = "92000020", dialogue_ids = "75141001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、主人公達は監獄城に閉じ込められてしまった。", times = 1}
+[75041111] = {id = 75041111, name = "第四十一章", remark = "PlotChapterRes:Plot_0041", scene_path = "92000020", dialogue_ids = "75141001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、一行は監獄城に閉じ込められてしまった。", times = 1}
 , 
-[75041151] = {id = 75041151, scene_path = "92000020", dialogue_ids = "75141101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、主人公達は監獄城に閉じ込められてしまった。", times = 1}
+[75041151] = {id = 75041151, scene_path = "92000020", dialogue_ids = "75141101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、一行は監獄城に閉じ込められてしまった。", times = 1}
 , 
-[75041152] = {id = 75041152, scene_path = "92000020", dialogue_ids = "75141112", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、主人公達は監獄城に閉じ込められてしまった。", times = 1}
+[75041152] = {id = 75041152, scene_path = "92000020", dialogue_ids = "75141112", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、一行は監獄城に閉じ込められてしまった。", times = 1}
 , 
-[75041153] = {id = 75041153, scene_path = "92000020", dialogue_ids = "75141117", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、主人公達は監獄城に閉じ込められてしまった。", times = 1}
+[75041153] = {id = 75041153, scene_path = "92000020", dialogue_ids = "75141117", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "騎士団長ゲラルトの指示により、一行は監獄城に閉じ込められてしまった。", times = 1}
 , 
 [75041241] = {id = 75041241, scene_path = "92000020", dialogue_ids = "75141201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "放り込んだ監獄でアララト王国の王様の専属占い師――クインに出会った。", times = 1}
 , 
-[75041341] = {id = 75041341, scene_path = "92000020", dialogue_ids = "75141301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "主人公達は本当の監獄城の姿を見ているところ、ちょっとした「縁のあった人達」と再会した…", times = 1}
+[75041341] = {id = 75041341, scene_path = "92000020", dialogue_ids = "75141301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "一行は本当の監獄城の姿を見ているところ、ちょっとした「縁のあった人達」と再会した…", times = 1}
 , 
 [75041451] = {id = 75041451, scene_path = "92000020", dialogue_ids = "75141401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "「例の薬を知っている」と答えただけで、プライドのメンバー達は騎士団に捕まって監獄に放り込んでしまった！", times = 1}
 , 
-[75041531] = {id = 75041531, scene_path = "92000020", dialogue_ids = "75141501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "しばらくして、主人公達は監獄城での生活に慣れてきた。しかしその時、より多くの罪のない人が監獄城に捕まえられていた…", times = 1}
+[75041531] = {id = 75041531, scene_path = "92000020", dialogue_ids = "75141501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "しばらくして、一行は監獄城での生活に慣れてきた。しかしその時、より多くの罪のない人が監獄城に捕まえられていた…", times = 1}
 , 
-[75041532] = {id = 75041532, scene_path = "92000011", dialogue_ids = "75141507", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "しばらくして、主人公達は監獄城での生活に慣れてきた。しかしその時、より多くの罪のない人が監獄城に捕まえられていた…", times = 1}
+[75041532] = {id = 75041532, scene_path = "92000011", dialogue_ids = "75141507", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "しばらくして、一行は監獄城での生活に慣れてきた。しかしその時、より多くの罪のない人が監獄城に捕まえられていた…", times = 1}
 , 
 [75042111] = {id = 75042111, name = "第四十二章", remark = "PlotChapterRes:Plot_0042", scene_path = "0", dialogue_ids = "0", admission_type = "0", departure_type = "0", cut_points = "0", skip = 0, skip_content = 0, times = 1}
 , 
@@ -733,9 +733,9 @@
 , 
 [75042151] = {id = 75042151, scene_path = "92000020", dialogue_ids = "75142121", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クインに監獄城に収監された理由を聞いたが、その答えは衝撃的だった…", times = 1}
 , 
-[75042241] = {id = 75042241, scene_path = "92000020", dialogue_ids = "75142201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "監獄城の看守を倒した主人公達に、イザベラと名乗るレッドが戦いを挑んだ。", times = 1}
+[75042241] = {id = 75042241, scene_path = "92000020", dialogue_ids = "75142201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "監獄城の看守を倒した一行に、イザベラと名乗るレッドが戦いを挑んだ。", times = 1}
 , 
-[75042251] = {id = 75042251, scene_path = "92000020", dialogue_ids = "75142209", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "監獄城の看守を倒した主人公達に、イザベラと名乗るレッドが戦いを挑んだ。", times = 1}
+[75042251] = {id = 75042251, scene_path = "92000020", dialogue_ids = "75142209", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "監獄城の看守を倒した一行に、イザベラと名乗るレッドが戦いを挑んだ。", times = 1}
 , 
 [75042341] = {id = 75042341, scene_path = "92000020", dialogue_ids = "75142301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルは監獄城から逃げ出す策を提案して、相談の末、みんなで計画を立てて脱獄することに。", times = 1}
 , 
@@ -791,13 +791,13 @@
 , 
 [75044452] = {id = 75044452, scene_path = "92000008", dialogue_ids = "75144408", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "秘蔵の古代兵器を使っても敗北したことに驚いたポニーは愕然。その混乱に乗じてプライドのみんなで森の方へ逃げた。", times = 1}
 , 
-[75044531] = {id = 75044531, scene_path = "92000008", dialogue_ids = "75144501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "脱獄犯の主人公達と真正面で目が合ったはずだが、なぜか騎士団の副団長は見て見ぬふりをして行ってしまった。", times = 1}
+[75044531] = {id = 75044531, scene_path = "92000008", dialogue_ids = "75144501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "脱獄犯の一行と真正面で目が合ったはずだが、なぜか騎士団の副団長は見て見ぬふりをして行ってしまった。", times = 1}
 , 
-[75044532] = {id = 75044532, scene_path = "92000009", dialogue_ids = "75144514", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "脱獄犯の主人公達と真正面で目が合ったはずだが、なぜか騎士団の副団長は見て見ぬふりをして行ってしまった。", times = 1}
+[75044532] = {id = 75044532, scene_path = "92000009", dialogue_ids = "75144514", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "脱獄犯の一行と真正面で目が合ったはずだが、なぜか騎士団の副団長は見て見ぬふりをして行ってしまった。", times = 1}
 , 
-[75044533] = {id = 75044533, scene_path = "92000008", dialogue_ids = "75144524", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "脱獄犯の主人公達と真正面で目が合ったはずだが、なぜか騎士団の副団長は見て見ぬふりをして行ってしまった。", times = 1}
+[75044533] = {id = 75044533, scene_path = "92000008", dialogue_ids = "75144524", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "脱獄犯の一行と真正面で目が合ったはずだが、なぜか騎士団の副団長は見て見ぬふりをして行ってしまった。", times = 1}
 , 
-[75045111] = {id = 75045111, name = "第四十五章", remark = "PlotChapterRes:Plot_0045", scene_path = "92000008", dialogue_ids = "75145001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "脱獄犯の主人公達と真正面で目が合ったはずだが、なぜか騎士団の副団長は見て見ぬふりをして行ってしまった。", times = 1}
+[75045111] = {id = 75045111, name = "第四十五章", remark = "PlotChapterRes:Plot_0045", scene_path = "92000008", dialogue_ids = "75145001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "無事に脱出したエイプリルたち。街でユーナと出会い、ノエルも無事だということが分かった。姫の行き場を話し合っている中、アルトが現れ…", times = 1}
 , 
 [75045131] = {id = 75045131, scene_path = "92000031", dialogue_ids = "75145101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "無事に脱出したエイプリルたち。街でユーナと出会い、ノエルも無事だということが分かった。姫の行き場を話し合っている中、アルトが現れ…", times = 1}
 , 
@@ -1647,29 +1647,29 @@
 , 
 [75602302] = {id = 75602302, scene_path = "92000012", dialogue_ids = "75423007", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
 , 
-[75602411] = {id = 75602411, scene_path = "92000011", dialogue_ids = "75424101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602411] = {id = 75602411, scene_path = "92000011", dialogue_ids = "75424101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "街では、ウィチタ団団長と名乗る少女が、リーダーを引っ張ってウィチタ団の会合に向かう。", times = 0}
 , 
-[75602421] = {id = 75602421, scene_path = "92000015", dialogue_ids = "75424201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602421] = {id = 75602421, scene_path = "92000009", dialogue_ids = "75424201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウィチタはウィチタ団の団員を紹介した後、リーダーがウィチタ団に相応しいかのテストをするという。", times = 0}
 , 
-[75602431] = {id = 75602431, scene_path = "92000008", dialogue_ids = "75424301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602431] = {id = 75602431, scene_path = "92000021", dialogue_ids = "75424301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウィチタ団の拠点にちょうどういい場所があると教えられ、調査に出向いた二人。確認を終える直前にモンスターに襲われ…", times = 0}
 , 
-[75602432] = {id = 75602432, scene_path = "92000008", dialogue_ids = "75424305", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602432] = {id = 75602432, scene_path = "92000021", dialogue_ids = "75424305", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウィチタ団の拠点にちょうどういい場所があると教えられ、調査に出向いた二人。確認を終える直前にモンスターに襲われ…", times = 0}
 , 
-[75602441] = {id = 75602441, scene_path = "92000011", dialogue_ids = "75424401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602441] = {id = 75602441, scene_path = "92000011", dialogue_ids = "75424401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "待ち合わせに遅刻したリーダーを怒鳴りつけるウィチタ。文句を言いながら二度と怒らせないよう念を押す。", times = 0}
 , 
-[75602451] = {id = 75602451, scene_path = "92000010", dialogue_ids = "75424501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602451] = {id = 75602451, scene_path = "92000008", dialogue_ids = "75424501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "敵を倒し、高笑いするウィチタ。リーダーを上から目線だが認めるようなそぶりを見せる。", times = 0}
 , 
-[75602461] = {id = 75602461, scene_path = "92000011", dialogue_ids = "75424601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602461] = {id = 75602461, scene_path = "92000011", dialogue_ids = "75424601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "買い出しをしている最中、行列ができている事に気づく二人。偶然並んでいたマルタ曰く、最近評判のお菓子らしいと説明してくれる。", times = 0}
 , 
-[75602471] = {id = 75602471, scene_path = "92000012", dialogue_ids = "75424701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602471] = {id = 75602471, scene_path = "92000021", dialogue_ids = "75424701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "遊び場を巡る喧嘩の仲裁や秘密基地の間取りの計画についての子供じみた相談だが、ウィチタはそれにも真面目に答えていく。", times = 0}
 , 
-[75602481] = {id = 75602481, scene_path = "92000011", dialogue_ids = "75424801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602481] = {id = 75602481, scene_path = "92000011", dialogue_ids = "75424801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "有無を言わせずリーダーを連れていくウィチタ。戦闘を切り抜けた後、ウィチタ団の子供達がチンピラにカツアゲされていたのだと説明する。", times = 0}
 , 
-[75602482] = {id = 75602482, scene_path = "92000011", dialogue_ids = "75424804", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602482] = {id = 75602482, scene_path = "92000011", dialogue_ids = "75424804", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "有無を言わせずリーダーを連れていくウィチタ。戦闘を切り抜けた後、ウィチタ団の子供達がチンピラにカツアゲされていたのだと説明する。", times = 0}
 , 
-[75602491] = {id = 75602491, scene_path = "92000011", dialogue_ids = "75424901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602491] = {id = 75602491, scene_path = "92000011", dialogue_ids = "75424901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "部下が行きたがってウィチタ団の皆でピクニックに行くことになったのだと憮然とした表情で説明するウィチタだが、彼女なりに楽しみらしい。", times = 0}
 , 
-[75602401] = {id = 75602401, scene_path = "92000011", dialogue_ids = "75424001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602401] = {id = 75602401, scene_path = "92000011", dialogue_ids = "75424001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の住む街を眺めながら、自分のプライドを結成した経緯を話すウィチタ。リーダーと会ってからの活動にはそれなりに満足していて、感謝の意を伝えた。", times = 0}
 , 
 [75602511] = {id = 75602511, scene_path = "92000024", dialogue_ids = "75425101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "砂漠で穴掘りをしているフィナと出会って、エイプリルがプライドへの加入を誘ったらフィナはそれを受け入れた。", times = 0}
 , 
@@ -2323,35 +2323,35 @@
 , 
 [75604401] = {id = 75604401, scene_path = "92000030", dialogue_ids = "75444001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "前のことを言い出したアロエは、これから何があってもリーダーを離さないと言い切った。", times = 0}
 , 
-[75604511] = {id = 75604511, scene_path = "92000012", dialogue_ids = "75445101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604511] = {id = 75604511, scene_path = "92000033", dialogue_ids = "75445101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の秘密を偶然耳にしリーダーに、『恋愛マスター』チェルシーは大慌てする。それをばらさないように、チェルシーはプライドへの加入を申し出る。", times = 0}
 , 
-[75604512] = {id = 75604512, scene_path = "92000015", dialogue_ids = "75445103", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604512] = {id = 75604512, scene_path = "92000033", dialogue_ids = "75445103", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の秘密を偶然耳にしリーダーに、『恋愛マスター』チェルシーは大慌てする。それをばらさないように、チェルシーはプライドへの加入を申し出る。", times = 0}
 , 
-[75604521] = {id = 75604521, scene_path = "92000011", dialogue_ids = "75445201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604521] = {id = 75604521, scene_path = "92000013", dialogue_ids = "75445201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "街中を歩いていると、チェルシーに話しかけられ、少し立ち話したら彼女が『恋愛マスター』になった経緯が分かった。", times = 0}
 , 
-[75604531] = {id = 75604531, scene_path = "92000015", dialogue_ids = "75445301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604531] = {id = 75604531, scene_path = "92000015", dialogue_ids = "75445301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエスト受付所内がなぜか賑やかだった。シャノン曰く、チェルシーがいると噂を聞いた子たちが集まり恋愛相談会になったらしい。", times = 0}
 , 
-[75604532] = {id = 75604532, scene_path = "92000015", dialogue_ids = "75445308", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604532] = {id = 75604532, scene_path = "92000015", dialogue_ids = "75445308", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエスト受付所内がなぜか賑やかだった。シャノン曰く、チェルシーがいると噂を聞いた子たちが集まり恋愛相談会になったらしい。", times = 0}
 , 
-[75604541] = {id = 75604541, scene_path = "92000015", dialogue_ids = "75445401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604541] = {id = 75604541, scene_path = "92000008", dialogue_ids = "75445401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "恋人が行方不明になったという女性に相談され、二人は探すことに。", times = 0}
 , 
-[75604542] = {id = 75604542, scene_path = "92000008", dialogue_ids = "75445405", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604542] = {id = 75604542, scene_path = "92000008", dialogue_ids = "75445405", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "恋人が行方不明になったという女性に相談され、二人は探すことに。", times = 0}
 , 
-[75604551] = {id = 75604551, scene_path = "92000017", dialogue_ids = "75445501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604551] = {id = 75604551, scene_path = "92000017", dialogue_ids = "75445501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "大図書館にて、恋愛小説を読みふけっているチェルシーを見つける。彼女は自分の恋愛相談の答えはすべて恋愛小説からだったと告白する。", times = 0}
 , 
-[75604561] = {id = 75604561, scene_path = "92000025", dialogue_ids = "75445601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604561] = {id = 75604561, scene_path = "92000017", dialogue_ids = "75445601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "いつもの恋愛相談で、初めて応えあぐねてしまったチェルシーがリーダーに相談に来る。", times = 0}
 , 
-[75604571] = {id = 75604571, scene_path = "92000011", dialogue_ids = "75445701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604571] = {id = 75604571, scene_path = "92000011", dialogue_ids = "75445701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "街の不良にチェルシーが絡まれていた。そこでリーダーの存在に気づいた彼女は助けを求めることに。", times = 0}
 , 
-[75604572] = {id = 75604572, scene_path = "92000011", dialogue_ids = "75445704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604572] = {id = 75604572, scene_path = "92000011", dialogue_ids = "75445704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "街の不良にチェルシーが絡まれていた。そこでリーダーの存在に気づいた彼女は助けを求めることに。", times = 0}
 , 
-[75604581] = {id = 75604581, scene_path = "92000030", dialogue_ids = "75445801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604581] = {id = 75604581, scene_path = "92000025", dialogue_ids = "75445801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "最近、リーダーといると落ち着かなくなるチェルシーは、その理由をリーダーに尋ねた。どうやら自分が恋をしているようだ。", times = 0}
 , 
-[75604582] = {id = 75604582, scene_path = "92000031", dialogue_ids = "75445810", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604582] = {id = 75604582, scene_path = "92000025", dialogue_ids = "75445810", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "最近、リーダーといると落ち着かなくなるチェルシーは、その理由をリーダーに尋ねた。どうやら自分が恋をしているようだ。", times = 0}
 , 
-[75604591] = {id = 75604591, scene_path = "92000028", dialogue_ids = "75445901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604591] = {id = 75604591, scene_path = "92000013", dialogue_ids = "75445901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リーダーの恋愛話を聞くチェルシー。自分も好きな人がいるかも、とチェルシーは言う。", times = 0}
 , 
-[75604501] = {id = 75604501, scene_path = "92000009", dialogue_ids = "75445001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604501] = {id = 75604501, scene_path = "92000009", dialogue_ids = "75445001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "散歩中、本音を打ち明けるチェルシー。リーダーのおかげで、恋愛であってもなくても、嘘偽りなくいろんな話ができることに感謝している。", times = 0}
 , 
 [75604611] = {id = 75604611, scene_path = "92000028", dialogue_ids = "75446101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
 , 
@@ -2795,19 +2795,19 @@
 , 
 [75901101] = {id = 75901101, scene_path = "92000030", dialogue_ids = "75701001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "皆の努力のおかげで、リサはカフェで初ライブを無事開催できた！", times = 0}
 , 
-[75900201] = {id = 75900201, scene_path = "92000036", dialogue_ids = "75702001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、主人公達がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
+[75900201] = {id = 75900201, scene_path = "92000036", dialogue_ids = "75702001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、一行がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
 , 
-[75900202] = {id = 75900202, scene_path = "92000036", dialogue_ids = "75702012", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、主人公達がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
+[75900202] = {id = 75900202, scene_path = "92000036", dialogue_ids = "75702012", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、一行がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
 , 
-[75900203] = {id = 75900203, scene_path = "92000036", dialogue_ids = "75702042", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、主人公達がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
+[75900203] = {id = 75900203, scene_path = "92000036", dialogue_ids = "75702042", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、一行がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
 , 
-[75900204] = {id = 75900204, scene_path = "92000036", dialogue_ids = "75702043", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、主人公達がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
+[75900204] = {id = 75900204, scene_path = "92000036", dialogue_ids = "75702043", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、一行がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
 , 
-[75900211] = {id = 75900211, scene_path = "92000035", dialogue_ids = "75702101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、主人公達がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
+[75900211] = {id = 75900211, scene_path = "92000035", dialogue_ids = "75702101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、一行がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
 , 
-[75900212] = {id = 75900212, scene_path = "92000035", dialogue_ids = "75702125", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、主人公達がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
+[75900212] = {id = 75900212, scene_path = "92000035", dialogue_ids = "75702125", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、一行がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
 , 
-[75900213] = {id = 75900213, scene_path = "92000036", dialogue_ids = "75702155", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、主人公達がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
+[75900213] = {id = 75900213, scene_path = "92000036", dialogue_ids = "75702155", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "客の激減で、支店が閉店の危機に陥り、一行がリッタから再びビーチを盛り上げてほしいと頼まれる。", times = 0}
 , 
 [75900221] = {id = 75900221, scene_path = "92000035", dialogue_ids = "75702201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "お店の宣伝のためにコンチータとイザベラは芸をしていたところ、あるガラの悪い輩に言い寄られてしまった。", times = 0}
 , 
@@ -2941,9 +2941,9 @@
 , 
 [75900403] = {id = 75900403, scene_path = "92000038", dialogue_ids = "75704020", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "お祭りのクライマックスを迎え、村中が輝いてる光景に感動した村人達は、ようやく『前に進む』と決心した…", times = 0}
 , 
-[75900511] = {id = 75900511, scene_path = "92000025", dialogue_ids = "75705101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エヴァンテの教えに倣って、アイリスは主人公達に助けてもらおうと街の子供にプレゼントを配ることに。", times = 0}
+[75900511] = {id = 75900511, scene_path = "92000025", dialogue_ids = "75705101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エヴァンテの教えに倣って、アイリスは一行に助けてもらおうと街の子供にプレゼントを配ることに。", times = 0}
 , 
-[75900521] = {id = 75900521, scene_path = "92000019", dialogue_ids = "75705201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エヴァンテの教えに倣って、アイリスは主人公達に助けてもらおうと街の子供にプレゼントを配ることに。", times = 0}
+[75900521] = {id = 75900521, scene_path = "92000019", dialogue_ids = "75705201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エヴァンテの教えに倣って、アイリスは一行に助けてもらおうと街の子供にプレゼントを配ることに。", times = 0}
 , 
 [75900531] = {id = 75900531, scene_path = "92000019", dialogue_ids = "75705301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "プレゼント配りを手伝ってくれるはずのモニカの逃走を確認。みんなでモニカの捕獲へ向かうことに。", times = 0}
 , 
@@ -2963,9 +2963,9 @@
 , 
 [75900562] = {id = 75900562, scene_path = "92000045", dialogue_ids = "75705622", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "汚部屋を掃除していたことで、時間をロスする主人公三人組が対策を考える中。突然、ある「お手伝いさん」が現れ…", times = 0}
 , 
-[75900571] = {id = 75900571, scene_path = "92000044", dialogue_ids = "75705701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "合流場所で待つ主人公達だが、モニカについて来たのはアイリスもどき。モニカが本物のアイリスの居場所を聞き出そう…", times = 0}
+[75900571] = {id = 75900571, scene_path = "92000044", dialogue_ids = "75705701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "合流場所で待つ一行だが、モニカについて来たのはアイリスもどき。モニカが本物のアイリスの居場所を聞き出そう…", times = 0}
 , 
-[75900581] = {id = 75900581, scene_path = "92000044", dialogue_ids = "75705801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "合流場所で待つ主人公達だが、モニカについて来たのはアイリスもどき。モニカが本物のアイリスの居場所を聞き出そう…", times = 0}
+[75900581] = {id = 75900581, scene_path = "92000044", dialogue_ids = "75705801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "合流場所で待つ一行だが、モニカについて来たのはアイリスもどき。モニカが本物のアイリスの居場所を聞き出そう…", times = 0}
 , 
 [75900591] = {id = 75900591, scene_path = "92000038", dialogue_ids = "75705901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "アイリス無事、一同は窃盗犯達を捕まえにかかる。すると、「戦うサンタ」が子供の間で噂になってるらしい。", times = 0}
 , 

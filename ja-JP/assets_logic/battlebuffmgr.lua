@@ -462,15 +462,16 @@ BattleBuffMgr.CleanBuffGroup = function(targetCard, buffGroup, newBuff, ...)
           end
           if buffTable and #buffTable > 0 then
             for _,buff in ipairs(buffTable) do
-              buff:SetSettleRoundType(settleRoundType)
-              buff:SetDeductionRoundType(deductionRoundType)
+              local info = buff:GetBuffInfo(atkInfo, true)
+              info.settle_round_type = settleRoundType
+              info.deduction_round_type = deductionRoundType
               if IsBattleServer == nil then
-                PrintTable(buff:GetBuffInfo(atkInfo), "净化删除的buff：")
+                PrintTable(info, "净化删除的buff：")
               end
               ;
               (BattleBuffMgr.RemoveBuffFromList)(buff)
               ;
-              (Util.InsertTable)(allBuffTable, {buff = buff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.DELETE}, true)
+              (Util.InsertTable)(allBuffTable, {buff = info, type = BattleBuffOprType.DELETE}, true)
               isClear = true
               clearCount = clearCount + 1
               if clearLimit and clearLimit <= clearCount then

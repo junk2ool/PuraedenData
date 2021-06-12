@@ -339,7 +339,7 @@
 , 
 [52104101] = {id = 52104101, name = "未定義(85140141)", remark = "監獄城に収監されて", icon = "HandBookBanner:handbook_23_1", story_id = "75041111:75041151:75041152:75041153", sort = 1}
 , 
-[52104102] = {id = 52104102, name = "未定義(85140141)", remark = "謎の占い師", icon = "HandBookBanner:handbook_23_2", story_id = "75041241", sort = 2}
+[52104102] = {id = 52104102, name = "未定義(85140141)", remark = "捕まった占い師", icon = "HandBookBanner:handbook_23_2", story_id = "75041241", sort = 2}
 , 
 [52104103] = {id = 52104103, name = "未定義(85140141)", remark = "「因縁」の再会", icon = "HandBookBanner:handbook_23_3", story_id = "75041341", sort = 3}
 , 

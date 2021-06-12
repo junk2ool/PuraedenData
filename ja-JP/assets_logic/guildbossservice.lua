@@ -36,6 +36,8 @@ GuildBossService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResSettleGuildWar, GuildBossService.OnResSettleGuildWar)
   ;
   (Net.AddListener)((Proto.MsgName).ResHurtReport, GuildBossService.OnResHurtReport)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResGuildWarInfo, GuildBossService.OnResGuildBattleRecord)
 end
 
 local update = false
@@ -71,6 +73,8 @@ GuildBossService.OnResGuildBattleInfo = function(msg, ...)
   (GuildBossMgr.GuildActivity)(msg.activity)
   ;
   (GuildBossMgr.GuildBattleRecord)(msg.battleRecord)
+  ;
+  (GuildBossMgr.GuildeInBattleInfo)(msg.inBattleInfo)
   if update or not msg.request then
     update = false
     local curRound = (GuildBossMgr.GetCurrentRound)(true)
@@ -458,6 +462,25 @@ GuildBossService.OnResSettleGuildWar = function(msg, ...)
   loge("工会战boss伤害：" .. msg.hurt)
   ;
   (CommonWinMgr.OpenBattleSettleConvergeWindow)(BattleData)
+end
+
+-- DECOMPILER ERROR at PC105: Confused about usage of register: R2 in 'UnsetPending'
+
+GuildBossService.ReqGuildBattleRecord = function(...)
+  -- function num : 0_33 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqGuildWarInfo, m, (Proto.MsgName).ResGuildWarInfo)
+end
+
+-- DECOMPILER ERROR at PC108: Confused about usage of register: R2 in 'UnsetPending'
+
+GuildBossService.OnResGuildBattleRecord = function(msg, ...)
+  -- function num : 0_34 , upvalues : _ENV
+  (GuildBossMgr.GuildBattleRecord)(msg.battleRecord)
+  ;
+  (GuildBossMgr.GuildeInBattleInfo)(msg.inBattleInfo)
+  UIMgr:SendWindowMessage((WinResConfig.GuildBossMainWindow).name, (WindowMsgEnum.GuildBoss).E_MSG_GUILD_RECORD)
 end
 
 ;

@@ -539,7 +539,7 @@ ActivityDungeonExchange = {E_MSG_SHOW_RESULT = 1, E_MSG_RESET = 2, E_MSG_REFRESH
 , 
 Title = {E_MSG_REFRESH = 1, E_MSG_RED_DOT = 2}
 , 
-GuildBoss = {E_MSG_REFRESH_TALENT = 1, E_MSG_REFRESH_SINGLE_TALENT = 2, E_MSG_GUILD_RANK_REFRESH = 3, E_MSG_GUILD_MAIN_BOSS = 4}
+GuildBoss = {E_MSG_REFRESH_TALENT = 1, E_MSG_REFRESH_SINGLE_TALENT = 2, E_MSG_GUILD_RANK_REFRESH = 3, E_MSG_GUILD_MAIN_BOSS = 4, E_MSG_GUILD_RECORD = 5}
 , 
 ActivityDungeonShopWindow = {E_MSG_REFRESH_ITEMLIST = 1, E_MSG_REFRESH_LEFT_SHOW = 2}
 , 
@@ -713,5 +713,7 @@ FamilyShopWindow = {"FamilyFurniture"}
 LotteryIntegralWindow = {"Prize", "CardHeadIconCircle", "Title", "FamilyFurniture"}
 , 
 RelicMainWindow = {"ActivityDungeon", "PlotUIBackGround"}
+, 
+GuildBossMainWindow = {"MonsterHeadSquare"}
 }
 

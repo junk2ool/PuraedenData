@@ -58,6 +58,11 @@ PlotDungeonService.OnResStoryInfo = function(msg, ...)
               local activityFirstOpen = (storyChapter[1]).activityFirstOpen
               OpenWindow((WinResConfig.ActivityDungeonMainWindow).name, UILayer.HUD, activityFirstOpen)
             end
+            do
+              if msg.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
+                UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
+              end
+            end
           end
         end
       end

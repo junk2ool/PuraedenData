@@ -26,10 +26,15 @@ local BossMovePosName = {
 local gtTable = {}
 local challengeIndex = -1
 local tipsObj = nil
-local recordBattleData = {}
+local enterBattleData = {}
+local completeBattleData = {}
+local curBattleData = {}
 local RefreshTimer = nil
 local RefreshTime = 30
+local countDown = 5
+local timer = nil
 local isClose = false
+local canRefreshGuildInfo = true
 local waitTimerList = {}
 GuildBossMainWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, isClose, challengeIndex, uis, GuildBossMainWindow
@@ -546,14 +551,14 @@ GuildBossMainWindow.InitBattleRecordList = function(...)
 end
 
 GuildBossMainWindow.RecordListRenderer = function(index, obj, ...)
-  -- function num : 0_13 , upvalues : recordBattleData, GuildBossMainWindow
-  local data = recordBattleData[index + 1]
+  -- function num : 0_13 , upvalues : curBattleData, GuildBossMainWindow
+  local data = curBattleData[index + 1]
   ;
-  (GuildBossMainWindow.SetSingleBattle)(obj, data)
+  (GuildBossMainWindow.SetPlayerIntegral)(obj, data)
 end
 
 GuildBossMainWindow.RefreshBattleRecordData = function(...)
-  -- function num : 0_14 , upvalues : _ENV, uis, recordBattleData, GuildBossMainWindow
+  -- function num : 0_14 , upvalues : _ENV, uis, enterBattleData, completeBattleData, curBattleData, GuildBossMainWindow, canRefreshGuildInfo
   local info = (GuildBossMgr.GuildBossInfo)()
   -- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -561,67 +566,250 @@ GuildBossMainWindow.RefreshBattleRecordData = function(...)
     ((uis.IntegralShow).root).visible = false
     return 
   end
-  recordBattleData = {}
-  local data = (GuildBossMgr.GuildBattleRecord)()
-  -- DECOMPILER ERROR at PC23: Confused about usage of register: R2 in 'UnsetPending'
+  enterBattleData = {}
+  completeBattleData = {}
+  curBattleData = {}
+  completeBattleData = (GuildBossMgr.GuildBattleRecord)()
+  enterBattleData = (GuildBossMgr.GuildeInBattleInfo)()
+  -- DECOMPILER ERROR at PC37: Confused about usage of register: R1 in 'UnsetPending'
 
-  if #data <= 0 then
+  if #completeBattleData <= 0 and #enterBattleData <= 0 then
     ((uis.IntegralShow).root).visible = false
     return 
   else
-    -- DECOMPILER ERROR at PC28: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     ((uis.IntegralShow).root).visible = true
   end
-  for _,v in ipairs(data) do
-    (table.insert)(recordBattleData, v)
+  ;
+  (((uis.IntegralShow).BattleBtn).onClick):Set(function(...)
+    -- function num : 0_14_0 , upvalues : GuildBossMainWindow, completeBattleData
+    (GuildBossMainWindow.SetCurBattleData)(completeBattleData)
+  end
+)
+  ;
+  (((uis.IntegralShow).BattlingBtn).onClick):Set(function(...)
+    -- function num : 0_14_1 , upvalues : GuildBossMainWindow, enterBattleData
+    (GuildBossMainWindow.SetCurBattleData)(enterBattleData)
+  end
+)
+  -- DECOMPILER ERROR at PC61: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  ((uis.IntegralShow).TalentTxt).text = (PUtil.get)(20000551)
+  ;
+  (((uis.IntegralShow).BattleBtn):GetChild("NameTxt")).text = (PUtil.get)(40002071)
+  ;
+  (((uis.IntegralShow).BattlingBtn):GetChild("NameTxt")).text = (PUtil.get)(40002072)
+  ;
+  (((uis.IntegralShow).RefreshBtn).onClick):Set(function(...)
+    -- function num : 0_14_2 , upvalues : canRefreshGuildInfo, _ENV, GuildBossMainWindow, uis
+    if canRefreshGuildInfo == true then
+      (GuildBossService.ReqGuildBattleRecord)()
+      ;
+      (GuildBossMainWindow.SetCountDown)(5)
+      ;
+      (((uis.IntegralShow).RefreshBtn):GetController("c1")).selectedIndex = 1
+      canRefreshGuildInfo = false
+      ;
+      (SimpleTimer.setTimeout)(5, function(...)
+      -- function num : 0_14_2_0 , upvalues : canRefreshGuildInfo
+      canRefreshGuildInfo = true
+    end
+)
+    else
+      ;
+      (MessageMgr.SendCenterTips)((PUtil.get)(40002074))
+    end
+  end
+)
+  ;
+  (((uis.IntegralShow).ShrinkBtn).onClick):Set(function(...)
+    -- function num : 0_14_3 , upvalues : GuildBossMainWindow
+    (GuildBossMainWindow.ShrinBtnOnClick)()
+  end
+)
+  if ((uis.IntegralShow).c2Ctr).selectedIndex == 0 then
+    (GuildBossMainWindow.SetCurBattleData)(completeBattleData)
+  else
+    ;
+    (GuildBossMainWindow.SetCurBattleData)(enterBattleData)
   end
   ;
-  (table.sort)(recordBattleData, function(a, b, ...)
-    -- function num : 0_14_0
+  (GuildBossMainWindow.RefreshDefaultItem)()
+end
+
+GuildBossMainWindow.SetCountDown = function(...)
+  -- function num : 0_15 , upvalues : uis, timer, _ENV, countDown
+  (((uis.IntegralShow).RefreshBtn):GetChild("NumberTxt")).text = "5"
+  timer = (SimpleTimer.new)(1, -1, function(...)
+    -- function num : 0_15_0 , upvalues : countDown, uis, timer
+    countDown = countDown - 1
+    if countDown < 0 then
+      (((uis.IntegralShow).RefreshBtn):GetController("c1")).selectedIndex = 0
+      countDown = 5
+      timer:Comp()
+      timer = nil
+    end
+    ;
+    (((uis.IntegralShow).RefreshBtn):GetChild("NumberTxt")).text = countDown
+  end
+)
+  timer:start()
+end
+
+GuildBossMainWindow.ShrinBtnOnClick = function(...)
+  -- function num : 0_16 , upvalues : uis, GuildBossMainWindow, curBattleData
+  if ((uis.IntegralShow).c1Ctr).selectedIndex == 1 then
+    (GuildBossMainWindow.SetCurBattleData)(curBattleData)
+  else
+    ;
+    (GuildBossMainWindow.RefreshDefaultItem)()
+  end
+end
+
+GuildBossMainWindow.RefreshDefaultItem = function(...)
+  -- function num : 0_17 , upvalues : uis, _ENV, enterBattleData, completeBattleData, GuildBossMainWindow
+  if ((uis.IntegralShow).c1Ctr).selectedIndex == 1 then
+    return 
+  end
+  ;
+  (table.sort)(enterBattleData, function(a, b, ...)
+    -- function num : 0_17_0
+    do return b.inTime < a.inTime end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+  ;
+  (table.sort)(completeBattleData, function(a, b, ...)
+    -- function num : 0_17_1
     do return b.settleTime < a.settleTime end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
-  -- DECOMPILER ERROR at PC51: Confused about usage of register: R2 in 'UnsetPending'
+  if #completeBattleData <= 0 and #enterBattleData > 0 then
+    (GuildBossMainWindow.SetPlayerIntegral)(((uis.IntegralShow).PlayerIntegral).root, enterBattleData[1])
+    -- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
 
+    ;
+    ((uis.IntegralShow).PlayerIntegralList).numItems = 1
+    return 
+  else
+    if ((uis.IntegralShow).c2Ctr).selectedIndex == 1 then
+      (GuildBossMainWindow.SetPlayerIntegral)(((uis.IntegralShow).PlayerIntegral).root, enterBattleData[1])
+      -- DECOMPILER ERROR at PC48: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      ((uis.IntegralShow).PlayerIntegralList).numItems = 1
+    else
+      ;
+      (GuildBossMainWindow.SetPlayerIntegral)(((uis.IntegralShow).PlayerIntegral).root, completeBattleData[1])
+      -- DECOMPILER ERROR at PC58: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      ((uis.IntegralShow).PlayerIntegralList).numItems = 1
+    end
+  end
+end
+
+GuildBossMainWindow.SetCurBattleData = function(data, ...)
+  -- function num : 0_18 , upvalues : curBattleData, _ENV, uis
+  curBattleData = {}
+  for _,v in ipairs(data) do
+    (table.insert)(curBattleData, v)
+  end
   ;
-  ((uis.IntegralShow).TalentTxt).text = (PUtil.get)(20000551)
-  local length = #recordBattleData
-  ;
-  (GuildBossMainWindow.SetSingleBattle)(((uis.IntegralShow).PlayerIntegral).root, recordBattleData[1])
-  -- DECOMPILER ERROR at PC62: Confused about usage of register: R3 in 'UnsetPending'
+  (table.sort)(curBattleData, function(a, b, ...)
+    -- function num : 0_18_0
+    if b.settleTime >= a.settleTime then
+      do return a.battleDataType ~= 1 end
+      do return b.inTime < a.inTime end
+      -- DECOMPILER ERROR: 4 unprocessed JMP targets
+    end
+  end
+)
+  local length = #curBattleData
+  -- DECOMPILER ERROR at PC22: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.IntegralShow).PlayerIntegralList).numItems = length
 end
 
-GuildBossMainWindow.SetSingleBattle = function(obj, data, ...)
-  -- function num : 0_15 , upvalues : _ENV
+GuildBossMainWindow.SetPlayerIntegral = function(obj, data, ...)
+  -- function num : 0_19 , upvalues : _ENV
   if data == nil then
     obj.visible = false
     return 
   end
+  local type = data.battleDataType
   obj.visible = true
   ;
   (obj:GetChild("NameTxt")).text = data.playerName
-  ;
-  (obj:GetChild("IntegralNumberTxt")).text = (PUtil.get)(20000550, data.integral)
-  ;
-  (obj:GetChild("TimeTxt")).text = (LuaTime.GetLeftTimeStr)(data.settleTime * 0.001)
-  local btn = obj:GetChild("TipsBtn")
-  btn.text = (PUtil.get)(20000023)
-  ;
-  (btn.onClick):Set(function(...)
-    -- function num : 0_15_0 , upvalues : _ENV, data
+  if type == (ProtoEnum.E_BATTLE_DATA_TYPE).BATTLE_DATA_RECORD then
+    (obj:GetChild("TimeTxt")).text = (LuaTime.GetLeftTimeStr)(data.settleTime * 0.001)
+    ;
+    (obj:GetChild("IntegralNumberTxt")).text = (PUtil.get)(20000550, data.integral)
+    local btn = obj:GetChild("TipsBtn")
+    btn.text = (PUtil.get)(20000023)
+    ;
+    (btn.onClick):Set(function(...)
+    -- function num : 0_19_0 , upvalues : _ENV, data
     (CommonWinMgr.OpenBattleDataWindow)((data.battleData).challengeSummarizeData)
   end
 )
+    ;
+    (obj:GetController("c1")).selectedIndex = 0
+  else
+    do
+      if type == (ProtoEnum.E_BATTLE_DATA_TYPE).BATTLE_DATA_IN_BATTLE then
+        (obj:GetChild("TimeTxt")).text = (LuaTime.GetLeftTimeStr)(data.inTime * 0.001)
+        ;
+        (obj:GetChild("IntegralNumberTxt")).text = (PUtil.get)(40002073)
+        local stageConfig = ((TableData.gTable).BaseGuildWarStageData)[tonumber(data.stageId)]
+        local iconFrame = obj:GetChild("HeadFrame")
+        local monsterGroupConfig = ((TableData.gTable).BaseMonsterGroupData)[tonumber(stageConfig.monster_group_list)]
+        local mosterConfig = (TableData.GetBaseMonsterData)(tonumber(monsterGroupConfig.boss_id))
+        local fashionConfig = ((TableData.gTable).BaseFashionData)[tonumber(mosterConfig.unlock_fashion_id)]
+        ;
+        (iconFrame:GetChild("IconLoader")).url = (Util.GetItemUrl)(fashionConfig.head_icon_square)
+        ;
+        (iconFrame:GetController("c1")).selectedIndex = 0
+        ;
+        (iconFrame:GetController("c2")).selectedIndex = 0
+        ;
+        (iconFrame:GetController("c3")).selectedIndex = 0
+        ;
+        (iconFrame:GetController("c4")).selectedIndex = 0
+        ;
+        (iconFrame:GetController("c5")).selectedIndex = 0
+        ;
+        (iconFrame:GetChild("Star_01_smallImage")).visible = false
+        ;
+        (iconFrame:GetChild("Star_02_smallImage")).visible = false
+        ;
+        (iconFrame:GetChild("Star_03_smallImage")).visible = false
+        ;
+        (iconFrame:GetChild("Star_04_smallImage")).visible = false
+        ;
+        (iconFrame:GetChild("Star_05_smallImage")).visible = false
+        ;
+        (iconFrame:GetChild("Star_06_smallImage")).visible = false
+        ;
+        (iconFrame:GetChild("Star_07_smallImage")).visible = false
+        ;
+        (iconFrame:GetChild("LevelTxt")).visible = false
+        ;
+        (iconFrame:GetChild("StageTxt")).visible = false
+        ;
+        (obj:GetController("c1")).selectedIndex = 1
+      end
+    end
+  end
 end
 
 GuildBossMainWindow.BindingUI = function(...)
-  -- function num : 0_16 , upvalues : _ENV, uis
+  -- function num : 0_20 , upvalues : _ENV, uis
   local winName = (WinResConfig.GuildBossMainWindow).name
   local BindingUI = RedDotMgr.BindingUI
   local RedDotComID = RedDotComID
@@ -633,7 +821,7 @@ GuildBossMainWindow.BindingUI = function(...)
 end
 
 GuildBossMainWindow.SetActivityInfo = function(...)
-  -- function num : 0_17 , upvalues : _ENV, uis, GuildBossMainWindow
+  -- function num : 0_21 , upvalues : _ENV, uis, GuildBossMainWindow
   local info = (GuildBossMgr.GuildBossInfo)()
   local state = info.status
   -- DECOMPILER ERROR at PC16: Confused about usage of register: R2 in 'UnsetPending'
@@ -655,7 +843,7 @@ GuildBossMainWindow.SetActivityInfo = function(...)
   ((uis.Active).ActiveProgressBar).value = activity / max * 100
   ;
   (((uis.Active).TipsBtn).onClick):Set(function(...)
-    -- function num : 0_17_0 , upvalues : uis, _ENV, GuildBossMainWindow
+    -- function num : 0_21_0 , upvalues : uis, _ENV, GuildBossMainWindow
     local pos = ((uis.Active).TipsBtn):TransformPoint(Vector2(0, 0), uis.root)
     ;
     (GuildBossMainWindow.OnClickShowTips)(pos, (PUtil.get)(20000544))
@@ -664,7 +852,7 @@ GuildBossMainWindow.SetActivityInfo = function(...)
 end
 
 GuildBossMainWindow.OnClose = function(...)
-  -- function num : 0_18 , upvalues : isClose, gtTable, _ENV, uis, contentPane, argTable, tipsObj, RefreshTimer, waitTimerList
+  -- function num : 0_22 , upvalues : isClose, gtTable, _ENV, uis, contentPane, argTable, tipsObj, RefreshTimer, waitTimerList
   isClose = true
   gtTable = {}
   ;
@@ -686,7 +874,7 @@ GuildBossMainWindow.OnClose = function(...)
 end
 
 GuildBossMainWindow.InitAssetStrip = function(...)
-  -- function num : 0_19 , upvalues : _ENV, uis
+  -- function num : 0_23 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.GuildBossMainWindow).name
   m.Tip = (PUtil.get)(20000457)
@@ -697,7 +885,7 @@ GuildBossMainWindow.InitAssetStrip = function(...)
 end
 
 GuildBossMainWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_20 , upvalues : _ENV, GuildBossMainWindow, gtTable, waitTimerList
+  -- function num : 0_24 , upvalues : _ENV, GuildBossMainWindow, gtTable, waitTimerList
   if msgId == (WindowMsgEnum.GuildBoss).E_MSG_GUILD_MAIN_BOSS then
     (GuildBossMainWindow.SetBossContentShow)()
     if para then
@@ -716,6 +904,10 @@ GuildBossMainWindow.HandleMessage = function(msgId, para, ...)
     (GuildBossMainWindow.SetLeftTopInformation)()
     ;
     (GuildBossMainWindow.RefreshBattleRecordData)()
+  else
+    if msgId == (WindowMsgEnum.GuildBoss).E_MSG_GUILD_RECORD then
+      (GuildBossMainWindow.RefreshBattleRecordData)()
+    end
   end
 end
 

@@ -11651,21 +11651,21 @@
 , 
 [117221603] = {id = 117221603, bubble_text = "み、密室なんていやらしいです！　リーダーさん、決して近寄らないでくださいっ…！", voice_path = "Mashiro_Home_Talk_3", top_position = 10}
 , 
-[97030321] = {id = 97030321, bubble_text = "私は真実しか言わないよ。嘘なんてついたことがない。平和を愛し、すべての人々が幸せであればいいと思っている。あはははっ、本当にね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Main_1"}
+[97030321] = {id = 97030321, bubble_text = "私は真実しか言わないよ。嘘なんてついたことがない。平和を愛し、すべての人々が幸せであればいいと思っている。あはははっ、本当にね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Main_1"}
 , 
-[97030322] = {id = 97030322, bubble_text = "命を削って戦う人々は、とても美しいと思わないかい？　だってそこには、嘘偽りなんてない、世界の真実しかないんだ…。だから私は、戦いも戦う人々も愛しているんだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Main_2"}
+[97030322] = {id = 97030322, bubble_text = "命を削って戦う人々は、とても美しいと思わないかい？　だってそこには、嘘偽りなんてない、世界の真実しかないんだ…。だから私は、戦いも戦う人々も愛しているんだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Main_2"}
 , 
-[97030323] = {id = 97030323, bubble_text = "君、知ってるかい？　ああ見えて、マシロは毎晩私と一緒に寝ないとぐずるんだよ。私の隣じゃないと、寝れないらしいんだ…まぁ、嘘だけどね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Main_3"}
+[97030323] = {id = 97030323, bubble_text = "君、知ってるかい？　ああ見えて、マシロは毎晩私と一緒に寝ないとぐずるんだよ。私の隣じゃないと、寝れないらしいんだ…まぁ、嘘だけどね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Main_3"}
 , 
-[97030324] = {id = 97030324, bubble_text = "リーダーは知っているかな。本当は戦いに、勝敗なんてないんだ。だって戦う誰もが愚かで、つまり全員が敗者だからね。これはただの真実だよ、あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Main_4"}
+[97030324] = {id = 97030324, bubble_text = "リーダーは知っているかな。本当は戦いに、勝敗なんてないんだ。だって戦う誰もが愚かで、つまり全員が敗者だからね。これはただの真実だよ、あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Main_4"}
 , 
-[97130321] = {id = 97130321, bubble_text = "私は真実しか言わないよ。嘘なんてついたことがない。平和を愛し、すべての人々が幸せであればいいと思っている。あはははっ、本当にね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Main_1"}
+[97130321] = {id = 97130321, bubble_text = "私は真実しか言わないよ。嘘なんてついたことがない。平和を愛し、すべての人々が幸せであればいいと思っている。あはははっ、本当にね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Main_1"}
 , 
-[97130322] = {id = 97130322, bubble_text = "命を削って戦う人々は、とても美しいと思わないかい？　だってそこには、嘘偽りなんてない、世界の真実しかないんだ…。だから私は、戦いも戦う人々も愛しているんだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Main_2"}
+[97130322] = {id = 97130322, bubble_text = "命を削って戦う人々は、とても美しいと思わないかい？　だってそこには、嘘偽りなんてない、世界の真実しかないんだ…。だから私は、戦いも戦う人々も愛しているんだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Main_2"}
 , 
-[97130323] = {id = 97130323, bubble_text = "君、知ってるかい？　ああ見えて、マシロは毎晩私と一緒に寝ないとぐずるんだよ。私の隣じゃないと、寝れないらしいんだ…まぁ、嘘だけどね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Main_3"}
+[97130323] = {id = 97130323, bubble_text = "君、知ってるかい？　ああ見えて、マシロは毎晩私と一緒に寝ないとぐずるんだよ。私の隣じゃないと、寝れないらしいんだ…まぁ、嘘だけどね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Main_3"}
 , 
-[97130324] = {id = 97130324, bubble_text = "リーダーは知っているかな。本当は戦いに、勝敗なんてないんだ。だって戦う誰もが愚かで、つまり全員が敗者だからね。これはただの真実だよ、あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Main_4"}
+[97130324] = {id = 97130324, bubble_text = "リーダーは知っているかな。本当は戦いに、勝敗なんてないんだ。だって戦う誰もが愚かで、つまり全員が敗者だからね。これはただの真実だよ、あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Main_4"}
 , 
 [97230321] = {id = 97230321, bubble_text = "私は真実しか言わないよ。嘘なんてついたことがない。平和を愛し、すべての人々が幸せであればいいと思っている。あはははっ、本当にね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_Main_1"}
 , 
@@ -11675,49 +11675,49 @@
 , 
 [97230324] = {id = 97230324, bubble_text = "リーダーは知っているかな。本当は戦いに、勝敗なんてないんだ。だって戦う誰もが愚かで、つまり全員が敗者だからね。これはただの真実だよ、あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_Main_4"}
 , 
-[101303201] = {id = 101303201, bubble_text = "やあ、私はリューゲだ。突然だけれど、君は戦うのは好きかい？もし好きなら…私とは上手くやれそうだね。ふふっ。よろしく頼むよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Get_1"}
+[101303201] = {id = 101303201, bubble_text = "やあ、私はリューゲだ。突然だけれど、君は戦うのは好きかい？もし好きなら…私とは上手くやれそうだね。ふふっ。よろしく頼むよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Get_1"}
 , 
-[101303211] = {id = 101303211, bubble_text = "大抵の人間は嘘をつかれたら怒るのに、君は楽しんでるように見えるね。私としては嘘をつくなんて心苦しいのだけれど…仕方がない。世話になっている君のために、もっと嘘をつこうじゃないか。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Stage_2"}
+[101303211] = {id = 101303211, bubble_text = "大抵の人間は嘘をつかれたら怒るのに、君は楽しんでるように見えるね。私としては嘘をつくなんて心苦しいのだけれど…仕方がない。世話になっている君のために、もっと嘘をつこうじゃないか。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Stage_2"}
 , 
 [101303221] = {id = 101303221, bubble_text = "君だけだよ、これほど嘘つきの私に付き合ってくれるのはね。そのうえ、美しく楽しい戦いまで見せてくれて…本当に感謝しかないよ。ふふ、これは嘘じゃないさ。…たぶんね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_Stage_3"}
 , 
-[102303201] = {id = 102303201, bubble_text = "さて、今日はどんな戦いが見られるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_In_1"}
+[102303201] = {id = 102303201, bubble_text = "さて、今日はどんな戦いが見られるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_In_1"}
 , 
-[102303202] = {id = 102303202, bubble_text = "さて、今日はどんな戦いが見られるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_In_1"}
+[102303202] = {id = 102303202, bubble_text = "さて、今日はどんな戦いが見られるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_In_1"}
 , 
 [102303203] = {id = 102303203, bubble_text = "さて、今日はどんな戦いが見られるかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_In_1"}
 , 
-[103303201] = {id = 103303201, bubble_text = "ふふ、ますます嘘つきになってしまうかもしれないよ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:372", direction = 2, voice_path = "Luge_Stage_1"}
+[103303201] = {id = 103303201, bubble_text = "ふふ、ますます嘘つきになってしまうかもしれないよ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:340", direction = 2, voice_path = "Luge_Stage_1"}
 , 
-[103303211] = {id = 103303211, bubble_text = "ふふ、ますます嘘つきになってしまうかもしれないよ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "467:345", direction = 2, voice_path = "Luge_Stage_1"}
+[103303211] = {id = 103303211, bubble_text = "ふふ、ますます嘘つきになってしまうかもしれないよ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "438:309", direction = 2, voice_path = "Luge_Stage_1"}
 , 
-[103303221] = {id = 103303221, bubble_text = "ふふ、ますます嘘つきになってしまうかもしれないよ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "467:345", direction = 2, voice_path = "Luge_Stage_1"}
+[103303221] = {id = 103303221, bubble_text = "ふふ、ますます嘘つきになってしまうかもしれないよ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "438:309", direction = 2, voice_path = "Luge_Stage_1"}
 , 
-[104303201] = {id = 104303201, bubble_text = "これで前よりも、大きな戦いが見られそうだ。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "414:372", direction = 2, voice_path = "Luge_Star_1"}
+[104303201] = {id = 104303201, bubble_text = "これで前よりも、大きな戦いが見られそうだ。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "390:340", direction = 2, voice_path = "Luge_Star_1"}
 , 
-[104303211] = {id = 104303211, bubble_text = "これで前よりも、大きな戦いが見られそうだ。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "467:345", direction = 2, voice_path = "Luge_Star_1"}
+[104303211] = {id = 104303211, bubble_text = "これで前よりも、大きな戦いが見られそうだ。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "438:309", direction = 2, voice_path = "Luge_Star_1"}
 , 
-[104303221] = {id = 104303221, bubble_text = "これで前よりも、大きな戦いが見られそうだ。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "467:345", direction = 2, voice_path = "Luge_Star_1"}
+[104303221] = {id = 104303221, bubble_text = "これで前よりも、大きな戦いが見られそうだ。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "438:309", direction = 2, voice_path = "Luge_Star_1"}
 , 
-[105303201] = {id = 105303201, bubble_text = "私は嘘つきだけれど、これだけは本当だ。次に私に触れたら、がぶりと噛みつくよ。…興奮したマシロがね。あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Interaction_1"}
+[105303201] = {id = 105303201, bubble_text = "私は嘘つきだけれど、これだけは本当だ。次に私に触れたら、がぶりと噛みつくよ。…興奮したマシロがね。あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Interaction_1"}
 , 
-[105303202] = {id = 105303202, bubble_text = "君は私がどれだけ嘘をつこうとも、関わろうとするね。もしや、マゾヒストというやつかな？　…ふふ。こんなことマシロが聞いたら、また大声をあげて喜んでしまうよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Interaction_2"}
+[105303202] = {id = 105303202, bubble_text = "君は私がどれだけ嘘をつこうとも、関わろうとするね。もしや、マゾヒストというやつかな？　…ふふ。こんなことマシロが聞いたら、また大声をあげて喜んでしまうよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Interaction_2"}
 , 
-[105303203] = {id = 105303203, bubble_text = "リーダー、私は君ともっと触れ合いたいところだけれど…後ろにいるアロエやラヴィが、君のことをじいっと見つめているのは大丈夫かな？　――なんてね、嘘だよ。あはは。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Interaction_3"}
+[105303203] = {id = 105303203, bubble_text = "リーダー、私は君ともっと触れ合いたいところだけれど…後ろにいるアロエやラヴィが、君のことをじいっと見つめているのは大丈夫かな？　――なんてね、嘘だよ。あはは。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Interaction_3"}
 , 
-[105303204] = {id = 105303204, bubble_text = "私にかまってもらいたいのかい？　はは、君は本当に愛らしいね。お望みとあらば、一日中語り合ったって構わないよ。私も君といるのは楽しいからね。…これは嘘か本当か、どちらだと思う？　ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Interaction_4"}
+[105303204] = {id = 105303204, bubble_text = "私にかまってもらいたいのかい？　はは、君は本当に愛らしいね。お望みとあらば、一日中語り合ったって構わないよ。私も君といるのは楽しいからね。…これは嘘か本当か、どちらだと思う？　ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Interaction_4"}
 , 
-[105303205] = {id = 105303205, bubble_text = "君には、つい本音を言いたくなるよ。何を言っても、きっと受け入れてくれるだろうから。でも…それはしばらくお預けとしよう。君とはもっと長い間…嘘で戯れて楽しみたいからね。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Interaction_5"}
+[105303205] = {id = 105303205, bubble_text = "君には、つい本音を言いたくなるよ。何を言っても、きっと受け入れてくれるだろうから。でも…それはしばらくお預けとしよう。君とはもっと長い間…嘘で戯れて楽しみたいからね。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Interaction_5"}
 , 
-[105303211] = {id = 105303211, bubble_text = "私は嘘つきだけれど、これだけは本当だ。次に私に触れたら、がぶりと噛みつくよ。…興奮したマシロがね。あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Interaction_1"}
+[105303211] = {id = 105303211, bubble_text = "私は嘘つきだけれど、これだけは本当だ。次に私に触れたら、がぶりと噛みつくよ。…興奮したマシロがね。あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Interaction_1"}
 , 
-[105303212] = {id = 105303212, bubble_text = "君は私がどれだけ嘘をつこうとも、関わろうとするね。もしや、マゾヒストというやつかな？　…ふふ。こんなことマシロが聞いたら、また大声をあげて喜んでしまうよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Interaction_2"}
+[105303212] = {id = 105303212, bubble_text = "君は私がどれだけ嘘をつこうとも、関わろうとするね。もしや、マゾヒストというやつかな？　…ふふ。こんなことマシロが聞いたら、また大声をあげて喜んでしまうよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Interaction_2"}
 , 
-[105303213] = {id = 105303213, bubble_text = "リーダー、私は君ともっと触れ合いたいところだけれど…後ろにいるアロエやラヴィが、君のことをじいっと見つめているのは大丈夫かな？　――なんてね、嘘だよ。あはは。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Interaction_3"}
+[105303213] = {id = 105303213, bubble_text = "リーダー、私は君ともっと触れ合いたいところだけれど…後ろにいるアロエやラヴィが、君のことをじいっと見つめているのは大丈夫かな？　――なんてね、嘘だよ。あはは。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Interaction_3"}
 , 
-[105303214] = {id = 105303214, bubble_text = "私にかまってもらいたいのかい？　はは、君は本当に愛らしいね。お望みとあらば、一日中語り合ったって構わないよ。私も君といるのは楽しいからね。…これは嘘か本当か、どちらだと思う？　ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Interaction_4"}
+[105303214] = {id = 105303214, bubble_text = "私にかまってもらいたいのかい？　はは、君は本当に愛らしいね。お望みとあらば、一日中語り合ったって構わないよ。私も君といるのは楽しいからね。…これは嘘か本当か、どちらだと思う？　ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Interaction_4"}
 , 
-[105303215] = {id = 105303215, bubble_text = "君には、つい本音を言いたくなるよ。何を言っても、きっと受け入れてくれるだろうから。でも…それはしばらくお預けとしよう。君とはもっと長い間…嘘で戯れて楽しみたいからね。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Interaction_5"}
+[105303215] = {id = 105303215, bubble_text = "君には、つい本音を言いたくなるよ。何を言っても、きっと受け入れてくれるだろうから。でも…それはしばらくお預けとしよう。君とはもっと長い間…嘘で戯れて楽しみたいからね。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Interaction_5"}
 , 
 [105303221] = {id = 105303221, bubble_text = "私は嘘つきだけれど、これだけは本当だ。次に私に触れたら、がぶりと噛みつくよ。…興奮したマシロがね。あはは！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_Interaction_1"}
 , 
@@ -11729,15 +11729,15 @@
 , 
 [105303225] = {id = 105303225, bubble_text = "君には、つい本音を言いたくなるよ。何を言っても、きっと受け入れてくれるだろうから。でも…それはしばらくお預けとしよう。君とはもっと長い間…嘘で戯れて楽しみたいからね。ふふ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_Interaction_5"}
 , 
-[106303201] = {id = 106303201, bubble_text = "この程度の戦いじゃ、私は満足できないよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Win_1"}
+[106303201] = {id = 106303201, bubble_text = "この程度の戦いじゃ、私は満足できないよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Win_1"}
 , 
-[106303211] = {id = 106303211, bubble_text = "この程度の戦いじゃ、私は満足できないよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Win_1"}
+[106303211] = {id = 106303211, bubble_text = "この程度の戦いじゃ、私は満足できないよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Win_1"}
 , 
 [106303221] = {id = 106303221, bubble_text = "この程度の戦いじゃ、私は満足できないよ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_Win_1"}
 , 
-[107303201] = {id = 107303201, bubble_text = "勝敗はどうでもいいけど…気には入らないね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "793:374", direction = 2, voice_path = "Luge_Fail_1"}
+[107303201] = {id = 107303201, bubble_text = "勝敗はどうでもいいけど…気には入らないね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "354:358", direction = 1, voice_path = "Luge_Fail_1"}
 , 
-[107303211] = {id = 107303211, bubble_text = "勝敗はどうでもいいけど…気には入らないね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "777:333", direction = 2, voice_path = "Luge_Fail_1"}
+[107303211] = {id = 107303211, bubble_text = "勝敗はどうでもいいけど…気には入らないね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "750:324", direction = 2, voice_path = "Luge_Fail_1"}
 , 
 [107303221] = {id = 107303221, bubble_text = "勝敗はどうでもいいけど…気には入らないね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "208:266", direction = 1, voice_path = "Luge_Fail_1"}
 , 
@@ -11786,4 +11786,412 @@
 [117303202] = {id = 117303202, bubble_text = "リーダー、仲の悪いメンバー達でも呼んでくれないかい？　いいや、大した意味はないのだけど。", voice_path = "Luge_Home_Talk_2", top_position = 10}
 , 
 [117303203] = {id = 117303203, bubble_text = "ふふ、次の戦いも美しいものだといいな。楽しみにしているよ。", voice_path = "Luge_Home_Talk_3", top_position = 10}
+, 
+[97030331] = {id = 97030331, bubble_text = "双剣術は父上から教わった。自分の身を守れるように、とな。自分のためにしか振るうことはなかったが、リーダーや仲間のために振るうというのも、悪くない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Main_1"}
+, 
+[97030332] = {id = 97030332, bubble_text = "私の国に人はいないが国民ならちゃんといるぞ？城にやってきたペット達だ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Main_2"}
+, 
+[97030333] = {id = 97030333, bubble_text = "剣の稽古に付き合ってくれる相手がいるというのはいいものだな。おかげで城にいた頃のように、わざわざ落ち葉や枯葉を集めてカカシを作る必要がない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Main_3"}
+, 
+[97030334] = {id = 97030334, bubble_text = "城から出たことのなかった私にとって、外の世界は初めて知ることばかりだな…。リーダー、よければ私に色々と教えてはくれないか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Main_4"}
+, 
+[97130331] = {id = 97130331, bubble_text = "双剣術は父上から教わった。自分の身を守れるように、とな。自分のためにしか振るうことはなかったが、リーダーや仲間のために振るうというのも、悪くない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Main_1"}
+, 
+[97130332] = {id = 97130332, bubble_text = "私の国に人はいないが国民ならちゃんといるぞ？城にやってきたペット達だ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Main_2"}
+, 
+[97130333] = {id = 97130333, bubble_text = "剣の稽古に付き合ってくれる相手がいるというのはいいものだな。おかげで城にいた頃のように、わざわざ落ち葉や枯葉を集めてカカシを作る必要がない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Main_3"}
+, 
+[97130334] = {id = 97130334, bubble_text = "城から出たことのなかった私にとって、外の世界は初めて知ることばかりだな…。リーダー、よければ私に色々と教えてはくれないか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Main_4"}
+, 
+[97230331] = {id = 97230331, bubble_text = "双剣術は父上から教わった。自分の身を守れるように、とな。自分のためにしか振るうことはなかったが、リーダーや仲間のために振るうというのも、悪くない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Main_1"}
+, 
+[97230332] = {id = 97230332, bubble_text = "私の国に人はいないが国民ならちゃんといるぞ？城にやってきたペット達だ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Main_2"}
+, 
+[97230333] = {id = 97230333, bubble_text = "剣の稽古に付き合ってくれる相手がいるというのはいいものだな。おかげで城にいた頃のように、わざわざ落ち葉や枯葉を集めてカカシを作る必要がない。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Main_3"}
+, 
+[97230334] = {id = 97230334, bubble_text = "城から出たことのなかった私にとって、外の世界は初めて知ることばかりだな…。リーダー、よければ私に色々と教えてはくれないか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Main_4"}
+, 
+[101303301] = {id = 101303301, bubble_text = "私の名はベスナデットだ。王族ではあるが、畏まる必要はない。今はただ、暮らしていた城が古くなったので、直す方法を探しているだけだからな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Get_1"}
+, 
+[101303311] = {id = 101303311, bubble_text = "やはりお前についていって間違いはなかったようだ。これからもよろしく頼むぞ、リーダー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Stage_2"}
+, 
+[101303321] = {id = 101303321, bubble_text = "私の目的のためにここまでしてくれるのか。両親以外と接することのなかった私だが…リーダーが特別だということくらい分かるぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Stage_3"}
+, 
+[102303301] = {id = 102303301, bubble_text = "お帰りなさい、だなリーダー。そう言える相手がいるというのはいいものだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_In_1"}
+, 
+[102303302] = {id = 102303302, bubble_text = "お帰りなさい、だなリーダー。そう言える相手がいるというのはいいものだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_In_1"}
+, 
+[102303303] = {id = 102303303, bubble_text = "お帰りなさい、だなリーダー。そう言える相手がいるというのはいいものだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_In_1"}
+, 
+[103303301] = {id = 103303301, bubble_text = "これでまた目的に一歩近づいたな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:207", direction = 2, voice_path = "Besnaded_Stage_1"}
+, 
+[103303311] = {id = 103303311, bubble_text = "これでまた目的に一歩近づいたな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:186", direction = 2, voice_path = "Besnaded_Stage_1"}
+, 
+[103303321] = {id = 103303321, bubble_text = "これでまた目的に一歩近づいたな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:186", direction = 2, voice_path = "Besnaded_Stage_1"}
+, 
+[104303301] = {id = 104303301, bubble_text = "この体が軽くなるような感覚…これも、リーダーと共に歩んできたおかげというわけか…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "419:207", direction = 2, voice_path = "Besnaded_Star_1"}
+, 
+[104303311] = {id = 104303311, bubble_text = "この体が軽くなるような感覚…これも、リーダーと共に歩んできたおかげというわけか…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:186", direction = 2, voice_path = "Besnaded_Star_1"}
+, 
+[104303321] = {id = 104303321, bubble_text = "この体が軽くなるような感覚…これも、リーダーと共に歩んできたおかげというわけか…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:186", direction = 2, voice_path = "Besnaded_Star_1"}
+, 
+[105303301] = {id = 105303301, bubble_text = "今は剣の稽古中なんだ。お前に恩を返すためにも、もっと強くならないといけないからな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Interaction_1"}
+, 
+[105303302] = {id = 105303302, bubble_text = "どうしたリーダー。もしかして、私に構ってもらいたいのか？ふふっ、ペットみたいで可愛いのだな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Interaction_2"}
+, 
+[105303303] = {id = 105303303, bubble_text = "ああ、そうしたらまたリーダーがだな…っと、そこにいたのか。ちょうどペット達に、お前の素晴らしさについて語り聞かせていたところだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Interaction_3"}
+, 
+[105303304] = {id = 105303304, bubble_text = "近頃、城で父上や母上と過ごしていた昔のことを思い出すんだ。きっとお前と一緒に過ごすことが、その時のように楽しいからだろうな…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Interaction_4"}
+, 
+[105303305] = {id = 105303305, bubble_text = "私の城が直ったら、まず最初にリーダーを招待しよう。…それで、だ。もしよければずっと城にいてくれてもいいのだぞ？お前がいてくれるだけで、きっと充実した毎日を送ることができるだろうからな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Interaction_5"}
+, 
+[105303311] = {id = 105303311, bubble_text = "今は剣の稽古中なんだ。お前に恩を返すためにも、もっと強くならないといけないからな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Interaction_1"}
+, 
+[105303312] = {id = 105303312, bubble_text = "どうしたリーダー。もしかして、私に構ってもらいたいのか？ふふっ、ペットみたいで可愛いのだな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Interaction_2"}
+, 
+[105303313] = {id = 105303313, bubble_text = "ああ、そうしたらまたリーダーがだな…っと、そこにいたのか。ちょうどペット達に、お前の素晴らしさについて語り聞かせていたところだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Interaction_3"}
+, 
+[105303314] = {id = 105303314, bubble_text = "近頃、城で父上や母上と過ごしていた昔のことを思い出すんだ。きっとお前と一緒に過ごすことが、その時のように楽しいからだろうな…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Interaction_4"}
+, 
+[105303315] = {id = 105303315, bubble_text = "私の城が直ったら、まず最初にリーダーを招待しよう。…それで、だ。もしよければずっと城にいてくれてもいいのだぞ？お前がいてくれるだけで、きっと充実した毎日を送ることができるだろうからな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Interaction_5"}
+, 
+[105303321] = {id = 105303321, bubble_text = "今は剣の稽古中なんだ。お前に恩を返すためにも、もっと強くならないといけないからな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Interaction_1"}
+, 
+[105303322] = {id = 105303322, bubble_text = "どうしたリーダー。もしかして、私に構ってもらいたいのか？ふふっ、ペットみたいで可愛いのだな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Interaction_2"}
+, 
+[105303323] = {id = 105303323, bubble_text = "ああ、そうしたらまたリーダーがだな…っと、そこにいたのか。ちょうどペット達に、お前の素晴らしさについて語り聞かせていたところだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Interaction_3"}
+, 
+[105303324] = {id = 105303324, bubble_text = "近頃、城で父上や母上と過ごしていた昔のことを思い出すんだ。きっとお前と一緒に過ごすことが、その時のように楽しいからだろうな…。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Interaction_4"}
+, 
+[105303325] = {id = 105303325, bubble_text = "私の城が直ったら、まず最初にリーダーを招待しよう。…それで、だ。もしよければずっと城にいてくれてもいいのだぞ？お前がいてくれるだけで、きっと充実した毎日を送ることができるだろうからな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Interaction_5"}
+, 
+[106303301] = {id = 106303301, bubble_text = "鮮やかな勝利だったな。これもリーダーの的確な指示があってこそだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Win_1"}
+, 
+[106303311] = {id = 106303311, bubble_text = "鮮やかな勝利だったな。これもリーダーの的確な指示があってこそだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Win_1"}
+, 
+[106303321] = {id = 106303321, bubble_text = "鮮やかな勝利だったな。これもリーダーの的確な指示があってこそだ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Win_1"}
+, 
+[107303301] = {id = 107303301, bubble_text = "戦いには敗れたが…ペット達もほら、あまり気を落とすなと言っているぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "362:223", direction = 1, voice_path = "Besnaded_Fail_1"}
+, 
+[107303311] = {id = 107303311, bubble_text = "戦いには敗れたが…ペット達もほら、あまり気を落とすなと言っているぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "352:214", direction = 1, voice_path = "Besnaded_Fail_1"}
+, 
+[107303321] = {id = 107303321, bubble_text = "戦いには敗れたが…ペット達もほら、あまり気を落とすなと言っているぞ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "427:230", direction = 1, voice_path = "Besnaded_Fail_1"}
+, 
+[108303301] = {id = 108303301, bubble_text = "城を直すために必要だというのなら、喜んで協力しよう。", voice_path = "Besnaded_Go_1"}
+, 
+[109303301] = {id = 109303301, voice_path = "Besnaded_Game_1"}
+, 
+[111303301] = {id = 111303301, voice_path = "Besnaded_Battle_N_1"}
+, 
+[111303302] = {id = 111303302, voice_path = "Besnaded_Battle_N_2"}
+, 
+[111303303] = {id = 111303303, voice_path = "Besnaded_Battle_N_3"}
+, 
+[111303304] = {id = 111303304, voice_path = "Besnaded_Battle_N_4"}
+, 
+[111303305] = {id = 111303305, voice_path = "Besnaded_Battle_N_5"}
+, 
+[111303306] = {id = 111303306, voice_path = "Besnaded_Battle_N_6"}
+, 
+[112303301] = {id = 112303301, voice_path = "Besnaded_Battle_Hit_1"}
+, 
+[112303302] = {id = 112303302, voice_path = "Besnaded_Battle_Hit_2"}
+, 
+[112303303] = {id = 112303303, voice_path = "Besnaded_Battle_Hit_3"}
+, 
+[112303304] = {id = 112303304, voice_path = "Besnaded_Battle_Hit_4"}
+, 
+[112303305] = {id = 112303305, voice_path = "Besnaded_Battle_Hit_5"}
+, 
+[112303306] = {id = 112303306, voice_path = "Besnaded_Battle_Hit_6"}
+, 
+[113303301] = {id = 113303301, voice_path = "Besnaded_Battle_Die_1"}
+, 
+[114303301] = {id = 114303301, voice_path = "Besnaded_Battle_H_1"}
+, 
+[114303302] = {id = 114303302, voice_path = "Besnaded_Battle_H_2"}
+, 
+[115303301] = {id = 115303301, voice_path = "Besnaded_Battle_C_1"}
+, 
+[115303302] = {id = 115303302, voice_path = "Besnaded_Battle_C_2"}
+, 
+[116303301] = {id = 116303301, bubble_text = "ここにはペットたちが過ごせる場所はあるか？", voice_path = "Besnaded_Home_In_1", top_position = 10}
+, 
+[117303301] = {id = 117303301, bubble_text = "『名前を書けば城を直せる』という紙をもらったのだが、これは本当なのだろうか？ついでに、見たこともない額も書いてあるが。", voice_path = "Besnaded_Home_Talk_1", top_position = 10}
+, 
+[117303302] = {id = 117303302, bubble_text = "何か手伝えることはあるか？国では自給自足の生活をしていたからな。こう見えて畑仕事には慣れているんだ。", voice_path = "Besnaded_Home_Talk_2", top_position = 10}
+, 
+[117303303] = {id = 117303303, bubble_text = "私の城と違って随分と賑やかなのだな。ふっ…別に嫌というわけではないぞ。", voice_path = "Besnaded_Home_Talk_3", top_position = 10}
+, 
+[97030231] = {id = 97030231, bubble_text = "アタシっちの極悪海賊伝説を知りたいか！？どれから話してやろうかな、えーと…あれ？い、今はちょっと思い出せない！あとでまた話してやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Main_1"}
+, 
+[97030232] = {id = 97030232, bubble_text = "早く海に出たくてウズウズしてくるな！海のど真ん中ででっかい嵐が来たときなんかすげえワクワクするんだ！お前にもそのうちあのヒリヒリする感じを味わわせてやりたいな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Main_2"}
+, 
+[97030233] = {id = 97030233, bubble_text = "悪にも美学ってもんが必要だよな！弱い奴ばかりコソコソ狙う連中を見てるとぶっ飛ばしたくなってくるぜ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Main_3"}
+, 
+[97030234] = {id = 97030234, bubble_text = "おいっ何ぼーっとしてんだ、ちょっとは構え！アタシっちは大海賊フォーゼ様だからな、構わないと大変なことになるぞ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Main_4"}
+, 
+[97130231] = {id = 97130231, bubble_text = "アタシっちの極悪海賊伝説を知りたいか！？どれから話してやろうかな、えーと…あれ？い、今はちょっと思い出せない！あとでまた話してやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Main_1"}
+, 
+[97130232] = {id = 97130232, bubble_text = "早く海に出たくてウズウズしてくるな！海のど真ん中ででっかい嵐が来たときなんかすげえワクワクするんだ！お前にもそのうちあのヒリヒリする感じを味わわせてやりたいな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Main_2"}
+, 
+[97130233] = {id = 97130233, bubble_text = "悪にも美学ってもんが必要だよな！弱い奴ばかりコソコソ狙う連中を見てるとぶっ飛ばしたくなってくるぜ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Main_3"}
+, 
+[97130234] = {id = 97130234, bubble_text = "おいっ何ぼーっとしてんだ、ちょっとは構え！アタシっちは大海賊フォーゼ様だからな、構わないと大変なことになるぞ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Main_4"}
+, 
+[97230231] = {id = 97230231, bubble_text = "アタシっちの極悪海賊伝説を知りたいか！？どれから話してやろうかな、えーと…あれ？い、今はちょっと思い出せない！あとでまた話してやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Main_1"}
+, 
+[97230232] = {id = 97230232, bubble_text = "早く海に出たくてウズウズしてくるな！海のど真ん中ででっかい嵐が来たときなんかすげえワクワクするんだ！お前にもそのうちあのヒリヒリする感じを味わわせてやりたいな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Main_2"}
+, 
+[97230233] = {id = 97230233, bubble_text = "悪にも美学ってもんが必要だよな！弱い奴ばかりコソコソ狙う連中を見てるとぶっ飛ばしたくなってくるぜ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Main_3"}
+, 
+[97230234] = {id = 97230234, bubble_text = "おいっ何ぼーっとしてんだ、ちょっとは構え！アタシっちは大海賊フォーゼ様だからな、構わないと大変なことになるぞ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Main_4"}
+, 
+[101302301] = {id = 101302301, bubble_text = "世界の海を股にかける極悪非道の大海賊、フォーゼ様とはアタシっちのことだ！アタシっちのことを義賊とか抜かすアホが多いが、勘違いするなよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Get_1"}
+, 
+[101302311] = {id = 101302311, bubble_text = "やっぱりでっかいことをやるには頼れる仲間ってのが不可欠だ！リーダーにだったらフォーゼ様の背中を預けてやってもいいぜ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Stage_2"}
+, 
+[101302321] = {id = 101302321, bubble_text = "うーっし！このまま行けば陸もあっという間に制覇できそうだな！そうなったら、アタシっちの船に乗って海の冒険に出かけないか！リーダーと一緒なら絶対楽しいしな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Stage_3"}
+, 
+[102302301] = {id = 102302301, bubble_text = "おっ、来たな！早く海に出よーぜっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_In_1"}
+, 
+[102302302] = {id = 102302302, bubble_text = "おっ、来たな！早く海に出よーぜっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_In_1"}
+, 
+[102302303] = {id = 102302303, bubble_text = "おっ、来たな！早く海に出よーぜっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_In_1"}
+, 
+[103302301] = {id = 103302301, bubble_text = "よっし！背も少し伸びた気がするっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "401:236", direction = 2, voice_path = "Lo_Forze_Stage_1"}
+, 
+[103302311] = {id = 103302311, bubble_text = "よっし！背も少し伸びた気がするっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "386:278", direction = 2, voice_path = "Lo_Forze_Stage_1"}
+, 
+[103302321] = {id = 103302321, bubble_text = "よっし！背も少し伸びた気がするっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "386:278", direction = 2, voice_path = "Lo_Forze_Stage_1"}
+, 
+[104302301] = {id = 104302301, bubble_text = "ま～たビッグになっちまったな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "401:236", direction = 2, voice_path = "Lo_Forze_Star_1"}
+, 
+[104302311] = {id = 104302311, bubble_text = "ま～たビッグになっちまったな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "386:278", direction = 2, voice_path = "Lo_Forze_Star_1"}
+, 
+[104302321] = {id = 104302321, bubble_text = "ま～たビッグになっちまったな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "386:278", direction = 2, voice_path = "Lo_Forze_Star_1"}
+, 
+[105302301] = {id = 105302301, bubble_text = "なぁっ！？おい、頭を撫でるなっ！やめろって言ってるだろうがー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Interaction_1"}
+, 
+[105302302] = {id = 105302302, bubble_text = "あ、アタシっちに気安く触るとはいい度胸してるじゃねーか！普段なら本気のアタシっちが出てくるところだが…その度胸に免じて今回だけは大目に見てやるよ！　ふんっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Interaction_2"}
+, 
+[105302303] = {id = 105302303, bubble_text = "なんだよ、さっきから。ははん、さてはアタシっちの背中のデカさにビビってやがるな！ま、リーダーも踏ん張ればアタシっちみたいな大海賊になれるぜ！フォーゼ様が保証してやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Interaction_3"}
+, 
+[105302304] = {id = 105302304, bubble_text = "く、くっそ～…！　ナメられるのは我慢できないはずなのに…なんでリーダーに撫でられてると顔がヘンに熱くなってくるんだ～！？ううっ…こ、これじゃあ身体が勝手に、大人になっちまうー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Interaction_4"}
+, 
+[105302305] = {id = 105302305, bubble_text = "アタシっちは海賊団が何より大事だ！けど…プライドも、リーダーも大事だ！だから海だけじゃなくて、陸も冒険しつくすって決めた！世界をまたぐフォーゼ様を、そこで見てろー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Interaction_5"}
+, 
+[105302311] = {id = 105302311, bubble_text = "なぁっ！？おい、頭を撫でるなっ！やめろって言ってるだろうがー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Interaction_1"}
+, 
+[105302312] = {id = 105302312, bubble_text = "あ、アタシっちに気安く触るとはいい度胸してるじゃねーか！普段なら本気のアタシっちが出てくるところだが…その度胸に免じて今回だけは大目に見てやるよ！　ふんっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Interaction_2"}
+, 
+[105302313] = {id = 105302313, bubble_text = "なんだよ、さっきから。ははん、さてはアタシっちの背中のデカさにビビってやがるな！ま、リーダーも踏ん張ればアタシっちみたいな大海賊になれるぜ！フォーゼ様が保証してやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Interaction_3"}
+, 
+[105302314] = {id = 105302314, bubble_text = "く、くっそ～…！　ナメられるのは我慢できないはずなのに…なんでリーダーに撫でられてると顔がヘンに熱くなってくるんだ～！？ううっ…こ、これじゃあ身体が勝手に、大人になっちまうー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Interaction_4"}
+, 
+[105302315] = {id = 105302315, bubble_text = "アタシっちは海賊団が何より大事だ！けど…プライドも、リーダーも大事だ！だから海だけじゃなくて、陸も冒険しつくすって決めた！世界をまたぐフォーゼ様を、そこで見てろー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Interaction_5"}
+, 
+[105302321] = {id = 105302321, bubble_text = "なぁっ！？おい、頭を撫でるなっ！やめろって言ってるだろうがー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Interaction_1"}
+, 
+[105302322] = {id = 105302322, bubble_text = "あ、アタシっちに気安く触るとはいい度胸してるじゃねーか！普段なら本気のアタシっちが出てくるところだが…その度胸に免じて今回だけは大目に見てやるよ！　ふんっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Interaction_2"}
+, 
+[105302323] = {id = 105302323, bubble_text = "なんだよ、さっきから。ははん、さてはアタシっちの背中のデカさにビビってやがるな！ま、リーダーも踏ん張ればアタシっちみたいな大海賊になれるぜ！フォーゼ様が保証してやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Interaction_3"}
+, 
+[105302324] = {id = 105302324, bubble_text = "く、くっそ～…！　ナメられるのは我慢できないはずなのに…なんでリーダーに撫でられてると顔がヘンに熱くなってくるんだ～！？ううっ…こ、これじゃあ身体が勝手に、大人になっちまうー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Interaction_4"}
+, 
+[105302325] = {id = 105302325, bubble_text = "アタシっちは海賊団が何より大事だ！けど…プライドも、リーダーも大事だ！だから海だけじゃなくて、陸も冒険しつくすって決めた！世界をまたぐフォーゼ様を、そこで見てろー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Interaction_5"}
+, 
+[106302301] = {id = 106302301, bubble_text = "へっ！大海賊フォーゼ様とリーダーが組めばこんなもんよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Win_1"}
+, 
+[106302311] = {id = 106302311, bubble_text = "へっ！大海賊フォーゼ様とリーダーが組めばこんなもんよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Win_1"}
+, 
+[106302321] = {id = 106302321, bubble_text = "へっ！大海賊フォーゼ様とリーダーが組めばこんなもんよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Win_1"}
+, 
+[107302301] = {id = 107302301, bubble_text = "くっそ～！もちろんこのままじゃ済まさないよな！リーダー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "369:258", direction = 1, voice_path = "Lo_Forze_Fail_1"}
+, 
+[107302311] = {id = 107302311, bubble_text = "くっそ～！もちろんこのままじゃ済まさないよな！リーダー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "323:249", direction = 1, voice_path = "Lo_Forze_Fail_1"}
+, 
+[107302321] = {id = 107302321, bubble_text = "くっそ～！もちろんこのままじゃ済まさないよな！リーダー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "302:228", direction = 1, voice_path = "Lo_Forze_Fail_1"}
+, 
+[108302301] = {id = 108302301, bubble_text = "よっしゃー！船出のときだ！", voice_path = "Lo_Forze_Go_1"}
+, 
+[109302301] = {id = 109302301, voice_path = "Lo_Forze_Game_1"}
+, 
+[111302301] = {id = 111302301, voice_path = "Lo_Forze_Battle_N_1"}
+, 
+[111302302] = {id = 111302302, voice_path = "Lo_Forze_Battle_N_2"}
+, 
+[111302303] = {id = 111302303, voice_path = "Lo_Forze_Battle_N_3"}
+, 
+[111302304] = {id = 111302304, voice_path = "Lo_Forze_Battle_N_4"}
+, 
+[111302305] = {id = 111302305, voice_path = "Lo_Forze_Battle_N_5"}
+, 
+[111302306] = {id = 111302306, voice_path = "Lo_Forze_Battle_N_6"}
+, 
+[112302301] = {id = 112302301, voice_path = "Lo_Forze_Battle_Hit_1"}
+, 
+[112302302] = {id = 112302302, voice_path = "Lo_Forze_Battle_Hit_2"}
+, 
+[112302303] = {id = 112302303, voice_path = "Lo_Forze_Battle_Hit_3"}
+, 
+[112302304] = {id = 112302304, voice_path = "Lo_Forze_Battle_Hit_4"}
+, 
+[112302305] = {id = 112302305, voice_path = "Lo_Forze_Battle_Hit_5"}
+, 
+[112302306] = {id = 112302306, voice_path = "Lo_Forze_Battle_Hit_6"}
+, 
+[113302301] = {id = 113302301, voice_path = "Lo_Forze_Battle_Die_1"}
+, 
+[114302301] = {id = 114302301, voice_path = "Lo_Forze_Battle_H_1"}
+, 
+[114302302] = {id = 114302302, voice_path = "Lo_Forze_Battle_H_2"}
+, 
+[115302301] = {id = 115302301, voice_path = "Lo_Forze_Battle_C_1"}
+, 
+[115302302] = {id = 115302302, voice_path = "Lo_Forze_Battle_C_2"}
+, 
+[116302301] = {id = 116302301, bubble_text = "大海賊フォーゼ様の話を聞きたい奴はいるか～？", voice_path = "Lo_Forze_Home_In_1", top_position = 10}
+, 
+[117302301] = {id = 117302301, bubble_text = "喧嘩を売ってくる奴がいたら相談しろよ。アタシっちがぱぱっと解決してやるぜ！", voice_path = "Lo_Forze_Home_Talk_1", top_position = 10}
+, 
+[117302302] = {id = 117302302, bubble_text = "かーっ酒がうめえな！リーダーも一杯やらねーか！", voice_path = "Lo_Forze_Home_Talk_2", top_position = 10}
+, 
+[117302303] = {id = 117302303, bubble_text = "まだ見ぬ世界がどっかに広がってると思うとじっとしてらんねーな！早く冒険！冒険！", voice_path = "Lo_Forze_Home_Talk_3", top_position = 10}
+, 
+[97031231] = {id = 97031231, bubble_text = "成長したアタシのこの姿はどうだ！誰がどう見ても大人の女だろ！ほらっ、はいそうですって言えー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Main_1"}
+, 
+[97031232] = {id = 97031232, bubble_text = "アタシっち…アタシ…アタイ…。リーダーはどの呼び方が大人の女海賊っぽいと思う？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Main_2"}
+, 
+[97031233] = {id = 97031233, bubble_text = "これもダメ…あれもダメ…。うーん、この服になると、着れる服が限られて困るんだよなぁ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Main_3"}
+, 
+[97031234] = {id = 97031234, bubble_text = "リーダー、アタシももう子供じゃないんだ。もうちょっとこう…大人の対応というか…なんというか…。…な、なんでもない！やっぱ今の忘れろ！絶対にだ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Main_4"}
+, 
+[97131231] = {id = 97131231, bubble_text = "成長したアタシのこの姿はどうだ！誰がどう見ても大人の女だろ！ほらっ、はいそうですって言えー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Main_1"}
+, 
+[97131232] = {id = 97131232, bubble_text = "アタシっち…アタシ…アタイ…。リーダーはどの呼び方が大人の女海賊っぽいと思う？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Main_2"}
+, 
+[97131233] = {id = 97131233, bubble_text = "これもダメ…あれもダメ…。うーん、この服になると、着れる服が限られて困るんだよなぁ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Main_3"}
+, 
+[97131234] = {id = 97131234, bubble_text = "リーダー、アタシももう子供じゃないんだ。もうちょっとこう…大人の対応というか…なんというか…。…な、なんでもない！やっぱ今の忘れろ！絶対にだ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Main_4"}
+, 
+[97231231] = {id = 97231231, bubble_text = "成長したアタシのこの姿はどうだ！誰がどう見ても大人の女だろ！ほらっ、はいそうですって言えー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Main_1"}
+, 
+[97231232] = {id = 97231232, bubble_text = "アタシっち…アタシ…アタイ…。リーダーはどの呼び方が大人の女海賊っぽいと思う？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Main_2"}
+, 
+[97231233] = {id = 97231233, bubble_text = "これもダメ…あれもダメ…。うーん、この服になると、着れる服が限られて困るんだよなぁ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Main_3"}
+, 
+[97231234] = {id = 97231234, bubble_text = "リーダー、アタシももう子供じゃないんだ。もうちょっとこう…大人の対応というか…なんというか…。…な、なんでもない！やっぱ今の忘れろ！絶対にだ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Main_4"}
+, 
+[101312301] = {id = 101312301, bubble_text = "アタシっち…じゃなくて、アタシはフォーゼ様アダルトバージョンだ！これでもチビだのガキだの言えるか！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Get_1"}
+, 
+[101312311] = {id = 101312311, bubble_text = "アタシもさらにパワーアップして、頼れる仲間もいて、リーダーもいて…毎日楽しいぜ。これからもみんなでたくさん冒険ができるように、アタシをもっともーっと強くしてくれよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Stage_2"}
+, 
+[101312321] = {id = 101312321, bubble_text = "これでアタシも、立派な大人の仲間入りだ！リーダー、アタシすごい成長しただろ！…だからさ、もう子ども扱いすんのやめろよな。や、約束だぞ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Stage_3"}
+, 
+[102312301] = {id = 102312301, bubble_text = "遅いぞ！ったく…まあ、アタシは大人だから大目に見てやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_In_1"}
+, 
+[102312302] = {id = 102312302, bubble_text = "遅いぞ！ったく…まあ、アタシは大人だから大目に見てやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_In_1"}
+, 
+[102312303] = {id = 102312303, bubble_text = "遅いぞ！ったく…まあ、アタシは大人だから大目に見てやる！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_In_1"}
+, 
+[103312301] = {id = 103312301, bubble_text = "おお！これで身長もさらに伸びたんじゃないか！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "438:239", direction = 2, voice_path = "Ad_Forze_Stage_1"}
+, 
+[103312311] = {id = 103312311, bubble_text = "おお！これで身長もさらに伸びたんじゃないか！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "417:239", direction = 2, voice_path = "Ad_Forze_Stage_1"}
+, 
+[103312321] = {id = 103312321, bubble_text = "おお！これで身長もさらに伸びたんじゃないか！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "417:239", direction = 2, voice_path = "Ad_Forze_Stage_1"}
+, 
+[104312301] = {id = 104312301, bubble_text = "これでさらに大人への階段を上ったって感じだな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "438:239", direction = 2, voice_path = "Ad_Forze_Star_1"}
+, 
+[104312311] = {id = 104312311, bubble_text = "これでさらに大人への階段を上ったって感じだな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "417:239", direction = 2, voice_path = "Ad_Forze_Star_1"}
+, 
+[104312321] = {id = 104312321, bubble_text = "これでさらに大人への階段を上ったって感じだな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "417:239", direction = 2, voice_path = "Ad_Forze_Star_1"}
+, 
+[105312301] = {id = 105312301, bubble_text = "わっ！なんだよ急に…さてはアタシの大人の色気にやられたな？　", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Interaction_1"}
+, 
+[105312302] = {id = 105312302, bubble_text = "はいストーップ！このナイスバディのアタシに触るからには、大層な冒険話を聞かせてくれるんだろうな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Interaction_2"}
+, 
+[105312303] = {id = 105312303, bubble_text = "リーダー、触るのはいいが、アタシの魅力にやられないよう気をつけろよ。…なんてな！どうだ？今の色っぽくてよかっただろ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Interaction_3"}
+, 
+[105312304] = {id = 105312304, bubble_text = "し、しつこいぞ…！いくらアタシっちの見た目が大人だからって、そんなに触られると…その…どうしたらいいかわからなくなるんだよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Interaction_4"}
+, 
+[105312305] = {id = 105312305, bubble_text = "この姿だと、より大人なアタシがリーダーを撫でるべきだろ！…まあ、リーダーに撫でられるのも悪くない、けど。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Interaction_5"}
+, 
+[105312311] = {id = 105312311, bubble_text = "わっ！なんだよ急に…さてはアタシの大人の色気にやられたな？　", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Interaction_1"}
+, 
+[105312312] = {id = 105312312, bubble_text = "はいストーップ！このナイスバディのアタシに触るからには、大層な冒険話を聞かせてくれるんだろうな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Interaction_2"}
+, 
+[105312313] = {id = 105312313, bubble_text = "リーダー、触るのはいいが、アタシの魅力にやられないよう気をつけろよ。…なんてな！どうだ？今の色っぽくてよかっただろ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Interaction_3"}
+, 
+[105312314] = {id = 105312314, bubble_text = "し、しつこいぞ…！いくらアタシっちの見た目が大人だからって、そんなに触られると…その…どうしたらいいかわからなくなるんだよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Interaction_4"}
+, 
+[105312315] = {id = 105312315, bubble_text = "この姿だと、より大人なアタシがリーダーを撫でるべきだろ！…まあ、リーダーに撫でられるのも悪くない、けど。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Interaction_5"}
+, 
+[105312321] = {id = 105312321, bubble_text = "わっ！なんだよ急に…さてはアタシの大人の色気にやられたな？　", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Interaction_1"}
+, 
+[105312322] = {id = 105312322, bubble_text = "はいストーップ！このナイスバディのアタシに触るからには、大層な冒険話を聞かせてくれるんだろうな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Interaction_2"}
+, 
+[105312323] = {id = 105312323, bubble_text = "リーダー、触るのはいいが、アタシの魅力にやられないよう気をつけろよ。…なんてな！どうだ？今の色っぽくてよかっただろ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Interaction_3"}
+, 
+[105312324] = {id = 105312324, bubble_text = "し、しつこいぞ…！いくらアタシっちの見た目が大人だからって、そんなに触られると…その…どうしたらいいかわからなくなるんだよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Interaction_4"}
+, 
+[105312325] = {id = 105312325, bubble_text = "この姿だと、より大人なアタシがリーダーを撫でるべきだろ！…まあ、リーダーに撫でられるのも悪くない、けど。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Interaction_5"}
+, 
+[106312301] = {id = 106312301, bubble_text = "だから言っただろ？アタシに全部任せておけってな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Win_1"}
+, 
+[106312311] = {id = 106312311, bubble_text = "だから言っただろ？アタシに全部任せておけってな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Win_1"}
+, 
+[106312321] = {id = 106312321, bubble_text = "だから言っただろ？アタシに全部任せておけってな！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Win_1"}
+, 
+[107312301] = {id = 107312301, bubble_text = "めっちゃ成長したってのに…ちくしょー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "375:247", direction = 1, voice_path = "Ad_Forze_Fail_1"}
+, 
+[107312311] = {id = 107312311, bubble_text = "めっちゃ成長したってのに…ちくしょー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "737:260", direction = 2, voice_path = "Ad_Forze_Fail_1"}
+, 
+[107312321] = {id = 107312321, bubble_text = "めっちゃ成長したってのに…ちくしょー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "462:275", direction = 2, voice_path = "Ad_Forze_Fail_1"}
+, 
+[108312301] = {id = 108312301, bubble_text = "フォーゼ様アダルトバージョン、出航だー！", voice_path = "Ad_Forze_Go_1"}
+, 
+[109312301] = {id = 109312301, voice_path = "Ad_Forze_Game_1"}
+, 
+[111312301] = {id = 111312301, voice_path = "Ad_Forze_Battle_N_1"}
+, 
+[111312302] = {id = 111312302, voice_path = "Ad_Forze_Battle_N_2"}
+, 
+[111312303] = {id = 111312303, voice_path = "Ad_Forze_Battle_N_3"}
+, 
+[111312304] = {id = 111312304, voice_path = "Ad_Forze_Battle_N_4"}
+, 
+[111312305] = {id = 111312305, voice_path = "Ad_Forze_Battle_N_5"}
+, 
+[111312306] = {id = 111312306, voice_path = "Ad_Forze_Battle_N_6"}
+, 
+[112312301] = {id = 112312301, voice_path = "Ad_Forze_Battle_Hit_1"}
+, 
+[112312302] = {id = 112312302, voice_path = "Ad_Forze_Battle_Hit_2"}
+, 
+[112312303] = {id = 112312303, voice_path = "Ad_Forze_Battle_Hit_3"}
+, 
+[112312304] = {id = 112312304, voice_path = "Ad_Forze_Battle_Hit_4"}
+, 
+[112312305] = {id = 112312305, voice_path = "Ad_Forze_Battle_Hit_5"}
+, 
+[112312306] = {id = 112312306, voice_path = "Ad_Forze_Battle_Hit_6"}
+, 
+[113312301] = {id = 113312301, voice_path = "Ad_Forze_Battle_Die_1"}
+, 
+[114312301] = {id = 114312301, voice_path = "Ad_Forze_Battle_H_1"}
+, 
+[114312302] = {id = 114312302, voice_path = "Ad_Forze_Battle_H_2"}
+, 
+[115312301] = {id = 115312301, voice_path = "Ad_Forze_Battle_C_1"}
+, 
+[115312302] = {id = 115312302, voice_path = "Ad_Forze_Battle_C_2"}
+, 
+[116312301] = {id = 116312301, bubble_text = "何か取ってほしいものはあるか？今のアタシならどんなに高いところでも届くぞ！", voice_path = "Ad_Forze_Home_In_1", top_position = 10}
+, 
+[117312301] = {id = 117312301, bubble_text = "なあ…なあってば！アタシ、どっからどう見てもいい女だろ？", voice_path = "Ad_Forze_Home_Talk_1", top_position = 10}
+, 
+[117312302] = {id = 117312302, bubble_text = "この姿だと、今まで見えなかった景色も見えるぞ！最高だぜ！", voice_path = "Ad_Forze_Home_Talk_2", top_position = 10}
+, 
+[117312303] = {id = 117312303, bubble_text = "ん？大人の色気っつーのは、露出すればいいってもんじゃないのか？", voice_path = "Ad_Forze_Home_Talk_3", top_position = 10}
 }

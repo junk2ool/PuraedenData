@@ -333,7 +333,7 @@ BaseSlotsPoolData = {
 , 
 [24410117] = {id = 24410117, type = 101, reward = "1:21110004:9", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 14, group_icon = "Prize:y_21110004", intelligence = 1, tip_id = 21500613, reward_show = "1:21110004:8", bottom_num = 0}
 , 
-[24410118] = {id = 24410118, type = 101, reward = "9:78601307:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601307:1", bottom_num = 76}
+[24410118] = {id = 24410118, type = 101, reward = "9:78601308:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601308:1", bottom_num = 76}
 }
 return BaseSlotsPoolData
 

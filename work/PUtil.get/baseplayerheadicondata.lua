@@ -23,6 +23,8 @@
 , 
 [78601307] = {id = 78601307, name = "チベスナ顔　アイコン", des = "お前のことをいつも見ているぞ。\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_007", condition = "0", sort = 12, reward_sort = 9880001, own_show = 1, open_time = "1621803600"}
 , 
+[78601308] = {id = 78601308, name = "大海賊　アイコン", des = "これぞ大海賊の証！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_008", condition = "0", sort = 12, reward_sort = 9880001, own_show = 1, open_time = "1624395600"}
+, 
 [78601401] = {id = 78601401, name = "嘘？！　アイコン", des = "200回連続募集でSSR冒険者が出現しなかった際に贈られるアイコン。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
 , 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
@@ -188,4 +190,10 @@
 [78601181] = {id = 78601181, name = "マシロ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202016_2", condition = "72501008:11202016:10", sort = 920, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
 , 
 [78601182] = {id = 78601182, name = "リューゲ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300032_2", condition = "72501008:11300032:10", sort = 919, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
+, 
+[78601183] = {id = 78601183, name = "ベスナデット", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300033_2", condition = "72501008:11300033:10", sort = 918, reward_sort = 9880001, own_show = 1, open_time = "1623704400"}
+, 
+[78601184] = {id = 78601184, name = "フォーゼ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300023_2", condition = "72501008:11300023:10", sort = 917, reward_sort = 9880001, own_show = 1, open_time = "1623704400"}
+, 
+[78601185] = {id = 78601185, name = "フォーゼ", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11301023_2", condition = "72501008:11300023:10", sort = 916, reward_sort = 9880001, own_show = 1, open_time = "1623704400"}
 }

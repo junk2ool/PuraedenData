@@ -526,9 +526,7 @@ HeroDungeonMainWindow.HandleMessage = function(msgId, ...)
     (HeroDungeonMainWindow.InitStageList)(false)
   end
   if msgId == (WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok then
-    (HeroDungeonMainWindow.RefreshChapterBox)()
-    ;
-    (HeroDungeonMainWindow.InitStageList)(false)
+    (PlotDungeonService.ReqStoryInfo)((ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE, true)
   end
 end
 

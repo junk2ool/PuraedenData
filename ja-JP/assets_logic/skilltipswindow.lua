@@ -66,46 +66,60 @@ SkillTipsWindow.ResetWorldTxt = function(...)
 end
 
 SkillTipsWindow.GetDetailTxt = function(text, ...)
-  -- function num : 0_3 , upvalues : _ENV, SkillTipsWindow
-  if (string.find)(text, "damage_A") ~= nil then
-    text = (string.gsub)(text, "damage_A", (SkillTipsWindow.Damage_A)())
-  end
-  if (string.find)(text, "damage_B") ~= nil then
-    text = (string.gsub)(text, "damage_B", (SkillTipsWindow.Damage_B)())
-  end
-  if (string.find)(text, "damage_C1") ~= nil then
-    text = (string.gsub)(text, "damage_C1", (SkillTipsWindow.Damage_C)(1))
-  end
-  if (string.find)(text, "damage_C2") ~= nil then
-    text = (string.gsub)(text, "damage_C2", (SkillTipsWindow.Damage_C)(2))
-  end
-  if (string.find)(text, "damage_C3") ~= nil then
-    text = (string.gsub)(text, "damage_C3", (SkillTipsWindow.Damage_C)(3))
-  end
-  if (string.find)(text, "damage_C4") ~= nil then
-    text = (string.gsub)(text, "damage_C4", (SkillTipsWindow.Damage_C)(4))
-  end
-  if (string.find)(text, "damage_D") ~= nil then
-    local str = (string.match)(text, "damage_D%d+")
-    if str then
-      str = (string.gsub)(str, "damage_D", "")
-      local buffId = tonumber(str)
-      text = (string.gsub)(text, "damage_D%d+", (SkillTipsWindow.Damage_D)(buffId))
-    end
-  end
+  -- function num : 0_3 , upvalues : _ENV, SkillTipsWindow, skillLevel, skillData
+  local startIndex, endIndex, skillId = (string.find)(text, "damage_A_(%d+)")
   do
-    if (string.find)(text, "damage_E1") ~= nil then
-      text = (string.gsub)(text, "damage_E1", (SkillTipsWindow.Damage_E)(1))
+    if startIndex ~= nil then
+      local skillData = (TableData.GetBaseSkillData)(tonumber(skillId))
+      text = (string.gsub)(text, "damage_A_" .. skillId, (SkillTipsWindow.Damage_A)(skillData))
     end
-    if (string.find)(text, "damage_E2") ~= nil then
-      text = (string.gsub)(text, "damage_E2", (SkillTipsWindow.Damage_E)(2))
+    startIndex = (string.find)(text, "damage_B_(%d+)")
+    do
+      if startIndex ~= nil then
+        local skillData = (TableData.GetBaseSkillData)(tonumber(skillId))
+        text = (string.gsub)(text, "damage_B_" .. skillId, (SkillTipsWindow.Damage_B)(skillData, skillLevel))
+      end
+      if (string.find)(text, "damage_A") ~= nil then
+        text = (string.gsub)(text, "damage_A", (SkillTipsWindow.Damage_A)(skillData))
+      end
+      if (string.find)(text, "damage_B") ~= nil then
+        text = (string.gsub)(text, "damage_B", (SkillTipsWindow.Damage_B)(skillData, skillLevel))
+      end
+      if (string.find)(text, "damage_C1") ~= nil then
+        text = (string.gsub)(text, "damage_C1", (SkillTipsWindow.Damage_C)(1))
+      end
+      if (string.find)(text, "damage_C2") ~= nil then
+        text = (string.gsub)(text, "damage_C2", (SkillTipsWindow.Damage_C)(2))
+      end
+      if (string.find)(text, "damage_C3") ~= nil then
+        text = (string.gsub)(text, "damage_C3", (SkillTipsWindow.Damage_C)(3))
+      end
+      if (string.find)(text, "damage_C4") ~= nil then
+        text = (string.gsub)(text, "damage_C4", (SkillTipsWindow.Damage_C)(4))
+      end
+      if (string.find)(text, "damage_D") ~= nil then
+        local str = (string.match)(text, "damage_D%d+")
+        if str then
+          str = (string.gsub)(str, "damage_D", "")
+          local buffId = tonumber(str)
+          text = (string.gsub)(text, "damage_D%d+", (SkillTipsWindow.Damage_D)(buffId))
+        end
+      end
+      do
+        if (string.find)(text, "damage_E1") ~= nil then
+          text = (string.gsub)(text, "damage_E1", (SkillTipsWindow.Damage_E)(1))
+        end
+        if (string.find)(text, "damage_E2") ~= nil then
+          text = (string.gsub)(text, "damage_E2", (SkillTipsWindow.Damage_E)(2))
+        end
+        return text
+      end
     end
-    return text
   end
 end
 
-SkillTipsWindow.Damage_A = function(...)
-  -- function num : 0_4 , upvalues : _ENV, skillData
+SkillTipsWindow.Damage_A = function(skillData, ...)
+  -- function num : 0_4 , upvalues : _ENV
   local number = 0
   number = ((math.abs)(skillData.damage_rate * 0.0001) + (math.abs)(skillData.damage_rate_up * 0.0001)) * 100
   local str = ""
@@ -115,8 +129,8 @@ SkillTipsWindow.Damage_A = function(...)
   return (string.sub)(str, 1, -3)
 end
 
-SkillTipsWindow.Damage_B = function(...)
-  -- function num : 0_5 , upvalues : _ENV, skillData, skillLevel
+SkillTipsWindow.Damage_B = function(skillData, skillLevel, ...)
+  -- function num : 0_5 , upvalues : _ENV
   local number = 0
   number = (math.abs)(skillData.damage) * (1 + (math.abs)(skillData.damage_up) * 0.0001 * skillLevel)
   local str = ""

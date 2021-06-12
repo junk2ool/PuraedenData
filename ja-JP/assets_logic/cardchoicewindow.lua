@@ -18,6 +18,8 @@ local scrollClickEnable = false
 local lastIsFinal = false
 local video = (CS.VideoManager).Instance
 local SpecialFashionList = {}
+local secFashion = {}
+local SETNUM = {One = 1, Two = 2}
 CardChoiceWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, uis, SpecialFashionList, CardChoiceWindow, video
   bridgeObj:SetView((WinResConfig.CardChoiceWindow).package, (WinResConfig.CardChoiceWindow).comName)
@@ -32,6 +34,22 @@ CardChoiceWindow.OnInit = function(bridgeObj, ...)
     end
   end
   ;
+  (((((uis.CardChoicePicShow).ChangePicTips).root):GetChild("OneBtn")).onClick):Set(function(...)
+    -- function num : 0_0_0 , upvalues : _ENV, CardChoiceWindow
+    print("111111111111111111")
+    ;
+    (CardChoiceWindow.SetWhichFashion)(1)
+  end
+)
+  ;
+  (((((uis.CardChoicePicShow).ChangePicTips).root):GetChild("TwoBtn")).onClick):Set(function(...)
+    -- function num : 0_0_1 , upvalues : _ENV, CardChoiceWindow
+    print("222222222222222222")
+    ;
+    (CardChoiceWindow.SetWhichFashion)(2)
+  end
+)
+  ;
   (CardChoiceWindow.RefreshWindow)(true)
   local m = {}
   m.windowName = (WinResConfig.CardChoiceWindow).name
@@ -41,25 +59,25 @@ CardChoiceWindow.OnInit = function(bridgeObj, ...)
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
   ;
   (CommonWinMgr.RegisterAssets)(m)
-  -- DECOMPILER ERROR at PC82: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC102: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.CardHeadList).touchable = false
   ;
   (SimpleTimer.setTimeout)(0.25, function(...)
-    -- function num : 0_0_0 , upvalues : uis
+    -- function num : 0_0_2 , upvalues : uis
     -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
     (uis.CardHeadList).touchable = true
   end
 )
-  -- DECOMPILER ERROR at PC89: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC109: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.AnimationLoader).visible = false
   ;
   ((uis.AnimationLoader).onClick):Set(function(...)
-    -- function num : 0_0_1 , upvalues : uis, video
+    -- function num : 0_0_3 , upvalues : uis, video
     -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
     (uis.AnimationLoader).visible = false
@@ -115,11 +133,24 @@ CardChoiceWindow.CreateButton = function(...)
     end
     if (ActorData.GetFashionShow)() == selectedFashionId then
       (CardService.ReqSetMainCover)(selectedFashionId)
-      ;
-      (Util.SetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, (Util.GetPlayerSetting)(cardData.id .. "Static", "0"))
+      local cardId1 = (((TableData.gTable).BaseFashionData)[(ActorData.GetFashionShow)()]).card_id
+      local cardId2 = (((TableData.gTable).BaseFashionData)[selectedFashionId]).card_id
+      if (ActorData.GetFashionShow)() == selectedFashionId then
+        (CardService.ReqSetMainCover)(selectedFashionId)
+        ;
+        (Util.SetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, (Util.GetPlayerSetting)(cardData.id .. "Static", "0"))
+      end
+      if cardId1 == cardId2 then
+        local isStatic = (Util.GetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, "0")
+        print("=====11111111111=====isStatic", isStatic)
+        ;
+        (Util.SetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, (Util.GetPlayerSetting)(cardData.id .. "Static", "0"))
+      end
     end
-    ;
-    (CardChoiceWindow.SetCg)(selectedFashionId)
+    do
+      ;
+      (CardChoiceWindow.SetCg)(selectedFashionId)
+    end
   end
 )
   local funcConfig = (((TableData.gTable).BaseFunctionData)[ControlID.Card_Moive]).open_condition
@@ -176,8 +207,19 @@ CardChoiceWindow.GetAllSpecialSkinByCardId = function(cardId, ...)
   return special
 end
 
-CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
-  -- function num : 0_6 , upvalues : _ENV, cardData, fashionInfo, MAXQUALITYNUM, SpecialFashionList, CardChoiceWindow, lastClickIndex, selectedFashionId, uis, fashionItems, selectedItem
+CardChoiceWindow.SetWhichFashion = function(fashionIndex, ...)
+  -- function num : 0_6 , upvalues : CardChoiceWindow
+  if fashionIndex == 1 then
+    (CardChoiceWindow.RefreshWindow)(false, false, false)
+  else
+    if fashionIndex == 2 then
+      (CardChoiceWindow.RefreshWindow)(false, false, true)
+    end
+  end
+end
+
+CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, isSec, ...)
+  -- function num : 0_7 , upvalues : _ENV, cardData, fashionInfo, secFashion, uis, SETNUM, MAXQUALITYNUM, SpecialFashionList, CardChoiceWindow, lastClickIndex, selectedFashionId, fashionItems, selectedItem
   if isReqBack == nil then
     isReqBack = false
   end
@@ -185,90 +227,115 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
   cardData = {}
   fashionInfo = {}
   cardData = (CardData.GetCardData)(cardID)
-  for i = 0, MAXQUALITYNUM do
-    local qualityData = (CardMgr.GetBaseCardQualityData)(i, cardData.id)
-    do
-      if qualityData.unlock_fashion_id > 0 then
-        local isLock = false
-        if i <= cardData.quality then
-          isLock = false
-        else
-          isLock = true
-        end
-        do
-          local fashionData = ((TableData.gTable).BaseFashionData)[qualityData.unlock_fashion_id]
-          ;
-          (table.insert)(fashionInfo, {fashionID = qualityData.unlock_fashion_id, spd_bundle = fashionData.spd_bundle, head_icon_banner = fashionData.head_icon_banner, isLock = isLock, lockTips = qualityData.name, qualityData = qualityData, isSpecial = false, fsConfig = nil})
-          -- DECOMPILER ERROR at PC56: LeaveBlock: unexpected jumping out IF_THEN_STMT
+  secFashion = split(cardData.secFashion_ids or "-1", ":")
+  -- DECOMPILER ERROR at PC37: Confused about usage of register: R4 in 'UnsetPending'
 
-          -- DECOMPILER ERROR at PC56: LeaveBlock: unexpected jumping out IF_STMT
-
-        end
-      end
-    end
-  end
-  for index,value in ipairs(SpecialFashionList) do
-    if value.cardId == cardID then
-      local fsConfig = value.fsConfig
-      local serverTime = (LuaTime.GetTimeStamp)()
-      if fsConfig.previewTime <= serverTime and serverTime <= fsConfig.closeTime then
-        local fashionData = ((TableData.gTable).BaseFashionData)[tonumber(fsConfig.fashionId)]
-        ;
-        (table.insert)(fashionInfo, {fashionID = tonumber(fsConfig.fashionId), spd_bundle = fashionData.spd_bundle, head_icon_banner = fashionData.head_icon_banner, isLock = (CardChoiceWindow.CheckIsHaveSpecialIsLock)(fsConfig.id), lockTips = "需要配置表配置解锁条件", qualityData = nil, isSpecial = true, fsConfig = fsConfig})
-      end
-    end
-  end
-  local fashionConfig = nil
-  if isInit then
-    fashionConfig = (CardData.GetFashionConfig)(cardData)
-    ;
-    (CardChoiceWindow.CreateButton)()
+  if #secFashion >= 1 and secFashion[1] and tonumber(secFashion[1]) > 0 then
+    ((uis.CardChoicePicShow).c1Ctr).selectedIndex = 1
   else
-    if fashionInfo[lastClickIndex] and (fashionInfo[lastClickIndex]).fashionID then
-      lastClickIndex = lastClickIndex
-    else
-      lastClickIndex = 1
-    end
-    selectedFashionId = (fashionInfo[lastClickIndex]).fashionID
-    fashionConfig = ((TableData.gTable).BaseFashionData)[selectedFashionId]
-  end
-  if isReqBack == false then
-    (CardChoiceWindow.SetCg)(fashionConfig.id)
-  end
-  ;
-  (uis.ContentList):RemoveChildrenToPool()
-  ;
-  (CardChoiceWindow.SetFashionItemState)()
-  fashionItems = {}
-  for k,v in ipairs(fashionInfo) do
-    print("v.isLock", v.fashionID, v.isLock)
-    local uiMap = (uis.ContentList):AddItemFromPool()
+    -- DECOMPILER ERROR at PC41: Confused about usage of register: R4 in 'UnsetPending'
+
     ;
-    (table.insert)(fashionItems, uiMap)
-    local cardkChoiceComp = uiMap:GetChild("CardChoiceComp")
-    local cardLoader = (cardkChoiceComp:GetChild("CardChoicePic")):GetChild("CardShowLoader")
-    local specialLogoLoader = cardkChoiceComp:GetChild("FashionNameLoader")
-    specialLogoLoader.url = nil
-    if v.fsConfig and (v.fsConfig).nameIcon and v.isSpecial then
-      specialLogoLoader.url = (Util.GetItemUrl)((v.fsConfig).nameIcon)
+    ((uis.CardChoicePicShow).c1Ctr).selectedIndex = 0
+  end
+  if isInit then
+    local curUseFashionId = cardData.fashionId
+    local curUseFashionConfig = ((TableData.gTable).BaseFashionData)[curUseFashionId]
+    if curUseFashionConfig.setNum == SETNUM.One then
+      ((((uis.CardChoicePicShow).ChangePicTips).root):GetController("c1")).selectedIndex = 0
+    else
+      if curUseFashionConfig.setNum == SETNUM.Two then
+        ((((uis.CardChoicePicShow).ChangePicTips).root):GetController("c1")).selectedIndex = 1
+      end
     end
-    local stateTxt = cardkChoiceComp:GetChild("StageTxt")
-    local c1Ctr = cardkChoiceComp:GetController("c1")
-    if isInit == true then
-      cardkChoiceComp.alpha = 0
-      PlayUITrans(uiMap, "in", function(...)
-    -- function num : 0_6_0
+  end
+  do
+    do
+      for i = 0, MAXQUALITYNUM do
+        local qualityData = (CardMgr.GetBaseCardQualityData)(i, cardData.id)
+        local fashionId = 0
+        local t = true
+        t = not t or (((((uis.CardChoicePicShow).ChangePicTips).root):GetController("c1")).selectedIndex == 1 and ((uis.CardChoicePicShow).c1Ctr).selectedIndex == 1)
+        if isSec or t == true then
+          fashionId = qualityData.unlock_secFashion_id
+        else
+          fashionId = qualityData.unlock_fashion_id
+        end
+        if fashionId > 0 then
+          local isLock = false
+          if i <= cardData.quality then
+            isLock = false
+          else
+            isLock = true
+          end
+          local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
+          ;
+          (table.insert)(fashionInfo, {fashionID = fashionId, spd_bundle = fashionData.spd_bundle, head_icon_banner = fashionData.head_icon_banner, isLock = isLock, lockTips = qualityData.name, qualityData = qualityData, isSpecial = false, fsConfig = nil})
+        end
+      end
+    end
+    for index,value in ipairs(SpecialFashionList) do
+      if value.cardId == cardID then
+        local fsConfig = value.fsConfig
+        local serverTime = (LuaTime.GetTimeStamp)()
+        if fsConfig.previewTime <= serverTime and serverTime <= fsConfig.closeTime then
+          local fashionData = ((TableData.gTable).BaseFashionData)[tonumber(fsConfig.fashionId)]
+          ;
+          (table.insert)(fashionInfo, {fashionID = tonumber(fsConfig.fashionId), spd_bundle = fashionData.spd_bundle, head_icon_banner = fashionData.head_icon_banner, isLock = (CardChoiceWindow.CheckIsHaveSpecialIsLock)(fsConfig.id), lockTips = "需要配置表配置解锁条件", qualityData = nil, isSpecial = true, fsConfig = fsConfig})
+        end
+      end
+    end
+    local fashionConfig = nil
+    if isInit then
+      fashionConfig = (CardData.GetFashionConfig)(cardData)
+      ;
+      (CardChoiceWindow.CreateButton)()
+    else
+      if fashionInfo[lastClickIndex] and (fashionInfo[lastClickIndex]).fashionID then
+        lastClickIndex = lastClickIndex
+      else
+        lastClickIndex = 1
+      end
+      selectedFashionId = (fashionInfo[lastClickIndex]).fashionID
+      fashionConfig = ((TableData.gTable).BaseFashionData)[selectedFashionId]
+    end
+    if isReqBack == false then
+      (CardChoiceWindow.SetCg)(fashionConfig.id)
+    end
+    ;
+    (uis.ContentList):RemoveChildrenToPool()
+    ;
+    (CardChoiceWindow.SetFashionItemState)()
+    fashionItems = {}
+    for k,v in ipairs(fashionInfo) do
+      print("v.isLock", v.fashionID, v.isLock)
+      local uiMap = (uis.ContentList):AddItemFromPool()
+      ;
+      (table.insert)(fashionItems, uiMap)
+      local cardkChoiceComp = uiMap:GetChild("CardChoiceComp")
+      local cardLoader = (cardkChoiceComp:GetChild("CardChoicePic")):GetChild("CardShowLoader")
+      local specialLogoLoader = cardkChoiceComp:GetChild("FashionNameLoader")
+      specialLogoLoader.url = nil
+      if v.fsConfig and (v.fsConfig).nameIcon and v.isSpecial then
+        specialLogoLoader.url = (Util.GetItemUrl)((v.fsConfig).nameIcon)
+      end
+      local stateTxt = cardkChoiceComp:GetChild("StageTxt")
+      local c1Ctr = cardkChoiceComp:GetController("c1")
+      if isInit == true then
+        cardkChoiceComp.alpha = 0
+        PlayUITrans(uiMap, "in", function(...)
+    -- function num : 0_7_0
   end
 , 0.05 * k)
-    end
-    local scale = 20
-    ;
-    (cardLoader.onClick):Clear()
-    ;
-    (Util.SetSliverHeadIcon)(v.fashionID, cardLoader)
-    ;
-    (cardLoader.onClick):Add(function(...)
-    -- function num : 0_6_1 , upvalues : lastClickIndex, k, selectedFashionId, v, selectedItem, uiMap, CardChoiceWindow
+      end
+      local scale = 20
+      ;
+      (cardLoader.onClick):Clear()
+      ;
+      (Util.SetSliverHeadIcon)(v.fashionID, cardLoader)
+      ;
+      (cardLoader.onClick):Add(function(...)
+    -- function num : 0_7_1 , upvalues : lastClickIndex, k, selectedFashionId, v, selectedItem, uiMap, CardChoiceWindow
     if lastClickIndex ~= k then
       selectedFashionId = v.fashionID
       selectedItem = uiMap
@@ -282,76 +349,57 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
     end
   end
 )
-    if v.isLock == true then
-      c1Ctr.selectedIndex = 2
-      ;
-      ((cardkChoiceComp:GetChild("CardChoicePic")):GetController("c1")).selectedIndex = 0
-      if v.qualityData then
-        local stageState = GetCard_StageStateUis(cardkChoiceComp:GetChild("StageState"))
-        -- DECOMPILER ERROR at PC246: Confused about usage of register: R17 in 'UnsetPending'
+      if v.isLock == true then
+        c1Ctr.selectedIndex = 2
+        ;
+        ((cardkChoiceComp:GetChild("CardChoicePic")):GetController("c1")).selectedIndex = 0
+        if v.qualityData then
+          local stageState = GetCard_StageStateUis(cardkChoiceComp:GetChild("StageState"))
+          -- DECOMPILER ERROR at PC327: Confused about usage of register: R18 in 'UnsetPending'
 
-        ;
-        (stageState.StageNumberTxt).text = (v.qualityData).level
-        -- DECOMPILER ERROR at PC252: Confused about usage of register: R17 in 'UnsetPending'
+          ;
+          (stageState.StageNumberTxt).text = (v.qualityData).level
+          -- DECOMPILER ERROR at PC333: Confused about usage of register: R18 in 'UnsetPending'
 
-        ;
-        (stageState.WordTxt).text = (PUtil.get)(171)
-        -- DECOMPILER ERROR at PC262: Confused about usage of register: R17 in 'UnsetPending'
+          ;
+          (stageState.WordTxt).text = (PUtil.get)(171)
+          -- DECOMPILER ERROR at PC343: Confused about usage of register: R18 in 'UnsetPending'
 
-        ;
-        (stageState.c1Ctr).selectedIndex = tonumber((split((v.qualityData).level_show, ":"))[1])
-      end
-    else
-      do
-        ;
+          ;
+          (stageState.c1Ctr).selectedIndex = tonumber((split((v.qualityData).level_show, ":"))[1])
+        end
+      else
         ((cardkChoiceComp:GetChild("CardChoicePic")):GetController("c1")).selectedIndex = 1
-        -- DECOMPILER ERROR at PC279: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC360: Unhandled construct in 'MakeBoolean' P1
 
         if lastClickIndex == -1 and cardData.fashionId == v.fashionID then
           lastClickIndex = k
           selectedFashionId = v.fashionID
         end
-        -- DECOMPILER ERROR at PC290: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC371: Unhandled construct in 'MakeBoolean' P1
 
         if lastClickIndex ~= k or cardData.fashionId == v.fashionID then
           c1Ctr.selectedIndex = 1
           local stageState = GetCard_StageStateUis(cardkChoiceComp:GetChild("StageState"))
-          -- DECOMPILER ERROR at PC301: Confused about usage of register: R17 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC382: Confused about usage of register: R18 in 'UnsetPending'
 
           ;
           (stageState.WordTxt).text = (PUtil.get)(68)
         else
-          do
-            do
-              c1Ctr.selectedIndex = 0
-              if lastClickIndex == k then
-                (CardChoiceWindow.SetFashionItemState)(uiMap)
-              end
-              -- DECOMPILER ERROR at PC312: LeaveBlock: unexpected jumping out DO_STMT
-
-              -- DECOMPILER ERROR at PC312: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-              -- DECOMPILER ERROR at PC312: LeaveBlock: unexpected jumping out IF_STMT
-
-              -- DECOMPILER ERROR at PC312: LeaveBlock: unexpected jumping out DO_STMT
-
-              -- DECOMPILER ERROR at PC312: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-              -- DECOMPILER ERROR at PC312: LeaveBlock: unexpected jumping out IF_STMT
-
-            end
-          end
+          c1Ctr.selectedIndex = 0
         end
       end
+      if lastClickIndex == k then
+        (CardChoiceWindow.SetFashionItemState)(uiMap)
+      end
     end
-  end
-  ;
-  (CardChoiceWindow.SetButtonState)()
-  ;
-  ((uis.UseBtn).onClick):Clear()
-  ;
-  ((uis.UseBtn).onClick):Add(function(...)
-    -- function num : 0_6_2 , upvalues : uis, _ENV, selectedFashionId, cardData
+    ;
+    (CardChoiceWindow.SetButtonState)()
+    ;
+    ((uis.UseBtn).onClick):Clear()
+    ;
+    ((uis.UseBtn).onClick):Add(function(...)
+    -- function num : 0_7_2 , upvalues : uis, _ENV, selectedFashionId, cardData
     if ((uis.UseBtn):GetController("c1")).selectedIndex == 1 then
       (MessageMgr.SendCenterTips)((PUtil.get)(20000022))
       return 
@@ -377,14 +425,14 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
     (CardService.ReqSetFashion)(cardData.id, selectedFashionId)
   end
 )
-  local selectBtn = nil
-  ;
-  ((uis.ImageSetBtn).onClick):Clear()
-  -- DECOMPILER ERROR at PC329: Confused about usage of register: R4 in 'UnsetPending'
+    local selectBtn = nil
+    ;
+    ((uis.ImageSetBtn).onClick):Clear()
+    -- DECOMPILER ERROR at PC410: Confused about usage of register: R5 in 'UnsetPending'
 
-  ;
-  ((uis.ImageSetBtn).onClick):Add(function(...)
-    -- function num : 0_6_3 , upvalues : selectBtn, _ENV, selectedFashionId, cardData
+    ;
+    ((uis.ImageSetBtn).onClick):Add(function(...)
+    -- function num : 0_7_3 , upvalues : selectBtn, _ENV, selectedFashionId, cardData
     if (selectBtn:GetController("c1")).selectedIndex == 4 then
       (MessageMgr.SendCenterTips)((PUtil.get)(20000022))
       return 
@@ -402,10 +450,12 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
     end
   end
 )
+    -- DECOMPILER ERROR: 22 unprocessed JMP targets
+  end
 end
 
 CardChoiceWindow.CheckIsLock = function(fashionId, data, ...)
-  -- function num : 0_7 , upvalues : _ENV
+  -- function num : 0_8 , upvalues : _ENV
   for key,value in ipairs(data) do
     if value.fashionID == fashionId then
       return value.isLock
@@ -414,7 +464,7 @@ CardChoiceWindow.CheckIsLock = function(fashionId, data, ...)
 end
 
 CardChoiceWindow.SetFashionItemState = function(fashionItem, ...)
-  -- function num : 0_8 , upvalues : _ENV, fashionItems, selectedItem
+  -- function num : 0_9 , upvalues : _ENV, fashionItems, selectedItem
   for index,value in ipairs(fashionItems) do
     ((value:GetChild("CardChoiceComp")):GetController("c2")).selectedIndex = 0
   end
@@ -429,7 +479,7 @@ CardChoiceWindow.SetFashionItemState = function(fashionItem, ...)
 end
 
 CardChoiceWindow.SetButtonState = function(fashionConfig, ...)
-  -- function num : 0_9 , upvalues : _ENV, selectedFashionId, uis, CardChoiceWindow, fashionInfo, cardData
+  -- function num : 0_10 , upvalues : _ENV, selectedFashionId, uis, CardChoiceWindow, fashionInfo, cardData
   local fashionExcelData = ((TableData.gTable).BaseFashionData)[selectedFashionId]
   if (ActorData.GetFashionShow)() == selectedFashionId then
     ((uis.ImageSetBtn):GetController("c1")).selectedIndex = 6
@@ -489,7 +539,7 @@ CardChoiceWindow.SetButtonState = function(fashionConfig, ...)
     CardLookBtn.name = "CardLookBtn"
     ;
     (CardLookBtn.onClick):Add(function(...)
-    -- function num : 0_9_0 , upvalues : _ENV, selectedFashionId, uis
+    -- function num : 0_10_0 , upvalues : _ENV, selectedFashionId, uis
     OpenWindow("CardLookWindow", UILayer.HUD, selectedFashionId)
     -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -503,7 +553,7 @@ CardChoiceWindow.SetButtonState = function(fashionConfig, ...)
         StaticChangeBtn.name = "StaticChangeBtn"
         ;
         (StaticChangeBtn.onClick):Set(function(...)
-    -- function num : 0_9_1 , upvalues : _ENV, selectedFashionId, cardData, CardChoiceWindow
+    -- function num : 0_10_1 , upvalues : _ENV, selectedFashionId, cardData, CardChoiceWindow
     local cardID = (CardData.ReturnCardID)()
     local isStatic = (Util.GetPlayerSetting)(cardID .. "Static", "0")
     if isStatic == "0" then
@@ -512,13 +562,23 @@ CardChoiceWindow.SetButtonState = function(fashionConfig, ...)
       ;
       (Util.SetPlayerSetting)(cardID .. "Static", "0")
     end
+    local cardId1 = (((TableData.gTable).BaseFashionData)[(ActorData.GetFashionShow)()]).card_id
+    local cardId2 = (((TableData.gTable).BaseFashionData)[selectedFashionId]).card_id
     if (ActorData.GetFashionShow)() == selectedFashionId then
       (CardService.ReqSetMainCover)(selectedFashionId)
       ;
       (Util.SetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, (Util.GetPlayerSetting)(cardData.id .. "Static", "0"))
     end
-    ;
-    (CardChoiceWindow.SetCg)(selectedFashionId)
+    do
+      if cardId1 == cardId2 then
+        local isStatic = (Util.GetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, "0")
+        print("=====22222222=====isStatic", isStatic)
+        ;
+        (Util.SetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, (Util.GetPlayerSetting)(cardData.id .. "Static", "0"))
+      end
+      ;
+      (CardChoiceWindow.SetCg)(selectedFashionId)
+    end
   end
 )
       end
@@ -528,7 +588,7 @@ CardChoiceWindow.SetButtonState = function(fashionConfig, ...)
         MoiveBtn.name = "MoiveBtn"
         ;
         (MoiveBtn.onClick):Set(function(...)
-    -- function num : 0_9_2 , upvalues : CardChoiceWindow
+    -- function num : 0_10_2 , upvalues : CardChoiceWindow
     (CardChoiceWindow.PlayMoive)()
   end
 )
@@ -538,7 +598,7 @@ CardChoiceWindow.SetButtonState = function(fashionConfig, ...)
 end
 
 CardChoiceWindow.SetCg = function(fashionId, ...)
-  -- function num : 0_10 , upvalues : _ENV, uis, uniqueEffect, lastIsFinal, CardChoiceWindow
+  -- function num : 0_11 , upvalues : _ENV, uis, uniqueEffect, lastIsFinal, CardChoiceWindow
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   local isStatic = (Util.GetPlayerSetting)(fashionData.card_id .. "Static", "0")
   -- DECOMPILER ERROR at PC22: Confused about usage of register: R3 in 'UnsetPending'
@@ -594,7 +654,7 @@ CardChoiceWindow.SetCg = function(fashionId, ...)
 end
 
 CardChoiceWindow.ProcessModelWithRT = function(info, ...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   local scaler = GameObject("Scaler")
   ;
   (CSLuaUtil.ChangeLayer)(scaler.transform, "Model")
@@ -613,9 +673,9 @@ CardChoiceWindow.ProcessModelWithRT = function(info, ...)
 end
 
 CardChoiceWindow.SetRoleScrollView = function(...)
-  -- function num : 0_12 , upvalues : _ENV, uis, CardChoiceWindow
+  -- function num : 0_13 , upvalues : _ENV, uis, CardChoiceWindow
   (CardMgr.SetButtomRoleList)(uis.CardHeadList, function(index, data, ...)
-    -- function num : 0_12_0 , upvalues : _ENV, CardChoiceWindow
+    -- function num : 0_13_0 , upvalues : _ENV, CardChoiceWindow
     if index ~= (CardData.GetCardIndex)() then
       (CardData.SaveCurClickCardID)(data.id)
       ;
@@ -628,7 +688,7 @@ CardChoiceWindow.SetRoleScrollView = function(...)
 end
 
 CardChoiceWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_13 , upvalues : _ENV, CardChoiceWindow, selectedItem, uis
+  -- function num : 0_14 , upvalues : _ENV, CardChoiceWindow, selectedItem, uis
   local windowMsgEnum = WindowMsgEnum.CardWindow
   if msgId == windowMsgEnum.E_MSG_CARD_SETFASHIONID then
     (CardData.SaveFashionID)(para.cardId, para.fashionId)
@@ -652,7 +712,7 @@ CardChoiceWindow.HandleMessage = function(msgId, para, ...)
 end
 
 CardChoiceWindow.SelectedEffects = function(uiMap, ...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   if uiMap == nil then
     return 
   end
@@ -664,7 +724,7 @@ CardChoiceWindow.SelectedEffects = function(uiMap, ...)
 end
 
 CardChoiceWindow.SetCardTexture = function(fashionID, loader, ...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   local fashionConfig = ((TableData.gTable).BaseFashionData)[fashionID]
   if not fashionConfig then
     loge(fashionID .. "fashionID" .. "未找到")
@@ -676,7 +736,7 @@ CardChoiceWindow.SetCardTexture = function(fashionID, loader, ...)
 end
 
 CardChoiceWindow.OnClose = function(...)
-  -- function num : 0_16 , upvalues : _ENV, lastIsFinal, uis, contentPane, selectedFashionId, lastClickIndex, uniqueEffect, fashionItems, scrollClickEnable, selectedItem
+  -- function num : 0_17 , upvalues : _ENV, lastIsFinal, uis, contentPane, selectedFashionId, lastClickIndex, uniqueEffect, fashionItems, scrollClickEnable, selectedItem
   (CommonWinMgr.RemoveAssets)((WinResConfig.CardChoiceWindow).name)
   if lastIsFinal then
     ((CS.RTManager).Singleton):ReleaseModelFromLoader((uis.CardChoicePicShow).PictureLoader)

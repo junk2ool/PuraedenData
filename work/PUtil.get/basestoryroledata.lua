@@ -655,6 +655,8 @@
 , 
 [75210105] = {id = 75210105, name = "村民", role_path = "img_13010001", effect_path = "FIGHT_KILL", fashion_id = "15040001", offset = "0:15"}
 , 
+[75210106] = {id = 75210106, name = "不良", role_path = "img_12010005", effect_path = "FIGHT_KILL", fashion_id = "15010005", offset = "10:65"}
+, 
 [75203001] = {id = 75203001, name = "犀角山豚", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 
 [75203002] = {id = 75203002, name = "森の長い羽の鳥", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010019"}
@@ -960,6 +962,10 @@
 [75206092] = {id = 75206092, name = "狩人たち", role_path = "img_12010006", effect_path = "FIGHT_KILL", fashion_id = "15010006"}
 , 
 [75206093] = {id = 75206093, name = "謎のレッド達", role_path = "img_12010013", effect_path = "FIGHT_KILL", fashion_id = "15010013", offset = "25:-30"}
+, 
+[75206094] = {id = 75206094, name = "元騎士団員", role_path = "npcCardSpine_12010008", effect_path = "FIGHT_KILL", fashion_id = "15010008", offset = "20:70"}
+, 
+[75206095] = {id = 75206095, name = "女性", role_path = "img_13010002", effect_path = "FIGHT_KILL", fashion_id = "15040002", offset = "-10:35"}
 , 
 [75209000] = {id = 75209000, name = "？？？", role_path = "npcCardSpine_11301004", effect_path = "FIGHT_KILL", fashion_id = "14310401", expression_type = 1, offset = "-40:80"}
 , 

@@ -2066,40 +2066,54 @@ end
 FormationWindow.GetSkillRemark = function(skillData, level, cardData, ...)
   -- function num : 0_54 , upvalues : _ENV, FormationWindow
   local text = skillData.des_array
-  if (string.find)(text, "damage_A") ~= nil then
-    text = (string.gsub)(text, "damage_A", (FormationWindow.Damage_A)(skillData, skillData))
-  end
-  if (string.find)(text, "damage_B") ~= nil then
-    text = (string.gsub)(text, "damage_B", (FormationWindow.Damage_B)(skillData, level))
-  end
-  if (string.find)(text, "damage_C1") ~= nil then
-    text = (string.gsub)(text, "damage_C1", (FormationWindow.Damage_C)(skillData, 1, level))
-  end
-  if (string.find)(text, "damage_C2") ~= nil then
-    text = (string.gsub)(text, "damage_C2", (FormationWindow.Damage_C)(skillData, 2, level))
-  end
-  if (string.find)(text, "damage_C3") ~= nil then
-    text = (string.gsub)(text, "damage_C3", (FormationWindow.Damage_C)(skillData, 3, level))
-  end
-  if (string.find)(text, "damage_C4") ~= nil then
-    text = (string.gsub)(text, "damage_C4", (FormationWindow.Damage_C)(skillData, 4, level))
-  end
-  if (string.find)(text, "damage_D") ~= nil then
-    local str = (string.match)(text, "damage_D%d+")
-    if str then
-      str = (string.gsub)(str, "damage_D", "")
-      local buffId = tonumber(str)
-      text = (string.gsub)(text, "damage_D%d+", (FormationWindow.Damage_D)(buffId, level))
-    end
-  end
+  local startIndex, endIndex, skillId = (string.find)(text, "damage_A_(%d+)")
   do
-    if (string.find)(text, "damage_E1") ~= nil then
-      text = (string.gsub)(text, "damage_E1", (FormationWindow.Damage_E)(skillData, 1, cardData))
+    if startIndex ~= nil then
+      local skillData = (TableData.GetBaseSkillData)(tonumber(skillId))
+      text = (string.gsub)(text, "damage_A_" .. skillId, (FormationWindow.Damage_A)(skillData))
     end
-    if (string.find)(text, "damage_E2") ~= nil then
-      text = (string.gsub)(text, "damage_E2", (FormationWindow.Damage_E)(skillData, 2, cardData))
+    startIndex = (string.find)(text, "damage_B_(%d+)")
+    do
+      if startIndex ~= nil then
+        local skillData = (TableData.GetBaseSkillData)(tonumber(skillId))
+        text = (string.gsub)(text, "damage_B_" .. skillId, (FormationWindow.Damage_B)(skillData, level))
+      end
+      if (string.find)(text, "damage_A") ~= nil then
+        text = (string.gsub)(text, "damage_A", (FormationWindow.Damage_A)(skillData, skillData))
+      end
+      if (string.find)(text, "damage_B") ~= nil then
+        text = (string.gsub)(text, "damage_B", (FormationWindow.Damage_B)(skillData, level))
+      end
+      if (string.find)(text, "damage_C1") ~= nil then
+        text = (string.gsub)(text, "damage_C1", (FormationWindow.Damage_C)(skillData, 1, level))
+      end
+      if (string.find)(text, "damage_C2") ~= nil then
+        text = (string.gsub)(text, "damage_C2", (FormationWindow.Damage_C)(skillData, 2, level))
+      end
+      if (string.find)(text, "damage_C3") ~= nil then
+        text = (string.gsub)(text, "damage_C3", (FormationWindow.Damage_C)(skillData, 3, level))
+      end
+      if (string.find)(text, "damage_C4") ~= nil then
+        text = (string.gsub)(text, "damage_C4", (FormationWindow.Damage_C)(skillData, 4, level))
+      end
+      if (string.find)(text, "damage_D") ~= nil then
+        local str = (string.match)(text, "damage_D%d+")
+        if str then
+          str = (string.gsub)(str, "damage_D", "")
+          local buffId = tonumber(str)
+          text = (string.gsub)(text, "damage_D%d+", (FormationWindow.Damage_D)(buffId, level))
+        end
+      end
+      do
+        if (string.find)(text, "damage_E1") ~= nil then
+          text = (string.gsub)(text, "damage_E1", (FormationWindow.Damage_E)(skillData, 1, cardData))
+        end
+        if (string.find)(text, "damage_E2") ~= nil then
+          text = (string.gsub)(text, "damage_E2", (FormationWindow.Damage_E)(skillData, 2, cardData))
+        end
+        return text
+      end
     end
-    return text
   end
 end
 

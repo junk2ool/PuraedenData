@@ -135,6 +135,8 @@ BaseSkillDataPart15 = {
 , 
 [44003022] = {id = 44003022, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[44003023] = {id = 44003023, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [44003024] = {id = 44003024, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44003025] = {id = 44003025, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -153,6 +155,8 @@ BaseSkillDataPart15 = {
 , 
 [44003032] = {id = 44003032, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[44003033] = {id = 44003033, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [44003056] = {id = 44003056, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44003101] = {id = 44003101, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44003101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -166,6 +170,8 @@ BaseSkillDataPart15 = {
 [44003105] = {id = 44003105, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44003106] = {id = 44003106, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003123] = {id = 44003123, name = (PUtil.get)(81230001), type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44111001] = {id = 44111001, type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 44111001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 

@@ -3554,7 +3554,7 @@ effectTable = {eff}
   end
 
   battleCard.SetControlType = function(self, effectId, value, ...)
-    -- function num : 0_0_179 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo
+    -- function num : 0_0_179 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, cardInfo, SkeletonAnimationUtil
     if effectId == BattleDisplayEffect.STUN then
       self:SetIsStun(value)
       -- DECOMPILER ERROR at PC15: Unhandled construct in 'MakeBoolean' P1
@@ -3610,10 +3610,14 @@ effectTable = {eff}
                         (ResHelper.DestroyGameObject)(model, true)
                         self:CreateCard(fashion_ids, true)
                         self.fashionId = fashion_ids
+                        cardInfo.fashionId = fashion_ids
                       end
                       local skin = changeConfig.change_skin
                       if skin and not (Util.StringIsNullOrEmpty)(skin) then
                         (SkeletonAnimationUtil.SetSkin)(model, skin)
+                      end
+                      if not (Util.StringIsNullOrEmpty)(changeConfig.change_effect) then
+                        self:PlayTransform(changeConfig.change_effect)
                       end
                     end
                   end
@@ -3624,8 +3628,13 @@ effectTable = {eff}
                       local fashionID = cardInfo:GetFashionId()
                       self:CreateCard(fashionID, true)
                       self.fashionId = fashionID
+                      cardInfo.fashionId = fashionID
                       ;
                       (SkeletonAnimationUtil.SetSkin)(model, "default")
+                    end
+                    do
+                      ;
+                      (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.IDLE, true)
                     end
                   end
                 end

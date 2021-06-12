@@ -103,8 +103,19 @@ end
 
 -- DECOMPILER ERROR at PC32: Confused about usage of register: R1 in 'UnsetPending'
 
-GuildBossMgr.GuildBattleAllPass = function(data, ...)
+GuildBossMgr.GuildeInBattleInfo = function(data, ...)
   -- function num : 0_9 , upvalues : self
+  if data == nil then
+    return self.InBattleInfo
+  else
+    self.InBattleInfo = data
+  end
+end
+
+-- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+
+GuildBossMgr.GuildBattleAllPass = function(data, ...)
+  -- function num : 0_10 , upvalues : self
   if data == nil then
     return self.AllPass
   else
@@ -112,10 +123,10 @@ GuildBossMgr.GuildBattleAllPass = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetCurrentMaxStageID = function(...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   local StageData = (TableData.gTable).BaseGuildWarStageData
   local cycle = (GuildBossMgr.GetCurrentSeasonCycle)()
   for _,v in pairs(StageData) do
@@ -125,10 +136,10 @@ GuildBossMgr.GetCurrentMaxStageID = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC41: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetCurrentRound = function(realRound, ...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   if realRound then
     return ((GuildBossMgr.GuildBossCurStage)()).round
   else
@@ -143,10 +154,10 @@ GuildBossMgr.GetCurrentRound = function(realRound, ...)
   end
 end
 
--- DECOMPILER ERROR at PC41: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC44: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetCurrentSeasonCycle = function(...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_13 , upvalues : _ENV
   local FixedData = ((TableData.gTable).BaseFixedData)[Const.GuildBossCycleMax]
   local maxCycle = FixedData.int_value
   local seasonID = ((GuildBossMgr.GuildBossInfo)()).seasonId
@@ -157,10 +168,10 @@ GuildBossMgr.GetCurrentSeasonCycle = function(...)
   return cycle
 end
 
--- DECOMPILER ERROR at PC44: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC47: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetStageBossMaxHP = function(stageID, ...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_14 , upvalues : _ENV
   local maxHp = 0
   local stageData = ((TableData.gTable).BaseGuildWarStageData)[stageID]
   if stageData == nil then
@@ -182,19 +193,19 @@ GuildBossMgr.GetStageBossMaxHP = function(stageID, ...)
   return maxHp
 end
 
--- DECOMPILER ERROR at PC47: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC50: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.InitTalentData = function(...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   if not GuildBossData.TalentInit then
     (GuildBossService.ReqGuildTalent)()
   end
 end
 
--- DECOMPILER ERROR at PC50: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC53: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.OpenTalentUI = function(...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   (GuildBossData.InitGuildSkillData)()
   if not GuildBossData.TalentInit then
     (GuildBossService.ReqGuildTalent)()
@@ -203,10 +214,10 @@ GuildBossMgr.OpenTalentUI = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC53: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC56: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.AfterRecvTalentData = function(data, ...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   GuildBossData.TalentInit = true
@@ -238,18 +249,18 @@ GuildBossMgr.AfterRecvTalentData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC56: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.ResetTalent = function(...)
-  -- function num : 0_17 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV
   (GuildBossData.ResetGuildSkillInfo)()
   UIMgr:SendWindowMessage((WinResConfig.GuildBossSkillWindow).name, (WindowMsgEnum.GuildBoss).E_MSG_REFRESH_TALENT)
 end
 
--- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.TryUpgradeTalent = function(id, cost, ...)
-  -- function num : 0_18 , upvalues : _ENV
+  -- function num : 0_19 , upvalues : _ENV
   loge("cost:" .. cost)
   if not (Util.CheckCostResources)(cost) then
     return 
@@ -258,10 +269,10 @@ GuildBossMgr.TryUpgradeTalent = function(id, cost, ...)
   (GuildBossService.ReqUpTalent)(id)
 end
 
--- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.AfterUpgradeTalent = function(data, ...)
-  -- function num : 0_19 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   GuildBossData.TotalInvestPoint = data.invTalent
@@ -272,10 +283,10 @@ GuildBossMgr.AfterUpgradeTalent = function(data, ...)
   UIMgr:SendWindowMessage((WinResConfig.GuildBossSkillWindow).name, (WindowMsgEnum.GuildBoss).E_MSG_REFRESH_SINGLE_TALENT, (data.talentInfo).id)
 end
 
--- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC68: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GuildSupportCard = function(data, ...)
-  -- function num : 0_20 , upvalues : self, _ENV
+  -- function num : 0_21 , upvalues : self, _ENV
   if data == nil then
     return self.SupportCard
   else
@@ -288,19 +299,19 @@ GuildBossMgr.GuildSupportCard = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC68: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC71: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GuildSupportSetValue = function(pos, value, ...)
-  -- function num : 0_21 , upvalues : self
+  -- function num : 0_22 , upvalues : self
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R2 in 'UnsetPending'
 
   (self.SupportCard)[pos] = value
 end
 
--- DECOMPILER ERROR at PC71: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GuildSupportTimes = function(data, ...)
-  -- function num : 0_22 , upvalues : self
+  -- function num : 0_23 , upvalues : self
   if data == nil then
     return self.SupportTimes
   else
@@ -308,10 +319,10 @@ GuildBossMgr.GuildSupportTimes = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GuildSupportGetNum = function(data, ...)
-  -- function num : 0_23 , upvalues : self
+  -- function num : 0_24 , upvalues : self
   if data == nil then
     return self.SupportGetNum
   else
@@ -319,10 +330,10 @@ GuildBossMgr.GuildSupportGetNum = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GuildSupportAlreadyNum = function(data, ...)
-  -- function num : 0_24 , upvalues : self
+  -- function num : 0_25 , upvalues : self
   if data == nil then
     return self.SupportAlreadyNum
   else
@@ -330,10 +341,10 @@ GuildBossMgr.GuildSupportAlreadyNum = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC83: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.CardIsInSupport = function(cardID, ...)
-  -- function num : 0_25 , upvalues : _ENV, self
+  -- function num : 0_26 , upvalues : _ENV, self
   for _,v in ipairs(self.SupportCard) do
     if v == cardID then
       return true
@@ -342,10 +353,10 @@ GuildBossMgr.CardIsInSupport = function(cardID, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC83: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.RewardListData = function(data, ...)
-  -- function num : 0_26 , upvalues : self
+  -- function num : 0_27 , upvalues : self
   if data == nil then
     return self.RewardList
   else
@@ -353,10 +364,10 @@ GuildBossMgr.RewardListData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC89: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.SetListData = function(id, status, ...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_28 , upvalues : _ENV
   local mData = (GuildBossMgr.RewardListData)()
   for _,v in ipairs(mData) do
     if v.id == id then
@@ -366,10 +377,10 @@ GuildBossMgr.SetListData = function(id, status, ...)
   end
 end
 
--- DECOMPILER ERROR at PC89: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetRewardState = function(id, ...)
-  -- function num : 0_28 , upvalues : _ENV, self
+  -- function num : 0_29 , upvalues : _ENV, self
   for _,v in ipairs(self.RewardList) do
     if v.id == id then
       return v.status
@@ -377,10 +388,10 @@ GuildBossMgr.GetRewardState = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC95: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.CheckIsCanGetReward = function(...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   local mData = (GuildBossMgr.RewardListData)()
   for _,v in ipairs(mData) do
     if v.status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
@@ -390,10 +401,10 @@ GuildBossMgr.CheckIsCanGetReward = function(...)
   return false
 end
 
--- DECOMPILER ERROR at PC95: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC98: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.BossInfoData = function(data, ...)
-  -- function num : 0_30 , upvalues : self
+  -- function num : 0_31 , upvalues : self
   if data == nil then
     return self.BossInfoList
   else
@@ -401,10 +412,10 @@ GuildBossMgr.BossInfoData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC98: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC101: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetBossInfo = function(stageID, ...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_32 , upvalues : _ENV
   local bossList = (GuildBossMgr.BossInfoData)()
   for _,v in ipairs(bossList) do
     if v.id == stageID then
@@ -413,10 +424,10 @@ GuildBossMgr.GetBossInfo = function(stageID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC101: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC104: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.BossHurtReport = function(data, ...)
-  -- function num : 0_32 , upvalues : self
+  -- function num : 0_33 , upvalues : self
   if data == nil then
     return self.HurtReport
   else
@@ -424,10 +435,10 @@ GuildBossMgr.BossHurtReport = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC104: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC107: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.IsLastSeasonData = function(isLast, ...)
-  -- function num : 0_33 , upvalues : self
+  -- function num : 0_34 , upvalues : self
   if isLast == nil then
     return self.RankIsLast
   else
@@ -435,10 +446,10 @@ GuildBossMgr.IsLastSeasonData = function(isLast, ...)
   end
 end
 
--- DECOMPILER ERROR at PC107: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC110: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GuildRankIndex = function(rank, ...)
-  -- function num : 0_34 , upvalues : self
+  -- function num : 0_35 , upvalues : self
   if rank == nil then
     return self.RankIndex
   else
@@ -446,10 +457,10 @@ GuildBossMgr.GuildRankIndex = function(rank, ...)
   end
 end
 
--- DECOMPILER ERROR at PC110: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC113: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GuildRankScore = function(score, ...)
-  -- function num : 0_35 , upvalues : self
+  -- function num : 0_36 , upvalues : self
   if score == nil then
     return self.RankScore
   else
@@ -457,10 +468,10 @@ GuildBossMgr.GuildRankScore = function(score, ...)
   end
 end
 
--- DECOMPILER ERROR at PC113: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC116: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.IsPersonList = function(isPerson, ...)
-  -- function num : 0_36 , upvalues : self
+  -- function num : 0_37 , upvalues : self
   if isPerson == nil then
     return self.PersonInList
   else
@@ -468,10 +479,10 @@ GuildBossMgr.IsPersonList = function(isPerson, ...)
   end
 end
 
--- DECOMPILER ERROR at PC116: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.ProcessGuildRankData = function(page, data, ...)
-  -- function num : 0_37 , upvalues : self, _ENV
+  -- function num : 0_38 , upvalues : self, _ENV
   if page == 1 then
     self.GuildRankData = {}
   end
@@ -480,48 +491,48 @@ GuildBossMgr.ProcessGuildRankData = function(page, data, ...)
   end
   ;
   (table.sort)(self.GuildRankData, function(a, b, ...)
-    -- function num : 0_37_0
+    -- function num : 0_38_0
     do return a.rank < b.rank end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
 end
 
--- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetGuildRankDataList = function(...)
-  -- function num : 0_38 , upvalues : self
+  -- function num : 0_39 , upvalues : self
   return self.GuildRankData
 end
 
--- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC125: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.ProcessPersonRankData = function(data, ...)
-  -- function num : 0_39 , upvalues : self, _ENV
+  -- function num : 0_40 , upvalues : self, _ENV
   self.PersonRankData = {}
   for _,v in ipairs(data) do
     (table.insert)(self.PersonRankData, v)
   end
   ;
   (table.sort)(self.PersonRankData, function(a, b, ...)
-    -- function num : 0_39_0
+    -- function num : 0_40_0
     do return b.integral < a.integral end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
 end
 
--- DECOMPILER ERROR at PC125: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC128: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetPersonRankDataList = function(...)
-  -- function num : 0_40 , upvalues : self
+  -- function num : 0_41 , upvalues : self
   return self.PersonRankData
 end
 
--- DECOMPILER ERROR at PC128: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC131: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.GetPersonRank = function(...)
-  -- function num : 0_41 , upvalues : _ENV
+  -- function num : 0_42 , upvalues : _ENV
   local objIndex = (ActorData.GetPlayerIndex)()
   local data = (GuildBossMgr.GetPersonRankDataList)()
   for i,v in ipairs(data) do
@@ -532,10 +543,10 @@ GuildBossMgr.GetPersonRank = function(...)
   return -1
 end
 
--- DECOMPILER ERROR at PC131: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC134: Confused about usage of register: R1 in 'UnsetPending'
 
 GuildBossMgr.EnterFormation = function(msg, ...)
-  -- function num : 0_42 , upvalues : _ENV
+  -- function num : 0_43 , upvalues : _ENV
   local enemyList = {}
   local stageData = ((TableData.gTable).BaseGuildWarStageData)[msg.stageId]
   local groupList = split(stageData.monster_group_list, ":")
@@ -555,7 +566,7 @@ GuildBossMgr.EnterFormation = function(msg, ...)
   local btnData = {}
   btnData.btnTxt = (PUtil.get)(20000021)
   btnData.fun = function(forData, supportId, supportPlayerIndex, ...)
-    -- function num : 0_42_0 , upvalues : _ENV, msg
+    -- function num : 0_43_0 , upvalues : _ENV, msg
     local serverID = 0
     if supportId and supportId > 0 then
       for _,v in ipairs(msg.supportCard) do

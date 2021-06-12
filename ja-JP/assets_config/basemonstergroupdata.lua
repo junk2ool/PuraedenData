@@ -2744,6 +2744,20 @@ BaseMonsterGroupData = {
 [51404403] = {id = 51404403, max_round = 5, monster_list = "12634417:0:12634418:12634419:0:12634420", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1001", bgm_id = 1040002, story_id = "0", story_times = "0"}
 , 
 [51404404] = {id = 51404404, max_round = 5, monster_list = "0:0:0:0:12634421:0", boss_id = 12634421, hp_bar_count = 1, background_path = "BattleScene_1001", bgm_id = 1040002, story_id = "0", story_times = "0"}
+, 
+[51404501] = {id = 51404501, max_round = 5, monster_list = "0:12634503:0:0:12634504:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1007", bgm_id = 1040016, story_id = "0", story_times = "0"}
+, 
+[51404502] = {id = 51404502, max_round = 5, monster_list = "12634509:12634508:0:12634510:0:12634511", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1007", bgm_id = 1040016, story_id = "0", story_times = "0"}
+, 
+[51404503] = {id = 51404503, max_round = 5, monster_list = "12634517:12634516:0:0:12634518:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1007", bgm_id = 1040016, story_id = "0", story_times = "0"}
+, 
+[51404504] = {id = 51404504, max_round = 5, monster_list = "12634519:12634521:0:12634520:0:0", boss_id = 12634521, hp_bar_count = 1, background_path = "BattleScene_1007", bgm_id = 1040016, story_id = "0", story_times = "0"}
+, 
+[51404601] = {id = 51404601, max_round = 5, monster_list = "0:12634603:12634604:0:12634605:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1019", bgm_id = 1040021, story_id = "0", story_times = "0"}
+, 
+[51404602] = {id = 51404602, max_round = 5, monster_list = "12634611:12634609:12634610:12634612:0:0", boss_id = 12634612, hp_bar_count = 1, background_path = "BattleScene_1019", bgm_id = 1040021, story_id = "0", story_times = "0"}
+, 
+[51404603] = {id = 51404603, max_round = 5, monster_list = "12634618:12634621:12634617:12634620:12634619:0", boss_id = 12634621, hp_bar_count = 1, background_path = "BattleScene_1019", bgm_id = 1040021, story_id = "0", story_times = "0"}
 }
 return BaseMonsterGroupData
 

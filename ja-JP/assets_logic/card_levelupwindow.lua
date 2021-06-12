@@ -418,7 +418,7 @@ Card_LevelUpWindow.PropsOnEnd = function(id, ...)
   SpeedX = 1
   TotalNum = 0
   local totalCost = TotalCostNum
-  if totalFakeCost <= totalCost then
+  if totalFakeCost <= totalCost and totalCost ~= 0 and totalFakeCost ~= 0 then
     isExpFull = true
   end
   if totalCost > 0 then
