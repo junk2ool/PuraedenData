@@ -463,8 +463,8 @@ BattleBuffMgr.CleanBuffGroup = function(targetCard, buffGroup, newBuff, ...)
           if buffTable and #buffTable > 0 then
             for _,buff in ipairs(buffTable) do
               local info = buff:GetBuffInfo(atkInfo, true)
-              info.settle_round_type = settleRoundType
-              info.deduction_round_type = deductionRoundType
+              info.settleRoundType = settleRoundType
+              info.deductionRoundType = deductionRoundType
               if IsBattleServer == nil then
                 PrintTable(info, "净化删除的buff：")
               end

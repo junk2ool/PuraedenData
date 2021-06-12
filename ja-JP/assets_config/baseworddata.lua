@@ -7027,7 +7027,7 @@ BaseWordData = {
 , 
 [89035103] = {id = 89035103, name = "[color=#ffdd81]他の出現可能なSSR冒険者[/color]"}
 , 
-[89035104] = {id = 89035104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3.5%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/25[/color]となります）"}
+[89035104] = {id = 89035104, name = "【[color=#ffaa06]SSR[/color]出現率[color=#3dffbd] 3.5%%[/color]】（各冒険者の排出割合は[color=#3dffbd]1/26[/color]となります）"}
 , 
 [89035105] = {id = 89035105, name = "[color=#ffdd81]他の出現可能の冒険者[/color]"}
 , 

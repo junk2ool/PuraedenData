@@ -9,7 +9,6 @@ SkillScript.Play = function(time, timelineEndCall, ...)
   MoveAtkCard(2000, BattleConfig.positionInvisible, 0)
   MoveDefCard(0, BattleConfig.positionInvisible, 0)
   MoveDefCard(7199.28, nil, 0)
-  MoveDefCard(8732, BattleConfig.positionInvisible, 0)
   local actionList = {8765, 8915, 9065, 9215, 9365, 9515, 9665, 9999}
   local count = #actionList
   for i = 1, count do

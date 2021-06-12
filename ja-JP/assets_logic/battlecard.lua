@@ -3554,7 +3554,7 @@ effectTable = {eff}
   end
 
   battleCard.SetControlType = function(self, effectId, value, ...)
-    -- function num : 0_0_179 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, cardInfo, SkeletonAnimationUtil
+    -- function num : 0_0_179 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo
     if effectId == BattleDisplayEffect.STUN then
       self:SetIsStun(value)
       -- DECOMPILER ERROR at PC15: Unhandled construct in 'MakeBoolean' P1
@@ -3607,10 +3607,9 @@ effectTable = {eff}
                     if changeConfig then
                       local fashion_ids = changeConfig.fashion_ids
                       if fashion_ids and fashion_ids > 0 and self.fashionId ~= fashion_ids then
-                        (ResHelper.DestroyGameObject)(model, true)
+                        (ResHelper.DestroyGameObject)(model, false)
                         self:CreateCard(fashion_ids, true)
-                        self.fashionId = fashion_ids
-                        cardInfo.fashionId = fashion_ids
+                        copyFashionID = fashion_ids
                       end
                       local skin = changeConfig.change_skin
                       if skin and not (Util.StringIsNullOrEmpty)(skin) then
@@ -3627,12 +3626,12 @@ effectTable = {eff}
                       (ResHelper.DestroyGameObject)(model, false)
                       local fashionID = cardInfo:GetFashionId()
                       self:CreateCard(fashionID, true)
-                      self.fashionId = fashionID
-                      cardInfo.fashionId = fashionID
                       ;
                       (SkeletonAnimationUtil.SetSkin)(model, "default")
+                      copyFashionID = 0
                     end
                     do
+                      self:SetIsCopy(value)
                       ;
                       (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.IDLE, true)
                     end
