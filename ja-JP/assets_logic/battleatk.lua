@@ -81,7 +81,7 @@ end
 
 -- DECOMPILER ERROR at PC37: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InitSubAtkInfo = function(defCard, defCardsInfo, isNew, isCounter, ...)
+BattleAtk.InitSubAtkInfo = function(defCard, defCardsInfo, isNew, isCounter, isDivide, ...)
   -- function num : 0_2 , upvalues : ipairs, value0, t_insert
   local isFind = false
   if not isCounter then
@@ -96,7 +96,7 @@ BattleAtk.InitSubAtkInfo = function(defCard, defCardsInfo, isNew, isCounter, ...
     end
   end
   do
-    local subAtkInfo = {defPos = defCard:GetPosIndex(), defCardUid = defCard:GetCardUid(), hpDef = value0, danderDef = value0, isDodge = false, isCrit = false, isBlock = false, absorbDamage = value0, isInvincible = false, isKeepAlive = false, isCounter = false, isImmune = false, shareDamageCardPos = 0, isSkillTarget = false}
+    local subAtkInfo = {defPos = defCard:GetPosIndex(), defCardUid = defCard:GetCardUid(), hpDef = value0, danderDef = value0, isDodge = false, isCrit = false, isBlock = false, absorbDamage = value0, isInvincible = false, isKeepAlive = false, isCounter = false, isImmune = false, shareDamageCardPos = 0, isSkillTarget = false, isDivide = isDivide}
     t_insert(defCardsInfo, subAtkInfo)
     return subAtkInfo
   end

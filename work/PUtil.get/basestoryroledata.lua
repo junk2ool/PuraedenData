@@ -445,6 +445,18 @@
 , 
 [75200743] = {id = 75200743, name = "マシロ", role_path = "img_11202016_2", effect_path = "FIGHT_KILL", fashion_id = "14221601", offset = "0:5"}
 , 
+[75200751] = {id = 75200751, name = "???", role_path = "img_11202017_1", effect_path = "FIGHT_KILL", fashion_id = "14221700", offset = "77:-245"}
+, 
+[75200752] = {id = 75200752, name = "コンチータ", role_path = "img_13010009", effect_path = "FIGHT_KILL", fashion_id = "15040010", offset = "77:-245"}
+, 
+[75200753] = {id = 75200753, name = "コンチータ", role_path = "img_11202017_2", effect_path = "FIGHT_KILL", fashion_id = "14221701", offset = "77:-245"}
+, 
+[75200761] = {id = 75200761, name = "???", role_path = "img_11300035_1", effect_path = "FIGHT_KILL", fashion_id = "14303500", offset = "0:-414"}
+, 
+[75200762] = {id = 75200762, name = "フラワー", role_path = "img_11300035_1", effect_path = "FIGHT_KILL", fashion_id = "14303500", offset = "0:-414"}
+, 
+[75200763] = {id = 75200763, name = "フラワー", role_path = "img_11300035_2", effect_path = "FIGHT_KILL", fashion_id = "14303501", offset = "0:-414"}
+, 
 [75210001] = {id = 75210001, name = "リルス", role_path = "img_12010001", effect_path = "FIGHT_KILL", fashion_id = "15010001", offset = "10:80"}
 , 
 [75210002] = {id = 75210002, name = "コニー", role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
@@ -656,6 +668,16 @@
 [75210105] = {id = 75210105, name = "村民", role_path = "img_13010001", effect_path = "FIGHT_KILL", fashion_id = "15040001", offset = "0:15"}
 , 
 [75210106] = {id = 75210106, name = "不良", role_path = "img_12010005", effect_path = "FIGHT_KILL", fashion_id = "15010005", offset = "10:65"}
+, 
+[75210107] = {id = 75210107, name = "観客達"}
+, 
+[75210108] = {id = 75210108, name = "観客A", role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
+, 
+[75210109] = {id = 75210109, name = "観客B", role_path = "img_12010006", effect_path = "FIGHT_KILL", fashion_id = "15010006", offset = "20:60"}
+, 
+[75210110] = {id = 75210110, name = "司会者", role_path = "img_13010007", effect_path = "FIGHT_KILL", fashion_id = "15040008", offset = "20:175"}
+, 
+[75210111] = {id = 75210111, name = "オーナー", role_path = "img_13010008", effect_path = "FIGHT_KILL", fashion_id = "15040009", offset = "20:-230"}
 , 
 [75203001] = {id = 75203001, name = "犀角山豚", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 

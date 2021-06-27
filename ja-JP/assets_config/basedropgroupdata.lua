@@ -2446,6 +2446,16 @@ BaseDropGroupData = {
 [28403204] = {id = 28403204, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 
 [28403206] = {id = 28403206, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[28500101] = {id = 28500101, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[28500102] = {id = 28500102, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[28500103] = {id = 28500103, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[28500104] = {id = 28500104, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[28500105] = {id = 28500105, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 }
 return BaseDropGroupData
 

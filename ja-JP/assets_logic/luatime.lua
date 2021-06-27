@@ -161,7 +161,7 @@ LuaTime.GetTimeStrVersion2 = function(time, showDay, ...)
     arg4 = 60000393
   end
   do
-    if showDay and arg1 > 24 then
+    if showDay and time >= 86400 and arg1 >= 24 then
       local day = (math.floor)(arg1 / 24)
       arg1 = arg1 % 24
       return (string.format)("%d%s%02d%s%02d%s", day, (PUtil.get)(20000219), arg1, (PUtil.get)(arg3), arg2, (PUtil.get)(arg4))
@@ -172,6 +172,9 @@ end
 
 LuaTime.GetTimeWithoutSeondsStr = function(time, ...)
   -- function num : 0_8 , upvalues : _ENV
+  if time < 0 then
+    time = 0
+  end
   local hours, minutes, seconds = nil, nil, nil
   hours = (math.floor)(time / 3600)
   time = time % 3600

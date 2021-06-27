@@ -27,7 +27,7 @@ targetPosTable = {}
 summonCards = {}
 , 
 effectRounds = {}
-, curRoundActive = false}
+, curRoundActive = false, parentBuffDeductionType = nil}
     battleBuff.Init = function(self, ...)
     -- function num : 0_0_0 , upvalues : _ENV, atkCard, targetId, defCards, atkInfo, t_insert, skillConfig
     local targetCards = (BattleChoose.GetTargetCardsByTargetId)(atkCard, targetId, defCards, true, nil, atkInfo)
@@ -517,8 +517,18 @@ effectRounds = {}
   end
 
     battleBuff.SetCurDefPos = function(self, pos, ...)
-    -- function num : 0_0_31
-    self.curDefPos = pos
+    -- function num : 0_0_31 , upvalues : _ENV, split, tonumber
+    local buffConfig = self:GetBuffConfig()
+    if buffConfig and buffConfig.settle_round_cnt == 0 and not (Util.StringIsNullOrEmpty)(buffConfig.star_round) then
+      local card = (BattleData.GetCardInfoByPos)(pos)
+      if card then
+        local strTable = split(buffConfig.star_round, ":")
+        self.totalCount = tonumber(strTable[card:GetStar()])
+      end
+    end
+    do
+      self.curDefPos = pos
+    end
   end
 
     battleBuff.GetCurDefPos = function(self, ...)
@@ -554,10 +564,17 @@ effectRounds = {}
   end
 
     battleBuff.GetSettleRoundCnt = function(self, ...)
-    -- function num : 0_0_36
+    -- function num : 0_0_36 , upvalues : _ENV
     local buffConfig = self:GetBuffConfig()
     if buffConfig then
-      return buffConfig.settle_round_cnt
+      if buffConfig.settle_round_cnt == 0 and not (Util.StringIsNullOrEmpty)(buffConfig.star_round) then
+        if buffConfig then
+          do return buffConfig.settle_round_cnt end
+          if buffConfig then
+            do return buffConfig.settle_round_cnt end
+          end
+        end
+      end
     end
   end
 
@@ -1071,7 +1088,7 @@ effectRounds = {}
                                                                                                                                                                                                               end
                                                                                                                                                                                                               do
                                                                                                                                                                                                                 if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_EXTRA then
-                                                                                                                                                                                                                  local baoji_jiacheng = (BattleDataCount.PanDingBaoJiGeDang)(atkCard, defCard)
+                                                                                                                                                                                                                  local baoji_jiacheng = (BattleDataCount.PanDingBaoJiGeDang)(atkCard, defCard, atkInfo)
                                                                                                                                                                                                                   totalValue = (math.ceil)((baoji_jiacheng + 10000) / 10000 * (totalValue))
                                                                                                                                                                                                                 end
                                                                                                                                                                                                                 do
@@ -1083,319 +1100,319 @@ effectRounds = {}
                                                                                                                                                                                                                       end
                                                                                                                                                                                                                     end
                                                                                                                                                                                                                     t_insert(effectTable, {absorbDamage = 0, isInvincible = false, isKeepAlive = false, effectId = oneEffect.effectId, attributeId = oneEffect.attributeId, value = totalValue, realValue = totalValue})
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1586: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                    -- DECOMPILER ERROR at PC1587: LeaveBlock: unexpected jumping out IF_STMT
 
                                                                                                                                                                                                                   end
                                                                                                                                                                                                                 end
@@ -1667,158 +1684,176 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
                         end
                       else
                         do
-                          if trigger_condition == BuffTriggerCondition.ATTACK_TARGET_TYPE then
+                          if trigger_condition == BuffTriggerCondition.COMPARE_DEFENCE then
                             local defCardsInfo = atkInfo.defCardsInfo
                             for _,v in ipairs(defCardsInfo) do
                               local defPos = v.defPos
                               if defPos ~= atkPos then
                                 local defCard = (BattleData.GetCardInfoByPos)(defPos)
-                                if defCard then
-                                  local config = defCard:GetCardConfig()
-                                  if CompareNum(trigger_type, config.attr_prior, trigger_value) == true then
-                                    return true
-                                  end
+                                if defCard and CompareNum(trigger_type, card:GetDef(), defCard:GetDef()) then
+                                  return true
                                 end
                               end
                             end
                           else
                             do
-                              if trigger_condition == BuffTriggerCondition.SELF_TARGET_DANDER then
-                                local dander_atk = atkCard:GetDander()
-                                local dander_def = card:GetDander()
-                                if CompareNum(trigger_type, dander_atk, dander_def) == true then
-                                  return true
+                              if trigger_condition == BuffTriggerCondition.ATTACK_TARGET_TYPE then
+                                local defCardsInfo = atkInfo.defCardsInfo
+                                for _,v in ipairs(defCardsInfo) do
+                                  local defPos = v.defPos
+                                  if defPos ~= atkPos and not v.isDivide then
+                                    local defCard = (BattleData.GetCardInfoByPos)(defPos)
+                                    if defCard then
+                                      local config = defCard:GetCardConfig()
+                                      if CompareNum(trigger_type, config.attr_prior, trigger_value) == true then
+                                        return true
+                                      end
+                                    end
+                                  end
                                 end
                               else
                                 do
-                                  if trigger_condition == BuffTriggerCondition.TARGET_DANDER then
-                                    local dander = card:GetDander()
-                                    if CompareNum(trigger_type, dander, trigger_value) == true then
+                                  if trigger_condition == BuffTriggerCondition.SELF_TARGET_DANDER then
+                                    local dander_atk = atkCard:GetDander()
+                                    local dander_def = card:GetDander()
+                                    if CompareNum(trigger_type, dander_atk, dander_def) == true then
                                       return true
                                     end
                                   else
                                     do
-                                      if trigger_condition == BuffTriggerCondition.SELF_TARGET_ATK then
-                                        local atk_atk = atkCard:GetAtk()
-                                        local atk_def = card:GetAtk()
-                                        if CompareNum(trigger_type, atk_atk, atk_def) == true then
+                                      if trigger_condition == BuffTriggerCondition.TARGET_DANDER then
+                                        local dander = card:GetDander()
+                                        if CompareNum(trigger_type, dander, trigger_value) == true then
                                           return true
                                         end
                                       else
                                         do
-                                          if trigger_condition == BuffTriggerCondition.SELF_CAMP_CARD_ALIVE then
-                                            local needCardId = trigger_value
-                                            local needCard = (BattleData.GetCardByCampAndId)(needCardId, atkCard:GetCampFlag())
-                                            if needCard and needCard:IsDead() ~= true then
+                                          if trigger_condition == BuffTriggerCondition.SELF_TARGET_ATK then
+                                            local atk_atk = atkCard:GetAtk()
+                                            local atk_def = card:GetAtk()
+                                            if CompareNum(trigger_type, atk_atk, atk_def) == true then
                                               return true
                                             end
                                           else
                                             do
-                                              if trigger_condition == BuffTriggerCondition.TARGET_HAVE_EFFECT then
-                                                local needEffectId = trigger_value
-                                                return (BattleBuff.ContainEffectId)(card, needEffectId)
+                                              if trigger_condition == BuffTriggerCondition.SELF_CAMP_CARD_ALIVE then
+                                                local needCardId = trigger_value
+                                                local needCard = (BattleData.GetCardByCampAndId)(needCardId, atkCard:GetCampFlag())
+                                                if needCard and needCard:IsDead() ~= true then
+                                                  return true
+                                                end
                                               else
                                                 do
-                                                  if trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF_TYPE then
-                                                    local needBuffType = trigger_value
-                                                    local buffTable = (BattleBuffMgr.GetBuffListByCardAndType)(card, needBuffType)
-                                                    return not buffTable or #buffTable > 0
-                                                  elseif trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF then
-                                                    local needBuff = trigger_value
-                                                    local buffTable = (BattleBuffMgr.GetBuffListByCardAndId)(card, needBuff)
-                                                    return not buffTable or #buffTable > 0
-                                                  elseif trigger_condition == BuffTriggerCondition.TARGET_CARD_TYPE then
-                                                    local needType = trigger_value
-                                                    local cardConfig = card:GetCardConfig()
-                                                    if cardConfig and needType and cardConfig.attr_prior == tonumber(needType) then
-                                                      return true
-                                                    end
-                                                  elseif trigger_condition == BuffTriggerCondition.TARGET_CARD_COUNT then
-                                                    local defCardsInfo = atkInfo.defCardsInfo
-                                                    local count = 0
-                                                    for _,v in ipairs(defCardsInfo) do
-                                                      local defPos = v.defPos
-                                                      if v.isSkillTarget == true then
-                                                        local defCard = (BattleData.GetCardInfoByPos)(defPos)
-                                                        if defCard and defCard:IsDead() == false then
-                                                          count = count + 1
+                                                  if trigger_condition == BuffTriggerCondition.TARGET_HAVE_EFFECT then
+                                                    local needEffectId = trigger_value
+                                                    return (BattleBuff.ContainEffectId)(card, needEffectId)
+                                                  else
+                                                    do
+                                                      if trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF_TYPE then
+                                                        local needBuffType = trigger_value
+                                                        local buffTable = (BattleBuffMgr.GetBuffListByCardAndType)(card, needBuffType)
+                                                        return not buffTable or #buffTable > 0
+                                                      elseif trigger_condition == BuffTriggerCondition.TARGET_HAVE_BUFF then
+                                                        local needBuff = trigger_value
+                                                        local buffTable = (BattleBuffMgr.GetBuffListByCardAndId)(card, needBuff)
+                                                        return not buffTable or #buffTable > 0
+                                                      elseif trigger_condition == BuffTriggerCondition.TARGET_CARD_TYPE then
+                                                        local needType = trigger_value
+                                                        local cardConfig = card:GetCardConfig()
+                                                        if cardConfig and needType and cardConfig.attr_prior == tonumber(needType) then
+                                                          return true
+                                                        end
+                                                      elseif trigger_condition == BuffTriggerCondition.TARGET_CARD_COUNT then
+                                                        local defCardsInfo = atkInfo.defCardsInfo
+                                                        local count = 0
+                                                        for _,v in ipairs(defCardsInfo) do
+                                                          local defPos = v.defPos
+                                                          if v.isSkillTarget == true then
+                                                            local defCard = (BattleData.GetCardInfoByPos)(defPos)
+                                                            if defCard and defCard:IsDead() == false then
+                                                              count = count + 1
+                                                            end
+                                                          end
+                                                        end
+                                                        if CompareNum(trigger_type, count, trigger_value) == true then
+                                                          return true
+                                                        end
+                                                      elseif trigger_condition == BuffTriggerCondition.TARGET_HP_PERCENT then
+                                                        local config = buff:GetBuffConfig()
+                                                        local strTable = split(config.star_config, ":")
+                                                        local cardStar = card:GetStar()
+                                                        local percent = tonumber(strTable[cardStar])
+                                                        if CompareNum(trigger_type, percent, trigger_value) == true then
+                                                          return true
+                                                        end
+                                                      elseif trigger_condition == BuffTriggerCondition.RANDOM then
+                                                        local random = (BattleData.GetRandomSeed)()
+                                                        if CompareNum(trigger_type, random, trigger_value) == true then
+                                                          return true
+                                                        end
+                                                      elseif trigger_condition == BuffTriggerCondition.RANDOM_UP_HP then
+                                                        local random = (BattleData.GetRandomSeed)()
+                                                        if atkCard then
+                                                          local dec_hpPer = (math.floor)((10000 - 10000 * atkCard:GetHp() / atkCard:GetMaxHp()) / 500)
+                                                          local targetValue = trigger_value + dec_hpPer * trigger_value_up
+                                                          print("最终计算出来的概率：", targetValue)
+                                                          if CompareNum(trigger_type, random, targetValue) == true then
+                                                            return true
+                                                          end
+                                                        end
+                                                      elseif trigger_condition == BuffTriggerCondition.TARGET_AROUND_NUM then
+                                                        local count = (math.max)(#(BattleChoose.GetCardsByAround)(atkCard, true) - 1, 0)
+                                                        if CompareNum(trigger_type, count, trigger_value) == true then
+                                                          return true
+                                                        end
+                                                      elseif trigger_condition == BuffTriggerCondition.COMPARE_ALIVE_NUM then
+                                                        local selfCamp = atkCard:GetCampFlag()
+                                                        if selfCamp ~= BattleCardCamp.LEFT or not BattleCardCamp.RIGHT then
+                                                          local enemyCamp = BattleCardCamp.LEFT
+                                                        end
+                                                        local selfNum = #(BattleData.GetAliveCards)(selfCamp, true)
+                                                        local enemyCamp = #(BattleData.GetAliveCards)(enemyCamp, true)
+                                                        if CompareNum(trigger_type, selfNum, enemyCamp) == true then
+                                                          return true
+                                                        end
+                                                      else
+                                                        local isPVE = trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PVE
+                                                        if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_NOT_GUILD_WAR and battleType ~= E_BATTLE_TYPE.GUILD_WAR then
+                                                          return true
+                                                        end
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PLOT or isPVE == true) and battleType == E_BATTLE_TYPE.STORY then
+                                                          return true
+                                                        end
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_HERO or isPVE == true) and battleType == E_BATTLE_TYPE.HERO then
+                                                          return true
+                                                        end
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_DAILY or isPVE == true) and (battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP) then
+                                                          return true
+                                                        end
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_TOWER or isPVE == true) and (battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_ENCOUNTER) then
+                                                          return true
+                                                        end
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_EXPEDITION or isPVE == true) and battleType == E_BATTLE_TYPE.EXPEDITION then
+                                                          return true
+                                                        end
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_GUILD_WAR or isPVE == true) and battleType == E_BATTLE_TYPE.GUILD_WAR then
+                                                          return true
+                                                        end
+                                                        if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_ARENA and battleType == E_BATTLE_TYPE.ARENA then
+                                                          return true
+                                                        end
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_EXPEDITION or isPVE == true) and battleType == E_BATTLE_TYPE.EXPEDITION then
+                                                          return true
+                                                        end
+                                                        if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_NOT_GUILD_WAR_AND_NO_PLOT and battleType ~= E_BATTLE_TYPE.GUILD_WAR and battleType ~= E_BATTLE_TYPE.GOLD and battleType ~= E_BATTLE_TYPE.EXP and battleType ~= E_BATTLE_TYPE.EQUIPEXP then
+                                                          return true
                                                         end
                                                       end
-                                                    end
-                                                    if CompareNum(trigger_type, count, trigger_value) == true then
-                                                      return true
-                                                    end
-                                                  elseif trigger_condition == BuffTriggerCondition.TARGET_HP_PERCENT then
-                                                    local config = buff:GetBuffConfig()
-                                                    local strTable = split(config.star_config, ":")
-                                                    local cardStar = card:GetStar()
-                                                    local percent = tonumber(strTable[cardStar])
-                                                    if CompareNum(trigger_type, percent, trigger_value) == true then
-                                                      return true
-                                                    end
-                                                  elseif trigger_condition == BuffTriggerCondition.RANDOM then
-                                                    local random = (BattleData.GetRandomSeed)()
-                                                    if CompareNum(trigger_type, random, trigger_value) == true then
-                                                      return true
-                                                    end
-                                                  elseif trigger_condition == BuffTriggerCondition.RANDOM_UP_HP then
-                                                    local random = (BattleData.GetRandomSeed)()
-                                                    if atkCard then
-                                                      local dec_hpPer = (math.floor)((10000 - 10000 * atkCard:GetHp() / atkCard:GetMaxHp()) / 500)
-                                                      local targetValue = trigger_value + dec_hpPer * trigger_value_up
-                                                      print("最终计算出来的概率：", targetValue)
-                                                      if CompareNum(trigger_type, random, targetValue) == true then
-                                                        return true
-                                                      end
-                                                    end
-                                                  elseif trigger_condition == BuffTriggerCondition.TARGET_AROUND_NUM then
-                                                    local count = (math.max)(#(BattleChoose.GetCardsByAround)(atkCard, true) - 1, 0)
-                                                    if CompareNum(trigger_type, count, trigger_value) == true then
-                                                      return true
-                                                    end
-                                                  elseif trigger_condition == BuffTriggerCondition.COMPARE_ALIVE_NUM then
-                                                    local selfCamp = atkCard:GetCampFlag()
-                                                    if selfCamp ~= BattleCardCamp.LEFT or not BattleCardCamp.RIGHT then
-                                                      local enemyCamp = BattleCardCamp.LEFT
-                                                    end
-                                                    local selfNum = #(BattleData.GetAliveCards)(selfCamp, true)
-                                                    local enemyCamp = #(BattleData.GetAliveCards)(enemyCamp, true)
-                                                    if CompareNum(trigger_type, selfNum, enemyCamp) == true then
-                                                      return true
-                                                    end
-                                                  else
-                                                    local isPVE = trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PVE
-                                                    if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_NOT_GUILD_WAR and battleType ~= E_BATTLE_TYPE.GUILD_WAR then
-                                                      return true
-                                                    end
-                                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_PLOT or isPVE == true) and battleType == E_BATTLE_TYPE.STORY then
-                                                      return true
-                                                    end
-                                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_HERO or isPVE == true) and battleType == E_BATTLE_TYPE.HERO then
-                                                      return true
-                                                    end
-                                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_DAILY or isPVE == true) and (battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP) then
-                                                      return true
-                                                    end
-                                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_TOWER or isPVE == true) and (battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_ENCOUNTER) then
-                                                      return true
-                                                    end
-                                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_EXPEDITION or isPVE == true) and battleType == E_BATTLE_TYPE.EXPEDITION then
-                                                      return true
-                                                    end
-                                                    if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_GUILD_WAR or isPVE == true) and battleType == E_BATTLE_TYPE.GUILD_WAR then
-                                                      return true
-                                                    end
-                                                    if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_ARENA and battleType == E_BATTLE_TYPE.ARENA then
-                                                      return true
-                                                    end
-                                                    if trigger_condition == BuffTriggerCondition.BATTLE_TYPE_NOT_GUILD_WAR_AND_NO_PLOT and battleType ~= E_BATTLE_TYPE.GUILD_WAR and battleType ~= E_BATTLE_TYPE.GOLD and battleType ~= E_BATTLE_TYPE.EXP and battleType ~= E_BATTLE_TYPE.EQUIPEXP then
-                                                      return true
+                                                      do return false end
+                                                      do return true end
+                                                      -- DECOMPILER ERROR: 37 unprocessed JMP targets
                                                     end
                                                   end
-                                                  do return false end
-                                                  do return true end
-                                                  -- DECOMPILER ERROR: 35 unprocessed JMP targets
                                                 end
                                               end
                                             end

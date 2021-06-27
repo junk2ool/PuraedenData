@@ -103,6 +103,12 @@ LoginService.ReqLogout = function(autoLogin, ...)
   if FormationPresetData then
     (FormationPresetData.ClearData)()
   end
+  if NewActivityDungeonData then
+    (NewActivityDungeonData.ResetData)()
+  end
+  if GuildData then
+    (GuildData.ResetData)()
+  end
   ;
   (MsgWaiterObj.ClearCheckTimer)()
   ;

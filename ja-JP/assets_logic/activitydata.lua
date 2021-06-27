@@ -1,7 +1,8 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 ActivityData = {}
--- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
+local self = ActivityData
+-- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
 ActivityData.GetCards = function(...)
   -- function num : 0_0 , upvalues : _ENV

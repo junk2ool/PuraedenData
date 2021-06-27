@@ -34,17 +34,17 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   homeUis = GetHome_HomeWindowUis(contentPane)
   uis = homeUis.HomeCtrl
   ;
-  ((uis.AdventureBtn).onClick):Set(HomeWindow.onClickAdventureBtn)
+  (((uis.BottomButton).AdventureBtn).onClick):Set(HomeWindow.onClickAdventureBtn)
   ;
-  ((uis.TeamBtn).onClick):Set(HomeWindow.onClickTeamBtn)
+  (((uis.BottomButton).TeamBtn).onClick):Set(HomeWindow.onClickTeamBtn)
   ;
-  ((uis.CardBtn).onClick):Set(HomeWindow.onClickCardBtn)
+  (((uis.BottomButton).CardBtn).onClick):Set(HomeWindow.onClickCardBtn)
   ;
   ((uis.HandbookBtn).onClick):Set(HomeWindow.onClickHandbookBtn)
   ;
-  ((uis.LotteryBtn).onClick):Set(HomeWindow.onClickLotteryBtn)
+  (((uis.BottomButton).LotteryBtn).onClick):Set(HomeWindow.onClickLotteryBtn)
   ;
-  ((uis.EquipmentBtn).onClick):Set(HomeWindow.onClickEquipmentBtn)
+  (((uis.BottomButton).EquipmentBtn).onClick):Set(HomeWindow.onClickEquipmentBtn)
   ;
   ((uis.GuildBtn).onClick):Set(HomeWindow.onClickGuildBtn)
   ;
@@ -81,11 +81,11 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ;
   ((uis.FriendBtn).onClick):Set(HomeWindow.OnClickFriend)
   ;
-  ((uis.ShopBtn).onClick):Set(HomeWindow.OnClickShop)
+  (((uis.BottomButton).ShopBtn).onClick):Set(HomeWindow.OnClickShop)
   ;
   ((uis.Top_BagBtn).onClick):Set(HomeWindow.OnClickBag)
   ;
-  ((uis.TaskBtn).onClick):Set(HomeWindow.onClickTask)
+  (((uis.BottomButton).TaskBtn).onClick):Set(HomeWindow.onClickTask)
   ;
   ((uis.Top_MailBtn).onClick):Set(HomeWindow.onClickMail)
   ;
@@ -98,7 +98,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ((uis.FamilyBtn).onClick):Set(HomeWindow.ClickHomelandBtn)
   ;
   ((uis.AnnouncementBtn).onClick):Set(HomeWindow.ClickAnnouncementBtn)
-  -- DECOMPILER ERROR at PC169: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC176: Confused about usage of register: R1 in 'UnsetPending'
 
   if IsIOSReview == true then
     (uis.AnnouncementBtn).visible = false
@@ -106,7 +106,12 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ;
   ((uis.ActivityDungeonBtn).onClick):Set(function(...)
     -- function num : 0_1_3 , upvalues : _ENV
-    (PlotDungeonService.ReqStoryInfo)(DungeonType.ActivityDungeon)
+    if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+      (NewActivityDungeonMgr.TryOpenNAD)()
+    else
+      ;
+      (PlotDungeonService.ReqStoryInfo)(DungeonType.ActivityDungeon)
+    end
   end
 )
   ;
@@ -144,7 +149,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
 )
   end
   do
-    -- DECOMPILER ERROR at PC243: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC250: Confused about usage of register: R1 in 'UnsetPending'
 
     if Game.testPackage ~= true and uis.ServerNameTxt then
       (uis.ServerNameTxt).text = (LoginMgr.GetServerName)()
@@ -186,16 +191,16 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     (LoginMgr.ReturnToLoginWindow)()
   end
 , nil, (PUtil.get)(60000004))
-          -- DECOMPILER ERROR at PC342: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC349: Confused about usage of register: R3 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
         end
       else
         do
-          -- DECOMPILER ERROR at PC345: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC352: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
-          -- DECOMPILER ERROR at PC348: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC355: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
           if ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).WindowsEditor and ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).OSXEditor then
@@ -223,21 +228,24 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.CarnivalBtn).visible = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).SevenTask)
-  -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  (uis.ActivityDungeonBtn).visible = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).ActivityDungeon)
-  -- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
+  (uis.ActivityDungeonBtn).visible = NewActivityDungeonData.ActivityDungeonStatus ~= ADStatus.None
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
 
   if (uis.CarnivalBtn).visible == false and (uis.ActivityDungeonBtn).visible == true then
     (uis.ActivityDungeonBtn).xy = ActivityPos[1]
+  end
+  if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+    (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityDungeon, uis.ActivityDungeonBtn)
   end
   ;
   (uis.LeftList):RemoveChildrenToPool()
   local TenMailID = (ActorService.RegisterMail)()
   local Appointment = (uis.LeftList):GetChild("Appointment")
   do
-    -- DECOMPILER ERROR at PC51: Unhandled construct in 'MakeBoolean' P1
+    -- DECOMPILER ERROR at PC68: Unhandled construct in 'MakeBoolean' P1
 
     if TenMailID and TenMailID > 0 and Appointment == nil then
       local AppointmentBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "AppointmentBtn"))
@@ -270,7 +278,7 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
       timeTip = (LuaTime.GetBeginAndEndTime)(data.begin_time, data.end_time)
     end
     do
-      -- DECOMPILER ERROR at PC108: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC125: Unhandled construct in 'MakeBoolean' P1
 
       if Prize == true and PrizeCom == nil then
         local PrizeBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "PrizeBtn"))
@@ -304,28 +312,27 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
         (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_LotteryIntegral, lotteryIntergralBtn)
         ;
         (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
-      else
-        do
-          if lotteryIntergralCom then
-            (uis.LeftList):RemoveChild(lotteryIntergralCom)
-          end
-          local returnOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Return)
-          if returnOpen then
-            local returnBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "ReturnBtn"))
-            ;
-            (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityReturn, returnBtn)
-            ;
-            (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
-            ;
-            (returnBtn.onClick):Set(function(...)
+      elseif lotteryIntergralCom then
+        (uis.LeftList):RemoveChild(lotteryIntergralCom)
+      end
+      local returnOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Return)
+      do
+        if returnOpen then
+          local returnBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "ReturnBtn"))
+          ;
+          (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityReturn, returnBtn)
+          ;
+          (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
+          ;
+          (returnBtn.onClick):Set(function(...)
     -- function num : 0_3_3 , upvalues : _ENV
     ld("ActivityReturn")
     ;
     (ActivityReturnMgr.TryOpenUI)()
   end
 )
-          end
         end
+        -- DECOMPILER ERROR: 13 unprocessed JMP targets
       end
     end
   end
@@ -616,15 +623,15 @@ HomeWindow.BindingUI = function(...)
   local winName = (WinResConfig.HomeWindow).name
   local BindingUI = RedDotMgr.BindingUI
   local RedDotComID = RedDotComID
-  BindingUI(winName, RedDotComID.Home_Character, uis.CardBtn)
-  BindingUI(winName, RedDotComID.Home_Talent, uis.TeamBtn)
-  BindingUI(winName, RedDotComID.Home_Equip, uis.EquipmentBtn)
-  BindingUI(winName, RedDotComID.Home_Adventure, uis.AdventureBtn)
+  BindingUI(winName, RedDotComID.Home_Character, (uis.BottomButton).CardBtn)
+  BindingUI(winName, RedDotComID.Home_Talent, (uis.BottomButton).TeamBtn)
+  BindingUI(winName, RedDotComID.Home_Equip, (uis.BottomButton).EquipmentBtn)
+  BindingUI(winName, RedDotComID.Home_Adventure, (uis.BottomButton).AdventureBtn)
   BindingUI(winName, RedDotComID.Home_Handbook, uis.HandbookBtn)
-  BindingUI(winName, RedDotComID.Home_Shop, uis.ShopBtn)
+  BindingUI(winName, RedDotComID.Home_Shop, (uis.BottomButton).ShopBtn)
   BindingUI(winName, RedDotComID.Home_Union, uis.GuildBtn)
-  BindingUI(winName, RedDotComID.Home_Lottery, uis.LotteryBtn)
-  BindingUI(winName, RedDotComID.Home_Task, uis.TaskBtn)
+  BindingUI(winName, RedDotComID.Home_Lottery, (uis.BottomButton).LotteryBtn)
+  BindingUI(winName, RedDotComID.Home_Task, (uis.BottomButton).TaskBtn)
   BindingUI(winName, RedDotComID.Home_Mail, uis.Top_MailBtn)
   BindingUI(winName, RedDotComID.Home_Activity, uis.DailyBtn)
   BindingUI(winName, RedDotComID.Home_SevenTask, uis.CarnivalBtn)
@@ -641,7 +648,7 @@ HomeWindow.CheckCardsRedDot = function(...)
   -- function num : 0_13 , upvalues : _ENV, uis
   (CardData.CheckUpAllHeroRedPoint)()
   ;
-  ((uis.CardBtn):GetChild("RedDot")).visible = (CardData.CheckUpSixHeroRedPoint)()
+  (((uis.BottomButton).CardBtn):GetChild("RedDot")).visible = (CardData.CheckUpSixHeroRedPoint)()
 end
 
 local texture = nil
@@ -737,15 +744,15 @@ HomeWindow.InitFunctionControl = function(...)
   local RegisterGuideAndControl = GuideData.RegisterGuideAndControl
   local ControlID = ControlID
   local HomeWindowConfig = WinResConfig.HomeWindow
-  RegisterGuideAndControl(ControlID.Home_CharacterBtn, uis.CardBtn, HomeWindowConfig.name)
-  RegisterGuideAndControl(ControlID.Home_TeamBtn, uis.TeamBtn, HomeWindowConfig.name)
-  RegisterGuideAndControl(ControlID.Home_EquipBtn, uis.EquipmentBtn, HomeWindowConfig.name)
-  RegisterGuideAndControl(ControlID.Home_AdventureBtn, uis.AdventureBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_CharacterBtn, (uis.BottomButton).CardBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_TeamBtn, (uis.BottomButton).TeamBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_EquipBtn, (uis.BottomButton).EquipmentBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_AdventureBtn, (uis.BottomButton).AdventureBtn, HomeWindowConfig.name)
   RegisterGuideAndControl(ControlID.Home_HandbookBtn, uis.HandbookBtn, HomeWindowConfig.name)
-  RegisterGuideAndControl(ControlID.Home_ShopBtn, uis.ShopBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_ShopBtn, (uis.BottomButton).ShopBtn, HomeWindowConfig.name)
   RegisterGuideAndControl(ControlID.Home_UnionBtn, uis.GuildBtn, HomeWindowConfig.name)
-  RegisterGuideAndControl(ControlID.Home_LotteryBtn, uis.LotteryBtn, HomeWindowConfig.name)
-  RegisterGuideAndControl(ControlID.Home_TaskBtn, uis.TaskBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_LotteryBtn, (uis.BottomButton).LotteryBtn, HomeWindowConfig.name)
+  RegisterGuideAndControl(ControlID.Home_TaskBtn, (uis.BottomButton).TaskBtn, HomeWindowConfig.name)
   RegisterGuideAndControl(ControlID.Home_MailBtn, uis.Top_MailBtn, HomeWindowConfig.name)
   RegisterGuideAndControl(ControlID.Home_BagBtn, uis.Top_BagBtn, HomeWindowConfig.name)
   RegisterGuideAndControl(ControlID.Home_AssetShopBtn, uis.HeadBtn, HomeWindowConfig.name)
@@ -1432,15 +1439,15 @@ HomeWindow.OnShown = function(...)
   (((uis.HeadGrp).Power).IconLoader).url = (Util.GetItemUrl)(dataPower.icon)
   local TenNum = (ActorData.GetNoviceLotteryTenNum)()
   local actorLv = (ActorData.GetLevel)()
-  -- DECOMPILER ERROR at PC79: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC80: Confused about usage of register: R8 in 'UnsetPending'
 
   ;
-  ((uis.LotteryTips).root).touchable = false
-  -- DECOMPILER ERROR at PC95: Confused about usage of register: R8 in 'UnsetPending'
+  (((uis.BottomButton).LotteryTips).root).touchable = false
+  -- DECOMPILER ERROR at PC97: Confused about usage of register: R8 in 'UnsetPending'
 
   ;
-  ((uis.LotteryTips).root).visible = (TenNum > 0 and actorLv > 3 and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Newbie_Lottery))
-  if actorLv > 3 and not ((uis.LotteryTips).root).visible and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Free_Lottery) then
+  (((uis.BottomButton).LotteryTips).root).visible = (TenNum > 0 and actorLv > 3 and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Newbie_Lottery))
+  if actorLv > 3 and not (((uis.BottomButton).LotteryTips).root).visible and (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Free_Lottery) then
     ld("Lottery")
     ;
     (LotteryService.ReqLotteryInit)(LotteryType.Card)
@@ -1575,14 +1582,14 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
             if msgId == (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_BANNER_REDDOT then
               ((uis.Activity).PicList):RefreshVirtualList()
             else
-              -- DECOMPILER ERROR at PC57: Confused about usage of register: R2 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC58: Confused about usage of register: R2 in 'UnsetPending'
 
               if msgId == (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_FREE_10_LOTTERY then
-                ((uis.LotteryTenTips).root).touchable = false
-                -- DECOMPILER ERROR at PC64: Confused about usage of register: R2 in 'UnsetPending'
+                (((uis.BottomButton).LotteryTenTips).root).touchable = false
+                -- DECOMPILER ERROR at PC66: Confused about usage of register: R2 in 'UnsetPending'
 
                 ;
-                ((uis.LotteryTenTips).root).visible = para > 0
+                (((uis.BottomButton).LotteryTenTips).root).visible = para > 0
               end
             end
           end
@@ -1621,20 +1628,24 @@ HomeWindow.CheckActivityIcon = function(...)
     (((uis.BtnPanel).BackGroundBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
     ((((uis.BtnPanel).root):GetChild("n3")):GetController("Clothes")).selectedIndex = selectedIndex
+    -- DECOMPILER ERROR at PC48: Confused about usage of register: R3 in 'UnsetPending'
+
     ;
-    ((uis.CardBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    ((uis.BottomButton).ClothesCtr).selectedIndex = selectedIndex
     ;
-    ((uis.TeamBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    (((uis.BottomButton).CardBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
-    ((uis.EquipmentBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    (((uis.BottomButton).TeamBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
-    ((uis.AdventureBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    (((uis.BottomButton).EquipmentBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
-    ((uis.ShopBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    (((uis.BottomButton).AdventureBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
-    ((uis.LotteryBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    (((uis.BottomButton).ShopBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
-    ((uis.TaskBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    (((uis.BottomButton).LotteryBtn):GetController("Clothes")).selectedIndex = selectedIndex
+    ;
+    (((uis.BottomButton).TaskBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
     ((uis.HandbookBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
@@ -1653,7 +1664,7 @@ HomeWindow.CheckActivityIcon = function(...)
     ((uis.AnnouncementBtn):GetController("Clothes")).selectedIndex = selectedIndex
     ;
     ((uis.ActorInfoBtn):GetController("Clothes")).selectedIndex = selectedIndex
-    -- DECOMPILER ERROR at PC128: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC138: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.Activity).ClothesCtr).selectedIndex = selectedIndex

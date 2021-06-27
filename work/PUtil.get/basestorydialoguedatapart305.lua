@@ -574,4 +574,636 @@
 [75711934] = {id = 75711934, remark = "…もちろん、いつかかならず真実を伝えるさ。\nああ。それが当然のことだろう…？", type = 1, option_ids = "0", next = 75711935, role_ids = "75200732", role_type = 75200732, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 
 [75711935] = {id = 75711935, remark = "――なんてね。", type = 1, option_ids = "0", next = -1, role_ids = "75200732", role_type = 75200732, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+, 
+[75712001] = {id = 75712001, remark = "えーっと、権利書、権利書…っと", type = 1, option_ids = "0", next = 75712002, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712002] = {id = 75712002, remark = "あったわ。リッタ、これかしら。", type = 1, option_ids = "0", next = 75712003, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712003] = {id = 75712003, remark = "それです！\nそれがリッタの店と土地の権利書ですよ！", type = 1, option_ids = "0", next = 75712004, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712004] = {id = 75712004, remark = "よかったねー、リッタちゃん！", type = 1, option_ids = "0", next = 75712005, role_ids = "75200011:75200211", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712005] = {id = 75712005, remark = "権利書を取り戻せたのは、たしかによかったです。\nよかったですけど…", type = 1, option_ids = "0", next = 75712006, role_ids = "75200011:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712006] = {id = 75712006, remark = "権利書が、しっちゃかめっちゃかに\nなってるですけどー！？", type = 1, option_ids = "0", next = 75712007, role_ids = "75200011:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712007] = {id = 75712007, remark = "いやー、ちょっと暴れすぎちゃって\n権利書もそんな風に♪", type = 1, option_ids = "0", next = 75712008, role_ids = "75200011:75200211", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712008] = {id = 75712008, remark = "そんな風に♪　じゃないですよ！\nううっ、ギリギリ文字が読めるからいいですが…！", type = 1, option_ids = "0", next = 75712009, role_ids = "75200011:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712009] = {id = 75712009, remark = "…ともかく、リーダー達にも感謝するです。\n権利書を取り戻してくれて助かりました。", type = 1, option_ids = "0", next = 75712010, role_ids = "75200011:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712010] = {id = 75712010, remark = "これでまたこの海で、\nボロ儲けして見せるですよ…！！", type = 1, option_ids = "0", next = 75712011, role_ids = "75200011:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712011] = {id = 75712011, remark = "ふふ。\nリッタ、頑張ってね。", type = 1, option_ids = "0", next = 75712012, role_ids = "75200211:75200762", role_type = 75200762, position = "195:606:10000,642:606:10050", role_admission_type = "75200762:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712012] = {id = 75712012, remark = "…それじゃあ、この件は\n解決したということでいいかしら。", type = 1, option_ids = "0", next = 75712013, role_ids = "75200762:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712013] = {id = 75712013, remark = "うんうん！　一件らくちゃーく！", type = 1, option_ids = "0", next = 75712014, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200762:0:0,75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712014] = {id = 75712014, remark = "それじゃあ、リーダー！\nせっかく海に来たんだから遊んでいこうよ！", type = 1, option_ids = "0", next = 75712015, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712015] = {id = 75712015, remark = "海～♪\nフラワー、海初めてだからたくさん遊びたいな。", type = 1, option_ids = "0", next = 75712016, role_ids = "75200762:75200011", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712016] = {id = 75712016, remark = "…う、海…\nまだ恥ずかしいけど…せっかく来たし、遊ぶ…！", type = 1, option_ids = "0", next = 75712017, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712017] = {id = 75712017, remark = "決まりだね！\nよーし、外に出て、思いっきり――", type = 1, option_ids = "0", next = 75712018, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712018] = {id = 75712018, remark = "…そ、そうはさせんぞ…！", type = 1, option_ids = "0", next = 75712019, role_ids = "75210111", role_type = 75210111, position = "418:606:10050", role_admission_type = "75210111:0:0", role_departure_type = "75200011:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712019] = {id = 75712019, remark = "えぇっ！？　さっきのオーナー！？", type = 1, option_ids = "0", next = 75712020, role_ids = "75200011:75210111", role_type = 75200011, position = "195:606:10000,642:606:10050", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712020] = {id = 75712020, remark = "呆れたわ。まだやるつもりなの？", type = 1, option_ids = "0", next = 75712021, role_ids = "75210111:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712021] = {id = 75712021, remark = "ふ、ふふ…お前達のせいで、俺はもうおしまいだ…\nせめてお前らに一矢報いてやる…！", type = 1, option_ids = "0", next = 75712022, role_ids = "75210111:75200511", role_type = 75210111, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712022] = {id = 75712022, remark = "――こいつを、くらえぇ！", type = 1, option_ids = "0", next = 75712023, role_ids = "75210111:75200511", role_type = 75210111, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712023] = {id = 75712023, remark = "え、何あのスイッチ…", type = 1, option_ids = "0", next = 75712024, role_ids = "75200752:75210111", role_type = 75200752, position = "195:606:10050,642:606:10000", role_admission_type = "75200752:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712024] = {id = 75712024, remark = "わひゃっ！？\nな、何…このすごい音と、揺れ…！？", type = 1, option_ids = "0", next = 75712025, role_ids = "75200752:75210111", role_type = 75200752, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 3, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712025] = {id = 75712025, remark = "うわーっ、みんな見て見て！\n外のビーチが吹っ飛んでるよ！？", type = 1, option_ids = "0", next = 75712026, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200752:0:0,75210111:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712026] = {id = 75712026, remark = "ふふ…こんなこともあろうかと、\nこの辺りの海に爆弾を仕込んでおいたのさ…！", type = 1, option_ids = "0", next = 75712027, role_ids = "75210111:75200011", role_type = 75210111, position = "195:606:10000,642:606:10050", role_admission_type = "75210111:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712027] = {id = 75712027, remark = "それよりも…逃げなくていいのか？", type = 1, option_ids = "0", next = 75712028, role_ids = "75210111:75200011", role_type = 75210111, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712028] = {id = 75712028, remark = "に、逃げる…？　どうして…？", type = 1, option_ids = "0", next = 75712029, role_ids = "75200752:75210111", role_type = 75200752, position = "195:606:10050,642:606:10000", role_admission_type = "75200752:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712029] = {id = 75712029, remark = "わーーー！？\n海から大きな波が、押し寄せてるですけど！？", type = 1, option_ids = "0", next = 75712030, role_ids = "75200211:75200752", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", role_departure_type = "75210111:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712030] = {id = 75712030, remark = "爆発した衝撃で…！？\nいけない、逃げるわよ…！", type = 1, option_ids = "0", next = 75712031, role_ids = "75200511:75200211", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712031] = {id = 75712031, remark = "も、もう波が目の前まで来てる…！\nリーダー、急いで…！", type = 1, option_ids = "75801229:75801230", next = 0, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200511:0:0,75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712032] = {id = 75712032, remark = "いやいや、リーダーだけ人間で\n普通に走っただけじゃ間に合わないって――", type = 1, option_ids = "0", next = -1, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712033] = {id = 75712033, remark = "…馬鹿なこと言わないで！\n手を伸ばしなさい…！", type = 1, option_ids = "0", next = -1, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200011:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712034] = {id = 75712034, remark = "なっ…波が…！　もう…！", type = 1, option_ids = "0", next = 75712035, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200011:0:0,75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712035] = {id = 75712035, remark = "リーダー…！\nフラワーが今助けに…", type = 1, option_ids = "0", next = 75712036, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", role_admission_type = "75200762:0:0", role_departure_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712036] = {id = 75712036, remark = "ダメです、間に合わないです！\nもう流されてるです！", type = 1, option_ids = "0", next = 75712037, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712037] = {id = 75712037, remark = "馬鹿…！　どうして…\nこっちに手を伸ばさなかったのよ！", type = 1, option_ids = "0", next = 75712038, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712038] = {id = 75712038, remark = "そんな…リーダー…", type = 1, option_ids = "0", next = 75712039, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712039] = {id = 75712039, remark = "リーダー！", type = 1, option_ids = "0", next = -1, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712101] = {id = 75712101, remark = "白い砂浜！　青い空！\n浜辺に響く、楽しい声！", type = 1, option_ids = "0", next = 75712102, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712102] = {id = 75712102, remark = "今年も、エイプリルちゃん達が海に来たよー！", type = 1, option_ids = "0", next = 75712103, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712103] = {id = 75712103, remark = "え、えっと…ここって、前に来た海…？\nす、すごく、賑やかになってる…", type = 1, option_ids = "0", next = 75712104, role_ids = "75200321:75200011", role_type = 75200321, position = "195:606:10050,642:606:10000", role_admission_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712104] = {id = 75712104, remark = "お店もいっぱいあるし、人もたくさんいるね。", type = 1, option_ids = "0", next = 75712105, role_ids = "75200131:75200321", role_type = 75200131, position = "195:606:10050,642:606:10000", role_admission_type = "75200131:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712105] = {id = 75712105, remark = "本当にここが、何もないただの海だったの？", type = 1, option_ids = "0", next = 75712106, role_ids = "75200131:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712106] = {id = 75712106, remark = "え～、ほんとにほんとに少なかったんだってば～。\nねっ、リーダー！", type = 1, option_ids = "75801211:75801212", next = 0, role_ids = "75200131:75200511:75200011", role_type = 75200011, position = "64:606:10000,418:606:10000,772:606:10050", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712107] = {id = 75712107, remark = "そうだったんだ～。なのに、今はこんなに\nたくさんの人が、来てくれるようになったんだね。", type = 1, option_ids = "0", next = 75712109, role_ids = "75200131:75200511:75200011", role_type = 75200131, position = "64:606:10050,418:606:10000,772:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712108] = {id = 75712108, remark = "あー、確かにそうだったね～。\nお客さんだと思ったらモンスターとかあったね～。", type = 1, option_ids = "0", next = 75712109, role_ids = "75200131:75200511:75200011", role_type = 75200011, position = "64:606:10000,418:606:10000,772:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712109] = {id = 75712109, remark = "い、今は平和で、にぎやかでいい、けど…\nここまで人が多いと、公演前を思い出しちゃう…", type = 1, option_ids = "0", next = 75712110, role_ids = "75200321", role_type = 75200321, position = "418:606:10050", role_admission_type = "75200321:0:0", role_departure_type = "75200131:0:0,75200511:0:0,75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712110] = {id = 75712110, remark = "観客が…芸が…アンコールが…うぅ…", type = 1, option_ids = "0", next = 75712111, role_ids = "75200321", role_type = 75200321, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712111] = {id = 75712111, remark = "あら～、コンチータちゃんは完全やられてるね～。", type = 1, option_ids = "0", next = 75712112, role_ids = "75200321:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712112] = {id = 75712112, remark = "コンチータ、一緒に楽しもう？\nせっかくの、素敵な海だから。", type = 1, option_ids = "0", next = 75712113, role_ids = "75200131:75200321", role_type = 75200131, position = "195:606:10050,642:606:10000", role_admission_type = "75200131:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712113] = {id = 75712113, remark = "あ、ありがとう…そう、だよね…", type = 1, option_ids = "0", next = 75712114, role_ids = "75200131:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712114] = {id = 75712114, remark = "そうそう、フラワーちゃんの言う通り！\nってわけで新しくできたプールにでも行こ――", type = 1, option_ids = "0", next = 75712115, role_ids = "75200321:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712115] = {id = 75712115, remark = "――待ちなさい。どうして遊びだそうとしているの？\n目的はどうしたの？", type = 1, option_ids = "0", next = 75712116, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712116] = {id = 75712116, remark = "え？　目的？", type = 1, option_ids = "0", next = 75712117, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712117] = {id = 75712117, remark = "言ってたのはあなたでしょう？　「海でどうしても\nやらなきゃいけない仕事がある」って。", type = 1, option_ids = "0", next = 75712118, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712118] = {id = 75712118, remark = "あ～、それね！\nそういえばそんなことも言ってたよね！", type = 1, option_ids = "0", next = 75712119, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712119] = {id = 75712119, remark = "まぁ、嘘だから忘れて大丈夫！", type = 1, option_ids = "0", next = 75712120, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712120] = {id = 75712120, remark = "…は？　嘘…？", type = 1, option_ids = "0", next = 75712121, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712121] = {id = 75712121, remark = "うん！　やらなきゃいけない仕事は、ないってこと！", type = 1, option_ids = "0", next = 75712122, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712122] = {id = 75712122, remark = "…つ、つまり…嘘…？\nな、なんのためにそんな嘘を…？", type = 1, option_ids = "0", next = 75712123, role_ids = "75200321:75200011", role_type = 75200321, position = "195:606:10050,642:606:10000", role_admission_type = "75200321:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712123] = {id = 75712123, remark = "いやほら、去年の水着コンテストが大盛り上がりして、\nこう盛り上がったでしょ？", type = 1, option_ids = "0", next = 75712124, role_ids = "75200321:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712124] = {id = 75712124, remark = "それですごいリゾート地にまでなったって聞いたら、\nいてもたってもいられなくなって…", type = 1, option_ids = "0", next = 75712125, role_ids = "75200321:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712125] = {id = 75712125, remark = "みんなと遊びたくて、いろいろ言って\nここまで来てもらった、ってわけなんだ～。", type = 1, option_ids = "0", next = 75712126, role_ids = "75200321:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712126] = {id = 75712126, remark = "それじゃあ、フラワー達、\nここで遊ぶだけでいい…ってこと？", type = 1, option_ids = "0", next = 75712127, role_ids = "75200011:75200131", role_type = 75200131, position = "195:606:10000,642:606:10050", role_admission_type = "75200131:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712127] = {id = 75712127, remark = "そうそう！　そういうこと～♪", type = 1, option_ids = "0", next = 75712128, role_ids = "75200011:75200131", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712128] = {id = 75712128, remark = "あとでオリヴィアちゃん達も来る予定だし～、\nめいっぱい遊ぼうねー♪", type = 1, option_ids = "0", next = 75712129, role_ids = "75200011:75200131", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712129] = {id = 75712129, remark = "…エイプリル。その前に責任を取ってもらうわよ。", type = 1, option_ids = "0", next = 75712130, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712130] = {id = 75712130, remark = "私達を騙したことの責任だけは…ね？", type = 1, option_ids = "0", next = 75712131, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712131] = {id = 75712131, remark = "わー、待って待って！\n遊びたいのは本当だけど、それだけじゃないってば～！", type = 1, option_ids = "0", next = 75712132, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712132] = {id = 75712132, remark = "黙りなさい。\nそんな言い訳が通るわけ――", type = 1, option_ids = "0", next = 75712133, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712133] = {id = 75712133, remark = "いいえ！\nまったくもってエイプリルの言う通りなのです！", type = 1, option_ids = "0", next = 75712134, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200511:0:0,75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712134] = {id = 75712134, remark = "これは、遊びではないのです！", type = 1, option_ids = "0", next = -1, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712201] = {id = 75712201, remark = "リ、リッタ…？\nあ、遊びじゃないって、どういうこと…？", type = 1, option_ids = "0", next = 75712202, role_ids = "75200321", role_type = 75200321, position = "418:606:10050", role_admission_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712202] = {id = 75712202, remark = "エイプリルをここに呼んだのはリッタです。\n実は皆さんにお願いしたいことがあるのです！", type = 1, option_ids = "0", next = 75712203, role_ids = "75200211:75200321", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712203] = {id = 75712203, remark = "お願いしたいこと…？\nそれって、フラワーにもできること？", type = 1, option_ids = "0", next = 75712204, role_ids = "75200131:75200211", role_type = 75200131, position = "195:606:10050,642:606:10000", role_admission_type = "75200131:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712204] = {id = 75712204, remark = "大丈夫です！\nというより、皆さんにしかお願いできないことですよ！", type = 1, option_ids = "0", next = 75712205, role_ids = "75200131:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712205] = {id = 75712205, remark = "エイプリル、去年ここにあったリッタのお店を\n覚えていますか？", type = 1, option_ids = "0", next = 75712206, role_ids = "75200131:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712206] = {id = 75712206, remark = "うんうん、覚えてるよ！\n何せみんなで一生懸命建て直したからね！", type = 1, option_ids = "0", next = 75712207, role_ids = "75200211:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712207] = {id = 75712207, remark = "ええ、あの時はおかげさまでした。\nあの後も、売り上げを使ってさらに改装したですよ。", type = 1, option_ids = "0", next = 75712208, role_ids = "75200211:75200011", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712208] = {id = 75712208, remark = "だから今年の売り上げは倍増すると思っていたです。\nそれなのに…それなのに…！", type = 1, option_ids = "0", next = 75712209, role_ids = "75200211:75200011", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712209] = {id = 75712209, remark = "リッタのお店が、\nマフィアに奪われてしまったですよー！", type = 1, option_ids = "0", next = 75712210, role_ids = "75200211:75200011", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712210] = {id = 75712210, remark = "え…えええっ！？　マフィアに！？\nいったいどうして…", type = 1, option_ids = "0", next = 75712211, role_ids = "75200211:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", role_admission_type = "75200321:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712211] = {id = 75712211, remark = "去年の人ごみから、この海辺と\nリッタの店に目を付けたらしく…", type = 1, option_ids = "0", next = 75712212, role_ids = "75200211:75200321", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712212] = {id = 75712212, remark = "リッタはあくどい手を使われて、\n店や土地の権利書を奪われてしまったですっ！", type = 1, option_ids = "0", next = 75712213, role_ids = "75200211:75200321", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712213] = {id = 75712213, remark = "そうだったんだ…\n悲しかったね…よしよし。", type = 1, option_ids = "0", next = 75712214, role_ids = "75200131:75200211", role_type = 75200131, position = "195:606:10050,642:606:10000", role_admission_type = "75200131:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712214] = {id = 75712214, remark = "うぅ…あいつら、絶対に許さないです…！", type = 1, option_ids = "0", next = 75712215, role_ids = "75200131:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712215] = {id = 75712215, remark = "それにしても、あくどい手って…\nどんな手を使われたの？", type = 1, option_ids = "0", next = 75712216, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712216] = {id = 75712216, remark = "よくぞ聞いてくれましたです。\n思い出すと腹が立って仕方ないですが…", type = 1, option_ids = "0", next = 75712217, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712217] = {id = 75712217, remark = "権利書は、リッタ自慢の地下の秘密倉庫に\nしっかりと隠していたです。ですが…", type = 1, option_ids = "0", next = 75712218, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712218] = {id = 75712218, remark = "リッタが少し目を離したスキに、\nいつの間にか奪われていたです…！", type = 1, option_ids = "0", next = 75712219, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712219] = {id = 75712219, remark = "……\nつまり、ただの不用心で盗まれた、ってこと？", type = 1, option_ids = "0", next = 75712220, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712220] = {id = 75712220, remark = "不用心じゃないですよ！\n犯人が卑劣な手段で、権利書を奪いとったです！！", type = 1, option_ids = "0", next = 75712221, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712221] = {id = 75712221, remark = "…とにかくそれで、その権利書を\n取り戻すためにエイプリルを呼んだ、というわけね。", type = 1, option_ids = "0", next = 75712222, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712222] = {id = 75712222, remark = "私、帰ってもいいかしら。", type = 1, option_ids = "0", next = 75712223, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712223] = {id = 75712223, remark = "あー、待って待って！\n被害にあってるの、リッタちゃんだけじゃないんだよ！", type = 1, option_ids = "0", next = 75712224, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200211:0:0,75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712224] = {id = 75712224, remark = "リッタちゃんみたいにお店を無理やり取られたり、\n女の子が行方不明になる事件が何度も起きてるみたい。", type = 1, option_ids = "0", next = 75712225, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712225] = {id = 75712225, remark = "な、何度も…？\n犯人は、わかってない…？", type = 1, option_ids = "0", next = 75712226, role_ids = "75200321:75200011", role_type = 75200321, position = "195:606:10050,642:606:10000", role_admission_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712226] = {id = 75712226, remark = "噂じゃ、ここのオーナーのマフィアだって\n言われてるんだけどさー。", type = 1, option_ids = "0", next = 75712227, role_ids = "75200321:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712227] = {id = 75712227, remark = "調べてくれたシルヴィちゃん曰く、\n圧力をかけられてて、記事にもできないんだって。", type = 1, option_ids = "0", next = 75712228, role_ids = "75200321:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712228] = {id = 75712228, remark = "…なるほどね。", type = 1, option_ids = "0", next = 75712229, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712229] = {id = 75712229, remark = "他にも黒い噂がいっぱいだし、\n放っておくわけにはいかないでしょ！　ね、リーダー！", type = 1, option_ids = "75801213:75801214", next = 0, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712230] = {id = 75712230, remark = "うん。ひどいことするの、ダメ。", type = 1, option_ids = "0", next = 75712232, role_ids = "75200131:75200011", role_type = 75200131, position = "195:606:10050,642:606:10000", role_admission_type = "75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712231] = {id = 75712231, remark = "もちろんです！\nお店の権利書も取り戻さないといけませんから！", type = 1, option_ids = "0", next = 75712232, role_ids = "75200211:75200011", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", role_departure_type = "75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712232] = {id = 75712232, remark = "よーし、それじゃあ決まりだね！", type = 1, option_ids = "0", next = 75712233, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_departure_type = "75200211:0:0,75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712233] = {id = 75712233, remark = "…で、でも、どうやって解決する？\n相手がマフィアじゃ、警備だってすごそう、だし…", type = 1, option_ids = "0", next = 75712234, role_ids = "75200321:75200011", role_type = 75200321, position = "195:606:10050,642:606:10000", role_admission_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712234] = {id = 75712234, remark = "そうね、ただ証拠を集めて\n解決、とはいかなさそうだけど。", type = 1, option_ids = "0", next = 75712235, role_ids = "75200011:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712235] = {id = 75712235, remark = "うんうん、そうだね。\n普通にやっただけじゃ、解決できないよね！", type = 1, option_ids = "0", next = 75712236, role_ids = "75200011:75200511", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712236] = {id = 75712236, remark = "だから――おとり捜査をするのはどうかな！", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200511", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712301] = {id = 75712301, remark = "今まで行方不明になってる女の子は、\nほとんどがレッドの子なんだって。", type = 1, option_ids = "0", next = 75712302, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712302] = {id = 75712302, remark = "だから私達がおとりとしてビーチで遊んでいれば、\nきっとマフィアが目をつけると思うんだ！", type = 1, option_ids = "0", next = 75712303, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712303] = {id = 75712303, remark = "まぁ、マフィアなんて闇雲に探しても\n出てこないでしょうし、それがいいかもしれないわね。", type = 1, option_ids = "0", next = 75712304, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712304] = {id = 75712304, remark = "レッドをさらうような輩を、放っておけないし…", type = 1, option_ids = "0", next = 75712305, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712305] = {id = 75712305, remark = "ちゅ、注目されるのは、怖いけど…\nでも、その…やってみる…", type = 1, option_ids = "0", next = 75712306, role_ids = "75200321:75200511", role_type = 75200321, position = "195:606:10050,642:606:10000", role_admission_type = "75200321:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712306] = {id = 75712306, remark = "みんなを助けられるんだよね？\nフラワーも頑張って遊ぶよ。", type = 1, option_ids = "0", next = 75712307, role_ids = "75200131:75200321", role_type = 75200131, position = "195:606:10050,642:606:10000", role_admission_type = "75200131:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712307] = {id = 75712307, remark = "それじゃあ、おとり作戦で決まりだね！\nじゃあ、はいこれっ！", type = 1, option_ids = "0", next = 75712308, role_ids = "75200131:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712308] = {id = 75712308, remark = "これがシェリーちゃんで、これがフラワーちゃんで、\nこれがコンチータちゃんの分！", type = 1, option_ids = "0", next = 75712309, role_ids = "75200131:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712309] = {id = 75712309, remark = "これ、何…？", type = 1, option_ids = "0", next = 75712310, role_ids = "75200011:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", role_admission_type = "75200321:0:0", role_departure_type = "75200131:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712310] = {id = 75712310, remark = "もちろん、水着だよ！", type = 1, option_ids = "0", next = 75712311, role_ids = "75200011:75200321", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712311] = {id = 75712311, remark = "海なのに私服でいると不自然だし、\nおとり捜査の意味がなくなっちゃうでしょ？", type = 1, option_ids = "0", next = 75712312, role_ids = "75200011:75200321", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712312] = {id = 75712312, remark = "…正論なのに、なんだか気に食わないわね…", type = 1, option_ids = "0", next = 75712313, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712313] = {id = 75712313, remark = "フラワー、お着替え楽しみ～。\n「みずぎ」っていうのも、初めて着るよ。", type = 1, option_ids = "0", next = 75712314, role_ids = "75200131:75200011", role_type = 75200131, position = "195:606:10050,642:606:10000", role_admission_type = "75200131:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712314] = {id = 75712314, remark = "うんうん、みんなに似合うものを選んできたから、\nちゃんと着替えてね♪", type = 1, option_ids = "0", next = 75712315, role_ids = "75200131:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712315] = {id = 75712315, remark = "うん。…あれ？　コンチータ、大丈夫？\nなんだか、顔色が悪いよ？", type = 1, option_ids = "0", next = 75712316, role_ids = "75200131:75200011", role_type = 75200131, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712316] = {id = 75712316, remark = "う…大丈夫じゃない…無理…\nこの人の多さの中肌を露出するとか…吐く…", type = 1, option_ids = "0", next = 75712317, role_ids = "75200131:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", role_admission_type = "75200321:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712317] = {id = 75712317, remark = "と、というわけで私はこの格好のままということで…", type = 1, option_ids = "75801215:75801216", next = 0, role_ids = "75200131:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712318] = {id = 75712318, remark = "そ、それは…うぅ…\nたしかにリーダーの言う通りかも…", type = 1, option_ids = "0", next = 75712320, role_ids = "75200131:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712319] = {id = 75712319, remark = "…うう。\nわ、わかった。思い込むのは…得意なはず…！？", type = 1, option_ids = "0", next = 75712320, role_ids = "75200131:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712320] = {id = 75712320, remark = "…決めた…！\nき、着替えてくる…！", type = 1, option_ids = "0", next = 75712321, role_ids = "75200131:75200321", role_type = 75200321, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712321] = {id = 75712321, remark = "うんうん！\n覚悟を決めたね、いってらっしゃーい！", type = 1, option_ids = "0", next = 75712322, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200131:0:0,75200321:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712322] = {id = 75712322, remark = "それじゃあ、着替えたらまたここに来てね～！", type = 1, option_ids = "0", next = 75712323, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712323] = {id = 75712323, remark = "ってちょっと。\nあなたは着替えるつもりないわけ…！？", type = 1, option_ids = "0", next = 75712324, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712324] = {id = 75712324, remark = "いやー、実は良い水着が見つからなくて。", type = 1, option_ids = "0", next = 75712325, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712325] = {id = 75712325, remark = "………", type = 1, option_ids = "0", next = 75712326, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712326] = {id = 75712326, remark = "あ、シェリーちゃん怖い顔。落ち着いて！\n事情は、それだけじゃなくてー。", type = 1, option_ids = "0", next = 75712327, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712327] = {id = 75712327, remark = "ほらエイプリルちゃん、水着着たら絶対に遊ぶ自信しか\nないから。水着は調査が済んでからがいいなーって！", type = 1, option_ids = "0", next = 75712328, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712328] = {id = 75712328, remark = "…反論はできないけど、\nやっぱりなんだか腹立たしいわ…", type = 1, option_ids = "0", next = -1, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712401] = {id = 75712401, remark = "そろそろ着替え終わってもいい頃だと思うですが…", type = 1, option_ids = "0", next = 75712402, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712402] = {id = 75712402, remark = "あ、シェリーが戻ってきたですよ！\n…あれ？", type = 1, option_ids = "0", next = 75712403, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712403] = {id = 75712403, remark = "……", type = 1, option_ids = "0", next = 75712404, role_ids = "75200511:75200211", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712404] = {id = 75712404, remark = "シェリー、水着に着替えてないですよ？\nそれに殺気立ってるというか、なんというか…", type = 1, option_ids = "0", next = 75712405, role_ids = "75200511:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712405] = {id = 75712405, remark = "ほんとだ！\nシェリーちゃん、どうしたの！？", type = 1, option_ids = "0", next = 75712406, role_ids = "75200011:75200211", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712406] = {id = 75712406, remark = "………エイプリル。", type = 1, option_ids = "0", next = 75712407, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712407] = {id = 75712407, remark = "ん？\nなになに、シェリーちゃん？", type = 1, option_ids = "0", next = 75712408, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712408] = {id = 75712408, remark = "殺すわ。", type = 1, option_ids = "0", next = 75712409, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712409] = {id = 75712409, remark = "わああっ！？\nシェリーちゃん、剣なんて振り回したら危ないよ！", type = 1, option_ids = "0", next = 75712410, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712410] = {id = 75712410, remark = "何があったか分からないけど、落ち着いて！\nまずは話し合おうよー！", type = 1, option_ids = "0", next = 75712411, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712411] = {id = 75712411, remark = "こんなものを渡されて、\n落ち着けるわけないでしょう…！", type = 1, option_ids = "0", next = 75712412, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712412] = {id = 75712412, remark = "こんなもの？\n…って、これは…紐、ですか？", type = 1, option_ids = "0", next = 75712413, role_ids = "75200511:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712413] = {id = 75712413, remark = "違うよ！\nシェリーちゃんの水着だよ！", type = 1, option_ids = "0", next = 75712414, role_ids = "75200011:75200211", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712414] = {id = 75712414, remark = "ふざけないで！\nこれでどこを隠せるというの！", type = 1, option_ids = "0", next = 75712415, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712415] = {id = 75712415, remark = "これしかなかったんだもん！\n着てくれてもいいじゃん、シェリーちゃんのケチ―！", type = 1, option_ids = "0", next = 75712416, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712416] = {id = 75712416, remark = "ケチとかそういう問題じゃないでしょう！\nいいからおとなしく私に斬られなさい！", type = 1, option_ids = "0", next = 75712417, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712417] = {id = 75712417, remark = "わあっ！？\nそ、そんなの嫌に決まってるよー！", type = 1, option_ids = "0", next = 75712418, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712418] = {id = 75712418, remark = "…あっちはしばらくは収まりそうにないですね。\n後の二人は――", type = 1, option_ids = "0", next = 75712419, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200511:400:0,75200011:400:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712419] = {id = 75712419, remark = "…おまたせ…うぅ、恥ずかしい…\n早く着替えたい…", type = 1, option_ids = "0", next = 75712420, role_ids = "75200752:75200211", role_type = 75200752, position = "195:606:10050,642:606:10000", role_admission_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712420] = {id = 75712420, remark = "おまたせー。\nこれが水着、なんだねー。", type = 1, option_ids = "75801217:75801218", next = 0, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", role_admission_type = "75200762:0:0", role_departure_type = "75200752:0:0,75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712421] = {id = 75712421, remark = "う、ありがとう…\nで、でもやっぱり…恥ずかしいから着替えたい…", type = 1, option_ids = "0", next = 75712423, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712422] = {id = 75712422, remark = "本当だわ…\nどうして私の水着だけあんなものだったの…", type = 1, option_ids = "0", next = 75712423, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200752:0:0,75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712423] = {id = 75712423, remark = "はぁ…本当に殺されちゃうかと思ったよ…", type = 1, option_ids = "0", next = 75712424, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712424] = {id = 75712424, remark = "ともかく、シェリーちゃんの件は残念だったとして…\n二人とも、着替えてくれてありがとう！", type = 1, option_ids = "0", next = 75712425, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712425] = {id = 75712425, remark = "いや～、やっぱりエイプリルちゃんの目に\n狂いはなかったね！", type = 1, option_ids = "0", next = 75712426, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712426] = {id = 75712426, remark = "二人ともビーチで一際輝いてるし…\nこれならきっといい結果を残せるね♪", type = 1, option_ids = "0", next = 75712427, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712427] = {id = 75712427, remark = "え、け、結果…？　なんのこと…？", type = 1, option_ids = "0", next = 75712428, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", role_admission_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712428] = {id = 75712428, remark = "…なんだか嫌な予感がするのだけれど。\n何を企んでいるの？", type = 1, option_ids = "0", next = 75712429, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712429] = {id = 75712429, remark = "やだなー、企んでなんかないよ！\nちゃんとおとり捜査に必要なことだから！", type = 1, option_ids = "0", next = 75712430, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712430] = {id = 75712430, remark = "…疑わしいけど、\n一応、聞かせてもらえるかしら。", type = 1, option_ids = "0", next = 75712431, role_ids = "75200511:75200011", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712431] = {id = 75712431, remark = "調査によると、行方不明になってる子って\nとびきりかわいい子が多いんだって。", type = 1, option_ids = "0", next = 75712432, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712432] = {id = 75712432, remark = "そして、かわいい女の子が集まる場所といえば、\n水着コンテスト以外にないよね！", type = 1, option_ids = "0", next = 75712433, role_ids = "75200511:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712433] = {id = 75712433, remark = "そ、そんなことはないと思うけど、\nもしかして…", type = 1, option_ids = "0", next = 75712434, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712434] = {id = 75712434, remark = "うん！　というわけで水着に着替えた二人には\nコンテストに出てもらうから。よろしくね～♪", type = 1, option_ids = "0", next = 75712435, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712435] = {id = 75712435, remark = "え…えええ～！？", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
+, 
+[75712501] = {id = 75712501, remark = "コンテストって、なぁに…？", type = 1, option_ids = "0", next = 75712502, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712502] = {id = 75712502, remark = "簡単に言うと、このビーチで\n一番の美女を決める催しですよ。", type = 1, option_ids = "0", next = 75712503, role_ids = "75200211:75200762", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712503] = {id = 75712503, remark = "去年大盛況だったのを受けて、\n今年も開催するみたいです。", type = 1, option_ids = "0", next = 75712504, role_ids = "75200211:75200762", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712504] = {id = 75712504, remark = "わぁ、なんだか楽しそう。\nフラワー、楽しみ～。", type = 1, option_ids = "0", next = 75712505, role_ids = "75200211:75200762", role_type = 75200762, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712505] = {id = 75712505, remark = "フラワーちゃんならそう言ってくれると思ったよ！\n今の段階でもみんな注目してるし、優勝候補だね！", type = 1, option_ids = "0", next = 75712506, role_ids = "75200762:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712506] = {id = 75712506, remark = "優勝…一番、ってこと？\nえへへ、フラワー、頑張るね。", type = 1, option_ids = "0", next = 75712507, role_ids = "75200762:75200011", role_type = 75200762, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712507] = {id = 75712507, remark = "うんうん！　期待してるよ！", type = 1, option_ids = "0", next = 75712508, role_ids = "75200762:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712508] = {id = 75712508, remark = "フラワーちゃんはオッケーでー、\nコンチータちゃんも参加してくれるよね？", type = 1, option_ids = "0", next = 75712509, role_ids = "75200762:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712509] = {id = 75712509, remark = "む、無理…！　絶対無理…！\n水着で人前とか、できない…！", type = 1, option_ids = "0", next = 75712510, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712510] = {id = 75712510, remark = "普通の格好でも無理なのに、水着でなんて無理…！\nう、うぷ…想像しただけで、吐き気が…", type = 1, option_ids = "0", next = 75712511, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712511] = {id = 75712511, remark = "大丈夫だよ！\n人前に立つ練習だと思ってやればいいんだよ！", type = 1, option_ids = "0", next = 75712512, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712512] = {id = 75712512, remark = "ひ、人前に立つ練習なら普通の格好でも…", type = 1, option_ids = "0", next = 75712513, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712513] = {id = 75712513, remark = "コンチータちゃん、水着でやるから意味があるんだよ！", type = 1, option_ids = "0", next = 75712514, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712514] = {id = 75712514, remark = "一回水着で人前に出たら、\n普通の格好で人前に立つのなんてへっちゃらでしょ？", type = 1, option_ids = "0", next = 75712515, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712515] = {id = 75712515, remark = "う…それは、そうなのかな…？", type = 1, option_ids = "0", next = 75712516, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712516] = {id = 75712516, remark = "そうに決まってるよ！\nだからコンチータちゃん、頑張ってみよ！", type = 1, option_ids = "0", next = 75712517, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712517] = {id = 75712517, remark = "わ、わかった…\nやってみる…", type = 1, option_ids = "0", next = 75712518, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712518] = {id = 75712518, remark = "よーし、これでコンチータちゃんも参加、っと♪", type = 1, option_ids = "0", next = 75712519, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712519] = {id = 75712519, remark = "…うまく丸め込まれたわね。", type = 1, option_ids = "0", next = 75712520, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200011:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712520] = {id = 75712520, remark = "…もし水着に着替えていたら、\n私もコンテストに出ていたのかしら。", type = 1, option_ids = "0", next = 75712521, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712521] = {id = 75712521, remark = "…かもしれないです。", type = 1, option_ids = "0", next = 75712522, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712522] = {id = 75712522, remark = "…着替えなくてよかったわ。", type = 1, option_ids = "0", next = 75712523, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712523] = {id = 75712523, remark = "じゃあ、二人の許可もとれたし、\n作戦についてもう一回確認しよう！", type = 1, option_ids = "0", next = 75712524, role_ids = "75200211:75200511", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712524] = {id = 75712524, remark = "まず、フラワーちゃんとコンチータちゃんが\nコンテストに出て、注目を集める！", type = 1, option_ids = "0", next = 75712525, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200211:0:0,75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712525] = {id = 75712525, remark = "シェリーちゃんとリッタちゃんは\n女の子が捕まってる場所がどこか情報を集める！", type = 1, option_ids = "0", next = 75712526, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712526] = {id = 75712526, remark = "それじゃあ、作戦会議は以上だよ！\nおとり作戦、開始！", type = 1, option_ids = "0", next = 75712527, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712527] = {id = 75712527, remark = "はいです！　…ってあれ？\nエイプリルとリーダーは何をするですか？", type = 1, option_ids = "0", next = 75712528, role_ids = "75200211:75200011", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712528] = {id = 75712528, remark = "あー、わたしは別でやることがあるから、\n作戦には参加できないんだー。", type = 1, option_ids = "0", next = 75712529, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712529] = {id = 75712529, remark = "リーダーにも頼みたいことがあるから、\nちょーっと一緒に来てもらっていい？", type = 1, option_ids = "75801219:75801220", next = 0, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712530] = {id = 75712530, remark = "こっちは二人で十分ですよ。\nやることがあるならそっちを優先するです。", type = 1, option_ids = "0", next = 75712533, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712531] = {id = 75712531, remark = "まずは私とリッタだけで調べるわ。\nリーダーはエイプリルを見張っていて。", type = 1, option_ids = "0", next = 75712532, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0,75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712532] = {id = 75712532, remark = "放っておいたら、\n何をするかわかったものじゃないもの。", type = 1, option_ids = "0", next = 75712533, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712533] = {id = 75712533, remark = "えへへー、じゃあ決まりだね！\nリーダー、こっちに来て！", type = 1, option_ids = "0", next = 75712534, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0,75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712534] = {id = 75712534, remark = "リーダーにはね～、今回特別な役割があるんだ♪", type = 1, option_ids = "0", next = -1, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712601] = {id = 75712601, remark = "コンテスト、始まっちゃった…うぅ、うぷ…", type = 1, option_ids = "0", next = 75712602, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712602] = {id = 75712602, remark = "コンテストなんてやっぱりやめておけばよかった…\n今からでも辞退したい…", type = 1, option_ids = "0", next = 75712603, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712603] = {id = 75712603, remark = "コンチータ、大丈夫？\nフラワーがよしよししてあげるよ。", type = 1, option_ids = "0", next = 75712604, role_ids = "75200762:75200752", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712604] = {id = 75712604, remark = "よしよし、よしよし。", type = 1, option_ids = "0", next = 75712605, role_ids = "75200762:75200752", role_type = 75200762, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712605] = {id = 75712605, remark = "う…ちょっと落ち着いた…\nありがとう、フラワー…", type = 1, option_ids = "0", next = 75712606, role_ids = "75200762:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712606] = {id = 75712606, remark = "コンチータ、元気になった？\nそれならよかった。", type = 1, option_ids = "0", next = 75712607, role_ids = "75200762:75200752", role_type = 75200762, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712607] = {id = 75712607, remark = "リーダーとエイプリルもあそこで応援してくれるし、\n一緒に頑張ろう？", type = 1, option_ids = "0", next = 75712608, role_ids = "75200762:75200752", role_type = 75200762, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712608] = {id = 75712608, remark = "二人とも～！　頑張って～！", type = 1, option_ids = "0", next = 75712609, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200762:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712609] = {id = 75712609, remark = "…え？　なんでリーダー達が\n審査員の席にいる…？", type = 1, option_ids = "0", next = 75712610, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10050,642:606:10000", role_admission_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712610] = {id = 75712610, remark = "えへへー。水着コンテストを提案したって言ったら\n運営の人にスカウトされちゃった！", type = 1, option_ids = "0", next = 75712611, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712611] = {id = 75712611, remark = "わぁ…二人ともすごーい。", type = 1, option_ids = "0", next = 75712612, role_ids = "75200762:75200011", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", role_departure_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712612] = {id = 75712612, remark = "ふふー。仲間だとしても厳しくバシバシいくからね！\nそれじゃあ、リーダーも一言よろしく！", type = 1, option_ids = "75801221:75801222", next = 0, role_ids = "75200762:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712613] = {id = 75712613, remark = "リーダー。\nフラワー、頑張るから見ててね。", type = 1, option_ids = "0", next = 75712615, role_ids = "75200762:75200011", role_type = 75200762, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712614] = {id = 75712614, remark = "う、真面目…\nでも、その方がやりやすい、かも…", type = 1, option_ids = "0", next = 75712615, role_ids = "75200011:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712615] = {id = 75712615, remark = "それじゃあ、審査員の挨拶も終わったところで…\n参加者のアピールタイム、いってみよー！", type = 1, option_ids = "0", next = -1, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_departure_type = "75200752:0:0,75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712616] = {id = 75712616, remark = "さあ、続きましてはコンチータ選手のアピールタイム！\nさてさて、どんな魅力を見せてくれるんでしょうか！？", type = 1, option_ids = "0", next = 75712617, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200752:0:0,75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712617] = {id = 75712617, remark = "こ、これも練習、練習だから…\nすぅ…はぁ…", type = 1, option_ids = "0", next = 75712618, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200011:0:0,75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712618] = {id = 75712618, remark = "――さあ、お集りの皆さん！\nここでお見せするは奇跡の曲芸！", type = 1, option_ids = "0", next = 75712619, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712619] = {id = 75712619, remark = "今日お見せするのはナイフの上でナイフを回す、\nナイフジャグリング！", type = 1, option_ids = "0", next = 75712620, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712620] = {id = 75712620, remark = "では、ご覧ください！\nふっ！　はっ！", type = 1, option_ids = "0", next = 75712621, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712621] = {id = 75712621, remark = "ここで更にナイフを増やして――はっ！", type = 1, option_ids = "0", next = 75712622, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712622] = {id = 75712622, remark = "おおっ！　これはすごい！\n会場も沸いてるし、これは高得点間違いなしだー！", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712623] = {id = 75712623, remark = "さあ、続いてはフラワー選手のアピールタイム！\nフラワー選手、特技はなんでしょうか？", type = 1, option_ids = "0", next = 75712624, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712624] = {id = 75712624, remark = "フラワーはね、よしよしってしてあげるのが得意だよ。\nよしよしってすると、みんな元気になってくれるの。", type = 1, option_ids = "0", next = 75712625, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", role_admission_type = "75200762:0:0", role_departure_type = "75200011:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712625] = {id = 75712625, remark = "だから、フラワーによしよしってしてほしい人、\nだれかいるかな？", type = 1, option_ids = "0", next = 75712626, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712626] = {id = 75712626, remark = "はいっ！", type = 1, option_ids = "0", next = 75712627, role_ids = "75210108:75210109", role_type = 75210107, position = "195:606:10050,642:606:10000", role_admission_type = "75210107:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712627] = {id = 75712627, remark = "おおっと！\nどうやらよしよししてほしい人は何人もいるようです！", type = 1, option_ids = "0", next = 75712628, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75210108:0:0,75210109:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712628] = {id = 75712628, remark = "よしよしをしてもらうのは俺だ！", type = 1, option_ids = "0", next = 75712629, role_ids = "75210108", role_type = 75210108, position = "418:606:10050", role_admission_type = "75210108:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712629] = {id = 75712629, remark = "いいや、こっちの方が先に手を挙げてた！", type = 1, option_ids = "0", next = 75712630, role_ids = "75210108:75210109", role_type = 75210109, position = "195:606:10050,642:606:10000", role_admission_type = "75210109:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712630] = {id = 75712630, remark = "みんな。ケンカはしちゃ、めっ、だよ。\nちゃんとみんなよしよしってしてあげるから。ね？", type = 1, option_ids = "0", next = 75712631, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", role_admission_type = "75200762:0:0", role_departure_type = "75210108:0:0,75210109:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712631] = {id = 75712631, remark = "まずはあなたからだね。\nよしよし、よしよし。", type = 1, option_ids = "0", next = 75712632, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712632] = {id = 75712632, remark = "フラワー選手の母性に、会場はノックアウト寸前だー！\nこれも得点が高そうだよー！", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200762", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712633] = {id = 75712633, remark = "ふぅー、お疲れさま、リーダー！\n手伝ってくれてありがとね！", type = 1, option_ids = "0", next = 75712634, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712634] = {id = 75712634, remark = "後は観客と審査員の投票と集計だから、\nのんびり待つだけだよ！", type = 1, option_ids = "0", next = 75712635, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712635] = {id = 75712635, remark = "ただいま戻ったですよ。\nコンテストも無事終わったみたいですね。", type = 1, option_ids = "0", next = 75712636, role_ids = "75200211:75200011", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712636] = {id = 75712636, remark = "あ、リッタちゃん、シェリーちゃん！\nおかえりなさーい！", type = 1, option_ids = "0", next = 75712637, role_ids = "75200211:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712637] = {id = 75712637, remark = "こっちは順調に終わったよ！\nシェリーちゃん達はどうだった？", type = 1, option_ids = "0", next = 75712638, role_ids = "75200211:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712638] = {id = 75712638, remark = "ええ。こちらもいい情報を得られたわ。\n…あまり良くない情報もあるけれどね。", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200511", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020006}
+, 
+[75712701] = {id = 75712701, remark = "まずは良い報告の方からです。\n行方不明者の居場所がわかったですよ。", type = 1, option_ids = "0", next = 75712702, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712702] = {id = 75712702, remark = "おおー！　さっすがー！\nそれで、どこに捕まってるの？", type = 1, option_ids = "0", next = 75712703, role_ids = "75200011:75200211", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712703] = {id = 75712703, remark = "リゾートのオーナーの屋敷ですよ。\nあの黒い噂が絶えない奴の家に捕まってるです。", type = 1, option_ids = "0", next = 75712704, role_ids = "75200011:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712704] = {id = 75712704, remark = "姿を消したレッドはみんな、オーナーの屋敷に\n招かれた後に行方不明になっているわ。", type = 1, option_ids = "0", next = 75712705, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712705] = {id = 75712705, remark = "そこから出た形跡もないから、オーナーの屋敷の中…\nと考えるのが自然よ。", type = 1, option_ids = "0", next = 75712706, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712706] = {id = 75712706, remark = "ただ…む～…", type = 1, option_ids = "0", next = 75712707, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712707] = {id = 75712707, remark = "あれ？　リッタちゃん、どうしたの？", type = 1, option_ids = "0", next = 75712708, role_ids = "75200011:75200211", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712708] = {id = 75712708, remark = "そのレッドが捕らえられているオーナーの屋敷、\n元々は彼女の店らしいわ。", type = 1, option_ids = "0", next = 75712709, role_ids = "75200011:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712709] = {id = 75712709, remark = "そうなのです！\nリッタのお店をこんなことに使うなんて許せないです！", type = 1, option_ids = "0", next = 75712710, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712710] = {id = 75712710, remark = "リッタには悪いけれど、都合がいいといえばいいわ。\n自分の店なら、中の構造は把握しているでしょう？", type = 1, option_ids = "0", next = 75712711, role_ids = "75200211:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712711] = {id = 75712711, remark = "たしかにレッドが捕らえられているだろう\n部屋に心当たりはあるですが…", type = 1, option_ids = "0", next = 75712712, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712712] = {id = 75712712, remark = "そうなんだ！\nじゃあさっそく屋敷に突撃だね！", type = 1, option_ids = "0", next = 75712713, role_ids = "75200011:75200211", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712713] = {id = 75712713, remark = "残念だけど…\nことはそう簡単じゃないわ。", type = 1, option_ids = "0", next = 75712714, role_ids = "75200011:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712714] = {id = 75712714, remark = "屋敷の警備が厳重で、内部に侵入できる場所全てに\nマフィアが配置されていたの。", type = 1, option_ids = "0", next = 75712715, role_ids = "75200011:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712715] = {id = 75712715, remark = "強引に中に…というのもできなくはないけれど…\n中にいるレッドに危険が及ぶかもしれないわ。", type = 1, option_ids = "0", next = 75712716, role_ids = "75200011:75200511", role_type = 75200511, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712716] = {id = 75712716, remark = "そっかぁ～…困ったね。\nこっちもマフィアは見てないし…", type = 1, option_ids = "0", next = 75712717, role_ids = "75200011:75200511", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712717] = {id = 75712717, remark = "何かいい方法、ないかなあ…", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200511", role_type = 75200011, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75712718] = {id = 75712718, remark = "フラワーさん、改めて優勝おめでとうございます。", type = 1, option_ids = "0", next = 75712719, role_ids = "75210110", role_type = 75210110, position = "418:606:10050", role_admission_type = "75210110:0:0", role_departure_type = "75200011:0:0,75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712719] = {id = 75712719, remark = "それでは、オーナーに連絡をいたしますので、\nこちらで少々お待ちください。", type = 1, option_ids = "0", next = 75712720, role_ids = "75210110", role_type = 75210110, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712720] = {id = 75712720, remark = "うん、わかった。\nフラワー、ここでいい子にして待ってるね。", type = 1, option_ids = "0", next = 75712721, role_ids = "75200762:75210110", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712721] = {id = 75712721, remark = "あっ、みんなここにいたんだね。\nコンテスト、終わったよ。", type = 1, option_ids = "0", next = 75712722, role_ids = "75200762", role_type = 75200762, position = "418:606:10050", role_departure_type = "75210110:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712722] = {id = 75712722, remark = "はぁ…やっと解放された…", type = 1, option_ids = "0", next = 75712723, role_ids = "75200752:75200762", role_type = 75200752, position = "195:606:10050,642:606:10000", role_admission_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712723] = {id = 75712723, remark = "二人とも、お疲れさま！\n今、フラワーちゃんが優勝って聞こえたけど、本当！？", type = 1, option_ids = "0", next = 75712724, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", role_departure_type = "75200752:0:0,75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712724] = {id = 75712724, remark = "う、うん。準優勝とすごい僅差だったけど、\nフラワーが優勝だって。", type = 1, option_ids = "0", next = 75712725, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712725] = {id = 75712725, remark = "フラワー、一番。\nよくできたってことかな？", type = 1, option_ids = "75801223:75801224", next = 0, role_ids = "75200762:75200752", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712726] = {id = 75712726, remark = "えへへ、ありがとう。\nリーダーに褒めてもらえると、とっても嬉しいな。", type = 1, option_ids = "0", next = 75712728, role_ids = "75200762:75200752", role_type = 75200762, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712727] = {id = 75712727, remark = "ありがとう…\n緊張したけど、いい練習にはなったかな…", type = 1, option_ids = "0", next = 75712728, role_ids = "75200762:75200752", role_type = 75200752, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712728] = {id = 75712728, remark = "そういえば、優勝者って何か賞品があるんですか？\nさっき、オーナーがどうたらって言ってたですけど…", type = 1, option_ids = "0", next = 75712729, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200762:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712729] = {id = 75712729, remark = "うん。一番の人にはご褒美があって、\nオーナーさんのおうちでご飯を食べられるんだって。", type = 1, option_ids = "0", next = 75712730, role_ids = "75200762:75200211", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712730] = {id = 75712730, remark = "オーナーの家で！？\nこ、これは渡りに船ですよ！", type = 1, option_ids = "0", next = 75712731, role_ids = "75200762:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712731] = {id = 75712731, remark = "ええ。\n…けれど、フラワーだけでは危険だわ。", type = 1, option_ids = "0", next = 75712732, role_ids = "75200511:75200762", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712732] = {id = 75712732, remark = "なんとかして、私達も同行できればいいけれど…", type = 1, option_ids = "0", next = 75712733, role_ids = "75200511:75200762", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712733] = {id = 75712733, remark = "そうですね…\nそれじゃあ、イチかバチかで…", type = 1, option_ids = "0", next = 75712734, role_ids = "75200511:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712734] = {id = 75712734, remark = "お待たせしました、フラワーさん。\n今からオーナーの屋敷にご案内しますね。", type = 1, option_ids = "0", next = 75712735, role_ids = "75210110", role_type = 75210110, position = "418:606:10050", role_admission_type = "75210110:0:0", role_departure_type = "75200511:0:0,75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712735] = {id = 75712735, remark = "あの、司会者さん。\nオーナーの屋敷、リッタ達も行ってはダメですか？", type = 1, option_ids = "0", next = 75712736, role_ids = "75200211:75210110", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712736] = {id = 75712736, remark = "フラワーはちょっとぼんやりしてる所があって、\n心配なのでついていきたいですよ。", type = 1, option_ids = "0", next = 75712737, role_ids = "75200211:75210110", role_type = 75200211, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712737] = {id = 75712737, remark = "うーん、基本的には優勝者だけですが…", type = 1, option_ids = "0", next = 75712738, role_ids = "75200211:75210110", role_type = 75210110, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712738] = {id = 75712738, remark = "……\n…ふむ…", type = 1, option_ids = "0", next = 75712739, role_ids = "75200211:75210110", role_type = 75210110, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712739] = {id = 75712739, remark = "…かわいい子が多いし、これならオーナーも…", type = 1, option_ids = "0", next = 75712740, role_ids = "75200211:75210110", role_type = 75210110, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712740] = {id = 75712740, remark = "仕方ないですね。\n特別に同行を許可しましょう。", type = 1, option_ids = "0", next = -1, role_ids = "75200211:75210110", role_type = 75210110, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+, 
+[75712801] = {id = 75712801, remark = "皆様、お疲れさまでした。\nこちらがオーナーの館です。", type = 1, option_ids = "0", next = 75712802, role_ids = "75210110", role_type = 75210110, position = "418:606:10050", role_admission_type = "75210110:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+, 
+[75712802] = {id = 75712802, remark = "オーナーはただいまお食事の準備をしておりますので、\nこちらでしばらくお待ちください。", type = 1, option_ids = "0", next = 75712803, role_ids = "75210110", role_type = 75210110, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+, 
+[75712803] = {id = 75712803, remark = "…行ったわね。\nそれじゃあ、リッタ。案内をお願い。", type = 1, option_ids = "0", next = 75712804, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75210110:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+, 
+[75712804] = {id = 75712804, remark = "見つかって仲間を呼ばれては厄介だから、\nなるべく人目につかないルートでお願いするわ。", type = 1, option_ids = "0", next = 75712805, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+, 
+[75712805] = {id = 75712805, remark = "はい！　任せるですよ！", type = 1, option_ids = "0", next = -1, role_ids = "75200211:75200511", role_type = 75200211, position = "195:606:10050,642:606:10000", role_admission_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003}
+, 
+[75712806] = {id = 75712806, remark = "あの部屋にみんな捕まってると思うですが…", type = 1, option_ids = "0", next = 75712807, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712807] = {id = 75712807, remark = "…さすがに見張りがいるね。\nどうしよう…", type = 1, option_ids = "75801225:75801226", next = 0, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712808] = {id = 75712808, remark = "そうそう！　こういう時はどーんと行こう！", type = 1, option_ids = "0", next = 75712810, role_ids = "75200011:75200752", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712809] = {id = 75712809, remark = "うん、怖い思いしてる子を助けないと…！", type = 1, option_ids = "0", next = 75712810, role_ids = "75200752:75200762", role_type = 75200762, position = "195:606:10000,642:606:10050", role_admission_type = "75200762:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712810] = {id = 75712810, remark = "それじゃあ、増援を呼ばれる前に素早く倒して、\n中のレッドを助けるとしましょう。", type = 1, option_ids = "0", next = 75712811, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200752:0:0,75200762:0:0,75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712811] = {id = 75712811, remark = "うん！　レッド奪還作戦、開始―！", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200511", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712901] = {id = 75712901, remark = "みんなー！　助けに来たよー！", type = 1, option_ids = "0", next = 75712902, role_ids = "75200011", role_type = 75200011, position = "418:606:10050", role_admission_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712902] = {id = 75712902, remark = "怖かったね、よしよし。\nもう大丈夫だよ。", type = 1, option_ids = "0", next = 75712903, role_ids = "75200762:75200011", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712903] = {id = 75712903, remark = "で、出口は、向こうだから…！\nみんな、すぐに逃げて…！", type = 1, option_ids = "0", next = 75712904, role_ids = "75200752:75200762", role_type = 75200752, position = "195:606:10050,642:606:10000", role_admission_type = "75200752:0:0", role_departure_type = "75200011:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712904] = {id = 75712904, remark = "なんとか脱出できそうね。\nそれじゃあ、すぐに館から出て――", type = 1, option_ids = "0", next = 75712905, role_ids = "75200511:75200752", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712905] = {id = 75712905, remark = "ま、待つですよ！\nまだリッタの土地と店の権利書が残ってるです！", type = 1, option_ids = "0", next = 75712906, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", role_admission_type = "75200211:0:0", role_departure_type = "75200511:0:0,75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712906] = {id = 75712906, remark = "保管している場所にも心当たりがあるです！\nだから――", type = 1, option_ids = "0", next = 75712907, role_ids = "75200211", role_type = 75200211, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712907] = {id = 75712907, remark = "なんの騒ぎだ、これは！", type = 1, option_ids = "75801227:75801228", next = 0, role_ids = "75210111:75200211", role_type = 75210111, position = "195:606:10050,642:606:10000", role_admission_type = "75210111:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712908] = {id = 75712908, remark = "うぅ、あと少しの所でしたのに…！\nどうしてこうもタイミング悪く来るですか！", type = 1, option_ids = "0", next = 75712910, role_ids = "75210111:75200211", role_type = 75200211, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712909] = {id = 75712909, remark = "ええ。レッド達のためにもここで捕まるわけには\nいかないわ。", type = 1, option_ids = "0", next = 75712910, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75210111:0:0,75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712910] = {id = 75712910, remark = "…！　貴様ら、レッドを逃がすつもりか！", type = 1, option_ids = "0", next = 75712911, role_ids = "75210111", role_type = 75210111, position = "418:606:10050", role_admission_type = "75210111:0:0", role_departure_type = "75200511:0:0,75200211:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712911] = {id = 75712911, remark = "ここから逃げられると思うな！\n貴様ら全員、レッド好きに売りさばいてやる！", type = 1, option_ids = "0", next = 75712912, role_ids = "75210111", role_type = 75210111, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712912] = {id = 75712912, remark = "お前達！　来い！", type = 1, option_ids = "0", next = 75712913, role_ids = "75210111", role_type = 75210111, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712913] = {id = 75712913, remark = "…うぅ、ひ、人がたくさん来た…！\nど、どうしよう…リーダー…！", type = 1, option_ids = "0", next = 75712914, role_ids = "75200752", role_type = 75200752, position = "418:606:10050", role_admission_type = "75200752:0:0", role_departure_type = "75210111:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712914] = {id = 75712914, remark = "勝ち目など無いことは分かるだろう。\n抵抗するだけ無駄だ。大人しく投降しろ。", type = 1, option_ids = "0", next = 75712915, role_ids = "75210111:75200752", role_type = 75210111, position = "195:606:10050,642:606:10000", role_admission_type = "75210111:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712915] = {id = 75712915, remark = "お前達は商品候補だからな。傷を付けたくないし、\n丁寧に扱ってやる。", type = 1, option_ids = "0", next = 75712916, role_ids = "75210111:75200752", role_type = 75210111, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712916] = {id = 75712916, remark = "…商品？　抵抗するだけ無駄？\n…呆れたものね。", type = 1, option_ids = "0", next = 75712917, role_ids = "75200511:75210111", role_type = 75200511, position = "195:606:10050,642:606:10000", role_admission_type = "75200511:0:0", role_departure_type = "75200752:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712917] = {id = 75712917, remark = "あまりレッドを――女を、舐めないで。", type = 1, option_ids = "0", next = 75712918, role_ids = "75200511:75210111", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712918] = {id = 75712918, remark = "その身をもって、レッドの力を知るといいわ。", type = 1, option_ids = "0", next = -1, role_ids = "75200511:75210111", role_type = 75200511, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712919] = {id = 75712919, remark = "…アンレッドが、自分の力を見誤るからこうなるの。", type = 1, option_ids = "0", next = 75712920, role_ids = "75200511", role_type = 75200511, position = "418:606:10050", role_admission_type = "75200511:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712920] = {id = 75712920, remark = "怖い人もいなくなったし、\nじっくり探し物ができそうだね。", type = 1, option_ids = "0", next = 75712921, role_ids = "75200762:75200511", role_type = 75200762, position = "195:606:10050,642:606:10000", role_admission_type = "75200762:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+, 
+[75712921] = {id = 75712921, remark = "うんうん！\nそれじゃあ、ちゃちゃっと権利書を見つけちゃおーう！", type = 1, option_ids = "0", next = -1, role_ids = "75200011:75200762", role_type = 75200011, position = "195:606:10050,642:606:10000", role_admission_type = "75200011:0:0", role_departure_type = "75200511:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
 }

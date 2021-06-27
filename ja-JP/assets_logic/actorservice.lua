@@ -189,6 +189,7 @@ ActorService.OnResGoodsChange = function(msg, ...)
     (CommonWinMgr.RefreshAssets)()
     UIMgr:SendWindowMessage((WinResConfig.ClearingWindow).name, (WindowMsgEnum.ClearingWindow).E_MSG_PHYSICAL_REFRESH)
     UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_BTN_REFRESH)
+    UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonMainWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_AFTER_PURCHASE)
   end
   if #msg.goods > 0 then
     if (ActorService.IsContainLottery)(msg.goods) then
@@ -217,7 +218,11 @@ ActorService.OnResGoodsChange = function(msg, ...)
 )
     else
       if msg.reqMsgId == (Proto.MsgIdByName).ReqSlotsOperation then
-        UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_SHOW_RESULT, {msg.goods, msg.equip})
+        if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+          UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonExchangeWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_SHOW_RESULT, {msg.goods, msg.equip})
+        else
+          UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_SHOW_RESULT, {msg.goods, msg.equip})
+        end
       else
         if msg.reqMsgId == (Proto.MsgIdByName).ReqLotteryConversion then
           (ActorService.OtherWayToGetCardShowForLotteryExchange)(msg.goods, function(...)

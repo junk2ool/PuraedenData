@@ -967,9 +967,9 @@ end
 
 -- DECOMPILER ERROR at PC136: Confused about usage of register: R6 in 'UnsetPending'
 
-GuildMgr.CheckMemberList = function(...)
+GuildMgr.CheckMemberList = function(forceUpdate, ...)
   -- function num : 0_42 , upvalues : _ENV
-  if (ActorData.GetGuildID)() ~= 0 and (_G.next)(GuildData.MemberList) == nil then
+  if (ActorData.GetGuildID)() ~= 0 and ((_G.next)(GuildData.MemberList) == nil or forceUpdate) then
     (GuildService.ReqGuildMemberList)()
   end
 end
@@ -996,6 +996,7 @@ GuildMgr.RecvMemberList = function(data, ...)
   UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_GULID_VISIT)
   UIMgr:SendWindowMessage((WinResConfig.HomelandVisitRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_GULID_VISIT)
   UIMgr:SendWindowMessage((WinResConfig.GuildDetailWindow).name, (WindowMsgEnum.Guild).E_MSG_REFRESH_GUILD_MEMBER)
+  UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonGuildAssistWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH_ASSIST_LIST)
 end
 
 -- DECOMPILER ERROR at PC145: Confused about usage of register: R6 in 'UnsetPending'

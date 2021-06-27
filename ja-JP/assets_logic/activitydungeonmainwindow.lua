@@ -66,9 +66,14 @@ end
 ActivityDungeonMainWindow.RefreshList = function(...)
   -- function num : 0_1 , upvalues : _ENV, mListData, ActivityDungeonMainWindow
   local ActivityData = (TableData.gTable).BaseActivityChapterData
+  local chapterData = (TableData.gTable).BaseChapterData
   mListData = {}
+  local config = nil
   for _,v in pairs(ActivityData) do
-    (table.insert)(mListData, v)
+    config = chapterData[v.normal_chapter]
+    if config.type == PlayType.ACTIVITY then
+      (table.insert)(mListData, v)
+    end
   end
   ;
   (table.sort)(mListData, function(a, b, ...)

@@ -2820,6 +2820,46 @@ BaseStoryOptionData = {
 [75801191] = {id = 75801191, remark = (PUtil.get)(86370209), next = 75711919}
 , 
 [75801192] = {id = 75801192, remark = (PUtil.get)(86370210), next = 75711920}
+, 
+[75801211] = {id = 75801211, remark = (PUtil.get)(86370323), next = 75712107}
+, 
+[75801212] = {id = 75801212, remark = (PUtil.get)(86370324), next = 75712108}
+, 
+[75801213] = {id = 75801213, remark = (PUtil.get)(86370325), next = 75712230}
+, 
+[75801214] = {id = 75801214, remark = (PUtil.get)(86370326), next = 75712231}
+, 
+[75801215] = {id = 75801215, remark = (PUtil.get)(86370327), next = 75712318}
+, 
+[75801216] = {id = 75801216, remark = (PUtil.get)(86370328), next = 75712319}
+, 
+[75801217] = {id = 75801217, remark = (PUtil.get)(86370329), next = 75712421}
+, 
+[75801218] = {id = 75801218, remark = (PUtil.get)(86370330), next = 75712422}
+, 
+[75801219] = {id = 75801219, remark = (PUtil.get)(86370331), next = 75712530}
+, 
+[75801220] = {id = 75801220, remark = (PUtil.get)(86370332), next = 75712531}
+, 
+[75801221] = {id = 75801221, remark = (PUtil.get)(86370333), next = 75712613}
+, 
+[75801222] = {id = 75801222, remark = (PUtil.get)(86370334), next = 75712614}
+, 
+[75801223] = {id = 75801223, remark = (PUtil.get)(86370335), next = 75712726}
+, 
+[75801224] = {id = 75801224, remark = (PUtil.get)(86370336), next = 75712727}
+, 
+[75801225] = {id = 75801225, remark = (PUtil.get)(86370337), next = 75712808}
+, 
+[75801226] = {id = 75801226, remark = (PUtil.get)(86370338), next = 75712809}
+, 
+[75801227] = {id = 75801227, remark = (PUtil.get)(86370339), next = 75712908}
+, 
+[75801228] = {id = 75801228, remark = (PUtil.get)(86370340), next = 75712909}
+, 
+[75801229] = {id = 75801229, remark = (PUtil.get)(86370341), next = 75712032}
+, 
+[75801230] = {id = 75801230, remark = (PUtil.get)(86370342), next = 75712033}
 }
 return BaseStoryOptionData
 

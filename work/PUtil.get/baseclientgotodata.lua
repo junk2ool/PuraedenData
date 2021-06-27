@@ -449,6 +449,10 @@
 , 
 [77423033] = {id = 77423033, name = "募集", remark = "「アニバーサリー記念募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
+[77422217] = {id = 77422217, name = "イベント", remark = "イベント 「奪還！海の家！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423034] = {id = 77423034, name = "募集", remark = "「夏だ！海だ！女神だ！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 , 
 [77450101] = {id = 77450101, name = "神殿遺跡", remark = "「神殿遺跡」で獲得する", icon = "ItemIcon:21160003", type = 308001, value = 0, sort = 40}

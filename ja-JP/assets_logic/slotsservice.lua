@@ -38,7 +38,12 @@ SlotsService.OnResSlotsData = function(msg, ...)
   ;
   (SlotsData.GetCurrentType)(msg.type)
   if msg.type == (SlotsData.SlotType).ACTIVITY_SLOT then
-    OpenWindow((WinResConfig.ActivityDungeonExchangeWindow).name, UILayer.HUD)
+    if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+      (NewActivityDungeonData.InitSlotsRelativeData)()
+      OpenWindow((WinResConfig.NewActivityDungeonExchangeWindow).name, UILayer.HUD)
+    else
+      OpenWindow((WinResConfig.ActivityDungeonExchangeWindow).name, UILayer.HUD)
+    end
   else
     if msg.type == (SlotsData.SlotType).PRIZE_SLOT then
       OpenWindow((WinResConfig.PrizeWindow).name, UILayer.HUD)
@@ -66,7 +71,11 @@ SlotsService.OnResSlotsReset = function(msg, ...)
   (SlotsData.ChangeTotalRound)(total + 1)
   ;
   (SlotsData.CanReset)(false)
-  UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_RESET)
+  if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+    UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonExchangeWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_RESET)
+  else
+    UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_RESET)
+  end
 end
 
 -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
@@ -99,7 +108,11 @@ SlotsService.ResSlotsOperation = function(msg, ...)
     (SlotsData.ChangeRound)(msg.resetRound)
     ;
     (SlotsData.SlotRound)(msg.round)
-    UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
+    if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+      UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonExchangeWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH)
+    else
+      UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
+    end
   else
     do
       if msg.type == (SlotsData.SlotType).PRIZE_SLOT then

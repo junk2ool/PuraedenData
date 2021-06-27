@@ -220,6 +220,9 @@ BattleDataCount.GetPreRoundCount = function(...)
       v:SetDander(v:GetDander() + subAtkInfo.danderDef)
     end
   end
+  for _,v in ipairs(liveCards) do
+    v:SetRoundDamage(0)
+  end
   ;
   (self.DealActiveBuff)(nil, preRoundInfo, BattleBuffSettleRoundType.BEFORE_ROUND)
   local oe = curRound % 2
@@ -236,9 +239,6 @@ BattleDataCount.GetPreRoundCount = function(...)
   end
   ;
   (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY)
-  for _,v in ipairs(liveCards) do
-    v:SetRoundDamage(0)
-  end
   ;
   (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.AFTER_DAMAGE)
   return preRoundInfo
@@ -517,20 +517,20 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
       if buff then
         local isNew = buff:IsNewBuff(atkInfo)
       end
-      -- DECOMPILER ERROR at PC106: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC115: Unhandled construct in 'MakeBoolean' P1
 
-      if deduction_round_type ~= BattleBuffDeductionRoundType.NOW and isNew == true and buff:GetDeductionRoundType() ~= buff:GetSettleRoundType() and (buff:GetDeductionRoundType() ~= BattleBuffDeductionRoundType.AFTER_ACTION or buff:GetSettleRoundType() == BattleBuffSettleRoundType.AFTER_ATTACK or buff:GetSettleRoundType() ~= BattleBuffSettleRoundType.AFTER_SKILL) then
-        if (buff:GetDeductionRoundType() == BattleBuffDeductionRoundType.AFTER_ATTACK or buff:GetDeductionRoundType() == BattleBuffDeductionRoundType.AFTER_SKILL) and buff:GetSettleRoundType() == BattleBuffSettleRoundType.AFTER_ACTION then
+      if deduction_round_type ~= BattleBuffDeductionRoundType.NOW and ((buff:GetDeductionRoundType() ~= BattleBuffDeductionRoundType.AFTER_ATTACK and buff:GetDeductionRoundType() ~= BattleBuffDeductionRoundType.AFTER_SKILL) or buff:GetSettleRoundType() ~= BattleBuffSettleRoundType.AFTER_ACTION) then
+        if buff:GetDeductionRoundType() == BattleBuffDeductionRoundType.AFTER_HIT and buff.parentBuffDeductionType == BattleBuffDeductionRoundType.DAMAGE_REACH_MAXHP then
           local defPos = buff:GetCurDefPos()
           local defCard = (BattleData.GetCardInfoByPos)(defPos)
           local deductionRoundType = buff:GetDeductionRoundType()
-          -- DECOMPILER ERROR at PC178: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC187: Unhandled construct in 'MakeBoolean' P3
 
-          -- DECOMPILER ERROR at PC178: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC187: Unhandled construct in 'MakeBoolean' P3
 
-          -- DECOMPILER ERROR at PC178: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC187: Unhandled construct in 'MakeBoolean' P3
 
-          -- DECOMPILER ERROR at PC178: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC187: Unhandled construct in 'MakeBoolean' P3
 
           if defCard and defCard:IsDead() ~= true and (deductionRoundType == deduction_round_type or ((deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK) or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ROUND_3 or deduction_round_type ~= BattleBuffDeductionRoundType.BEFORE_ROUND or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_All_ATK and (deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_SKILL or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ASSIST))) then
             if deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY then
@@ -544,12 +544,12 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ENEMY and (BattleAtk.IsDefCampByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
           end
-          -- DECOMPILER ERROR at PC247: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC256: Unhandled construct in 'MakeBoolean' P1
 
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
           end
-          -- DECOMPILER ERROR at PC265: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC274: Unhandled construct in 'MakeBoolean' P1
 
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT_ALL and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
@@ -586,7 +586,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                       ;
                       (self.RealUpdateBuffCount)(buff, atkInfo)
                     else
-                      -- DECOMPILER ERROR at PC373: Unhandled construct in 'MakeBoolean' P1
+                      -- DECOMPILER ERROR at PC382: Unhandled construct in 'MakeBoolean' P1
 
                       if deduction_round_type == BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
                         local attackTime = defCard:RecodeHitTimes()
@@ -599,53 +599,86 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                     end
                   end
                   do
-                    do
-                      if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ADD then
+                    if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ADD then
+                      (self.RealUpdateBuffCount)(buff, atkInfo)
+                    else
+                      if deduction_round_type == BattleBuffDeductionRoundType.NOW then
                         (self.RealUpdateBuffCount)(buff, atkInfo)
                       else
-                        if deduction_round_type == BattleBuffDeductionRoundType.NOW then
+                        if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
                           (self.RealUpdateBuffCount)(buff, atkInfo)
                         else
-                          if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
-                            (self.RealUpdateBuffCount)(buff, atkInfo)
-                          else
-                            -- DECOMPILER ERROR at PC422: Unhandled construct in 'MakeBoolean' P1
+                          -- DECOMPILER ERROR at PC431: Unhandled construct in 'MakeBoolean' P1
 
-                            if deduction_round_type == BattleBuffDeductionRoundType.AFTER_ENEMY_HEAL and (math.abs)(arg - defPos) > 50 then
-                              (self.RealUpdateBuffCount)(buff, atkInfo)
+                          if deduction_round_type == BattleBuffDeductionRoundType.AFTER_ENEMY_HEAL and (math.abs)(arg - defPos) > 50 then
+                            (self.RealUpdateBuffCount)(buff, atkInfo)
+                          end
+                        end
+                      end
+                    end
+                    if deduction_round_type == BattleBuffDeductionRoundType.ODD_NUMBER then
+                      (self.RealUpdateBuffCount)(buff, atkInfo)
+                    else
+                      if deduction_round_type == BattleBuffDeductionRoundType.EVEN_NUMBER then
+                        (self.RealUpdateBuffCount)(buff, atkInfo)
+                      else
+                        if deduction_round_type == BattleBuffDeductionRoundType.DAMAGE_REACH_MAXHP then
+                          local curDefPos = buff:GetCurDefPos()
+                          local config = buff:GetBuffConfig()
+                          local strTable = split(config.star_config, ":")
+                          local card = (BattleData.GetCardInfoByPos)(curDefPos)
+                          local trigger = tonumber(strTable[card:GetStar()]) * 0.0001
+                          trigger = trigger * card:GetMaxHp()
+                          if trigger <= card:GetTotalDamage() then
+                            (self.RealUpdateBuffCount)(buff, atkInfo)
+                            card:SetTotalDamage(0)
+                          end
+                        else
+                          do
+                            do
+                              if deduction_round_type == BattleBuffDeductionRoundType.AFTER_CRIT then
+                                (self.RealUpdateBuffCount)(buff, atkInfo)
+                              end
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+
                             end
                           end
                         end
                       end
-                      if deduction_round_type == BattleBuffDeductionRoundType.ODD_NUMBER then
-                        (self.RealUpdateBuffCount)(buff, atkInfo)
-                      else
-                        if deduction_round_type == BattleBuffDeductionRoundType.EVEN_NUMBER then
-                          (self.RealUpdateBuffCount)(buff, atkInfo)
-                        end
-                      end
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out DO_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out DO_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out DO_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_ELSE_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-                      -- DECOMPILER ERROR at PC439: LeaveBlock: unexpected jumping out IF_STMT
-
                     end
                   end
                 end
@@ -742,6 +775,9 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
                       end
                       local canAdd = (self.DealAddBuff)(card, buffClone, atkInfo)
                       if canAdd == true then
+                        if buff:GetDeductionRoundType() == BattleBuffDeductionRoundType.DAMAGE_REACH_MAXHP and buff_list_type == "deduction_buff_list" then
+                          buffClone.parentBuffDeductionType = buff:GetDeductionRoundType()
+                        end
                         isTrigger = true
                         local deductionRoundType = buffClone:GetDeductionRoundType()
                         if deductionRoundType == BattleBuffDeductionRoundType.NOW then
@@ -752,17 +788,17 @@ BattleDataCount.DealExtraBuffList = function(buff, atkInfo, buff_list_type, ...)
                       end
                     end
                     do
-                      -- DECOMPILER ERROR at PC235: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC245: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC235: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC245: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC235: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC245: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
                 end
               end
-              -- DECOMPILER ERROR at PC237: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC247: LeaveBlock: unexpected jumping out DO_STMT
 
             end
           end
@@ -897,7 +933,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
             (BattleData.SaveBattleProcess)("    斩杀 ，位置：" .. defCard:GetPosIndex() .. "    是触发了锁血buff: " .. tostring(lockHp))
           end
           local fangyu_B, is_pofang = (self.PanDingPoFang)(atkCard, defCard)
-          local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard)
+          local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard, atkInfo)
           local shanghai_jiacheng = (self.PanDingShangHaiJiaCheng)(atkCard, defCard)
           local kezhi_xishu = (self.PanDingKeZhi)(atkCard, defCard)
           local random_seed = (BattleData.GetRandomSeed)()
@@ -954,7 +990,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
             if divideCardInfo and #divideCardInfo > 0 then
               for i,info in ipairs(divideCardInfo) do
                 local card = info.card
-                local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
+                local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo, nil, nil, true)
                 local assistCardHpBeforeAtk = card:GetHp()
                 local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, info.damage)
                 if card:GetHp() - realShareDamage <= 0 then
@@ -981,15 +1017,14 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                       defCardInfo.isKeepAlive = specialEffect.isKeepAlive
                       defCardInfo.isResist = specialEffect.isResist
                       card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
-                      card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
                       if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                         killCount = killCount + 1
                       end
-                      -- DECOMPILER ERROR at PC445: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC445: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC445: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
@@ -1031,7 +1066,6 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                       defCardInfo.isResist = specialEffect.isResist
                       defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
                       card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
-                      card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
                       if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                         killCount = killCount + 1
                       end
@@ -1076,7 +1110,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                 danderDef = defCardConfig.dander_hit_assist
                               end
                             else
-                              -- DECOMPILER ERROR at PC684: Unhandled construct in 'MakeBoolean' P1
+                              -- DECOMPILER ERROR at PC677: Unhandled construct in 'MakeBoolean' P1
 
                               if (isDoubleAttack == true or isMultipleAttack == true) and killCount > 0 then
                                 danderAtk = (killCount) * atkCard:GetDanderKill()
@@ -1136,11 +1170,6 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                       if IsBattleServer == nil then
                                         (BattleData.SaveBattleProcess)("    反伤，伤害：" .. defCardInfo.hpDef)
                                       end
-                                      local curHp = defCard:GetHp()
-                                      local damage = curHp - (realDefHp)
-                                      if damage > 0 then
-                                        defCard:SetRoundDamage(defCard:GetRoundDamage() + damage)
-                                      end
                                       defCard:SetHp(realDefHp, atkCard:GetPosIndex())
                                       if killCount > 0 and mainAtkCard then
                                         for i = 1, killCount do
@@ -1148,7 +1177,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                         end
                                       end
                                       do return defCardInfo end
-                                      -- DECOMPILER ERROR: 40 unprocessed JMP targets
+                                      -- DECOMPILER ERROR: 39 unprocessed JMP targets
                                     end
                                   end
                                 end
@@ -1246,7 +1275,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
             local zengshang_A = atkCard:GetExtDamage()
             local jianshang_B = defCard:GetExtDamageSub()
             local fangyu_B, is_pofang = (self.PanDingPoFang)(atkCard, defCard)
-            local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard)
+            local baoji_jiacheng, gedang_jiangdi = (self.PanDingBaoJiGeDang)(atkCard, defCard, atkInfo)
             local shanghai_jiacheng = (self.PanDingShangHaiJiaCheng)(atkCard, defCard)
             local kezhi_xishu = (self.PanDingKeZhi)(atkCard, defCard)
             local random_seed = (BattleData.GetRandomSeed)()
@@ -1295,7 +1324,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                 if divideCardInfo and #divideCardInfo > 0 then
                   for i,info in ipairs(divideCardInfo) do
                     local card = info.card
-                    local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo)
+                    local defCardInfo = (BattleAtk.InitSubAtkInfo)(card, defCardsInfo, nil, nil, true)
                     local assistCardHpBeforeAtk = card:GetHp()
                     local realShareDamage, absorbDamage, specialEffect = (BattleBuff.DealRealHpLoss)(card, info.damage)
                     if card:GetHp() - realShareDamage <= 0 then
@@ -1322,15 +1351,14 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                           defCardInfo.isKeepAlive = specialEffect.isKeepAlive
                           defCardInfo.isResist = specialEffect.isResist
                           card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
-                          card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
                           if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                             killCount = killCount + 1
                           end
-                          -- DECOMPILER ERROR at PC462: LeaveBlock: unexpected jumping out DO_STMT
+                          -- DECOMPILER ERROR at PC460: LeaveBlock: unexpected jumping out DO_STMT
 
-                          -- DECOMPILER ERROR at PC462: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                          -- DECOMPILER ERROR at PC460: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                          -- DECOMPILER ERROR at PC462: LeaveBlock: unexpected jumping out IF_STMT
+                          -- DECOMPILER ERROR at PC460: LeaveBlock: unexpected jumping out IF_STMT
 
                         end
                       end
@@ -1372,7 +1400,6 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                           defCardInfo.isResist = specialEffect.isResist
                           defCardInfo.shareDamageCardPos = defCard:GetPosIndex()
                           card:SetHp(card:GetHp() - (realShareDamage), atkCard:GetPosIndex())
-                          card:SetRoundDamage(card:GetRoundDamage() + (realShareDamage))
                           if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                             killCount = killCount + 1
                           end
@@ -1423,95 +1450,90 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                                     if atkCard:GetHp() - realCounterDamage <= 0 then
                                       do
                                         do
-                                          if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == false and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.LOCK_HP) then
-                                            local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
-                                            if isTrigger then
+                                          do
+                                            if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == false and (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.LOCK_HP) then
+                                              local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                                              if isTrigger then
+                                                realCounterDamage = atkCard:GetHp() - 1
+                                              end
+                                            end
+                                            if atkCard.waitingSkill or (BattleBuff.ContainDeductionRoundType)(atkCard, BattleBuffDeductionRoundType.DIE_SKILL_DIE) then
+                                              if not atkCard.waitingSkill then
+                                                (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.DIE_SKILL_DIE, defCard)
+                                              end
                                               realCounterDamage = atkCard:GetHp() - 1
                                             end
-                                          end
-                                          if atkCard.waitingSkill or (BattleBuff.ContainDeductionRoundType)(atkCard, BattleBuffDeductionRoundType.DIE_SKILL_DIE) then
-                                            if not atkCard.waitingSkill then
-                                              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.DIE_SKILL_DIE, defCard)
+                                            defCardInfo.hpDef = defCardInfo.hpDef - (realCounterDamage)
+                                            defCardInfo.absorbDamage = defCardInfo.absorbDamage + absorbDamage
+                                            defCardInfo.isInvincible = specialEffect.isInvincible
+                                            defCardInfo.isKeepAlive = specialEffect.isKeepAlive
+                                            defCardInfo.isResist = specialEffect.isResist
+                                            defCardInfo.isCounter = true
+                                            if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == true then
+                                              defCardInfo.hpDef = 0
+                                              defCardInfo.isImmune = true
                                             end
-                                            realCounterDamage = atkCard:GetHp() - 1
-                                          end
-                                          defCardInfo.hpDef = defCardInfo.hpDef - (realCounterDamage)
-                                          defCardInfo.absorbDamage = defCardInfo.absorbDamage + absorbDamage
-                                          defCardInfo.isInvincible = specialEffect.isInvincible
-                                          defCardInfo.isKeepAlive = specialEffect.isKeepAlive
-                                          defCardInfo.isResist = specialEffect.isResist
-                                          defCardInfo.isCounter = true
-                                          if (BattleBuff.ContainEffectId)(atkCard, BattleDisplayEffect.IMMUNE_COUNTER) == true then
-                                            defCardInfo.hpDef = 0
-                                            defCardInfo.isImmune = true
-                                          end
-                                          atkCard:SetHp(atkCard:GetHp() - (realCounterDamage), defCard:GetPosIndex())
-                                          if IsBattleServer == nil then
-                                            (BattleData.SaveBattleProcess)("    反伤，伤害：" .. defCardInfo.hpDef)
-                                          end
-                                          local curHp = defCard:GetHp()
-                                          do
-                                            local damage = curHp - (realDefHp)
-                                            if damage > 0 then
-                                              defCard:SetRoundDamage(defCard:GetRoundDamage() + damage)
+                                            atkCard:SetHp(atkCard:GetHp() - (realCounterDamage), defCard:GetPosIndex())
+                                            if IsBattleServer == nil then
+                                              (BattleData.SaveBattleProcess)("    反伤，伤害：" .. defCardInfo.hpDef)
                                             end
                                             defCard:SetHp(realDefHp, atkCard:GetPosIndex())
                                             t_insert(defCardInfoTable, defCardInfo)
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                            -- DECOMPILER ERROR at PC856: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
 
                                           end
                                         end
@@ -1551,7 +1573,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
           end
         end
         do return defCardInfoTable, killCount end
-        -- DECOMPILER ERROR: 36 unprocessed JMP targets
+        -- DECOMPILER ERROR: 35 unprocessed JMP targets
       end
     end
   end
@@ -1637,8 +1659,8 @@ end
 
 -- DECOMPILER ERROR at PC214: Confused about usage of register: R47 in 'UnsetPending'
 
-BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, ...)
-  -- function num : 0_23 , upvalues : ceil, baoji_mianbao_xishu, min, baojilv_max, max, baojilv_min, _ENV, gedang_poji_xishu, gedanglv_max, gedanglv_min, baoji_jiacheng_max, baoji_jiacheng_min, baoji_kangbao_qiangdu_xishu, gedang_jiacheng_max, gedang_jiacheng_min, gedang_poji_qiangdu_xishu
+BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, atkInfo, ...)
+  -- function num : 0_23 , upvalues : ceil, baoji_mianbao_xishu, min, baojilv_max, max, baojilv_min, _ENV, gedang_poji_xishu, gedanglv_max, gedanglv_min, baoji_jiacheng_max, baoji_jiacheng_min, baoji_kangbao_qiangdu_xishu, gedang_jiacheng_max, gedang_jiacheng_min, gedang_poji_qiangdu_xishu, BattleBuffDeductionRoundType
   local baoji_A = atkCard:GetCrt()
   local kangbao_B = (defCard:GetRec())
   local baojilv = nil
@@ -1711,9 +1733,11 @@ BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, ...)
   if param_gedang_poji < 0 then
     param_gedang_poji = 0
   end
+  local crit = false
   if baojilv + gedanglv <= 10000 then
     if random_num <= baojilv then
       baoji_jiacheng = min(baoji_jiacheng_max, max(baoji_jiacheng_min, ceil(10000 * param_baoji_kangbao / (param_baoji_kangbao + baoji_kangbao_qiangdu_xishu))))
+      crit = true
     else
       if random_num <= baojilv + gedanglv then
         gedang_jiangdi = -min(gedang_jiacheng_max, max(gedang_jiacheng_min, ceil(10000 * param_gedang_poji / (param_gedang_poji + gedang_poji_qiangdu_xishu))))
@@ -1722,9 +1746,13 @@ BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, ...)
   else
     if random_num <= baojilv then
       baoji_jiacheng = min(baoji_jiacheng_max, max(baoji_jiacheng_min, ceil(10000 * param_baoji_kangbao / (param_baoji_kangbao + baoji_kangbao_qiangdu_xishu))))
+      crit = true
     else
       gedang_jiangdi = -min(gedang_jiacheng_max, max(gedang_jiacheng_min, ceil(10000 * param_gedang_poji / (param_gedang_poji + gedang_poji_qiangdu_xishu))))
     end
+  end
+  if crit then
+    (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_CRIT)
   end
   return baoji_jiacheng, gedang_jiangdi
 end

@@ -1,99 +1,99 @@
 {
-[51100001] = {id = 51100001, type = 1, activity_type = 0, name = "新編！異世界", remark = "新編！異世界", record_ids = "52100101:52100102:52100103:52100104:52100105", sort = 1, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_10_1"}
+[51100001] = {id = 51100001, type = 1, activity_type = 0, name = "新編！異世界", remark = "第1章", record_ids = "52100101:52100102:52100103:52100104:52100105", sort = 1, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0026"}
 , 
-[51100002] = {id = 51100002, type = 1, activity_type = 0, name = "新編！異世界", remark = "新編！異世界", record_ids = "52100201:52100202:52100203:52100204:52100205", sort = 2, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_10_2"}
+[51100002] = {id = 51100002, type = 1, activity_type = 0, name = "新編！異世界", remark = "第2章", record_ids = "52100201:52100202:52100203:52100204:52100205", sort = 2, unlockPoints = 10, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
 , 
-[51100003] = {id = 51100003, type = 1, activity_type = 0, name = "大図書館を訪ねて", remark = "大図書館を訪ねて", record_ids = "52100301:52100302:52100303:52100304:52100305", sort = 3, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_10_3"}
+[51100003] = {id = 51100003, type = 1, activity_type = 0, name = "大図書館を訪ねて", remark = "第3章", record_ids = "52100301:52100302:52100303:52100304:52100305", sort = 3, unlockPoints = 20, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0002"}
 , 
-[51100004] = {id = 51100004, type = 1, activity_type = 0, name = "新たな仲間", remark = "新たな仲間", record_ids = "52100401:52100402:52100403:52100404:52100405", sort = 4, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_10_4"}
+[51100004] = {id = 51100004, type = 1, activity_type = 0, name = "新たな仲間", remark = "第4章", record_ids = "52100401:52100402:52100403:52100404:52100405", sort = 4, unlockPoints = 20, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0019"}
 , 
-[51100005] = {id = 51100005, type = 1, activity_type = 0, name = "可愛い旅人", remark = "可愛い旅人", record_ids = "52100501:52100502:52100503:52100504:52100505", sort = 5, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_10_5"}
+[51100005] = {id = 51100005, type = 1, activity_type = 0, name = "可愛い旅人", remark = "第5章", record_ids = "52100501:52100502:52100503:52100504:52100505", sort = 5, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0025"}
 , 
-[51100006] = {id = 51100006, type = 1, activity_type = 0, name = "ノエルの悩み", remark = "ノエルの悩み", record_ids = "52100601:52100602:52100604:52100605", sort = 6, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_1"}
+[51100006] = {id = 51100006, type = 1, activity_type = 0, name = "ノエルの悩み", remark = "第6章", record_ids = "52100601:52100602:52100604:52100605", sort = 6, unlockPoints = 10, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0005"}
 , 
-[51100007] = {id = 51100007, type = 1, activity_type = 0, name = "新たな仲間を募集", remark = "新たな仲間を募集", record_ids = "52100701:52100702:52100705", sort = 7, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_2"}
+[51100007] = {id = 51100007, type = 1, activity_type = 0, name = "新たな仲間を募集", remark = "第7章", record_ids = "52100701:52100702:52100705", sort = 7, unlockPoints = 10, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
 , 
-[51100008] = {id = 51100008, type = 1, activity_type = 0, name = "金貨強奪事件", remark = "金貨強奪事件", record_ids = "52100801:52100803:52100805", sort = 8, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_3"}
+[51100008] = {id = 51100008, type = 1, activity_type = 0, name = "金貨強奪事件", remark = "第8章", record_ids = "52100801:52100803:52100805", sort = 8, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0006"}
 , 
-[51100009] = {id = 51100009, type = 1, activity_type = 0, name = "騎士団の禁令", remark = "騎士団の禁令", record_ids = "52100901:52100902:52100904:52100905", sort = 9, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_4"}
+[51100009] = {id = 51100009, type = 1, activity_type = 0, name = "騎士団の禁令", remark = "第9章", record_ids = "52100901:52100902:52100904:52100905", sort = 9, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0024"}
 , 
-[51100010] = {id = 51100010, type = 1, activity_type = 0, name = "前進を続けよう", remark = "前進を続けよう", record_ids = "52101001:52101002:52101003:52101004:52101005", sort = 10, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_5"}
+[51100010] = {id = 51100010, type = 1, activity_type = 0, name = "前進を続けよう", remark = "第10章", record_ids = "52101001:52101002:52101003:52101004:52101005", sort = 10, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0012"}
 , 
-[51100011] = {id = 51100011, type = 1, activity_type = 0, name = "新たなチャレンジ", remark = "新たなチャレンジ", record_ids = "52101101:52101102:52101103:52101105", sort = 11, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_20_1"}
+[51100011] = {id = 51100011, type = 1, activity_type = 0, name = "新たなチャレンジ", remark = "第11章", record_ids = "52101101:52101102:52101103:52101105", sort = 11, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0022"}
 , 
-[51100012] = {id = 51100012, type = 1, activity_type = 0, name = "天の塔の選択", remark = "天の塔の選択", record_ids = "52101201:52101202:52101203:52101204:52101205", sort = 12, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_20_2"}
+[51100012] = {id = 51100012, type = 1, activity_type = 0, name = "天の塔の選択", remark = "第12章", record_ids = "52101201:52101202:52101203:52101204:52101205", sort = 12, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0022"}
 , 
-[51100013] = {id = 51100013, type = 1, activity_type = 0, name = "商人さんの依頼", remark = "商人さんの依頼", record_ids = "52101301:52101302:52101303:52101305", sort = 13, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_20_3"}
+[51100013] = {id = 51100013, type = 1, activity_type = 0, name = "商人さんの依頼", remark = "第13章", record_ids = "52101301:52101302:52101303:52101305", sort = 13, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0025"}
 , 
-[51100014] = {id = 51100014, type = 1, activity_type = 0, name = "町の守護者", remark = "町の守護者", record_ids = "52101401:52101402:52101403:52101404:52101405", sort = 14, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_20_4"}
+[51100014] = {id = 51100014, type = 1, activity_type = 0, name = "町の守護者", remark = "第14章", record_ids = "52101401:52101402:52101403:52101404:52101405", sort = 14, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0023"}
 , 
-[51100015] = {id = 51100015, type = 1, activity_type = 0, name = "神秘の女王", remark = "神秘の女王", record_ids = "52101501:52101502:52101504:52101505", sort = 15, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_08_1"}
+[51100015] = {id = 51100015, type = 1, activity_type = 0, name = "神秘の女王", remark = "第15章", record_ids = "52101501:52101502:52101504:52101505", sort = 15, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0010"}
 , 
-[51100016] = {id = 51100016, type = 1, activity_type = 0, name = "嫉妬の女王", remark = "嫉妬の女王", record_ids = "52101601:52101602:52101605", sort = 16, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_08_2"}
+[51100016] = {id = 51100016, type = 1, activity_type = 0, name = "嫉妬の女王", remark = "第16章", record_ids = "52101601:52101602:52101605", sort = 16, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0027"}
 , 
-[51100017] = {id = 51100017, type = 1, activity_type = 0, name = "特別な依頼", remark = "特別な依頼", record_ids = "52101701:52101702:52101703:52101705", sort = 17, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_08_3"}
+[51100017] = {id = 51100017, type = 1, activity_type = 0, name = "特別な依頼", remark = "第17章", record_ids = "52101701:52101702:52101703:52101705", sort = 17, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0013"}
 , 
-[51100018] = {id = 51100018, type = 1, activity_type = 0, name = "誘拐されたレッド", remark = "誘拐されたレッド", record_ids = "52101801:52101802:52101803:52101804:52101805", sort = 18, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_21_1"}
+[51100018] = {id = 51100018, type = 1, activity_type = 0, name = "誘拐されたレッド", remark = "第18章", record_ids = "52101801:52101802:52101803:52101804:52101805", sort = 18, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0015"}
 , 
-[51100019] = {id = 51100019, type = 1, activity_type = 0, name = "荒涼な故郷", remark = "荒涼な故郷", record_ids = "52101901:52101903:52101905", sort = 19, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_21_2"}
+[51100019] = {id = 51100019, type = 1, activity_type = 0, name = "荒涼な故郷", remark = "第19章", record_ids = "52101901:52101903:52101905", sort = 19, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0013"}
 , 
-[51100020] = {id = 51100020, type = 1, activity_type = 0, name = "怨恨の領主", remark = "怨恨の領主", record_ids = "52102001:52102002:52102004:52102005", sort = 20, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_21_3"}
+[51100020] = {id = 51100020, type = 1, activity_type = 0, name = "怨恨の領主", remark = "第20章", record_ids = "52102001:52102002:52102004:52102005", sort = 20, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0010"}
 , 
-[51100021] = {id = 51100021, type = 1, activity_type = 0, name = "バカップル", remark = "バカップル", record_ids = "52102101:52102102:52102103:52102104:52102105", sort = 21, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_05_1"}
+[51100021] = {id = 51100021, type = 1, activity_type = 0, name = "バカップル", remark = "第21章", record_ids = "52102101:52102102:52102103:52102104:52102105", sort = 21, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0015"}
 , 
-[51100022] = {id = 51100022, type = 1, activity_type = 0, name = "バカップル", remark = "バカップル", record_ids = "52102201:52102202:52102204:52102205", sort = 22, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_05_2"}
+[51100022] = {id = 51100022, type = 1, activity_type = 0, name = "バカップル", remark = "第22章", record_ids = "52102201:52102202:52102204:52102205", sort = 22, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0010"}
 , 
-[51100023] = {id = 51100023, type = 1, activity_type = 0, name = "忙しいエイプリル", remark = "忙しいエイプリル", record_ids = "52102301:52102302:52102303:52102304:52102305", sort = 23, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_05_3"}
+[51100023] = {id = 51100023, type = 1, activity_type = 0, name = "忙しいエイプリル", remark = "第23章", record_ids = "52102301:52102302:52102303:52102304:52102305", sort = 23, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0023"}
 , 
-[51100024] = {id = 51100024, type = 1, activity_type = 0, name = "カジノの騒ぎ", remark = "カジノの騒ぎ", record_ids = "52102401:52102403:52102405", sort = 24, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_05_4"}
+[51100024] = {id = 51100024, type = 1, activity_type = 0, name = "カジノの騒ぎ", remark = "第24章", record_ids = "52102401:52102403:52102405", sort = 24, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0020"}
 , 
-[51100025] = {id = 51100025, type = 1, activity_type = 0, name = "プライド大ピンチ", remark = "プライド大ピンチ", record_ids = "52102501:52102502:52102504:52102505", sort = 25, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_16_1"}
+[51100025] = {id = 51100025, type = 1, activity_type = 0, name = "プライド大ピンチ", remark = "第25章", record_ids = "52102501:52102502:52102504:52102505", sort = 25, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
 , 
-[51100026] = {id = 51100026, type = 1, activity_type = 0, name = "プライド大ピンチ", remark = "プライド大ピンチ", record_ids = "52102601:52102602:52102603:52102604:52102605", sort = 26, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_16_2"}
+[51100026] = {id = 51100026, type = 1, activity_type = 0, name = "プライド大ピンチ", remark = "第26章", record_ids = "52102601:52102602:52102603:52102604:52102605", sort = 26, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0027"}
 , 
-[51100027] = {id = 51100027, type = 1, activity_type = 0, name = "謎の「楽園」", remark = "謎の「楽園」", record_ids = "52102701:52102702:52102705", sort = 27, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_16_3"}
+[51100027] = {id = 51100027, type = 1, activity_type = 0, name = "謎の「楽園」", remark = "第27章", record_ids = "52102701:52102702:52102705", sort = 27, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0008"}
 , 
-[51100028] = {id = 51100028, type = 1, activity_type = 0, name = "イロハの誘い", remark = "イロハの誘い", record_ids = "52102801:52102802:52102803:52102804:52102805", sort = 28, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_16_4"}
+[51100028] = {id = 51100028, type = 1, activity_type = 0, name = "イロハの誘い", remark = "第28章", record_ids = "52102801:52102802:52102803:52102804:52102805", sort = 28, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0011"}
 , 
-[51100029] = {id = 51100029, type = 1, activity_type = 0, name = "異国の奇遇", remark = "異国の奇遇", record_ids = "52102901:52102903:52102904:52102905", sort = 29, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_16_5"}
+[51100029] = {id = 51100029, type = 1, activity_type = 0, name = "異国の奇遇", remark = "第29章", record_ids = "52102901:52102903:52102904:52102905", sort = 29, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0025"}
 , 
-[51100030] = {id = 51100030, type = 1, activity_type = 0, name = "愛のために生きる", remark = "愛のために生きる", record_ids = "52103001:52103002:52103003:52103005", sort = 30, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_1"}
+[51100030] = {id = 51100030, type = 1, activity_type = 0, name = "愛のために生きる", remark = "第30章", record_ids = "52103001:52103002:52103003:52103005", sort = 30, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0014"}
 , 
-[51100031] = {id = 51100031, type = 1, activity_type = 0, name = "双子の姉妹", remark = "双子の姉妹", record_ids = "52103101:52103102:52103104:52103105", sort = 31, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_2"}
+[51100031] = {id = 51100031, type = 1, activity_type = 0, name = "双子の姉妹", remark = "第31章", record_ids = "52103101:52103102:52103104:52103105", sort = 31, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
 , 
-[51100032] = {id = 51100032, type = 1, activity_type = 0, name = "変な力", remark = "変な力", record_ids = "52103201:52103202:52103204:52103205", sort = 32, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_3"}
+[51100032] = {id = 51100032, type = 1, activity_type = 0, name = "変な力", remark = "第32章", record_ids = "52103201:52103202:52103204:52103205", sort = 32, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0015"}
 , 
-[51100033] = {id = 51100033, type = 1, activity_type = 0, name = "ルナの依頼", remark = "ルナの依頼", record_ids = "52103301:52103302:52103304:52103305", sort = 33, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_4"}
+[51100033] = {id = 51100033, type = 1, activity_type = 0, name = "ルナの依頼", remark = "第33章", record_ids = "52103301:52103302:52103304:52103305", sort = 33, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0015"}
 , 
-[51100034] = {id = 51100034, type = 1, activity_type = 0, name = "変なルナ", remark = "変なルナ", record_ids = "52103401:52103402:52103404:52103405", sort = 34, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_1"}
+[51100034] = {id = 51100034, type = 1, activity_type = 0, name = "変なルナ", remark = "第34章", record_ids = "52103401:52103402:52103404:52103405", sort = 34, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0002"}
 , 
-[51100035] = {id = 51100035, type = 1, activity_type = 0, name = "不思議な薬", remark = "不思議な薬", record_ids = "52103501:52103502:52103503:52103505", sort = 35, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_2"}
+[51100035] = {id = 51100035, type = 1, activity_type = 0, name = "不思議な薬", remark = "第35章", record_ids = "52103501:52103502:52103503:52103505", sort = 35, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0023"}
 , 
-[51100036] = {id = 51100036, type = 1, activity_type = 0, name = "不思議な薬", remark = "不思議な薬", record_ids = "52103601:52103602:52103604:52103605", sort = 36, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_3"}
+[51100036] = {id = 51100036, type = 1, activity_type = 0, name = "不思議な薬", remark = "第36章", record_ids = "52103601:52103602:52103604:52103605", sort = 36, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0027"}
 , 
-[51100037] = {id = 51100037, type = 1, activity_type = 0, name = "教会の城", remark = "教会の城", record_ids = "52103701:52103702:52103703:52103705", sort = 37, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_4"}
+[51100037] = {id = 51100037, type = 1, activity_type = 0, name = "教会の城", remark = "第37章", record_ids = "52103701:52103702:52103703:52103705", sort = 37, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0017"}
 , 
-[51100038] = {id = 51100038, type = 1, activity_type = 0, name = "堕落した教会", remark = "堕落した教会", record_ids = "52103801:52103802:52103803:52103804:52103805", sort = 38, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_07_5"}
+[51100038] = {id = 51100038, type = 1, activity_type = 0, name = "堕落した教会", remark = "第38章", record_ids = "52103801:52103802:52103803:52103804:52103805", sort = 38, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0007"}
 , 
-[51100039] = {id = 51100039, type = 1, activity_type = 0, name = "シャノンの親友", remark = "シャノンの親友", record_ids = "52103901:52103902:52103903:52103904:52103905", sort = 39, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_1"}
+[51100039] = {id = 51100039, type = 1, activity_type = 0, name = "シャノンの親友", remark = "第39章", record_ids = "52103901:52103902:52103903:52103904:52103905", sort = 39, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0025"}
 , 
-[51100040] = {id = 51100040, type = 1, activity_type = 0, name = "狂気のモイラ", remark = "狂気のモイラ", record_ids = "52104001:52104003:52104004:52104005", sort = 40, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_2"}
+[51100040] = {id = 51100040, type = 1, activity_type = 0, name = "狂気のモイラ", remark = "第40章", record_ids = "52104001:52104003:52104004:52104005", sort = 40, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0002"}
 , 
-[51100041] = {id = 51100041, type = 1, activity_type = 0, name = "謎の占い師", remark = "謎の占い師", record_ids = "52104101:52104102:52104103:52104104:52104105", sort = 41, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_3"}
+[51100041] = {id = 51100041, type = 1, activity_type = 0, name = "謎の占い師", remark = "第41章", record_ids = "52104101:52104102:52104103:52104104:52104105", sort = 41, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0016"}
 , 
-[51100042] = {id = 51100042, type = 1, activity_type = 0, name = "脱獄大作戦", remark = "脱獄大作戦", record_ids = "52104201:52104202:52104203:52104205", sort = 42, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_04_4"}
+[51100042] = {id = 51100042, type = 1, activity_type = 0, name = "脱獄大作戦", remark = "第42章", record_ids = "52104201:52104202:52104203:52104205", sort = 42, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0016"}
 , 
-[51100043] = {id = 51100043, type = 1, activity_type = 0, name = "塔の中の女の子", remark = "塔の中の女の子", record_ids = "52104301:52104303:52104304:52104305", sort = 43, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_06_1"}
+[51100043] = {id = 51100043, type = 1, activity_type = 0, name = "塔の中の女の子", remark = "第43章", record_ids = "52104301:52104303:52104304:52104305", sort = 43, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0012"}
 , 
-[51100044] = {id = 51100044, type = 1, activity_type = 0, name = "包囲網突破！", remark = "包囲網突破！", record_ids = "52104401:52104403:52104404:52104405", sort = 44, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_06_2"}
+[51100044] = {id = 51100044, type = 1, activity_type = 0, name = "包囲網突破！", remark = "第44章", record_ids = "52104401:52104403:52104404:52104405", sort = 44, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0002"}
 , 
-[51100045] = {id = 51100045, type = 1, activity_type = 0, name = "一難去ってまた一難", remark = "一難去ってまた一難", record_ids = "52104501:52104502:52104503:52104504:52104505", sort = 45, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_06_3"}
+[51100045] = {id = 51100045, type = 1, activity_type = 0, name = "一難去ってまた一難", remark = "第45章", record_ids = "52104501:52104502:52104503:52104504:52104505", sort = 45, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0023"}
 , 
-[51100046] = {id = 51100046, type = 1, activity_type = 0, name = "エイプリルの\n「秘密」", remark = "エイプリルの\n「秘密」", record_ids = "52104601:52104602:52104603:52104604:52104605", sort = 46, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_06_4"}
+[51100046] = {id = 51100046, type = 1, activity_type = 0, name = "エイプリルの\n「秘密」", remark = "第46章", record_ids = "52104601:52104602:52104603:52104604:52104605", sort = 46, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0025"}
 , 
-[51100047] = {id = 51100047, type = 1, activity_type = 0, name = "「レッド」と手を携えて", remark = "「レッド」と手を携えて", record_ids = "52104701:52104702:52104703:52104704:52104705", sort = 47, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_06_5"}
+[51100047] = {id = 51100047, type = 1, activity_type = 0, name = "「レッド」と手を携えて", remark = "第47章", record_ids = "52104701:52104702:52104703:52104704:52104705", sort = 47, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0027"}
 , 
-[51100048] = {id = 51100048, type = 1, activity_type = 0, name = "「レッド」と手を携えて", remark = "「レッド」と手を携えて", record_ids = "52104801:52104802:52104803:52104804:52104805", sort = 48, unlockPoints = 50, nextId = 0, needStage = 0, icon = "HandBookBanner:handbook_24_1"}
+[51100048] = {id = 51100048, type = 1, activity_type = 0, name = "「レッド」と手を携えて", remark = "第48章", record_ids = "52104801:52104802:52104803:52104804:52104805", sort = 48, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0027"}
 , 
 [51200001] = {id = 51200001, type = 2, activity_type = 0, name = "始まりの森", remark = "始まりの森", record_ids = "52200101:52200102:52200103:52200104:52200105:52200106", sort = 1, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
@@ -118,4 +118,6 @@
 [51410010] = {id = 51410010, type = 3, activity_type = 310, name = "野生児の反撃", remark = "野生児の反撃", record_ids = "52501003:52501006:52501009:52501012:52501015", sort = 10, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
 [51410011] = {id = 51410011, type = 3, activity_type = 311, name = "嘘の契り", remark = "嘘の契り", record_ids = "52501103:52501106:52501109:52501112:52501115", sort = 11, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51610001] = {id = 51610001, type = 3, activity_type = 312, name = "奪還！海の家！", remark = "奪還！海の家！", record_ids = "52700103:52700106:52700109:52700112:52700114", sort = 12, unlockPoints = 0, nextId = 0, needStage = 0}
 }

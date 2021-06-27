@@ -461,6 +461,13 @@ message ResPutOnEquip
 	int32	sourceCardId      = 2;//要穿戴的装备来自哪个角色(0表示从背包来的)
 	string	replaceEquipIndex = 3;//要替换下的装备流水(如果来源是背包则脱下到背包，如果来源是其它角色则替换到角色身上，如果为空则表示直接穿戴)
 	int32	cardId            = 4;//要穿在哪个角色身上
+	repeated EquipSetsBuff equipSetsBuff = 5;//套装buff
+}
+
+//套装buff
+message EquipSetsBuff{
+	int32 cardId                 = 1;//角色Id
+	repeated int32 equipSetsBuff = 2;//套装buff
 }
 
 //307 升级装备
@@ -1770,7 +1777,7 @@ message ResFastSweep
 
 //545天之塔初始化
 message ReqTowerInit{
-
+	int32 type   =  1;//请求类型 1为天之塔 2为天之塔拓展
 }
 
 //546
@@ -1778,6 +1785,12 @@ message ResTowerInit{
 	repeated    Tower   tower       = 1;//天之塔
 	repeated CommonObject cardInfo  = 2;//卡牌信息(id为卡的ID,value为位置)
 	bool  encounter                 = 3;//是否存在天之塔遭遇战数据
+	//天之塔拓展相关
+	repeated int32 yetUseCardIdList = 4;//已经使用过的角色id
+	repeated StageRivalCardState rivalCardStates = 5;//对手信息
+	int32 changeFc                               = 6;//战力改变值
+	int32 firstOpen                 = 7;//是否是第一次解锁天之塔拓展  1为未解锁 2为第一次(客户端有特效) 3为第二次以及之后的 只有当请求的type为1的时候 才有值
+	int32 type                      = 8;//请求类型 1为天之塔 2为天之塔拓展
 }
 
 //天之塔
@@ -1823,6 +1836,11 @@ message ResSettleTower{
 	repeated GoodsObject firstGoods   = 6;//首通奖励 不一定有
 	repeated GoodsObject extGoods     = 7;//额外掉落
 	bool triggerEncounter             = 8;//是否触发遭遇战 如果触发了遭遇战 请直接发送ReqEncounterBattleEmba请求
+	
+	//天之塔拓展相关
+	repeated int32 yetUseCardIdList   = 9;//已经使用过的角色id
+	repeated StageRivalCardState rivalCardStates = 10;//对手信息
+	int32 firstOpen                   = 11;//是否是第一次解锁天之塔拓展  1为未解锁 2为第一次(客户端有特效) 3为第二次以及之后的 只有当TowerConfig的type为1的时候 才有值
 }
 
 //551 请求远征数据
@@ -2619,6 +2637,7 @@ message CardObject
 	   		 int64 			equipScheme = 11;//装备方案
 	   		 int32               sealLv = 12;//印文等级
 	repeated CommonObject sealSkillInfo = 13;//印文技能列表（TYPE+LV）
+	repeated int32             equipSet = 14;//套装id
 }
 
 message CardDetail
@@ -6323,9 +6342,16 @@ message RiskData{
 	int32   id                  = 1;//id
 	int64  beginTime            = 2;//开始时间
 	int64  endTime              = 3;//结束时间
-	repeated GoodsObject reward = 4;//奖励
-	repeated int32 eventId      = 5;//事件
+	//repeated GoodsObject reward = 4;//奖励
+	repeated RiskEvent event    = 5;//事件
 	int64 riskTime              = 6;//探险时长(单位 毫秒)
+}
+
+message RiskEvent{
+	int32 eventId               = 1;//事件id
+	int32 eventType             = 2;//事件类型
+	repeated GoodsObject reward = 3;//奖励 当且仅当事件为奖励事件是 此处才有值
+	int32 rank                  = 4;//排序
 }
 
 //开始冒险 2402
@@ -7976,6 +8002,7 @@ ResUpdateEquipSchemeName = "ResUpdateEquipSchemeName",
 MoonPayInfo = "MoonPayInfo",
 ResSubmitTask = "ResSubmitTask",
 ResWarReward = "ResWarReward",
+EquipSetsBuff = "EquipSetsBuff",
 BattleWave = "BattleWave",
 ReqGuildGiftRank = "ReqGuildGiftRank",
 ResUseProp = "ResUseProp",
@@ -8216,6 +8243,7 @@ ReqMailDetail = "ReqMailDetail",
 ReqOpenCG = "ReqOpenCG",
 ReqHurtReport = "ReqHurtReport",
 ResInFriendPK = "ResInFriendPK",
+RiskEvent = "RiskEvent",
 ResDisbandGuild = "ResDisbandGuild",
 ResStageBuyNum = "ResStageBuyNum",
 ReqFastSweep = "ReqFastSweep",

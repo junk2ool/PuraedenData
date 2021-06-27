@@ -50,11 +50,25 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_Homeland, RedDotComID.Home_Main)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_ActivityReturn, RedDotComID.Home_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Home_ActivityDungeon, RedDotComID.Home_Main)
   winName = (WinResConfig.ActorInfoWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Setting_Main, RedDotComID.Home_Setting, (WinResConfig.HomeWindow).name)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Setting_Title, RedDotComID.Setting_Main)
+  winName = (WinResConfig.NewActivityDungeonWindow).name
+  ;
+  (RedDotMgr.RegisterRootNode)(winName, RedDotComID.ActivityDungeon_Main, RedDotComID.Home_ActivityDungeon, (WinResConfig.HomeWindow).name)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.ActivityDungeon_Btn, RedDotComID.ActivityDungeon_Main)
+  winName = (WinResConfig.NewActivityDungeonMainWindow).name
+  ;
+  (RedDotMgr.RegisterRootNode)(winName, RedDotComID.NAD_Main, RedDotComID.ActivityDungeon_Btn, (WinResConfig.NewActivityDungeonWindow).name)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_Exploration, RedDotComID.NAD_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_AssitsFight, RedDotComID.NAD_Main)
   winName = (WinResConfig.TitleWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Title_Main, RedDotComID.Setting_Title, (WinResConfig.ActorInfoWindow).name)
@@ -631,16 +645,28 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
                                                                       end
                                                                     else
                                                                       do
-                                                                        do
-                                                                          local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
+                                                                        if id == RedDotComID.NAD_AssitsFight or id == RedDotComID.NAD_Exploration then
+                                                                          local node = RedDotManager:GetNodeByObj((WinResConfig.NewActivityDungeonMainWindow).name, id)
                                                                           if node then
-                                                                            loge(logStr .. "普通红点ID" .. id)
+                                                                            loge(logStr .. "普通红点ID" .. id .. " " .. tostring(IsAdd))
                                                                             node.NodeValue = IsAdd
                                                                           else
                                                                             loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")
                                                                           end
-                                                                          if id == RedDotComID.FREE_GIFT then
-                                                                            UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_FREEGIFTREDDOT)
+                                                                        else
+                                                                          do
+                                                                            do
+                                                                              local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
+                                                                              if node then
+                                                                                loge(logStr .. "普通红点ID" .. id .. " " .. tostring(IsAdd))
+                                                                                node.NodeValue = IsAdd
+                                                                              else
+                                                                                loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")
+                                                                              end
+                                                                              if id == RedDotComID.FREE_GIFT then
+                                                                                UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_FREEGIFTREDDOT)
+                                                                              end
+                                                                            end
                                                                           end
                                                                         end
                                                                       end

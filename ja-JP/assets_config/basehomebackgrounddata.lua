@@ -12,6 +12,8 @@ BaseHomeBackgroundData = {
 [5] = {id = 5, path_ab = "92200100", path_ui = "HomeBg:HomeBg_100", sort = 5, is_open = 1, effect_back = "FX_ui_mainbg_92200006_back", begin_time = 1606679999, end_time = 1609426800}
 , 
 [6] = {id = 6, path_ab = "92200101", path_ui = "HomeBg:HomeBg_101", sort = 6, is_open = 1, effect_back = "FX_ui_mainbg_92200101_back", effect_front = "FX_ui_mainbg_92200101_front", begin_time = 1614546000, end_time = 1619798339}
+, 
+[7] = {id = 7, path_ab = "92200102", path_ui = "HomeBg:HomeBg_102", sort = 7, is_open = 1, begin_time = 1625086800, end_time = 1630425539}
 }
 return BaseHomeBackgroundData
 

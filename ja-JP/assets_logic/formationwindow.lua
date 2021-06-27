@@ -301,18 +301,23 @@ FormationWindow.Refresh = function(init, ...)
       end
     end
 
-    do
-      if (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.ActivityDungeon or (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.RelicDungeon then
-        local fcTxt = recordEnemyFc
-        if fcTxt then
-          (PlotDungeonMgr.ActivityDungeonEnemyFc)(tonumber(fcTxt))
-        end
+    if (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.ActivityDungeon or (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.RelicDungeon then
+      local fcTxt = recordEnemyFc
+      if fcTxt then
+        (PlotDungeonMgr.ActivityDungeonEnemyFc)(tonumber(fcTxt))
       end
-      if (FormationWindow.JudgeIsFormationFull)() then
-        enterFunc()
-      else
-        if mFormationType ~= FormationType.Single and mFormationType ~= FormationType.Edit then
-          (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000274), function(...)
+    else
+      do
+        -- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+
+        if (PlotDungeonMgr.GetStageChapterType)(stageID) == (ProtoEnum.E_CHALLENGE_TYPE).NEW_ACTIVITY_CHALLENGE and recordEnemyFc then
+          NewActivityDungeonData.EnemyFC = tonumber(recordEnemyFc)
+        end
+        if (FormationWindow.JudgeIsFormationFull)() then
+          enterFunc()
+        else
+          if mFormationType ~= FormationType.Single and mFormationType ~= FormationType.Edit then
+            (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000274), function(...)
       -- function num : 0_1_0_1 , upvalues : enterFunc
       enterFunc()
     end
@@ -321,8 +326,9 @@ FormationWindow.Refresh = function(init, ...)
       UIMgr:CloseWindow((WinResConfig.ConfirmWindow).name)
     end
 , (PUtil.get)(20000275), (PUtil.get)(20000276), (PUtil.get)(20000277), false, UILayer.HUD1)
-        else
-          enterFunc()
+          else
+            enterFunc()
+          end
         end
       end
     end

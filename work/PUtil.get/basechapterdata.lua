@@ -154,4 +154,10 @@
 [51410011] = {id = 51410011, name = "嘘の契り", type = 101, stages = "52501101:52501102:52501103:52501104:52501105:52501106:52501107:52501108:52501109:52501110:52501111:52501112:52501113:52501114:52501115", open_condition = "72501001:0:1", pre = 0, next = "51420011", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
 [51420011] = {id = 51420011, name = "嘘の契り", type = 101, stages = "52511101:52511102:52511103:52511104:52511105:52511106", open_condition = "72501001:0:1,72504611:52501115:1", pre = 51410011, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610001] = {id = 51610001, name = "奪還！海の家！", type = 201, stages = "52700101:52700102:52700103:52700104:52700105", open_condition = "72501001:0:1", pre = 0, next = "51610002", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610002] = {id = 51610002, name = "奪還！海の家！", type = 201, stages = "52700106:52700107:52700108:52700109", open_condition = "72501001:0:1", pre = 51610001, next = "51610003", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610003] = {id = 51610003, name = "奪還！海の家！", type = 201, stages = "52700110:52700111:52700112:52700113:52700114", open_condition = "72501001:0:1", pre = 51610002, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 }

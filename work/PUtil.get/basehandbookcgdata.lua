@@ -212,4 +212,8 @@
 [26301101] = {id = 26301101, name = "゙ゲームスタート", remark = "細かいことを気にしている場合かい？さぁ、思う存分戦うといい。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 1, icon = "HandBookCGBanner:92108023", fashion_id = "92108023", activity_sort = 11, activity_name = "嘘の契り", open_time = 1622422800}
 , 
 [26301102] = {id = 26301102, name = "隠された真実", remark = "はは、君はどこまで私を傷つけられるのか…興味深いね。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 2, icon = "HandBookCGBanner:92108024", fashion_id = "92108024", activity_sort = 11, activity_name = "嘘の契り", open_time = 1622422800}
+, 
+[26301103] = {id = 26301103, name = "水着に着替えてもらおう", remark = "わ、わかった。き、着替えてくる…！", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 1, icon = "HandBookCGBanner:92108045", fashion_id = "92108045", activity_sort = 12, activity_name = "奪還！海の家！", open_time = 1625014800}
+, 
+[26301104] = {id = 26301104, name = "夏の海は最高だ", remark = "せっかくの、素敵な海だから。一緒に楽しもう。", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 2, icon = "HandBookCGBanner:92108046", fashion_id = "92108046", activity_sort = 12, activity_name = "奪還！海の家！", open_time = 1625014800}
 }

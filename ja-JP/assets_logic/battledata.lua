@@ -1349,6 +1349,10 @@ BattleData.GetPlayTypeByBattleType = function(battleType, ...)
                               else
                                 if battleType == E_BATTLE_TYPE.TEMPLE then
                                   return PlayType.TEMPLE
+                                else
+                                  if battleType == E_BATTLE_TYPE.ASSIST then
+                                    return PlayType.Assist_Fight
+                                  end
                                 end
                               end
                             end
@@ -1416,6 +1420,10 @@ BattleData.GetBattleTypeByPlayType = function(playType, ...)
                             else
                               if playType == PlayType.TEMPLE then
                                 return E_BATTLE_TYPE.TEMPLE
+                              else
+                                if playType == PlayType.Assist_Fight then
+                                  return E_BATTLE_TYPE.ASSIST
+                                end
                               end
                             end
                           end
@@ -1662,6 +1670,10 @@ BattleData.GetChallengeType = function(battleType, ...)
                               else
                                 if battleType == E_BATTLE_TYPE.TEMPLE then
                                   return E_CHALLENGE_TYPE.TEMPLE_CHALLENGE
+                                else
+                                  if battleType == E_BATTLE_TYPE.ASSIST then
+                                    return E_CHALLENGE_TYPE.NEW_ACTIVITY_ASSIST
+                                  end
                                 end
                               end
                             end

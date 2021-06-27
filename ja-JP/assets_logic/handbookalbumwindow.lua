@@ -306,6 +306,8 @@ HandBookAlbumWindow.SetActivityListRender = function(index, obj, ...)
       if isNew then
         (HandBookService.OnReqOpenCG)(v.id)
         ChangeUIController(albumObj, "c3", 1)
+        ;
+        (HandBookMgr.SetAlbumNotNew)(v.id)
       end
       ;
       (CommonWinMgr.OpenCGShow)(v.id, false)

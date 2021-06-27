@@ -57,10 +57,20 @@ PlotDungeonService.OnResStoryInfo = function(msg, ...)
               (PlotDungeonMgr.GetActivityDungeonPlayerFc)((storyChapter[1]).playerActivityFc)
               local activityFirstOpen = (storyChapter[1]).activityFirstOpen
               OpenWindow((WinResConfig.ActivityDungeonMainWindow).name, UILayer.HUD, activityFirstOpen)
-            end
-            do
-              if msg.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
-                UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
+            else
+              do
+                do
+                  if not (msg.chapterInfo)[1] or not ((msg.chapterInfo)[1]).activityFirstOpen then
+                    local activityFirstOpen = msg.type ~= (ProtoEnum.E_CHALLENGE_TYPE).NEW_ACTIVITY_CHALLENGE or 0
+                  end
+                  -- DECOMPILER ERROR at PC109: Confused about usage of register: R2 in 'UnsetPending'
+
+                  NewActivityDungeonData.PlayerFC = (msg.chapterInfo)[1] and ((msg.chapterInfo)[1]).playerActivityFc or 0
+                  OpenWindow((WinResConfig.NewActivityDungeonWindow).name, UILayer.HUD, activityFirstOpen)
+                  if msg.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
+                    UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
+                  end
+                end
               end
             end
           end

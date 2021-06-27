@@ -52,9 +52,25 @@ end
 
 ShopService.OnResShopGridData = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
+
   if msg then
     if msg.shopType == ShopType.ActivityDungeonShop then
-      OpenWindow((WinResConfig.ActivityDungeonShopWindow).name, UILayer.HUD, msg)
+      if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+        NewActivityDungeonData.ShopData = msg
+        ;
+        (table.sort)((NewActivityDungeonData.ShopData).shopGridData, function(a, b, ...)
+    -- function num : 0_4_0 , upvalues : _ENV
+    local ad = ((TableData.gTable).BaseShopGridData)[a.shopGridId]
+    local bd = ((TableData.gTable).BaseShopGridData)[b.shopGridId]
+    do return tonumber(ad.sort_index) < tonumber(bd.sort_index) end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+        OpenWindow((WinResConfig.NewActivityDungeonShopWindow).name, UILayer.HUD)
+      else
+        OpenWindow((WinResConfig.ActivityDungeonShopWindow).name, UILayer.HUD, msg)
+      end
     else
       if msg.shopType == ShopType.Family_NormalShop or msg.shopType == ShopType.Family_SeedShop or msg.shopType == ShopType.Family_SecretShop then
         (HomelandService.ResShopGridDataByType)(msg)
@@ -128,6 +144,7 @@ ShopService.OnResShopBuy = function(msg, ...)
     UIMgr:CloseWindow((WinResConfig.ShopBuyWindow).name)
     if msg.shopType == ShopType.ActivityDungeonShop then
       UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonShopWindow).name, (WindowMsgEnum.ActivityDungeonShopWindow).E_MSG_REFRESH_ITEMLIST, {data = msg.shopGridData})
+      UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonShopWindow).name, (WindowMsgEnum.ActivityDungeonShopWindow).E_MSG_REFRESH_ITEMLIST, {data = msg.shopGridData})
     else
       if msg.shopType == ShopType.Family_NormalShop or msg.shopType == ShopType.Family_SeedShop or msg.shopType == ShopType.Family_SecretShop then
         (HomelandService.ResShopBuy)(msg)

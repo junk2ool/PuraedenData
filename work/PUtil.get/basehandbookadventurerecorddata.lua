@@ -524,4 +524,14 @@
 [52501112] = {id = 52501112, name = "『守る』のために！", remark = "『守る』のために！", icon = "HandBookBanner:Activity_11_4", story_id = "75900071:75900081:75900082", sort = 4}
 , 
 [52501115] = {id = 52501115, name = "欺きと真実", remark = "欺きと真実", icon = "HandBookBanner:Activity_11_5", story_id = "75900091", sort = 5}
+, 
+[52700103] = {id = 52700103, name = "『海の家』を再訪！", remark = "『海の家』を再訪！", icon = "HandBookBanner:Activity_02_1", story_id = "75901211:75901221", sort = 1}
+, 
+[52700106] = {id = 52700106, name = "おとり作戦", remark = "おとり作戦", icon = "HandBookBanner:Activity_02_2", story_id = "75901231:75901241", sort = 2}
+, 
+[52700109] = {id = 52700109, name = "水着コンテスト", remark = "水着コンテスト", icon = "HandBookBanner:Activity_02_3", story_id = "75901251:75901261:75901262:75901263:75901264", sort = 3}
+, 
+[52700112] = {id = 52700112, name = "レッド奪還作戦", remark = "レッド奪還作戦", icon = "HandBookBanner:Activity_02_4", story_id = "75901271:75901272:75901281:75901282:75901291:75901292", sort = 4}
+, 
+[52700114] = {id = 52700114, name = "正面対決に！", remark = "正面対決に！", icon = "HandBookBanner:Activity_02_5", story_id = "75901201:75901202", sort = 5}
 }

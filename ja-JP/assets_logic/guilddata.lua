@@ -637,4 +637,76 @@ GuildData.GetGuildIcon = function(icon, ...)
   return (Util.GetItemUrl)((((TableData.gTable).BaseGuildBadgeData)[icon]).icon)
 end
 
+-- DECOMPILER ERROR at PC219: Confused about usage of register: R0 in 'UnsetPending'
+
+GuildData.ResetData = function(...)
+  -- function num : 0_19 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.InGuild = false
+  -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.GuildList = {}
+  -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.JoinTimeStamp = nil
+  -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.BaseInfo = nil
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.OnlineCount = 0
+  -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.Announcement = ""
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.LogInfos = {}
+  -- DECOMPILER ERROR at PC18: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.MemberList = {}
+  -- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.GuildApplyList = {}
+  -- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.MyApplyList = {}
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.SearchResultList = {}
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.RewardStatus = {}
+  -- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.BuildingInfo = nil
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.BuildConfig = {}
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.GuildGiftRank = {}
+  -- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.NeedUpdateMemberInfo = true
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.NeedUpdateApplyInfo = true
+  -- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.KickOutMemberName = ""
+  -- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.MemberCards = {}
+  -- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.GuildBossSummaryInfo = {}
+  -- DECOMPILER ERROR at PC52: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.IsImpeach = 0
+  -- DECOMPILER ERROR at PC54: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildData.Organizer = ""
+end
+
 

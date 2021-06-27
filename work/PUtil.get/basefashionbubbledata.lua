@@ -12194,4 +12194,276 @@
 [117312302] = {id = 117312302, bubble_text = "この姿だと、今まで見えなかった景色も見えるぞ！最高だぜ！", voice_path = "Ad_Forze_Home_Talk_2", top_position = 10}
 , 
 [117312303] = {id = 117312303, bubble_text = "ん？大人の色気っつーのは、露出すればいいってもんじゃないのか？", voice_path = "Ad_Forze_Home_Talk_3", top_position = 10}
+, 
+[97022171] = {id = 97022171, bubble_text = "あ、あの、お構いなく…私は一人で遊んでるから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Main_1"}
+, 
+[97022172] = {id = 97022172, bubble_text = "な、なんでみんなは…こういう格好してて…堂々と話せるのかな…うう～", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Main_2"}
+, 
+[97022173] = {id = 97022173, bubble_text = "うう、しばらくは皆の前で芸するなんて無理…リーダーの前ならまだ大丈夫、かもしれないけど…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Main_3"}
+, 
+[97022174] = {id = 97022174, bubble_text = "この服ならではの芸とか、できないかな…うう、思いついても恥ずかしくてうまくできないかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Main_4"}
+, 
+[97122171] = {id = 97122171, bubble_text = "あ、あの、お構いなく…私は一人で遊んでるから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Main_1"}
+, 
+[97122172] = {id = 97122172, bubble_text = "な、なんでみんなは…こういう格好してて…堂々と話せるのかな…うう～", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Main_2"}
+, 
+[97122173] = {id = 97122173, bubble_text = "うう、しばらくは皆の前で芸するなんて無理…リーダーの前ならまだ大丈夫、かもしれないけど…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Main_3"}
+, 
+[97122174] = {id = 97122174, bubble_text = "この服ならではの芸とか、できないかな…うう、思いついても恥ずかしくてうまくできないかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Main_4"}
+, 
+[97222171] = {id = 97222171, bubble_text = "あ、あの、お構いなく…私は一人で遊んでるから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Main_1"}
+, 
+[97222172] = {id = 97222172, bubble_text = "な、なんでみんなは…こういう格好してて…堂々と話せるのかな…うう～", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Main_2"}
+, 
+[97222173] = {id = 97222173, bubble_text = "うう、しばらくは皆の前で芸するなんて無理…リーダーの前ならまだ大丈夫、かもしれないけど…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Main_3"}
+, 
+[97222174] = {id = 97222174, bubble_text = "この服ならではの芸とか、できないかな…うう、思いついても恥ずかしくてうまくできないかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Main_4"}
+, 
+[101221701] = {id = 101221701, bubble_text = "さあさあ、コンチータの曲芸の始まり始ま…り…や、やっぱり無理っ！こ、こんな恥ずかしい格好じゃ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Get_1"}
+, 
+[101221711] = {id = 101221711, bubble_text = "さぁご覧あれ！ひと夏の夢、コンチータの公演が始まるよ！…ふ～、やっと挨拶はできるようになった、かも。り、リーダー…練習に付き合ってくれてありがとう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Stage_2"}
+, 
+[101221721] = {id = 101221721, bubble_text = "みんな、やっぱり大事な人に見てほしいからこういう格好するのかな…。でも、私なんかじゃあ水着を着てもリーダーに見てもらえないよね…って、あ、あれ！？ち、違うよ！私はべ、別にリーダーに対してそういう気持ちは…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Stage_3"}
+, 
+[102221701] = {id = 102221701, bubble_text = "あ、り、リーダー…その…今は公演中止です…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_In_1"}
+, 
+[102221702] = {id = 102221702, bubble_text = "あ、り、リーダー…その…今は公演中止です…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_In_1"}
+, 
+[102221703] = {id = 102221703, bubble_text = "あ、り、リーダー…その…今は公演中止です…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_In_1"}
+, 
+[103221701] = {id = 103221701, bubble_text = "り、リーダーのおかげでほんの少し、この格好でも恥ずかしくなくなってきた…かも？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "397:223", direction = 2, voice_path = "mizugi_Conchita_Stage_1"}
+, 
+[103221711] = {id = 103221711, bubble_text = "り、リーダーのおかげでほんの少し、この格好でも恥ずかしくなくなってきた…かも？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:239", direction = 2, voice_path = "mizugi_Conchita_Stage_1"}
+, 
+[103221721] = {id = 103221721, bubble_text = "り、リーダーのおかげでほんの少し、この格好でも恥ずかしくなくなってきた…かも？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:239", direction = 2, voice_path = "mizugi_Conchita_Stage_1"}
+, 
+[104221701] = {id = 104221701, bubble_text = "芸の幅が少し広がった…かな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "397:223", direction = 2, voice_path = "mizugi_Conchita_Star_1"}
+, 
+[104221711] = {id = 104221711, bubble_text = "芸の幅が少し広がった…かな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:239", direction = 2, voice_path = "mizugi_Conchita_Star_1"}
+, 
+[104221721] = {id = 104221721, bubble_text = "芸の幅が少し広がった…かな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "387:239", direction = 2, voice_path = "mizugi_Conchita_Star_1"}
+, 
+[105221701] = {id = 105221701, bubble_text = "えひゃぁっ！？な、なに！？恥ずかしい気持ちに耐える訓練、とか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Interaction_1"}
+, 
+[105221702] = {id = 105221702, bubble_text = "少し私も遊んでこようかな…。た、たぶん私を見る人なんていないだろうし…や、やっぱりリーダーも一緒に来てくれる？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Interaction_2"}
+, 
+[105221703] = {id = 105221703, bubble_text = "こ、この間、砂浜の隅っこで練習してたんだけど、いつの間にか人が集まって、頭真っ白になっちゃって…し、しばらくはリーダーにだけ芸、見せるね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Interaction_3"}
+, 
+[105221704] = {id = 105221704, bubble_text = "今日はちょっと、動きの激しい芸の練習しようかな…。ほっ、ほっ、はっ…ふぅ。できた…。って、わあぁっ！？　み、水着のひもが、ズレてっ…！　み、見ないでぇ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Interaction_4"}
+, 
+[105221705] = {id = 105221705, bubble_text = "い、いつも練習見てくれてありがとう…。この格好でも少し、人前で芸する自信がついた、かもしれない…。で、でもどうしてだろう…。リーダーと一緒にいる時間が長くなるほど、リーダーに見られるのは恥ずかしくなってくるような…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Interaction_5"}
+, 
+[105221711] = {id = 105221711, bubble_text = "えひゃぁっ！？な、なに！？恥ずかしい気持ちに耐える訓練、とか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Interaction_1"}
+, 
+[105221712] = {id = 105221712, bubble_text = "少し私も遊んでこようかな…。た、たぶん私を見る人なんていないだろうし…や、やっぱりリーダーも一緒に来てくれる？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Interaction_2"}
+, 
+[105221713] = {id = 105221713, bubble_text = "こ、この間、砂浜の隅っこで練習してたんだけど、いつの間にか人が集まって、頭真っ白になっちゃって…し、しばらくはリーダーにだけ芸、見せるね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Interaction_3"}
+, 
+[105221714] = {id = 105221714, bubble_text = "今日はちょっと、動きの激しい芸の練習しようかな…。ほっ、ほっ、はっ…ふぅ。できた…。って、わあぁっ！？　み、水着のひもが、ズレてっ…！　み、見ないでぇ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Interaction_4"}
+, 
+[105221715] = {id = 105221715, bubble_text = "い、いつも練習見てくれてありがとう…。この格好でも少し、人前で芸する自信がついた、かもしれない…。で、でもどうしてだろう…。リーダーと一緒にいる時間が長くなるほど、リーダーに見られるのは恥ずかしくなってくるような…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Interaction_5"}
+, 
+[105221721] = {id = 105221721, bubble_text = "えひゃぁっ！？な、なに！？恥ずかしい気持ちに耐える訓練、とか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Interaction_1"}
+, 
+[105221722] = {id = 105221722, bubble_text = "少し私も遊んでこようかな…。た、たぶん私を見る人なんていないだろうし…や、やっぱりリーダーも一緒に来てくれる？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Interaction_2"}
+, 
+[105221723] = {id = 105221723, bubble_text = "こ、この間、砂浜の隅っこで練習してたんだけど、いつの間にか人が集まって、頭真っ白になっちゃって…し、しばらくはリーダーにだけ芸、見せるね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Interaction_3"}
+, 
+[105221724] = {id = 105221724, bubble_text = "今日はちょっと、動きの激しい芸の練習しようかな…。ほっ、ほっ、はっ…ふぅ。できた…。って、わあぁっ！？　み、水着のひもが、ズレてっ…！　み、見ないでぇ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Interaction_4"}
+, 
+[105221725] = {id = 105221725, bubble_text = "い、いつも練習見てくれてありがとう…。この格好でも少し、人前で芸する自信がついた、かもしれない…。で、でもどうしてだろう…。リーダーと一緒にいる時間が長くなるほど、リーダーに見られるのは恥ずかしくなってくるような…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Interaction_5"}
+, 
+[106221701] = {id = 106221701, bubble_text = "よ、よかった…無事に終わったんだ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Win_1"}
+, 
+[106221711] = {id = 106221711, bubble_text = "よ、よかった…無事に終わったんだ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Win_1"}
+, 
+[106221721] = {id = 106221721, bubble_text = "よ、よかった…無事に終わったんだ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Win_1"}
+, 
+[107221701] = {id = 107221701, bubble_text = "わ、私が恥ずかしがってたから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "702:234", direction = 2, voice_path = "mizugi_Conchita_Fail_1"}
+, 
+[107221711] = {id = 107221711, bubble_text = "わ、私が恥ずかしがってたから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "688:249", direction = 2, voice_path = "mizugi_Conchita_Fail_1"}
+, 
+[107221721] = {id = 107221721, bubble_text = "わ、私が恥ずかしがってたから…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "726:355", direction = 2, voice_path = "mizugi_Conchita_Fail_1"}
+, 
+[108221701] = {id = 108221701, bubble_text = "すー…はー…で、出来る限りはやってみる！", voice_path = "mizugi_Conchita_Go_1"}
+, 
+[109221701] = {id = 109221701, voice_path = "mizugi_Conchita_Game_1"}
+, 
+[111221701] = {id = 111221701, voice_path = "mizugi_Conchita_Battle_N_1"}
+, 
+[111221702] = {id = 111221702, voice_path = "mizugi_Conchita_Battle_N_2"}
+, 
+[111221703] = {id = 111221703, voice_path = "mizugi_Conchita_Battle_N_3"}
+, 
+[111221704] = {id = 111221704, voice_path = "mizugi_Conchita_Battle_N_4"}
+, 
+[111221705] = {id = 111221705, voice_path = "mizugi_Conchita_Battle_N_5"}
+, 
+[111221706] = {id = 111221706, voice_path = "mizugi_Conchita_Battle_N_6"}
+, 
+[112221701] = {id = 112221701, voice_path = "mizugi_Conchita_Battle_Hit_1"}
+, 
+[112221702] = {id = 112221702, voice_path = "mizugi_Conchita_Battle_Hit_2"}
+, 
+[112221703] = {id = 112221703, voice_path = "mizugi_Conchita_Battle_Hit_3"}
+, 
+[112221704] = {id = 112221704, voice_path = "mizugi_Conchita_Battle_Hit_4"}
+, 
+[112221705] = {id = 112221705, voice_path = "mizugi_Conchita_Battle_Hit_5"}
+, 
+[112221706] = {id = 112221706, voice_path = "mizugi_Conchita_Battle_Hit_6"}
+, 
+[113221701] = {id = 113221701, voice_path = "mizugi_Conchita_Battle_Die_1"}
+, 
+[114221701] = {id = 114221701, voice_path = "mizugi_Conchita_Battle_H_1"}
+, 
+[114221702] = {id = 114221702, voice_path = "mizugi_Conchita_Battle_H_2"}
+, 
+[115221701] = {id = 115221701, voice_path = "mizugi_Conchita_Battle_C_1"}
+, 
+[115221702] = {id = 115221702, voice_path = "mizugi_Conchita_Battle_C_2"}
+, 
+[116221701] = {id = 116221701, bubble_text = "リ、リラックスする方法…知ってる人、いる…？", voice_path = "mizugi_Conchita_Home_In_1", top_position = 10}
+, 
+[117221701] = {id = 117221701, bubble_text = "さて、燃える太陽の下、本日お目にかけますのは…！あ、い、いや…これはただの練習だから…", voice_path = "mizugi_Conchita_Home_Talk_1", top_position = 10}
+, 
+[117221702] = {id = 117221702, bubble_text = "ふぅ…やっぱり、にぎやかなところより家が落ち着くなあ…", voice_path = "mizugi_Conchita_Home_Talk_2", top_position = 10}
+, 
+[117221703] = {id = 117221703, bubble_text = "リーダーが外へ遊びに行くなら…私も行こうかな…", voice_path = "mizugi_Conchita_Home_Talk_3", top_position = 10}
+, 
+[97030341] = {id = 97030341, bubble_text = "あーもう。潮風で髪がうっとうしいー…。部屋にこもってエアコンがんがんつけて、アイス食べながらゲームしたーい…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Main_1"}
+, 
+[97030342] = {id = 97030342, bubble_text = "まさか女神に「食料を取ってこいー」だとか、「飲み水を確保してこいー」だとか、そんな面倒なこと言わないよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Main_2"}
+, 
+[97030343] = {id = 97030343, bubble_text = "何、まさかあたしの水着見てる？　…これ以上はやめなよ、捕まるから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Main_3"}
+, 
+[97030344] = {id = 97030344, bubble_text = "海なんて、世界の大半覆ってるんだから…感動することもないでしょ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Main_4"}
+, 
+[97130341] = {id = 97130341, bubble_text = "あーもう。潮風で髪がうっとうしいー…。部屋にこもってエアコンがんがんつけて、アイス食べながらゲームしたーい…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Main_1"}
+, 
+[97130342] = {id = 97130342, bubble_text = "まさか女神に「食料を取ってこいー」だとか、「飲み水を確保してこいー」だとか、そんな面倒なこと言わないよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Main_2"}
+, 
+[97130343] = {id = 97130343, bubble_text = "何、まさかあたしの水着見てる？　…これ以上はやめなよ、捕まるから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Main_3"}
+, 
+[97130344] = {id = 97130344, bubble_text = "海なんて、世界の大半覆ってるんだから…感動することもないでしょ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Main_4"}
+, 
+[97230341] = {id = 97230341, bubble_text = "あーもう。潮風で髪がうっとうしいー…。部屋にこもってエアコンがんがんつけて、アイス食べながらゲームしたーい…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Main_1"}
+, 
+[97230342] = {id = 97230342, bubble_text = "まさか女神に「食料を取ってこいー」だとか、「飲み水を確保してこいー」だとか、そんな面倒なこと言わないよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Main_2"}
+, 
+[97230343] = {id = 97230343, bubble_text = "何、まさかあたしの水着見てる？　…これ以上はやめなよ、捕まるから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Main_3"}
+, 
+[97230344] = {id = 97230344, bubble_text = "海なんて、世界の大半覆ってるんだから…感動することもないでしょ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Main_4"}
+, 
+[101303401] = {id = 101303401, bubble_text = "漫画もゲームもない場所に、どうしてこのあたしが…。まあすぐに帰れないのなら、せいぜいのんびり過ごさせてもらうとするか。やれやれ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Get_1"}
+, 
+[101303411] = {id = 101303411, bubble_text = "女神の水着姿なんて、普通なら見られないわけ。で、それを好きなだけ見せてあげるから…リーダー、何もかもあたしの代わりに働いてくれない？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Stage_2"}
+, 
+[101303421] = {id = 101303421, bubble_text = "海って…あんたの人生っぽいかも。ずーっと小さな波があって…たまに大きな波とか、嵐が来て。それが面白くて飽きないし…どこか、落ち着く感じもする。うん、まぁ、誉め言葉ってやつ。だいたいね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Stage_3"}
+, 
+[102303401] = {id = 102303401, bubble_text = "あたしは浮き輪に乗って、のんびりさせてもらうから。こんなところでまで働くなんて、絶対に嫌だし。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_In_1"}
+, 
+[102303402] = {id = 102303402, bubble_text = "あたしは浮き輪に乗って、のんびりさせてもらうから。こんなところでまで働くなんて、絶対に嫌だし。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_In_1"}
+, 
+[102303403] = {id = 102303403, bubble_text = "あたしは浮き輪に乗って、のんびりさせてもらうから。こんなところでまで働くなんて、絶対に嫌だし。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_In_1"}
+, 
+[103303401] = {id = 103303401, bubble_text = "水着でもなお、働かせる気かよー…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "311:214", direction = 2, voice_path = "mizugi_Evanthe_Stage_1"}
+, 
+[103303411] = {id = 103303411, bubble_text = "水着でもなお、働かせる気かよー…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "291:322", direction = 1, voice_path = "mizugi_Evanthe_Stage_1"}
+, 
+[103303421] = {id = 103303421, bubble_text = "水着でもなお、働かせる気かよー…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "291:322", direction = 1, voice_path = "mizugi_Evanthe_Stage_1"}
+, 
+[104303401] = {id = 104303401, bubble_text = "無人島でもゲームできるぐらいの力…取り戻しちゃった？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "311:214", direction = 2, voice_path = "mizugi_Evanthe_Star_1"}
+, 
+[104303411] = {id = 104303411, bubble_text = "無人島でもゲームできるぐらいの力…取り戻しちゃった？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "291:322", direction = 1, voice_path = "mizugi_Evanthe_Star_1"}
+, 
+[104303421] = {id = 104303421, bubble_text = "無人島でもゲームできるぐらいの力…取り戻しちゃった？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "291:322", direction = 1, voice_path = "mizugi_Evanthe_Star_1"}
+, 
+[105303401] = {id = 105303401, bubble_text = "うっ…そこヒリヒリする…。日焼け止め塗るの面倒だからって塗らなかったんだけど、そのせいだ。こんな思いするなんて、それもこれも全能の神が悪い。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Interaction_1"}
+, 
+[105303402] = {id = 105303402, bubble_text = "もしかして、何か面白いことでも見つかった？大してやることもないし、面倒なことじゃなければ付き合ってあげなくもなくはないけど。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Interaction_2"}
+, 
+[105303403] = {id = 105303403, bubble_text = "二人乗りの浮き輪があるみたいだから、暇なら一緒に乗ってみる？　…海の上なら仕事を頼まれることもないし？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Interaction_3"}
+, 
+[105303404] = {id = 105303404, bubble_text = "海って、わりと眺めてるだけで飽きないよね。でもむかーし見てた時は、なんだか怖かった気がする。今は…うん、まぁあんたも隣にいるし。別に、海だなって思うし…悪くないって思う。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Interaction_4"}
+, 
+[105303405] = {id = 105303405, bubble_text = "帰ったら今まで以上にダラダラして過ごさないと。溜まった漫画とか、やりかけのゲームとか消化しないといけないし。もちろん、あんたにも付き合ってもらうから。…じゃないと、対戦ゲーできないでしょ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Interaction_5"}
+, 
+[105303411] = {id = 105303411, bubble_text = "うっ…そこヒリヒリする…。日焼け止め塗るの面倒だからって塗らなかったんだけど、そのせいだ。こんな思いするなんて、それもこれも全能の神が悪い。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Interaction_1"}
+, 
+[105303412] = {id = 105303412, bubble_text = "もしかして、何か面白いことでも見つかった？大してやることもないし、面倒なことじゃなければ付き合ってあげなくもなくはないけど。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Interaction_2"}
+, 
+[105303413] = {id = 105303413, bubble_text = "二人乗りの浮き輪があるみたいだから、暇なら一緒に乗ってみる？　…海の上なら仕事を頼まれることもないし？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Interaction_3"}
+, 
+[105303414] = {id = 105303414, bubble_text = "海って、わりと眺めてるだけで飽きないよね。でもむかーし見てた時は、なんだか怖かった気がする。今は…うん、まぁあんたも隣にいるし。別に、海だなって思うし…悪くないって思う。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Interaction_4"}
+, 
+[105303415] = {id = 105303415, bubble_text = "帰ったら今まで以上にダラダラして過ごさないと。溜まった漫画とか、やりかけのゲームとか消化しないといけないし。もちろん、あんたにも付き合ってもらうから。…じゃないと、対戦ゲーできないでしょ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Interaction_5"}
+, 
+[105303421] = {id = 105303421, bubble_text = "うっ…そこヒリヒリする…。日焼け止め塗るの面倒だからって塗らなかったんだけど、そのせいだ。こんな思いするなんて、それもこれも全能の神が悪い。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Interaction_1"}
+, 
+[105303422] = {id = 105303422, bubble_text = "もしかして、何か面白いことでも見つかった？大してやることもないし、面倒なことじゃなければ付き合ってあげなくもなくはないけど。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Interaction_2"}
+, 
+[105303423] = {id = 105303423, bubble_text = "二人乗りの浮き輪があるみたいだから、暇なら一緒に乗ってみる？　…海の上なら仕事を頼まれることもないし？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Interaction_3"}
+, 
+[105303424] = {id = 105303424, bubble_text = "海って、わりと眺めてるだけで飽きないよね。でもむかーし見てた時は、なんだか怖かった気がする。今は…うん、まぁあんたも隣にいるし。別に、海だなって思うし…悪くないって思う。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Interaction_4"}
+, 
+[105303425] = {id = 105303425, bubble_text = "帰ったら今まで以上にダラダラして過ごさないと。溜まった漫画とか、やりかけのゲームとか消化しないといけないし。もちろん、あんたにも付き合ってもらうから。…じゃないと、対戦ゲーできないでしょ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Interaction_5"}
+, 
+[106303401] = {id = 106303401, bubble_text = "扇風機の前で、昼寝するかな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Win_1"}
+, 
+[106303411] = {id = 106303411, bubble_text = "扇風機の前で、昼寝するかな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Win_1"}
+, 
+[106303421] = {id = 106303421, bubble_text = "扇風機の前で、昼寝するかな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Win_1"}
+, 
+[107303401] = {id = 107303401, bubble_text = "うぅ、ただ汗まみれになっただけ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "616:217", direction = 2, voice_path = "mizugi_Evanthe_Fail_1"}
+, 
+[107303411] = {id = 107303411, bubble_text = "うぅ、ただ汗まみれになっただけ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:336", direction = 1, voice_path = "mizugi_Evanthe_Fail_1"}
+, 
+[107303421] = {id = 107303421, bubble_text = "うぅ、ただ汗まみれになっただけ…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "595:317", direction = 1, voice_path = "mizugi_Evanthe_Fail_1"}
+, 
+[108303401] = {id = 108303401, bubble_text = "水着で戦わせるつもり？", voice_path = "mizugi_Evanthe_Go_1"}
+, 
+[109303401] = {id = 109303401, voice_path = "mizugi_Evanthe_Game_1"}
+, 
+[111303401] = {id = 111303401, voice_path = "mizugi_Evanthe_Battle_N_1"}
+, 
+[111303402] = {id = 111303402, voice_path = "mizugi_Evanthe_Battle_N_2"}
+, 
+[111303403] = {id = 111303403, voice_path = "mizugi_Evanthe_Battle_N_3"}
+, 
+[111303404] = {id = 111303404, voice_path = "mizugi_Evanthe_Battle_N_4"}
+, 
+[111303405] = {id = 111303405, voice_path = "mizugi_Evanthe_Battle_N_5"}
+, 
+[111303406] = {id = 111303406, voice_path = "mizugi_Evanthe_Battle_N_6"}
+, 
+[112303401] = {id = 112303401, voice_path = "mizugi_Evanthe_Battle_Hit_1"}
+, 
+[112303402] = {id = 112303402, voice_path = "mizugi_Evanthe_Battle_Hit_2"}
+, 
+[112303403] = {id = 112303403, voice_path = "mizugi_Evanthe_Battle_Hit_3"}
+, 
+[112303404] = {id = 112303404, voice_path = "mizugi_Evanthe_Battle_Hit_4"}
+, 
+[112303405] = {id = 112303405, voice_path = "mizugi_Evanthe_Battle_Hit_5"}
+, 
+[112303406] = {id = 112303406, voice_path = "mizugi_Evanthe_Battle_Hit_6"}
+, 
+[113303401] = {id = 113303401, voice_path = "mizugi_Evanthe_Battle_Die_1"}
+, 
+[114303401] = {id = 114303401, voice_path = "mizugi_Evanthe_Battle_H_1"}
+, 
+[114303402] = {id = 114303402, voice_path = "mizugi_Evanthe_Battle_H_2"}
+, 
+[115303401] = {id = 115303401, voice_path = "mizugi_Evanthe_Battle_C_1"}
+, 
+[115303402] = {id = 115303402, voice_path = "mizugi_Evanthe_Battle_C_2"}
+, 
+[116303401] = {id = 116303401, bubble_text = "ここ、エアコンついてんの？", voice_path = "mizugi_Evanthe_Home_In_1", top_position = 10}
+, 
+[117303401] = {id = 117303401, bubble_text = "アイス食べたいアイス食べたいアイス食ーべーたーいー。リーダー、コンビニで買ってきて～…", voice_path = "mizugi_Evanthe_Home_Talk_1", top_position = 10}
+, 
+[117303402] = {id = 117303402, bubble_text = "暑すぎる…早く冬にならないかな…。まぁ、寒くなったらまた夏が恋しくなるんだけど。", voice_path = "mizugi_Evanthe_Home_Talk_2", top_position = 10}
+, 
+[117303403] = {id = 117303403, bubble_text = "ゲーム機が熱暴走したらどうすんの、データ飛んだらどうすんの。誰が責任取るっての？", voice_path = "mizugi_Evanthe_Home_Talk_3", top_position = 10}
 }

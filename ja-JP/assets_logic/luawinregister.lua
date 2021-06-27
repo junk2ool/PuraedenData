@@ -449,6 +449,22 @@ CardSealExchangeWindow = {name = "CardSealExchangeWindow", package = "Card", com
 CardSealSkillTipsWindow = {name = "CardSealSkillTipsWindow", package = "DescriptionTips", comName = "SkillTipsWindow", hideBelow = false}
 , 
 ActivityReturnWindow = {name = "ActivityReturnWindow", package = "ActivityReturn", comName = "ReturnMain", hideBelow = true}
+, 
+NewActivityDungeonWindow = {name = "NewActivityDungeonWindow", package = "ActivityDungeonTwo", comName = "ActivityMain", hideBelow = true}
+, 
+NewActivityExplainWindow = {name = "NewActivityExplainWindow", package = "ActivityDungeonTwo", comName = "Explain", hideBelow = false}
+, 
+NewActivityDungeonShopWindow = {name = "NewActivityDungeonShopWindow", package = "ActivityDungeonTwo", comName = "ChoiceShop", hideBelow = false}
+, 
+NewActivityDungeonShopBuyWindow = {name = "NewActivityDungeonShopBuyWindow", package = "ActivityDungeonTwo", comName = "BuyWindow", hideBelow = false}
+, 
+NewActivityDungeonExchangeWindow = {name = "NewActivityDungeonExchangeWindow", package = "ActivityDungeonTwo", comName = "Exchange", hideBelow = true}
+, 
+NewActivityDungeonMainWindow = {name = "NewActivityDungeonMainWindow", package = "ActivityDungeonTwo", comName = "BattleMain", hideBelow = true}
+, 
+NewActivityDungeonGuildAssistWindow = {name = "NewActivityDungeonGuildAssistWindow", package = "ActivityDungeonTwo", comName = "HelpListWindow", hideBelow = false}
+, 
+NewActivityDungeonPlotDetailWindow = {name = "NewActivityDungeonPlotDetailWindow", package = "ActivityDungeonTwo", comName = "PlotDetailWindow", hideBelow = false, notReopen = true}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -530,6 +546,8 @@ ActivityCarnival = {E_MSG_CHANGE_GROUP = 1, E_MSG_GET_TASK = 2, E_MSG_GET_INTEGE
 ActivityDungeon = {E_MSG_REFRESH = 1, E_MSG_SET_COUNTDOWN = 2, E_MSG_REFRESH_RED = 3, E_MSG_SHOW_DIFFICULT_RED = 4}
 , 
 ActivityMainDungeon = {E_MSG_SET_TIME = 1}
+, 
+NewActivityDungeon = {E_MSG_REFRESH_UI = 1, E_MSG_REFRESH_PURCHASE_INFO = 2, E_MSG_REFRESH_REWARD_LIST = 3, E_MSG_SHOW_RESULT = 4, E_MSG_RESET = 5, E_MSG_REFRESH = 6, E_MSG_REFRESH_EXPLORE_COST = 7, E_MSG_REFRESH_EXPLORE = 8, E_MSG_REFRESH_ASSIST_FIGHT = 9, E_MSG_REFRESH_BOSS_HP = 10, E_MSG_REFRESH_ASSIST_LIST = 11, E_MSG_REFRESH_GUILD_ASSIST = 12, E_MSG_REFRESH_ASSIST_LIST_INFO = 13, E_MSG_AFTER_PURCHASE = 14}
 , 
 Announcement = {E_MSG_REFRESH = 1, E_MSG_REFRESH_TITLE = 2}
 , 
@@ -715,5 +733,15 @@ LotteryIntegralWindow = {"Prize", "CardHeadIconCircle", "Title", "FamilyFurnitur
 RelicMainWindow = {"ActivityDungeon", "PlotUIBackGround"}
 , 
 GuildBossMainWindow = {"MonsterHeadSquare"}
+, 
+NewActivityDungeonWindow = {"ActivityDungeon"}
+, 
+NewActivityDungeonGuildAssistWindow = {"CardHeadIconCircle"}
+, 
+NewActivityDungeonPlotDetailWindow = {"PlotUIBackGround"}
+, 
+NewActivityDungeonMainWindow = {"ActivityDungeon"}
+, 
+NewActivityDungeonExchangeWindow = {"ActivityDungeon"}
 }
 

@@ -38,6 +38,8 @@ BaseDeckData = {
 [50000018] = {id = 50000018, group = 17, initCard = "2:11100002,5:11100003", initGroup = 21}
 , 
 [50000019] = {id = 50000019, group = 17, initCard = "2:11100002,5:11100003", initGroup = 22}
+, 
+[50000020] = {id = 50000020, group = 18, initCard = "2:11100002,5:11100003", initGroup = 24}
 }
 return BaseDeckData
 

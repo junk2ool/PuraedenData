@@ -252,7 +252,7 @@ TableData.GetMonsterFcConfig = function(selfMaxFc, battleType, ...)
     if battleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION then
       allConfig = (TableData.gTable).BaseExpeditionMonsterData
     else
-      if battleType == (ProtoEnum.E_BATTLE_TYPE).ACTIVITY then
+      if battleType == (ProtoEnum.E_BATTLE_TYPE).ACTIVITY or battleType == (ProtoEnum.E_BATTLE_TYPE).ASSIST then
         allConfig = (TableData.gTable).BaseMonsterAddData
       else
         if battleType == (ProtoEnum.E_BATTLE_TYPE).TEMPLE then

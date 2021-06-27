@@ -41,6 +41,8 @@ BaseRedDotData = {
 , 
 [10020] = {id = 10020, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 6}
 , 
+[10021] = {id = 10021, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
+, 
 [1010000] = {id = 1010000, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 16}
 , 
 [1020000] = {id = 1020000, show_level_limit = "1:999", pass_level_limit = "1:999", priority = 17}
@@ -216,6 +218,12 @@ BaseRedDotData = {
 [23000003] = {id = 23000003, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 87}
 , 
 [23000004] = {id = 23000004, show_level_limit = "30:999", pass_level_limit = "30:999", priority = 88}
+, 
+[24000001] = {id = 24000001, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
+, 
+[24000002] = {id = 24000002, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
+, 
+[24000003] = {id = 24000003, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
 }
 return BaseRedDotData
 

@@ -31,5 +31,7 @@
 , 
 [29000016] = {id = 29000016, name = "操り人形師　称号", goods_icon = "ItemIcon:29000016", type = 1, quality = 3, remark = "イベント「嘘の契り」より獲得可能。", des = "リューゲの嘘を見破った者に贈られる称号。", icon = "Title:29000016", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
 , 
+[29000017] = {id = 29000017, name = "コンテスト審査官　称号", goods_icon = "ItemIcon:29000017", type = 1, quality = 3, remark = "イベント「奪還！海の家！」より獲得可能。", des = "リッタのお店を奪還した者に贈られる称号。", icon = "Title:29000017", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1625018399"}
+, 
 [29000101] = {id = 29000101, name = "気丈な心持ち主　称号", goods_icon = "ItemIcon:29000101", type = 1, quality = 3, remark = "250回連続募集でSSR冒険者が出現しなかった際に贈られる称号。", des = "気丈な心の持ち主　称号", icon = "Title:29000101", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1620403200"}
 }

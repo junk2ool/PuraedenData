@@ -281,6 +281,13 @@ ActivityService.ResActivityInfo = function(msg, ...)
               else
                 if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Return then
                   (ActivityReturnMgr.RecvActivityData)(msg)
+                else
+                  -- DECOMPILER ERROR at PC160: Confused about usage of register: R1 in 'UnsetPending'
+
+                  if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).NewActivityDungeon then
+                    NewActivityDungeonData.NADData = msg.baseActivityInfo
+                    UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonWindow).name, (WindowMsgEnum.ActivityMainDungeon).E_MSG_REFRESH_UI)
+                  end
                 end
               end
             end

@@ -60,21 +60,28 @@ ClearingWindow.OnInit = function(bridge, ...)
   if not isExternalData then
     StageData = ((TableData.gTable).BaseStageData)[SweepData.stageId]
   end
-  -- DECOMPILER ERROR at PC82: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC88: Confused about usage of register: R2 in 'UnsetPending'
 
   if StageData then
-    (uis.PlotImageLoader).url = (Util.GetItemUrl)(StageData.battle_banner_show)
+    if (Util.StringIsNullOrEmpty)(StageData.clearlevel_pic) then
+      (uis.PlotImageLoader).url = (Util.GetItemUrl)(StageData.battle_banner_show)
+    else
+      -- DECOMPILER ERROR at PC95: Confused about usage of register: R2 in 'UnsetPending'
+
+      ;
+      (uis.PlotImageLoader).url = (Util.GetItemUrl)(StageData.clearlevel_pic)
+    end
   end
-  -- DECOMPILER ERROR at PC87: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC100: Confused about usage of register: R2 in 'UnsetPending'
 
   if isExternalData then
     (uis.c1Ctr).selectedIndex = 2
-    -- DECOMPILER ERROR at PC89: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC102: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.c2Ctr).selectedIndex = 3
   else
-    -- DECOMPILER ERROR at PC95: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC108: Confused about usage of register: R2 in 'UnsetPending'
 
     if SweepData.isFastWeep then
       (uis.c1Ctr).selectedIndex = 1
@@ -82,16 +89,16 @@ ClearingWindow.OnInit = function(bridge, ...)
       (ClearingWindow.SetBtnActive)(false, false)
       ;
       (ClearingWindow.InitDebrisList)()
-      -- DECOMPILER ERROR at PC103: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC116: Confused about usage of register: R2 in 'UnsetPending'
 
       ;
       (uis.c2Ctr).selectedIndex = 3
     else
-      -- DECOMPILER ERROR at PC114: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC127: Confused about usage of register: R2 in 'UnsetPending'
 
       if (PlotDungeonMgr.GetStageChapterType)(SweepData.stageId) == DungeonType.HeroDungeon then
         (uis.c2Ctr).selectedIndex = 0
-        -- DECOMPILER ERROR at PC116: Confused about usage of register: R2 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC129: Confused about usage of register: R2 in 'UnsetPending'
 
         ;
         (uis.c1Ctr).selectedIndex = 2
@@ -104,7 +111,7 @@ ClearingWindow.OnInit = function(bridge, ...)
   end
 )
       else
-        -- DECOMPILER ERROR at PC127: Confused about usage of register: R2 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC140: Confused about usage of register: R2 in 'UnsetPending'
 
         if not SweepData.aimItemId then
           (uis.c1Ctr).selectedIndex = 2
@@ -153,7 +160,7 @@ ClearingWindow.OnInit = function(bridge, ...)
     end
   end
   do
-    -- DECOMPILER ERROR at PC162: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC175: Confused about usage of register: R2 in 'UnsetPending'
 
     if SweepData.aimItemId and not SweepData.isFastWeep and (PlotDungeonMgr.GetStageChapterType)(SweepData.stageId) == DungeonType.BasicDungeon then
       (uis.c1Ctr).selectedIndex = 0
@@ -162,13 +169,13 @@ ClearingWindow.OnInit = function(bridge, ...)
     end
     ;
     (ClearingWindow.InitConfirmCloseBtn)()
-    -- DECOMPILER ERROR at PC172: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC185: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.itemList).defaultItem = (Util.GetResUrl)("PlotDungeon:PropClenNormalList")
     ;
     (uis.itemList):SetVirtual()
-    -- DECOMPILER ERROR at PC178: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC191: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.itemList).itemRenderer = ClearingWindow.ItemRenderer
@@ -176,19 +183,19 @@ ClearingWindow.OnInit = function(bridge, ...)
     (ClearingWindow.RefreshWindow)()
     ;
     (ClearingWindow.InitFunctionControl)()
-    -- DECOMPILER ERROR at PC188: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC201: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.titleTxt).text = (PUtil.get)(20000398)
-    -- DECOMPILER ERROR at PC194: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC207: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.NumberTxt).text = (PUtil.get)(20000399)
-    -- DECOMPILER ERROR at PC200: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC213: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.ExplainTxt).text = (PUtil.get)(20000444)
-    -- DECOMPILER ERROR at PC206: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC219: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (uis.vitalityTxt).text = (PUtil.get)(20000006)

@@ -841,6 +841,26 @@ BaseHandbookRoleDetailData = {
 , 
 [17100845] = {id = 17100845, name = 17100845, remark = (PUtil.get)(92100845)}
 , 
+[17100851] = {id = 17100851, name = 17100851, remark = (PUtil.get)(92100851)}
+, 
+[17100852] = {id = 17100852, name = 17100852, remark = (PUtil.get)(92100852)}
+, 
+[17100853] = {id = 17100853, name = 17100853, remark = (PUtil.get)(92100853)}
+, 
+[17100854] = {id = 17100854, name = 17100854, remark = (PUtil.get)(92100854)}
+, 
+[17100855] = {id = 17100855, name = 17100855, remark = (PUtil.get)(92100855)}
+, 
+[17100861] = {id = 17100861, name = 17100861, remark = (PUtil.get)(92100861)}
+, 
+[17100862] = {id = 17100862, name = 17100862, remark = (PUtil.get)(92100862)}
+, 
+[17100863] = {id = 17100863, name = 17100863, remark = (PUtil.get)(92100863)}
+, 
+[17100864] = {id = 17100864, name = 17100864, remark = (PUtil.get)(92100864)}
+, 
+[17100865] = {id = 17100865, name = 17100865, remark = (PUtil.get)(92100865)}
+, 
 [18100151] = {id = 18100151, name = (PUtil.get)(95000141), remark = (PUtil.get)(117100101), voice_path = "Shanon_Home_Talk_1", sort = 151, bubble_id = "14000100:2:445:258,14000101:2:445:258,14000102:2:445:258"}
 , 
 [18100152] = {id = 18100152, name = (PUtil.get)(95000142), remark = (PUtil.get)(117100102), voice_path = "Shanon_Home_Talk_2", sort = 152, bubble_id = "14000100:2:445:258,14000101:2:445:258,14000102:2:445:258"}
@@ -7260,6 +7280,162 @@ BaseHandbookRoleDetailData = {
 [18312352] = {id = 18312352, name = (PUtil.get)(95000991), remark = (PUtil.get)(117312302), voice_path = "Ad_Forze_Home_Talk_2", sort = 152, bubble_id = "14302300:2:401:236,14302301:2:386:278,14302302:2:386:278,14312300:2:438:239,14312301:2:417:239,14312302:2:417:239"}
 , 
 [18312353] = {id = 18312353, name = (PUtil.get)(95000992), remark = (PUtil.get)(117312303), voice_path = "Ad_Forze_Home_Talk_3", sort = 153, bubble_id = "14302300:2:401:236,14302301:2:386:278,14302302:2:386:278,14312300:2:438:239,14312301:2:417:239,14312302:2:417:239"}
+, 
+[18221701] = {id = 18221701, name = (PUtil.get)(95000001), remark = (PUtil.get)(101221701), voice_path = "mizugi_Conchita_Get_1", sort = 10, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221702] = {id = 18221702, name = (PUtil.get)(95000002), remark = (PUtil.get)(102221701), voice_path = "mizugi_Conchita_In_1", sort = 20, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221703] = {id = 18221703, name = (PUtil.get)(95000011), remark = (PUtil.get)(97022171), voice_path = "mizugi_Conchita_Main_1", sort = 30, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221704] = {id = 18221704, name = (PUtil.get)(95000012), remark = (PUtil.get)(97022172), voice_path = "mizugi_Conchita_Main_2", sort = 31, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221705] = {id = 18221705, name = (PUtil.get)(95000013), remark = (PUtil.get)(97022173), voice_path = "mizugi_Conchita_Main_3", sort = 32, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221706] = {id = 18221706, name = (PUtil.get)(95000014), remark = (PUtil.get)(97022174), voice_path = "mizugi_Conchita_Main_4", sort = 33, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221707] = {id = 18221707, name = (PUtil.get)(95000021), remark = (PUtil.get)(103221701), voice_path = "mizugi_Conchita_Stage_1", sort = 40, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221708] = {id = 18221708, name = (PUtil.get)(95000031), remark = (PUtil.get)(101221711), voice_path = "mizugi_Conchita_Stage_2", sort = 41, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221709] = {id = 18221709, name = (PUtil.get)(95000032), remark = (PUtil.get)(101221721), voice_path = "mizugi_Conchita_Stage_3", sort = 42, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221710] = {id = 18221710, name = (PUtil.get)(95000041), remark = (PUtil.get)(104221701), voice_path = "mizugi_Conchita_Star_1", sort = 50, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221711] = {id = 18221711, name = (PUtil.get)(95000051), remark = (PUtil.get)(105221701), type = 1, voice_path = "mizugi_Conchita_Interaction_1", sort = 140, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221712] = {id = 18221712, name = (PUtil.get)(95000052), remark = (PUtil.get)(105221702), type = 1, voice_path = "mizugi_Conchita_Interaction_2", sort = 141, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221713] = {id = 18221713, name = (PUtil.get)(95000053), remark = (PUtil.get)(105221703), type = 1, voice_path = "mizugi_Conchita_Interaction_3", sort = 142, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221714] = {id = 18221714, name = (PUtil.get)(95000054), remark = (PUtil.get)(105221704), type = 1, voice_path = "mizugi_Conchita_Interaction_4", sort = 143, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221715] = {id = 18221715, name = (PUtil.get)(95000055), remark = (PUtil.get)(105221705), type = 1, voice_path = "mizugi_Conchita_Interaction_5", sort = 144, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221716] = {id = 18221716, name = (PUtil.get)(95000061), remark = (PUtil.get)(108221701), voice_path = "mizugi_Conchita_Go_1", sort = 60, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221717] = {id = 18221717, name = (PUtil.get)(95000071), remark = (PUtil.get)(111221701), voice_path = "mizugi_Conchita_Battle_N_1", sort = 70, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221718] = {id = 18221718, name = (PUtil.get)(95000072), remark = (PUtil.get)(111221702), voice_path = "mizugi_Conchita_Battle_N_2", sort = 71, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221719] = {id = 18221719, name = (PUtil.get)(95000073), remark = (PUtil.get)(111221703), voice_path = "mizugi_Conchita_Battle_N_3", sort = 72, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221720] = {id = 18221720, name = (PUtil.get)(95000074), remark = (PUtil.get)(111221704), voice_path = "mizugi_Conchita_Battle_N_4", sort = 73, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221721] = {id = 18221721, name = (PUtil.get)(95000075), remark = (PUtil.get)(111221705), voice_path = "mizugi_Conchita_Battle_N_5", sort = 74, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221722] = {id = 18221722, name = (PUtil.get)(95000076), remark = (PUtil.get)(111221706), voice_path = "mizugi_Conchita_Battle_N_6", sort = 75, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221723] = {id = 18221723, name = (PUtil.get)(95000081), remark = (PUtil.get)(112221701), voice_path = "mizugi_Conchita_Battle_Hit_1", sort = 80, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221724] = {id = 18221724, name = (PUtil.get)(95000082), remark = (PUtil.get)(112221702), voice_path = "mizugi_Conchita_Battle_Hit_2", sort = 81, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221725] = {id = 18221725, name = (PUtil.get)(95000083), remark = (PUtil.get)(112221703), voice_path = "mizugi_Conchita_Battle_Hit_3", sort = 82, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221726] = {id = 18221726, name = (PUtil.get)(95000084), remark = (PUtil.get)(112221704), voice_path = "mizugi_Conchita_Battle_Hit_4", sort = 83, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221727] = {id = 18221727, name = (PUtil.get)(95000085), remark = (PUtil.get)(112221705), voice_path = "mizugi_Conchita_Battle_Hit_5", sort = 84, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221728] = {id = 18221728, name = (PUtil.get)(95000086), remark = (PUtil.get)(112221706), voice_path = "mizugi_Conchita_Battle_Hit_6", sort = 85, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221729] = {id = 18221729, name = (PUtil.get)(95000091), remark = (PUtil.get)(113221701), voice_path = "mizugi_Conchita_Battle_Die_1", sort = 90, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221730] = {id = 18221730, name = (PUtil.get)(95000101), remark = (PUtil.get)(114221701), voice_path = "mizugi_Conchita_Battle_H_1", sort = 100, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221731] = {id = 18221731, name = (PUtil.get)(95000102), remark = (PUtil.get)(114221702), voice_path = "mizugi_Conchita_Battle_H_2", sort = 101, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221732] = {id = 18221732, name = (PUtil.get)(95000111), remark = (PUtil.get)(115221701), voice_path = "mizugi_Conchita_Battle_C_1", sort = 110, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221733] = {id = 18221733, name = (PUtil.get)(95000112), remark = (PUtil.get)(115221702), voice_path = "mizugi_Conchita_Battle_C_2", sort = 111, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221734] = {id = 18221734, name = (PUtil.get)(95000121), remark = (PUtil.get)(106221701), voice_path = "mizugi_Conchita_Win_1", sort = 120, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221735] = {id = 18221735, name = (PUtil.get)(95000131), remark = (PUtil.get)(107221701), voice_path = "mizugi_Conchita_Fail_1", sort = 130, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221750] = {id = 18221750, name = (PUtil.get)(95000140), remark = (PUtil.get)(116221701), voice_path = "mizugi_Conchita_Home_In_1", sort = 150, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221751] = {id = 18221751, name = (PUtil.get)(95000141), remark = (PUtil.get)(117221701), voice_path = "mizugi_Conchita_Home_Talk_1", sort = 151, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221752] = {id = 18221752, name = (PUtil.get)(95000142), remark = (PUtil.get)(117221702), voice_path = "mizugi_Conchita_Home_Talk_2", sort = 152, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18221753] = {id = 18221753, name = (PUtil.get)(95000143), remark = (PUtil.get)(117221703), voice_path = "mizugi_Conchita_Home_Talk_3", sort = 153, bubble_id = "14221700:2:397:223,14221701:2:387:239,14221702:2:387:239"}
+, 
+[18303401] = {id = 18303401, name = (PUtil.get)(95000001), remark = (PUtil.get)(101303401), voice_path = "mizugi_Evanthe_Get_1", sort = 10, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303402] = {id = 18303402, name = (PUtil.get)(95000002), remark = (PUtil.get)(102303401), voice_path = "mizugi_Evanthe_In_1", sort = 20, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303403] = {id = 18303403, name = (PUtil.get)(95000011), remark = (PUtil.get)(97030341), voice_path = "mizugi_Evanthe_Main_1", sort = 30, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303404] = {id = 18303404, name = (PUtil.get)(95000012), remark = (PUtil.get)(97030342), voice_path = "mizugi_Evanthe_Main_2", sort = 31, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303405] = {id = 18303405, name = (PUtil.get)(95000013), remark = (PUtil.get)(97030343), voice_path = "mizugi_Evanthe_Main_3", sort = 32, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303406] = {id = 18303406, name = (PUtil.get)(95000014), remark = (PUtil.get)(97030344), voice_path = "mizugi_Evanthe_Main_4", sort = 33, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303407] = {id = 18303407, name = (PUtil.get)(95000021), remark = (PUtil.get)(103303401), voice_path = "mizugi_Evanthe_Stage_1", sort = 40, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303408] = {id = 18303408, name = (PUtil.get)(95000031), remark = (PUtil.get)(101303411), voice_path = "mizugi_Evanthe_Stage_2", sort = 41, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303409] = {id = 18303409, name = (PUtil.get)(95000032), remark = (PUtil.get)(101303421), voice_path = "mizugi_Evanthe_Stage_3", sort = 42, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303410] = {id = 18303410, name = (PUtil.get)(95000041), remark = (PUtil.get)(104303401), voice_path = "mizugi_Evanthe_Star_1", sort = 50, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303411] = {id = 18303411, name = (PUtil.get)(95000051), remark = (PUtil.get)(105303401), type = 1, voice_path = "mizugi_Evanthe_Interaction_1", sort = 140, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303412] = {id = 18303412, name = (PUtil.get)(95000052), remark = (PUtil.get)(105303402), type = 1, voice_path = "mizugi_Evanthe_Interaction_2", sort = 141, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303413] = {id = 18303413, name = (PUtil.get)(95000053), remark = (PUtil.get)(105303403), type = 1, voice_path = "mizugi_Evanthe_Interaction_3", sort = 142, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303414] = {id = 18303414, name = (PUtil.get)(95000054), remark = (PUtil.get)(105303404), type = 1, voice_path = "mizugi_Evanthe_Interaction_4", sort = 143, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303415] = {id = 18303415, name = (PUtil.get)(95000055), remark = (PUtil.get)(105303405), type = 1, voice_path = "mizugi_Evanthe_Interaction_5", sort = 144, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303416] = {id = 18303416, name = (PUtil.get)(95000061), remark = (PUtil.get)(108303401), voice_path = "mizugi_Evanthe_Go_1", sort = 60, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303417] = {id = 18303417, name = (PUtil.get)(95000071), remark = (PUtil.get)(111303401), voice_path = "mizugi_Evanthe_Battle_N_1", sort = 70, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303418] = {id = 18303418, name = (PUtil.get)(95000072), remark = (PUtil.get)(111303402), voice_path = "mizugi_Evanthe_Battle_N_2", sort = 71, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303419] = {id = 18303419, name = (PUtil.get)(95000073), remark = (PUtil.get)(111303403), voice_path = "mizugi_Evanthe_Battle_N_3", sort = 72, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303420] = {id = 18303420, name = (PUtil.get)(95000074), remark = (PUtil.get)(111303404), voice_path = "mizugi_Evanthe_Battle_N_4", sort = 73, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303421] = {id = 18303421, name = (PUtil.get)(95000075), remark = (PUtil.get)(111303405), voice_path = "mizugi_Evanthe_Battle_N_5", sort = 74, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303422] = {id = 18303422, name = (PUtil.get)(95000076), remark = (PUtil.get)(111303406), voice_path = "mizugi_Evanthe_Battle_N_6", sort = 75, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303423] = {id = 18303423, name = (PUtil.get)(95000081), remark = (PUtil.get)(112303401), voice_path = "mizugi_Evanthe_Battle_Hit_1", sort = 80, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303424] = {id = 18303424, name = (PUtil.get)(95000082), remark = (PUtil.get)(112303402), voice_path = "mizugi_Evanthe_Battle_Hit_2", sort = 81, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303425] = {id = 18303425, name = (PUtil.get)(95000083), remark = (PUtil.get)(112303403), voice_path = "mizugi_Evanthe_Battle_Hit_3", sort = 82, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303426] = {id = 18303426, name = (PUtil.get)(95000084), remark = (PUtil.get)(112303404), voice_path = "mizugi_Evanthe_Battle_Hit_4", sort = 83, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303427] = {id = 18303427, name = (PUtil.get)(95000085), remark = (PUtil.get)(112303405), voice_path = "mizugi_Evanthe_Battle_Hit_5", sort = 84, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303428] = {id = 18303428, name = (PUtil.get)(95000086), remark = (PUtil.get)(112303406), voice_path = "mizugi_Evanthe_Battle_Hit_6", sort = 85, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303429] = {id = 18303429, name = (PUtil.get)(95000091), remark = (PUtil.get)(113303401), voice_path = "mizugi_Evanthe_Battle_Die_1", sort = 90, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303430] = {id = 18303430, name = (PUtil.get)(95000101), remark = (PUtil.get)(114303401), voice_path = "mizugi_Evanthe_Battle_H_1", sort = 100, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303431] = {id = 18303431, name = (PUtil.get)(95000102), remark = (PUtil.get)(114303402), voice_path = "mizugi_Evanthe_Battle_H_2", sort = 101, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303432] = {id = 18303432, name = (PUtil.get)(95000111), remark = (PUtil.get)(115303401), voice_path = "mizugi_Evanthe_Battle_C_1", sort = 110, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303433] = {id = 18303433, name = (PUtil.get)(95000112), remark = (PUtil.get)(115303402), voice_path = "mizugi_Evanthe_Battle_C_2", sort = 111, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303434] = {id = 18303434, name = (PUtil.get)(95000121), remark = (PUtil.get)(106303401), voice_path = "mizugi_Evanthe_Win_1", sort = 120, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303435] = {id = 18303435, name = (PUtil.get)(95000131), remark = (PUtil.get)(107303401), voice_path = "mizugi_Evanthe_Fail_1", sort = 130, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303450] = {id = 18303450, name = (PUtil.get)(95000140), remark = (PUtil.get)(116303401), voice_path = "mizugi_Evanthe_Home_In_1", sort = 150, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303451] = {id = 18303451, name = (PUtil.get)(95000141), remark = (PUtil.get)(117303401), voice_path = "mizugi_Evanthe_Home_Talk_1", sort = 151, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303452] = {id = 18303452, name = (PUtil.get)(95000142), remark = (PUtil.get)(117303402), voice_path = "mizugi_Evanthe_Home_Talk_2", sort = 152, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
+, 
+[18303453] = {id = 18303453, name = (PUtil.get)(95000143), remark = (PUtil.get)(117303403), voice_path = "mizugi_Evanthe_Home_Talk_3", sort = 153, bubble_id = "14303400:2:217:202,14303401:2:629:326,14303402:2:629:326"}
 }
 return BaseHandbookRoleDetailData
 
