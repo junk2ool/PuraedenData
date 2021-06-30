@@ -383,7 +383,7 @@ NewActivityDungeonMainWindow.RefreshDungeonInfo = function(index, anim, ...)
     ;
     (NewActivityDungeonMainWindow.RefreshChangeChapterBtn)(index)
   end
-)
+, false, "0")
   ;
   (NewActivityDungeonMainWindow.RefreshMapItem)(index, (NewActivityDungeonMainWindow.MapProvider)(index))
   ;

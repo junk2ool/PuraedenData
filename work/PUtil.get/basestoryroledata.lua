@@ -669,7 +669,7 @@
 , 
 [75210106] = {id = 75210106, name = "不良", role_path = "img_12010005", effect_path = "FIGHT_KILL", fashion_id = "15010005", offset = "10:65"}
 , 
-[75210107] = {id = 75210107, name = "観客達"}
+[75210107] = {id = 75210107, name = "観客達", effect_path = "FIGHT_KILL", fashion_id = "15040011"}
 , 
 [75210108] = {id = 75210108, name = "観客A", role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
 , 

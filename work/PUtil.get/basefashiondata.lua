@@ -689,11 +689,13 @@
 , 
 [15040007] = {id = 15040007, head_icon_square = "MonsterHeadSquare:HeadSquare_15040006", head_icon_round = "MonsterHeadCircle:HeadCircle_15040006", show_texture = "img_13010006", show_texture_scale = 10000, show_texture_position = "0:0:0"}
 , 
-[15040008] = {id = 15040008, head_icon_square = "MonsterHeadSquare:HeadSquare_15040007", head_icon_round = "MonsterHeadCircle:HeadCircle_15040007", show_texture = "img_13010007", show_texture_scale = 10000, show_texture_position = "0:0:0"}
+[15040008] = {id = 15040008, head_icon_square = "MonsterHeadSquare:HeadSquare_15040008_1", head_icon_round = "MonsterHeadCircle:HeadCircle_15040007", show_texture = "img_13010007", show_texture_scale = 10000, show_texture_position = "0:0:0"}
 , 
-[15040009] = {id = 15040009, head_icon_square = "MonsterHeadSquare:HeadSquare_15040008", head_icon_round = "MonsterHeadCircle:HeadCircle_15040008", show_texture = "img_13010008", show_texture_scale = 10000, show_texture_position = "0:0:0"}
+[15040009] = {id = 15040009, head_icon_square = "MonsterHeadSquare:HeadSquare_15040009_1", head_icon_round = "MonsterHeadCircle:HeadCircle_15040008", show_texture = "img_13010008", show_texture_scale = 10000, show_texture_position = "0:0:0"}
 , 
 [15040010] = {id = 15040010, head_icon_square = "CardHeadIconSquare:HeadSquare_11202017_1", head_icon_round = "CardHeadIconCircle:HeadCircle_11202017_1", head_icon_sliver = "CardHeadSliver:BattleCheckHead_11202017_1", head_icon_banner = "CharacterHeadBanner:HeadBanner_11202017_1", show_texture = "img_13010009", show_texture_scale = 10000, show_texture_position = "0:0:0"}
+, 
+[15040011] = {id = 15040011, head_icon_square = "MonsterHeadSquare:HeadSquare_12010002"}
 , 
 [15110001] = {id = 15110001, spd_bundle = "CardSpine_12010001", scale = 190000, position = "0:0:0", offset_state = "0:150:-30,1:165:-5,2:190:80", offset_scale = "0:10000,1:10000,2:10000"}
 , 
