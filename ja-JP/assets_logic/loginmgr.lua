@@ -20,7 +20,7 @@ shaojun = {id = 6, url = "http://172.16.1.142:6666", gateServerId = "905", mainS
 , 
 ershixiong_linux = {id = 7, url = "http://172.16.1.156:6666", gateServerId = "906", mainServerId = "106", name = "linux二师兄", btnName = "linux二师兄"}
 , 
-cehua = {id = 8, url = "http://172.16.1.143:6666", gateServerId = "915", mainServerId = "115", name = "策划大大的服", btnName = "策划大大的服"}
+cehua = {id = 8, url = "http://172.16.1.57:6666", gateServerId = "915", mainServerId = "115", name = "策划大大的服", btnName = "策划大大的服"}
 , 
 oldDriver = {id = 1, url = "http://172.16.1.25:6666", gateServerId = "901", mainServerId = "101", name = "大师兄服", btnName = "老司机"}
 }

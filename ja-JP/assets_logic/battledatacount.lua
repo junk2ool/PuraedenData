@@ -636,7 +636,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                         else
                           do
                             do
-                              if deduction_round_type == BattleBuffDeductionRoundType.AFTER_CRIT then
+                              if deduction_round_type == BattleBuffDeductionRoundType.AFTER_OWNER_CRIT then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
                               end
                               -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
@@ -1752,7 +1752,7 @@ BattleDataCount.PanDingBaoJiGeDang = function(atkCard, defCard, atkInfo, ...)
     end
   end
   if crit then
-    (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_CRIT)
+    (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_OWNER_CRIT)
   end
   return baoji_jiacheng, gedang_jiangdi
 end

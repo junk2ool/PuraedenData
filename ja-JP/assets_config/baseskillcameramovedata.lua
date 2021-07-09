@@ -993,6 +993,12 @@ BaseSkillCameraMoveData = {
 , 
 [48120496] = {id = 48120496, position_a = "8,-8", move_time = 167}
 , 
+[48120497] = {id = 48120497, scale = -2, move_time = 200}
+, 
+[48120498] = {id = 48120498, position_a = "0,8", move_time = 1283}
+, 
+[48120499] = {id = 48120499, position_a = "8,-8", move_time = 167}
+, 
 [48220001] = {id = 48220001, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
 , 
 [48220002] = {id = 48220002, scale = -2, end_type = 2, move_time = 267}
@@ -1632,6 +1638,32 @@ BaseSkillCameraMoveData = {
 [48220319] = {id = 48220319, position_a = "0,3", move_time = 333}
 , 
 [48220320] = {id = 48220320, scale = 4, position_a = "0,-5", move_time = 83}
+, 
+[48220321] = {id = 48220321, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
+, 
+[48220322] = {id = 48220322, end_type = 2, move_time = 300}
+, 
+[48220323] = {id = 48220323, position_a = "0,5", move_time = 633}
+, 
+[48220324] = {id = 48220324, position_a = "0,-5", move_time = 167}
+, 
+[48220325] = {id = 48220325, scale = 3, move_time = 67}
+, 
+[48220326] = {id = 48220326, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
+, 
+[48220327] = {id = 48220327, end_type = 2, move_time = 300}
+, 
+[48220328] = {id = 48220328, position_a = "0,5", move_time = 317}
+, 
+[48220329] = {id = 48220329, position_a = "0,-5", move_time = 150}
+, 
+[48220330] = {id = 48220330, scale = 0.5, move_time = 83}
+, 
+[48220331] = {id = 48220331, scale = 0.5, move_time = 83}
+, 
+[48220332] = {id = 48220332, scale = 0.5, move_time = 83}
+, 
+[48220333] = {id = 48220333, scale = 0.5, move_time = 83}
 }
 return BaseSkillCameraMoveData
 

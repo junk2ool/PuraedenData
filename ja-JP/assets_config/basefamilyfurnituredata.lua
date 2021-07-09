@@ -224,6 +224,10 @@ BaseFamilyFurnitureData = {
 [21600621] = {id = 21600621, name = (PUtil.get)(82710111), remark = (PUtil.get)(83710111), icon = "FamilyFurniture:21600621", resource = "FamilyFurniture:h_21600621", type = 3, size = "2:1", time = -1, move_location = "9:3", direction = 0, sort = 21, quality = 3}
 , 
 [21600622] = {id = 21600622, name = (PUtil.get)(82710112), remark = (PUtil.get)(83710112), icon = "FamilyFurniture:21600622", resource = "FamilyFurniture:h_21600622", type = 3, size = "1:2", time = -1, move_location = "-12:6", direction = 0, sort = 22, quality = 3}
+, 
+[21600700] = {id = 21600700, name = (PUtil.get)(82710113), remark = (PUtil.get)(83710113), icon = "FamilyFurniture:21600700", resource = "FamilyFurniture:h_21600700", type = 3, size = "3:3", time = -1, move_location = "0:36", direction = 0, sort = 1, quality = 3}
+, 
+[21600701] = {id = 21600701, name = (PUtil.get)(82710114), remark = (PUtil.get)(83710114), icon = "FamilyFurniture:21600701", resource = "FamilyFurniture:h_21600701", type = 3, size = "1:1", time = -1, move_location = "-4:6", direction = 0, sort = 2, quality = 3}
 }
 return BaseFamilyFurnitureData
 

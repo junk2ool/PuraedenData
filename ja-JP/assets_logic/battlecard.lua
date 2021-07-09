@@ -1325,7 +1325,7 @@ Data = {Name = "attack"}
   end
 
   battleCard.PlayAtkEffect = function(self, effect_name, isOverturn, originPosition, ...)
-    -- function num : 0_0_54 , upvalues : InstantiateEffect, _ENV, campFlag, BattleCardCamp, FxManager, SortingHelper, setTimeout, ResHelper
+    -- function num : 0_0_54 , upvalues : InstantiateEffect, _ENV, FxManager, campFlag, BattleCardCamp, SortingHelper, setTimeout, ResHelper
     if effect_name == nil or effect_name == "" then
       return 
     end
@@ -1334,6 +1334,7 @@ Data = {Name = "attack"}
     (CSLuaUtil.SetParent)(eff, BattleRoot)
     ;
     (BattlePlay.SetLayer)(eff)
+    FxManager:PlayParticleSystem(eff)
     if campFlag == BattleCardCamp.LEFT then
       if isOverturn == true then
         FxManager:Overturn(eff)

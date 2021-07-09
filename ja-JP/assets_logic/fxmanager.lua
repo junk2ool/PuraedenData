@@ -86,8 +86,17 @@ FxManager.PlayFx = function(self, ...)
   -- function num : 0_2
 end
 
-FxManager.PlayTimeLine = function(self, obj, ...)
+FxManager.PlayParticleSystem = function(self, o, ...)
   -- function num : 0_3 , upvalues : _ENV
+  local particleSystems = o:GetComponentsInChildren(typeof((CS.UnityEngine).ParticleSystem))
+  local length = particleSystems.Length
+  for i = 0, length - 1 do
+    (particleSystems[i]):Play()
+  end
+end
+
+FxManager.PlayTimeLine = function(self, obj, ...)
+  -- function num : 0_4 , upvalues : _ENV
   local mDirector = obj:GetComponent(typeof(((CS.UnityEngine).Playables).PlayableDirector))
   if mDirector then
     mDirector:Play()
@@ -96,7 +105,7 @@ FxManager.PlayTimeLine = function(self, obj, ...)
 end
 
 FxManager.StopTimeLine = function(self, obj, ...)
-  -- function num : 0_4 , upvalues : _ENV
+  -- function num : 0_5 , upvalues : _ENV
   local mDirector = obj:GetComponent(typeof(((CS.UnityEngine).Playables).PlayableDirector))
   if mDirector then
     mDirector:Stop()
@@ -104,11 +113,11 @@ FxManager.StopTimeLine = function(self, obj, ...)
 end
 
 FxManager.OverturnTimeline = function(self, ...)
-  -- function num : 0_5
+  -- function num : 0_6
 end
 
 FxManager.Overturn = function(self, obj, ...)
-  -- function num : 0_6 , upvalues : FxManager, Vector3, _ENV
+  -- function num : 0_7 , upvalues : FxManager, Vector3, _ENV
   if obj then
     local selfScale = (obj.transform).localScale
     local config = FxManager:GetFxConfigData(obj.name, obj)
@@ -154,8 +163,8 @@ FxManager.Overturn = function(self, obj, ...)
 end
 
 FxManager.ResetFx = function(self, obj, ...)
-  -- function num : 0_7 , upvalues : _ENV
-  if obj then
+  -- function num : 0_8 , upvalues : _ENV
+  if not (Util.IsNil)(obj) then
     (CSLuaUtil.SetGOScale)(obj, 1, 1, 1)
     ;
     (CSLuaUtil.SetGOLocalEuler)(obj, 0, 0, 0)
@@ -163,7 +172,7 @@ FxManager.ResetFx = function(self, obj, ...)
 end
 
 FxManager.SetParticleSpeed = function(self, speed, ptcs, ...)
-  -- function num : 0_8
+  -- function num : 0_9
   for i = 0, ptcs.Length - 1 do
     local particle = ptcs[i]
     -- DECOMPILER ERROR at PC7: Confused about usage of register: R8 in 'UnsetPending'
@@ -174,7 +183,7 @@ FxManager.SetParticleSpeed = function(self, speed, ptcs, ...)
 end
 
 FxManager.SetShutterEffect = function(self, obj, image, rotate, isNeedRset, ...)
-  -- function num : 0_9 , upvalues : _ENV, shutterEffect
+  -- function num : 0_10 , upvalues : _ENV, shutterEffect
   if (Util.IsNil)(obj) then
     return 
   end
@@ -224,7 +233,7 @@ FxManager.SetShutterEffect = function(self, obj, image, rotate, isNeedRset, ...)
       shutterEffect:SetActive(true)
       if isNeedRset then
         (SimpleTimer.setTimeout)(0.45, function(...)
-    -- function num : 0_9_0 , upvalues : count, materials
+    -- function num : 0_10_0 , upvalues : count, materials
     for i = 0, count do
       local mat = materials[i]
       mat:SetFloat("_StencilComp", 8)
@@ -238,7 +247,7 @@ FxManager.SetShutterEffect = function(self, obj, image, rotate, isNeedRset, ...)
 end
 
 FxManager.DestroyShutterEffect = function(self, ...)
-  -- function num : 0_10 , upvalues : shutterEffect, _ENV
+  -- function num : 0_11 , upvalues : shutterEffect, _ENV
   if shutterEffect ~= nil then
     (ResHelper.DestroyGameObject)(shutterEffect, true)
     shutterEffect = nil

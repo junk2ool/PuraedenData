@@ -70,7 +70,7 @@ end
 
 GuideTipsData.CheckCondition = function(type, arg, ...)
   -- function num : 0_2 , upvalues : _ENV, _condition
-  if type == GuideTipsCheckPoint.GuildBossTimesIncrease then
+  if type == GuideTipsCheckPoint.GuildBossTimesIncrease or type == GuideTipsCheckPoint.UnlockPlot then
     return true
   else
     local controlID = (GuideTipsData.GetControlID)(type, arg)

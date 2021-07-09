@@ -222,4 +222,8 @@
 [21600621] = {id = 21600621, name = "彫刻風花壇", remark = "細やかな彫刻の意匠に目を奪われる花壇。", icon = "FamilyFurniture:21600621", resource = "FamilyFurniture:h_21600621", type = 3, size = "2:1", time = -1, move_location = "9:3", direction = 0, sort = 21, quality = 3}
 , 
 [21600622] = {id = 21600622, name = "育苗台", remark = "おうちでも栽培実験を気軽に楽しめる。", icon = "FamilyFurniture:21600622", resource = "FamilyFurniture:h_21600622", type = 3, size = "1:2", time = -1, move_location = "-12:6", direction = 0, sort = 22, quality = 3}
+, 
+[21600700] = {id = 21600700, name = "ぶら下げ籐の椅子", remark = "屋内に暖かい雰囲気を作り出すことができ、リラックスやゆったりな午後に最適です。", icon = "FamilyFurniture:21600700", resource = "FamilyFurniture:h_21600700", type = 3, size = "3:3", time = -1, move_location = "0:36", direction = 0, sort = 1, quality = 3}
+, 
+[21600701] = {id = 21600701, name = "果物かご盛り", remark = "季節のおいしいフルーツがいっぱい！", icon = "FamilyFurniture:21600701", resource = "FamilyFurniture:h_21600701", type = 3, size = "1:1", time = -1, move_location = "-4:6", direction = 0, sort = 2, quality = 3}
 }

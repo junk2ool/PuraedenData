@@ -1108,4 +1108,6 @@
 [75209057] = {id = 75209057, name = "生徒", effect_path = "FIGHT_KILL"}
 , 
 [75209058] = {id = 75209058, name = "モンスターたち", effect_path = "FIGHT_KILL"}
+, 
+[75209059] = {id = 75209059, name = "エイプリル", effect_path = "FIGHT_KILL", fashion_id = "15040012"}
 }

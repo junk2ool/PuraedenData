@@ -401,6 +401,16 @@
 , 
 [52104705] = {id = 52104705, name = "未定義(85140147)", remark = "騎士団長の提案", icon = "HandBookBanner:handbook_18_5", story_id = "75047541:75047631", sort = 5}
 , 
+[52104801] = {id = 52104801, name = "未定義(85140148)", remark = "クラウディアの欲望", icon = "HandBookBanner:handbook_25_1", story_id = "75048111:75048141:75048151", sort = 1}
+, 
+[52104802] = {id = 52104802, name = "未定義(85140148)", remark = "過去に遡って", icon = "HandBookBanner:handbook_25_2", story_id = "75048231", sort = 2}
+, 
+[52104803] = {id = 52104803, name = "未定義(85140148)", remark = "ついに決戦！", icon = "HandBookBanner:handbook_25_3", story_id = "75048341:75048351", sort = 3}
+, 
+[52104804] = {id = 52104804, name = "未定義(85140148)", remark = "決戦の決戦", icon = "HandBookBanner:handbook_25_4", story_id = "75048431:75048432", sort = 4}
+, 
+[52104805] = {id = 52104805, name = "未定義(85140148)", remark = "平和の下で", icon = "HandBookBanner:handbook_25_5", story_id = "75048541:75048631:75048632", sort = 5}
+, 
 [52200101] = {id = 52200101, name = "熱心な獣耳少女", remark = "1-%d", icon = "HandBookBanner:handbook_12_5", story_id = "75000165", sort = 1}
 , 
 [52200102] = {id = 52200102, name = "熱心な獣耳少女", remark = "1-%d", icon = "HandBookBanner:handbook_13_1", story_id = "75000211:75000242", sort = 2}

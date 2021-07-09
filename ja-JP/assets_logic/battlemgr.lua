@@ -1047,8 +1047,10 @@ BattleMgr.DealBattleOver = function(...)
               do
                 if saveErrorLog == true then
                   local time = (os.date)("%Y%m%d")
-                  ;
-                  (os.execute)("mkdir " .. "BattleResult/" .. time)
+                  local ret = (os.execute)("mkdir BattleResult/" .. time)
+                  if ret ~= 0 then
+                    (os.execute)("mkdir BattleResult\\" .. time)
+                  end
                   local fileName = "BattleResult/" .. time .. "/BattleResult" .. (LuaTime.GetStampStr)(BattleData.curBattleTime)
                   local str = PrintTable(BattleData.serverBattleData, "battleCompleteData")
                   if FileUtil then

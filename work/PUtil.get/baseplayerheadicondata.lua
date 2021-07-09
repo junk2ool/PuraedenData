@@ -200,4 +200,6 @@
 [78601186] = {id = 78601186, name = "コンチータ(水着)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202017_2", condition = "72501008:11202017:10", sort = 915, reward_sort = 9880001, own_show = 1, open_time = "1625014800"}
 , 
 [78601187] = {id = 78601187, name = "エヴァンテ(水着)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300034_2", condition = "72501008:11300034:10", sort = 914, reward_sort = 9880001, own_show = 1, open_time = "1625014800"}
+, 
+[78601188] = {id = 78601188, name = "フラワー(水着)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300035_2", condition = "72501008:11300035:10", sort = 913, reward_sort = 9880001, own_show = 1, open_time = "1626296400"}
 }

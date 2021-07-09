@@ -51,6 +51,10 @@ LoginService.ReqLogin = function(isReconnect, ...)
   t.deviceId = SystemInfo.deviceUniqueIdentifier
   t.key = LoginMgr.curAccountKey or ""
   t.guest = IsGuest()
+  t.opId = (SuperSDKData.GetLoginOpId)()
+  t.deviceType = SystemInfo.deviceModel
+  t.deviceOs = SystemInfo.operatingSystem
+  t.gameVer = Application.version
   ;
   (Net.Send)((Proto.MsgName).ReqLogin, t, (Proto.MsgName).ResLogin)
   if isReconnect ~= true then
@@ -108,6 +112,9 @@ LoginService.ReqLogout = function(autoLogin, ...)
   end
   if GuildData then
     (GuildData.ResetData)()
+  end
+  if GuildBossData then
+    (GuildBossData.ResetData)()
   end
   ;
   (MsgWaiterObj.ClearCheckTimer)()
@@ -254,6 +261,10 @@ LoginService.ReqRegister = function(name, ...)
   t.password = ""
   t.deviceId = SystemInfo.deviceUniqueIdentifier
   t.guest = IsGuest()
+  t.opId = (SuperSDKData.GetLoginOpId)()
+  t.deviceType = SystemInfo.deviceModel
+  t.deviceOs = SystemInfo.operatingSystem
+  t.gameVer = Application.version
   ;
   (Net.Send)((Proto.MsgName).ReqRegister, t, (Proto.MsgName).ResLogin)
 end

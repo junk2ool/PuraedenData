@@ -9,11 +9,14 @@ local ResType = (FairyGUI.GLoader).ResType
 local GTween = FairyGUI.GTween
 local AudioMgr = (CS.AudioAssetManager).Singleton
 local SkeletonMecanim = ((CS.Spine).Unity).SkeletonMecanim
+local UnityColor = (CS.UnityEngine).Color
+local VideoIns = (CS.VideoManager).Instance
 local PlotPlayRoleNameTxtStatus = {None = 0, Left = 1}
 local PlotPlayPlayMode = {Manual = 1, Auto = 2}
 local PlotPlayNoHideComponent = {BlankBtn = true, root = true, CardShow_01_Grp = true, CardShow_02_Grp = true, CardShow_03_Grp = true, CardShow_04_Grp = true, CardShow_05_Grp = true, backsceneLoader = true, PlotPlayStarGrp = true, Mask_02_Image = true, CutGrp = true, Auto = true}
 local PlotPlayStatue = {Normal = 1, Hide = 2, MakeChoice = 3}
 local CharacterType = {Texture = 1, NonTexture = 2}
+local SKIP_HIDE_INTERVAL = 72010110
 local MASK_MOVE_DURATION = 1
 local MASK_MOVE_PHASE_1 = 0.1
 local MASK_GAP_FIXER = 20
@@ -49,8 +52,9 @@ local _bgAnimPlaying = false
 local _transitionEffect, _timeScale, lastBGMId, _lastRoleId, _shaking, _spineRoleTalking = nil, nil, nil, nil, nil, nil
 local _moveDelay = 0.4
 local _currentCharType = CharacterType.NonTexture
-local _contentFadeOutTween, _afterRoleQuitComplete, _currentBtnStatus = nil, nil, nil
+local _hideSkipTimer, _contentFadeOutTween, _afterRoleQuitComplete, _currentBtnStatus = nil, nil, nil, nil
 local _dialogueDone = {}
+local _hideSkipInterval, _videoBlackBG = nil, nil
 PlotPlayPanelWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, uis, lastBGMId, PlotPlayPanelWindow
   bridgeObj:SetView((WinResConfig.PlotPlayPanelWindow).package, (WinResConfig.PlotPlayPanelWindow).comName)
@@ -69,7 +73,7 @@ PlotPlayPanelWindow.OnInit = function(bridgeObj, ...)
 end
 
 PlotPlayPanelWindow.InitVariable = function(...)
-  -- function num : 0_1 , upvalues : _typingEffect, _ENV, uis, _bgMask, _solidMask, _transitionalMask, _transitional2Mask, _originSolidMaskSize, _contentInAnim, _contentOutAnim, _nameInAnim, _nameOutAnim, _normalIndex, _blockAllIndex, PlotPlayPanelWindow, _roleLoaders, _originLoaderSize
+  -- function num : 0_1 , upvalues : _typingEffect, _ENV, uis, _bgMask, _solidMask, _transitionalMask, _transitional2Mask, _originSolidMaskSize, _contentInAnim, _contentOutAnim, _nameInAnim, _nameOutAnim, _normalIndex, _blockAllIndex, PlotPlayPanelWindow, _roleLoaders, _originLoaderSize, _hideSkipInterval, SKIP_HIDE_INTERVAL
   _typingEffect = (FairyGUI.TypingEffect)((uis.TalkWordGrp).talkTxt)
   _bgMask = (uis.root):GetChildAt(0)
   _solidMask = (uis.root):GetChild("Mask_01_Image")
@@ -106,29 +110,38 @@ PlotPlayPanelWindow.InitVariable = function(...)
 
   ;
   ((uis.CutGrp).WordTxt).text = ""
+  _hideSkipInterval = tonumber((((TableData.gTable).BaseFixedData)[SKIP_HIDE_INTERVAL]).array_value)
+  -- DECOMPILER ERROR at PC127: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (uis.VideoLoader).align = (FairyGUI.AlignType).Center
+  -- DECOMPILER ERROR at PC132: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (uis.VideoLoader).verticalAlign = (FairyGUI.VertAlignType).Middle
 end
 
 PlotPlayPanelWindow.GetLoader = function(...)
-  -- function num : 0_2 , upvalues : _roleLoaders, _ENV, _originLoaderSize
+  -- function num : 0_2 , upvalues : _roleLoaders, UnityColor, _ENV, _originLoaderSize
   local count = #_roleLoaders
   for i = 1, count do
     -- DECOMPILER ERROR at PC11: Confused about usage of register: R5 in 'UnsetPending'
 
     if (_roleLoaders[i]).Avaiable then
       (_roleLoaders[i]).Avaiable = false
+      -- DECOMPILER ERROR at PC15: Confused about usage of register: R5 in 'UnsetPending'
+
+      ;
+      ((_roleLoaders[i]).Loader).color = UnityColor.white
       -- DECOMPILER ERROR at PC18: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
-      ((_roleLoaders[i]).Loader).color = ((CS.UnityEngine).Color).white
-      -- DECOMPILER ERROR at PC21: Confused about usage of register: R5 in 'UnsetPending'
-
-      ;
       ((_roleLoaders[i]).Loader).alpha = 1
-      -- DECOMPILER ERROR at PC26: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC23: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
       ((_roleLoaders[i]).Loader).xy = Vector2.zero
-      -- DECOMPILER ERROR at PC30: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC27: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
       ((_roleLoaders[i]).Loader).size = _originLoaderSize
@@ -172,7 +185,9 @@ PlotPlayPanelWindow.InitButtonEvent = function(...)
   (((uis.MenuPopOutWindow_01_Grp).HideBtn).onClick):Add(PlotPlayPanelWindow.ClickHideBtn)
   ;
   ((uis.Live2DBtn).onClick):Add(PlotPlayPanelWindow.ClickChangeCharTypeBtn)
-  -- DECOMPILER ERROR at PC39: Confused about usage of register: R0 in 'UnsetPending'
+  ;
+  ((uis.VideoLoader).onClick):Set(PlotPlayPanelWindow.ClickVideoLoader)
+  -- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (uis.BlankBtn).disableSound = true
@@ -262,7 +277,7 @@ PlotPlayPanelWindow.SetMenuPopStatue = function(...)
 end
 
 PlotPlayPanelWindow.OnClose = function(...)
-  -- function num : 0_13 , upvalues : _ENV, _timeScale, lastBGMId, PlotPlayPanelWindow, _typingEffect, _quitTimer, _contentFadeOutTween, uis, contentPane, _dialogueConfig, _roleConfig, _menuPopInAnim, _menuPopOutAnim, _currentMenuPop, _roleLoaders, _currentRole
+  -- function num : 0_13 , upvalues : _ENV, _timeScale, lastBGMId, PlotPlayPanelWindow, _typingEffect, _hideSkipTimer, _quitTimer, _contentFadeOutTween, _videoBlackBG, uis, contentPane, _dialogueConfig, _roleConfig, _menuPopInAnim, _menuPopOutAnim, _currentMenuPop, _roleLoaders, _currentRole
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   Time.timeScale = _timeScale
@@ -277,6 +292,10 @@ PlotPlayPanelWindow.OnClose = function(...)
   (LeanTween.cancelAll)()
   ;
   (PlotPlayPanelWindow.RecycleAllRes)()
+  if _hideSkipTimer ~= nil then
+    _hideSkipTimer:stop()
+    _hideSkipTimer = nil
+  end
   if _quitTimer ~= nil then
     _quitTimer:stop()
     _quitTimer = nil
@@ -284,6 +303,10 @@ PlotPlayPanelWindow.OnClose = function(...)
   if _contentFadeOutTween ~= nil then
     _contentFadeOutTween:Kill(true)
     _contentFadeOutTween = nil
+  end
+  if _videoBlackBG ~= nil then
+    _videoBlackBG:Dispose()
+    _videoBlackBG = nil
   end
   uis = nil
   contentPane = nil
@@ -645,16 +668,34 @@ PlotPlayPanelWindow.ChangeUIStatus = function(show, immediately, checkNameStatus
 end
 
 PlotPlayPanelWindow.ClickSkipBtn = function(...)
-  -- function num : 0_24 , upvalues : _solidMask, _ENV, _quittingRole, _afterRoleQuitComplete, _typingEffect
+  -- function num : 0_24 , upvalues : _solidMask, _ENV, _quittingRole, _afterRoleQuitComplete, uis, VideoIns, _typingEffect
   if _solidMask.visible then
     return 
   end
   if (_G.next)(_quittingRole) ~= nil and _afterRoleQuitComplete == nil then
     return 
   end
-  ;
-  (MessageMgr.OpenConfirmWindow)((PlotPlayData.CurrentChapterDataConfig).skip_content, function(...)
-    -- function num : 0_24_0 , upvalues : _typingEffect, _ENV
+  if (uis.VideoLoader).visible then
+    local go = (((CS.UnityEngine).GameObject).Find)("VideoPlayer")
+    do
+      local player = go:GetComponent("VideoPlayer")
+      player:Pause()
+      ;
+      (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000644), function(...)
+    -- function num : 0_24_0 , upvalues : VideoIns, uis
+    VideoIns:StopVideo(uis.VideoLoader, true)
+  end
+, function(...)
+    -- function num : 0_24_1 , upvalues : player
+    player:Play()
+  end
+)
+    end
+  else
+    do
+      ;
+      (MessageMgr.OpenConfirmWindow)((PlotPlayData.CurrentChapterDataConfig).skip_content, function(...)
+    -- function num : 0_24_2 , upvalues : _typingEffect, _ENV
     if _typingEffect ~= nil then
       _typingEffect:Cancel()
     end
@@ -662,6 +703,8 @@ PlotPlayPanelWindow.ClickSkipBtn = function(...)
     (PlotPlayMgr.AfterDialogueShowed)(nil, true)
   end
 , nil, (PUtil.get)(60000417), (PUtil.get)(60000418), (PUtil.get)(185), true, UILayer.HUD1)
+    end
+  end
 end
 
 PlotPlayPanelWindow.ChangeMenuPopStatue = function(...)
@@ -794,7 +837,7 @@ PlotPlayPanelWindow.ChangeChapterNameStatue = function(show, ...)
 end
 
 PlotPlayPanelWindow.PlayOneDialogue = function(param, ...)
-  -- function num : 0_30 , upvalues : uis, _dialogueConfig, _ENV, _lastRoleId, _currentExpressionEffect, _roleConfig, PlotPlayPanelWindow, _typingEffect, _quittingRole
+  -- function num : 0_30 , upvalues : uis, _dialogueConfig, _ENV, _lastRoleId, _currentExpressionEffect, PlotPlayPanelWindow, _roleConfig, _typingEffect, _quittingRole
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   if not (uis.BlankBtn).touchable then
@@ -815,26 +858,195 @@ PlotPlayPanelWindow.PlayOneDialogue = function(param, ...)
   end
   do
     _currentExpressionEffect = {}
-    _roleConfig = ((TableData.gTable).BaseStoryRoleData)[_dialogueConfig.role_type]
-    ;
-    (PlotPlayPanelWindow.CheckChoiceStatue)()
-    ;
-    (PlotPlayPanelWindow.SetContent)()
-    _typingEffect:Start()
-    local quitEffect = (PlotPlayPanelWindow.CheckQuitCharacter)(PlotRoleSpecialInOutType.Normal)
-    if (_G.next)(_quittingRole) ~= nil then
-      (PlotPlayPanelWindow.QuitCharacter)(quitEffect, PlotPlayPanelWindow.ShowCharacter)
+    if not (Util.StringIsNullOrEmpty)(_dialogueConfig.video) then
+      (PlotPlayPanelWindow.PlayVideo)()
     else
+      -- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
+
       ;
-      (PlotPlayPanelWindow.ShowCharacter)()
+      (uis.VideoLoader).visible = false
+      _roleConfig = ((TableData.gTable).BaseStoryRoleData)[_dialogueConfig.role_type]
+      ;
+      (PlotPlayPanelWindow.CheckChoiceStatue)()
+      ;
+      (PlotPlayPanelWindow.SetContent)()
+      _typingEffect:Start()
+      local quitEffect = (PlotPlayPanelWindow.CheckQuitCharacter)(PlotRoleSpecialInOutType.Normal)
+      if (_G.next)(_quittingRole) ~= nil then
+        (PlotPlayPanelWindow.QuitCharacter)(quitEffect, PlotPlayPanelWindow.ShowCharacter)
+      else
+        ;
+        (PlotPlayPanelWindow.ShowCharacter)()
+      end
+      ;
+      (PlotPlayPanelWindow.ShowSceneEffect)(_dialogueConfig)
     end
+  end
+end
+
+PlotPlayPanelWindow.PlayVideo = function(...)
+  -- function num : 0_31 , upvalues : _ENV, PlotPlayPanelWindow, uis, _videoBlackBG, _solidMask, _hideSkipInterval, VideoIns, _dialogueConfig, _hideSkipTimer, UnityColor
+  (LuaSound.StopBGM)()
+  ;
+  (PlotPlayPanelWindow.BlackScreen)(false, function(...)
+    -- function num : 0_31_0 , upvalues : PlotPlayPanelWindow, uis, _videoBlackBG, _ENV, _solidMask, _hideSkipInterval, VideoIns, _dialogueConfig, _hideSkipTimer, UnityColor
+    (PlotPlayPanelWindow.RecycleUnusedRole)(true)
+    -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
+
     ;
-    (PlotPlayPanelWindow.ShowSceneEffect)(_dialogueConfig)
+    ((uis.TalkWordGrp).talkTxt).text = ""
+    -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    (((uis.TalkWordGrp).CardName_01_Grp).characternameTxt).text = ""
+    if _videoBlackBG == nil then
+      _videoBlackBG = ((FairyGUI.UIObjectFactory).NewObject)((FairyGUI.ObjectType).Graph)
+      ;
+      (uis.root):AddChildAt(_videoBlackBG, (uis.root):GetChildIndex(uis.VideoLoader))
+      _videoBlackBG:DrawRect(ResolutionHandler.Width + 100, ResolutionHandler.Height + 100, 1, ((CS.UnityEngine).Color).white, ((CS.UnityEngine).Color).black)
+      _videoBlackBG.x = -50
+      _videoBlackBG.y = -50
+    end
+    _videoBlackBG.visible = true
+    -- DECOMPILER ERROR at PC51: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    (uis.VideoLoader).visible = true
+    _solidMask.visible = true
+    ;
+    (SimpleTimer.setTimeout)(0.3, function(...)
+      -- function num : 0_31_0_0 , upvalues : _solidMask
+      _solidMask.visible = false
+    end
+)
+    ;
+    (PlotPlayPanelWindow.FadeBtn)(uis.NextBtn, _hideSkipInterval, 1, 0, 0.5, function(...)
+      -- function num : 0_31_0_1 , upvalues : uis
+      -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+      (uis.NextBtn).alpha = 1
+      -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (uis.NextBtn).visible = false
+    end
+)
+    VideoIns:PlayVideo(uis.VideoLoader, _dialogueConfig.video, function(...)
+      -- function num : 0_31_0_2 , upvalues : _hideSkipTimer, uis, _videoBlackBG, PlotPlayPanelWindow, _ENV, UnityColor
+      if _hideSkipTimer ~= nil and _hideSkipTimer:IsRunIng() then
+        _hideSkipTimer:stop()
+      end
+      -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (uis.NextBtn).alpha = 1
+      _videoBlackBG.visible = false
+      -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (uis.VideoLoader).visible = false
+      -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (uis.NextBtn).visible = true
+      ;
+      (PlotPlayPanelWindow.BlackScreen)(true, function(...)
+        -- function num : 0_31_0_2_0 , upvalues : _ENV
+        (PlotPlayMgr.AfterDialogueShowed)()
+      end
+, UnityColor.black)
+    end
+)
+  end
+, UnityColor.black)
+end
+
+PlotPlayPanelWindow.ClickVideoLoader = function(...)
+  -- function num : 0_32 , upvalues : uis, PlotPlayPanelWindow, _hideSkipInterval
+  if (uis.NextBtn).visible then
+    return 
+  end
+  -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (uis.NextBtn).visible = true
+  ;
+  (PlotPlayPanelWindow.FadeBtn)(uis.NextBtn, 0, 0, 1, 0.5, function(...)
+    -- function num : 0_32_0 , upvalues : PlotPlayPanelWindow, uis, _hideSkipInterval
+    (PlotPlayPanelWindow.FadeBtn)(uis.NextBtn, _hideSkipInterval, 1, 0, 0.5, function(...)
+      -- function num : 0_32_0_0 , upvalues : uis
+      -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+      (uis.NextBtn).alpha = 1
+      -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (uis.NextBtn).visible = false
+    end
+)
+  end
+)
+end
+
+PlotPlayPanelWindow.FadeBtn = function(btn, delay, startValue, endValue, duration, com, ...)
+  -- function num : 0_33 , upvalues : _hideSkipTimer, _ENV
+  if _hideSkipTimer ~= nil and _hideSkipTimer:IsRunIng() then
+    _hideSkipTimer:stop()
+  end
+  _hideSkipTimer = (SimpleTimer.setTimeout)(delay, function(...)
+    -- function num : 0_33_0 , upvalues : btn, startValue, _ENV, endValue, duration, com
+    btn.alpha = startValue
+    ;
+    (((LeanTween.value)(startValue, endValue, duration)):setOnUpdate(function(x, ...)
+      -- function num : 0_33_0_0 , upvalues : btn
+      btn.alpha = x
+    end
+)):setOnComplete(function(...)
+      -- function num : 0_33_0_1 , upvalues : com
+      if com then
+        com()
+      end
+    end
+)
+  end
+)
+end
+
+PlotPlayPanelWindow.BlackScreen = function(fadeOut, callback, ...)
+  -- function num : 0_34 , upvalues : PlotPlayPanelWindow, _solidMask, UnityColor, _ENV, DEFAULT_WHITE_SCREEN_DURATION
+  (PlotPlayPanelWindow.ResetSolidMask)()
+  _solidMask.color = UnityColor.black
+  _solidMask.visible = true
+  local finishCallback = function(...)
+    -- function num : 0_34_0 , upvalues : _solidMask, callback
+    _solidMask.alpha = 1
+    _solidMask.visible = false
+    if callback ~= nil then
+      callback()
+    end
+  end
+
+  if fadeOut then
+    _solidMask.alpha = 1
+    ;
+    (((LeanTween.value)(1, 0, DEFAULT_WHITE_SCREEN_DURATION)):setOnUpdate(function(x, ...)
+    -- function num : 0_34_1 , upvalues : _solidMask
+    _solidMask.alpha = x
+  end
+)):setOnComplete(finishCallback)
+  else
+    _solidMask.alpha = 0
+    ;
+    (((LeanTween.value)(0, 1, DEFAULT_WHITE_SCREEN_DURATION)):setOnUpdate(function(x, ...)
+    -- function num : 0_34_2 , upvalues : _solidMask
+    _solidMask.alpha = x
+  end
+)):setOnComplete(finishCallback)
   end
 end
 
 PlotPlayPanelWindow.AfterRoleShowUp = function(...)
-  -- function num : 0_31 , upvalues : PlotPlayPanelWindow
+  -- function num : 0_35 , upvalues : PlotPlayPanelWindow
   (PlotPlayPanelWindow.ShowRoleShake)()
   ;
   (PlotPlayPanelWindow.ShowTypingEffect)()
@@ -843,7 +1055,7 @@ PlotPlayPanelWindow.AfterRoleShowUp = function(...)
 end
 
 PlotPlayPanelWindow.AfterRoleCompleteTalk = function(...)
-  -- function num : 0_32 , upvalues : _typingEffect, _audioDone, _dialogueDone, _dialogueConfig, _ENV, _statue, PlotPlayStatue, PlotPlayPanelWindow, _currentMode, PlotPlayPlayMode, _autoTimer, _firstChoice, _quittingRole, _afterRoleQuitComplete
+  -- function num : 0_36 , upvalues : _typingEffect, _audioDone, _dialogueDone, _dialogueConfig, _ENV, _statue, PlotPlayStatue, PlotPlayPanelWindow, _currentMode, PlotPlayPlayMode, _autoTimer, _firstChoice, _quittingRole, _afterRoleQuitComplete
   if _typingEffect == nil then
     return 
   end
@@ -853,13 +1065,13 @@ PlotPlayPanelWindow.AfterRoleCompleteTalk = function(...)
   _dialogueDone[_dialogueConfig.id] = true
   loge("AfterRoleCompleteTalk")
   local complete = function(...)
-    -- function num : 0_32_0 , upvalues : _ENV, _statue, PlotPlayStatue, PlotPlayPanelWindow, _currentMode, PlotPlayPlayMode, _autoTimer, _firstChoice
+    -- function num : 0_36_0 , upvalues : _ENV, _statue, PlotPlayStatue, PlotPlayPanelWindow, _currentMode, PlotPlayPlayMode, _autoTimer, _firstChoice
     logw("complete")
     if _statue == PlotPlayStatue.MakeChoice then
       (PlotPlayPanelWindow.SetChoiceStatue)(true)
       if _currentMode == PlotPlayPlayMode.Auto then
         _autoTimer = (SimpleTimer.new)(PlotPlayData.AutoPlayInterval, 1, function(...)
-      -- function num : 0_32_0_0 , upvalues : PlotPlayPanelWindow, _ENV, _firstChoice
+      -- function num : 0_36_0_0 , upvalues : PlotPlayPanelWindow, _ENV, _firstChoice
       (PlotPlayPanelWindow.SetChoiceStatue)(false)
       ;
       (PlotPlayMgr.AfterDialogueShowed)(tonumber(_firstChoice))
@@ -880,13 +1092,13 @@ PlotPlayPanelWindow.AfterRoleCompleteTalk = function(...)
       (PlotPlayPanelWindow.QuitCharacter)(quitEffect, complete)
     else
       _afterRoleQuitComplete = {QuitEffect = quitEffect, Complete = function(...)
-    -- function num : 0_32_1 , upvalues : _ENV
+    -- function num : 0_36_1 , upvalues : _ENV
     (PlotPlayMgr.AfterDialogueShowed)(nil, false, true)
   end
 }
       if _currentMode == PlotPlayPlayMode.Auto then
         (SimpleTimer.setTimeout)(PlotPlayData.AutoPlayInterval, function(...)
-    -- function num : 0_32_2 , upvalues : _afterRoleQuitComplete, PlotPlayPanelWindow
+    -- function num : 0_36_2 , upvalues : _afterRoleQuitComplete, PlotPlayPanelWindow
     if _afterRoleQuitComplete ~= nil then
       (PlotPlayPanelWindow.QuitCharacter)(_afterRoleQuitComplete.QuitEffect, _afterRoleQuitComplete.Complete)
       _afterRoleQuitComplete = nil
@@ -901,7 +1113,7 @@ PlotPlayPanelWindow.AfterRoleCompleteTalk = function(...)
 end
 
 PlotPlayPanelWindow.CheckQuitCharacter = function(quitType, ...)
-  -- function num : 0_33 , upvalues : _dialogueConfig, _ENV, _quittingRole, _currentCharacters
+  -- function num : 0_37 , upvalues : _dialogueConfig, _ENV, _quittingRole, _currentCharacters
   if _dialogueConfig == nil then
     return 
   end
@@ -918,7 +1130,7 @@ PlotPlayPanelWindow.CheckQuitCharacter = function(quitType, ...)
 end
 
 PlotPlayPanelWindow.QuitCharacter = function(quitEffect, callback, fadeOutContent, ...)
-  -- function num : 0_34 , upvalues : _ENV, _quittingRole, _currentRole, PlotPlayPanelWindow, _moveDelay, uis, _nameOutAnim, _contentFadeOutTween, _quitTimer, _roleAnimDuration
+  -- function num : 0_38 , upvalues : _ENV, _quittingRole, _currentRole, PlotPlayPanelWindow, _moveDelay, uis, _nameOutAnim, _contentFadeOutTween, _quitTimer, _roleAnimDuration
   local delay = (PlotPlayData.GetRoleEffectDelay)(false, quitEffect, _quittingRole)
   for k,v in pairs(_quittingRole) do
     do
@@ -927,7 +1139,7 @@ PlotPlayPanelWindow.QuitCharacter = function(quitEffect, callback, fadeOutConten
       end
       ;
       (PlotPlayPanelWindow.DealOneCharacter)(v.Info, nil, quitEffect[k], false, function(...)
-    -- function num : 0_34_0 , upvalues : _quittingRole, k, PlotPlayPanelWindow, v, _ENV
+    -- function num : 0_38_0 , upvalues : _quittingRole, k, PlotPlayPanelWindow, v, _ENV
     _quittingRole[k] = nil
     ;
     (PlotPlayPanelWindow.ResetAnimator)(v.Info)
@@ -945,7 +1157,7 @@ PlotPlayPanelWindow.QuitCharacter = function(quitEffect, callback, fadeOutConten
   end
   if (((uis.TalkWordGrp).CardName_01_Grp).root).visible then
     _nameOutAnim:Play(function(...)
-    -- function num : 0_34_1 , upvalues : uis
+    -- function num : 0_38_1 , upvalues : uis
     -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
     (((uis.TalkWordGrp).CardName_01_Grp).root).visible = false
@@ -955,7 +1167,7 @@ PlotPlayPanelWindow.QuitCharacter = function(quitEffect, callback, fadeOutConten
       _contentFadeOutTween = ((uis.TalkWordGrp).talkTxt):TweenFade(0, 0.5)
       ;
       ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
-    -- function num : 0_34_2 , upvalues : uis, _contentFadeOutTween
+    -- function num : 0_38_2 , upvalues : uis, _contentFadeOutTween
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.TalkWordGrp).talkTxt).text = ""
@@ -969,7 +1181,7 @@ PlotPlayPanelWindow.QuitCharacter = function(quitEffect, callback, fadeOutConten
     end
   end
   _quitTimer = (SimpleTimer.new)(_roleAnimDuration + 0.1, 1, function(...)
-    -- function num : 0_34_3 , upvalues : callback, _quitTimer
+    -- function num : 0_38_3 , upvalues : callback, _quitTimer
     callback()
     _quitTimer = nil
   end
@@ -978,7 +1190,7 @@ PlotPlayPanelWindow.QuitCharacter = function(quitEffect, callback, fadeOutConten
 end
 
 PlotPlayPanelWindow.ShowCharacter = function(...)
-  -- function num : 0_35 , upvalues : _ENV, _dialogueConfig, _roleAnimDuration, DEFAULT_ANIM_DURATION, _movingRole, _currentCharacters, PlotPlayPanelWindow, _moveDelay, _showUpTimer
+  -- function num : 0_39 , upvalues : _ENV, _dialogueConfig, _roleAnimDuration, DEFAULT_ANIM_DURATION, _movingRole, _currentCharacters, PlotPlayPanelWindow, _moveDelay, _showUpTimer
   local charIDs = split(_dialogueConfig.role_ids, ":")
   ;
   (split(_dialogueConfig.position, ","))
@@ -1054,7 +1266,7 @@ PlotPlayPanelWindow.ShowCharacter = function(...)
 end
 
 PlotPlayPanelWindow.LoadNewCharacter = function(config, pos, enterEffect, gray, delay, ...)
-  -- function num : 0_36 , upvalues : _ENV, _currentCharacters, PlotPlayPanelWindow, _currentCharType, CharacterType
+  -- function num : 0_40 , upvalues : _ENV, _currentCharacters, PlotPlayPanelWindow, _currentCharType, CharacterType, UnityColor
   local shouldWait = false
   local info = {}
   info = {}
@@ -1093,14 +1305,14 @@ PlotPlayPanelWindow.LoadNewCharacter = function(config, pos, enterEffect, gray, 
 
       info.SkipChangeType = (not nonTextureRes or textureRes) and nonTextureRes
       info.ExpType = config.expression_type
-      -- DECOMPILER ERROR at PC127: Confused about usage of register: R12 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC124: Confused about usage of register: R12 in 'UnsetPending'
 
       if gray then
-        (info.Loader).color = ((CS.UnityEngine).Color).gray
+        (info.Loader).color = UnityColor.gray
       else
-        -- DECOMPILER ERROR at PC134: Confused about usage of register: R12 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC128: Confused about usage of register: R12 in 'UnsetPending'
 
-        (info.Loader).color = ((CS.UnityEngine).Color).white
+        (info.Loader).color = UnityColor.white
       end
       info.CurrentScale = tonumber(args[3])
       if info.CurrentScale == nil then
@@ -1112,10 +1324,10 @@ PlotPlayPanelWindow.LoadNewCharacter = function(config, pos, enterEffect, gray, 
         (PlotPlayPanelWindow.DealOneCharacter)(info, targetPos, enterEffect, true, nil, delay)
         shouldWait = true
       else
-        -- DECOMPILER ERROR at PC166: Confused about usage of register: R12 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC160: Confused about usage of register: R12 in 'UnsetPending'
 
         ((info.Loader).parent).x = targetPos.x + (ResolutionHandler.AdaptOffset).X
-        -- DECOMPILER ERROR at PC174: Confused about usage of register: R12 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC168: Confused about usage of register: R12 in 'UnsetPending'
 
         ;
         ((info.Loader).parent).y = targetPos.y + (ResolutionHandler.AdaptOffset).Y
@@ -1127,7 +1339,7 @@ PlotPlayPanelWindow.LoadNewCharacter = function(config, pos, enterEffect, gray, 
 end
 
 PlotPlayPanelWindow.InitNonTextureRole = function(config, info, recycle, ...)
-  -- function num : 0_37 , upvalues : _ENV, ResType
+  -- function num : 0_41 , upvalues : _ENV, ResType
   if (Util.CheckNullString)(config.role_path) == false then
     if recycle then
       (Util.RecycleUIModel)(info.Loader)
@@ -1161,7 +1373,7 @@ PlotPlayPanelWindow.InitNonTextureRole = function(config, info, recycle, ...)
 end
 
 PlotPlayPanelWindow.InitStaticRoleImg = function(config, info, recycle, ...)
-  -- function num : 0_38 , upvalues : _ENV
+  -- function num : 0_42 , upvalues : _ENV
   local fashionConfig = ((TableData.gTable).BaseFashionData)[info.Mark]
   if fashionConfig ~= nil and (Util.CheckNullString)(fashionConfig.show_texture) == false then
     if recycle then
@@ -1183,7 +1395,7 @@ PlotPlayPanelWindow.InitStaticRoleImg = function(config, info, recycle, ...)
 end
 
 PlotPlayPanelWindow.InitModelScaleInfo = function(info, ...)
-  -- function num : 0_39 , upvalues : ResType, PlotPlayPanelWindow, _ENV
+  -- function num : 0_43 , upvalues : ResType, PlotPlayPanelWindow, _ENV
   if info.Model ~= nil and info.orginModelScale == nil and (info.Loader).CurrentResType ~= ResType.Texture then
     info.orginModelScale = ((info.Model).transform).localScale
   end
@@ -1204,7 +1416,7 @@ PlotPlayPanelWindow.InitModelScaleInfo = function(info, ...)
 end
 
 PlotPlayPanelWindow.InitRoleInfo = function(info, ...)
-  -- function num : 0_40 , upvalues : PlotPlayPanelWindow, ResType, _ENV
+  -- function num : 0_44 , upvalues : PlotPlayPanelWindow, ResType, _ENV
   (PlotPlayPanelWindow.InitModelScaleInfo)(info)
   ;
   (PlotPlayPanelWindow.InitExpressionCtrl)(info)
@@ -1216,7 +1428,7 @@ PlotPlayPanelWindow.InitRoleInfo = function(info, ...)
 end
 
 PlotPlayPanelWindow.ProcessModelWithRT = function(info, ...)
-  -- function num : 0_41 , upvalues : _ENV
+  -- function num : 0_45 , upvalues : _ENV
   local scaler = GameObject("Scaler")
   ;
   (CSLuaUtil.ChangeLayer)(scaler.transform, "Model")
@@ -1235,7 +1447,7 @@ PlotPlayPanelWindow.ProcessModelWithRT = function(info, ...)
 end
 
 PlotPlayPanelWindow.SetCharacterExpressionAndMotion = function(info, expression, action, stay, ...)
-  -- function num : 0_42 , upvalues : ResType, _ENV, CubismAutoEyeBlinkInput
+  -- function num : 0_46 , upvalues : ResType, _ENV, CubismAutoEyeBlinkInput
   if info.Model == nil or (info.Loader).CurrentResType == ResType.Texture then
     return 
   end
@@ -1266,7 +1478,7 @@ PlotPlayPanelWindow.SetCharacterExpressionAndMotion = function(info, expression,
       (SkeletonAnimationUtil.SetSkin)(info.Model, expression)
       ;
       (SkeletonAnimationUtil.SetAnimation)(info.Model, 0, action, false, function(obj, ...)
-    -- function num : 0_42_0 , upvalues : _ENV, info
+    -- function num : 0_46_0 , upvalues : _ENV, info
     (SkeletonAnimationUtil.SetSkin)(info.DefaultSkin)
     ;
     (SkeletonAnimationUtil.SetAnimation)(info.Model, 0, BattleCardState.IDLE, true)
@@ -1277,7 +1489,7 @@ PlotPlayPanelWindow.SetCharacterExpressionAndMotion = function(info, expression,
       (SkeletonAnimationUtil.SetExpression)(info.Model, expression)
       ;
       (SkeletonAnimationUtil.SetAnimation)(info.Model, 0, action, false, function(obj, ...)
-    -- function num : 0_42_1 , upvalues : _ENV, info
+    -- function num : 0_46_1 , upvalues : _ENV, info
     (SkeletonAnimationUtil.RemoveExpression)(info.Model)
     ;
     (SkeletonAnimationUtil.SetAnimation)(info.Model, 0, BattleCardState.IDLE, true)
@@ -1307,7 +1519,7 @@ PlotPlayPanelWindow.SetCharacterExpressionAndMotion = function(info, expression,
             (info.Animator):SetBool(action, true)
             ;
             ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
-    -- function num : 0_42_2 , upvalues : _ENV, info, action
+    -- function num : 0_46_2 , upvalues : _ENV, info, action
     if not (Util.IsNil)(info.Animator) then
       (info.Animator):SetBool(action, false)
     end
@@ -1335,12 +1547,12 @@ PlotPlayPanelWindow.SetCharacterExpressionAndMotion = function(info, expression,
               (info.AutoEyeBlink).enabled = true
               ;
               ((FairyGUI.Timers).inst):CallLater(function(arg, ...)
-    -- function num : 0_42_3 , upvalues : _ENV, info
+    -- function num : 0_46_3 , upvalues : _ENV, info
     if (Util.IsNil)(info.Model) then
       return 
     end
     info.EyeBlinkHelpTimer = (SimpleTimer.setTimeout)(((info.Animator):GetCurrentAnimatorStateInfo(0)).length, function(...)
-      -- function num : 0_42_3_0 , upvalues : info
+      -- function num : 0_46_3_0 , upvalues : info
       -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
       (info.Animator).enabled = false
@@ -1368,7 +1580,7 @@ PlotPlayPanelWindow.SetCharacterExpressionAndMotion = function(info, expression,
 end
 
 PlotPlayPanelWindow.InitExpressionCtrl = function(roleInfo, ...)
-  -- function num : 0_43 , upvalues : ResType, _ENV
+  -- function num : 0_47 , upvalues : ResType, _ENV
   if (roleInfo.Loader).CurrentResType == ResType.Live2D and roleInfo.Model ~= nil then
     roleInfo.ExpCtrl = ((roleInfo.Model).transform):GetComponentInChildren(typeof(((((CS.Live2D).Cubism).Framework).Expression).CubismExpressionController))
     roleInfo.Expression = {}
@@ -1398,7 +1610,7 @@ PlotPlayPanelWindow.InitExpressionCtrl = function(roleInfo, ...)
 end
 
 PlotPlayPanelWindow.InitAnim = function(roleInfo, ...)
-  -- function num : 0_44 , upvalues : ResType, _ENV, SkeletonMecanim
+  -- function num : 0_48 , upvalues : ResType, _ENV, SkeletonMecanim
   if roleInfo.Model == nil then
     return 
   end
@@ -1432,7 +1644,7 @@ PlotPlayPanelWindow.InitAnim = function(roleInfo, ...)
 end
 
 PlotPlayPanelWindow.DealOneCharacter = function(roleInfo, targetPos, offset, show, func, delay, ...)
-  -- function num : 0_45 , upvalues : _movingRole, ResType, _ENV, PlotPlayPanelWindow, _roleAnimDuration
+  -- function num : 0_49 , upvalues : _movingRole, ResType, _ENV, PlotPlayPanelWindow, _roleAnimDuration
   if roleInfo.Model == nil then
     if _movingRole[roleInfo.id] then
       _movingRole[roleInfo.id] = nil
@@ -1454,7 +1666,7 @@ PlotPlayPanelWindow.DealOneCharacter = function(roleInfo, targetPos, offset, sho
     roleCom = (PlotPlayPanelWindow.PrepareForRT)(roleInfo)
   end
   local complete = function(...)
-    -- function num : 0_45_0 , upvalues : roleInfo, _movingRole, func
+    -- function num : 0_49_0 , upvalues : roleInfo, _movingRole, func
     roleInfo.InOutMove = nil
     if _movingRole[roleInfo.id] then
       _movingRole[roleInfo.id] = nil
@@ -1494,7 +1706,7 @@ PlotPlayPanelWindow.DealOneCharacter = function(roleInfo, targetPos, offset, sho
 end
 
 PlotPlayPanelWindow.PrepareForRT = function(roleInfo, ...)
-  -- function num : 0_46 , upvalues : _ENV, ResType, CubismRenderController, RTM_Ins, PlotPlayPanelWindow, Renderer
+  -- function num : 0_50 , upvalues : _ENV, ResType, CubismRenderController, UnityColor, RTM_Ins, PlotPlayPanelWindow, Renderer
   if roleInfo.Model == nil then
     return 
   end
@@ -1514,10 +1726,10 @@ PlotPlayPanelWindow.PrepareForRT = function(roleInfo, ...)
   if (roleInfo.Loader).CurrentResType == ResType.Live2D then
     target = (((roleInfo.Model).transform):GetChild(0)):GetComponent(typeof(CubismRenderController))
     roleInfo.OriginColor = (roleInfo.Loader).TexColor
-    -- DECOMPILER ERROR at PC42: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC39: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
-    (roleInfo.Loader).TexColor = ((CS.UnityEngine).Color).white
+    (roleInfo.Loader).TexColor = UnityColor.white
     RTM_Ins:ShowModelToLoader(roleInfo.Loader, ((roleInfo.Model).transform).gameObject, 1)
     ;
     (roleInfo.Loader):SetLive2DWithRT(target)
@@ -1530,10 +1742,10 @@ PlotPlayPanelWindow.PrepareForRT = function(roleInfo, ...)
         target = ((roleInfo.Model).transform):GetComponentInChildren(typeof(Renderer))
       end
       roleInfo.OriginColor = (roleInfo.Loader).TexColor
-      -- DECOMPILER ERROR at PC94: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC88: Confused about usage of register: R2 in 'UnsetPending'
 
       ;
-      (roleInfo.Loader).TexColor = ((CS.UnityEngine).Color).white
+      (roleInfo.Loader).TexColor = UnityColor.white
       RTM_Ins:ShowModelToLoader(roleInfo.Loader, ((roleInfo.Model).transform).gameObject, 1)
       ;
       (roleInfo.Loader):SetSpineWithRT(target)
@@ -1545,7 +1757,7 @@ PlotPlayPanelWindow.PrepareForRT = function(roleInfo, ...)
 end
 
 PlotPlayPanelWindow.ReleseFromRT = function(roleInfo, roleCom, ...)
-  -- function num : 0_47 , upvalues : _originLoaderSize, _dialogueConfig, ResType, _ENV, RTM_Ins
+  -- function num : 0_51 , upvalues : _originLoaderSize, _dialogueConfig, ResType, _ENV, RTM_Ins
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R2 in 'UnsetPending'
 
   (roleInfo.Loader).size = _originLoaderSize
@@ -1565,7 +1777,7 @@ PlotPlayPanelWindow.ReleseFromRT = function(roleInfo, roleCom, ...)
 end
 
 PlotPlayPanelWindow.CharacterEnter = function(roleInfo, offset, targetPos, roleCom, delay, complete, ...)
-  -- function num : 0_48 , upvalues : _ENV, _moveSpeed, DEFAULT_ANIM_DURATION, _originLoaderSize, ResType, PlotPlayPanelWindow
+  -- function num : 0_52 , upvalues : _ENV, _moveSpeed, DEFAULT_ANIM_DURATION, _originLoaderSize, ResType, PlotPlayPanelWindow
   local duration = (math.sqrt)(offset.X * offset.X + offset.Y * offset.Y) / _moveSpeed
   if duration < DEFAULT_ANIM_DURATION then
     duration = DEFAULT_ANIM_DURATION
@@ -1617,7 +1829,7 @@ PlotPlayPanelWindow.CharacterEnter = function(roleInfo, offset, targetPos, roleC
     (roleInfo.InOutMove).Tweener = ((FairyGUI.GTween).To)(((roleInfo.Model).transform).localPosition, (roleInfo.InOutMove).RTEndPos, duration)
     ;
     ((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_48_0 , upvalues : roleInfo
+    -- function num : 0_52_0 , upvalues : roleInfo
     -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
     ((roleInfo.Model).transform).localPosition = (((roleInfo.InOutMove).Tweener).value).vec3
@@ -1625,7 +1837,7 @@ PlotPlayPanelWindow.CharacterEnter = function(roleInfo, offset, targetPos, roleC
 )
     ;
     ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
-    -- function num : 0_48_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, targetPos, _ENV, complete
+    -- function num : 0_52_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, targetPos, _ENV, complete
     (PlotPlayPanelWindow.ReleseFromRT)(roleInfo, roleCom)
     -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -1651,13 +1863,13 @@ PlotPlayPanelWindow.CharacterEnter = function(roleInfo, offset, targetPos, roleC
 
     ;
     (roleInfo.InOutMove).Tweener = (((((roleInfo.Loader).parent):TweenMove((roleInfo.InOutMove).EndPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_48_2 , upvalues : roleInfo
+    -- function num : 0_52_2 , upvalues : roleInfo
     (roleInfo.Loader):InvalidateBatchingState()
   end
 )
     ;
     ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
-    -- function num : 0_48_3 , upvalues : complete
+    -- function num : 0_52_3 , upvalues : complete
     complete()
   end
 )
@@ -1678,7 +1890,7 @@ PlotPlayPanelWindow.CharacterEnter = function(roleInfo, offset, targetPos, roleC
 end
 
 PlotPlayPanelWindow.CharacterQuit = function(roleInfo, offset, roleCom, delay, complete, startPos, ...)
-  -- function num : 0_49 , upvalues : _ENV, _moveSpeed, DEFAULT_ANIM_DURATION, _originLoaderSize, ResType, PlotPlayPanelWindow
+  -- function num : 0_53 , upvalues : _ENV, _moveSpeed, DEFAULT_ANIM_DURATION, _originLoaderSize, ResType, PlotPlayPanelWindow
   local duration = (math.sqrt)(offset.X * offset.X + offset.Y * offset.Y) / _moveSpeed
   if duration < DEFAULT_ANIM_DURATION then
     duration = DEFAULT_ANIM_DURATION
@@ -1726,7 +1938,7 @@ PlotPlayPanelWindow.CharacterQuit = function(roleInfo, offset, roleCom, delay, c
     (roleInfo.InOutMove).Tweener = ((FairyGUI.GTween).To)(((roleInfo.Model).transform).localPosition, (roleInfo.InOutMove).RTEndPos, duration)
     ;
     ((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_49_0 , upvalues : roleInfo
+    -- function num : 0_53_0 , upvalues : roleInfo
     -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
     ((roleInfo.Model).transform).localPosition = (((roleInfo.InOutMove).Tweener).value).vec3
@@ -1734,7 +1946,7 @@ PlotPlayPanelWindow.CharacterQuit = function(roleInfo, offset, roleCom, delay, c
 )
     ;
     ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
-    -- function num : 0_49_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, complete
+    -- function num : 0_53_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, complete
     (PlotPlayPanelWindow.ReleseFromRT)(roleInfo, roleCom)
     if complete ~= nil then
       complete()
@@ -1746,13 +1958,13 @@ PlotPlayPanelWindow.CharacterQuit = function(roleInfo, offset, roleCom, delay, c
 
     ;
     (roleInfo.InOutMove).Tweener = (((((roleInfo.Loader).parent):TweenMove((roleInfo.InOutMove).EndPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_49_2 , upvalues : roleInfo
+    -- function num : 0_53_2 , upvalues : roleInfo
     (roleInfo.Loader):InvalidateBatchingState()
   end
 )
     ;
     ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
-    -- function num : 0_49_3 , upvalues : complete
+    -- function num : 0_53_3 , upvalues : complete
     complete()
   end
 )
@@ -1768,7 +1980,7 @@ PlotPlayPanelWindow.CharacterQuit = function(roleInfo, offset, roleCom, delay, c
 end
 
 PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, ...)
-  -- function num : 0_50 , upvalues : _ENV, PlotPlayPanelWindow, _originLoaderSize, RTM_Ins
+  -- function num : 0_54 , upvalues : _ENV, PlotPlayPanelWindow, UnityColor, _originLoaderSize, RTM_Ins
   if roleInfo.SkipChangeType then
     return 
   end
@@ -1781,15 +1993,15 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
         local curPos = ((roleInfo.Loader).parent).xy
         do
           local color = (roleInfo.Loader).color
-          -- DECOMPILER ERROR at PC38: Confused about usage of register: R5 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC35: Confused about usage of register: R5 in 'UnsetPending'
 
           ;
-          (roleInfo.Loader).color = ((CS.UnityEngine).Color).white
-          -- DECOMPILER ERROR at PC40: Confused about usage of register: R5 in 'UnsetPending'
+          (roleInfo.Loader).color = UnityColor.white
+          -- DECOMPILER ERROR at PC37: Confused about usage of register: R5 in 'UnsetPending'
 
           ;
           (roleInfo.Loader).TexColor = color
-          -- DECOMPILER ERROR at PC42: Confused about usage of register: R5 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC39: Confused about usage of register: R5 in 'UnsetPending'
 
           ;
           (roleInfo.Loader).alpha = 1
@@ -1817,20 +2029,20 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
             end
             do
               endPos = (roleInfo.InOutMove).RTEndPos
-              -- DECOMPILER ERROR at PC102: Confused about usage of register: R11 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC99: Confused about usage of register: R11 in 'UnsetPending'
 
               ;
               ((roleInfo.Model).transform).localPosition = startPos
               if duration < 0 then
                 duration = 0
               end
-              -- DECOMPILER ERROR at PC116: Confused about usage of register: R11 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC113: Confused about usage of register: R11 in 'UnsetPending'
 
               ;
               (roleInfo.InOutMove).Tweener = ((FairyGUI.GTween).To)(((roleInfo.Model).transform).localPosition, endPos, duration)
               ;
               ((((roleInfo.InOutMove).Tweener):SetDelay(delay)):SetEase((FairyGUI.EaseType).QuintOut)):OnUpdate(function(...)
-    -- function num : 0_50_0 , upvalues : roleInfo
+    -- function num : 0_54_0 , upvalues : roleInfo
     -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
 
     if roleInfo.InOutMove then
@@ -1840,7 +2052,7 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
 )
               ;
               ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
-    -- function num : 0_50_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, _ENV
+    -- function num : 0_54_1 , upvalues : PlotPlayPanelWindow, roleInfo, roleCom, _ENV
     (PlotPlayPanelWindow.ReleseFromRT)(roleInfo, roleCom)
     -- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -1867,7 +2079,7 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
               (PlotPlayPanelWindow.InitRoleInfo)(roleInfo)
               if roleInfo.InOutMove ~= nil then
                 ((roleInfo.InOutMove).Tweener):Kill()
-                -- DECOMPILER ERROR at PC171: Confused about usage of register: R4 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC168: Confused about usage of register: R4 in 'UnsetPending'
 
                 ;
                 (roleInfo.Loader).size = _originLoaderSize
@@ -1895,30 +2107,30 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
                 do
                   do
                     endPos = (roleInfo.InOutMove).EndPos
-                    -- DECOMPILER ERROR at PC233: Confused about usage of register: R9 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC230: Confused about usage of register: R9 in 'UnsetPending'
 
                     ;
                     ((roleInfo.Loader).parent).xy = startPos
                     if duration < 0 then
                       duration = 0
                     end
-                    -- DECOMPILER ERROR at PC255: Confused about usage of register: R9 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC252: Confused about usage of register: R9 in 'UnsetPending'
 
                     ;
                     (roleInfo.InOutMove).Tweener = (((((roleInfo.Loader).parent):TweenMove(endPos, duration)):SetDelay(delay)):SetEase((FairyGUI.EaseType).QuintOut)):OnUpdate(function(...)
-    -- function num : 0_50_2 , upvalues : roleInfo
+    -- function num : 0_54_2 , upvalues : roleInfo
     (roleInfo.Loader):InvalidateBatchingState()
   end
 )
                     ;
                     ((FairyGUI.Timers).inst):Add(delay + duration, 1, function(...)
-    -- function num : 0_50_3 , upvalues : roleInfo
+    -- function num : 0_54_3 , upvalues : roleInfo
     if roleInfo.InOutMove then
       ((roleInfo.InOutMove).Complete)()
     end
   end
 )
-                    -- DECOMPILER ERROR at PC266: Confused about usage of register: R4 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC263: Confused about usage of register: R4 in 'UnsetPending'
 
                     ;
                     (roleInfo.Loader).alpha = 1
@@ -1934,7 +2146,7 @@ PlotPlayPanelWindow.ChangeSingleCharacterType = function(roleInfo, nonTexture, .
 end
 
 PlotPlayPanelWindow.SetCharacterPos = function(roleInfo, arg, ...)
-  -- function num : 0_51 , upvalues : _ENV, PlotPlayPanelWindow, _moveSpeed, _roleAnimDuration, _movingRole, ResType
+  -- function num : 0_55 , upvalues : _ENV, PlotPlayPanelWindow, _moveSpeed, _roleAnimDuration, _movingRole, ResType
   local startX = ((roleInfo.Loader).parent).x
   local startY = ((roleInfo.Loader).parent).y
   local args = split(arg, ":")
@@ -1960,7 +2172,7 @@ PlotPlayPanelWindow.SetCharacterPos = function(roleInfo, arg, ...)
       (((roleInfo.Loader).parent):TweenMove({x = ((roleInfo.Loader).parent).x + offset.x, y = ((roleInfo.Loader).parent).y + offset.y}, _roleAnimDuration)):SetEase((FairyGUI.EaseType).QuadInOut)
       ;
       ((FairyGUI.Timers).inst):Add(_roleAnimDuration, 1, function(...)
-    -- function num : 0_51_0 , upvalues : _movingRole, roleInfo
+    -- function num : 0_55_0 , upvalues : _movingRole, roleInfo
     if _movingRole[roleInfo.id] then
       _movingRole[roleInfo.id] = nil
     end
@@ -1983,7 +2195,7 @@ PlotPlayPanelWindow.SetCharacterPos = function(roleInfo, arg, ...)
             end
             ;
             (((LeanTween.scale)(roleInfo.Model, scale, _roleAnimDuration)):setEaseInOutQuad()):setOnComplete(function(...)
-    -- function num : 0_51_1 , upvalues : _movingRole, roleInfo
+    -- function num : 0_55_1 , upvalues : _movingRole, roleInfo
     if _movingRole[roleInfo.id] then
       _movingRole[roleInfo.id] = nil
     end
@@ -1998,7 +2210,7 @@ PlotPlayPanelWindow.SetCharacterPos = function(roleInfo, arg, ...)
 end
 
 PlotPlayPanelWindow.GetCharacterScale = function(info, ...)
-  -- function num : 0_52 , upvalues : ResType, _ENV
+  -- function num : 0_56 , upvalues : ResType, _ENV
   if (info.Loader).CurrentResType == ResType.Texture then
     return Vector3.one * (info.CurrentScale / 10000)
   else
@@ -2007,7 +2219,7 @@ PlotPlayPanelWindow.GetCharacterScale = function(info, ...)
 end
 
 PlotPlayPanelWindow.ShowCurrentCharacter = function(...)
-  -- function num : 0_53 , upvalues : PlotPlayPanelWindow, _currentRole, _roleConfig, _dialogueConfig, _ENV, _roleAnimDuration, _currentCharacters, uis
+  -- function num : 0_57 , upvalues : PlotPlayPanelWindow, _currentRole, _roleConfig, _dialogueConfig, _ENV, UnityColor, _roleAnimDuration, _currentCharacters, uis
   (PlotPlayPanelWindow.SetCharacterName)()
   if _currentRole ~= nil and _roleConfig ~= nil and _currentRole.id == _roleConfig.id then
     (PlotPlayPanelWindow.ShowExpressionEffect)(_dialogueConfig)
@@ -2017,11 +2229,11 @@ PlotPlayPanelWindow.ShowCurrentCharacter = function(...)
     if _currentRole ~= nil then
       local _lastRole = _currentRole
       do
-        ((LeanTween.value)(((_lastRole.Loader).color).r, (((CS.UnityEngine).Color).gray).r, _roleAnimDuration)):setOnUpdate(function(x, ...)
-    -- function num : 0_53_0 , upvalues : _ENV, _lastRole
-    local color = ((CS.UnityEngine).Color)(1, 1, 1) * x
+        ((LeanTween.value)(((_lastRole.Loader).color).r, (UnityColor.gray).r, _roleAnimDuration)):setOnUpdate(function(x, ...)
+    -- function num : 0_57_0 , upvalues : UnityColor, _lastRole
+    local color = UnityColor(1, 1, 1) * x
     color.a = 1
-    -- DECOMPILER ERROR at PC10: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC8: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (_lastRole.Loader).color = color
@@ -2040,19 +2252,19 @@ PlotPlayPanelWindow.ShowCurrentCharacter = function(...)
     ;
     (uis.root):SetChildIndex((_currentRole.Loader).parent, (uis.root):GetChildIndex((uis.TalkWordGrp).root) - 1)
     ;
-    (((LeanTween.value)(((_currentRole.Loader).color).r, (((CS.UnityEngine).Color).white).r, _roleAnimDuration)):setOnUpdate(function(x, ...)
-    -- function num : 0_53_1 , upvalues : _currentRole, _ENV
+    (((LeanTween.value)(((_currentRole.Loader).color).r, (UnityColor.white).r, _roleAnimDuration)):setOnUpdate(function(x, ...)
+    -- function num : 0_57_1 , upvalues : _currentRole, UnityColor
     if _currentRole then
-      local color = ((CS.UnityEngine).Color)(1, 1, 1) * x
+      local color = UnityColor(1, 1, 1) * x
       color.a = 1
-      -- DECOMPILER ERROR at PC13: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC11: Confused about usage of register: R2 in 'UnsetPending'
 
       ;
       (_currentRole.Loader).color = color
     end
   end
 )):setOnComplete(function(...)
-    -- function num : 0_53_2 , upvalues : PlotPlayPanelWindow, _dialogueConfig
+    -- function num : 0_57_2 , upvalues : PlotPlayPanelWindow, _dialogueConfig
     (PlotPlayPanelWindow.ShowExpressionEffect)(_dialogueConfig)
   end
 )
@@ -2060,7 +2272,7 @@ PlotPlayPanelWindow.ShowCurrentCharacter = function(...)
 end
 
 PlotPlayPanelWindow.RecycleUnusedRole = function(recycleImmediately, callback, ...)
-  -- function num : 0_54 , upvalues : _dialogueConfig, _ENV, PlotPlayPanelWindow, _currentCharacters, _quittingRole, _moveDelay
+  -- function num : 0_58 , upvalues : _dialogueConfig, _ENV, PlotPlayPanelWindow, _currentCharacters, _quittingRole, _moveDelay
   if _dialogueConfig == nil then
     return 
   end
@@ -2069,7 +2281,7 @@ PlotPlayPanelWindow.RecycleUnusedRole = function(recycleImmediately, callback, .
     quitEffect = (PlotPlayData.GetRoleEffects)(_dialogueConfig.role_departure_type)
   end
   local Recycle = function(info, notRecycle, ...)
-    -- function num : 0_54_0 , upvalues : callback, PlotPlayPanelWindow, _ENV
+    -- function num : 0_58_0 , upvalues : callback, PlotPlayPanelWindow, _ENV
     if callback ~= nil then
       callback()
       callback = nil
@@ -2124,7 +2336,7 @@ PlotPlayPanelWindow.RecycleUnusedRole = function(recycleImmediately, callback, .
       -- DECOMPILER ERROR at PC115: Unhandled construct in 'MakeBoolean' P1
 
       if (PlotPlayPanelWindow.DealOneCharacter)(v.Info, nil, quitEffect[k], false, function(...)
-    -- function num : 0_54_1 , upvalues : _quittingRole, k, Recycle, v
+    -- function num : 0_58_1 , upvalues : _quittingRole, k, Recycle, v
     _quittingRole[k] = nil
     Recycle(v.Info, v.NotRecycle)
   end
@@ -2138,7 +2350,7 @@ PlotPlayPanelWindow.RecycleUnusedRole = function(recycleImmediately, callback, .
 end
 
 PlotPlayPanelWindow.ResetAnimator = function(info, ...)
-  -- function num : 0_55 , upvalues : _ENV, ResType
+  -- function num : 0_59 , upvalues : _ENV, ResType
   if info.EyeBlinkHelpTimer ~= nil then
     (info.EyeBlinkHelpTimer):stop()
   end
@@ -2155,12 +2367,12 @@ PlotPlayPanelWindow.ResetAnimator = function(info, ...)
 end
 
 PlotPlayPanelWindow.ShowSceneEffect = function(config, ...)
-  -- function num : 0_56 , upvalues : _currentSceneEffect, PlotPlayPanelWindow
+  -- function num : 0_60 , upvalues : _currentSceneEffect, PlotPlayPanelWindow
   _currentSceneEffect = (PlotPlayPanelWindow.ShowEffect)(config.scene_effect_path, config.scene_effect_position, _currentSceneEffect)
 end
 
 PlotPlayPanelWindow.ShowExpressionEffect = function(config, ...)
-  -- function num : 0_57 , upvalues : _ENV, _currentCharType, CharacterType, _currentExpressionEffect, uis
+  -- function num : 0_61 , upvalues : _ENV, _currentCharType, CharacterType, _currentExpressionEffect, uis
   if (Util.StringIsNullOrEmpty)(config.expression_path) or _currentCharType == CharacterType.Texture then
     return 
   end
@@ -2187,7 +2399,7 @@ PlotPlayPanelWindow.ShowExpressionEffect = function(config, ...)
 end
 
 PlotPlayPanelWindow.ShowEffect = function(path, position, existsEffect, ...)
-  -- function num : 0_58 , upvalues : _ENV, uis, PlotPlayPanelWindow
+  -- function num : 0_62 , upvalues : _ENV, uis, PlotPlayPanelWindow
   if (Util.StringIsNullOrEmpty)(path) or (Util.StringIsNullOrEmpty)(position) then
     return {}
   end
@@ -2236,7 +2448,7 @@ PlotPlayPanelWindow.ShowEffect = function(path, position, existsEffect, ...)
 end
 
 PlotPlayPanelWindow.RecycleEffect = function(effects, ...)
-  -- function num : 0_59 , upvalues : _ENV
+  -- function num : 0_63 , upvalues : _ENV
   if effects ~= nil then
     for k,v in pairs(effects) do
       v:Dispose()
@@ -2246,7 +2458,7 @@ PlotPlayPanelWindow.RecycleEffect = function(effects, ...)
 end
 
 PlotPlayPanelWindow.CheckChoiceStatue = function(...)
-  -- function num : 0_60 , upvalues : _ENV, _dialogueConfig, _statue, PlotPlayStatue
+  -- function num : 0_64 , upvalues : _ENV, _dialogueConfig, _statue, PlotPlayStatue
   if (Util.CheckNullString)(_dialogueConfig.option_ids) then
     _statue = PlotPlayStatue.Normal
   else
@@ -2255,7 +2467,7 @@ PlotPlayPanelWindow.CheckChoiceStatue = function(...)
 end
 
 PlotPlayPanelWindow.SetChoiceStatue = function(show, ...)
-  -- function num : 0_61 , upvalues : uis, PlotPlayPanelWindow
+  -- function num : 0_65 , upvalues : uis, PlotPlayPanelWindow
   if (uis.ChoiceList).visible == show then
     return 
   end
@@ -2280,7 +2492,7 @@ PlotPlayPanelWindow.SetChoiceStatue = function(show, ...)
 end
 
 PlotPlayPanelWindow.SetContent = function(...)
-  -- function num : 0_62 , upvalues : uis, _dialogueConfig, _ENV
+  -- function num : 0_66 , upvalues : uis, _dialogueConfig, _ENV
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.TalkWordGrp).talkTxt).text = _dialogueConfig.remark
@@ -2293,7 +2505,7 @@ PlotPlayPanelWindow.SetContent = function(...)
 end
 
 PlotPlayPanelWindow.SetCharacterName = function(...)
-  -- function num : 0_63 , upvalues : PlotPlayPanelWindow, _dialogueConfig, _roleConfig, uis
+  -- function num : 0_67 , upvalues : PlotPlayPanelWindow, _dialogueConfig, _roleConfig, uis
   (PlotPlayPanelWindow.ChangeRoleNameTxtStatus)(_dialogueConfig.type)
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -2303,7 +2515,7 @@ PlotPlayPanelWindow.SetCharacterName = function(...)
 end
 
 PlotPlayPanelWindow.HandleSound = function(...)
-  -- function num : 0_64 , upvalues : _dialogueConfig, _ENV, _audioDone, PlotPlayPanelWindow, _linesAudioId, _currentEffectId, _effectAudio, _afterLineComplete, _roleNameTxtStatue, PlotPlayRoleNameTxtStatus, _lineTimestamp
+  -- function num : 0_68 , upvalues : _dialogueConfig, _ENV, _audioDone, PlotPlayPanelWindow, _linesAudioId, _currentEffectId, _effectAudio, _afterLineComplete, _roleNameTxtStatue, PlotPlayRoleNameTxtStatus, _lineTimestamp
   if _dialogueConfig.bgm ~= 0 then
     (LuaSound.LoadAndPlayBGM)(_dialogueConfig.bgm)
   else
@@ -2311,7 +2523,7 @@ PlotPlayPanelWindow.HandleSound = function(...)
     (LuaSound.StopBGM)()
   end
   local callback = function(...)
-    -- function num : 0_64_0 , upvalues : _audioDone, PlotPlayPanelWindow
+    -- function num : 0_68_0 , upvalues : _audioDone, PlotPlayPanelWindow
     _audioDone = true
     ;
     (PlotPlayPanelWindow.AfterRoleCompleteTalk)()
@@ -2330,7 +2542,7 @@ PlotPlayPanelWindow.HandleSound = function(...)
     if _roleNameTxtStatue == PlotPlayRoleNameTxtStatus.Left then
       local as = (PlotPlayPanelWindow.GetPlayerAudioReady)()
       _afterLineComplete = function(...)
-    -- function num : 0_64_1 , upvalues : PlotPlayPanelWindow, callback, _linesAudioId
+    -- function num : 0_68_1 , upvalues : PlotPlayPanelWindow, callback, _linesAudioId
     (PlotPlayPanelWindow.AfterPlayerAudioFinish)()
     callback()
     _linesAudioId = -1
@@ -2341,7 +2553,7 @@ PlotPlayPanelWindow.HandleSound = function(...)
     else
       do
         _linesAudioId = (LuaSound.AudioMgrPlaySound)(tostring(_dialogueConfig.dialogue_sound), false, function(...)
-    -- function num : 0_64_2 , upvalues : callback, _linesAudioId
+    -- function num : 0_68_2 , upvalues : callback, _linesAudioId
     callback()
     _linesAudioId = -1
   end
@@ -2356,7 +2568,7 @@ PlotPlayPanelWindow.HandleSound = function(...)
 end
 
 PlotPlayPanelWindow.GetPlayerAudioReady = function(...)
-  -- function num : 0_65 , upvalues : _spineRoleTalking, _currentRole, ResType, _ENV
+  -- function num : 0_69 , upvalues : _spineRoleTalking, _currentRole, ResType, _ENV
   local as = nil
   _spineRoleTalking = false
   if _currentRole ~= nil and _currentRole.Model ~= nil then
@@ -2383,7 +2595,7 @@ PlotPlayPanelWindow.GetPlayerAudioReady = function(...)
 end
 
 PlotPlayPanelWindow.AfterPlayerAudioFinish = function(...)
-  -- function num : 0_66 , upvalues : _spineRoleTalking, _currentRole
+  -- function num : 0_70 , upvalues : _spineRoleTalking, _currentRole
   if _spineRoleTalking and _currentRole ~= nil then
     -- DECOMPILER ERROR at PC20: Unhandled construct in 'MakeBoolean' P1
 
@@ -2399,7 +2611,7 @@ PlotPlayPanelWindow.AfterPlayerAudioFinish = function(...)
 end
 
 PlotPlayPanelWindow.RemoveSound = function(stopLine, ...)
-  -- function num : 0_67 , upvalues : PlotPlayPanelWindow, _effectAudio, _ENV, _dialogueConfig, _currentEffectId, _spineRoleTalking, _currentRole
+  -- function num : 0_71 , upvalues : PlotPlayPanelWindow, _effectAudio, _ENV, _dialogueConfig, _currentEffectId, _spineRoleTalking, _currentRole
   if stopLine then
     (PlotPlayPanelWindow.StopLineSound)()
     if _effectAudio ~= nil then
@@ -2426,7 +2638,7 @@ PlotPlayPanelWindow.RemoveSound = function(stopLine, ...)
 end
 
 PlotPlayPanelWindow.StopLineSound = function(...)
-  -- function num : 0_68 , upvalues : _linesAudioId, AudioMgr, _audioDone
+  -- function num : 0_72 , upvalues : _linesAudioId, AudioMgr, _audioDone
   if _linesAudioId ~= -1 then
     AudioMgr:RemoveSound(_linesAudioId)
     _linesAudioId = -1
@@ -2435,7 +2647,7 @@ PlotPlayPanelWindow.StopLineSound = function(...)
 end
 
 PlotPlayPanelWindow.ShowRoleShake = function(...)
-  -- function num : 0_69 , upvalues : _ENV, _dialogueConfig, _currentCharacters, _shaking
+  -- function num : 0_73 , upvalues : _ENV, _dialogueConfig, _currentCharacters, _shaking
   if (Util.StringIsNullOrEmpty)(_dialogueConfig.role_shake) or _dialogueConfig.role_shake == "0" then
     return 
   end
@@ -2450,10 +2662,10 @@ PlotPlayPanelWindow.ShowRoleShake = function(...)
       end
       ;
       (SimpleTimer.setTimeout)(tonumber(eachInfo[3]) or 0, function(...)
-    -- function num : 0_69_0 , upvalues : _currentCharacters, _ENV, eachInfo, index, _shaking
+    -- function num : 0_73_0 , upvalues : _currentCharacters, _ENV, eachInfo, index, _shaking
     if _currentCharacters[tonumber(eachInfo[1])] ~= nil then
       (Util.Shake)((_currentCharacters[tonumber(eachInfo[1])]).Loader, tonumber(eachInfo[2]), 5, 1, function(...)
-      -- function num : 0_69_0_0 , upvalues : index, _shaking
+      -- function num : 0_73_0_0 , upvalues : index, _shaking
       if index == 1 then
         _shaking = false
       end
@@ -2467,12 +2679,12 @@ PlotPlayPanelWindow.ShowRoleShake = function(...)
 end
 
 PlotPlayPanelWindow.ShowTypingEffect = function(...)
-  -- function num : 0_70 , upvalues : _typingEffect
+  -- function num : 0_74 , upvalues : _typingEffect
   _typingEffect:PrintAll(0.04, 0.6)
 end
 
 PlotPlayPanelWindow.ShowChoice = function(...)
-  -- function num : 0_71 , upvalues : _choices, _ENV, _dialogueConfig, uis
+  -- function num : 0_75 , upvalues : _choices, _ENV, _dialogueConfig, uis
   _choices = split(_dialogueConfig.option_ids, ":")
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -2481,7 +2693,7 @@ PlotPlayPanelWindow.ShowChoice = function(...)
 end
 
 PlotPlayPanelWindow.RefreshChoiceItem = function(index, item, ...)
-  -- function num : 0_72 , upvalues : _ENV, _choices, _firstChoice, PlotPlayPanelWindow
+  -- function num : 0_76 , upvalues : _ENV, _choices, _firstChoice, PlotPlayPanelWindow
   local config = ((TableData.gTable).BaseStoryOptionData)[tonumber(_choices[index + 1])]
   if index == 0 then
     _firstChoice = tonumber(config.next)
@@ -2493,7 +2705,7 @@ PlotPlayPanelWindow.RefreshChoiceItem = function(index, item, ...)
   item.touchable = true
   ;
   (item.onClick):Add(function(...)
-    -- function num : 0_72_0 , upvalues : item, PlotPlayPanelWindow, _ENV, config
+    -- function num : 0_76_0 , upvalues : item, PlotPlayPanelWindow, _ENV, config
     item.touchable = false
     ;
     (PlotPlayPanelWindow.SetChoiceStatue)(false)
@@ -2504,7 +2716,7 @@ PlotPlayPanelWindow.RefreshChoiceItem = function(index, item, ...)
 end
 
 PlotPlayPanelWindow.RecycleAllRes = function(...)
-  -- function num : 0_73 , upvalues : uis, _ENV, PlotPlayPanelWindow, _currentSceneEffect, _currentCharacters
+  -- function num : 0_77 , upvalues : uis, _ENV, PlotPlayPanelWindow, _currentSceneEffect, _currentCharacters
   if (uis.backsceneLoader).texture ~= nil then
     (ResHelper.UnloadTexture)(((uis.backsceneLoader).texture).nativeTexture)
     -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
@@ -2524,13 +2736,13 @@ PlotPlayPanelWindow.RecycleAllRes = function(...)
 end
 
 PlotPlayPanelWindow.ChangeMaskStatus = function(component1, component2, show, ...)
-  -- function num : 0_74
+  -- function num : 0_78
   component1.visible = show
   component2.visible = show
 end
 
 PlotPlayPanelWindow.ShowAside = function(callback, ...)
-  -- function num : 0_75 , upvalues : _ENV, PlotPlayPanelWindow, uis
+  -- function num : 0_79 , upvalues : _ENV, PlotPlayPanelWindow, uis
   if (Util.StringIsNullOrEmpty)((PlotPlayData.CurrentChapterDataConfig).aside_content) == false then
     (PlotPlayPanelWindow.ShowBlackBg)()
     -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
@@ -2545,13 +2757,13 @@ PlotPlayPanelWindow.ShowAside = function(callback, ...)
     ((uis.CutGrp).WordTxt):TweenFade(1, 0.5)
     ;
     ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
-    -- function num : 0_75_0 , upvalues : _ENV, uis, callback
+    -- function num : 0_79_0 , upvalues : _ENV, uis, callback
     (SimpleTimer.setTimeout)(2, function(...)
-      -- function num : 0_75_0_0 , upvalues : uis, _ENV, callback
+      -- function num : 0_79_0_0 , upvalues : uis, _ENV, callback
       ((uis.CutGrp).WordTxt):TweenFade(0, 0.5)
       ;
       ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
-        -- function num : 0_75_0_0_0 , upvalues : uis, callback
+        -- function num : 0_79_0_0_0 , upvalues : uis, callback
         -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
         ((uis.CutGrp).WordTxt).text = ""
@@ -2572,7 +2784,7 @@ PlotPlayPanelWindow.ShowAside = function(callback, ...)
 end
 
 PlotPlayPanelWindow.ResetBackground = function(...)
-  -- function num : 0_76 , upvalues : uis, _ENV
+  -- function num : 0_80 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.backsceneLoader).pivot = Vector2(0, 0)
@@ -2595,7 +2807,7 @@ PlotPlayPanelWindow.ResetBackground = function(...)
 end
 
 PlotPlayPanelWindow.SetBackground = function(callback, ...)
-  -- function num : 0_77 , upvalues : _ENV, PlotPlayPanelWindow, _bgMask, uis
+  -- function num : 0_81 , upvalues : _ENV, PlotPlayPanelWindow, _bgMask, uis
   if (Util.StringIsNullOrEmpty)((PlotPlayData.CurrentChapterDataConfig).name) == false then
     (PlotPlayPanelWindow.ShowBlackBg)()
   end
@@ -2624,7 +2836,7 @@ PlotPlayPanelWindow.SetBackground = function(callback, ...)
 end
 
 PlotPlayPanelWindow.ShowBGEnter = function(callback, ...)
-  -- function num : 0_78 , upvalues : PlotPlayPanelWindow, _bgAnimPlaying, _bgMask, _ENV, uis
+  -- function num : 0_82 , upvalues : PlotPlayPanelWindow, _bgAnimPlaying, _bgMask, _ENV, uis
   (PlotPlayPanelWindow.ChangeUIStatus)(false, true)
   _bgAnimPlaying = true
   local needReset = false
@@ -2660,7 +2872,7 @@ PlotPlayPanelWindow.ShowBGEnter = function(callback, ...)
   end
   ;
   (PlotPlayPanelWindow.ShowSingleBGEffect)(true, enterEffect, 1, function(...)
-    -- function num : 0_78_0 , upvalues : _bgAnimPlaying, needReset, _bgMask, PlotPlayPanelWindow, callback
+    -- function num : 0_82_0 , upvalues : _bgAnimPlaying, needReset, _bgMask, PlotPlayPanelWindow, callback
     _bgAnimPlaying = false
     if needReset then
       _bgMask.visible = true
@@ -2675,12 +2887,12 @@ PlotPlayPanelWindow.ShowBGEnter = function(callback, ...)
 end
 
 PlotPlayPanelWindow.PreLoadSceneEffect = function(config, ...)
-  -- function num : 0_79 , upvalues : PlotPlayPanelWindow
+  -- function num : 0_83 , upvalues : PlotPlayPanelWindow
   (PlotPlayPanelWindow.ShowSceneEffect)(config)
 end
 
 PlotPlayPanelWindow.PreLoadCharacter = function(config, ...)
-  -- function num : 0_80 , upvalues : _ENV, _currentCharacters, PlotPlayPanelWindow, _currentRole, _roleConfig
+  -- function num : 0_84 , upvalues : _ENV, _currentCharacters, PlotPlayPanelWindow, _currentRole, _roleConfig
   local enterEffect = (PlotPlayData.GetRoleEffects)(config.role_admission_type)
   local charPos = (split(config.position, ","))
   -- DECOMPILER ERROR at PC8: Overwrote pending register: R3 in 'AssignReg'
@@ -2724,7 +2936,7 @@ PlotPlayPanelWindow.PreLoadCharacter = function(config, ...)
 end
 
 PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callback, keep, ...)
-  -- function num : 0_81 , upvalues : PlotPlayPanelWindow, _ENV, _solidMask, _transitionalMask, uis, DEFAULT_WHITE_SCREEN_DURATION, _transitionEffect, _roleLoaders
+  -- function num : 0_85 , upvalues : PlotPlayPanelWindow, _ENV, _solidMask, UnityColor, _transitionalMask, uis, DEFAULT_WHITE_SCREEN_DURATION, _transitionEffect, _roleLoaders
   if #effects < index then
     if callback ~= nil then
       callback()
@@ -2732,14 +2944,14 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
     return 
   end
   local finishCallback = function(...)
-    -- function num : 0_81_0 , upvalues : PlotPlayPanelWindow, enter, effects, index, callback, keep
+    -- function num : 0_85_0 , upvalues : PlotPlayPanelWindow, enter, effects, index, callback, keep
     (PlotPlayPanelWindow.ShowSingleBGEffect)(enter, effects, index + 1, callback, keep)
   end
 
   local effect = effects[index]
   local effectType = tonumber(effect[1])
   if effectType == PlotPlayBGEffect.LinearMove then
-    _solidMask.color = ((CS.UnityEngine).Color).black
+    _solidMask.color = UnityColor.black
     if not enter then
       (PlotPlayPanelWindow.ChangeSolidMaskStatus)(false)
     end
@@ -2749,7 +2961,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
         (PlotPlayPanelWindow.SetMaskDirection)(false, effectDir)
         ;
         (PlotPlayPanelWindow.MaskLinearMove)(effectDir, false, _solidMask, _transitionalMask, function(...)
-    -- function num : 0_81_1 , upvalues : keep, finishCallback, uis, PlotPlayPanelWindow, effectDir, _solidMask, _transitionalMask
+    -- function num : 0_85_1 , upvalues : keep, finishCallback, uis, PlotPlayPanelWindow, effectDir, _solidMask, _transitionalMask
     if keep then
       finishCallback()
       return 
@@ -2778,7 +2990,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
   else
   end
   do
-    -- DECOMPILER ERROR at PC79: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC76: Confused about usage of register: R8 in 'UnsetPending'
 
     if effectType ~= PlotPlayBGEffect.Rotate or effectType == PlotPlayBGEffect.Zoom then
       (uis.backsceneLoader).pivot = Vector2(0.5, 0.5)
@@ -2786,7 +2998,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
       if scale == nil then
         scale = 2
       end
-      -- DECOMPILER ERROR at PC92: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC89: Confused about usage of register: R9 in 'UnsetPending'
 
       if enter then
         (uis.backsceneLoader).scale = Vector2.one * scale
@@ -2794,7 +3006,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
         (uis.backsceneLoader):TweenScale(Vector2.one, tonumber(effect[3]))
         ;
         ((FairyGUI.Timers).inst):Add(tonumber(effect[3]), 1, function(...)
-    -- function num : 0_81_2 , upvalues : uis, _ENV, effect, finishCallback
+    -- function num : 0_85_2 , upvalues : uis, _ENV, effect, finishCallback
     -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
     (uis.backsceneLoader).pivot = Vector2.zero
@@ -2807,7 +3019,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
           finishCallback()
         end
       else
-        -- DECOMPILER ERROR at PC125: Confused about usage of register: R9 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC122: Confused about usage of register: R9 in 'UnsetPending'
 
         ;
         (uis.backsceneLoader).scale = Vector2.one
@@ -2815,7 +3027,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
         (uis.backsceneLoader):TweenScale(Vector2.one * scale, tonumber(effect[3]))
         ;
         ((FairyGUI.Timers).inst):Add(tonumber(effect[3]), 1, function(...)
-    -- function num : 0_81_3 , upvalues : uis, _ENV, effect, finishCallback
+    -- function num : 0_85_3 , upvalues : uis, _ENV, effect, finishCallback
     -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
     (uis.backsceneLoader).pivot = Vector2.zero
@@ -2835,7 +3047,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
     else
       do
         if effectType == PlotPlayBGEffect.Fade then
-          _solidMask.color = ((CS.UnityEngine).Color).black
+          _solidMask.color = UnityColor.black
           if enter then
             (PlotPlayPanelWindow.ResetSolidMask)()
             _solidMask.visible = true
@@ -2843,7 +3055,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             _solidMask:TweenFade(0, DEFAULT_WHITE_SCREEN_DURATION)
             ;
             ((FairyGUI.Timers).inst):Add(DEFAULT_WHITE_SCREEN_DURATION, 1, function(...)
-    -- function num : 0_81_4 , upvalues : PlotPlayPanelWindow, _solidMask, finishCallback
+    -- function num : 0_85_4 , upvalues : PlotPlayPanelWindow, _solidMask, finishCallback
     (PlotPlayPanelWindow.ResetSolidMask)()
     _solidMask.visible = false
     finishCallback()
@@ -2856,7 +3068,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             _solidMask:TweenFade(1, DEFAULT_WHITE_SCREEN_DURATION)
             ;
             ((FairyGUI.Timers).inst):Add(DEFAULT_WHITE_SCREEN_DURATION, 1, function(...)
-    -- function num : 0_81_5 , upvalues : finishCallback
+    -- function num : 0_85_5 , upvalues : finishCallback
     finishCallback()
   end
 )
@@ -2870,7 +3082,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             if effect[5] ~= nil and tonumber(effect[5]) == 1 then
               (PlotPlayPanelWindow.ChangeUIStatus)(false, true)
               for k,v in pairs(_roleLoaders) do
-                -- DECOMPILER ERROR at PC241: Confused about usage of register: R13 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC235: Confused about usage of register: R13 in 'UnsetPending'
 
                 (v.Loader).visible = false
               end
@@ -2878,7 +3090,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
             do
               ;
               (SimpleTimer.setTimeout)(tonumber(effect[3]), function(...)
-    -- function num : 0_81_6 , upvalues : _ENV, _roleLoaders, finishCallback, effect, uis, _transitionEffect, _transitionalMask
+    -- function num : 0_85_6 , upvalues : _ENV, _roleLoaders, finishCallback, effect, uis, _transitionEffect, _transitionalMask
     for k,v in pairs(_roleLoaders) do
       -- DECOMPILER ERROR at PC5: Confused about usage of register: R5 in 'UnsetPending'
 
@@ -2896,7 +3108,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
               if effectType == PlotPlayBGEffect.WhiteScreen then
                 if not enter and (PlotPlayData.HaveNextPlot)() == false and index == #effects then
                   (PlotPlayPanelWindow.ShowWhiteScreenEffect)(enter, function(...)
-    -- function num : 0_81_7 , upvalues : enter, _transitionEffect, PlotPlayPanelWindow, callback
+    -- function num : 0_85_7 , upvalues : enter, _transitionEffect, PlotPlayPanelWindow, callback
     if not enter and _transitionEffect ~= nil then
       _transitionEffect:Dispose()
       _transitionEffect = nil
@@ -2908,7 +3120,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
                 else
                   ;
                   (PlotPlayPanelWindow.ShowWhiteScreenEffect)(enter, function(...)
-    -- function num : 0_81_8 , upvalues : enter, _transitionEffect, callback
+    -- function num : 0_85_8 , upvalues : enter, _transitionEffect, callback
     if not enter and _transitionEffect ~= nil then
       _transitionEffect:Dispose()
       _transitionEffect = nil
@@ -2933,7 +3145,7 @@ PlotPlayPanelWindow.ShowSingleBGEffect = function(enter, effects, index, callbac
 end
 
 PlotPlayPanelWindow.ResetSolidMask = function(...)
-  -- function num : 0_82 , upvalues : _solidMask, _originSolidMaskSize
+  -- function num : 0_86 , upvalues : _solidMask, _originSolidMaskSize
   _solidMask.width = _originSolidMaskSize.x
   _solidMask.height = _originSolidMaskSize.y
   _solidMask.rotation = 0
@@ -2943,7 +3155,7 @@ PlotPlayPanelWindow.ResetSolidMask = function(...)
 end
 
 PlotPlayPanelWindow.ChangeSolidMaskStatus = function(showChoice, ...)
-  -- function num : 0_83 , upvalues : uis, _solidMask, PlotPlayPanelWindow, _transitionalMask
+  -- function num : 0_87 , upvalues : uis, _solidMask, PlotPlayPanelWindow, _transitionalMask
   if showChoice then
     (uis.root):SetChildIndex(_solidMask, (uis.root):GetChildIndex(uis.ChoiceList))
     ;
@@ -2959,7 +3171,7 @@ PlotPlayPanelWindow.ChangeSolidMaskStatus = function(showChoice, ...)
 end
 
 PlotPlayPanelWindow.ShowBGQuit = function(callback, keep, recycleRole, ...)
-  -- function num : 0_84 , upvalues : _bgAnimPlaying, _dialogueConfig, _ENV, PlotPlayPanelWindow, _bgMask
+  -- function num : 0_88 , upvalues : _bgAnimPlaying, _dialogueConfig, _ENV, PlotPlayPanelWindow, _bgMask
   _bgAnimPlaying = true
   if _dialogueConfig == nil then
     return 
@@ -2987,7 +3199,7 @@ PlotPlayPanelWindow.ShowBGQuit = function(callback, keep, recycleRole, ...)
           quitEffectSound[id] = {Sound = (LuaSound.LoadAndPlaySound)(id)}
         else
           quitEffectSound[id] = {Timer = (SimpleTimer.setTimeout)(delay, function(...)
-    -- function num : 0_84_0 , upvalues : quitEffectSound, id, _ENV
+    -- function num : 0_88_0 , upvalues : quitEffectSound, id, _ENV
     quitEffectSound[id] = {Sound = (LuaSound.LoadAndPlaySound)(id)}
   end
 )}
@@ -3004,7 +3216,7 @@ PlotPlayPanelWindow.ShowBGQuit = function(callback, keep, recycleRole, ...)
     end
     ;
     (PlotPlayPanelWindow.ShowSingleBGEffect)(false, enterEffect, 1, function(...)
-    -- function num : 0_84_1 , upvalues : _bgAnimPlaying, _ENV, keep, PlotPlayPanelWindow, needReset, _bgMask, callback
+    -- function num : 0_88_1 , upvalues : _bgAnimPlaying, _ENV, keep, PlotPlayPanelWindow, needReset, _bgMask, callback
     _bgAnimPlaying = false
     if (PlotPlayData.HaveNextPlot)() and not keep then
       (PlotPlayPanelWindow.RecycleAllRes)()
@@ -3019,13 +3231,13 @@ PlotPlayPanelWindow.ShowBGQuit = function(callback, keep, recycleRole, ...)
 end
 
 PlotPlayPanelWindow.ShowBlackBg = function(...)
-  -- function num : 0_85 , upvalues : PlotPlayPanelWindow, _solidMask
+  -- function num : 0_89 , upvalues : PlotPlayPanelWindow, _solidMask
   (PlotPlayPanelWindow.ResetSolidMask)()
   _solidMask.visible = true
 end
 
 PlotPlayPanelWindow.SetMaskDirection = function(enter, direction, ...)
-  -- function num : 0_86 , upvalues : _ENV, _transitionalMask, _solidMask, PlotPlayPanelWindow, _originSolidMaskSize, TRANISITION_MASK_MODIFIER, MASK_GAP_FIXER
+  -- function num : 0_90 , upvalues : _ENV, _transitionalMask, _solidMask, PlotPlayPanelWindow, _originSolidMaskSize, TRANISITION_MASK_MODIFIER, MASK_GAP_FIXER
   ((FairyGUI.GTween).Kill)(_transitionalMask)
   ;
   ((FairyGUI.GTween).Kill)(_solidMask)
@@ -3110,11 +3322,11 @@ PlotPlayPanelWindow.SetMaskDirection = function(enter, direction, ...)
 end
 
 PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, component2, callback, quitMove, ...)
-  -- function num : 0_87 , upvalues : _ENV, PlotPlayPanelWindow, MASK_GAP_FIXER, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1
+  -- function num : 0_91 , upvalues : _ENV, PlotPlayPanelWindow, MASK_GAP_FIXER, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1
   local done = function(...)
-    -- function num : 0_87_0 , upvalues : _ENV, PlotPlayPanelWindow, component1, component2, callback
+    -- function num : 0_91_0 , upvalues : _ENV, PlotPlayPanelWindow, component1, component2, callback
     (SimpleTimer.setTimeout)(0.1, function(...)
-      -- function num : 0_87_0_0 , upvalues : PlotPlayPanelWindow, component1, component2, callback
+      -- function num : 0_91_0_0 , upvalues : PlotPlayPanelWindow, component1, component2, callback
       (PlotPlayPanelWindow.ChangeMaskStatus)(component1, component2, false)
       if callback ~= nil then
         callback()
@@ -3127,19 +3339,19 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
     local distance = component1.width + component2.width - MASK_GAP_FIXER
     do
       ((component1:TweenMoveX(component1.x + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_87_1 , upvalues : component1
+    -- function num : 0_91_1 , upvalues : component1
     component1:InvalidateBatchingState()
   end
 )
       ;
       ((FairyGUI.Timers).inst):Add(MASK_MOVE_DURATION, 1, function(...)
-    -- function num : 0_87_2 , upvalues : done
+    -- function num : 0_91_2 , upvalues : done
     done()
   end
 )
       ;
       ((component2:TweenMoveX(component2.x + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_87_3 , upvalues : component2
+    -- function num : 0_91_3 , upvalues : component2
     component2:InvalidateBatchingState()
   end
 )
@@ -3150,19 +3362,19 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
         local distance = component1.height + component2.width - MASK_GAP_FIXER
         ;
         ((component1:TweenMoveY(component1.y + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_87_4 , upvalues : component1
+    -- function num : 0_91_4 , upvalues : component1
     component1:InvalidateBatchingState()
   end
 )
         ;
         ((FairyGUI.Timers).inst):Add(MASK_MOVE_DURATION, 1, function(...)
-    -- function num : 0_87_5 , upvalues : done
+    -- function num : 0_91_5 , upvalues : done
     done()
   end
 )
         ;
         ((component2:TweenMoveY(component2.y + distance, MASK_MOVE_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnUpdate(function(...)
-    -- function num : 0_87_6 , upvalues : component2
+    -- function num : 0_91_6 , upvalues : component2
     component2:InvalidateBatchingState()
   end
 )
@@ -3177,11 +3389,11 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
             (component1:TweenMove(component1.xy + distance * 0.2, MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
             ;
             ((FairyGUI.Timers).inst):Add(MASK_MOVE_PHASE_1, 1, function(...)
-    -- function num : 0_87_7 , upvalues : component1, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV, done
+    -- function num : 0_91_7 , upvalues : component1, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV, done
     (component1:TweenMove(component1.xy + distance * 0.8, MASK_MOVE_DURATION - MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
     ;
     ((FairyGUI.Timers).inst):Add(MASK_MOVE_DURATION - MASK_MOVE_PHASE_1, 1, function(...)
-      -- function num : 0_87_7_0 , upvalues : done
+      -- function num : 0_91_7_0 , upvalues : done
       done()
     end
 )
@@ -3191,7 +3403,7 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
             (component2:TweenMove(component2.xy + distance * 0.2, MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
             ;
             ((FairyGUI.Timers).inst):Add(MASK_MOVE_PHASE_1, 1, function(...)
-    -- function num : 0_87_8 , upvalues : component2, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV
+    -- function num : 0_91_8 , upvalues : component2, distance, MASK_MOVE_DURATION, MASK_MOVE_PHASE_1, _ENV
     (component2:TweenMove(component2.xy + distance * 0.8, MASK_MOVE_DURATION - MASK_MOVE_PHASE_1)):SetEase((FairyGUI.EaseType).Linear)
   end
 )
@@ -3202,13 +3414,17 @@ PlotPlayPanelWindow.MaskLinearMove = function(direction, enter, component1, comp
   end
 end
 
-PlotPlayPanelWindow.ShowWhiteScreenEffect = function(fadeOut, callback, ...)
-  -- function num : 0_88 , upvalues : PlotPlayPanelWindow, _solidMask, _ENV, DEFAULT_WHITE_SCREEN_DURATION
+PlotPlayPanelWindow.ShowWhiteScreenEffect = function(fadeOut, callback, color, ...)
+  -- function num : 0_92 , upvalues : PlotPlayPanelWindow, _solidMask, UnityColor, _ENV, DEFAULT_WHITE_SCREEN_DURATION
   (PlotPlayPanelWindow.ResetSolidMask)()
-  _solidMask.color = ((CS.UnityEngine).Color).white
+  if color then
+    _solidMask.color = color
+  else
+    _solidMask.color = UnityColor.white
+  end
   _solidMask.visible = true
   local finishCallback = function(...)
-    -- function num : 0_88_0 , upvalues : _solidMask, callback
+    -- function num : 0_92_0 , upvalues : _solidMask, callback
     _solidMask.alpha = 1
     _solidMask.visible = false
     if callback ~= nil then
@@ -3220,7 +3436,7 @@ PlotPlayPanelWindow.ShowWhiteScreenEffect = function(fadeOut, callback, ...)
     _solidMask.alpha = 1
     ;
     (((LeanTween.value)(1, 0, DEFAULT_WHITE_SCREEN_DURATION)):setOnUpdate(function(x, ...)
-    -- function num : 0_88_1 , upvalues : _solidMask
+    -- function num : 0_92_1 , upvalues : _solidMask
     _solidMask.alpha = x
   end
 )):setOnComplete(finishCallback)
@@ -3228,7 +3444,7 @@ PlotPlayPanelWindow.ShowWhiteScreenEffect = function(fadeOut, callback, ...)
     _solidMask.alpha = 0
     ;
     (((LeanTween.value)(0, 1, DEFAULT_WHITE_SCREEN_DURATION)):setOnUpdate(function(x, ...)
-    -- function num : 0_88_2 , upvalues : _solidMask
+    -- function num : 0_92_2 , upvalues : _solidMask
     _solidMask.alpha = x
   end
 )):setOnComplete(finishCallback)
@@ -3236,14 +3452,14 @@ PlotPlayPanelWindow.ShowWhiteScreenEffect = function(fadeOut, callback, ...)
 end
 
 PlotPlayPanelWindow.ShakeCamera = function(callback, ...)
-  -- function num : 0_89 , upvalues : _ENV, PlotPlayPanelWindow
+  -- function num : 0_93 , upvalues : _ENV, PlotPlayPanelWindow
   local dialogueConfig = (TableData.GetBaseStoryDialogueData)(PlotPlayData.CurrentDialogueID)
   ;
   (PlotPlayPanelWindow.ShowCamerShake)(dialogueConfig.carmera, callback)
 end
 
 PlotPlayPanelWindow.ShowCamerShake = function(type, callback, ...)
-  -- function num : 0_90 , upvalues : _ENV, PlotPlayPanelWindow, PlotPlayRoleNameTxtStatus, uis, _contentFadeOutTween, _shaking, _solidMask, _currentSceneEffect, _currentCharacters, _currentExpressionEffect
+  -- function num : 0_94 , upvalues : _ENV, PlotPlayPanelWindow, PlotPlayRoleNameTxtStatus, uis, _contentFadeOutTween, _shaking, _solidMask, _currentSceneEffect, _currentCharacters, _currentExpressionEffect
   if type ~= PlotPlayCameraEffect.Horizontal and type ~= PlotPlayCameraEffect.Vertical and type ~= PlotPlayCameraEffect.Multiply then
     callback()
   else
@@ -3266,7 +3482,7 @@ PlotPlayPanelWindow.ShowCamerShake = function(type, callback, ...)
       _solidMask.visible = true
       ;
       (Util.Shake)(uis.backsceneLoader, type, 20, 1, function(...)
-    -- function num : 0_90_0 , upvalues : _shaking, uis, _solidMask, index, callback
+    -- function num : 0_94_0 , upvalues : _shaking, uis, _solidMask, index, callback
     _shaking = false
     ;
     (uis.root):SetChildIndex(_solidMask, index)
@@ -3288,7 +3504,7 @@ PlotPlayPanelWindow.ShowCamerShake = function(type, callback, ...)
 end
 
 PlotPlayPanelWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_91 , upvalues : _ENV, PlotPlayPanelWindow, _currentMode, PlotPlayPlayMode, _currentRole, uis, _currentExpressionEffect, _contentOutAnim, _nameOutAnim, _contentFadeOutTween, _dialogueConfig, _lastRoleId
+  -- function num : 0_95 , upvalues : _ENV, PlotPlayPanelWindow, _currentMode, PlotPlayPlayMode, _currentRole, uis, _currentExpressionEffect, _contentOutAnim, _nameOutAnim, _contentFadeOutTween, _dialogueConfig, _lastRoleId
   if msgId == (WindowMsgEnum.PlotPlay).E_MSG_PLAY_CHAPTER_NAME then
     (PlotPlayPanelWindow.PlayChapterName)(para)
   else
@@ -3335,7 +3551,7 @@ PlotPlayPanelWindow.HandleMessage = function(msgId, para, ...)
                   else
                     ;
                     (PlotPlayPanelWindow.RecycleUnusedRole)(false, function(...)
-    -- function num : 0_91_0 , upvalues : PlotPlayPanelWindow, para
+    -- function num : 0_95_0 , upvalues : PlotPlayPanelWindow, para
     (PlotPlayPanelWindow.ShowBGQuit)(para.Callback, false, true)
   end
 )
@@ -3349,7 +3565,7 @@ PlotPlayPanelWindow.HandleMessage = function(msgId, para, ...)
                       _contentFadeOutTween = ((uis.TalkWordGrp).talkTxt):TweenFade(0, 0.5)
                       ;
                       ((FairyGUI.Timers).inst):Add(0.5, 1, function(...)
-    -- function num : 0_91_1 , upvalues : uis, _contentFadeOutTween
+    -- function num : 0_95_1 , upvalues : uis, _contentFadeOutTween
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.TalkWordGrp).talkTxt).text = ""

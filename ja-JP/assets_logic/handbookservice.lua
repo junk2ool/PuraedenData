@@ -92,7 +92,7 @@ HandBookService.ResAdventureStoryChapter = function(msg, ...)
   if msg.battleType == (ProtoEnum.E_BATTLE_TYPE).STORY then
     type = (HandBookMgr.AdventureStoryType).MainStory
     ;
-    (HandBookMgr.HandleAdventureStoryChapter)(msg.chapterId, type)
+    (HandBookMgr.HandleAdventureStoryChapter)(msg)
   else
     if msg.battleType == (ProtoEnum.E_BATTLE_TYPE).HERO then
       type = (HandBookMgr.AdventureStoryType).HeroStory
@@ -117,6 +117,9 @@ HandBookService.OnReqAdventureStoryStage = function(chapterId, ...)
   -- function num : 0_7 , upvalues : _ENV
   local m = {}
   m.chapterId = chapterId
+  -- DECOMPILER ERROR at PC3: Confused about usage of register: R2 in 'UnsetPending'
+
+  HandBookData.QueryingId = chapterId
   ;
   (Net.Send)((Proto.MsgName).ReqAdventureStoryStage, m, (Proto.MsgName).ResAdventureStoryStage)
 end
@@ -127,6 +130,24 @@ HandBookService.ResAdventureStoryStage = function(msg, ...)
   -- function num : 0_8 , upvalues : _ENV
   (HandBookMgr.AdventureStoryStage)(msg.stageId)
   UIMgr:SendWindowMessage((WinResConfig.HandBookStoryPlotWindow).name, 1)
+  local config = ((TableData.gTable).BaseHandbookAdventureChapterData)[HandBookData.QueryingId]
+  local configNum = #split(config.record_ids, ":")
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R3 in 'UnsetPending'
+
+  if configNum == #msg.stageId then
+    HandBookData.UnlockState = (HandBookData.PlotLockState).FullUnlock
+  else
+    -- DECOMPILER ERROR at PC40: Confused about usage of register: R3 in 'UnsetPending'
+
+    if #msg.stageId < configNum then
+      HandBookData.UnlockState = (HandBookData.PlotLockState).PartUnlock
+    else
+      -- DECOMPILER ERROR at PC46: Confused about usage of register: R3 in 'UnsetPending'
+
+      HandBookData.UnlockState = (HandBookData.PlotLockState).Lock
+    end
+  end
+  UIMgr:SendWindowMessage((WinResConfig.HandbookMainPlotWindow).name, (WindowMsgEnum.HandBook).E_MSG_REFRESH)
 end
 
 local mOpenType = nil
@@ -528,6 +549,16 @@ HandBookService.OnResActivateFetter = function(msg, ...)
   ;
   (CommonWinMgr.OpenCommonFcUp)()
   UIMgr:SendWindowMessage((WinResConfig.HandBookRelationWindow).name, (WindowMsgEnum.HandBookIntimacyWindow).RELATION_ACTIVETION)
+end
+
+-- DECOMPILER ERROR at PC114: Confused about usage of register: R5 in 'UnsetPending'
+
+HandBookService.ReqClickPointPlot = function(id, ...)
+  -- function num : 0_35 , upvalues : _ENV
+  local m = {}
+  m.plotId = id
+  ;
+  (Net.Send)((Proto.MsgName).ReqClickPointPlot, m)
 end
 
 ;

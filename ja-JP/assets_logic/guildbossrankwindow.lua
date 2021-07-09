@@ -168,7 +168,7 @@ GuildBossRankWindow.ItemListRenderer = function(index, obj, ...)
 end
 
 GuildBossRankWindow.InitInvariable = function(...)
-  -- function num : 0_4 , upvalues : uis, _ENV, isPersonType, currentPage, GuildBossRankWindow
+  -- function num : 0_4 , upvalues : uis, _ENV, currentPage, isPersonType, GuildBossRankWindow
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.TitleTxt).text = (PUtil.get)(20000530)
@@ -210,7 +210,7 @@ GuildBossRankWindow.InitInvariable = function(...)
 )
   ;
   (((uis.BossRewardInfo).MonthBtn).onClick):Set(function(...)
-    -- function num : 0_4_4 , upvalues : _ENV, uis
+    -- function num : 0_4_4 , upvalues : _ENV, uis, currentPage
     local info = (GuildBossMgr.GuildBossInfo)()
     if info.status == (ProtoEnum.GUILD_WAR_STATUS).READY then
       (MessageMgr.SendCenterTipsByWordID)(20000559)
@@ -225,6 +225,7 @@ GuildBossRankWindow.InitInvariable = function(...)
     if isPerson then
       (GuildBossService.ReqMSeasonRank)(not isLast)
     else
+      currentPage = 1
       ;
       (GuildBossService.ReqGSeasonRank)(not isLast, 1)
     end

@@ -877,7 +877,7 @@ end
 
 NewActivityDungeonMainWindow.RefreshAssistFightInfo = function(...)
   -- function num : 0_33 , upvalues : NewActivityDungeonData, _assistTimer, _ENV, uis, NewActivityDungeonMainWindow, _bossId, _mask, _bossModel
-  if NewActivityDungeonData.AssistData == nil then
+  if NewActivityDungeonData.AssistData == nil or NewActivityDungeonData.NADData == nil then
     return 
   end
   if _assistTimer ~= nil then
@@ -905,11 +905,11 @@ NewActivityDungeonMainWindow.RefreshAssistFightInfo = function(...)
         (Util.CreateShowModel)(config.fashionID_show, (((uis.AssistBattleMain).BattleTips).BossPic).ImageLoader)
         ;
         (Util.SetModelClip)((((uis.AssistBattleMain).BattleTips).BossPic).ImageLoader, _mask, true)
-        -- DECOMPILER ERROR at PC111: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC114: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
         ((((uis.AssistBattleMain).BattleTips).BossPic).ImageLoader).x = offset.x
-        -- DECOMPILER ERROR at PC117: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC120: Confused about usage of register: R3 in 'UnsetPending'
 
         ;
         ((((uis.AssistBattleMain).BattleTips).BossPic).ImageLoader).y = offset.y

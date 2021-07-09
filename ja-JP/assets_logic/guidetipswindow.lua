@@ -208,19 +208,21 @@ GuideTipsWindow.SetContent = function(item, data, ...)
     else
     end
   end
-  -- DECOMPILER ERROR at PC184: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC189: Unhandled construct in 'MakeBoolean' P3
 
-  -- DECOMPILER ERROR at PC184: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC189: Unhandled construct in 'MakeBoolean' P3
 
-  -- DECOMPILER ERROR at PC184: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC189: Unhandled construct in 'MakeBoolean' P3
 
-  -- DECOMPILER ERROR at PC184: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC189: Unhandled construct in 'MakeBoolean' P3
 
-  -- DECOMPILER ERROR at PC184: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC189: Unhandled construct in 'MakeBoolean' P3
 
-  -- DECOMPILER ERROR at PC184: Unhandled construct in 'MakeBoolean' P3
+  -- DECOMPILER ERROR at PC189: Unhandled construct in 'MakeBoolean' P3
 
-  if (data.Type == GuideTipsCheckPoint.AcquireBackgroundCG and data.Type == GuideTipsCheckPoint.UnlockStoryChapter) or data.Type == GuideTipsCheckPoint.UnlockExpedition then
+  -- DECOMPILER ERROR at PC189: Unhandled construct in 'MakeBoolean' P3
+
+  if (data.Type == GuideTipsCheckPoint.AcquireBackgroundCG and data.Type == GuideTipsCheckPoint.UnlockStoryChapter) or data.Type == GuideTipsCheckPoint.UnlockPlot then
     (item:GetChild("Word_01_Txt")).text = (PUtil.get)(config.name)
     ;
     (item:GetChild("Word_02_Txt")).text = (PUtil.get)(config.remark, (data.Args)[1])

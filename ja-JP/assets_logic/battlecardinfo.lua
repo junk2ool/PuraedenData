@@ -530,10 +530,16 @@ randomBuff = {}
                       else
                         do
                           self[attrConfig.name] = curValue + (value)
-                          if IsBattleServer == nil then
-                            SaveBattleProcess("\tbuff属性变化 位置：" .. self:GetPosIndex() .. " 属性变化：" .. (CardData.GetAttrRemarkById)(attributeId) .. " 变化值：" .. value)
+                          do
+                            if attributeId == BattleCardAttributeID.MAX_HP then
+                              local hpConfig = baseAttributeData[BattleCardAttributeID.HP]
+                              self[hpConfig.name] = self[hpConfig.name] + (value)
+                            end
+                            if IsBattleServer == nil then
+                              SaveBattleProcess("\tbuff属性变化 位置：" .. self:GetPosIndex() .. " 属性变化：" .. (CardData.GetAttrRemarkById)(attributeId) .. " 变化值：" .. value)
+                            end
+                            self[attrConfig.name] = value
                           end
-                          self[attrConfig.name] = value
                         end
                       end
                     end

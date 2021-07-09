@@ -3,17 +3,17 @@
 BaseHandbookAdventureChapterData = {
 [51100001] = {id = 51100001, type = 1, activity_type = 0, name = (PUtil.get)(85110001), remark = (PUtil.get)(85119000, 1), record_ids = "52100101:52100102:52100103:52100104:52100105", sort = 1, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0026"}
 , 
-[51100002] = {id = 51100002, type = 1, activity_type = 0, name = (PUtil.get)(85110002), remark = (PUtil.get)(85119000, 2), record_ids = "52100201:52100202:52100203:52100204:52100205", sort = 2, unlockPoints = 10, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
+[51100002] = {id = 51100002, type = 1, activity_type = 0, name = (PUtil.get)(85110002), remark = (PUtil.get)(85119000, 2), record_ids = "52100201:52100202:52100203:52100204:52100205", sort = 2, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
 , 
-[51100003] = {id = 51100003, type = 1, activity_type = 0, name = (PUtil.get)(85110003), remark = (PUtil.get)(85119000, 3), record_ids = "52100301:52100302:52100303:52100304:52100305", sort = 3, unlockPoints = 20, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0002"}
+[51100003] = {id = 51100003, type = 1, activity_type = 0, name = (PUtil.get)(85110003), remark = (PUtil.get)(85119000, 3), record_ids = "52100301:52100302:52100303:52100304:52100305", sort = 3, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0002"}
 , 
-[51100004] = {id = 51100004, type = 1, activity_type = 0, name = (PUtil.get)(85110004), remark = (PUtil.get)(85119000, 4), record_ids = "52100401:52100402:52100403:52100404:52100405", sort = 4, unlockPoints = 20, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0019"}
+[51100004] = {id = 51100004, type = 1, activity_type = 0, name = (PUtil.get)(85110004), remark = (PUtil.get)(85119000, 4), record_ids = "52100401:52100402:52100403:52100404:52100405", sort = 4, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0019"}
 , 
 [51100005] = {id = 51100005, type = 1, activity_type = 0, name = (PUtil.get)(85110005), remark = (PUtil.get)(85119000, 5), record_ids = "52100501:52100502:52100503:52100504:52100505", sort = 5, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0025"}
 , 
-[51100006] = {id = 51100006, type = 1, activity_type = 0, name = (PUtil.get)(85110006), remark = (PUtil.get)(85119000, 6), record_ids = "52100601:52100602:52100604:52100605", sort = 6, unlockPoints = 10, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0005"}
+[51100006] = {id = 51100006, type = 1, activity_type = 0, name = (PUtil.get)(85110006), remark = (PUtil.get)(85119000, 6), record_ids = "52100601:52100602:52100604:52100605", sort = 6, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0005"}
 , 
-[51100007] = {id = 51100007, type = 1, activity_type = 0, name = (PUtil.get)(85110007), remark = (PUtil.get)(85119000, 7), record_ids = "52100701:52100702:52100705", sort = 7, unlockPoints = 10, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
+[51100007] = {id = 51100007, type = 1, activity_type = 0, name = (PUtil.get)(85110007), remark = (PUtil.get)(85119000, 7), record_ids = "52100701:52100702:52100705", sort = 7, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0021"}
 , 
 [51100008] = {id = 51100008, type = 1, activity_type = 0, name = (PUtil.get)(85110008), remark = (PUtil.get)(85119000, 8), record_ids = "52100801:52100803:52100805", sort = 8, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0006"}
 , 
@@ -95,7 +95,7 @@ BaseHandbookAdventureChapterData = {
 , 
 [51100047] = {id = 51100047, type = 1, activity_type = 0, name = (PUtil.get)(85110047), remark = (PUtil.get)(85119000, 47), record_ids = "52104701:52104702:52104703:52104704:52104705", sort = 47, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0027"}
 , 
-[51100048] = {id = 51100048, type = 1, activity_type = 0, name = (PUtil.get)(85110048), remark = (PUtil.get)(85119000, 48), record_ids = "52104801:52104802:52104803:52104804:52104805", sort = 48, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0027"}
+[51100048] = {id = 51100048, type = 1, activity_type = 0, name = (PUtil.get)(85110048), remark = (PUtil.get)(85119000, 48), record_ids = "52104801:52104802:52104803:52104804:52104805", sort = 48, unlockPoints = 0, nextId = 0, needStage = 0, icon = "HandBookMainBanner:handbookcover_0032"}
 , 
 [51200001] = {id = 51200001, type = 2, activity_type = 0, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52200101:52200102:52200103:52200104:52200105:52200106", sort = 1, unlockPoints = 0, nextId = 0, needStage = 0}
 , 

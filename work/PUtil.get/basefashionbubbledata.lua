@@ -9035,6 +9035,34 @@
 , 
 [125302001] = {id = 125302001, voice_path = "MB_Hermes_Battle_C_1"}
 , 
+[121302101] = {id = 121302101, voice_path = "MB_Athena_Battle_N_1"}
+, 
+[121302102] = {id = 121302102, voice_path = "MB_Athena_Battle_N_2"}
+, 
+[122302101] = {id = 122302101, voice_path = "MB_Athena_Battle_Hit_1"}
+, 
+[122302102] = {id = 122302102, voice_path = "MB_Athena_Battle_Hit_2"}
+, 
+[122302103] = {id = 122302103, voice_path = "MB_Athena_Battle_Hit_3"}
+, 
+[124302101] = {id = 124302101, voice_path = "MB_Athena_Battle_H_1"}
+, 
+[125302101] = {id = 125302101, voice_path = "MB_Athena_Battle_C_1"}
+, 
+[121302201] = {id = 121302201, voice_path = "MB_Diomedes_Battle_N_1"}
+, 
+[121302202] = {id = 121302202, voice_path = "MB_Diomedes_Battle_N_2"}
+, 
+[122302201] = {id = 122302201, voice_path = "MB_Diomedes_Battle_Hit_1"}
+, 
+[122302202] = {id = 122302202, voice_path = "MB_Diomedes_Battle_Hit_2"}
+, 
+[122302203] = {id = 122302203, voice_path = "MB_Diomedes_Battle_Hit_3"}
+, 
+[124302201] = {id = 124302201, voice_path = "MB_Diomedes_Battle_H_1"}
+, 
+[125302201] = {id = 125302201, voice_path = "MB_Diomedes_Battle_C_1"}
+, 
 [97022101] = {id = 97022101, bubble_text = "サンタというものは、想像以上に体力が必要なのですね。一軒一軒掃除をしながら、プレゼントを渡して回らないといけないだなんて…。わたくしもさらに鍛えなければなりませんね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_1"}
 , 
 [97022102] = {id = 97022102, bubble_text = "特別な夜を迎えるなら、いつも以上に徹底的に掃除しないといけませんね。さぁ、まずは積もった雪をすべて排除いたしましょう。リーダー様もお時間があるなら手を貸してください。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_2"}
@@ -12466,4 +12494,140 @@
 [117303402] = {id = 117303402, bubble_text = "暑すぎる…早く冬にならないかな…。まぁ、寒くなったらまた夏が恋しくなるんだけど。", voice_path = "mizugi_Evanthe_Home_Talk_2", top_position = 10}
 , 
 [117303403] = {id = 117303403, bubble_text = "ゲーム機が熱暴走したらどうすんの、データ飛んだらどうすんの。誰が責任取るっての？", voice_path = "mizugi_Evanthe_Home_Talk_3", top_position = 10}
+, 
+[97030351] = {id = 97030351, bubble_text = "フラワー、泳ぎ方知らないのに、水にぷかぷか浮いてられるの。なんでかなー…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Main_1"}
+, 
+[97030352] = {id = 97030352, bubble_text = "ふふ。水着、とってもかわいいよね？だから砂浜を歩くと、いろんな人達がいっぱい話しかけてくれるの。お友達になれるといいなぁ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Main_2"}
+, 
+[97030353] = {id = 97030353, bubble_text = "暑い日には、冷たいお水がおいしいんだ。それに、頭がくらくらして倒れたりしなくなるんだよ。だから、リーダーもお水たくさん飲もうね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Main_3"}
+, 
+[97030354] = {id = 97030354, bubble_text = "リーダーは泳げるの？泳げるなら、フラワーのこと、手伝ってくれる？バタ足っていうの、やってみたいんだー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Main_4"}
+, 
+[97130351] = {id = 97130351, bubble_text = "フラワー、泳ぎ方知らないのに、水にぷかぷか浮いてられるの。なんでかなー…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Main_1"}
+, 
+[97130352] = {id = 97130352, bubble_text = "ふふ。水着、とってもかわいいよね？だから砂浜を歩くと、いろんな人達がいっぱい話しかけてくれるの。お友達になれるといいなぁ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Main_2"}
+, 
+[97130353] = {id = 97130353, bubble_text = "暑い日には、冷たいお水がおいしいんだ。それに、頭がくらくらして倒れたりしなくなるんだよ。だから、リーダーもお水たくさん飲もうね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Main_3"}
+, 
+[97130354] = {id = 97130354, bubble_text = "リーダーは泳げるの？泳げるなら、フラワーのこと、手伝ってくれる？バタ足っていうの、やってみたいんだー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Main_4"}
+, 
+[97230351] = {id = 97230351, bubble_text = "フラワー、泳ぎ方知らないのに、水にぷかぷか浮いてられるの。なんでかなー…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Main_1"}
+, 
+[97230352] = {id = 97230352, bubble_text = "ふふ。水着、とってもかわいいよね？だから砂浜を歩くと、いろんな人達がいっぱい話しかけてくれるの。お友達になれるといいなぁ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Main_2"}
+, 
+[97230353] = {id = 97230353, bubble_text = "暑い日には、冷たいお水がおいしいんだ。それに、頭がくらくらして倒れたりしなくなるんだよ。だから、リーダーもお水たくさん飲もうね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Main_3"}
+, 
+[97230354] = {id = 97230354, bubble_text = "リーダーは泳げるの？泳げるなら、フラワーのこと、手伝ってくれる？バタ足っていうの、やってみたいんだー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Main_4"}
+, 
+[101303501] = {id = 101303501, bubble_text = "フラワー、水着っていうの、着てみたよー。ふふ、かわいくて気に入っちゃった。でも…胸のところはちょっとだけきついかも…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Get_1"}
+, 
+[101303511] = {id = 101303511, bubble_text = "最初は、海って冷たいなって思ったの。でも、みんなやリーダーと遊んでたら、心があったかくなってきた…つぎに夏が来たときも、いっしょに入りたいね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Stage_2"}
+, 
+[101303521] = {id = 101303521, bubble_text = "砂浜はあったかいね。みんなと遊ぶの楽しいけど、あったかいところでリーダーとゆっくりするのも気持ちいいね…。リーダー、眠くなってきた？フラワーのおひざですこし寝る？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Stage_3"}
+, 
+[102303501] = {id = 102303501, bubble_text = "みんなは、泳ぎに行ってるみたい。リーダーも、フラワーと泳ぎに行く？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_In_1"}
+, 
+[102303502] = {id = 102303502, bubble_text = "みんなは、泳ぎに行ってるみたい。リーダーも、フラワーと泳ぎに行く？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_In_1"}
+, 
+[102303503] = {id = 102303503, bubble_text = "みんなは、泳ぎに行ってるみたい。リーダーも、フラワーと泳ぎに行く？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_In_1"}
+, 
+[103303501] = {id = 103303501, bubble_text = "汗が出て来たのは…強くなったから？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "373:257", direction = 2, voice_path = "Flower_mizugi_Stage_1"}
+, 
+[103303511] = {id = 103303511, bubble_text = "汗が出て来たのは…強くなったから？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "350:270", direction = 2, voice_path = "Flower_mizugi_Stage_1"}
+, 
+[103303521] = {id = 103303521, bubble_text = "汗が出て来たのは…強くなったから？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "350:270", direction = 2, voice_path = "Flower_mizugi_Stage_1"}
+, 
+[104303501] = {id = 104303501, bubble_text = "もーっと特別な夏、楽しみたいもんね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "373:257", direction = 2, voice_path = "Flower_mizugi_Star_1"}
+, 
+[104303511] = {id = 104303511, bubble_text = "もーっと特別な夏、楽しみたいもんね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "350:270", direction = 2, voice_path = "Flower_mizugi_Star_1"}
+, 
+[104303521] = {id = 104303521, bubble_text = "もーっと特別な夏、楽しみたいもんね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "350:270", direction = 2, voice_path = "Flower_mizugi_Star_1"}
+, 
+[105303501] = {id = 105303501, bubble_text = "えへへ。いつもと違うフラワー、可愛い？水着は初めてだから、フラワーは嬉しいな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Interaction_1"}
+, 
+[105303502] = {id = 105303502, bubble_text = "泳ぐのに夢中になって、あんまり砂浜からはなれちゃうと危ないんだって。リーダーが行きすぎちゃわないか、フラワーが見ててあげるね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Interaction_2"}
+, 
+[105303503] = {id = 105303503, bubble_text = "水着で『よしよし』されると、なんだかいつもとは違う『よしよし』みたい…ちょっぴり…どきどきする？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Interaction_3"}
+, 
+[105303504] = {id = 105303504, bubble_text = "どうして海は青いのかなー？空も青いけど、少し色、違うみたい。それに、ずーっと向こうで、空と海がくっついてて…あそこには何があるのかなー？リーダーと行ってみたいな…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Interaction_4"}
+, 
+[105303505] = {id = 105303505, bubble_text = "ずっとここにいられたら、楽しいよね？でも、夏ってすぐに終わっちゃうんだって。でもでも、だいじょうぶ。また夏は来るから。ずーっと一緒にいれば、何度も楽しくなれるよー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Interaction_5"}
+, 
+[105303511] = {id = 105303511, bubble_text = "えへへ。いつもと違うフラワー、可愛い？水着は初めてだから、フラワーは嬉しいな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Interaction_1"}
+, 
+[105303512] = {id = 105303512, bubble_text = "泳ぐのに夢中になって、あんまり砂浜からはなれちゃうと危ないんだって。リーダーが行きすぎちゃわないか、フラワーが見ててあげるね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Interaction_2"}
+, 
+[105303513] = {id = 105303513, bubble_text = "水着で『よしよし』されると、なんだかいつもとは違う『よしよし』みたい…ちょっぴり…どきどきする？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Interaction_3"}
+, 
+[105303514] = {id = 105303514, bubble_text = "どうして海は青いのかなー？空も青いけど、少し色、違うみたい。それに、ずーっと向こうで、空と海がくっついてて…あそこには何があるのかなー？リーダーと行ってみたいな…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Interaction_4"}
+, 
+[105303515] = {id = 105303515, bubble_text = "ずっとここにいられたら、楽しいよね？でも、夏ってすぐに終わっちゃうんだって。でもでも、だいじょうぶ。また夏は来るから。ずーっと一緒にいれば、何度も楽しくなれるよー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Interaction_5"}
+, 
+[105303521] = {id = 105303521, bubble_text = "えへへ。いつもと違うフラワー、可愛い？水着は初めてだから、フラワーは嬉しいな。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Interaction_1"}
+, 
+[105303522] = {id = 105303522, bubble_text = "泳ぐのに夢中になって、あんまり砂浜からはなれちゃうと危ないんだって。リーダーが行きすぎちゃわないか、フラワーが見ててあげるね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Interaction_2"}
+, 
+[105303523] = {id = 105303523, bubble_text = "水着で『よしよし』されると、なんだかいつもとは違う『よしよし』みたい…ちょっぴり…どきどきする？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Interaction_3"}
+, 
+[105303524] = {id = 105303524, bubble_text = "どうして海は青いのかなー？空も青いけど、少し色、違うみたい。それに、ずーっと向こうで、空と海がくっついてて…あそこには何があるのかなー？リーダーと行ってみたいな…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Interaction_4"}
+, 
+[105303525] = {id = 105303525, bubble_text = "ずっとここにいられたら、楽しいよね？でも、夏ってすぐに終わっちゃうんだって。でもでも、だいじょうぶ。また夏は来るから。ずーっと一緒にいれば、何度も楽しくなれるよー。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Interaction_5"}
+, 
+[106303501] = {id = 106303501, bubble_text = "みんなで、水遊びしよっか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Win_1"}
+, 
+[106303511] = {id = 106303511, bubble_text = "みんなで、水遊びしよっか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Win_1"}
+, 
+[106303521] = {id = 106303521, bubble_text = "みんなで、水遊びしよっか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Win_1"}
+, 
+[107303501] = {id = 107303501, bubble_text = "日焼けしすぎちゃったかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "327:284", direction = 1, voice_path = "Flower_mizugi_Fail_1"}
+, 
+[107303511] = {id = 107303511, bubble_text = "日焼けしすぎちゃったかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "647:290", direction = 2, voice_path = "Flower_mizugi_Fail_1"}
+, 
+[107303521] = {id = 107303521, bubble_text = "日焼けしすぎちゃったかも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "716:362", direction = 2, voice_path = "Flower_mizugi_Fail_1"}
+, 
+[108303501] = {id = 108303501, bubble_text = "日焼け止めは、もう塗ってもらったよ", voice_path = "Flower_mizugi_Go_1"}
+, 
+[109303501] = {id = 109303501, voice_path = "Flower_mizugi_Game_1"}
+, 
+[111303501] = {id = 111303501, voice_path = "Flower_mizugi_Battle_N_1"}
+, 
+[111303502] = {id = 111303502, voice_path = "Flower_mizugi_Battle_N_2"}
+, 
+[111303503] = {id = 111303503, voice_path = "Flower_mizugi_Battle_N_3"}
+, 
+[111303504] = {id = 111303504, voice_path = "Flower_mizugi_Battle_N_4"}
+, 
+[111303505] = {id = 111303505, voice_path = "Flower_mizugi_Battle_N_5"}
+, 
+[111303506] = {id = 111303506, voice_path = "Flower_mizugi_Battle_N_6"}
+, 
+[112303501] = {id = 112303501, voice_path = "Flower_mizugi_Battle_Hit_1"}
+, 
+[112303502] = {id = 112303502, voice_path = "Flower_mizugi_Battle_Hit_2"}
+, 
+[112303503] = {id = 112303503, voice_path = "Flower_mizugi_Battle_Hit_3"}
+, 
+[112303504] = {id = 112303504, voice_path = "Flower_mizugi_Battle_Hit_4"}
+, 
+[112303505] = {id = 112303505, voice_path = "Flower_mizugi_Battle_Hit_5"}
+, 
+[112303506] = {id = 112303506, voice_path = "Flower_mizugi_Battle_Hit_6"}
+, 
+[113303501] = {id = 113303501, voice_path = "Flower_mizugi_Battle_Die_1"}
+, 
+[114303501] = {id = 114303501, voice_path = "Flower_mizugi_Battle_H_1"}
+, 
+[114303502] = {id = 114303502, voice_path = "Flower_mizugi_Battle_H_2"}
+, 
+[115303501] = {id = 115303501, voice_path = "Flower_mizugi_Battle_C_1"}
+, 
+[115303502] = {id = 115303502, voice_path = "Flower_mizugi_Battle_C_2"}
+, 
+[116303501] = {id = 116303501, bubble_text = "誰か、いっしょにぷかぷかする人、いるー？", voice_path = "Flower_mizugi_Home_In_1", top_position = 10}
+, 
+[117303501] = {id = 117303501, bubble_text = "ここでしばらく、のんびりしようかな。リーダーも疲れたら、一緒にお休みしよう？", voice_path = "Flower_mizugi_Home_Talk_1", top_position = 10}
+, 
+[117303502] = {id = 117303502, bubble_text = "ハウスの中で水着着てるの…なんだか、不思議な気分だね？", voice_path = "Flower_mizugi_Home_Talk_2", top_position = 10}
+, 
+[117303503] = {id = 117303503, bubble_text = "ええと、腕をまわしながら顔を水から出して…足はずっと、ぱたぱたさせて…泳ぐのってむずかしいねー？", voice_path = "Flower_mizugi_Home_Talk_3", top_position = 10}
 }

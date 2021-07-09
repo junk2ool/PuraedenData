@@ -1201,6 +1201,14 @@ BaseSkillShowData = {
 , 
 [44003034] = {id = 44003034, hurt_section = "3000:3000:4000", effect_attack = "FX_11300034_attack", effect_attack_target = "FX_11300034_attack_2", move_type = 2, move_pos_type = 1, skill_sound = "230340201:230340202:230340203", skill_sound_air = "230340201:230340202:230340203"}
 , 
+[41003035] = {id = 41003035, hurt_section = "3000:3000:4000", effect_attack = "FX_11300035_attack", effect_attack_target = "FX_11300035_attack_2", move_type = 3, move_pos_type = 1, skill_sound = "230350201:230350202:230350203:230350204"}
+, 
+[42003035] = {id = 42003035, card_show = 14303501, effect_attack = "SkillScript11300035", move_type = 2, move_pos_type = 3, skill_sound = "230350101:230350102:230350103:230350104:230350105:230350106:230350107:230350108:230350109:230350110:230350111:230350112:230350113:230350114:230350115:230350116:230350117"}
+, 
+[43003035] = {id = 43003035, hurt_section = "10000", effect_attack = "FX_11300035_skill", effect_attack_target = "FX_11300035_skill_2", move_type = 3, move_pos_type = 1, skill_sound = "230350301:230350302:230350303", camera_id = 48110088}
+, 
+[44003035] = {id = 44003035, hurt_section = "3000:3000:4000", effect_attack = "FX_11300035_attack", effect_attack_target = "FX_11300035_attack_2", move_type = 2, move_pos_type = 1, skill_sound = "230350201:230350202:230350203:230350204", skill_sound_air = "230350201:230350202:230350203:230350204"}
+, 
 [41113019] = {id = 41113019, hurt_section = "4500:5500:5500:5500", effect_attack = "FX_12030019_attack", effect_attack_target = "FX_12030019_attack_2", move_type = 3, move_pos_type = 1, skill_sound = "282320201:282320202:282320203"}
 , 
 [42113019] = {id = 42113019, effect_attack = "SkillScript12030019", move_type = 3, move_pos_type = 1, skill_sound = "282320101:282320102:282320103:282320104:282320105:282320106:282320107:282320108:282320109:282320110:282320111:282320112:282320113:282320114:282320115:282320116"}
@@ -1216,6 +1224,22 @@ BaseSkillShowData = {
 [43113020] = {id = 43113020, hurt_section = "3500:3500:3000", effect_attack = "FX_12030020_skill", move_type = 3, move_pos_type = 1, skill_sound = "282520301:282520302:282520303:282520304:282520305"}
 , 
 [44113020] = {id = 44113020, hurt_section = "4500:5500", effect_attack = "FX_12030020_attack", effect_attack_target = "FX_12030020_attack_2", move_type = 3, move_pos_type = 1, skill_sound = "282520201:282520202", skill_sound_air = "282520201:282520202"}
+, 
+[41113021] = {id = 41113021, hurt_section = "10000", effect_attack = "FX_12030021_attack", effect_attack_target = "FX_12030021_attack_2", move_type = 2, move_pos_type = 11, skill_sound = "282530201:282530202"}
+, 
+[42113021] = {id = 42113021, effect_attack = "SkillScript12030021", move_type = 3, move_pos_type = 1, skill_sound = "282530101:282530102:282530103:282530104"}
+, 
+[43113021] = {id = 43113021, hurt_section = "1400:1600:1700:2500:1300:1500", effect_attack = "FX_12030021_skill", effect_attack_target = "FX_12030021_skil_2", move_type = 2, move_pos_type = 11, skill_sound = "282530301:282530302:282530303:282530304", camera_id = 48210085}
+, 
+[44113021] = {id = 44113021, hurt_section = "4500:5500:5500:5500:5500", effect_attack = "FX_12030021_attack", effect_attack_target = "FX_12030021_attack_2", move_type = 2, move_pos_type = 11, skill_sound = "282530201:282530202", skill_sound_air = "282530201:282530202"}
+, 
+[41113022] = {id = 41113022, hurt_section = "4500:5500:5500:5500:5500", effect_attack = "FX_12030022_attack", effect_attack_target = "FX_12030022_attack_2", move_type = 2, move_pos_type = 11, skill_sound = "282540201:282540202:282540203"}
+, 
+[42113022] = {id = 42113022, effect_attack = "SkillScript12030022", move_type = 3, move_pos_type = 1, skill_sound = "282540101:282540102:282540103:282540104:282540105:282540106:282540107"}
+, 
+[43113022] = {id = 43113022, hurt_section = "3500:3500:3000:5500:5500:5500", effect_attack = "FX_12030022_skill", effect_attack_target = "FX_12030022_skill_2", move_type = 2, move_pos_type = 11, skill_sound = "282540301:282540302:282540303", camera_id = 48210084}
+, 
+[44113022] = {id = 44113022, hurt_section = "4500:5500:5500:5500:5500", effect_attack = "FX_12030022_attack", effect_attack_target = "FX_12030022_attack_2", move_type = 2, move_pos_type = 11, skill_sound = "282540201:282540202:282540203", skill_sound_air = "282540201:282540202:282540203"}
 }
 return BaseSkillShowData
 

@@ -6,6 +6,7 @@ Vector2 = (CS.UnityEngine).Vector2
 local LoginWindow = {}
 local uis, contentPane, NameTxt = nil, nil, nil
 local LoginMgr = LoginMgr
+local Config = nil
 local bgConfig = {
 day = {
 {"Day_1", -5555}
@@ -35,16 +36,31 @@ FX_ui_daylightloading_3 = {Ratio = 1500, Index = 2}
 local bgList = {}
 local lastX, lastY, _clickTime, _blackBG, _lastBGMId = nil, nil, nil, nil, nil
 LoginWindow.ShowBg = function(...)
-  -- function num : 0_0 , upvalues : LoginWindow, _ENV, bgConfig, contentPane, bgList
+  -- function num : 0_0 , upvalues : LoginWindow, _ENV, Config, bgConfig
   (LoginWindow.StartBgMove)()
-  local Config = nil
   local hour = tonumber((os.date)("%H"))
   local isNight = hour < 8
   if isNight == true then
     Config = bgConfig.night
+    ;
+    (LoginWindow.SetBg)()
   else
     Config = bgConfig.day
+    ;
+    (LoginWindow.ShowOneYearBg)()
   end
+  -- DECOMPILER ERROR: 3 unprocessed JMP targets
+end
+
+LoginWindow.ShowOneYearBg = function(...)
+  -- function num : 0_1 , upvalues : _ENV, contentPane
+  local pic = UIMgr:CreateObject("LandPic", "OneYear")
+  contentPane:AddChildAt(pic, 0)
+  pic:Center()
+end
+
+LoginWindow.SetBg = function(...)
+  -- function num : 0_2 , upvalues : _ENV, Config, contentPane, bgList
   for _,v in ipairs(Config) do
     local resPath = v[1]
     local ratio = v[2]
@@ -54,11 +70,10 @@ LoginWindow.ShowBg = function(...)
     ;
     (table.insert)(bgList, {bg = pic, ratio = ratio})
   end
-  -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
 LoginWindow.ShowBgEffect = function(...)
-  -- function num : 0_1 , upvalues : _ENV, effect, uis, bgList
+  -- function num : 0_3 , upvalues : _ENV, effect, uis, bgList
   local hour = tonumber((os.date)("%H"))
   if hour >= 8 then
     for k,v in pairs(effect) do
@@ -72,7 +87,7 @@ LoginWindow.ShowBgEffect = function(...)
 end
 
 LoginWindow.BgMove = function(gyro, ...)
-  -- function num : 0_2 , upvalues : lastX, lastY, _ENV, bgList
+  -- function num : 0_4 , upvalues : lastX, lastY, _ENV, bgList
   local eulerAngles = gyro.rotationRateUnbiased
   if lastX == nil or lastY == nil then
     lastX = eulerAngles.x
@@ -95,12 +110,12 @@ LoginWindow.BgMove = function(gyro, ...)
 end
 
 LoginWindow.StartBgMove = function(...)
-  -- function num : 0_3 , upvalues : _ENV, LoginWindow
+  -- function num : 0_5 , upvalues : _ENV, LoginWindow
   ((CS.InputGyroscope).Singleton):AddAction(LoginWindow.BgMove)
 end
 
 LoginWindow.StopBgMove = function(...)
-  -- function num : 0_4 , upvalues : _ENV, LoginWindow
+  -- function num : 0_6 , upvalues : _ENV, LoginWindow
   ((CS.InputGyroscope).Singleton):RemoveAction(LoginWindow.BgMove)
 end
 
@@ -112,7 +127,7 @@ local bgConfigTemp = {
 {bg = "CBTNight_1", icon = "CBTNight_2"}
 }
 LoginWindow.ShowBgTemp = function(...)
-  -- function num : 0_5 , upvalues : _ENV, bgConfigTemp, contentPane
+  -- function num : 0_7 , upvalues : _ENV, bgConfigTemp, contentPane
   local hour = (tonumber((os.date)("%H")))
   local index = nil
   if hour >= 6 and hour < 16 then
@@ -139,11 +154,11 @@ LoginWindow.ShowBgTemp = function(...)
 end
 
 LoginWindow.ReInitData = function(...)
-  -- function num : 0_6
+  -- function num : 0_8
 end
 
 LoginWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_7 , upvalues : LoginMgr, _ENV, contentPane, uis, LoginWindow
+  -- function num : 0_9 , upvalues : LoginMgr, _ENV, contentPane, uis, LoginWindow
   LoginMgr.lastOnlineHour = nil
   ResHelper = CS.ResHelper
   ;
@@ -163,19 +178,19 @@ LoginWindow.OnInit = function(bridgeObj, ...)
   (LoginWindow.InitBtn)()
   LoginMgr.directLogin = false
   ld("Overture", function(...)
-    -- function num : 0_7_0 , upvalues : _ENV
+    -- function num : 0_9_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
     OvertureMgr.isPlaying = false
   end
 )
   ld("Guide", function(...)
-    -- function num : 0_7_1 , upvalues : _ENV
+    -- function num : 0_9_1 , upvalues : _ENV
     UIMgr:SendWindowMessage((WinResConfig.GuideWindow).name, (WindowMsgEnum.GuideWindow).GUIDE_FINISH)
   end
 )
   ld("Announcement", function(...)
-    -- function num : 0_7_2 , upvalues : _ENV
+    -- function num : 0_9_2 , upvalues : _ENV
     -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
     AnnouncementData.AutoShowAnnouncement = true
@@ -186,7 +201,7 @@ LoginWindow.OnInit = function(bridgeObj, ...)
   (ResendPak.ClearResendPak)()
   ;
   (SimpleTimer.setTimeout)(0.01, function(...)
-    -- function num : 0_7_3 , upvalues : _ENV
+    -- function num : 0_9_3 , upvalues : _ENV
     (SuperSDKUtil.OpenLoginPage)()
     ;
     (SuperSDKUtil.SetIsUseSDKPush)()
@@ -196,7 +211,7 @@ end
 
 local isAlreadyPlayVoice = false
 LoginWindow.PlayEnterSound = function(...)
-  -- function num : 0_8 , upvalues : _ENV, isAlreadyPlayVoice
+  -- function num : 0_10 , upvalues : _ENV, isAlreadyPlayVoice
   if LuaSound then
     local hour = (tonumber((os.date)("%H")))
     local index = nil
@@ -219,7 +234,7 @@ LoginWindow.PlayEnterSound = function(...)
 end
 
 LoginWindow.ShowOP = function(endCB, startCB, ...)
-  -- function num : 0_9 , upvalues : _ENV, uis, _blackBG, _lastBGMId, LoginWindow, _clickTime
+  -- function num : 0_11 , upvalues : _ENV, uis, _blackBG, _lastBGMId, LoginWindow, _clickTime
   local value = (PlayerPrefs.GetInt)("PlayedBeginOP", 0)
   if value == 0 then
     local clip = (ResHelper.LoadVideo)("pv_001")
@@ -240,7 +255,7 @@ LoginWindow.ShowOP = function(endCB, startCB, ...)
       (LuaSound.StopBGM)()
       ;
       ((CS.VideoManager).Instance):PlayVideo(uis.VideoLoader, "pv_001", function(...)
-    -- function num : 0_9_0 , upvalues : endCB, _lastBGMId, _ENV, LoginWindow, _blackBG, uis
+    -- function num : 0_11_0 , upvalues : endCB, _lastBGMId, _ENV, LoginWindow, _blackBG, uis
     if endCB ~= nil then
       endCB()
     end
@@ -257,7 +272,7 @@ LoginWindow.ShowOP = function(endCB, startCB, ...)
     (uis.VideoLoader).visible = false
   end
 , function(...)
-    -- function num : 0_9_1 , upvalues : startCB
+    -- function num : 0_11_1 , upvalues : startCB
     if startCB ~= nil then
       startCB()
     end
@@ -265,7 +280,7 @@ LoginWindow.ShowOP = function(endCB, startCB, ...)
 )
       ;
       ((uis.VideoLoader).onClick):Set(function(...)
-    -- function num : 0_9_2 , upvalues : _clickTime, _ENV, uis
+    -- function num : 0_11_2 , upvalues : _clickTime, _ENV, uis
     if _clickTime ~= nil and (os.time)() - _clickTime < 1 then
       ((CS.VideoManager).Instance):StopVideo(uis.VideoLoader, true)
     end
@@ -299,7 +314,7 @@ LoginWindow.ShowOP = function(endCB, startCB, ...)
 end
 
 LoginWindow.ShowTestLogin = function(...)
-  -- function num : 0_10 , upvalues : _ENV, contentPane, NameTxt, LoginWindow
+  -- function num : 0_12 , upvalues : _ENV, contentPane, NameTxt, LoginWindow
   if Game.testPackage == true then
     return 
   end
@@ -321,7 +336,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStartBtn).text = (urlList.aliyun).btnName
   ;
   ((uis.LinkStartBtn).onClick):Add(function(...)
-    -- function num : 0_10_0 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_0 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.aliyun)
   end
 )
@@ -331,7 +346,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart4Btn).text = (urlList.dashixiong).btnName
   ;
   ((uis.LinkStart4Btn).onClick):Add(function(...)
-    -- function num : 0_10_1 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_1 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.dashixiong)
   end
 )
@@ -341,7 +356,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart3Btn).text = (urlList.ershixiong).btnName
   ;
   ((uis.LinkStart3Btn).onClick):Add(function(...)
-    -- function num : 0_10_2 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_2 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.ershixiong)
   end
 )
@@ -351,7 +366,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart2Btn).text = (urlList.gangdezong).btnName
   ;
   ((uis.LinkStart2Btn).onClick):Add(function(...)
-    -- function num : 0_10_3 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_3 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.gangdezong)
   end
 )
@@ -361,7 +376,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart1Btn).text = (urlList.shaowei).btnName
   ;
   ((uis.LinkStart1Btn).onClick):Add(function(...)
-    -- function num : 0_10_4 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_4 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.shaowei)
   end
 )
@@ -371,7 +386,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart5Btn).text = (urlList.shaojun).btnName
   ;
   ((uis.LinkStart5Btn).onClick):Add(function(...)
-    -- function num : 0_10_5 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_5 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.shaojun)
   end
 )
@@ -381,7 +396,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart6Btn).text = (urlList.ershixiong_linux).btnName
   ;
   ((uis.LinkStart6Btn).onClick):Add(function(...)
-    -- function num : 0_10_6 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_6 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.ershixiong_linux)
   end
 )
@@ -391,7 +406,7 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart7Btn).text = (urlList.cehua).btnName
   ;
   ((uis.LinkStart7Btn).onClick):Add(function(...)
-    -- function num : 0_10_7 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_7 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.cehua)
   end
 )
@@ -401,19 +416,19 @@ LoginWindow.ShowTestLogin = function(...)
   (uis.LinkStart9Btn).text = (urlList.oldDriver).btnName
   ;
   ((uis.LinkStart9Btn).onClick):Add(function(...)
-    -- function num : 0_10_8 , upvalues : LoginWindow, _ENV
+    -- function num : 0_12_8 , upvalues : LoginWindow, _ENV
     (LoginWindow.onClickLoginBtn)(urlList.oldDriver)
   end
 )
 end
 
 LoginWindow.InitBg = function(...)
-  -- function num : 0_11 , upvalues : uis
+  -- function num : 0_13 , upvalues : uis
   local PicLoader = uis.PicLoader
 end
 
 LoginWindow.InitVersionAndAccount = function(...)
-  -- function num : 0_12 , upvalues : _ENV, uis
+  -- function num : 0_14 , upvalues : _ENV, uis
   local launch = (CS.Launch).Singleton
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -426,7 +441,7 @@ LoginWindow.InitVersionAndAccount = function(...)
 end
 
 LoginWindow.InitBtn = function(...)
-  -- function num : 0_13 , upvalues : uis, _ENV, LoginWindow
+  -- function num : 0_15 , upvalues : uis, _ENV, LoginWindow
   local SetBtn = uis.SetBtn
   SetBtn.text = (PUtil.get)(40002050)
   ;
@@ -435,7 +450,7 @@ LoginWindow.InitBtn = function(...)
   mBtn.text = (PUtil.get)(20000501)
   ;
   (mBtn.onClick):Set(function(...)
-    -- function num : 0_13_0 , upvalues : _ENV
+    -- function num : 0_15_0 , upvalues : _ENV
     OpenWindow((WinResConfig.AccountTipsWindow).name, UILayer.HUD1)
   end
 )
@@ -444,7 +459,7 @@ LoginWindow.InitBtn = function(...)
   end
   if Game.testPackage == true then
     ((uis.TouchBtn).onClick):Set(function(...)
-    -- function num : 0_13_1 , upvalues : _ENV, LoginWindow
+    -- function num : 0_15_1 , upvalues : _ENV, LoginWindow
     local authUrl = GetAuthUrl()
     if authUrl then
       (LoginWindow.onClickLoginBtn)({url = authUrl})
@@ -455,7 +470,7 @@ LoginWindow.InitBtn = function(...)
 end
 
 LoginWindow.onClickSetBtn = function(...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   local winName = (WinResConfig.LoginSetWindow).name
   if UIMgr:IsWindowOpen(winName) ~= true then
     OpenWindow(winName, UILayer.HUD)
@@ -463,7 +478,7 @@ LoginWindow.onClickSetBtn = function(...)
 end
 
 LoginWindow.CheckRuleAndPrivacy = function(...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   local record = (PlayerPrefs.GetString)(Game.ruleAndPrivacy, "false")
   if record == "false" then
     OpenWindow((WinResConfig.PactWindow).name, UILayer.HUD)
@@ -473,7 +488,7 @@ LoginWindow.CheckRuleAndPrivacy = function(...)
 end
 
 LoginWindow.onClickLoginBtn = function(urlInfo, ...)
-  -- function num : 0_16 , upvalues : LoginWindow, LoginMgr, _ENV
+  -- function num : 0_18 , upvalues : LoginWindow, LoginMgr, _ENV
   local check = (LoginWindow.CheckRuleAndPrivacy)()
   if check == false then
     return 
@@ -485,7 +500,7 @@ LoginWindow.onClickLoginBtn = function(urlInfo, ...)
   ;
   (ActorData.InitActorData)()
   ld("Guide", function(...)
-    -- function num : 0_16_0 , upvalues : _ENV
+    -- function num : 0_18_0 , upvalues : _ENV
     (GuideMgr.ClearAllGuideData)()
     ;
     (GuideMgr.InitBaseGuideProcessData)()
@@ -497,7 +512,7 @@ LoginWindow.onClickLoginBtn = function(urlInfo, ...)
   LoginMgr.selectUrlInfo = urlInfo
   LoginMgr.tempNameTxt = nil
   launch:DownloadWithLogin(function(...)
-    -- function num : 0_16_1 , upvalues : _ENV, LoginMgr, urlInfo, LoginWindow
+    -- function num : 0_18_1 , upvalues : _ENV, LoginMgr, urlInfo, LoginWindow
     if Game.useSDK == true then
       if (SuperSDKData.AlreadyLogin)() == true then
         (LoginMgr.StartLogin)(urlInfo)
@@ -524,7 +539,7 @@ LoginWindow.onClickLoginBtn = function(urlInfo, ...)
 end
 
 LoginWindow.GetNameTxt = function(...)
-  -- function num : 0_17 , upvalues : _ENV, NameTxt
+  -- function num : 0_19 , upvalues : _ENV, NameTxt
   if Game.testPackage == true then
     if Game.useSDK == true then
       return ""
@@ -537,15 +552,15 @@ LoginWindow.GetNameTxt = function(...)
 end
 
 LoginWindow.OnShown = function(...)
-  -- function num : 0_18
+  -- function num : 0_20
 end
 
 LoginWindow.OnHide = function(...)
-  -- function num : 0_19
+  -- function num : 0_21
 end
 
 LoginWindow.OnClose = function(...)
-  -- function num : 0_20 , upvalues : _ENV, _blackBG, LoginWindow, bgList, lastX, lastY, LoginMgr, uis, contentPane, NameTxt
+  -- function num : 0_22 , upvalues : _ENV, _blackBG, LoginWindow, bgList, lastX, lastY, LoginMgr, uis, contentPane, NameTxt
   if LuaSound then
     (LuaSound.StopBGM)()
   end
@@ -564,7 +579,7 @@ LoginWindow.OnClose = function(...)
 end
 
 LoginWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_21 , upvalues : _ENV, LoginWindow
+  -- function num : 0_23 , upvalues : _ENV, LoginWindow
   if msgId == (WindowMsgEnum.LoginWindow).E_MSG_REFRESH_EFFECT then
     (LoginWindow.ShowBgEffect)()
     ;

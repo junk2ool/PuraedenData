@@ -235,7 +235,7 @@
 , 
 [75149422] = {id = 75149422, remark = "何をごちゃごちゃと話してらっしゃるですの？\n…まぁ、なんでもいいですわ。", type = 1, option_ids = "0", next = 75149423, role_ids = "75205009", expression = "BPOSE", action = "0", role_type = 75205009, position = "418:606:10050", role_admission_type = "75205009:0:0", role_departure_type = "75201003:0:0,75201001:0:0,75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "MB_Cloudia_Plot_42"}
 , 
-[75149423] = {id = 75149423, remark = "ほら、あなたがた何さぼってるの？\n早くお飲みなって、あいつらを倒しやがって？", type = 1, option_ids = "0", next = 75149424, role_ids = "75205009", expression = "exp_angry", action = "0", role_type = 75205009, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "MB_Cloudia_Plot_43"}
+[75149423] = {id = 75149423, remark = "ほら、あなた方何さぼってるの？\n早くお飲みなって、あいつらを倒しやがって？", type = 1, option_ids = "0", next = 75149424, role_ids = "75205009", expression = "exp_angry", action = "0", role_type = 75205009, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "MB_Cloudia_Plot_43"}
 , 
 [75149424] = {id = 75149424, remark = "あ、う…", type = 1, option_ids = "0", next = 75149425, role_ids = "75206082", action = "0", role_type = 75206082, position = "418:606:10050", role_admission_type = "75206082:0:0", role_departure_type = "75205009:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "M_KISIDANNINN-2_Plot_23"}
 , 
@@ -245,7 +245,7 @@
 , 
 [75149427] = {id = 75149427, remark = "なっ…この、腰抜け野郎がぁ…！！", type = 1, option_ids = "0", next = -1, role_ids = "75205009", expression = "APOSE", action = "0", role_type = 75205009, position = "418:606:10050", role_admission_type = "75205009:0:0", role_departure_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005, dialogue_sound = "MB_Cloudia_Plot_44"}
 , 
-[75149501] = {id = 75149501, remark = "ちっ、使えないゴミクズがたですわね。\nこれだから庶民は嫌いですの。", type = 1, option_ids = "0", next = 75149502, role_ids = "75205009", expression = "BPOSE", action = "0", role_type = 75205009, position = "418:606:10050", role_admission_type = "75205009:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010, dialogue_sound = "MB_Cloudia_Plot_45"}
+[75149501] = {id = 75149501, remark = "ちっ、使えないゴミクズ方ですわね。\nこれだから庶民は嫌いですの。", type = 1, option_ids = "0", next = 75149502, role_ids = "75205009", expression = "BPOSE", action = "0", role_type = 75205009, position = "418:606:10050", role_admission_type = "75205009:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010, dialogue_sound = "MB_Cloudia_Plot_45"}
 , 
 [75149502] = {id = 75149502, remark = "…仕方がないわ。\nあなた方はわたくしが直接、倒してさしあげる。", type = 1, option_ids = "0", next = 75149503, role_ids = "75205009", expression = "APOSE", action = "0", role_type = 75205009, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010, dialogue_sound = "MB_Cloudia_Plot_46"}
 , 
@@ -347,7 +347,7 @@
 , 
 [75150123] = {id = 75150123, remark = "だが、俺が追い出してやった。レッドなどという\n汚らわしい存在は、王族にふさわしくないからな。", type = 1, option_ids = "0", next = 75150124, role_ids = "75205010", action = "angry", role_type = 75205010, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, dialogue_sound = "MB_Gerald_Plot_51"}
 , 
-[75150124] = {id = 75150124, remark = "なっ…じゃあ、エイプリルの母が行方をくらましたのは\nあなたの仕業なの！？", type = 1, option_ids = "0", next = 75150125, role_ids = "75201002:75205010", expression = "exp_shock:0", action = "angry:0", role_type = 75201002, position = "195:606:10050,642:606:10000", role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, dialogue_sound = "Olivia_Plot_958"}
+[75150124] = {id = 75150124, remark = "なっ…じゃあ、エイプリルのお母様が行方をくらましたのは\nあなたの仕業なの！？", type = 1, option_ids = "0", next = 75150125, role_ids = "75201002:75205010", expression = "exp_shock:0", action = "angry:0", role_type = 75201002, position = "195:606:10050,642:606:10000", role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, dialogue_sound = "Olivia_Plot_958"}
 , 
 [75150125] = {id = 75150125, remark = "ああ、城の人間たちも協力してくれた。\n簡単な仕事だった。", type = 1, option_ids = "0", next = 75150126, role_ids = "75201002:75205010", action = "0:angry", role_type = 75205010, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007, dialogue_sound = "MB_Gerald_Plot_52"}
 , 

@@ -65,6 +65,12 @@ GuideTipsService.RecvGuideNotice = function(msg, ...)
                     else
                       if msg.type == (ProtoEnum.GUIDE_TYPE).GUILD_WAR_TYPE then
                         (Util.ShowGuideTips)(GuideTipsCheckPoint.GuildBossTimesIncrease, (msg.params)[1])
+                      else
+                        if msg.type == (ProtoEnum.GUIDE_TYPE).HANDBOOK_CHAPTER then
+                          local config = ((TableData.gTable).BaseHandbookAdventureChapterData)[(msg.params)[1]]
+                          ;
+                          (Util.ShowGuideTips)(GuideTipsCheckPoint.UnlockPlot, config.name)
+                        end
                       end
                     end
                   end

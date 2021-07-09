@@ -1110,6 +1110,8 @@ BaseStoryRoleData = {
 [75209057] = {id = 75209057, name = (PUtil.get)(86109006), effect_path = "FIGHT_KILL"}
 , 
 [75209058] = {id = 75209058, name = (PUtil.get)(86109007), effect_path = "FIGHT_KILL"}
+, 
+[75209059] = {id = 75209059, name = (PUtil.get)(86101001), effect_path = "FIGHT_KILL", fashion_id = "15040012"}
 }
 return BaseStoryRoleData
 

@@ -1,6 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 require("HandBook_StoryPlotByName")
+local HBChapterConfigs = (TableData.gTable).BaseHandbookAdventureChapterData
 local HandBookStoryPlotWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
@@ -8,6 +9,7 @@ local chapterS = {}
 local stageList = {}
 local chapterIndex = 1
 local selectIndex = 0
+local unlockAll = false
 HandBookStoryPlotWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, HandBookStoryPlotWindow, chapterS
   bridgeObj:SetView((WinResConfig.HandBookStoryPlotWindow).package, (WinResConfig.HandBookStoryPlotWindow).comName)
@@ -31,43 +33,38 @@ HandBookStoryPlotWindow.OnInit = function(bridgeObj, ...)
   local chapterData = nil
   local openType = argTable[1]
   if openType == (HandBookMgr.AdventureStoryType).MainStory then
-    chapterData = (HandBookMgr.GetChapter)((HandBookMgr.AdventureStoryType).MainStory)
-    for _,v in ipairs(chapterData) do
-      if (HandBookMgr.ChapterIsUnlock)(v.id) then
-        (table.insert)(chapterS, v)
-      end
-    end
+    chapterS = argTable[2]
   else
-    do
-      if openType == (HandBookMgr.AdventureStoryType).Activity then
-        local activityType = tonumber(argTable[2])
-        local ActivityChapterList = (HandBookMgr.GetChapterActivityType)()
-        local chapterList = ActivityChapterList[activityType]
-        for _,v2 in ipairs(chapterList) do
-          if (HandBookMgr.ActivityChapterIsUnlock)(v2.id) then
-            (table.insert)(chapterS, v2)
-          end
+    if openType == (HandBookMgr.AdventureStoryType).Activity then
+      local activityType = tonumber(argTable[2])
+      local ActivityChapterList = (HandBookMgr.GetChapterActivityType)()
+      local chapterList = ActivityChapterList[activityType]
+      for _,v2 in ipairs(chapterList) do
+        if (HandBookMgr.ActivityChapterIsUnlock)(v2.id) then
+          (table.insert)(chapterS, v2)
         end
-        ;
-        (Util.SetPlayerSetting)(PlayerPrefsKeyName.ACTIVITY_DUNGEON_PLOT_DOT, 0)
       end
-      do
-        -- DECOMPILER ERROR at PC105: Confused about usage of register: R3 in 'UnsetPending'
+      ;
+      (Util.SetPlayerSetting)(PlayerPrefsKeyName.ACTIVITY_DUNGEON_PLOT_DOT, 0)
+    end
+  end
+  do
+    -- DECOMPILER ERROR at PC83: Confused about usage of register: R3 in 'UnsetPending'
 
-        ;
-        (uis.StoryPlotChapterList).numItems = #chapterS
-        ;
-        (LuaSound.PlaySound)(LuaSound.COMMON_SLIDE_2, SoundBank.OTHER)
-        if argTable[3] and argTable[3] > 0 then
-          local RecordID = argTable[3]
-          local num = (HandBookStoryPlotWindow.GetRecordIDPos)(RecordID)
+    ;
+    (uis.StoryPlotChapterList).numItems = #chapterS
+    ;
+    (LuaSound.PlaySound)(LuaSound.COMMON_SLIDE_2, SoundBank.OTHER)
+    local index = 1
+    if argTable[3] and argTable[3] > 0 then
+      if openType == (HandBookMgr.AdventureStoryType).Activity then
+        local RecordID = argTable[3]
+        index = (HandBookStoryPlotWindow.GetRecordIDPos)(RecordID)
+      else
+        do
+          index = argTable[3]
           ;
-          (HandBookStoryPlotWindow.OnSelectChapter)(num)
-        else
-          do
-            ;
-            (HandBookStoryPlotWindow.OnSelectChapter)(1)
-          end
+          (HandBookStoryPlotWindow.OnSelectChapter)(index, true)
         end
       end
     end
@@ -86,22 +83,32 @@ HandBookStoryPlotWindow.GetRecordIDPos = function(id, ...)
   end
 end
 
-HandBookStoryPlotWindow.ChapterIsUnlock = function(id, ...)
+HandBookStoryPlotWindow.ChapterIsUnlock = function(config, ...)
   -- function num : 0_2 , upvalues : argTable, _ENV
   local openType = argTable[1]
-  if openType == (HandBookMgr.AdventureStoryType).MainStory then
-    return (HandBookMgr.ChapterIsUnlock)(id)
-  else
-    if openType == (HandBookMgr.AdventureStoryType).Activity then
-      return (HandBookMgr.ActivityChapterIsUnlock)(id)
+  if config.unlockPoints > 0 then
+    -- DECOMPILER ERROR at PC25: Unhandled construct in 'MakeBoolean' P1
+
+    if (HandBookData.ScoreChapterStatus)[config.id] and config.unlockPoints > ((HandBookData.ScoreChapterStatus)[config.id]).point then
+      do return openType ~= (HandBookMgr.AdventureStoryType).MainStory end
+      do return (HandBookData.UnlockedChapter)[config.id] end
+      if openType == (HandBookMgr.AdventureStoryType).Activity then
+        return (HandBookMgr.ActivityChapterIsUnlock)(config.id)
+      end
+      -- DECOMPILER ERROR: 5 unprocessed JMP targets
     end
   end
 end
 
 HandBookStoryPlotWindow.OnRenderChapterList = function(index, obj, ...)
-  -- function num : 0_3 , upvalues : chapterS, argTable, _ENV, HandBookStoryPlotWindow, chapterIndex
-  index = index + 1
-  local data = chapterS[index]
+  -- function num : 0_3 , upvalues : chapterS, _ENV, HBChapterConfigs, argTable, HandBookStoryPlotWindow, chapterIndex
+  index = #chapterS - index
+  local data = nil
+  if type(chapterS[index]) == "number" then
+    data = HBChapterConfigs[chapterS[index]]
+  else
+    data = chapterS[index]
+  end
   local openType = argTable[1]
   if openType == (HandBookMgr.AdventureStoryType).Activity then
     (obj:GetChild("NameTxt")).text = (PUtil.get)(20000517)
@@ -118,7 +125,7 @@ HandBookStoryPlotWindow.OnRenderChapterList = function(index, obj, ...)
     -- function num : 0_3_0 , upvalues : HandBookStoryPlotWindow, data, chapterIndex, index, _ENV
     -- DECOMPILER ERROR at PC11: Unhandled construct in 'MakeBoolean' P1
 
-    if (HandBookStoryPlotWindow.ChapterIsUnlock)(data.id) and chapterIndex ~= index then
+    if (HandBookStoryPlotWindow.ChapterIsUnlock)(data) and chapterIndex ~= index then
       (HandBookStoryPlotWindow.OnSelectChapter)(index)
     end
     ;
@@ -129,11 +136,11 @@ HandBookStoryPlotWindow.OnRenderChapterList = function(index, obj, ...)
 end
 
 HandBookStoryPlotWindow.OnRenderDetailList = function(index, obj, ...)
-  -- function num : 0_4 , upvalues : _ENV, stageList, argTable
+  -- function num : 0_4 , upvalues : _ENV, stageList, unlockAll, argTable
   obj = obj:GetChild("DetailsGrp")
   index = index + 1
   local stageId = tonumber(stageList[index])
-  if (HandBookMgr.AdventureStoryStageIsOpen)(stageId) then
+  if unlockAll or (HandBookMgr.AdventureStoryStageIsOpen)(stageId) then
     ChangeUIController(obj, "c1", 0)
     ChangeUIController(obj:GetChild("DetailsIconGrp"), "c1", 0)
   else
@@ -152,8 +159,8 @@ HandBookStoryPlotWindow.OnRenderDetailList = function(index, obj, ...)
   (obj:GetChild("LockTxt")).text = (PUtil.get)(60000085)
   ;
   (obj.onClick):Set(function(...)
-    -- function num : 0_4_0 , upvalues : _ENV, stageId, argTable, RecordData
-    if (HandBookMgr.AdventureStoryStageIsOpen)(stageId) then
+    -- function num : 0_4_0 , upvalues : unlockAll, _ENV, stageId, argTable, RecordData
+    if unlockAll or (HandBookMgr.AdventureStoryStageIsOpen)(stageId) then
       local openType = argTable[1]
       if openType == (HandBookMgr.AdventureStoryType).Activity then
         OpenPlotPlay(RecordData.story_id, PlotPlayTriggerType.INSTANTLY_PLAY, nil, true)
@@ -170,14 +177,32 @@ HandBookStoryPlotWindow.OnRenderDetailList = function(index, obj, ...)
 )
 end
 
-HandBookStoryPlotWindow.OnSelectChapter = function(index, ...)
-  -- function num : 0_5 , upvalues : chapterS, chapterIndex, stageList, _ENV, uis
-  local chapterData = chapterS[index]
+HandBookStoryPlotWindow.OnSelectChapter = function(index, scroll, ...)
+  -- function num : 0_5 , upvalues : _ENV, chapterS, HBChapterConfigs, chapterIndex, stageList, unlockAll, uis
+  local chapterData = nil
+  if type(chapterS[index]) == "number" then
+    chapterData = HBChapterConfigs[chapterS[index]]
+  else
+    chapterData = chapterS[index]
+  end
   chapterIndex = index
   stageList = split(chapterData.record_ids, ":")
-  ;
-  (HandBookService.OnReqAdventureStoryStage)(chapterData.id)
-  -- DECOMPILER ERROR at PC13: Confused about usage of register: R2 in 'UnsetPending'
+  if chapterData.unlockPoints == 0 then
+    unlockAll = false
+    ;
+    (HandBookService.OnReqAdventureStoryStage)(chapterData.id)
+  else
+    unlockAll = true
+    -- DECOMPILER ERROR at PC31: Confused about usage of register: R3 in 'UnsetPending'
+
+    ;
+    (uis.DetailsList).numItems = #stageList
+  end
+  index = #chapterS - index + 1
+  if scroll then
+    (uis.StoryPlotChapterList):ScrollToView(index - 1)
+  end
+  -- DECOMPILER ERROR at PC44: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.StoryPlotChapterList).selectedIndex = index - 1

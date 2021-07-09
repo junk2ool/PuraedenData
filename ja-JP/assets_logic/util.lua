@@ -2174,7 +2174,7 @@ Util.SetFrame = function(id, number, list, get, isFirst, hideNum, time, ...)
   local PropType = PropType
   local ConfigData, type = (Util.GetConfigDataByID)(id)
   local frame, LongPressGesture = nil, nil
-  if type == PropType.ITEM or type == PropType.ASSET or type == PropType.SEED or type == PropType.TITLE then
+  if type == PropType.ITEM or type == PropType.FURNITURE or type == PropType.ASSET or type == PropType.SEED or type == PropType.TITLE then
     if type == PropType.ITEM and (ConfigData.type == PropItemType.CHARACTER_DEBRIS or ConfigData.type == PropItemType.UNIVERSAL_DEBRIS) then
       frame = (Util.GetFrameFromPoolOrCreate)(GoodsIconType.DEBRIS, list)
       LongPressGesture = (Util.SetDebrisFrame)(frame, id, number, isFirst, hideNum)

@@ -462,6 +462,8 @@ by_assist_no_num = {id = "by_assist_no_num", name = "このメンバーの協力
 assist_monster_death = {id = "assist_monster_death", name = "ボスは撃破されました。このメンバーへの協力はできません。", name_cn = "强敌已被击败，无法协助"}
 , 
 risk_vit_no_enough = {id = "risk_vit_no_enough", name = "本日この探索の残りスタミナ消費は～%sです。", name_cn = "今日剩余可分配的体力为：%s，当前分配体力值已超过上限"}
+, 
+not_change = {id = "not_change", name = "ギルド名は変わっていません", name_cn = "公会名没有被改变"}
 }
 return BaseAlertData
 

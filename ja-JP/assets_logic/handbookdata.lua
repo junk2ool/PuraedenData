@@ -4,9 +4,19 @@ HandBookData = {
 fetterData = {}
 , 
 allReadyFetterList = {}
-, curClickedFetterTreeId = nil}
+, curClickedFetterTreeId = nil, 
+StoryChapter = {}
+, 
+ScoreChapterStatus = {}
+, QueryingId = 0, 
+UnlockedChapter = {}
+}
+-- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+
+HandBookData.PlotLockState = {Lock = 0, PartUnlock = 1, FullUnlock = 2}
 local self = HandBookData
--- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+self.UnlockState = (HandBookData.PlotLockState).Lock
+-- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.CheckFetterData = function(fetterList, ...)
   -- function num : 0_0 , upvalues : _ENV, self
@@ -80,7 +90,7 @@ canFetterIds = {}
   end
 end
 
--- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetCanActiveBySingleCardId = function(cardId, ...)
   -- function num : 0_1 , upvalues : _ENV, self
@@ -97,7 +107,7 @@ HandBookData.GetCanActiveBySingleCardId = function(cardId, ...)
   return canActice
 end
 
--- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.CheckIsStarQualitySatisfy = function(fetterId, cardIds, ...)
   -- function num : 0_2 , upvalues : _ENV
@@ -120,7 +130,7 @@ HandBookData.CheckIsStarQualitySatisfy = function(fetterId, cardIds, ...)
   end
 end
 
--- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.CheckIsGetAllCars = function(cards, ...)
   -- function num : 0_3 , upvalues : _ENV
@@ -137,7 +147,7 @@ HandBookData.CheckIsGetAllCars = function(cards, ...)
   end
 end
 
--- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetBaseCanFetterId = function(allIds, allReadyIds, ...)
   -- function num : 0_4 , upvalues : _ENV
@@ -163,7 +173,7 @@ HandBookData.GetBaseCanFetterId = function(allIds, allReadyIds, ...)
   return baseCanId
 end
 
--- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.CheckIsAllReadyFetterByFetterId = function(fetterId, fetterList, ...)
   -- function num : 0_5 , upvalues : _ENV
@@ -174,7 +184,7 @@ HandBookData.CheckIsAllReadyFetterByFetterId = function(fetterId, fetterList, ..
   end
 end
 
--- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetFetterDataByFetterTreeId = function(treeId, ...)
   -- function num : 0_6 , upvalues : _ENV, self
@@ -185,14 +195,14 @@ HandBookData.GetFetterDataByFetterTreeId = function(treeId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetAllInfo = function(...)
   -- function num : 0_7 , upvalues : self
   return (self.fetterData).fetterTree
 end
 
--- DECOMPILER ERROR at PC34: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC51: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.SaveAllInfo = function(tab, ...)
   -- function num : 0_8 , upvalues : self
@@ -203,7 +213,7 @@ HandBookData.SaveAllInfo = function(tab, ...)
   end
 end
 
--- DECOMPILER ERROR at PC37: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC54: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetRelationInfoById = function(treeId, ...)
   -- function num : 0_9 , upvalues : _ENV, self
@@ -214,7 +224,7 @@ HandBookData.GetRelationInfoById = function(treeId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC40: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetRelationIndexById = function(treeId, ...)
   -- function num : 0_10 , upvalues : _ENV, self
@@ -227,7 +237,7 @@ HandBookData.GetRelationIndexById = function(treeId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC43: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.SortAllRelationTree = function(tab, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -242,7 +252,7 @@ HandBookData.SortAllRelationTree = function(tab, ...)
 )
 end
 
--- DECOMPILER ERROR at PC46: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.SetFetterDataByFetterTreeId = function(newFetId, ...)
   -- function num : 0_12 , upvalues : _ENV
@@ -251,7 +261,7 @@ HandBookData.SetFetterDataByFetterTreeId = function(newFetId, ...)
   (HandBookData.CheckFetterData)()
 end
 
--- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC66: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetAllActivationFetterId = function(...)
   -- function num : 0_13 , upvalues : _ENV
@@ -260,7 +270,7 @@ HandBookData.GetAllActivationFetterId = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.SaveCurClickedFetterTreeId = function(baseId, ...)
   -- function num : 0_14 , upvalues : _ENV
@@ -269,7 +279,7 @@ HandBookData.SaveCurClickedFetterTreeId = function(baseId, ...)
   HandBookData.curClickedFetterTreeId = baseId
 end
 
--- DECOMPILER ERROR at PC55: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookData.GetCurClickedFetterTreeId = function(...)
   -- function num : 0_15 , upvalues : _ENV, self

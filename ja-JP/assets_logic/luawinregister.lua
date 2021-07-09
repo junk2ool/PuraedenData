@@ -465,6 +465,8 @@ NewActivityDungeonMainWindow = {name = "NewActivityDungeonMainWindow", package =
 NewActivityDungeonGuildAssistWindow = {name = "NewActivityDungeonGuildAssistWindow", package = "ActivityDungeonTwo", comName = "HelpListWindow", hideBelow = false}
 , 
 NewActivityDungeonPlotDetailWindow = {name = "NewActivityDungeonPlotDetailWindow", package = "ActivityDungeonTwo", comName = "PlotDetailWindow", hideBelow = false, notReopen = true}
+, 
+HandbookMainPlotWindow = {name = "HandbookMainPlotWindow", package = "HandBook", comName = "MainPlot", hideBelow = false}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -532,6 +534,8 @@ GuideWindow = {GUIDE_FINISH = 1, GUIDE_CONTINUAL = 2, GUIDE_CHECK = 3, GUIDE_INF
 ExpeditionEventWindow = {SINGLE_HEAL = 1, SINGLE_REGAIN = 2, ENTIRE_HEAL = 3, REFRESH_SHOP_LIST = 4}
 , 
 ExpeditionWindow = {GOTO_NEXT_POINT = 1, GOTO_BACK_POINT = 2, PLAY_BUFF_EFFECT = 3, CHANGE_SWEEP_TIMES = 4, SWEEP_SHOW = 5}
+, 
+HandBook = {E_MSG_REFRESH = 1}
 , 
 HandBookIntimacyWindow = {SHOW_HEAD_LIST = 1, SHOW_CARD_INFORMATION = 2, SHOW_CARD_LEVEL_INFORMATION = 3, RELATION_ACTIVETION = 4, CLOSE_LIST_WINDOW = 5, REFRESH_INTIMACY_ITEM = 6, E_MSG_CARD_PICE_TO_CARD = 7}
 , 
@@ -743,5 +747,7 @@ NewActivityDungeonPlotDetailWindow = {"PlotUIBackGround"}
 NewActivityDungeonMainWindow = {"ActivityDungeon"}
 , 
 NewActivityDungeonExchangeWindow = {"ActivityDungeon"}
+, 
+HandbookMainPlotWindow = {"HandBookBanner", "HandBookMainBanner"}
 }
 

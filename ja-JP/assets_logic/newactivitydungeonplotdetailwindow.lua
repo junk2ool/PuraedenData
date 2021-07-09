@@ -197,19 +197,13 @@ NewActivityDungeonPlotDetailWindow.RefreshDetail = function(...)
 end
 
 NewActivityDungeonPlotDetailWindow.InitEffect = function(...)
-  -- function num : 0_9 , upvalues : _book, _ENV, BOOK, uis, IDLE2_ANIM
+  -- function num : 0_9 , upvalues : _book, _ENV, BOOK, IDLE2_ANIM
   if _book == nil then
     local holder, model = (Util.AddUIModel)(BOOK, 100)
     do
-      (uis.root):AddChildAt(holder, 1)
-      holder:SetXY((uis.root).width * 0.5, (uis.root).height * 0.5)
-      -- DECOMPILER ERROR at PC25: Confused about usage of register: R2 in 'UnsetPending'
-
-      ;
-      (model.transform).localScale = Vector3.one * 100
       _book = model
       local sa = model:GetComponent(typeof(((CS.Spine).Unity).SkeletonAnimation))
-      -- DECOMPILER ERROR at PC36: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC18: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (sa.skeleton).A = 0

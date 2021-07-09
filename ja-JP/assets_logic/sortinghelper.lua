@@ -9,7 +9,7 @@ SortingHelper.SetOrderInLayer = function(gameObject, layerInt, force, ...)
   -- function num : 0_1 , upvalues : _ENV
   do
     if not layerInt then
-      local layer = not gameObject or 0
+      local layer = (Util.IsNil)(gameObject) or 0
     end
     ;
     (CSLuaUtil.SetChildrenOrderInLayer)(gameObject, layerInt, force)

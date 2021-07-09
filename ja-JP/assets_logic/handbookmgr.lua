@@ -20,14 +20,81 @@ end
 
 -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
 
-HandBookMgr.HandleAdventureStoryChapter = function(ids, type, ...)
+HandBookMgr.HandleAdventureStoryChapter = function(data, ...)
   -- function num : 0_1 , upvalues : _ENV
-  if #ids > 0 then
-    (HandBookMgr.AdventureStoryChapter)(ids)
-    OpenWindow((WinResConfig.HandBookStoryPlotWindow).name, UILayer.HUD, (HandBookMgr.AdventureStoryType).MainStory)
-  else
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+
+  if #data.chapterId > 0 or #data.pointPlotInfo > 0 then
+    HandBookData.StoryChapter = {}
+    -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
+
+    HandBookData.UnlockedChapter = {}
+    local count = #data.chapterId
+    for i = 1, count do
+      -- DECOMPILER ERROR at PC24: Confused about usage of register: R6 in 'UnsetPending'
+
+      (HandBookData.UnlockedChapter)[(data.chapterId)[i]] = true
+    end
+    local configs = (TableData.gTable).BaseHandbookAdventureChapterData
+    for k,v in pairs(configs) do
+      if v.type == (HandBookMgr.AdventureStoryType).MainStory and (HandBookData.UnlockedChapter)[k] then
+        (table.insert)(HandBookData.StoryChapter, k)
+      end
+    end
+    count = #data.pointPlotInfo
+    local each = nil
+    -- DECOMPILER ERROR at PC57: Confused about usage of register: R4 in 'UnsetPending'
+
+    HandBookData.ScoreChapterStatus = {}
+    for i = 1, count do
+      each = (data.pointPlotInfo)[i]
+      -- DECOMPILER ERROR at PC67: Confused about usage of register: R8 in 'UnsetPending'
+
+      ;
+      (HandBookData.ScoreChapterStatus)[each.plotId] = each
+      ;
+      (table.insert)(HandBookData.StoryChapter, each.plotId)
+    end
     ;
-    (MessageMgr.SendCenterTips)((PUtil.get)(20000250))
+    (table.sort)(HandBookData.StoryChapter, function(x, y, ...)
+    -- function num : 0_1_0 , upvalues : _ENV
+    local xConfig = ((TableData.gTable).BaseHandbookAdventureChapterData)[x]
+    local yConfig = ((TableData.gTable).BaseHandbookAdventureChapterData)[y]
+    if xConfig.sort == yConfig.sort then
+      return false
+    else
+      return xConfig.sort < yConfig.sort
+    end
+    -- DECOMPILER ERROR: 2 unprocessed JMP targets
+  end
+)
+    local lastChapter = (HandBookData.StoryChapter)[#HandBookData.StoryChapter]
+    local config = ((TableData.gTable).BaseHandbookAdventureChapterData)[lastChapter]
+    if config.unlockPoints == 0 then
+      (HandBookService.OnReqAdventureStoryStage)(lastChapter)
+    else
+      local data = (HandBookData.ScoreChapterStatus)[lastChapter]
+      if data and config.unlockPoints <= data.point then
+        for k,v in pairs(configs) do
+          if v.type == (HandBookMgr.AdventureStoryType).MainStory and v.sort == config.sort + 1 then
+            (table.insert)(HandBookData.StoryChapter, k)
+            -- DECOMPILER ERROR at PC130: Confused about usage of register: R12 in 'UnsetPending'
+
+            HandBookData.QueryingId = k
+            -- DECOMPILER ERROR at PC135: Confused about usage of register: R12 in 'UnsetPending'
+
+            HandBookData.UnlockState = (HandBookData.PlotLockState).Lock
+          end
+        end
+      end
+    end
+    do
+      do
+        OpenWindow((WinResConfig.HandbookMainPlotWindow).name, UILayer.HUD)
+        ;
+        (MessageMgr.SendCenterTips)((PUtil.get)(20000250))
+      end
+    end
   end
 end
 
@@ -159,29 +226,18 @@ end
 
 -- DECOMPILER ERROR at PC51: Confused about usage of register: R1 in 'UnsetPending'
 
-HandBookMgr.AdventureStoryChapterIsOpen = function(chapterID, ...)
-  -- function num : 0_10 , upvalues : _ENV, self
-  for _,v in pairs(self.StoryChapters) do
-    if v == chapterID then
-      return true
-    end
-  end
-end
-
--- DECOMPILER ERROR at PC54: Confused about usage of register: R1 in 'UnsetPending'
-
 HandBookMgr.ReserveStagePos = function(pos, ...)
-  -- function num : 0_11 , upvalues : self
+  -- function num : 0_10 , upvalues : self
   if not self.ReservePos then
     do return pos ~= nil or -1 end
     self.ReservePos = pos
   end
 end
 
--- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC54: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.AdventureStoryStageIsOpen = function(stageId, ...)
-  -- function num : 0_12 , upvalues : _ENV, self
+  -- function num : 0_11 , upvalues : _ENV, self
   for _,v in pairs(self.StoryStage) do
     if v == stageId then
       return true
@@ -190,10 +246,10 @@ HandBookMgr.AdventureStoryStageIsOpen = function(stageId, ...)
 end
 
 self.ChapterData = {}
--- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetChapter = function(type, ...)
-  -- function num : 0_13 , upvalues : self, _ENV
+  -- function num : 0_12 , upvalues : self, _ENV
   if (self.ChapterData)[type] == nil then
     local chapterS = {}
     local ChapterData = (TableData.gTable).BaseHandbookAdventureChapterData
@@ -204,7 +260,7 @@ HandBookMgr.GetChapter = function(type, ...)
     end
     ;
     (table.sort)(chapterS, function(a, b, ...)
-    -- function num : 0_13_0
+    -- function num : 0_12_0
     do return a.sort < b.sort end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -219,10 +275,10 @@ HandBookMgr.GetChapter = function(type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.CGCopySummaryData = function(data, ...)
-  -- function num : 0_14 , upvalues : self, _ENV
+  -- function num : 0_13 , upvalues : self, _ENV
   if data == nil then
     local summaryData = {}
     local count = #self.CGCopySummary
@@ -241,10 +297,10 @@ HandBookMgr.CGCopySummaryData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC68: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.IntimacyCardData = function(data, ...)
-  -- function num : 0_15 , upvalues : self
+  -- function num : 0_14 , upvalues : self
   if data == nil then
     return self.IntimacyData
   else
@@ -252,10 +308,10 @@ HandBookMgr.IntimacyCardData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC71: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC68: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.InitHandBookStage = function(...)
-  -- function num : 0_16 , upvalues : _ENV, self
+  -- function num : 0_15 , upvalues : _ENV, self
   local StageData = (TableData.gTable).BaseHandbookStageData
   self.StageData = {}
   for _,v in pairs(StageData) do
@@ -289,10 +345,10 @@ HandBookMgr.InitHandBookStage = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC71: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetCardMaxNumStage = function(cardId, ...)
-  -- function num : 0_17 , upvalues : self, _ENV
+  -- function num : 0_16 , upvalues : self, _ENV
   if self.StageData == nil then
     (HandBookMgr.InitHandBookStage)()
   end
@@ -304,17 +360,17 @@ HandBookMgr.GetCardMaxNumStage = function(cardId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetCardStageList = function(cardId, ...)
-  -- function num : 0_18 , upvalues : self, _ENV
+  -- function num : 0_17 , upvalues : self, _ENV
   if self.StageData == nil then
     (HandBookMgr.InitHandBookStage)()
   end
   local stages = (self.StageData)[cardId]
   ;
   (table.sort)(stages, function(a, b, ...)
-    -- function num : 0_18_0
+    -- function num : 0_17_0
     do return a.id < b.id end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -322,10 +378,10 @@ HandBookMgr.GetCardStageList = function(cardId, ...)
   return stages
 end
 
--- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.CGSummaryToggleState = function(up, intimacy, ...)
-  -- function num : 0_19 , upvalues : self
+  -- function num : 0_18 , upvalues : self
   if up == nil and intimacy == nil then
     return self.UpToggleState, self.intimacyToggleState
   else
@@ -334,10 +390,10 @@ HandBookMgr.CGSummaryToggleState = function(up, intimacy, ...)
   end
 end
 
--- DECOMPILER ERROR at PC83: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.AlbumToggleState = function(new, up, ...)
-  -- function num : 0_20 , upvalues : self
+  -- function num : 0_19 , upvalues : self
   if new == nil and up == nil then
     return self.AlbumNewToggle, self.AlbumUpToggle
   else
@@ -346,10 +402,10 @@ HandBookMgr.AlbumToggleState = function(new, up, ...)
   end
 end
 
--- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC83: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.LetterToggleState = function(new, up, ...)
-  -- function num : 0_21 , upvalues : self
+  -- function num : 0_20 , upvalues : self
   if new == nil and up == nil then
     return self.LetterNewToggle, self.LetterUpToggle
   else
@@ -358,10 +414,10 @@ HandBookMgr.LetterToggleState = function(new, up, ...)
   end
 end
 
--- DECOMPILER ERROR at PC89: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.SetAlbumData = function(data, ...)
-  -- function num : 0_22 , upvalues : self, _ENV
+  -- function num : 0_21 , upvalues : self, _ENV
   self.AlbumData = data
   if UIMgr:IsWindowOpen((WinResConfig.HandBookAlbumWindow).name) then
     UIMgr:SendWindowMessage((WinResConfig.HandBookAlbumWindow).name, 1)
@@ -370,18 +426,18 @@ HandBookMgr.SetAlbumData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC89: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.SetLetterData = function(data, ...)
-  -- function num : 0_23 , upvalues : self, _ENV
+  -- function num : 0_22 , upvalues : self, _ENV
   self.LetterData = data
   UIMgr:SendWindowMessage((WinResConfig.HandBookAlbumWindow).name, 1)
 end
 
--- DECOMPILER ERROR at PC95: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.SetAlbumNotNew = function(id, ...)
-  -- function num : 0_24 , upvalues : _ENV, self
+  -- function num : 0_23 , upvalues : _ENV, self
   for _,v in ipairs(self.AlbumData) do
     if v.CGId == id then
       v.isNew = false
@@ -389,10 +445,10 @@ HandBookMgr.SetAlbumNotNew = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC98: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC95: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetAlbumState = function(id, ...)
-  -- function num : 0_25 , upvalues : _ENV, self
+  -- function num : 0_24 , upvalues : _ENV, self
   for _,v in ipairs(self.AlbumData) do
     if v.CGId == id then
       return true, v.isNew
@@ -401,10 +457,10 @@ HandBookMgr.GetAlbumState = function(id, ...)
   return false, false
 end
 
--- DECOMPILER ERROR at PC101: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC98: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetLetterState = function(id, ...)
-  -- function num : 0_26 , upvalues : _ENV, self
+  -- function num : 0_25 , upvalues : _ENV, self
   for _,v in ipairs(self.LetterData) do
     if v.letterId == id then
       return true, v.isNew
@@ -413,17 +469,17 @@ HandBookMgr.GetLetterState = function(id, ...)
   return false, false
 end
 
--- DECOMPILER ERROR at PC104: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC101: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetAlbumCollectionNum = function(...)
-  -- function num : 0_27 , upvalues : self
+  -- function num : 0_26 , upvalues : self
   return #self.AlbumData
 end
 
--- DECOMPILER ERROR at PC107: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC104: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetAlbumCollectionNumByType = function(type, ...)
-  -- function num : 0_28 , upvalues : _ENV, self
+  -- function num : 0_27 , upvalues : _ENV, self
   local Amount = 0
   for _,v in ipairs(self.AlbumData) do
     local data = ((TableData.gTable).BaseHandbookCGData)[v.CGId]
@@ -434,17 +490,17 @@ HandBookMgr.GetAlbumCollectionNumByType = function(type, ...)
   return Amount
 end
 
--- DECOMPILER ERROR at PC110: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC107: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetLetterCollectionNum = function(...)
-  -- function num : 0_29 , upvalues : self
+  -- function num : 0_28 , upvalues : self
   return #self.LetterData
 end
 
--- DECOMPILER ERROR at PC113: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC110: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetIntimacyAddAttr = function(type1, type2, type3, ...)
-  -- function num : 0_30 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   local cards = ((CardData.GetObtainedCardList)())
   local limitConfig = nil
   local attrCount = {}
@@ -474,10 +530,10 @@ HandBookMgr.GetIntimacyAddAttr = function(type1, type2, type3, ...)
   end
 end
 
--- DECOMPILER ERROR at PC116: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC113: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetCardIntimacyAttr = function(cardID, lv, type1, type2, type3, ...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   local attrCount = {}
   local data = (HandBookMgr.GetCardIntimacyData)(cardID, lv)
   local attrStr = data.team_add_attr
@@ -500,10 +556,10 @@ HandBookMgr.GetCardIntimacyAttr = function(cardID, lv, type1, type2, type3, ...)
   end
 end
 
--- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC116: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetCardIntimacyData = function(cardID, level, ...)
-  -- function num : 0_32 , upvalues : _ENV
+  -- function num : 0_31 , upvalues : _ENV
   local IntimacyUpData = ((TableData.gTable).BaseCardData)[cardID]
   local intimacyType = IntimacyUpData.intimacy_grow_type
   local IntimacyUpData = (TableData.gTable).BaseIntimacyUpData
@@ -514,10 +570,10 @@ HandBookMgr.GetCardIntimacyData = function(cardID, level, ...)
   end
 end
 
--- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetCardIntimacyMaxLevel = function(cardID, ...)
-  -- function num : 0_33 , upvalues : _ENV
+  -- function num : 0_32 , upvalues : _ENV
   local IntimacyUpData = ((TableData.gTable).BaseCardData)[cardID]
   local intimacyType = IntimacyUpData.intimacy_grow_type
   local IntimacyUpData = (TableData.gTable).BaseIntimacyUpData
@@ -530,10 +586,10 @@ HandBookMgr.GetCardIntimacyMaxLevel = function(cardID, ...)
   return maxLv
 end
 
--- DECOMPILER ERROR at PC125: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetCardIntimacyDataByType = function(type, level, ...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_33 , upvalues : _ENV
   local IntimacyUpData = (TableData.gTable).BaseIntimacyUpData
   for _,v in pairs(IntimacyUpData) do
     if v.level == level and v.type == tonumber(type) then
@@ -542,17 +598,17 @@ HandBookMgr.GetCardIntimacyDataByType = function(type, level, ...)
   end
 end
 
--- DECOMPILER ERROR at PC128: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC125: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.SetCardPlotBattleData = function(data, ...)
-  -- function num : 0_35 , upvalues : self
+  -- function num : 0_34 , upvalues : self
   self.BattleData = data
 end
 
--- DECOMPILER ERROR at PC131: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC128: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetStageIsUnlock = function(stageID, ...)
-  -- function num : 0_36 , upvalues : _ENV, self
+  -- function num : 0_35 , upvalues : _ENV, self
   for _,v in ipairs((self.BattleData).stageList) do
     if v.stageId == stageID then
       return true
@@ -560,10 +616,10 @@ HandBookMgr.GetStageIsUnlock = function(stageID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC134: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC131: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetStageIsGetReward = function(stageID, ...)
-  -- function num : 0_37 , upvalues : _ENV, self
+  -- function num : 0_36 , upvalues : _ENV, self
   for _,v in ipairs((self.BattleData).stageList) do
     if v.stageId == stageID then
       return v.status
@@ -571,10 +627,10 @@ HandBookMgr.GetStageIsGetReward = function(stageID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC137: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC134: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetStagePassNum = function(...)
-  -- function num : 0_38 , upvalues : _ENV, self
+  -- function num : 0_37 , upvalues : _ENV, self
   local num = 0
   for _,v in ipairs((self.BattleData).stageList) do
     if v.status then
@@ -584,17 +640,17 @@ HandBookMgr.GetStagePassNum = function(...)
   return num
 end
 
--- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC137: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetSelfCardFormation = function(...)
-  -- function num : 0_39 , upvalues : self
+  -- function num : 0_38 , upvalues : self
   return (self.BattleData).cardList
 end
 
--- DECOMPILER ERROR at PC143: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetFightStateList = function(...)
-  -- function num : 0_40 , upvalues : _ENV, self
+  -- function num : 0_39 , upvalues : _ENV, self
   local stageList = (HandBookMgr.GetCardStageList)((self.BattleData).cardId)
   local mTable = {}
   for _,v in ipairs(stageList) do
@@ -605,10 +661,10 @@ HandBookMgr.GetFightStateList = function(...)
   return mTable
 end
 
--- DECOMPILER ERROR at PC146: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC143: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetCurrentFightStage = function(...)
-  -- function num : 0_41 , upvalues : _ENV
+  -- function num : 0_40 , upvalues : _ENV
   local stageList = (HandBookMgr.GetFightStateList)()
   for _,v in ipairs(stageList) do
     if not (HandBookMgr.GetStageIsGetReward)(v.id) and (HandBookMgr.GetStageIsUnlock)(v.id) then
@@ -618,14 +674,14 @@ HandBookMgr.GetCurrentFightStage = function(...)
   return (stageList[#stageList]).id
 end
 
--- DECOMPILER ERROR at PC149: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC146: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.OpenMonsterDetailWindow = function(...)
-  -- function num : 0_42 , upvalues : _ENV
+  -- function num : 0_41 , upvalues : _ENV
   local defaultStage = (HandBookMgr.GetCurrentFightStage)()
   local fightStage = (HandBookMgr.GetFightStateList)()
   local setStageItem = function(index, item, ...)
-    -- function num : 0_42_0 , upvalues : fightStage, _ENV
+    -- function num : 0_41_0 , upvalues : fightStage, _ENV
     local config = fightStage[index]
     local layerCutGrp = item:GetChild("LayerCutGrp")
     ;
@@ -636,17 +692,17 @@ HandBookMgr.OpenMonsterDetailWindow = function(...)
   end
 
   local stageLockChecker = function(index, ...)
-    -- function num : 0_42_1 , upvalues : _ENV, fightStage
+    -- function num : 0_41_1 , upvalues : _ENV, fightStage
     return (HandBookMgr.GetStageIsUnlock)(fightStage[index])
   end
 
   local getStageTip = function(stageId, ...)
-    -- function num : 0_42_2 , upvalues : _ENV
+    -- function num : 0_41_2 , upvalues : _ENV
     return (((TableData.gTable).BaseHandbookStageData)[stageId]).remark
   end
 
   local getMonsterGroups = function(stageId, ...)
-    -- function num : 0_42_3 , upvalues : _ENV
+    -- function num : 0_41_3 , upvalues : _ENV
     return (((TableData.gTable).BaseHandbookStageData)[stageId]).monster_group_list
   end
 
@@ -654,10 +710,10 @@ HandBookMgr.OpenMonsterDetailWindow = function(...)
   (MessageMgr.OpenMonsterDetailWindow)(defaultStage, {}, #fightStage, setStageItem, stageLockChecker, getStageTip, getMonsterGroups)
 end
 
--- DECOMPILER ERROR at PC152: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC149: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.OnClickBoxEvent = function(data, ...)
-  -- function num : 0_43 , upvalues : _ENV
+  -- function num : 0_42 , upvalues : _ENV
   local reward = data.first_reward
   if data.cg_reward and tonumber(data.cg_reward) > 0 then
     reward = reward .. ",1:" .. data.cg_reward .. ":1"
@@ -671,7 +727,7 @@ HandBookMgr.OnClickBoxEvent = function(data, ...)
     local btnData = {}
     btnData.btnTxt = (PUtil.get)(20000010)
     btnData.fun = function(...)
-    -- function num : 0_43_0 , upvalues : _ENV, data
+    -- function num : 0_42_0 , upvalues : _ENV, data
     (HandBookService.OnReqCGCopyStage)(data.id)
   end
 
@@ -680,10 +736,10 @@ HandBookMgr.OnClickBoxEvent = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC155: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC152: Confused about usage of register: R1 in 'UnsetPending'
 
 HandBookMgr.GetUpIntimacyForcePlaySfx = function(cardID, level, ...)
-  -- function num : 0_44 , upvalues : _ENV
+  -- function num : 0_43 , upvalues : _ENV
   local current = (HandBookMgr.GetCardIntimacyData)(cardID, level)
   local former = (HandBookMgr.GetCardIntimacyData)(cardID, level - 1)
   if current and former and former.rank < current.rank then

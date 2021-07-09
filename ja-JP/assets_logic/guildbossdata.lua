@@ -87,9 +87,6 @@ GuildBossData.InitGuildSkillData = function(...)
     ;
     ((GuildBossData.SkillLevelData)[v.type])[v.level] = k
   end
-  loge("~~~~~~")
-  PrintTable(GuildBossData.SkillStartId)
-  PrintTable(GuildBossData.SkillLevelData)
 end
 
 -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
@@ -224,6 +221,17 @@ GuildBossData.ResetGuildSkillInfo = function(...)
   -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
   GuildBossData.TotalInvestPoint = 0
+end
+
+-- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
+
+GuildBossData.ResetData = function(...)
+  -- function num : 0_5 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildBossData.TalentInit = false
+  ;
+  (GuildBossData.ResetGuildSkillInfo)()
 end
 
 

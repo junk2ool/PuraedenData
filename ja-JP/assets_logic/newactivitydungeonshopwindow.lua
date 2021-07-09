@@ -6,6 +6,7 @@ local NewActivityDungeonShopWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
 local _currentRoleIndex = 1
+local _cards = {}
 NewActivityDungeonShopWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, NewActivityDungeonShopWindow
   bridgeObj:SetView((WinResConfig.NewActivityDungeonShopWindow).package, (WinResConfig.NewActivityDungeonShopWindow).comName)
@@ -39,15 +40,15 @@ NewActivityDungeonShopWindow.InitText = function(...)
 end
 
 NewActivityDungeonShopWindow.InitList = function(...)
-  -- function num : 0_3 , upvalues : _ENV, uis, NewActivityDungeonShopWindow, _currentRoleIndex
-  (CardMgr.SetButtomRoleList)(uis.CardHeadList, function(index, data, ...)
+  -- function num : 0_3 , upvalues : _cards, _ENV, uis, NewActivityDungeonShopWindow, _currentRoleIndex
+  _cards = (CardMgr.SetButtomRoleList)(uis.CardHeadList, function(index, data, ...)
     -- function num : 0_3_0 , upvalues : NewActivityDungeonShopWindow
     (NewActivityDungeonShopWindow.ChoseRole)(index, data)
   end
 , _currentRoleIndex, uis.LeftBtn, uis.RightBtn, (WinResConfig.NewActivityDungeonShopWindow).name, true, ActivityData.GetCards)
   ;
   (uis.CommodityList):SetVirtual()
-  -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (uis.CommodityList).itemRenderer = NewActivityDungeonShopWindow.RefreshCommodityItem
@@ -65,7 +66,9 @@ NewActivityDungeonShopWindow.OnHide = function(...)
 end
 
 NewActivityDungeonShopWindow.OnClose = function(...)
-  -- function num : 0_6 , upvalues : _ENV, _currentRoleIndex, uis, contentPane, argTable
+  -- function num : 0_6 , upvalues : _cards, _ENV, _currentRoleIndex, uis, contentPane, argTable
+  _cards = {}
+  ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.NewActivityDungeonShopWindow).name)
   _currentRoleIndex = 1
   uis = nil
@@ -83,14 +86,14 @@ NewActivityDungeonShopWindow.Init = function(...)
 end
 
 NewActivityDungeonShopWindow.ChoseRole = function(index, roleData, ...)
-  -- function num : 0_8 , upvalues : _currentRoleIndex, _ENV, NewActivityDungeonShopWindow, uis
+  -- function num : 0_8 , upvalues : _currentRoleIndex, _cards, NewActivityDungeonShopWindow, uis
   _currentRoleIndex = index
   if roleData == nil then
-    roleData = ((ActivityData.GetCards)())[index]
+    roleData = _cards[index]
   end
   ;
   (NewActivityDungeonShopWindow.RefreshStageUpInfo)(roleData)
-  -- DECOMPILER ERROR at PC13: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.StageList).WordTxt).text = roleData.name

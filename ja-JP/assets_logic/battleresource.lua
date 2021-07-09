@@ -246,6 +246,9 @@ end
 BattleResource.LoadComplete = function(...)
   -- function num : 0_5 , upvalues : self, _ENV
   (self.Clear)()
+  if IsBattleServer then
+    return 
+  end
   ;
   (BattleData.StartBattle)()
 end

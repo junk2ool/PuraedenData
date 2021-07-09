@@ -69,6 +69,8 @@
 , 
 [26200472] = {id = 26200472, name = "同盟騎士団", remark = "国のため、骑士団団長のため、我等はすべてを捧げます！", des = "第四十七章 ロック中", type = 1, chapter_id = 51100047, index = 35, icon = "HandBookCGBanner:92101049", fashion_id = "92101049", open_time = 0}
 , 
+[26200481] = {id = 26200481, name = "至高の夢", remark = "ならどうせ今の王はどうしようもない、夢の帝国には私が築きます一!", des = "第四十八章 ロック中", type = 1, chapter_id = 51100048, index = 36, icon = "HandBookCGBanner:92101050", fashion_id = "92101050", open_time = 0}
+, 
 [26110010] = {id = 26110010, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11100001, index = 1, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 
 [26110020] = {id = 26110020, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11100002, index = 2, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}

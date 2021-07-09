@@ -211,8 +211,12 @@ CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, le
   ;
   (table.sort)(concatCards, function(a, b, ...)
     -- function num : 0_13_0
-    do return b.fc < a.fc end
-    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+    if a.fc == b.fc then
+      return false
+    else
+      return b.fc < a.fc
+    end
+    -- DECOMPILER ERROR: 2 unprocessed JMP targets
   end
 )
   clickedFunc[tag] = _clickedFunc
@@ -253,6 +257,7 @@ CardMgr.SetButtomRoleList = function(_cardList, _clickedFunc, _selectedIndex, le
   rightArrowBtn[tag] = rightBtn
   ;
   (CardMgr.CheckArrow)(tag)
+  return concatCards
 end
 
 -- DECOMPILER ERROR at PC56: Confused about usage of register: R10 in 'UnsetPending'

@@ -403,6 +403,16 @@ BaseHandbookAdventureRecordData = {
 , 
 [52104705] = {id = 52104705, name = (PUtil.get)(85140147), remark = (PUtil.get)(85144705, 47, 5), icon = "HandBookBanner:handbook_18_5", story_id = "75047541:75047631", sort = 5}
 , 
+[52104801] = {id = 52104801, name = (PUtil.get)(85140148), remark = (PUtil.get)(85144801, 48, 1), icon = "HandBookBanner:handbook_25_1", story_id = "75048111:75048141:75048151", sort = 1}
+, 
+[52104802] = {id = 52104802, name = (PUtil.get)(85140148), remark = (PUtil.get)(85144802, 48, 2), icon = "HandBookBanner:handbook_25_2", story_id = "75048231", sort = 2}
+, 
+[52104803] = {id = 52104803, name = (PUtil.get)(85140148), remark = (PUtil.get)(85144803, 48, 3), icon = "HandBookBanner:handbook_25_3", story_id = "75048341:75048351", sort = 3}
+, 
+[52104804] = {id = 52104804, name = (PUtil.get)(85140148), remark = (PUtil.get)(85144804, 48, 4), icon = "HandBookBanner:handbook_25_4", story_id = "75048431:75048432", sort = 4}
+, 
+[52104805] = {id = 52104805, name = (PUtil.get)(85140148), remark = (PUtil.get)(85144805, 48, 5), icon = "HandBookBanner:handbook_25_5", story_id = "75048541:75048631:75048632", sort = 5}
+, 
 [52200101] = {id = 52200101, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 1), icon = "HandBookBanner:handbook_12_5", story_id = "75000165", sort = 1}
 , 
 [52200102] = {id = 52200102, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 2), icon = "HandBookBanner:handbook_13_1", story_id = "75000211:75000242", sort = 2}

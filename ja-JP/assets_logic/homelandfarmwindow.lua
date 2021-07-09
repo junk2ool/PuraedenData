@@ -483,6 +483,8 @@ HomelandFarmWindow.ShowSeedList = function(showType, isInit, ...)
       ;
       ((seedItem:GetChild("ItemFrame")):GetChild("IconLoader")).url = (Util.GetItemUrl)(seedConfig.icon)
       ;
+      ((seedItem:GetChild("ItemFrame")):GetChild("IconLoader")).alpha = 1
+      ;
       ((seedItem:GetChild("ItemFrame")):GetChild("NumberTxt")).text = value.stock
       ;
       (seedItem:GetChild("WordTxt")).text = (LuaTime.GetTimeStrDHM)(seedConfig.end_time)
