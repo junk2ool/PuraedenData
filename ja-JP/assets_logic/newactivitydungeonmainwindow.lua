@@ -147,6 +147,10 @@ NewActivityDungeonMainWindow.InitButtonEvent = function(...)
   (((uis.AssistBattleMain).BattleHelpBtn).onClick):Set(NewActivityDungeonMainWindow.ClickGulidAssistBtn)
   ;
   ((((uis.AssistBattleMain).BattleTips).BattleBossBtn).onClick):Set(NewActivityDungeonMainWindow.ClickChallengeBtn)
+  -- DECOMPILER ERROR at PC60: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.AssistBattleMain).BattleHelpBtn).visible = false
   ;
   (((uis.PlotMain).LeftBtn).onClick):Set(NewActivityDungeonMainWindow.ClickLeftBtn)
   ;

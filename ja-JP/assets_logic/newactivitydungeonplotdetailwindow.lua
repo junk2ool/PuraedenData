@@ -72,6 +72,14 @@ NewActivityDungeonPlotDetailWindow.InitButtonEvent = function(...)
   (((uis.PlotDetail).sweepawayBtn).onClick):Set(NewActivityDungeonPlotDetailWindow.ClickSmashBtn)
   ;
   (((uis.PlotDetail).sweepaway10Btn).onClick):Set(NewActivityDungeonPlotDetailWindow.ClickMultiplySmashBtn)
+  -- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.PlotDetail).sweepawayBtn).visible = false
+  -- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.PlotDetail).sweepaway10Btn).visible = false
 end
 
 NewActivityDungeonPlotDetailWindow.OnShown = function(...)
