@@ -20,4 +20,6 @@
 [78610010] = {id = 78610010, name = "操り人形師　アイコン枠", des = "腕一本でもあげようか？\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0012", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
 , 
 [78610011] = {id = 78610011, name = "女神のバカンス アイコン枠", des = "アイス食ーべーたーいー\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0011", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1625018399"}
+, 
+[78610012] = {id = 78610012, name = "ぬらぬら　アイコン枠", des = "死にたくないです\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0013", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
 }

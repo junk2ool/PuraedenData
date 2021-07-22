@@ -219,6 +219,16 @@ PlotPlayMgr.GetToNextDialogue = function(choice, skip, ...)
   -- function num : 0_9 , upvalues : _ENV
   local dialogueConfig = (TableData.GetBaseStoryDialogueData)(PlotPlayData.CurrentDialogueID)
   if dialogueConfig.next == PlotPlayNextDialogueType.DONE or skip or dialogueConfig.next == PlotPlayNextDialogueType.KEEP then
+    if choice ~= nil then
+      if choice == PlotPlayData.CurrentDialogueID then
+        loge("choice repeat:" .. choice)
+      end
+      -- DECOMPILER ERROR at PC29: Confused about usage of register: R3 in 'UnsetPending'
+
+      PlotPlayData.CurrentDialogueID = choice
+      ;
+      (PlotPlayData.MakeAChoice)(choice)
+    end
     if (PlotPlayData.CurrentChapterDataConfig).guild_type == PlotPlayGuideType.Finish or (PlotPlayData.CurrentChapterDataConfig).guild_type == PlotPlayGuideType.Both then
       (Util.ShowGuideTips)(GuideTipsCheckPoint.PlotPlay, (PlotPlayData.CurrentChapterDataConfig).name, (PlotPlayData.CurrentChapterDataConfig).remark)
     end
@@ -240,13 +250,13 @@ PlotPlayMgr.GetToNextDialogue = function(choice, skip, ...)
       if choice == PlotPlayData.CurrentDialogueID then
         loge("choice repeat:" .. choice)
       end
-      -- DECOMPILER ERROR at PC108: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC125: Confused about usage of register: R3 in 'UnsetPending'
 
       PlotPlayData.CurrentDialogueID = choice
       ;
       (PlotPlayData.MakeAChoice)(choice)
     else
-      -- DECOMPILER ERROR at PC123: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC140: Confused about usage of register: R3 in 'UnsetPending'
 
       if dialogueConfig.next == PlotPlayNextDialogueType.NORMAL then
         PlotPlayData.CurrentDialogueID = PlotPlayData.CurrentDialogueID + 1
@@ -254,7 +264,7 @@ PlotPlayMgr.GetToNextDialogue = function(choice, skip, ...)
         if tonumber(dialogueConfig.next) == PlotPlayData.CurrentDialogueID then
           loge("repeat:" .. dialogueConfig.next)
         end
-        -- DECOMPILER ERROR at PC141: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC158: Confused about usage of register: R3 in 'UnsetPending'
 
         PlotPlayData.CurrentDialogueID = tonumber(dialogueConfig.next)
       end

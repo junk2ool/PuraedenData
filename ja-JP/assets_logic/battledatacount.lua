@@ -1201,7 +1201,7 @@ end
 -- DECOMPILER ERROR at PC205: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtkCard, costTable, ...)
-  -- function num : 0_20 , upvalues : self, _ENV, BattleSkillType, ceil, BattleDisplayEffect, ipairs, BattleBuffDeductionRoundType, shanghai_fudong_min, shanghai_fudong_max, max, t_insert
+  -- function num : 0_20 , upvalues : self, _ENV, BattleSkillType, ceil, BattleDisplayEffect, ipairs, BattleBuffDeductionRoundType, shanghai_fudong_min, shanghai_fudong_max, max, t_insert, math
   atkInfo.defCardsInfo = {}
   ;
   (self.DealOneAliveEnemyBuff)(atkCard, atkInfo)
@@ -1564,8 +1564,16 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
     if not costDander then
       do
         danderAtk = danderAtk - atkCard:GetMaxDander(true)
+        local extraDander = atkCard:GetExtraDander()
+        if extraDander ~= 0 then
+          local maxDander = atkCard:GetMaxDander(true)
+          danderAtk = danderAtk + extraDander
+          local overflow = (math.max)(0, danderAtk + atkCard:GetDander() - maxDander)
+          danderAtk = danderAtk - overflow
+          atkCard:SetExtraDander(overflow)
+        end
         atkInfo.danderAtk = danderAtk
-        atkCard:SetDander(atkCard:GetDander() + (danderAtk) + atkCard:GetExtraDander())
+        atkCard:SetDander(atkCard:GetDander() + (danderAtk))
         atkCard:ClearExtraDander()
         if killCount > 0 and mainAtkCard then
           for i = 1, killCount do
@@ -1573,7 +1581,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
           end
         end
         do return defCardInfoTable, killCount end
-        -- DECOMPILER ERROR: 35 unprocessed JMP targets
+        -- DECOMPILER ERROR: 36 unprocessed JMP targets
       end
     end
   end

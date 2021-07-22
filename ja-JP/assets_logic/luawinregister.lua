@@ -732,7 +732,7 @@ HomelandVisitRoomWindow = {"CardHeadIconCircle"}
 , 
 FamilyShopWindow = {"FamilyFurniture"}
 , 
-LotteryIntegralWindow = {"Prize", "CardHeadIconCircle", "Title", "FamilyFurniture"}
+LotteryIntegralWindow = {"Prize", "CardHeadIconCircle", "Title", "FamilyFurniture", "CardHeadFrame"}
 , 
 RelicMainWindow = {"ActivityDungeon", "PlotUIBackGround"}
 , 
@@ -746,7 +746,7 @@ NewActivityDungeonPlotDetailWindow = {"PlotUIBackGround"}
 , 
 NewActivityDungeonMainWindow = {"ActivityDungeon"}
 , 
-NewActivityDungeonExchangeWindow = {"ActivityDungeon"}
+NewActivityDungeonExchangeWindow = {"ActivityDungeon", "ItemIcon"}
 , 
 HandbookMainPlotWindow = {"HandBookBanner", "HandBookMainBanner"}
 }

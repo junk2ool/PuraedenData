@@ -1843,6 +1843,6 @@ BaseSkillBuffDataPart27 = {
 , 
 [47404501] = {id = 47404501, type = 50, value = "503:1:7000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 3, deduction_round_type = 1, settle_round_cnt = 2, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
-[47404601] = {id = 47404601, name = (PUtil.get)(46021031), des = (PUtil.get)(56021031), type = 40, value = "405:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 2, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+[47404601] = {id = 47404601, type = 40, value = "405:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 2, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 }
 

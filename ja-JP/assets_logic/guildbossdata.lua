@@ -14,13 +14,16 @@ GuildBossData.ActiveSkillInfo = {}
 -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.TotalInvestPoint = 0
--- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC18: Confused about usage of register: R0 in 'UnsetPending'
+
+GuildBossData.currentRankPage = 0
+-- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.SkillLevelData = {}
--- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.SkillStartId = {}
--- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.InitGuildSkillData = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -89,7 +92,7 @@ GuildBossData.InitGuildSkillData = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.GetUnlockCondition = function(skillId, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -126,7 +129,7 @@ GuildBossData.GetUnlockCondition = function(skillId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.CheckUnlockAvailable = function(id, ...)
   -- function num : 0_2 , upvalues : _ENV
@@ -153,7 +156,7 @@ GuildBossData.CheckUnlockAvailable = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.CheckSkillAvailable = function(...)
   -- function num : 0_3 , upvalues : _ENV
@@ -211,7 +214,7 @@ GuildBossData.CheckSkillAvailable = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.ResetGuildSkillInfo = function(...)
   -- function num : 0_4 , upvalues : _ENV
@@ -223,13 +226,16 @@ GuildBossData.ResetGuildSkillInfo = function(...)
   GuildBossData.TotalInvestPoint = 0
 end
 
--- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.ResetData = function(...)
   -- function num : 0_5 , upvalues : _ENV
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
   GuildBossData.TalentInit = false
+  -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
+
+  GuildBossData.currentRankPage = 0
   ;
   (GuildBossData.ResetGuildSkillInfo)()
 end

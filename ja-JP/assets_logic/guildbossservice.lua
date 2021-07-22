@@ -312,6 +312,11 @@ GuildBossService.ReqGSeasonRank = function(last, page, ...)
   local m = {}
   m.lastSeason = last
   m.page = page
+  -- DECOMPILER ERROR at PC6: Confused about usage of register: R3 in 'UnsetPending'
+
+  if page == 1 then
+    GuildBossData.currentRankPage = 0
+  end
   ;
   (Net.Send)((Proto.MsgName).ReqGSeasonRank, m, (Proto.MsgName).ResGSeasonRank)
 end
@@ -327,8 +332,12 @@ GuildBossService.OnResGSeasonRank = function(msg, ...)
   (GuildBossMgr.GuildRankScore)(msg.integral)
   ;
   (GuildBossMgr.IsPersonList)(false)
+  local pageSize = msg.pageSize
+  if pageSize == nil or pageSize <= 0 then
+    pageSize = 50
+  end
   ;
-  (GuildBossMgr.ProcessGuildRankData)(msg.page, msg.gsRank)
+  (GuildBossMgr.ProcessGuildRankData)(msg.page, msg.gsRank, pageSize)
   if msg.page <= 1 then
     if UIMgr:IsWindowOpen((WinResConfig.GuildBossRankWindow).name) then
       UIMgr:SendWindowMessage((WinResConfig.GuildBossRankWindow).name, (WindowMsgEnum.GuildBoss).E_MSG_GUILD_RANK_REFRESH)

@@ -481,13 +481,17 @@ end
 
 -- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
 
-GuildBossMgr.ProcessGuildRankData = function(page, data, ...)
+GuildBossMgr.ProcessGuildRankData = function(page, data, pageSize, ...)
   -- function num : 0_38 , upvalues : self, _ENV
   if page == 1 then
     self.GuildRankData = {}
   end
-  for _,v in ipairs(data) do
-    (table.insert)(self.GuildRankData, v)
+  local count = #data
+  local start = (page - 1) * pageSize
+  for i = 1, count do
+    -- DECOMPILER ERROR at PC14: Confused about usage of register: R9 in 'UnsetPending'
+
+    (self.GuildRankData)[start + i] = data[i]
   end
   ;
   (table.sort)(self.GuildRankData, function(a, b, ...)
@@ -496,6 +500,12 @@ GuildBossMgr.ProcessGuildRankData = function(page, data, ...)
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
 )
+  local nextPage = GuildBossData.currentRankPage + 1
+  -- DECOMPILER ERROR at PC29: Confused about usage of register: R6 in 'UnsetPending'
+
+  if count == pageSize and page == nextPage then
+    GuildBossData.currentRankPage = nextPage
+  end
 end
 
 -- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'

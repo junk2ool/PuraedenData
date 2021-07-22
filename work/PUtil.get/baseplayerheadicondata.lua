@@ -23,7 +23,9 @@
 , 
 [78601307] = {id = 78601307, name = "チベスナ顔　アイコン", des = "お前のことをいつも見ているぞ。\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_007", condition = "0", sort = 12, reward_sort = 9880001, own_show = 1, open_time = "1621803600"}
 , 
-[78601308] = {id = 78601308, name = "大海賊　アイコン", des = "これぞ大海賊の証！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_008", condition = "0", sort = 12, reward_sort = 9880001, own_show = 1, open_time = "1624395600"}
+[78601308] = {id = 78601308, name = "大海賊　アイコン", des = "これぞ大海賊の証！\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_008", condition = "0", sort = 13, reward_sort = 9880001, own_show = 1, open_time = "1624395600"}
+, 
+[78601309] = {id = 78601309, name = "海辺のモーモー　アイコン", des = "水遊びしよう～\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_009", condition = "0", sort = 14, reward_sort = 9880001, own_show = 1, open_time = "1627074000"}
 , 
 [78601401] = {id = 78601401, name = "嘘？！　アイコン", des = "200回連続募集でSSR冒険者が出現しなかった際に贈られるアイコン。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
 , 

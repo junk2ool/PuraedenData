@@ -147,10 +147,6 @@ NewActivityDungeonMainWindow.InitButtonEvent = function(...)
   (((uis.AssistBattleMain).BattleHelpBtn).onClick):Set(NewActivityDungeonMainWindow.ClickGulidAssistBtn)
   ;
   ((((uis.AssistBattleMain).BattleTips).BattleBossBtn).onClick):Set(NewActivityDungeonMainWindow.ClickChallengeBtn)
-  -- DECOMPILER ERROR at PC60: Confused about usage of register: R0 in 'UnsetPending'
-
-  ;
-  ((uis.AssistBattleMain).BattleHelpBtn).visible = false
   ;
   (((uis.PlotMain).LeftBtn).onClick):Set(NewActivityDungeonMainWindow.ClickLeftBtn)
   ;
@@ -227,13 +223,18 @@ NewActivityDungeonMainWindow.OnClose = function(...)
 end
 
 NewActivityDungeonMainWindow.Init = function(...)
-  -- function num : 0_12 , upvalues : _openFromClose, _challengeBoss, NewActivityDungeonMainWindow, PageType, uis
-  if _openFromClose and _challengeBoss then
-    _challengeBoss = false
+  -- function num : 0_12 , upvalues : _openFromClose, NewActivityDungeonMainWindow, PageType, _challengeBoss, uis
+  if _openFromClose then
+    (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.MainDungeon)
     ;
-    (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.AssistFight)
-    ;
-    (NewActivityDungeonMainWindow.InitEffect)(function(...)
+    (NewActivityDungeonMainWindow.InitNoEffect)()
+  else
+    if _openFromClose and _challengeBoss then
+      _challengeBoss = false
+      ;
+      (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.AssistFight)
+      ;
+      (NewActivityDungeonMainWindow.InitEffect)(function(...)
     -- function num : 0_12_0 , upvalues : uis
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -254,11 +255,11 @@ NewActivityDungeonMainWindow.Init = function(...)
     (((uis.AssistBattleMain).BattleTips).root).visible = true
   end
 )
-  else
-    ;
-    (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.MainDungeon)
-    ;
-    (NewActivityDungeonMainWindow.InitEffect)(function(...)
+    else
+      ;
+      (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.MainDungeon)
+      ;
+      (NewActivityDungeonMainWindow.InitEffect)(function(...)
     -- function num : 0_12_2 , upvalues : uis
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -279,11 +280,67 @@ NewActivityDungeonMainWindow.Init = function(...)
     ((uis.PlotMain).root).visible = true
   end
 )
+    end
+  end
+end
+
+NewActivityDungeonMainWindow.InitNoEffect = function(...)
+  -- function num : 0_13 , upvalues : _book, _ENV, BOOK, uis, IDLE_ANIM, _bookBg, BOOK_BG
+  do
+    if _book == nil then
+      local holder, model = (Util.AddUIModel)(BOOK, 100)
+      ;
+      (uis.root):AddChildAt(holder, 1)
+      holder:SetXY((uis.root).width * 0.5, (uis.root).height * 0.5)
+      -- DECOMPILER ERROR at PC25: Confused about usage of register: R2 in 'UnsetPending'
+
+      ;
+      (model.transform).localScale = Vector3.one * 100
+      _book = model
+    end
+    ;
+    (SkeletonAnimationUtil.SetAnimation)(_book, 0, IDLE_ANIM, false)
+    do
+      if _bookBg == nil then
+        local holder, model = (Util.AddUIModel)(BOOK_BG, 100)
+        ;
+        (uis.root):AddChildAt(holder, 1)
+        holder:SetXY((uis.root).width * 0.5, (uis.root).height * 0.5)
+        -- DECOMPILER ERROR at PC59: Confused about usage of register: R2 in 'UnsetPending'
+
+        ;
+        (model.transform).localScale = Vector3.one * 100
+        _bookBg = model
+      end
+      ;
+      (SkeletonAnimationUtil.SetAnimation)(_bookBg, 0, IDLE_ANIM, false)
+      local sa = _book:GetComponent(typeof(((CS.Spine).Unity).SkeletonAnimation))
+      -- DECOMPILER ERROR at PC78: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      (sa.skeleton).A = 0
+      ;
+      (((LeanTween.value)(0, 1, 2)):setOnUpdate(function(value, ...)
+    -- function num : 0_13_0 , upvalues : sa
+    -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
+
+    (sa.skeleton).A = value
+  end
+)):setDelay(0.5)
+      -- DECOMPILER ERROR at PC93: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      ((uis.LabelList).root).visible = true
+      -- DECOMPILER ERROR at PC96: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      ((uis.PlotMain).root).visible = true
+    end
   end
 end
 
 NewActivityDungeonMainWindow.InitEffect = function(beforeFun, afterFun, ...)
-  -- function num : 0_13 , upvalues : _book, _ENV, BOOK, uis, BEGIN_ANIM, IDLE_ANIM, _bookBg, BOOK_BG
+  -- function num : 0_14 , upvalues : _book, _ENV, BOOK, uis, BEGIN_ANIM, IDLE_ANIM, _bookBg, BOOK_BG
   do
     if _book == nil then
       local holder, model = (Util.AddUIModel)(BOOK, 100)
@@ -298,7 +355,7 @@ NewActivityDungeonMainWindow.InitEffect = function(beforeFun, afterFun, ...)
     end
     ;
     (SkeletonAnimationUtil.SetAnimation)(_book, 0, BEGIN_ANIM, false, function(...)
-    -- function num : 0_13_0 , upvalues : _ENV, _book, IDLE_ANIM
+    -- function num : 0_14_0 , upvalues : _ENV, _book, IDLE_ANIM
     (SkeletonAnimationUtil.SetAnimation)(_book, 0, IDLE_ANIM, true)
   end
 )
@@ -319,7 +376,7 @@ NewActivityDungeonMainWindow.InitEffect = function(beforeFun, afterFun, ...)
       end
       ;
       (SkeletonAnimationUtil.SetAnimation)(_bookBg, 0, BEGIN_ANIM, false, function(...)
-    -- function num : 0_13_1 , upvalues : afterFun, _ENV, _bookBg, IDLE_ANIM
+    -- function num : 0_14_1 , upvalues : afterFun, _ENV, _bookBg, IDLE_ANIM
     if afterFun then
       afterFun()
     end
@@ -332,7 +389,7 @@ NewActivityDungeonMainWindow.InitEffect = function(beforeFun, afterFun, ...)
 end
 
 NewActivityDungeonMainWindow.RefreshPageLine = function(type, ...)
-  -- function num : 0_14 , upvalues : _pageLines
+  -- function num : 0_15 , upvalues : _pageLines
   local count = #_pageLines
   for i = 1, count do
     -- DECOMPILER ERROR at PC15: Confused about usage of register: R6 in 'UnsetPending'
@@ -344,7 +401,7 @@ NewActivityDungeonMainWindow.RefreshPageLine = function(type, ...)
 end
 
 NewActivityDungeonMainWindow.InitDungeonInfo = function(...)
-  -- function num : 0_15 , upvalues : _dungeonInited, NewActivityDungeonData, NewActivityDungeonMainWindow
+  -- function num : 0_16 , upvalues : _dungeonInited, NewActivityDungeonData, NewActivityDungeonMainWindow
   _dungeonInited = true
   ;
   (NewActivityDungeonData.InitChapterData)()
@@ -354,7 +411,7 @@ NewActivityDungeonMainWindow.InitDungeonInfo = function(...)
 end
 
 NewActivityDungeonMainWindow.RefreshDungeonInfo = function(index, anim, ...)
-  -- function num : 0_16 , upvalues : NewActivityDungeonData, _currentMapIndex, uis, PAGE_DOWN, PAGE_UP, _decorate, _ENV, _book, IDLE_ANIM, NewActivityDungeonMainWindow
+  -- function num : 0_17 , upvalues : NewActivityDungeonData, _currentMapIndex, uis, PAGE_DOWN, PAGE_UP, _decorate, _ENV, _book, IDLE_ANIM, NewActivityDungeonMainWindow
   if index < 1 or #NewActivityDungeonData.ChapterData < index then
     return 
   end
@@ -375,7 +432,7 @@ NewActivityDungeonMainWindow.RefreshDungeonInfo = function(index, anim, ...)
   ((uis.PlotMain).ChapterTxt).visible = false
   ;
   (SkeletonAnimationUtil.SetAnimation)(_book, 0, anim, false, function(...)
-    -- function num : 0_16_0 , upvalues : _ENV, _book, IDLE_ANIM, _decorate, uis, NewActivityDungeonMainWindow, index
+    -- function num : 0_17_0 , upvalues : _ENV, _book, IDLE_ANIM, _decorate, uis, NewActivityDungeonMainWindow, index
     (SkeletonAnimationUtil.SetAnimation)(_book, 0, IDLE_ANIM, true, nil, false, "0")
     _decorate.visible = true
     -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
@@ -395,7 +452,7 @@ NewActivityDungeonMainWindow.RefreshDungeonInfo = function(index, anim, ...)
 end
 
 NewActivityDungeonMainWindow.RefreshChangeChapterBtn = function(index, ...)
-  -- function num : 0_17 , upvalues : uis, NewActivityDungeonData
+  -- function num : 0_18 , upvalues : uis, NewActivityDungeonData
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
   ((uis.PlotMain).LeftBtn).visible = index ~= 1
@@ -407,13 +464,13 @@ NewActivityDungeonMainWindow.RefreshChangeChapterBtn = function(index, ...)
 end
 
 NewActivityDungeonMainWindow.MapProvider = function(index, ...)
-  -- function num : 0_18 , upvalues : NewActivityDungeonData, uis, _ENV
+  -- function num : 0_19 , upvalues : NewActivityDungeonData, uis, _ENV
   local data = (NewActivityDungeonData.ChapterData)[index]
   return ((uis.PlotMain).MapList):AddItemFromPool((Util.GetItemUrl)(data.Map))
 end
 
 NewActivityDungeonMainWindow.RefreshMapItem = function(index, item, ...)
-  -- function num : 0_19 , upvalues : NewActivityDungeonData, _stageConfigs, _ENV
+  -- function num : 0_20 , upvalues : NewActivityDungeonData, _stageConfigs, _ENV
   local data = (NewActivityDungeonData.ChapterData)[index]
   local count = #data.Stages
   local stageItem, status = nil, nil
@@ -440,7 +497,7 @@ NewActivityDungeonMainWindow.RefreshMapItem = function(index, item, ...)
         (stageItem:GetChild("NumberTxt")).text = config.name
         ;
         (stageItem.onClick):Set(function(...)
-    -- function num : 0_19_0 , upvalues : config, _ENV
+    -- function num : 0_20_0 , upvalues : config, _ENV
     if config.type == StageType.FIGHT then
       (NewActivityDungeonMgr.SetSelectDungeon)(config.id)
     else
@@ -455,7 +512,7 @@ NewActivityDungeonMainWindow.RefreshMapItem = function(index, item, ...)
 end
 
 NewActivityDungeonMainWindow.InitExplorationInfo = function(...)
-  -- function num : 0_20 , upvalues : NewActivityDungeonMainWindow, _currentStageId
+  -- function num : 0_21 , upvalues : NewActivityDungeonMainWindow, _currentStageId
   (NewActivityDungeonMainWindow.InitExplorationBasicInfo)()
   ;
   (NewActivityDungeonMainWindow.RefreshExplorationStatus)()
@@ -464,7 +521,7 @@ NewActivityDungeonMainWindow.InitExplorationInfo = function(...)
 end
 
 NewActivityDungeonMainWindow.InitExplorationBasicInfo = function(...)
-  -- function num : 0_21 , upvalues : _ENV, _riskStageConfigs, _adventureBtns, NewActivityDungeonMainWindow
+  -- function num : 0_22 , upvalues : _ENV, _riskStageConfigs, _adventureBtns, NewActivityDungeonMainWindow
   for k,v in pairs(_riskStageConfigs) do
     if _adventureBtns[k] then
       local config = v
@@ -475,7 +532,7 @@ NewActivityDungeonMainWindow.InitExplorationBasicInfo = function(...)
         end
         ;
         ((_adventureBtns[k]).onClick):Set(function(...)
-    -- function num : 0_21_0 , upvalues : NewActivityDungeonMainWindow, config
+    -- function num : 0_22_0 , upvalues : NewActivityDungeonMainWindow, config
     (NewActivityDungeonMainWindow.RefreshExplorationDetail)(config.id, true)
   end
 )
@@ -485,7 +542,7 @@ NewActivityDungeonMainWindow.InitExplorationBasicInfo = function(...)
 end
 
 NewActivityDungeonMainWindow.RefreshExplorationStatus = function(...)
-  -- function num : 0_22 , upvalues : _ENV, _adventureBtns, NewActivityDungeonData
+  -- function num : 0_23 , upvalues : _ENV, _adventureBtns, NewActivityDungeonData
   local timeStamp = ((ActorData.GetServerTime)())
   local data = nil
   for k,v in pairs(_adventureBtns) do
@@ -505,7 +562,7 @@ NewActivityDungeonMainWindow.RefreshExplorationStatus = function(...)
 end
 
 NewActivityDungeonMainWindow.RefreshExplorationDetail = function(id, notRefreshWhenSame, ...)
-  -- function num : 0_23 , upvalues : _defaultStage, _currentStageId, NewActivityDungeonData, _ENV, _riskStageConfigs, NewActivityDungeonMainWindow
+  -- function num : 0_24 , upvalues : _defaultStage, _currentStageId, NewActivityDungeonData, _ENV, _riskStageConfigs, NewActivityDungeonMainWindow
   if not id then
     id = _defaultStage
   end
@@ -536,7 +593,7 @@ NewActivityDungeonMainWindow.RefreshExplorationDetail = function(id, notRefreshW
 end
 
 NewActivityDungeonMainWindow.RefreshExploreLog = function(id, data, ...)
-  -- function num : 0_24 , upvalues : uis, _riskEventConfigs, _defaultOffset, _ENV, _updateTimer, _riskStageConfigs
+  -- function num : 0_25 , upvalues : uis, _riskEventConfigs, _defaultOffset, _ENV, _updateTimer, _riskStageConfigs
   local count = nil
   if data then
     if not data.event then
@@ -547,7 +604,7 @@ NewActivityDungeonMainWindow.RefreshExploreLog = function(id, data, ...)
 
         ;
         ((uis.ExploreMain).ExplainWordList).itemRenderer = function(index, item, ...)
-    -- function num : 0_24_0 , upvalues : eventIds, _riskEventConfigs, _defaultOffset, _ENV
+    -- function num : 0_25_0 , upvalues : eventIds, _riskEventConfigs, _defaultOffset, _ENV
     local subData = eventIds[index + 1]
     local subConfig = _riskEventConfigs[subData.eventId]
     local txt = item:GetChild("ExplainWordTxt")
@@ -575,7 +632,7 @@ NewActivityDungeonMainWindow.RefreshExploreLog = function(id, data, ...)
             (NewActivityDungeonService.ReqRiskData)(data.id)
           else
             _updateTimer = (SimpleTimer.setTimeout)((math.ceil)((data.updateTime - timeStamp) * 0.001), function(...)
-    -- function num : 0_24_1 , upvalues : _ENV, data
+    -- function num : 0_25_1 , upvalues : _ENV, data
     (NewActivityDungeonService.ReqRiskData)(data.id)
   end
 )
@@ -588,7 +645,7 @@ NewActivityDungeonMainWindow.RefreshExploreLog = function(id, data, ...)
 
         ;
         ((uis.ExploreMain).ExplainWordList).itemRenderer = function(index, item, ...)
-    -- function num : 0_24_2 , upvalues : _riskStageConfigs, id, _defaultOffset
+    -- function num : 0_25_2 , upvalues : _riskStageConfigs, id, _defaultOffset
     local subConfig = _riskStageConfigs[id]
     local txt = item:GetChild("ExplainWordTxt")
     if _defaultOffset == nil then
@@ -610,7 +667,7 @@ NewActivityDungeonMainWindow.RefreshExploreLog = function(id, data, ...)
 end
 
 NewActivityDungeonMainWindow.RefreshExploreRewards = function(id, data, ...)
-  -- function num : 0_25 , upvalues : uis, _ENV, _riskStageConfigs
+  -- function num : 0_26 , upvalues : uis, _ENV, _riskStageConfigs
   local rewards = nil
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R3 in 'UnsetPending'
 
@@ -623,7 +680,7 @@ NewActivityDungeonMainWindow.RefreshExploreRewards = function(id, data, ...)
 
     ;
     (((uis.ExploreMain).RewardShow).ImportantList).itemRenderer = function(index, item, ...)
-    -- function num : 0_25_0 , upvalues : rewards, _ENV
+    -- function num : 0_26_0 , upvalues : rewards, _ENV
     local data = rewards[index + 1]
     ;
     (Util.SetAllItemIcon)(item, data.id, data.value)
@@ -654,7 +711,7 @@ NewActivityDungeonMainWindow.RefreshExploreRewards = function(id, data, ...)
 
     ;
     (((uis.ExploreMain).RewardShow).ImportantList).itemRenderer = function(index, item, ...)
-    -- function num : 0_25_1 , upvalues : rewards, _ENV
+    -- function num : 0_26_1 , upvalues : rewards, _ENV
     local data = rewards[index + 1]
     ;
     (Util.SetAllItemIconByConfig)(item, data)
@@ -672,7 +729,7 @@ NewActivityDungeonMainWindow.RefreshExploreRewards = function(id, data, ...)
 end
 
 NewActivityDungeonMainWindow.InitExploreCost = function(data, ...)
-  -- function num : 0_26 , upvalues : uis, _ENV
+  -- function num : 0_27 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   if not data then
@@ -688,7 +745,7 @@ NewActivityDungeonMainWindow.InitExploreCost = function(data, ...)
 end
 
 NewActivityDungeonMainWindow.RefreshExploreCost = function(...)
-  -- function num : 0_27 , upvalues : NewActivityDungeonData, _riskStageConfigs, _currentStageId, _ENV, uis
+  -- function num : 0_28 , upvalues : NewActivityDungeonData, _riskStageConfigs, _currentStageId, _ENV, uis
   local cost = NewActivityDungeonData.CurrentTimes * (NewActivityDungeonData.CurrentEachCost).Value
   local config = _riskStageConfigs[_currentStageId]
   local time = (LuaTime.GetTimeStamp)()
@@ -709,10 +766,10 @@ NewActivityDungeonMainWindow.RefreshExploreCost = function(...)
 end
 
 NewActivityDungeonMainWindow.RefreshExploreDuration = function(id, data, ...)
-  -- function num : 0_28 , upvalues : NewActivityDungeonMainWindow, uis, _ENV, NewActivityDungeonData, _countDownTimer
+  -- function num : 0_29 , upvalues : NewActivityDungeonMainWindow, uis, _ENV, NewActivityDungeonData, _countDownTimer
   (NewActivityDungeonMainWindow.StopCountDownTimer)()
   local finish = function(needRefresh, ...)
-    -- function num : 0_28_0 , upvalues : uis, _ENV, NewActivityDungeonData, data, NewActivityDungeonMainWindow, id
+    -- function num : 0_29_0 , upvalues : uis, _ENV, NewActivityDungeonData, data, NewActivityDungeonMainWindow, id
     -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
 
     (((uis.ExploreMain).Spend).TimeTxt).text = (PUtil.get)(60000654)
@@ -738,7 +795,7 @@ NewActivityDungeonMainWindow.RefreshExploreDuration = function(id, data, ...)
 
       if leftTime < 3600 and leftTime > 0 then
         _countDownTimer = (SimpleTimer.new)(1, leftTime, function(...)
-    -- function num : 0_28_1 , upvalues : data, _ENV, finish, uis
+    -- function num : 0_29_1 , upvalues : data, _ENV, finish, uis
     if data.endTime <= (ActorData.GetServerTime)() then
       finish(true)
       return 
@@ -753,7 +810,7 @@ NewActivityDungeonMainWindow.RefreshExploreDuration = function(id, data, ...)
       end
       local refreshTime = leftTime % 60
       _countDownTimer = (SimpleTimer.setTimeout)(refreshTime, function(...)
-    -- function num : 0_28_2 , upvalues : _ENV, data, uis, _countDownTimer, NewActivityDungeonMainWindow, finish
+    -- function num : 0_29_2 , upvalues : _ENV, data, uis, _countDownTimer, NewActivityDungeonMainWindow, finish
     local leftTime = (math.floor)(data.endTime * 0.001) - (LuaTime.GetTimeStamp)()
     -- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -761,12 +818,12 @@ NewActivityDungeonMainWindow.RefreshExploreDuration = function(id, data, ...)
     (((uis.ExploreMain).Spend).TimeTxt).text = (PUtil.get)(60000622, (LuaTime.GetTimeStrVersion2)(leftTime, true))
     if leftTime > 0 then
       _countDownTimer = (SimpleTimer.new)(60, -1, function(...)
-      -- function num : 0_28_2_0 , upvalues : _ENV, data, NewActivityDungeonMainWindow, _countDownTimer, finish, uis
+      -- function num : 0_29_2_0 , upvalues : _ENV, data, NewActivityDungeonMainWindow, _countDownTimer, finish, uis
       local leftTime = (math.ceil)(data.endTime * 0.001) - (LuaTime.GetTimeStamp)()
       if leftTime < 3600 then
         (NewActivityDungeonMainWindow.StopCountDownTimer)()
         _countDownTimer = (SimpleTimer.new)(1, leftTime, function(...)
-        -- function num : 0_28_2_0_0 , upvalues : data, _ENV, finish, uis, leftTime
+        -- function num : 0_29_2_0_0 , upvalues : data, _ENV, finish, uis, leftTime
         if data.endTime <= (ActorData.GetServerTime)() then
           finish(true)
           return 
@@ -799,7 +856,7 @@ NewActivityDungeonMainWindow.RefreshExploreDuration = function(id, data, ...)
 end
 
 NewActivityDungeonMainWindow.StopCountDownTimer = function(...)
-  -- function num : 0_29 , upvalues : _countDownTimer
+  -- function num : 0_30 , upvalues : _countDownTimer
   if _countDownTimer then
     _countDownTimer:stop()
     _countDownTimer = nil
@@ -807,7 +864,7 @@ NewActivityDungeonMainWindow.StopCountDownTimer = function(...)
 end
 
 NewActivityDungeonMainWindow.RefreshExploreBtn = function(id, data, ...)
-  -- function num : 0_30 , upvalues : uis, _ENV
+  -- function num : 0_31 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC12: Confused about usage of register: R2 in 'UnsetPending'
 
   if data.status ~= NADAdventueStatus.Finish then
@@ -818,7 +875,7 @@ NewActivityDungeonMainWindow.RefreshExploreBtn = function(id, data, ...)
     (((uis.ExploreMain).Spend).StartBtn).text = (PUtil.get)(20000370)
     ;
     ((((uis.ExploreMain).Spend).StartBtn).onClick):Set(function(...)
-    -- function num : 0_30_0 , upvalues : _ENV, id
+    -- function num : 0_31_0 , upvalues : _ENV, id
     (NewActivityDungeonMgr.ReqEndRisk)(id)
   end
 )
@@ -832,7 +889,7 @@ NewActivityDungeonMainWindow.RefreshExploreBtn = function(id, data, ...)
     (((uis.ExploreMain).Spend).StartBtn).text = (PUtil.get)(60000623)
     ;
     ((((uis.ExploreMain).Spend).StartBtn).onClick):Set(function(...)
-    -- function num : 0_30_1 , upvalues : _ENV, id
+    -- function num : 0_31_1 , upvalues : _ENV, id
     (NewActivityDungeonMgr.ReqBeginRisk)(id)
   end
 )
@@ -841,7 +898,7 @@ NewActivityDungeonMainWindow.RefreshExploreBtn = function(id, data, ...)
 end
 
 NewActivityDungeonMainWindow.RefreshActiveRole = function(id, ...)
-  -- function num : 0_31 , upvalues : _riskStageConfigs, uis, _ENV, NewActivityDungeonMainWindow
+  -- function num : 0_32 , upvalues : _riskStageConfigs, uis, _ENV, NewActivityDungeonMainWindow
   local config = _riskStageConfigs[id]
   ;
   (((uis.ExploreMain).UpCard).CardList):RemoveChildrenToPool()
@@ -863,7 +920,7 @@ NewActivityDungeonMainWindow.RefreshActiveRole = function(id, ...)
 end
 
 NewActivityDungeonMainWindow.RefreshActiveRoleItem = function(data, item, ...)
-  -- function num : 0_32 , upvalues : _ENV
+  -- function num : 0_33 , upvalues : _ENV
   data = split(data, ":")
   local cardId = tonumber(data[1])
   local cardInfo = (CardData.GetCardData)(cardId)
@@ -880,7 +937,7 @@ NewActivityDungeonMainWindow.RefreshActiveRoleItem = function(data, item, ...)
 end
 
 NewActivityDungeonMainWindow.RefreshAssistFightInfo = function(...)
-  -- function num : 0_33 , upvalues : NewActivityDungeonData, _assistTimer, _ENV, uis, NewActivityDungeonMainWindow, _bossId, _mask, _bossModel
+  -- function num : 0_34 , upvalues : NewActivityDungeonData, _assistTimer, _ENV, uis, NewActivityDungeonMainWindow, _bossId, _mask, _bossModel
   if NewActivityDungeonData.AssistData == nil or NewActivityDungeonData.NADData == nil then
     return 
   end
@@ -932,7 +989,7 @@ NewActivityDungeonMainWindow.RefreshAssistFightInfo = function(...)
 end
 
 NewActivityDungeonMainWindow.RefreshBossHP = function(...)
-  -- function num : 0_34 , upvalues : uis, _ENV, NewActivityDungeonData
+  -- function num : 0_35 , upvalues : uis, _ENV, NewActivityDungeonData
   -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
 
   (((uis.AssistBattleMain).BattleTips).HpTxt).text = (PUtil.get)(60000653, (math.ceil)((NewActivityDungeonData.AssistData).remainHp))
@@ -943,22 +1000,22 @@ NewActivityDungeonMainWindow.RefreshBossHP = function(...)
 end
 
 NewActivityDungeonMainWindow.ClickMinusBtn = function(...)
-  -- function num : 0_35 , upvalues : _ENV, _riskStageConfigs, _currentStageId
+  -- function num : 0_36 , upvalues : _ENV, _riskStageConfigs, _currentStageId
   (NewActivityDungeonMgr.ChangeExploreTimes)(-1, _riskStageConfigs[_currentStageId])
 end
 
 NewActivityDungeonMainWindow.ClickAddBtn = function(...)
-  -- function num : 0_36 , upvalues : _ENV, _riskStageConfigs, _currentStageId
+  -- function num : 0_37 , upvalues : _ENV, _riskStageConfigs, _currentStageId
   (NewActivityDungeonMgr.ChangeExploreTimes)(1, _riskStageConfigs[_currentStageId])
 end
 
 NewActivityDungeonMainWindow.ClickMaxBtn = function(...)
-  -- function num : 0_37 , upvalues : _ENV, _riskStageConfigs, _currentStageId
+  -- function num : 0_38 , upvalues : _ENV, _riskStageConfigs, _currentStageId
   (NewActivityDungeonMgr.ChangeExploreTimes)(0, _riskStageConfigs[_currentStageId])
 end
 
 NewActivityDungeonMainWindow.ClickPageBtn = function(type, ...)
-  -- function num : 0_38 , upvalues : _pageBtns, uis, NewActivityDungeonMainWindow, PageType, _ENV, _book, IDLE2_ANIM, IDLE_ANIM, _dungeonInited
+  -- function num : 0_39 , upvalues : _pageBtns, uis, NewActivityDungeonMainWindow, PageType, _ENV, _book, IDLE2_ANIM, IDLE_ANIM, _dungeonInited
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R1 in 'UnsetPending'
 
   (_pageBtns[(uis.c1Ctr).selectedIndex]).selected = false
@@ -998,36 +1055,36 @@ NewActivityDungeonMainWindow.ClickPageBtn = function(type, ...)
 end
 
 NewActivityDungeonMainWindow.ClickRewardShowBtn = function(...)
-  -- function num : 0_39 , upvalues : _ENV
+  -- function num : 0_40 , upvalues : _ENV
   (NewActivityDungeonMgr.OpenPhaseRewardShow)()
 end
 
 NewActivityDungeonMainWindow.ClickGulidAssistBtn = function(...)
-  -- function num : 0_40 , upvalues : _ENV
+  -- function num : 0_41 , upvalues : _ENV
   (NewActivityDungeonMgr.OpenGuildAssist)()
 end
 
 NewActivityDungeonMainWindow.ClickChallengeBtn = function(...)
-  -- function num : 0_41 , upvalues : _ENV, _challengeBoss
+  -- function num : 0_42 , upvalues : _ENV, _challengeBoss
   if (NewActivityDungeonMgr.TryChallengeBoss)() then
     _challengeBoss = true
   end
 end
 
 NewActivityDungeonMainWindow.ClickLeftBtn = function(...)
-  -- function num : 0_42 , upvalues : NewActivityDungeonMainWindow, _currentMapIndex
+  -- function num : 0_43 , upvalues : NewActivityDungeonMainWindow, _currentMapIndex
   (NewActivityDungeonMainWindow.RefreshDungeonInfo)(_currentMapIndex - 1, 1)
 end
 
 NewActivityDungeonMainWindow.ClickRightBtn = function(...)
-  -- function num : 0_43 , upvalues : _ENV, _currentMapIndex, NewActivityDungeonMainWindow
+  -- function num : 0_44 , upvalues : _ENV, _currentMapIndex, NewActivityDungeonMainWindow
   if (NewActivityDungeonMgr.CheckNextChapter)(_currentMapIndex + 1) then
     (NewActivityDungeonMainWindow.RefreshDungeonInfo)(_currentMapIndex + 1, 2)
   end
 end
 
 NewActivityDungeonMainWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_44 , upvalues : _ENV, NewActivityDungeonMainWindow, uis, PageType, NewActivityDungeonData, _riskStageConfigs, _currentStageId, _currentMapIndex
+  -- function num : 0_45 , upvalues : _ENV, NewActivityDungeonMainWindow, uis, PageType, NewActivityDungeonData, _riskStageConfigs, _currentStageId, _currentMapIndex
   if msgId == (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH_EXPLORE_COST then
     (NewActivityDungeonMainWindow.RefreshExploreCost)()
   else

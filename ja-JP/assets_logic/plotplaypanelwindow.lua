@@ -931,9 +931,7 @@ PlotPlayPanelWindow.PlayVideo = function(...)
       (uis.NextBtn).visible = false
     end
 )
-    local videoLoader = uis.VideoLoader
-    videoLoader.fill = ((CS.FairyGUI).FillType).Scale
-    VideoIns:PlayVideo(videoLoader, _dialogueConfig.video, function(...)
+    VideoIns:PlayVideo(uis.VideoLoader, _dialogueConfig.video, function(...)
       -- function num : 0_31_0_2 , upvalues : _hideSkipTimer, uis, _videoBlackBG, PlotPlayPanelWindow, _ENV, UnityColor
       if _hideSkipTimer ~= nil and _hideSkipTimer:IsRunIng() then
         _hideSkipTimer:stop()

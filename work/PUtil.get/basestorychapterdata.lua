@@ -3232,4 +3232,38 @@
 [75901201] = {id = 75901201, scene_path = "92000021", dialogue_ids = "75712001", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マフィア達を無事に倒し、無事に店と土地の権利書を発見。その後、目的を果たしたし、少し遊んで帰ろうと話している一行の前に、現れたオーナーが一矢を報いるために何かのボタンを押すと、周囲に爆音が響き渡る…", times = 0}
 , 
 [75901202] = {id = 75901202, scene_path = "92000042", dialogue_ids = "75712034", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マフィア達を無事に倒し、無事に店と土地の権利書を発見。その後、目的を果たしたし、少し遊んで帰ろうと話している一行の前に、現れたオーナーが一矢を報いるために何かのボタンを押すと、周囲に爆音が響き渡る…", times = 0}
+, 
+[75901301] = {id = 75901301, scene_path = "92000056", dialogue_ids = "75713001", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071301)", times = 0}
+, 
+[75901302] = {id = 75901302, scene_path = "92000056", dialogue_ids = "75713017", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071301)", times = 0}
+, 
+[75901303] = {id = 75901303, scene_path = "92000056", dialogue_ids = "75713019", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071301)", times = 0}
+, 
+[75901311] = {id = 75901311, scene_path = "92000057", dialogue_ids = "75713101", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071301)", times = 0}
+, 
+[75901312] = {id = 75901312, scene_path = "92000012", dialogue_ids = "75713112", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071301)", times = 0}
+, 
+[75901313] = {id = 75901313, scene_path = "92000057", dialogue_ids = "75713115", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071301)", times = 0}
+, 
+[75901321] = {id = 75901321, scene_path = "92000057", dialogue_ids = "75713201", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071302)", times = 0}
+, 
+[75901331] = {id = 75901331, scene_path = "92000058", dialogue_ids = "75713301", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071302)", times = 0}
+, 
+[75901332] = {id = 75901332, scene_path = "92000058", dialogue_ids = "75713318", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071302)", times = 0}
+, 
+[75901341] = {id = 75901341, scene_path = "92000008", dialogue_ids = "75713401", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071303)", times = 0}
+, 
+[75901342] = {id = 75901342, scene_path = "92000008", dialogue_ids = "75713404", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071303)", times = 0}
+, 
+[75901343] = {id = 75901343, scene_path = "92000008", dialogue_ids = "75713418", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071303)", times = 0}
+, 
+[75901351] = {id = 75901351, scene_path = "92000059", dialogue_ids = "75713501", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071303)", times = 0}
+, 
+[75901361] = {id = 75901361, scene_path = "92000059", dialogue_ids = "75713601", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071304)", times = 0}
+, 
+[75901371] = {id = 75901371, scene_path = "92000057", dialogue_ids = "75713701", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071304)", times = 0}
+, 
+[75901381] = {id = 75901381, scene_path = "92000057", dialogue_ids = "75713801", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071305)", times = 0}
+, 
+[75901391] = {id = 75901391, scene_path = "92000057", dialogue_ids = "75713901", admission_type = "4:4", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "未定義(86071305)", times = 0}
 }

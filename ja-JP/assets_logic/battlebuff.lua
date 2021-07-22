@@ -1698,18 +1698,9 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
                           else
                             do
                               if trigger_condition == BuffTriggerCondition.ATTACK_TARGET_TYPE then
-                                local defCardsInfo = atkInfo.defCardsInfo
-                                for _,v in ipairs(defCardsInfo) do
-                                  local defPos = v.defPos
-                                  if defPos ~= atkPos and not v.isDivide then
-                                    local defCard = (BattleData.GetCardInfoByPos)(defPos)
-                                    if defCard then
-                                      local config = defCard:GetCardConfig()
-                                      if CompareNum(trigger_type, config.attr_prior, trigger_value) == true then
-                                        return true
-                                      end
-                                    end
-                                  end
+                                local config = card:GetCardConfig()
+                                if config then
+                                  return CompareNum(trigger_type, config.attr_prior, trigger_value)
                                 end
                               else
                                 do

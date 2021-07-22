@@ -6,16 +6,14 @@ local uis, contentPane = nil, nil
 local argTable = {}
 local isPersonType = nil
 local dataList = {}
-local currentPage = 1
 local playerIndex = (ActorData.GetPlayerIndex)()
 local guildIndex = ((ActorData.GetGuildID)())
 local GuildLevelConfig = nil
 GuildBossRankWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, currentPage, uis, GuildBossRankWindow
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, GuildBossRankWindow
   bridgeObj:SetView((WinResConfig.GuildBossRankWindow).package, (WinResConfig.GuildBossRankWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
-  currentPage = 1
   uis = GetGuildBoss_GuildBossRankWindowUis(contentPane)
   uis = uis.GuildBossRank
   ;
@@ -24,7 +22,7 @@ GuildBossRankWindow.OnInit = function(bridgeObj, ...)
   (GuildBossRankWindow.InitInvariable)()
   ;
   (GuildBossRankWindow.SetLeftInfo)()
-  -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.GuildBossRankChoice).infoList).itemRenderer = GuildBossRankWindow.ItemListRenderer
@@ -168,7 +166,7 @@ GuildBossRankWindow.ItemListRenderer = function(index, obj, ...)
 end
 
 GuildBossRankWindow.InitInvariable = function(...)
-  -- function num : 0_4 , upvalues : uis, _ENV, currentPage, isPersonType, GuildBossRankWindow
+  -- function num : 0_4 , upvalues : uis, _ENV, isPersonType, GuildBossRankWindow
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.TitleTxt).text = (PUtil.get)(20000530)
@@ -210,7 +208,7 @@ GuildBossRankWindow.InitInvariable = function(...)
 )
   ;
   (((uis.BossRewardInfo).MonthBtn).onClick):Set(function(...)
-    -- function num : 0_4_4 , upvalues : _ENV, uis, currentPage
+    -- function num : 0_4_4 , upvalues : _ENV, uis
     local info = (GuildBossMgr.GuildBossInfo)()
     if info.status == (ProtoEnum.GUILD_WAR_STATUS).READY then
       (MessageMgr.SendCenterTipsByWordID)(20000559)
@@ -225,7 +223,6 @@ GuildBossRankWindow.InitInvariable = function(...)
     if isPerson then
       (GuildBossService.ReqMSeasonRank)(not isLast)
     else
-      currentPage = 1
       ;
       (GuildBossService.ReqGSeasonRank)(not isLast, 1)
     end
@@ -234,7 +231,7 @@ GuildBossRankWindow.InitInvariable = function(...)
   local mList = (uis.GuildBossRankChoice).infoList
   ;
   ((mList.scrollPane).onPullUpRelease):Set(function(...)
-    -- function num : 0_4_5 , upvalues : isPersonType, mList, _ENV, currentPage, GuildBossRankWindow
+    -- function num : 0_4_5 , upvalues : isPersonType, mList, _ENV, GuildBossRankWindow
     if isPersonType then
       return 
     end
@@ -244,10 +241,9 @@ GuildBossRankWindow.InitInvariable = function(...)
     PlayUITrans(footer, "Rotate")
     ;
     (mList.scrollPane):LockFooter(footer.sourceHeight)
-    currentPage = currentPage + 1
     local last = (GuildBossMgr.IsLastSeasonData)()
     ;
-    (GuildBossService.ReqGSeasonRank)(last, currentPage)
+    (GuildBossService.ReqGSeasonRank)(last, GuildBossData.currentRankPage + 1)
     ;
     (SimpleTimer.setTimeout)(1, function(...)
       -- function num : 0_4_5_0 , upvalues : footer, mList, GuildBossRankWindow

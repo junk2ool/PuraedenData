@@ -341,7 +341,7 @@ BaseStoryDialogueDataPart23 = {
 , 
 [75147437] = {id = 75147437, remark = (PUtil.get)(86206123), type = 1, option_ids = "0", next = 75147438, role_ids = "75205006:75201002:75201001", expression = "0:0:PoseB", action = "0", role_type = 75201001, position = "64:606:10000,418:606:10000,772:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, dialogue_sound = "April_Plot_1094"}
 , 
-[75147438] = {id = 75147438, remark = (PUtil.get)(86206124), type = 1, option_ids = "0", next = 75149127, role_ids = "75205006:75201002:75201001", expression = "exp_happy:0:0", action = "0", role_type = 75205006, position = "64:606:10050,418:606:10000,772:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, dialogue_sound = "MB_Anemone_Plot_80"}
+[75147438] = {id = 75147438, remark = (PUtil.get)(86206124), type = 1, option_ids = "0", next = 75147439, role_ids = "75205006:75201002:75201001", expression = "exp_happy:0:0", action = "0", role_type = 75205006, position = "64:606:10050,418:606:10000,772:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, dialogue_sound = "MB_Anemone_Plot_80"}
 , 
 [75147439] = {id = 75147439, remark = (PUtil.get)(86206125), type = 1, option_ids = "0", next = -1, role_ids = "75205006:75201002:75201001", expression = "0:0:PoseA", action = "0", role_type = 75201001, position = "64:606:10000,418:606:10000,772:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002, dialogue_sound = "April_Plot_1095"}
 , 
@@ -909,12 +909,8 @@ BaseStoryDialogueDataPart23 = {
 , 
 [75148643] = {id = 75148643, type = 0, option_ids = "0", next = -1, role_ids = "75209059", role_type = 75209059, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
-[75148701] = {id = 75148701, type = 0, option_ids = "75348019", next = 75148702, role_ids = "75209059", action = "0", role_type = 75209059, position = "418:606:10050", role_admission_type = "75209059:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003}
+[75148701] = {id = 75148701, remark = (PUtil.get)(86206407), type = 0, option_ids = "75348019", next = -1, role_ids = "75209059", action = "0", role_type = 75209059, position = "418:606:10050", role_admission_type = "75209059:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003, dialogue_sound = "April_Plot_1158"}
 , 
-[75148702] = {id = 75148702, remark = (PUtil.get)(86206407), type = 1, option_ids = "0", next = 75148703, role_ids = "75201001", expression = "exp_said", action = "0", role_type = 75201001, position = "418:606:10050", role_admission_type = "75201001:0:0", role_departure_type = "75209059:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003, dialogue_sound = "April_Plot_1158"}
-, 
-[75148703] = {id = 75148703, remark = (PUtil.get)(86206408), type = 1, option_ids = "0", next = -1, role_ids = "75201001", expression = "exp_said", action = "0", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003, dialogue_sound = "April_Plot_1159"}
-, 
-[75148704] = {id = 75148704, type = 0, option_ids = "0", next = -1, role_ids = "75209059", role_type = 75209059, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003}
+[75148702] = {id = 75148702, remark = (PUtil.get)(86206408), type = 1, option_ids = "0", next = -1, role_ids = "75201001", expression = "exp_said", action = "0", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020003, dialogue_sound = "April_Plot_1159"}
 }
 
