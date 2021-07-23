@@ -3,11 +3,7 @@
 BaseSkillBuffDataPart39 = {
 [47960130] = {id = 47960130, type = 70, value = "703:4:-3500:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
-[47960320] = {id = 47960320, type = 65, value = "651:1:-500:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
-, 
 [47960320] = {id = 47960320, type = 31, value = "107:1:5000:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
-, 
-[47960350] = {id = 47960350, type = 70, value = "703:4:-3500:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
 [47960350] = {id = 47960350, type = 100, value = "108:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 5, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
@@ -80,5 +76,9 @@ BaseSkillBuffDataPart39 = {
 [47961550] = {id = 47961550, type = 50, value = "502:2:2000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
 [47961551] = {id = 47961551, type = 50, value = "504:1:5000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 2, per_round_limit = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47970320] = {id = 47970320, type = 65, value = "651:1:-500:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
+, 
+[47970350] = {id = 47970350, type = 70, value = "703:4:-3500:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, clean_buff_group = "0", clean_add_buff = "0", immune_group = "0", overlay_num = 0, settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 }
 
