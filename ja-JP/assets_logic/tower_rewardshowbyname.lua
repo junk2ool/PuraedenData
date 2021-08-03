@@ -26,7 +26,7 @@ GetTower_RewardShowUis = function(ui, ...)
   uis.BattleBtn = ui:GetChild("BattleBtn")
   uis.Reward_01_Tips = GetTower_RewardTipsUis(ui:GetChild("Reward_01_Tips"))
   uis.Reward_02_Tips = GetTower_RewardTipsUis(ui:GetChild("Reward_02_Tips"))
-  uis.c1Ctr = ui:GetController("c1")
+  uis.lockCtr = ui:GetController("lock")
   uis.root = ui
   return uis
 end

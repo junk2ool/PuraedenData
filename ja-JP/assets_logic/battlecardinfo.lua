@@ -439,8 +439,13 @@ randomBuff = {}
     end
   end
 
+  battleCardInfo.GetSuitBuff = function(self, ...)
+    -- function num : 0_0_64
+    return self.equipSet
+  end
+
   battleCardInfo.AddAttrValue = function(self, attributeId, value, effectId, atkInfo, buff, ...)
-    -- function num : 0_0_64 , upvalues : _ENV, baseAttributeData, math
+    -- function num : 0_0_65 , upvalues : _ENV, baseAttributeData, math
     if (BattleBuff.IsAddIntoDamage)(effectId) == true then
       loge("伤害已加入总伤害")
       return nil

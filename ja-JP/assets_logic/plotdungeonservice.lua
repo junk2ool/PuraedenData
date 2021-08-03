@@ -67,8 +67,15 @@ PlotDungeonService.OnResStoryInfo = function(msg, ...)
 
                   NewActivityDungeonData.PlayerFC = (msg.chapterInfo)[1] and ((msg.chapterInfo)[1]).playerActivityFc or 0
                   OpenWindow((WinResConfig.NewActivityDungeonWindow).name, UILayer.HUD, activityFirstOpen)
-                  if msg.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
-                    UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
+                  do
+                    if msg.type == DungeonType.TowerExpand then
+                      local storyChapter = msg.chapterInfo
+                      ;
+                      (PlotDungeonMgr.GetTowerExpandFcPlayerFc)((storyChapter[1]).playerActivityFc)
+                    end
+                    if msg.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
+                      UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
+                    end
                   end
                 end
               end

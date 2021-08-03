@@ -1803,6 +1803,7 @@ message TowerStage{
 	int32    towerStageId           = 1;//关卡id
 	int32    monsterGroupId         = 2;//怪物组id
 	bool     isPass                 = 3;//是否通关
+	int32 challengeRound            = 4;//天之塔拓展关卡使用次数
 }
 
 //547进入天之塔
@@ -1901,6 +1902,16 @@ message ResInExpedition{
 	repeated CardStateExpedition cardInfo  = 2;//卡牌信息(id为卡的ID,value为位置) 布阵
 	int32   stageId                        = 4;//关卡id
 	int32 sweepNum					       = 5;//该关卡可以扫荡的次数
+}
+
+//设置老套装太之塔副本 527
+message ReqOldSetsTower{
+	int32          towerId = 1;//塔层id
+}	
+
+//528
+message ResOldSetsTower{
+		Tower tower        = 1;
 }
 
 //562远征商人关卡消息
@@ -2265,6 +2276,7 @@ enum E_BATTLE_TYPE
 	FRIEND_PK                = 15;//好友切磋
 	TEMPLE                   = 16;//神殿遗迹副本
 	ASSIST                   = 17;//协助战斗
+	TOWER_EXPAND 			 = 18;//天之塔拓展
 }
 
 //渠道
@@ -2357,6 +2369,7 @@ enum E_EMBATTLE_TYPE
 	EMBATTLE_TOWER           = 9;//天之塔布阵
 	EMBATTLE_ENCOUNTER       = 10;//天之塔遭遇战布阵
 	EMBATTLE_ASSIST_BOSS 	 = 11;//协助战斗BOSS
+	EMBATTLE_TOWER_EXPAND    = 12;//天之塔扩展布阵
 }
 
 //副本类型
@@ -2381,6 +2394,7 @@ enum E_CHALLENGE_TYPE
 	ACTIVITY_CHALLENGE   	= 101;//活动副本
     NEW_ACTIVITY_ASSIST     = 103;//新活动副本协助战斗类型
 	NEW_ACTIVITY_CHALLENGE	= 201;//新活动副本
+	TOWER_EXPAND_CHALLENGE  = 301;//天之塔拓展副本
 }
 
 enum E_SET_TYPE
@@ -4197,6 +4211,7 @@ message SupportCardInfo
 	         int32                     sealLv = 14;
 	repeated CardSealSkillInfo  sealSkillInfo = 15;
 	         bool                        used = 16;//今天是否已经使用过了
+	repeated int32 equipSetsBuffList          = 17;//套装
 }
 
 //卡牌装备信息
@@ -4428,6 +4443,7 @@ message ResGSeasonRank
 			 int64         			            integral = 3;//赛季积分
 			 int32                                  page = 4;//分页
 			 bool                             lastSeason = 5;//是否请求上赛季
+			 int32                              pageSize = 6;//每页容量
 }
 
 //2153请求成员赛季排行
@@ -5085,6 +5101,9 @@ enum E_MSG_ID
 	
 	Challenge_ReqArenaReward            = 525;//请求竞技场奖励
 	Challenge_ResArenaReward            = 526;//竞技场奖励
+	
+	Challenge_ReqOldSetsTower           = 527;//设置老套装天之塔副本
+	Challenge_ResOldSetsTower           = 528;
 	
 	Challenge_ReqArenaGuardCardGroups   = 531;//请求竞技场布阵防守阵容
 	Challenge_ResArenaGuardCardGroups   = 532;//竞技场布阵防守阵容
@@ -6345,6 +6364,7 @@ message RiskData{
 	//repeated GoodsObject reward = 4;//奖励
 	repeated RiskEvent event    = 5;//事件
 	int64 riskTime              = 6;//探险时长(单位 毫秒)
+	int32 useVit                = 7;//当前冒险关卡已经使用过的体力数量
 }
 
 message RiskEvent{
@@ -6480,12 +6500,12 @@ message ShopData{
 //请求商店格子
 message ReqShopGridData{
 
-	int32 shopType              = 1;//商店类型
+	int32 shopType                        = 1;//商店的唯一id
 
 }
 
 message ResShopGridData{
-	int32 shopType              		= 1;
+	int32 shopType              		    = 1;
 	ConfigTime   updateTime   			= 2;//商店的更新时间
 	repeated ShopGridData shopGridData  = 3;
 	int32 resetNum                      = 4;//商店刷新次数
@@ -6503,12 +6523,12 @@ message ShopGridData{
 
 //请求刷新商店
 message ReqShopReset{
-	int32 shopType                  = 1;//商店类型
+	int32 shopType                            = 1;//商店的唯一id
 }
 
 //商店刷新 
 message ResShopReset{
-	int32 shopType              			= 1;
+	int32 shopType              			    = 1;
 	ConfigTime   updateTime   				= 2;//商店的更新时间
 	repeated ShopGridData shopGridData      = 3;//
 	int32 resetNum                          = 4;//商店刷新次数
@@ -6517,7 +6537,7 @@ message ResShopReset{
 //商店购买
 message ReqShopBuy{
 	
-	int32 shopType           = 1;//商店类型
+	int32 shopType             = 1;//商店的唯一id
 	int32 shopGridId         = 2;//商店格子id
 	int32 shopPoolId         = 3;//商品池id
 	int32 shopNum            = 4;//购买个数 服务器需要判断 如果该数量够大于可购买数量 按照可购买数量处理
@@ -6528,7 +6548,7 @@ message ReqShopBuy{
 message ResShopBuy{
 	bool success                = 1;//购买是够成功  如果成功 才返回更新数据 失败则不返回
 	ShopGridData shopGridData   = 2;//商店购买之后更新商店数据结构
-	int32 shopType              = 3;//商店类型
+	int32 shopType                = 3;//商店的唯一id
 }
 
 //809获取购买资源次数
@@ -6854,6 +6874,8 @@ ReqArenaRefresh = 523,
 ResArenaRefresh = 524,
 ReqArenaReward = 525,
 ResArenaReward = 526,
+ReqOldSetsTower = 527,
+ResOldSetsTower = 528,
 ReqArenaGuardCardGroups = 531,
 ResArenaGuardCardGroups = 532,
 ResNextChapterInfo = 534,
@@ -7435,6 +7457,8 @@ MsgNameByID = {[0] = "Unknown",
 [524] = "ResArenaRefresh",
 [525] = "ReqArenaReward",
 [526] = "ResArenaReward",
+[527] = "ReqOldSetsTower",
+[528] = "ResOldSetsTower",
 [531] = "ReqArenaGuardCardGroups",
 [532] = "ResArenaGuardCardGroups",
 [534] = "ResNextChapterInfo",
@@ -8006,6 +8030,7 @@ EquipSetsBuff = "EquipSetsBuff",
 BattleWave = "BattleWave",
 ReqGuildGiftRank = "ReqGuildGiftRank",
 ResUseProp = "ResUseProp",
+ResOldSetsTower = "ResOldSetsTower",
 ResAdventureEventReward = "ResAdventureEventReward",
 ResDecActivity = "ResDecActivity",
 ShopData = "ShopData",
@@ -8013,6 +8038,7 @@ ReqPayData = "ReqPayData",
 ReqFinishStory = "ReqFinishStory",
 ReqAddOrUpdateDeckScheme = "ReqAddOrUpdateDeckScheme",
 ResAddRedDot = "ResAddRedDot",
+ReqOldSetsTower = "ReqOldSetsTower",
 ReqGiftCode = "ReqGiftCode",
 ReqIntimacyInfo = "ReqIntimacyInfo",
 ReqUseEquipScheme = "ReqUseEquipScheme",
@@ -8606,7 +8632,7 @@ E_LOGIN_TYPE = {LOGIN_TYPE_UNKNOWN = 0, DEFAULT = 1, RELINK = 2}
 , 
 GUILD_ACTION = {DEFAULT_ACTION = 0, JOIN_ACTION = 1, APPLY_ACTION = 2, CANCEL_ACTION = 3}
 , 
-E_EMBATTLE_TYPE = {EMBATTLE_UNKNOWN = 0, EMBATTLE_DEFAULT = 1, EMBATTLE_STORE = 2, EMBATTLE_ELITE = 3, EMBATTLE_GOLD = 4, EMBATTLE_EXP = 5, EMBATTLE_EQUIPEXP = 6, EMBATTLE_ATTA = 7, EMBATTLE_ARENA_GUARD = 8, EMBATTLE_TOWER = 9, EMBATTLE_ENCOUNTER = 10, EMBATTLE_ASSIST_BOSS = 11}
+E_EMBATTLE_TYPE = {EMBATTLE_UNKNOWN = 0, EMBATTLE_DEFAULT = 1, EMBATTLE_STORE = 2, EMBATTLE_ELITE = 3, EMBATTLE_GOLD = 4, EMBATTLE_EXP = 5, EMBATTLE_EQUIPEXP = 6, EMBATTLE_ATTA = 7, EMBATTLE_ARENA_GUARD = 8, EMBATTLE_TOWER = 9, EMBATTLE_ENCOUNTER = 10, EMBATTLE_ASSIST_BOSS = 11, EMBATTLE_TOWER_EXPAND = 12}
 , 
 E_ALERT_TYPE = {ALERT_TYPE_UNKNOWN = 0, NOTICE = 1, WARN = 2, HIDE = 3}
 , 
@@ -8632,7 +8658,7 @@ WAR_SETTLE_TYPE = {DEFAULT_SETTLE_TYPE = 0, SIMULATION = 1, MURDERER = 2, PASSED
 , 
 GUILD_SET = {DEFAULT_SET = 0, ICON_SET = 1, NAME_SET = 2, COND_SET = 3, NOTICE_SET = 4}
 , 
-E_BATTLE_TYPE = {BATTLE_TYPE_UNKNOWN = 0, ARENA = 1, STORY = 2, HERO = 3, GOLD = 4, EXP = 5, EQUIPEXP = 6, TOWER = 7, EXPEDITION = 8, CG = 9, ADVENTURE = 10, GUILD_PK = 11, ACTIVITY = 12, TOWER_ENCOUNTER = 13, GUILD_WAR = 14, FRIEND_PK = 15, TEMPLE = 16, ASSIST = 17}
+E_BATTLE_TYPE = {BATTLE_TYPE_UNKNOWN = 0, ARENA = 1, STORY = 2, HERO = 3, GOLD = 4, EXP = 5, EQUIPEXP = 6, TOWER = 7, EXPEDITION = 8, CG = 9, ADVENTURE = 10, GUILD_PK = 11, ACTIVITY = 12, TOWER_ENCOUNTER = 13, GUILD_WAR = 14, FRIEND_PK = 15, TEMPLE = 16, ASSIST = 17, TOWER_EXPAND = 18}
 , 
 GUILD_WAR_STATUS = {DEFAULT_STATUS = 0, READY = 1, CHALLENGE = 2, SETTLE = 3}
 , 
@@ -8642,7 +8668,7 @@ E_MAIL_TYPE = {MAIL_TYPE_UNKNOWN = 0, MAIL_SYSTEM = 1, MAIL_BACKEND = 2, MAIL_MA
 , 
 E_CHAPTER_OPEN_CONDITION = {COC_UNKNOWN = 0, PLAYER_LEVEL = 1, PASS_STAGE = 2}
 , 
-E_CHALLENGE_TYPE = {UNKNOW_CHALLENGE = 0, STORE_CHALLENGE = 1, ELITE_CHALLENGE = 2, GOLD_CHALLENGE = 3, EXP_CHALLENGE = 4, EQUIPEXP_CHALLENGE = 5, ARENA_CHALLENGE = 6, TOWER_CHALLENGE = 7, EXPEDITION_CHALLENGE = 8, CG_CHALLENGE = 9, ADVENTURE_CHALLENGE = 10, GUILD_PK_CHALLENGE = 11, ENCOUNTER_CHALLENGE = 13, GUILD_WAR_CHALLENGE = 14, FRIEND_PK_CHALLENGE = 15, TEMPLE_CHALLENGE = 20, ACTIVITY_CHALLENGE = 101, NEW_ACTIVITY_ASSIST = 103, NEW_ACTIVITY_CHALLENGE = 201}
+E_CHALLENGE_TYPE = {UNKNOW_CHALLENGE = 0, STORE_CHALLENGE = 1, ELITE_CHALLENGE = 2, GOLD_CHALLENGE = 3, EXP_CHALLENGE = 4, EQUIPEXP_CHALLENGE = 5, ARENA_CHALLENGE = 6, TOWER_CHALLENGE = 7, EXPEDITION_CHALLENGE = 8, CG_CHALLENGE = 9, ADVENTURE_CHALLENGE = 10, GUILD_PK_CHALLENGE = 11, ENCOUNTER_CHALLENGE = 13, GUILD_WAR_CHALLENGE = 14, FRIEND_PK_CHALLENGE = 15, TEMPLE_CHALLENGE = 20, ACTIVITY_CHALLENGE = 101, NEW_ACTIVITY_ASSIST = 103, NEW_ACTIVITY_CHALLENGE = 201, TOWER_EXPAND_CHALLENGE = 301}
 , 
 BUY_ASSIST_TYPE = {DEFAULT_BUY_TIME = 0, GOLD_BUY_TIME_TYPE = 1, VIT_BUY_TIME_TYPE = 2, STA_BUY_TIME_TYPE = 3, ENERGY_BUY_TIME_TYPE = 4}
 , 

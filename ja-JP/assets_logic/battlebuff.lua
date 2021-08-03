@@ -1821,7 +1821,7 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
                                                         if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_DAILY or isPVE == true) and (battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP) then
                                                           return true
                                                         end
-                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_TOWER or isPVE == true) and (battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_ENCOUNTER) then
+                                                        if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_TOWER or battleType == E_BATTLE_TYPE.TOWER_EXPAND or isPVE == true) and (battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_ENCOUNTER or battleType == E_BATTLE_TYPE.TOWER_EXPAND) then
                                                           return true
                                                         end
                                                         if (trigger_condition == BuffTriggerCondition.BATTLE_TYPE_EXPEDITION or isPVE == true) and battleType == E_BATTLE_TYPE.EXPEDITION then
@@ -2222,8 +2222,8 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ski
                   damageExtraAdd = 0
                 end
                 if damageAdd then
-                  damage = damage * damageAdd
-                  damageExtraAdd = damageExtraAdd * damageAdd
+                  damage = (math.ceil)(damage * damageAdd)
+                  damageExtraAdd = (math.ceil)(damageExtraAdd * damageAdd)
                 end
                 if isHurt == true and (skillType == BattleSkillType.SMALL or skillType == BattleSkillType.SKILL or skillType == BattleSkillType.NORMAL or skillType == BattleSkillType.ASSIST) then
                   local isDivide, divideInfo = (BattleBuff.IsDamageDivide)(defCard)
@@ -2232,8 +2232,8 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ski
                     local value = (BattleBuff.GetBuffEffectValue)(divideInfo, BattleDisplayEffect.DAMAGE_DIVIDE)
                     value = (math.min)(10000, value)
                     value = (math.max)(0, value)
-                    local divide_damage = (math.ceil)(value * (damage) / #allCard / 10000)
-                    damage = (math.ceil)(damage * (10000 - value) / 10000 + value * (damage) / #allCard / 10000)
+                    local divide_damage = (math.ceil)(value * damage / #allCard / 10000)
+                    damage = (math.ceil)(damage * (10000 - value) / 10000 + value * damage / #allCard / 10000)
                     for _,v in ipairs(allCard) do
                       if (v.card):GetPosIndex() ~= defCard:GetPosIndex() then
                         (table.insert)(divideCardInfo, {card = v.card, damage = divide_damage})
@@ -2246,8 +2246,8 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ski
                     local value = (BattleBuff.GetBuffEffectValue)(divideInfo, BattleDisplayEffect.EXTRA_DAMAGE_DIVIDE)
                     value = (math.min)(10000, value)
                     value = (math.max)(0, value)
-                    local divide_damageExtraAdd = -(math.ceil)(-value * (damageExtraAdd) / #allCard / 10000)
-                    damageExtraAdd = -(math.ceil)(-(damageExtraAdd) * (10000 - value) / 10000 - value * (damageExtraAdd) / #allCard / 10000)
+                    local divide_damageExtraAdd = -(math.ceil)(-value * damageExtraAdd / #allCard / 10000)
+                    damageExtraAdd = -(math.ceil)(-damageExtraAdd * (10000 - value) / 10000 - value * damageExtraAdd / #allCard / 10000)
                     for _,v in ipairs(allCard) do
                       if (v.card):GetPosIndex() ~= defCard:GetPosIndex() then
                         local isFind = false

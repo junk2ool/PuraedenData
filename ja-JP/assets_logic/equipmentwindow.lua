@@ -821,6 +821,9 @@ EquipmentWindow.RefreshEquipmentInfoMain = function(...)
       end
     end
   end
+  -- DECOMPILER ERROR at PC167: Confused about usage of register: R5 in 'UnsetPending'
+
+  EquiptData.SuitBuff = (EquiptMgr.GetSuitBuff)((EquiptData.CurrentRoleData).equipInfo)
   ;
   (RedDotMgr.ProcessRedDot)(RedDotComID.Equipt_Equipment_List, redDot, needShow)
   ;
@@ -1652,11 +1655,78 @@ EquipmentWindow.ShowEquipmentAttributes = function(equipInfos, fc, ...)
   return list.height
 end
 
+EquipmentWindow.ShowEquipSuitBuffs = function(equipInfos, item, wordTxt, ...)
+  -- function num : 0_43 , upvalues : _ENV, uis
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R3 in 'UnsetPending'
+
+  EquiptData.SuitBuff = (EquiptMgr.GetSuitBuff)(equipInfos)
+  local data = (EquiptData.CurrentRoleData).equipSet
+  for k,v in pairs(EquiptData.SuitBuff) do
+    local buffs = {}
+    local suitConfig = ((TableData.gTable).BaseEquipSetsData)[k]
+    local suits = split(suitConfig.effect, ",")
+    local count = #suits
+    for i = 1, count do
+      local buffId = tonumber((split(suits[i], ":"))[2])
+      local buffType = tonumber((split(suits[i], ":"))[1])
+      if buffType == 1 then
+        buffs[i] = buffId
+      else
+        buffs[i] = 0
+      end
+      buffs[i] = buffId
+    end
+    local lowerId = (EquiptMgr.JudgeHaveLowerBuff)(buffs, nil)
+    for k,v in ipairs(lowerId) do
+      local lower = v
+      local have = false
+      for a,b in ipairs(data) do
+        if b == lower then
+          have = true
+        end
+      end
+      if have == false then
+        (table.insert)(data, lower)
+      end
+    end
+  end
+  ;
+  (table.sort)(data, function(a, b, ...)
+    -- function num : 0_43_0
+    do return a < b end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+  local count = #data
+  if count ~= 0 then
+    item = (((uis.EquiptPanelGrp).EquiptDetailedGrp).DetailedList):AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_BUFF_DETAIL_RESOURCE))
+    wordTxt = item:GetChild("WordTxt")
+    wordTxt.text = ""
+    local index = 0
+    for i = 1, count do
+      local setsId = (((TableData.gTable).BaseBuffPreBattleData)[data[i]]).setsId
+      local suitConfig = ((TableData.gTable).BaseEquipSetsData)[setsId]
+      if index ~= 0 then
+        wordTxt.text = wordTxt.text .. "\n\n"
+      end
+      local id = data[i]
+      local buffPreConfig = ((TableData.gTable).BaseBuffPreBattleData)[id]
+      wordTxt.text = wordTxt.text .. (PUtil.get)(suitConfig.name) .. " - " .. buffPreConfig.remark
+      index = index + 1
+    end
+    if item ~= nil then
+      (item:GetChild("Decorate_01_Image")).height = wordTxt.y * 2 + wordTxt.textHeight
+    end
+  end
+end
+
 EquipmentWindow.ShowEquipmentBuffs = function(equipInfos, ...)
-  -- function num : 0_43 , upvalues : uis, _ENV
+  -- function num : 0_44 , upvalues : EquipmentWindow, uis, _ENV
   local count = #equipInfos
   local subCount, item, wordTxt = nil, nil, nil
   local buffCount = 0
+  ;
+  (EquipmentWindow.ShowEquipSuitBuffs)(equipInfos, item, wordTxt)
   for i = 1, count do
     buffCount = buffCount + #(equipInfos[i]).randomBuff
   end
@@ -1682,14 +1752,14 @@ EquipmentWindow.ShowEquipmentBuffs = function(equipInfos, ...)
 end
 
 EquipmentWindow.RefreshDecomposePanel = function(...)
-  -- function num : 0_44 , upvalues : EquipmentWindow
+  -- function num : 0_45 , upvalues : EquipmentWindow
   (EquipmentWindow.RefreshDecomposeFilterPanel)()
   ;
   (EquipmentWindow.RefreshDecomposeList)()
 end
 
 EquipmentWindow.RefreshDecomposeFilterPanel = function(...)
-  -- function num : 0_45 , upvalues : uis, EquipmentWindow, _ENV
+  -- function num : 0_46 , upvalues : uis, EquipmentWindow, _ENV
   ((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).CleanUpList):RemoveChildrenToPool()
   ;
   (EquipmentWindow.InitEquipmentTypeFilter)((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).CleanUpList, EquiptSetType.Decompose)
@@ -1706,14 +1776,14 @@ EquipmentWindow.RefreshDecomposeFilterPanel = function(...)
 end
 
 EquipmentWindow.RefreshDecomposeList = function(...)
-  -- function num : 0_46 , upvalues : uis, _ENV
+  -- function num : 0_47 , upvalues : uis, _ENV
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
   (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList).numItems = #((EquiptData.Filters)[EquiptSetType.Decompose]).Result
 end
 
 EquipmentWindow.RefreshDecomposeItem = function(index, item, ...)
-  -- function num : 0_47 , upvalues : _ENV, EquipmentWindow, _detailUnidentifyPanelGrp, _detailReplacePanelGrp, uis
+  -- function num : 0_48 , upvalues : _ENV, EquipmentWindow, _detailUnidentifyPanelGrp, _detailReplacePanelGrp, uis
   index = index + 1
   local data = (EquiptData.Equipments)[(EquiptData.Equipments)[(((EquiptData.Filters)[EquiptSetType.Decompose]).Result)[index]]]
   local configData = ((TableData.gTable).BaseEquipData)[data.id]
@@ -1727,7 +1797,7 @@ EquipmentWindow.RefreshDecomposeItem = function(index, item, ...)
   choiceBtn.visible = not data.lock
   choiceBtn.selected = (EquiptData.ReadyToDecompose)[data.objectIndex] ~= nil
   local onclick = function(eventContext, ...)
-    -- function num : 0_47_0 , upvalues : item, _ENV, data, choiceBtn, _detailUnidentifyPanelGrp, EquipmentWindow, configData, _detailReplacePanelGrp, uis
+    -- function num : 0_48_0 , upvalues : item, _ENV, data, choiceBtn, _detailUnidentifyPanelGrp, EquipmentWindow, configData, _detailReplacePanelGrp, uis
     eventContext:StopPropagation()
     local newCompGrp = item:GetChild("NewCompGrp")
     if newCompGrp.visible then
@@ -1786,7 +1856,7 @@ EquipmentWindow.RefreshDecomposeItem = function(index, item, ...)
 
   ;
   (item.onClick):Set(function(eventContext, ...)
-    -- function num : 0_47_1 , upvalues : choiceBtn, onclick
+    -- function num : 0_48_1 , upvalues : choiceBtn, onclick
     choiceBtn.selected = not choiceBtn.selected
     onclick(eventContext)
   end
@@ -1797,47 +1867,47 @@ EquipmentWindow.RefreshDecomposeItem = function(index, item, ...)
 end
 
 EquipmentWindow.ClickAllChoseBtn = function(...)
-  -- function num : 0_48 , upvalues : _ENV, uis
+  -- function num : 0_49 , upvalues : _ENV, uis
   (EquiptMgr.SetAllEquipToDecomposeOrNot)((((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected)
   ;
   (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList):RefreshVirtualList()
 end
 
 EquipmentWindow.ClickUnidentifiedBtn = function(...)
-  -- function num : 0_49 , upvalues : _ENV, uis
+  -- function num : 0_50 , upvalues : _ENV, uis
   (EquiptMgr.SetUnidentifiedEquipToDecompose)((((uis.EquiptPanelGrp).CleanUpGrp).AllChoiceBtn).selected)
   ;
   (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList):RefreshVirtualList()
 end
 
 EquipmentWindow.ClickIdentifiedBtn = function(...)
-  -- function num : 0_50 , upvalues : _ENV, uis
+  -- function num : 0_51 , upvalues : _ENV, uis
   (EquiptMgr.SetIdentifiedEquipToDecompose)((((uis.EquiptPanelGrp).CleanUpGrp).AppraisalChoiceBtn).selected)
   ;
   (((uis.EquiptPanelGrp).CleanUpGrp).EquiptList):RefreshVirtualList()
 end
 
 EquipmentWindow.ClickDecomposeBtn = function(...)
-  -- function num : 0_51 , upvalues : EquipmentWindow, _ENV
+  -- function num : 0_52 , upvalues : EquipmentWindow, _ENV
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquiptMgr.TryDecomposeEquips)()
 end
 
 EquipmentWindow.ClickDecomposeResetBtn = function(...)
-  -- function num : 0_52 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_53 , upvalues : _ENV, EquipmentWindow
   (EquiptMgr.ResetFilter)(EquiptSetType.Decompose)
   ;
   (EquipmentWindow.RefreshDecomposeFilterPanel)()
 end
 
 EquipmentWindow.ClickDecomposeSortBtn = function(...)
-  -- function num : 0_53 , upvalues : _ENV
+  -- function num : 0_54 , upvalues : _ENV
   (EquiptMgr.ChangeFilterSortType)(EquiptSetType.Decompose)
 end
 
 EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
-  -- function num : 0_54 , upvalues : EquipmentWindow, _equipmentTypeFilterBtn, _currentEquipmentType, _currentIdentifyEquipmentType, uis, _ENV
+  -- function num : 0_55 , upvalues : EquipmentWindow, _equipmentTypeFilterBtn, _currentEquipmentType, _currentIdentifyEquipmentType, uis, _ENV
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquipmentWindow.RefreshEquipmentAmountInfo)()
@@ -1861,7 +1931,7 @@ EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
   end
   ;
   ((((uis.EquiptPanelGrp).EquiptChangeGrp).OrderBtn).onClick):Set(function(...)
-    -- function num : 0_54_0 , upvalues : _ENV
+    -- function num : 0_55_0 , upvalues : _ENV
     (EquiptMgr.ChangeFilterSortType)(EquiptSetType.Identify)
   end
 )
@@ -1869,7 +1939,7 @@ EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
     local index = i
     do
       ((_equipmentTypeFilterBtn[index]).onClick):Set(function(...)
-    -- function num : 0_54_1 , upvalues : EquipmentWindow, index
+    -- function num : 0_55_1 , upvalues : EquipmentWindow, index
     (EquipmentWindow.ChoseUnidentifiedEquipByType)(index)
   end
 )
@@ -1897,20 +1967,20 @@ EquipmentWindow.RefreshIdentifyPage = function(scrollToTop, ...)
 end
 
 EquipmentWindow.ChoseUnidentifiedEquipByType = function(type, ...)
-  -- function num : 0_55 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_56 , upvalues : _ENV, EquipmentWindow
   (EquiptMgr.ChangeFilter)(EquiptSetType.Identify, EquiptFilterType.SinglePart, type)
   ;
   (EquipmentWindow.SetIdentifyEquipmentTypeFilterBtn)()
 end
 
 EquipmentWindow.RefreshIdentifyBtnRedDot = function(...)
-  -- function num : 0_56 , upvalues : uis, _ENV
+  -- function num : 0_57 , upvalues : uis, _ENV
   (((uis.EquiptPanelGrp).AppraisalBtn):GetChild("RedDot")).visible = #EquiptData.UnidentifiedEquipments > 0
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 EquipmentWindow.SetIdentifyEquipmentTypeFilterBtn = function(...)
-  -- function num : 0_57 , upvalues : _ENV, _currentIdentifyEquipmentType, _equipmentTypeFilterBtn
+  -- function num : 0_58 , upvalues : _ENV, _currentIdentifyEquipmentType, _equipmentTypeFilterBtn
   local type = (((EquiptData.Filters)[EquiptSetType.Identify]).FilterType)[EquiptFilterType.SinglePart]
   -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -1930,7 +2000,7 @@ EquipmentWindow.SetIdentifyEquipmentTypeFilterBtn = function(...)
 end
 
 EquipmentWindow.ShowReadyToIdentifyEquipments = function(...)
-  -- function num : 0_58 , upvalues : _ENV, uis, _noEquipmentsEffect, _identifyCostComponent, EquipmentWindow
+  -- function num : 0_59 , upvalues : _ENV, uis, _noEquipmentsEffect, _identifyCostComponent, EquipmentWindow
   -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
 
   if #EquiptData.ReadyToIdentify == 0 then
@@ -1956,7 +2026,7 @@ EquipmentWindow.ShowReadyToIdentifyEquipments = function(...)
 end
 
 EquipmentWindow.RefreshReadyToIdentifyEquipments = function(...)
-  -- function num : 0_59 , upvalues : uis, _ENV, _identifyCostComponent
+  -- function num : 0_60 , upvalues : uis, _ENV, _identifyCostComponent
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
 
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).CleanUpList).numItems = #EquiptData.ReadyToIdentify
@@ -1990,9 +2060,9 @@ EquipmentWindow.RefreshReadyToIdentifyEquipments = function(...)
 end
 
 EquipmentWindow.PlayIdentifyEffect = function(callback, ...)
-  -- function num : 0_60 , upvalues : uis, _ENV, EquipmentWindow
+  -- function num : 0_61 , upvalues : uis, _ENV, EquipmentWindow
   ((((uis.EquiptPanelGrp).AppraisalGrp).Appraisal).CleanUpList):TraversalItem(function(index, item, ...)
-    -- function num : 0_60_0 , upvalues : _ENV, uis
+    -- function num : 0_61_0 , upvalues : _ENV, uis
     local lod = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_EQUIPMENT_IDENTIFY, true, true)
     item:AddChild(lod)
     lod:SetXY(item.width * 0.5, item.height * 0.5)
@@ -2002,7 +2072,7 @@ EquipmentWindow.PlayIdentifyEffect = function(callback, ...)
 )
   ;
   (SimpleTimer.setTimeout)(1, function(...)
-    -- function num : 0_60_1 , upvalues : EquipmentWindow, callback
+    -- function num : 0_61_1 , upvalues : EquipmentWindow, callback
     (EquipmentWindow.RefreshReadyToIdentifyEquipments)()
     callback()
   end
@@ -2010,7 +2080,7 @@ EquipmentWindow.PlayIdentifyEffect = function(callback, ...)
 end
 
 EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
-  -- function num : 0_61 , upvalues : _ENV, EquipmentWindow, _detailUnidentifyPanelGrp
+  -- function num : 0_62 , upvalues : _ENV, EquipmentWindow, _detailUnidentifyPanelGrp
   index = index + 1
   local data = (EquiptData.Equipments)[(EquiptData.Equipments)[(((EquiptData.Filters)[EquiptSetType.Identify]).Result)[index]]]
   local configData = ((TableData.gTable).BaseEquipData)[data.id]
@@ -2023,7 +2093,7 @@ EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
   local choiceBtn = item:GetChild("ChoiceBtn")
   choiceBtn.selected = (EquiptData.ReadyToIdentify)[data.objectIndex] ~= nil
   local onClick = function(eventContext, ...)
-    -- function num : 0_61_0 , upvalues : _ENV, choiceBtn, data, EquipmentWindow, _detailUnidentifyPanelGrp
+    -- function num : 0_62_0 , upvalues : _ENV, choiceBtn, data, EquipmentWindow, _detailUnidentifyPanelGrp
     eventContext:StopPropagation()
     if (EquiptMgr.CheckIdentifyEquipmentsFull)() and choiceBtn.selected then
       choiceBtn.selected = not choiceBtn.selected
@@ -2044,7 +2114,7 @@ EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
 
   ;
   (item.onClick):Set(function(eventContext, ...)
-    -- function num : 0_61_1 , upvalues : _ENV, choiceBtn, onClick
+    -- function num : 0_62_1 , upvalues : _ENV, choiceBtn, onClick
     if (EquiptMgr.CheckIdentifyEquipmentsFull)() and not choiceBtn.selected then
       (MessageMgr.SendCenterTips)((PUtil.get)(60000374))
       return 
@@ -2059,13 +2129,13 @@ EquipmentWindow.RefreshUnidentifiedEquipmentItem = function(index, item, ...)
 end
 
 EquipmentWindow.RefreshReadyToIdentifyItem = function(index, item, ...)
-  -- function num : 0_62 , upvalues : _ENV, EquipmentWindow, uis
+  -- function num : 0_63 , upvalues : _ENV, EquipmentWindow, uis
   local data = (EquiptData.ReadyToIdentify)[index + 1]
   ;
   (Util.SetEquipFrame)(item, data)
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_62_0 , upvalues : EquipmentWindow, _ENV, data, uis
+    -- function num : 0_63_0 , upvalues : EquipmentWindow, _ENV, data, uis
     (EquipmentWindow.CheckIdentifyAllChoseBtn)()
     ;
     (EquiptMgr.HandleEquipmentToIdentify)(data, false)
@@ -2076,7 +2146,7 @@ EquipmentWindow.RefreshReadyToIdentifyItem = function(index, item, ...)
 end
 
 EquipmentWindow.CheckIdentifyAllChoseBtn = function(...)
-  -- function num : 0_63 , upvalues : uis
+  -- function num : 0_64 , upvalues : uis
   -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
 
   if (((uis.EquiptPanelGrp).EquiptChangeGrp).AllChoiceBtn).selected then
@@ -2085,19 +2155,19 @@ EquipmentWindow.CheckIdentifyAllChoseBtn = function(...)
 end
 
 EquipmentWindow.ClearIdentifyEquipments = function(...)
-  -- function num : 0_64 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_65 , upvalues : _ENV, EquipmentWindow
   (EquiptMgr.ResetIdentifyData)()
   ;
   (EquipmentWindow.ShowReadyToIdentifyEquipments)()
 end
 
 EquipmentWindow.ClickIdentifyBtn = function(...)
-  -- function num : 0_65 , upvalues : _ENV
+  -- function num : 0_66 , upvalues : _ENV
   (EquiptMgr.TryIdentifyEquips)()
 end
 
 EquipmentWindow.ClickIdentifyAllChoseBtn = function(...)
-  -- function num : 0_66 , upvalues : _ENV, uis, EquipmentWindow
+  -- function num : 0_67 , upvalues : _ENV, uis, EquipmentWindow
   (EquiptMgr.SetAllEquipToIdentifyOrNot)((((uis.EquiptPanelGrp).EquiptChangeGrp).AllChoiceBtn).selected)
   ;
   (((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptList):RefreshVirtualList()
@@ -2107,7 +2177,7 @@ EquipmentWindow.ClickIdentifyAllChoseBtn = function(...)
 end
 
 EquipmentWindow.ClickIdentifyCancelAllBtn = function(...)
-  -- function num : 0_67 , upvalues : EquipmentWindow, uis
+  -- function num : 0_68 , upvalues : EquipmentWindow, uis
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquipmentWindow.ClearIdentifyEquipments)()
@@ -2118,7 +2188,7 @@ EquipmentWindow.ClickIdentifyCancelAllBtn = function(...)
 end
 
 EquipmentWindow.InitEquipmentTypeFilter = function(list, setType, ...)
-  -- function num : 0_68 , upvalues : uis, _ENV, EquipmentWindow
+  -- function num : 0_69 , upvalues : uis, _ENV, EquipmentWindow
   local grp = ((((uis.EquiptPanelGrp).CleanUpGrp).CleanUpChoice).CleanUpList):AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_TYPE_FILTER_RESOURCE))
   ;
   (grp:GetChild("NameTxt")).text = (PUtil.get)(60000326)
@@ -2132,14 +2202,14 @@ EquipmentWindow.InitEquipmentTypeFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.InitTypeBtn = function(panel, btnName, nameTxt, equiptType, setType, ...)
-  -- function num : 0_69 , upvalues : _ENV
+  -- function num : 0_70 , upvalues : _ENV
   local btn = panel:GetChild(btnName)
   ;
   (btn:GetChild("NameTxt")).text = nameTxt
   btn.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Type])[equiptType] ~= nil
   ;
   (btn.onClick):Set(function(...)
-    -- function num : 0_69_0 , upvalues : _ENV, setType, equiptType, btn
+    -- function num : 0_70_0 , upvalues : _ENV, setType, equiptType, btn
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Type, equiptType, btn.selected)
   end
 )
@@ -2147,7 +2217,7 @@ EquipmentWindow.InitTypeBtn = function(panel, btnName, nameTxt, equiptType, setT
 end
 
 EquipmentWindow.InitEquipmentPartsFilter = function(list, setType, ...)
-  -- function num : 0_70 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_71 , upvalues : _ENV, EquipmentWindow
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_PARTS_FILTER_RESOURCE))
   ;
   (grp:GetChild("NameTxt")).text = (PUtil.get)(60000336)
@@ -2162,14 +2232,14 @@ EquipmentWindow.InitEquipmentPartsFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshEquipmentPartItem = function(panel, name, equiptPartsType, setType, ...)
-  -- function num : 0_71 , upvalues : _ENV
+  -- function num : 0_72 , upvalues : _ENV
   local item = panel:GetChild(name)
   ;
   (item:GetController("c1")).selectedIndex = equiptPartsType - 1
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.MultiplyParts])[equiptPartsType] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_71_0 , upvalues : _ENV, setType, equiptPartsType, item
+    -- function num : 0_72_0 , upvalues : _ENV, setType, equiptPartsType, item
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.MultiplyParts, equiptPartsType, item.selected)
   end
 )
@@ -2177,7 +2247,7 @@ EquipmentWindow.RefreshEquipmentPartItem = function(panel, name, equiptPartsType
 end
 
 EquipmentWindow.InitEquipmentIntelligenceFilter = function(list, setType, ...)
-  -- function num : 0_72 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_73 , upvalues : _ENV, EquipmentWindow
   (EquiptData.InitMaxIntelligence)()
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_INTELLIGENCE_FILTER_RESOURCE))
   ;
@@ -2196,14 +2266,14 @@ EquipmentWindow.InitEquipmentIntelligenceFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshIntelligenceItem = function(index, item, setType, ...)
-  -- function num : 0_73 , upvalues : _ENV
+  -- function num : 0_74 , upvalues : _ENV
   index = index - 1
   ;
   (item:GetChild("NameTxt")).text = "★" .. tostring(index)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Intelligence])[index] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_73_0 , upvalues : item, _ENV, setType, index
+    -- function num : 0_74_0 , upvalues : item, _ENV, setType, index
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Intelligence, index, item.selected)
@@ -2213,7 +2283,7 @@ EquipmentWindow.RefreshIntelligenceItem = function(index, item, setType, ...)
 end
 
 EquipmentWindow.InitEquipmentAttributeFilter = function(list, setType, ...)
-  -- function num : 0_74 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_75 , upvalues : _ENV, EquipmentWindow
   (EquiptData.InitEquiptAttributes)()
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_FILTER_RESOURCE))
   ;
@@ -2233,7 +2303,7 @@ EquipmentWindow.InitEquipmentAttributeFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshAttributeItem = function(index, item, setType, ...)
-  -- function num : 0_75 , upvalues : _ENV
+  -- function num : 0_76 , upvalues : _ENV
   local data = (EquiptData.Attributes)[index]
   local config = ((TableData.gTable).BaseAttributeData)[data]
   ;
@@ -2241,7 +2311,7 @@ EquipmentWindow.RefreshAttributeItem = function(index, item, setType, ...)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Attributes])[data] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_75_0 , upvalues : item, _ENV, setType, data
+    -- function num : 0_76_0 , upvalues : item, _ENV, setType, data
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Attributes, data, item.selected)
@@ -2251,7 +2321,7 @@ EquipmentWindow.RefreshAttributeItem = function(index, item, setType, ...)
 end
 
 EquipmentWindow.InitEquipmentBuffFilter = function(list, setType, ...)
-  -- function num : 0_76 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_77 , upvalues : _ENV, EquipmentWindow
   (EquiptData.InitEquiptBuff)()
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_FILTER_RESOURCE))
   ;
@@ -2271,14 +2341,14 @@ EquipmentWindow.InitEquipmentBuffFilter = function(list, setType, ...)
 end
 
 EquipmentWindow.RefreshBuffItem = function(index, item, setType, ...)
-  -- function num : 0_77 , upvalues : _ENV
+  -- function num : 0_78 , upvalues : _ENV
   local data = (EquiptData.Buffs)[index]
   ;
   (item:GetChild("NameTxt")).text = (PUtil.get)(data)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.Buff])[data] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_77_0 , upvalues : item, _ENV, setType, index
+    -- function num : 0_78_0 , upvalues : item, _ENV, setType, index
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.Buff, index, item.selected)
@@ -2288,7 +2358,7 @@ EquipmentWindow.RefreshBuffItem = function(index, item, setType, ...)
 end
 
 EquipmentWindow.InitEquipmentAttributeAmountFilter = function(list, setType, ...)
-  -- function num : 0_78 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_79 , upvalues : _ENV, EquipmentWindow
   local grp = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.EQUIPMENT_FILTER_RESOURCE))
   ;
   (grp:GetChild("NameTxt")).text = (PUtil.get)(60000333)
@@ -2306,12 +2376,12 @@ EquipmentWindow.InitEquipmentAttributeAmountFilter = function(list, setType, ...
 end
 
 EquipmentWindow.RefreshAttributeAmountItem = function(index, item, setType, ...)
-  -- function num : 0_79 , upvalues : _ENV
+  -- function num : 0_80 , upvalues : _ENV
   (item:GetChild("NameTxt")).text = (PUtil.get)(60000334, index)
   item.selected = ((((EquiptData.Filters)[setType]).FilterType)[EquiptFilterType.AttributeAmount])[index] ~= nil
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_79_0 , upvalues : item, _ENV, setType, index
+    -- function num : 0_80_0 , upvalues : item, _ENV, setType, index
     item.selected = not item.selected
     ;
     (EquiptMgr.ChangeFilter)(setType, EquiptFilterType.AttributeAmount, index, item.selected)
@@ -2321,7 +2391,7 @@ EquipmentWindow.RefreshAttributeAmountItem = function(index, item, setType, ...)
 end
 
 EquipmentWindow.RefreshPresetPage = function(...)
-  -- function num : 0_80 , upvalues : uis, PresetStatus, EquipmentWindow, _ENV
+  -- function num : 0_81 , upvalues : uis, PresetStatus, EquipmentWindow, _ENV
   if (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex == PresetStatus.Normal then
     (EquipmentWindow.RefreshChoosePresetPage)()
   else
@@ -2341,7 +2411,7 @@ EquipmentWindow.RefreshPresetPage = function(...)
 end
 
 EquipmentWindow.RefreshChoosePresetPage = function(...)
-  -- function num : 0_81 , upvalues : _ENV, EquipmentWindow, uis, _noPresetEffect
+  -- function num : 0_82 , upvalues : _ENV, EquipmentWindow, uis, _noPresetEffect
   if #EquiptData.EquipPresets == 0 then
     (EquipmentWindow.ChosePreset)(nil)
     -- DECOMPILER ERROR at PC12: Confused about usage of register: R0 in 'UnsetPending'
@@ -2376,7 +2446,7 @@ EquipmentWindow.RefreshChoosePresetPage = function(...)
 end
 
 EquipmentWindow.RefreshChoesdRolePreset = function(...)
-  -- function num : 0_82 , upvalues : _ENV, EquipmentWindow, uis
+  -- function num : 0_83 , upvalues : _ENV, EquipmentWindow, uis
   if (EquiptData.CurrentRoleData).equipScheme == 0 then
     (EquipmentWindow.RefreshPresetPanel)((((uis.EquiptPanelGrp).ProgrammeMain).Contrast).ProgrammeInfo_A, 0, (PUtil.get)(60000571), false, nil, true)
   else
@@ -2386,7 +2456,7 @@ EquipmentWindow.RefreshChoesdRolePreset = function(...)
 end
 
 EquipmentWindow.ChosePreset = function(id, refreshPanel, ...)
-  -- function num : 0_83 , upvalues : _currentChosedPreset, uis, _ENV, EquipmentWindow
+  -- function num : 0_84 , upvalues : _currentChosedPreset, uis, _ENV, EquipmentWindow
   _currentChosedPreset = id
   -- DECOMPILER ERROR at PC16: Confused about usage of register: R2 in 'UnsetPending'
 
@@ -2399,7 +2469,7 @@ EquipmentWindow.ChosePreset = function(id, refreshPanel, ...)
 end
 
 EquipmentWindow.RefreshPresetPanel = function(panel, id, noWords, haveChangeName, presetData, noShow, ...)
-  -- function num : 0_84 , upvalues : PresetPanelStatus, _ENV, EquipmentWindow
+  -- function num : 0_85 , upvalues : PresetPanelStatus, _ENV, EquipmentWindow
   if not id then
     id = 0
   end
@@ -2502,7 +2572,7 @@ EquipmentWindow.RefreshPresetPanel = function(panel, id, noWords, haveChangeName
 end
 
 EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equipInfo, chose, ...)
-  -- function num : 0_85 , upvalues : uis, PresetStatus, _slotsEquipInfo, _ENV, _equipSlotsForPreset, _currentEquipmentTypeForPreset, EquipmentWindow
+  -- function num : 0_86 , upvalues : uis, PresetStatus, _slotsEquipInfo, _ENV, _equipSlotsForPreset, _currentEquipmentTypeForPreset, EquipmentWindow
   local used = {}
   local count = 0
   if equipInfo and (((uis.EquiptPanelGrp).ProgrammeMain).c1Ctr).selectedIndex ~= PresetStatus.Edit then
@@ -2567,7 +2637,7 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
               used[configData.type] = true
               if chose then
                 ((slot.Root).onClick):Set(function(...)
-    -- function num : 0_85_0 , upvalues : EquipmentWindow, configData, eachData
+    -- function num : 0_86_0 , upvalues : EquipmentWindow, configData, eachData
     (EquipmentWindow.ChoseEquipForPresetByType)(configData.type)
     ;
     (EquipmentWindow.HandleEquipDetail)(eachData, configData.type, true, false, true)
@@ -2620,7 +2690,7 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
       (slot.NumberTxt).text = ""
       if chose then
         ((slot.Root).onClick):Set(function(...)
-    -- function num : 0_85_1 , upvalues : EquipmentWindow, index
+    -- function num : 0_86_1 , upvalues : EquipmentWindow, index
     (EquipmentWindow.CloseAllDetail)()
     ;
     (EquipmentWindow.ChoseEquipForPresetByType)(index)
@@ -2635,10 +2705,10 @@ EquipmentWindow.RefreshEquiptSlotsForPreset = function(presetData, totalFC, equi
 end
 
 EquipmentWindow.InitEquiptSlotsForPreset = function(list, presetData, totalFC, resources, chose, equipInfo, ...)
-  -- function num : 0_86 , upvalues : _ENV, _equipSlotsForPreset, EquipmentWindow
+  -- function num : 0_87 , upvalues : _ENV, _equipSlotsForPreset, EquipmentWindow
   local equiptIcons = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, resources))
   local setter = function(comName, ...)
-    -- function num : 0_86_0 , upvalues : equiptIcons
+    -- function num : 0_87_0 , upvalues : equiptIcons
     local info = {}
     info.Root = equiptIcons:GetChild(comName)
     info.EquiptFrame = (info.Root):GetChild("EquiptIcon")
@@ -2662,7 +2732,7 @@ EquipmentWindow.InitEquiptSlotsForPreset = function(list, presetData, totalFC, r
 end
 
 EquipmentWindow.InitEquiptBuffForPreset = function(list, presetData, resources1, resources2, equipInfo, ...)
-  -- function num : 0_87 , upvalues : _ENV
+  -- function num : 0_88 , upvalues : _ENV
   local count = nil
   if equipInfo then
     count = #equipInfo
@@ -2681,28 +2751,56 @@ EquipmentWindow.InitEquiptBuffForPreset = function(list, presetData, resources1,
       buffCount = buffCount + #data.randomBuff
     end
   end
-  if buffCount > 0 then
-    (EquiptMgr.AddSeperater)(list, 60000447, resources1)
-  end
+  local suitCount = 0
+  local attData = {}
+  local suitsData = {}
   for i = 1, count do
     if equipInfo then
       data = equipInfo[i]
     else
       data = (EquiptData.Equipments)[(EquiptData.Equipments)[(presetData.equipIndex)[i]]]
     end
-    if data then
-      subCount = #data.randomBuff
+    ;
+    (table.insert)(attData, data)
+    ;
+    (table.insert)(suitsData, data)
+  end
+  local suits = (EquiptMgr.GetSuitBuffByEquiptInfo)(suitsData)
+  local canShowBuff = {}
+  for k,v in pairs(suits) do
+    if v ~= nil then
+      local suitsCount = #v
+      for i = 1, suitsCount do
+        data = ((TableData.gTable).BaseBuffPreBattleData)[v[i]]
+        if data then
+          (table.insert)(canShowBuff, data)
+        end
+      end
+    end
+  end
+  suitCount = #canShowBuff
+  if buffCount > 0 or suitCount > 0 then
+    (EquiptMgr.AddSeperater)(list, 60000447, resources1)
+  end
+  for i = 1, suitCount do
+    wordTxt = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, resources2))
+    ;
+    (wordTxt:GetChild("WordTxt")).text = "[color=" .. Const.GreenColor .. "]" .. (canShowBuff[i]).name .. (canShowBuff[i]).remark .. "[/color]"
+  end
+  for k,v in pairs(attData) do
+    if v then
+      subCount = #v.randomBuff
       for j = 1, subCount do
         wordTxt = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, resources2))
         ;
-        (wordTxt:GetChild("WordTxt")).text = (((TableData.gTable).BaseBuffPreBattleData)[(data.randomBuff)[j]]).remark
+        (wordTxt:GetChild("WordTxt")).text = (((TableData.gTable).BaseBuffPreBattleData)[(v.randomBuff)[j]]).remark
       end
     end
   end
 end
 
 EquipmentWindow.InitEditPresetDataDetail = function(list, presetData, totalFC, equipInfo, ...)
-  -- function num : 0_88 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_89 , upvalues : _ENV, EquipmentWindow
   list:RemoveChildrenToPool()
   ;
   (EquiptMgr.AddSeperater)(list, 60000572, EquiptData.PRESET_LINE_A)
@@ -2739,8 +2837,12 @@ EquipmentWindow.InitEditPresetDataDetail = function(list, presetData, totalFC, e
   end
 end
 
+EquipmentWindow.InitEquiptSuit = function(list, equipInfo, resource, ...)
+  -- function num : 0_90
+end
+
 EquipmentWindow.InitPresetDataDetail = function(list, presetData, totalFC, equipInfo, ...)
-  -- function num : 0_89 , upvalues : _ENV, EquipmentWindow
+  -- function num : 0_91 , upvalues : _ENV, EquipmentWindow
   list:RemoveChildrenToPool()
   ;
   (EquiptMgr.AddSeperater)(list, 60000572, EquiptData.LINE_A_RESOURCE)
@@ -2768,7 +2870,7 @@ EquipmentWindow.InitPresetDataDetail = function(list, presetData, totalFC, equip
 end
 
 EquipmentWindow.RefreshEquipmentsForPreset = function(setPos, ...)
-  -- function num : 0_90 , upvalues : uis, _ENV
+  -- function num : 0_92 , upvalues : uis, _ENV
   local listPos = nil
   if setPos then
     listPos = (((((uis.EquiptPanelGrp).ProgrammeMain).ProgrammeList).EquiptList).scrollPane).posY
@@ -2785,7 +2887,7 @@ EquipmentWindow.RefreshEquipmentsForPreset = function(setPos, ...)
 end
 
 EquipmentWindow.InitPresetEdit = function(id, ...)
-  -- function num : 0_91 , upvalues : _ENV, uis, PresetStatus, _slotsEquipInfoForChange, _slotsEquipInfo, EquipmentWindow
+  -- function num : 0_93 , upvalues : _ENV, uis, PresetStatus, _slotsEquipInfoForChange, _slotsEquipInfo, EquipmentWindow
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
 
   if not id then
@@ -2836,7 +2938,7 @@ EquipmentWindow.InitPresetEdit = function(id, ...)
 end
 
 EquipmentWindow.RefreshPresetItem = function(index, item, ...)
-  -- function num : 0_92 , upvalues : _ENV, EquipmentWindow, _currentChosedPreset, _currentChosedPresetItem
+  -- function num : 0_94 , upvalues : _ENV, EquipmentWindow, _currentChosedPreset, _currentChosedPresetItem
   index = index + 1
   local ctrl = item:GetController("c1")
   local marker = item:GetController("Plan")
@@ -2846,7 +2948,7 @@ EquipmentWindow.RefreshPresetItem = function(index, item, ...)
     item.selected = false
     ;
     (item.onClick):Set(function(...)
-    -- function num : 0_92_0 , upvalues : EquipmentWindow
+    -- function num : 0_94_0 , upvalues : EquipmentWindow
     (EquipmentWindow.InitPresetEdit)()
   end
 )
@@ -2871,7 +2973,7 @@ EquipmentWindow.RefreshPresetItem = function(index, item, ...)
       end
       ;
       (item.onClick):Set(function(...)
-    -- function num : 0_92_1 , upvalues : EquipmentWindow, data, _ENV, _currentChosedPresetItem, item
+    -- function num : 0_94_1 , upvalues : EquipmentWindow, data, _ENV, _currentChosedPresetItem, item
     (EquipmentWindow.ChosePreset)(data.id, true)
     if not (Util.IsNil)(_currentChosedPresetItem) then
       _currentChosedPresetItem.selected = false
@@ -2886,7 +2988,7 @@ EquipmentWindow.RefreshPresetItem = function(index, item, ...)
 end
 
 EquipmentWindow.RefreshPresetEquipItem = function(index, item, ...)
-  -- function num : 0_93 , upvalues : _ENV, EquipmentWindow, _selectedInBag, _selectedInBagItem
+  -- function num : 0_95 , upvalues : _ENV, EquipmentWindow, _selectedInBag, _selectedInBagItem
   index = index + 1
   local data = ((EquiptData.PresetEditEquipments).EquipDetail)[((EquiptData.PresetEditEquipments).Result)[index]]
   local config = ((TableData.gTable).BaseEquipData)[data.id]
@@ -2901,7 +3003,7 @@ EquipmentWindow.RefreshPresetEquipItem = function(index, item, ...)
   end
   ;
   (item.onClick):SetFunc(function(...)
-    -- function num : 0_93_0 , upvalues : item, _ENV, data, EquipmentWindow, config
+    -- function num : 0_95_0 , upvalues : item, _ENV, data, EquipmentWindow, config
     local newCompGrp = item:GetChild("NewCompGrp")
     if newCompGrp.visible then
       newCompGrp.visible = false
@@ -2920,7 +3022,7 @@ EquipmentWindow.RefreshPresetEquipItem = function(index, item, ...)
 end
 
 EquipmentWindow.ChoseEquipForPresetByType = function(type, ...)
-  -- function num : 0_94 , upvalues : _currentEquipmentTypeForPreset, _equipSlotsForPreset, _typeFilterForPresetBtn, _ENV
+  -- function num : 0_96 , upvalues : _currentEquipmentTypeForPreset, _equipSlotsForPreset, _typeFilterForPresetBtn, _ENV
   -- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
 
   if _currentEquipmentTypeForPreset ~= 0 then
@@ -2952,7 +3054,7 @@ EquipmentWindow.ChoseEquipForPresetByType = function(type, ...)
 end
 
 EquipmentWindow.PresetMarkerCheck = function(id, item, ...)
-  -- function num : 0_95 , upvalues : _ENV
+  -- function num : 0_97 , upvalues : _ENV
   local presetId = (EquiptData.EquipBelongTo)[id]
   if presetId and (EquiptData.EquipPresetsIndex)[presetId] ~= nil then
     (item:GetController("Plan")).selectedIndex = 1
@@ -2962,7 +3064,7 @@ EquipmentWindow.PresetMarkerCheck = function(id, item, ...)
 end
 
 EquipmentWindow.EditCheck = function(...)
-  -- function num : 0_96 , upvalues : _ENV, uis, EquipmentWindow
+  -- function num : 0_98 , upvalues : _ENV, uis, EquipmentWindow
   if (_G.next)(EquiptData.EditPreset) ~= nil then
     local status = (EquiptMgr.CheckEditPresetChanged)((((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text)
     -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
@@ -2970,14 +3072,14 @@ EquipmentWindow.EditCheck = function(...)
     EquiptData.EditPresetName = (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text
     if status == EquiptPresetEditStatus.Modified then
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000583, (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text), function(...)
-    -- function num : 0_96_0 , upvalues : EquipmentWindow, _ENV
+    -- function num : 0_98_0 , upvalues : EquipmentWindow, _ENV
     (EquipmentWindow.ClickSavePresetBtn)()
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
     EquiptData.EditPreset = {}
   end
 , function(...)
-    -- function num : 0_96_1 , upvalues : _ENV
+    -- function num : 0_98_1 , upvalues : _ENV
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     EquiptData.EditPreset = {}
@@ -2986,14 +3088,14 @@ EquipmentWindow.EditCheck = function(...)
     else
       if status == EquiptPresetEditStatus.New then
         (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000584, (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text), function(...)
-    -- function num : 0_96_2 , upvalues : EquipmentWindow, _ENV
+    -- function num : 0_98_2 , upvalues : EquipmentWindow, _ENV
     (EquipmentWindow.ClickSavePresetBtn)()
     -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
 
     EquiptData.EditPreset = {}
   end
 , function(...)
-    -- function num : 0_96_3 , upvalues : _ENV
+    -- function num : 0_98_3 , upvalues : _ENV
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     EquiptData.EditPreset = {}
@@ -3009,24 +3111,24 @@ EquipmentWindow.EditCheck = function(...)
 end
 
 EquipmentWindow.ClickEditPresetBtn = function(...)
-  -- function num : 0_97 , upvalues : EquipmentWindow, _currentChosedPreset
+  -- function num : 0_99 , upvalues : EquipmentWindow, _currentChosedPreset
   (EquipmentWindow.InitPresetEdit)(_currentChosedPreset)
 end
 
 EquipmentWindow.ClickUsePresetBtn = function(...)
-  -- function num : 0_98 , upvalues : _ENV, _currentChosedPreset
+  -- function num : 0_100 , upvalues : _ENV, _currentChosedPreset
   (EquiptMgr.UsePreset)(_currentChosedPreset)
 end
 
 EquipmentWindow.ClickDeletePresetBtn = function(...)
-  -- function num : 0_99 , upvalues : EquipmentWindow, _ENV, _currentChosedPreset
+  -- function num : 0_101 , upvalues : EquipmentWindow, _ENV, _currentChosedPreset
   (EquipmentWindow.CloseAllDetail)()
   ;
   (EquiptMgr.DeletePreset)(_currentChosedPreset)
 end
 
 EquipmentWindow.ClickCancelPresetBtn = function(...)
-  -- function num : 0_100 , upvalues : EquipmentWindow, uis, PresetStatus
+  -- function num : 0_102 , upvalues : EquipmentWindow, uis, PresetStatus
   (EquipmentWindow.CloseAllDetail)()
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -3039,7 +3141,7 @@ EquipmentWindow.ClickCancelPresetBtn = function(...)
 end
 
 EquipmentWindow.ClickSavePresetBtn = function(...)
-  -- function num : 0_101 , upvalues : EquipmentWindow, uis, _ENV
+  -- function num : 0_103 , upvalues : EquipmentWindow, uis, _ENV
   (EquipmentWindow.CloseAllDetail)()
   if uis == nil then
     (EquiptMgr.UpdateEquipPreset)(EquiptData.EditPreset, EquiptData.EditPresetName)
@@ -3050,18 +3152,18 @@ EquipmentWindow.ClickSavePresetBtn = function(...)
 end
 
 EquipmentWindow.ClickRenamePresetBtn = function(...)
-  -- function num : 0_102 , upvalues : EquipmentWindow, _ENV, uis
+  -- function num : 0_104 , upvalues : EquipmentWindow, _ENV, uis
   (EquipmentWindow.CloseAllDetail)()
   OpenWindow((WinResConfig.EquipmentPresetRenameWindow).name, UILayer.HUD, (((((uis.EquiptPanelGrp).ProgrammeMain).Edit).ProgrammeEdit).NameTxt).text)
 end
 
 EquipmentWindow.ClickPresetSortBtn = function(...)
-  -- function num : 0_103 , upvalues : _ENV
+  -- function num : 0_105 , upvalues : _ENV
   (EquiptMgr.ChangeFilterSortTypeForPreset)()
 end
 
 EquipmentWindow.ShowUnidentifyDetail = function(equipConfig, ...)
-  -- function num : 0_104 , upvalues : _detailUnidentifyPanelGrp, _ENV, uis, _originUnidentifyPanelYSize, EquipmentWindow
+  -- function num : 0_106 , upvalues : _detailUnidentifyPanelGrp, _ENV, uis, _originUnidentifyPanelYSize, EquipmentWindow
   if _detailUnidentifyPanelGrp.Initiated == false then
     UIMgr:LoadPackage((WinResConfig.ItemTipsWindow).package)
     local panel = (UIPackage.CreateObject)("DescriptionTips", "ItemTips")
@@ -3086,7 +3188,7 @@ EquipmentWindow.ShowUnidentifyDetail = function(equipConfig, ...)
   do
     ;
     (GRoot.inst):AddCustomPopups(_detailUnidentifyPanelGrp.root, function(...)
-    -- function num : 0_104_0 , upvalues : EquipmentWindow
+    -- function num : 0_106_0 , upvalues : EquipmentWindow
     (EquipmentWindow.CloseAllDetail)()
   end
 )
@@ -3100,7 +3202,7 @@ EquipmentWindow.ShowUnidentifyDetail = function(equipConfig, ...)
 end
 
 EquipmentWindow.InitUnidentifyPanel = function(config, ...)
-  -- function num : 0_105 , upvalues : _detailUnidentifyPanelGrp, _ENV, _originUnidentifyPanelYSize
+  -- function num : 0_107 , upvalues : _detailUnidentifyPanelGrp, _ENV, _originUnidentifyPanelYSize
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
   (_detailUnidentifyPanelGrp.c1Ctr).selectedIndex = 2
@@ -3137,7 +3239,7 @@ EquipmentWindow.InitUnidentifyPanel = function(config, ...)
 end
 
 EquipmentWindow.RefreshEquipmentAmountInfo = function(...)
-  -- function num : 0_106 , upvalues : _ENV, uis
+  -- function num : 0_108 , upvalues : _ENV, uis
   -- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
 
   if EquiptData.MaxBagSlots <= #EquiptData.Equipments then
@@ -3151,7 +3253,7 @@ EquipmentWindow.RefreshEquipmentAmountInfo = function(...)
 end
 
 EquipmentWindow.ShowSecondarySlots = function(show, ...)
-  -- function num : 0_107 , upvalues : _ENV, _equipmentSlotsSecondary
+  -- function num : 0_109 , upvalues : _ENV, _equipmentSlotsSecondary
   for i = 1, EquiptData.EQUIPMENT_TYPE_COUNT do
     -- DECOMPILER ERROR at PC7: Confused about usage of register: R5 in 'UnsetPending'
 
@@ -3160,7 +3262,7 @@ EquipmentWindow.ShowSecondarySlots = function(show, ...)
 end
 
 EquipmentWindow.CloseAllDetail = function(notReset, ...)
-  -- function num : 0_108 , upvalues : EquipmentWindow, _ENV, _selectedInBag, _selectedInBagItem, _detailMainPanelGrp, _detailReplacePanelGrp, _detailUnidentifyPanelGrp
+  -- function num : 0_110 , upvalues : EquipmentWindow, _ENV, _selectedInBag, _selectedInBagItem, _detailMainPanelGrp, _detailReplacePanelGrp, _detailUnidentifyPanelGrp
   if not notReset then
     (EquipmentWindow.SetAllEquipmentType)(EquiptPartsType.All)
   end
@@ -3185,7 +3287,7 @@ EquipmentWindow.CloseAllDetail = function(notReset, ...)
 end
 
 EquipmentWindow.RefreshRightPage = function(scrollToTop, notReset, ...)
-  -- function num : 0_109 , upvalues : uis, EquipmentSecondaryPageType, EquipmentWindow
+  -- function num : 0_111 , upvalues : uis, EquipmentSecondaryPageType, EquipmentWindow
   if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Change then
     (EquipmentWindow.RefreshChangePage)(scrollToTop, notReset)
   else
@@ -3209,7 +3311,7 @@ EquipmentWindow.RefreshRightPage = function(scrollToTop, notReset, ...)
 end
 
 EquipmentWindow.RefreshRightEquipmentList = function(...)
-  -- function num : 0_110 , upvalues : uis, EquipmentSecondaryPageType
+  -- function num : 0_112 , upvalues : uis, EquipmentSecondaryPageType
   if ((uis.EquiptPanelGrp).c1Ctr).selectedIndex == EquipmentSecondaryPageType.Change then
     (((uis.EquiptPanelGrp).EquiptChangeGrp).EquiptList):RefreshVirtualList()
   else
@@ -3220,7 +3322,7 @@ EquipmentWindow.RefreshRightEquipmentList = function(...)
 end
 
 EquipmentWindow.CheckNewEquipmentsStatus = function(isChangeBtn, ...)
-  -- function num : 0_111 , upvalues : _newStatus, EquipmentNewStatus, _ENV
+  -- function num : 0_113 , upvalues : _newStatus, EquipmentNewStatus, _ENV
   if isChangeBtn and _newStatus == EquipmentNewStatus.NeedShow then
     _newStatus = EquipmentNewStatus.Showed
   else
@@ -3234,7 +3336,7 @@ EquipmentWindow.CheckNewEquipmentsStatus = function(isChangeBtn, ...)
 end
 
 EquipmentWindow.ClickDetailBtn = function(...)
-  -- function num : 0_112 , upvalues : EquipmentWindow
+  -- function num : 0_114 , upvalues : EquipmentWindow
   (EquipmentWindow.EditCheck)()
   ;
   (EquipmentWindow.CheckNewEquipmentsStatus)()
@@ -3245,7 +3347,7 @@ EquipmentWindow.ClickDetailBtn = function(...)
 end
 
 EquipmentWindow.ClickChangePageBtn = function(...)
-  -- function num : 0_113 , upvalues : EquipmentWindow, _ENV, _secondEquipInit, _slotsEquipInfoForChange, _slotsEquipInfo
+  -- function num : 0_115 , upvalues : EquipmentWindow, _ENV, _secondEquipInit, _slotsEquipInfoForChange, _slotsEquipInfo
   (EquipmentWindow.ChoseEquipByType)(EquiptPartsType.All)
   ;
   (EquipmentWindow.EditCheck)()
@@ -3268,7 +3370,7 @@ EquipmentWindow.ClickChangePageBtn = function(...)
 end
 
 EquipmentWindow.ClickDecomposePageBtn = function(...)
-  -- function num : 0_114 , upvalues : EquipmentWindow, _ENV, uis
+  -- function num : 0_116 , upvalues : EquipmentWindow, _ENV, uis
   (EquipmentWindow.EditCheck)()
   ;
   (EquipmentWindow.CheckNewEquipmentsStatus)()
@@ -3291,7 +3393,7 @@ EquipmentWindow.ClickDecomposePageBtn = function(...)
 end
 
 EquipmentWindow.ClickIdentifyPageBtn = function(...)
-  -- function num : 0_115 , upvalues : EquipmentWindow, _ENV
+  -- function num : 0_117 , upvalues : EquipmentWindow, _ENV
   (EquipmentWindow.EditCheck)()
   ;
   (EquipmentWindow.CheckNewEquipmentsStatus)()
@@ -3304,7 +3406,7 @@ EquipmentWindow.ClickIdentifyPageBtn = function(...)
 end
 
 EquipmentWindow.ClickPresetPageBtn = function(...)
-  -- function num : 0_116 , upvalues : EquipmentWindow, _ENV
+  -- function num : 0_118 , upvalues : EquipmentWindow, _ENV
   (EquipmentWindow.EditCheck)()
   ;
   (EquipmentWindow.CloseAllDetail)()
@@ -3317,7 +3419,7 @@ EquipmentWindow.ClickPresetPageBtn = function(...)
 end
 
 EquipmentWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_117 , upvalues : _ENV, uis, EquipmentWindowType, EquipmentWindow, EquipmentSecondaryPageType, PresetStatus, _newStatus, EquipmentNewStatus, _currentRoleIndex
+  -- function num : 0_119 , upvalues : _ENV, uis, EquipmentWindowType, EquipmentWindow, EquipmentSecondaryPageType, PresetStatus, _newStatus, EquipmentNewStatus, _currentRoleIndex
   if msgId == (WindowMsgEnum.Equipt).E_MSG_REFRESH_LOCK_EQUIPMENT then
     if (uis.c1Ctr).selectedIndex == EquipmentWindowType.Main then
       (EquipmentWindow.RefreshEquipmentInfoMain)()

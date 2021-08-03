@@ -917,6 +917,10 @@ BattleMgr.DealBattleOver = function(...)
         else
           if battleType == E_BATTLE_TYPE.TEMPLE and IsBattleServer ~= true then
             battleCompleteData.expeditionBattleData = {changeFc = (RelicData.GetRelicPlayerFc)() - (PlotDungeonMgr.ActivityDungeonEnemyFc)(), selfMaxFc = (RelicData.GetRelicPlayerFc)(), stageId = BattleData.stageId, challengeTimes = (RelicData.GetEliteEnemySubNum)()}
+          else
+            if battleType == E_BATTLE_TYPE.TOWER_EXPAND and IsBattleServer ~= true then
+              battleCompleteData.expeditionBattleData = {changeFc = (TowerTopStageData.GetChangeFc)(), selfMaxFc = (PlotDungeonMgr.GetTowerExpandFcPlayerFc)(), stageId = BattleData.stageId}
+            end
           end
         end
       end
@@ -934,11 +938,11 @@ BattleMgr.DealBattleOver = function(...)
     do
       if battleType == E_BATTLE_TYPE.GOLD or battleType == E_BATTLE_TYPE.EXP or battleType == E_BATTLE_TYPE.EQUIPEXP then
         local totalDamage, totalHp = (BattleResultCount.GetRealTotalDamage)()
-        -- DECOMPILER ERROR at PC181: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC201: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (battleCompleteData.damageData).totalEnemyHp = totalHp
-        -- DECOMPILER ERROR at PC183: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC203: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (battleCompleteData.damageData).totalSelfDamage = totalDamage
@@ -951,7 +955,7 @@ BattleMgr.DealBattleOver = function(...)
         if IsBattleTest == true then
           for waveNum,data in ipairs((BattleData.battleData).battleProcessData) do
             local roundData = data.roundData
-            -- DECOMPILER ERROR at PC225: Confused about usage of register: R13 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC245: Confused about usage of register: R13 in 'UnsetPending'
 
             BattleTestResult.roundCount = BattleTestResult.roundCount + #roundData
           end
@@ -959,7 +963,7 @@ BattleMgr.DealBattleOver = function(...)
           print("是否获胜：", BattleResultCount.isBattleWin, "总回合数：", BattleTestResult.roundCount)
           return 
         end
-        -- DECOMPILER ERROR at PC257: Confused about usage of register: R7 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC277: Confused about usage of register: R7 in 'UnsetPending'
 
         if (battleType == E_BATTLE_TYPE.STORY or battleType == E_BATTLE_TYPE.HERO or battleType == E_BATTLE_TYPE.ACTIVITY or battleType == E_BATTLE_TYPE.TEMPLE) and PlotDungeonService then
           PlotDungeonMgr.saveStageId = battleCompleteData.id
@@ -987,7 +991,7 @@ BattleMgr.DealBattleOver = function(...)
               if battleType == E_BATTLE_TYPE.GUILD_PK then
                 (GuildMgr.AfterBattle)({success = battleCompleteData.success})
               else
-                if battleType == E_BATTLE_TYPE.TOWER then
+                if battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_EXPAND then
                   (TowerService.ReqSettleTower)(battleCompleteData)
                 else
                   if battleType == E_BATTLE_TYPE.TOWER_ENCOUNTER then
@@ -1024,22 +1028,22 @@ BattleMgr.DealBattleOver = function(...)
                 ;
                 ((CS.FileManager).WriteFile)("BattleResult/BattleResult" .. (LuaTime.GetStampStr)(BattleData.curBattleTime) .. ".txt", str)
               end
-              -- DECOMPILER ERROR at PC403: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC426: Confused about usage of register: R4 in 'UnsetPending'
 
               BattleData.serverBattleData = battleCompleteData
-              -- DECOMPILER ERROR at PC415: Confused about usage of register: R4 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC438: Confused about usage of register: R4 in 'UnsetPending'
 
               if IsBattleTest == true then
                 if BattleResultCount.isBattleWin == true then
                   BattleTestResult.winCount = BattleTestResult.winCount + 1
                 else
-                  -- DECOMPILER ERROR at PC421: Confused about usage of register: R4 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC444: Confused about usage of register: R4 in 'UnsetPending'
 
                   BattleTestResult.failCount = BattleTestResult.failCount + 1
                 end
                 for waveNum,data in ipairs((BattleData.battleData).battleProcessData) do
                   local roundData = data.roundData
-                  -- DECOMPILER ERROR at PC434: Confused about usage of register: R10 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC457: Confused about usage of register: R10 in 'UnsetPending'
 
                   BattleTestResult.roundCount = BattleTestResult.roundCount + #roundData
                 end
@@ -1171,7 +1175,7 @@ BattleMgr.GetPreBattleEvent = function(battleType, stageId, battleData, ...)
     end
   end
   do
-    if battleType == E_BATTLE_TYPE.TOWER and stageId then
+    if (battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_EXPAND) and stageId then
       local stageConfig = ((TableData.gTable).BaseTowerStageData)[stageId]
       if stageConfig then
         local buffIdStr = stageConfig.buff_id
@@ -1220,10 +1224,10 @@ BattleMgr.GetPreBattleEvent = function(battleType, stageId, battleData, ...)
                 local preBattleEvent = GuildBossData.ActiveSkillInfo
                 if preBattleEvent then
                   for id,level in pairs(preBattleEvent) do
-                    local config = (TableData.GetGuildTalentConfig)(R12_PC177, level)
+                    local config = (TableData.GetGuildTalentConfig)(R12_PC180, level)
                     if config then
-                      R12_PC177 = split
-                      R12_PC177 = R12_PC177(config.buff, ":")
+                      R12_PC180 = split
+                      R12_PC180 = R12_PC180(config.buff, ":")
                       local buffStr = nil
                       for _,v in ipairs(buffStr) do
                         (table.insert)(eventTable, {eventId = tonumber(v)})

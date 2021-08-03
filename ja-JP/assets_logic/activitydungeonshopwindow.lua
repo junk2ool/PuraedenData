@@ -53,6 +53,9 @@ ActivityDungeonShopWindow.OnInit = function(bridgeObj, ...)
     (ActivityDungeonShopWindow.SetBreakArticleShow)()
     ;
     (ActivityDungeonShopWindow.FilterShopData)()
+    local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+    ;
+    (ActivityDungeonShopWindow.InitPanelIcons)(activityId)
   end
 end
 
@@ -332,13 +335,21 @@ end
 
 ActivityDungeonShopWindow.InitAssetStrip = function(...)
   -- function num : 0_8 , upvalues : _ENV, uis
-  local m = {}
-  m.windowName = (WinResConfig.ActivityDungeonShopWindow).name
-  m.Tip = (PUtil.get)(20000069)
-  m.model = uis.AssetStrip
-  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.ACTIVITYDUNGEON_COIN, AssetType.ACTIVITY_SCORE_NEW}
-  ;
-  (CommonWinMgr.RegisterAssets)(m)
+  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  if imageConfigData then
+    local m = {}
+    m.windowName = (WinResConfig.ActivityDungeonShopWindow).name
+    m.Tip = (PUtil.get)(20000069)
+    m.model = uis.AssetStrip
+    m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, tonumber(imageConfigData.activity_shop_asset), tonumber(imageConfigData.activity_slot_asset)}
+    ;
+    (CommonWinMgr.RegisterAssets)(m)
+  else
+    do
+      loge("Can Not Find Image Config Data With Activity Id " .. tostring(activityId))
+    end
+  end
 end
 
 ActivityDungeonShopWindow.HandleMessage = function(msgId, para, ...)
@@ -382,6 +393,17 @@ ActivityDungeonShopWindow.OnClose = function(...)
   shopData = nil
   ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.ActivityDungeonShopWindow).name)
+end
+
+ActivityDungeonShopWindow.InitPanelIcons = function(activityId, ...)
+  -- function num : 0_12 , upvalues : _ENV, uis
+  local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  if imageConfigData then
+    bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_shop_bkg)
+  else
+    loge("Can Not Find Image Config Data With Activity Id:" .. tostring(activityId))
+  end
 end
 
 return ActivityDungeonShopWindow

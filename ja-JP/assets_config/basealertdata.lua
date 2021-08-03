@@ -17,8 +17,6 @@ already_have_guild = {id = "already_have_guild", name = "ギルド加入済み",
 , 
 arena_day_score_deficiency = {id = "arena_day_score_deficiency", name = "ポイント不足", name_cn = "积分不够哦"}
 , 
-arena_rank_deficiency = {id = "arena_rank_deficiency", name = "闘技場ボーナス獲得可能のランキングに入らなかった", name_cn = "竞技场排名不足"}
-, 
 arena_reward_month_no_match = {id = "arena_reward_month_no_match", name = "シーズンボーナスは当月と合わない", name_cn = "赛季奖励和当前月份不匹配"}
 , 
 arena_reward_type_wrong = {id = "arena_reward_type_wrong", name = "闘技場ボーナスタイプエラー", name_cn = "领取竞技场奖励的类型不正确"}
@@ -111,8 +109,6 @@ guild_member_max = {id = "guild_member_max", name = "ギルドメンバー人数
 , 
 guild_member_not_exist = {id = "guild_member_not_exist", name = "検索ギルドメンバーなし", name_cn = "公会成员不存在"}
 , 
-guild_name_repeated = {id = "guild_name_repeated", name = "ギルド名が使用されました", name_cn = "公会名已被使用了"}
-, 
 guild_not_exist = {id = "guild_not_exist", name = "検索ギルドなし", name_cn = "未查询到此公会"}
 , 
 guild_reward_yet_draw = {id = "guild_reward_yet_draw", name = "ギルドボーナス受取済み", name_cn = "公会奖励已领取"}
@@ -145,7 +141,7 @@ no_battle_stage = {id = "no_battle_stage", name_cn = "已删除"}
 , 
 no_draw_reward = {id = "no_draw_reward", name = "受取可能ボーナスなし", name_cn = "暂时没有奖励可以领取哦"}
 , 
-no_enough = {id = "no_enough", name = "%s不足", name_cn = "{0}不足"}
+no_enough = {id = "no_enough", name = "%s不足", name_cn = "%s 不足"}
 , 
 no_get_reward_coefficient = {id = "no_get_reward_coefficient", name = "ボーナスデータがなくなりました", name_cn = "奖励数据丢失"}
 , 
@@ -169,15 +165,9 @@ open_condition_no_meet = {id = "open_condition_no_meet", name = "開放条件未
 , 
 other_login = {id = "other_login", name = "アカウントが他の端末にログインされました", name_cn = "你的账号已在其它地方登录"}
 , 
-param_error = {id = "param_error", name = "おや、問題があるようです", name_cn = "额，出问题啦"}
-, 
-param_length_error = {id = "param_length_error", name = "おや、問題があるようです", name_cn = "额，出问题啦"}
-, 
 play_off_time = {id = "play_off_time", name = "イベント未開催です", name_cn = "当前不是活动开启时间哦"}
 , 
 player_del_error = {id = "player_del_error", name = "アカウントがロックされています", name_cn = "您的账户已被封停"}
-, 
-player_no_clear_cd = {id = "player_no_clear_cd", name = "イベントCDリセット不要", name_cn = "活动CD无需重置"}
 , 
 player_not_exist = {id = "player_not_exist", name = "検索プレヤーなし", name_cn = "未查询到此人"}
 , 
@@ -288,10 +278,6 @@ card_fetter_activated = {id = "card_fetter_activated", name = "絆スキル解�
 card_fetter_error = {id = "card_fetter_error", name = "解放条件未満足", name_cn = "未满足激活条件"}
 , 
 prop_not_use_level = {id = "prop_not_use_level", name = "アイテムレベル不足", name_cn = "物品使用等级不足"}
-, 
-arena_rank_deficiency = {id = "arena_rank_deficiency", name = "闘技場ボーナス獲得可能のランキングに入らなかった", name_cn = "竞技场排名不足"}
-, 
-player_no_clear_cd = {id = "player_no_clear_cd", name = "イベントCDリセット不要", name_cn = "活动CD无需重置"}
 , 
 yet_draw_guild_gift = {id = "yet_draw_guild_gift", name = "ギルド整理ボーナス受取済み", name_cn = "公会整理奖励已领取"}
 , 
@@ -464,6 +450,22 @@ assist_monster_death = {id = "assist_monster_death", name = "ボスは撃破さ�
 risk_vit_no_enough = {id = "risk_vit_no_enough", name = "本日この探索の残りスタミナ消費は～%sです。", name_cn = "今日剩余可分配的体力为：%s，当前分配体力值已超过上限"}
 , 
 not_change = {id = "not_change", name = "ギルド名は変わっていません", name_cn = "公会名没有被改变"}
+, 
+ex_code_not = {id = "ex_code_not", name = "ex_code_not", name_cn = "兑换未开始，暂时无法兑换"}
+, 
+ex_code_expired = {id = "ex_code_expired", name = "ex_code_expired", name_cn = "兑换码已过期"}
+, 
+ex_code_used = {id = "ex_code_used", name = "ex_code_used", name_cn = "兑换码已被使用"}
+, 
+ex_code_error = {id = "ex_code_error", name = "ex_code_error", name_cn = "兑换码输入错误"}
+, 
+ex_code_only = {id = "ex_code_only", name = "ex_code_only", name_cn = "一个账号同类兑换码只能使用一次"}
+, 
+pay_rebate_success = {id = "pay_rebate_success", name = "pay_rebate_success", name_cn = "已兑换成功,请在邮箱中查看"}
+, 
+already_login = {id = "already_login", name = "すでにログインしている場合", name_cn = "账号已经在其他客户端登陆,请从其他设备下线后再次尝试"}
+, 
+activity_not_open = {id = "activity_not_open", name = "イベントは終了しました", name_cn = "活动未开启"}
 }
 return BaseAlertData
 

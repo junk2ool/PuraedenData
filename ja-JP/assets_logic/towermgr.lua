@@ -21,6 +21,12 @@ TowerMgr.RecvTowerData = function(msg, ...)
   -- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
 
   TowerData.HaveBounsLevel = msg.encounter
+  if MessageMgr.StartBattleMatching == true then
+    return 
+  end
+  -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+
+  TowerData.ExpandOpen = msg.firstOpen
   ;
   (TowerMgr.OpenTowerUI)()
 end
@@ -105,12 +111,25 @@ end
 
 TowerMgr.TryEnterTower = function(layerId, stageId, smash, skipSetFormation, rewards, ...)
   -- function num : 0_8 , upvalues : _ENV
-  if (TowerMgr.CheckTowerAvailable)(layerId, stageId) == false then
-    return 
+  local isExpand = TowerData.IsExpand
+  -- DECOMPILER ERROR at PC10: Confused about usage of register: R6 in 'UnsetPending'
+
+  if (((TableData.gTable).BaseTowerData)[layerId]).type == 2 then
+    TowerData.IsExpand = true
+    if (TowerTopStageMgr.CheckExpandAvailable)(layerId, stageId) == false then
+      return 
+    end
+  else
+    -- DECOMPILER ERROR at PC21: Confused about usage of register: R6 in 'UnsetPending'
+
+    TowerData.IsExpand = false
+    if (TowerMgr.CheckTowerAvailable)(layerId, stageId) == false then
+      return 
+    end
   end
   ;
   (EquiptMgr.CheckShowEquipBagConfirm)(EquiptAcquireType.Tower, function(...)
-    -- function num : 0_8_0 , upvalues : smash, _ENV, stageId, skipSetFormation
+    -- function num : 0_8_0 , upvalues : smash, _ENV, stageId, skipSetFormation, isExpand
     if smash then
       if not (Util.CheckCostResources)((((TableData.gTable).BaseTowerStageData)[stageId]).sweep_cost) then
         return 
@@ -134,37 +153,62 @@ TowerMgr.TryEnterTower = function(layerId, stageId, smash, skipSetFormation, rew
     end
 
         local monsterGroups = split(config.monster_group_list, ":")
-        formationData.myselfList = (Util.CovertRemoteFormationToLocal)(TowerData.FormationInfo)
         formationData.enemyList = (Util.CovertMonsterFormationToLocal)(tonumber(monsterGroups[#monsterGroups]))
         formationData.BtnData = btnData
-        formationData.formationType = FormationType.Tower
-        formationData.battleType = (ProtoEnum.E_BATTLE_TYPE).TOWER
-        formationData.stageId = stageId
-        formationData.ExternalData = {}
-        -- DECOMPILER ERROR at PC94: Confused about usage of register: R4 in 'UnsetPending'
-
-        ;
-        (formationData.ExternalData).buff = (((TableData.gTable).BaseBuffPreBattleData)[tonumber(config.buff_id)]).id
-        formationData.closeFun = function(formation, ...)
+        if isExpand == true then
+          formationData.battleType = (ProtoEnum.E_BATTLE_TYPE).TOWER_EXPAND
+          formationData.formationType = FormationType.TowerExpand
+          formationData.DetailBtn = nil
+          formationData.myselfList = (Util.CovertRemoteFormationToLocal)(TowerTopStageData.FormationInfo)
+          formationData.closeFun = function(formation, ...)
       -- function num : 0_8_0_1 , upvalues : _ENV
-      (TowerMgr.BeforeCloseFormation)(formation, function(...)
+      (TowerTopStageMgr.BeforeCloseFormation)(formation, function(...)
         -- function num : 0_8_0_1_0 , upvalues : _ENV
         UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
       end
 )
     end
 
-        formationData.backFun = function(formation, ...)
+          formationData.backFun = function(formation, ...)
       -- function num : 0_8_0_2 , upvalues : _ENV
-      (TowerMgr.BeforeCloseFormation)(formation, function(...)
+      (TowerTopStageMgr.BeforeCloseFormation)(formation, function(...)
         -- function num : 0_8_0_2_0 , upvalues : _ENV
         UIMgr:CloseWindow((WinResConfig.FormationWindow).name)
       end
 )
     end
 
+        else
+          formationData.formationType = FormationType.Tower
+          formationData.battleType = (ProtoEnum.E_BATTLE_TYPE).TOWER
+          formationData.DetailBtn = TowerMgr.OpenTowerMonsterDetailWindow
+          formationData.myselfList = (Util.CovertRemoteFormationToLocal)(TowerData.FormationInfo)
+          formationData.closeFun = function(formation, ...)
+      -- function num : 0_8_0_3 , upvalues : _ENV
+      (TowerMgr.BeforeCloseFormation)(formation, function(...)
+        -- function num : 0_8_0_3_0 , upvalues : _ENV
+        UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
+      end
+)
+    end
+
+          formationData.backFun = function(formation, ...)
+      -- function num : 0_8_0_4 , upvalues : _ENV
+      (TowerMgr.BeforeCloseFormation)(formation, function(...)
+        -- function num : 0_8_0_4_0 , upvalues : _ENV
+        UIMgr:CloseWindow((WinResConfig.FormationWindow).name)
+      end
+)
+    end
+
+        end
+        formationData.stageId = stageId
+        formationData.ExternalData = {}
+        -- DECOMPILER ERROR at PC123: Confused about usage of register: R4 in 'UnsetPending'
+
+        ;
+        (formationData.ExternalData).buff = (((TableData.gTable).BaseBuffPreBattleData)[tonumber(config.buff_id)]).id
         formationData.isSelfClose = true
-        formationData.DetailBtn = TowerMgr.OpenTowerMonsterDetailWindow
         ;
         (MessageMgr.OpenFormationWindow)(formationData)
       end
@@ -177,12 +221,21 @@ end
 
 TowerMgr.ReqEnterTower = function(stageId, formation, smash, ...)
   -- function num : 0_9 , upvalues : _ENV
-  -- DECOMPILER ERROR at PC1: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R3 in 'UnsetPending'
 
-  TowerData.LastReqStageId = stageId
-  -- DECOMPILER ERROR at PC7: Confused about usage of register: R3 in 'UnsetPending'
+  if TowerData.IsExpand == false then
+    TowerData.LastReqStageId = stageId
+    -- DECOMPILER ERROR at PC11: Confused about usage of register: R3 in 'UnsetPending'
 
-  TowerData.CurrentLucky = (CardData.GetFormationLucky)(formation)
+    TowerData.CurrentLucky = (CardData.GetFormationLucky)(formation)
+  else
+    -- DECOMPILER ERROR at PC14: Confused about usage of register: R3 in 'UnsetPending'
+
+    TowerTopStageData.LastReqStageId = stageId
+    -- DECOMPILER ERROR at PC20: Confused about usage of register: R3 in 'UnsetPending'
+
+    TowerTopStageData.CurrentLucky = (CardData.GetFormationLucky)(formation)
+  end
   ;
   (TowerService.ReqEnterTower)(stageId, formation, smash)
 end
@@ -219,15 +272,24 @@ end
 
 -- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'
 
-TowerMgr.HandleReward = function(data, stageId, ...)
+TowerMgr.HandleReward = function(data, stageId, type, ...)
   -- function num : 0_12 , upvalues : _ENV
   local basicReward, extraReward, firstReward = (TowerData.GetActualReward)(data)
   local m = {}
-  m.BattleType = (ProtoEnum.E_BATTLE_TYPE).TOWER
+  if type == 1 then
+    m.BattleType = (ProtoEnum.E_BATTLE_TYPE).TOWER
+  else
+    m.BattleType = (ProtoEnum.E_BATTLE_TYPE).TOWER_EXPAND
+  end
   local StageData = ((TableData.gTable).BaseTowerStageData)[stageId]
   m.CardAddIntimacy = StageData.card_intimacy
-  m.LuckNum = TowerData.CurrentLucky
-  m.cardInfo = TowerData.FormationInfo
+  if TowerData.IsExpand == false then
+    m.LuckNum = TowerData.CurrentLucky
+    m.cardInfo = TowerData.FormationInfo
+  else
+    m.LuckNum = TowerTopStageData.CurrentLucky
+    m.cardInfo = TowerTopStageData.FormationInfo
+  end
   m.FirstGoods = (Util.GoodsToItemDataModel)(firstReward)
   m.BasicGoods = (Util.GoodsToItemDataModel)(basicReward)
   m.LuckGoods = (Util.GoodsToItemDataModel)(extraReward)
@@ -292,6 +354,23 @@ TowerMgr.OpenTowerMonsterDetailWindow = function(...)
 
   ;
   (MessageMgr.OpenMonsterDetailWindow)(defaultStage, TowerData.FormationInfo, TowerData.EACH_LAYER_STAGES, setStageItem, stageLockChecker, getStageTip, getMonsterGroups, lockAction)
+end
+
+-- DECOMPILER ERROR at PC46: Confused about usage of register: R0 in 'UnsetPending'
+
+TowerMgr.JudgeExpandOpen = function(...)
+  -- function num : 0_14 , upvalues : _ENV
+  if TowerData.ExpandOpen ~= 0 and TowerData.ExpandOpen ~= 1 then
+    if (TowerData.TowerLayerNumber)[51310000] == nil then
+      (table.insert)(TowerData.TowerLayerData, 51310000)
+      -- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (TowerData.TowerLayerNumber)[51310000] = #TowerData.TowerLayerData
+    end
+    ;
+    (TowerService.ReqTowerExpandAcitvityInfo)()
+  end
 end
 
 

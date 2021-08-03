@@ -315,6 +315,8 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, multipleSkil
               (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.BEFORE_ASSIST)
               ;
               (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
+              ;
+              (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.AFTER_ASSIST)
             end
           end
         end
@@ -425,6 +427,8 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, multipleSkill
                 (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.BEFORE_ASSIST)
                 ;
                 (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
+                ;
+                (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.AFTER_ASSIST)
               end
             end
           end

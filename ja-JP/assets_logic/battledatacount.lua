@@ -132,6 +132,10 @@ BattleDataCount.InsertPreBattleCount = function(...)
       end
     end
     do
+      local suitBuff = v:GetSuitBuff()
+      if suitBuff then
+        dealPreBuff(v, suitBuff)
+      end
       local cardConfig = v:GetCardConfig()
       do
         if cardConfig and cardConfig.passive_buff_list and cardConfig.passive_buff_list ~= "" then
@@ -150,9 +154,9 @@ BattleDataCount.InsertPreBattleCount = function(...)
           end
         end
         do
-          -- DECOMPILER ERROR at PC173: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC181: LeaveBlock: unexpected jumping out DO_STMT
 
-          -- DECOMPILER ERROR at PC173: LeaveBlock: unexpected jumping out DO_STMT
+          -- DECOMPILER ERROR at PC181: LeaveBlock: unexpected jumping out DO_STMT
 
         end
       end
@@ -536,7 +540,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
             if deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY then
               (self.RealUpdateBuffCount)(buff, atkInfo)
             else
-              if (deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_SKILL or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ACTION or deduction_round_type == BattleBuffDeductionRoundType.AFTER_TREAT_DIRECT or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ASSIST) and (BattleAtk.IsAtkCardByPos)(atkInfo, defPos) then
+              if (deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_SKILL or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ACTION or deduction_round_type == BattleBuffDeductionRoundType.AFTER_TREAT_DIRECT or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ASSIST or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ASSIST) and (BattleAtk.IsAtkCardByPos)(atkInfo, defPos) then
                 (self.RealUpdateBuffCount)(buff, atkInfo)
               end
             end
@@ -544,12 +548,12 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ENEMY and (BattleAtk.IsDefCampByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
           end
-          -- DECOMPILER ERROR at PC256: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC259: Unhandled construct in 'MakeBoolean' P1
 
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
           end
-          -- DECOMPILER ERROR at PC274: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC277: Unhandled construct in 'MakeBoolean' P1
 
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT_ALL and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
@@ -586,7 +590,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                       ;
                       (self.RealUpdateBuffCount)(buff, atkInfo)
                     else
-                      -- DECOMPILER ERROR at PC382: Unhandled construct in 'MakeBoolean' P1
+                      -- DECOMPILER ERROR at PC385: Unhandled construct in 'MakeBoolean' P1
 
                       if deduction_round_type == BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
                         local attackTime = defCard:RecodeHitTimes()
@@ -608,7 +612,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                         if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
                           (self.RealUpdateBuffCount)(buff, atkInfo)
                         else
-                          -- DECOMPILER ERROR at PC431: Unhandled construct in 'MakeBoolean' P1
+                          -- DECOMPILER ERROR at PC434: Unhandled construct in 'MakeBoolean' P1
 
                           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_ENEMY_HEAL and (math.abs)(arg - defPos) > 50 then
                             (self.RealUpdateBuffCount)(buff, atkInfo)
@@ -639,41 +643,41 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                               if deduction_round_type == BattleBuffDeductionRoundType.AFTER_OWNER_CRIT then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
                               end
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC492: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
 
                             end
                           end

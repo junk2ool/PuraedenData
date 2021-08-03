@@ -12630,4 +12630,140 @@
 [117303502] = {id = 117303502, bubble_text = "ハウスの中で水着着てるの…なんだか、不思議な気分だね？", voice_path = "Flower_mizugi_Home_Talk_2", top_position = 10}
 , 
 [117303503] = {id = 117303503, bubble_text = "ええと、腕をまわしながら顔を水から出して…足はずっと、ぱたぱたさせて…泳ぐのってむずかしいねー？", voice_path = "Flower_mizugi_Home_Talk_3", top_position = 10}
+, 
+[97030361] = {id = 97030361, bubble_text = "死にたくない…死にたくない…！うっかり舌を強く噛んで死んだりしないように、喋るときもよく気を付けて…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Main_1"}
+, 
+[97030362] = {id = 97030362, bubble_text = "たまに死を怖がるのに疲れて、死にたくなったりするんです…。でもやっぱり、死ぬのは怖いからどうしようもなくて…！　うっ、死はやっぱり…最恐最悪です…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Main_2"}
+, 
+[97030363] = {id = 97030363, bubble_text = "いつか死ぬのが怖くなくなる日が来るといいなぁ…。でも死を受け入れる自分も想像しただけで…怖いっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Main_3"}
+, 
+[97030364] = {id = 97030364, bubble_text = "もう成長しないとはわかっていても…つい毎朝、身長を測ってしまう自分が情けないです…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Main_4"}
+, 
+[97130361] = {id = 97130361, bubble_text = "死にたくない…死にたくない…！うっかり舌を強く噛んで死んだりしないように、喋るときもよく気を付けて…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Main_1"}
+, 
+[97130362] = {id = 97130362, bubble_text = "たまに死を怖がるのに疲れて、死にたくなったりするんです…。でもやっぱり、死ぬのは怖いからどうしようもなくて…！　うっ、死はやっぱり…最恐最悪です…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Main_2"}
+, 
+[97130363] = {id = 97130363, bubble_text = "いつか死ぬのが怖くなくなる日が来るといいなぁ…。でも死を受け入れる自分も想像しただけで…怖いっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Main_3"}
+, 
+[97130364] = {id = 97130364, bubble_text = "もう成長しないとはわかっていても…つい毎朝、身長を測ってしまう自分が情けないです…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Main_4"}
+, 
+[97230361] = {id = 97230361, bubble_text = "死にたくない…死にたくない…！うっかり舌を強く噛んで死んだりしないように、喋るときもよく気を付けて…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Main_1"}
+, 
+[97230362] = {id = 97230362, bubble_text = "たまに死を怖がるのに疲れて、死にたくなったりするんです…。でもやっぱり、死ぬのは怖いからどうしようもなくて…！　うっ、死はやっぱり…最恐最悪です…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Main_2"}
+, 
+[97230363] = {id = 97230363, bubble_text = "いつか死ぬのが怖くなくなる日が来るといいなぁ…。でも死を受け入れる自分も想像しただけで…怖いっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Main_3"}
+, 
+[97230364] = {id = 97230364, bubble_text = "もう成長しないとはわかっていても…つい毎朝、身長を測ってしまう自分が情けないです…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Main_4"}
+, 
+[101303601] = {id = 101303601, bubble_text = "ム、ム、ムリムですっ！よろしくお願いしますが…どうか死にそうな危ないことだけは！勘弁してくださいっ！他のことなら、できるかぎり努力しますのでー…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Get_1"}
+, 
+[101303611] = {id = 101303611, bubble_text = "身長はたぶん変わってませんが…寿命は伸びたような気がします！長生きできたら、リーダーさんのおかげですね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Stage_2"}
+, 
+[101303621] = {id = 101303621, bubble_text = "こんなによくしてくれて…つまりリーダーさん、私に長生きしてほしいって思ってくれてるんですか？　えへへ…リーダーさんと一緒にいられるなら、もっともっと生きてみせます！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Stage_3"}
+, 
+[102303601] = {id = 102303601, bubble_text = "今日も安全第一でいきましょう…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_In_1"}
+, 
+[102303602] = {id = 102303602, bubble_text = "今日も安全第一でいきましょう…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_In_1"}
+, 
+[102303603] = {id = 102303603, bubble_text = "今日も安全第一でいきましょう…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_In_1"}
+, 
+[103303601] = {id = 103303601, bubble_text = "胸がどきどきするのは…良い兆し、ですよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:235", direction = 2, voice_path = "mulimu_Stage_1"}
+, 
+[103303611] = {id = 103303611, bubble_text = "胸がどきどきするのは…良い兆し、ですよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Stage_1"}
+, 
+[103303621] = {id = 103303621, bubble_text = "胸がどきどきするのは…良い兆し、ですよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Stage_1"}
+, 
+[104303601] = {id = 104303601, bubble_text = "これで、もっと長生きできますか…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:235", direction = 2, voice_path = "mulimu_Star_1"}
+, 
+[104303611] = {id = 104303611, bubble_text = "これで、もっと長生きできますか…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Star_1"}
+, 
+[104303621] = {id = 104303621, bubble_text = "これで、もっと長生きできますか…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Star_1"}
+, 
+[105303601] = {id = 105303601, bubble_text = "――ッリ、リーダーさんでしたか…びっくりしました…。今はもう、悲鳴も上げられずにただ胸がきゅっとなってましたよ…驚かすのはやめてください…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Interaction_1"}
+, 
+[105303602] = {id = 105303602, bubble_text = "えっと、なんでしょうか…？あ、もしかして…私が死にかけた時のため、蘇生法を練習してくれてる…！？あ、ありがとうございます！この恩は忘れませんっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Interaction_2"}
+, 
+[105303603] = {id = 105303603, bubble_text = "いえっ、むしろ私からリーダーさんを触らせてくださいっ！　リーダーさんは怖いものなしなので、触ったらご利益があるかも…！　「死の恐怖を忘れられる」とかっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Interaction_3"}
+, 
+[105303604] = {id = 105303604, bubble_text = "戦いはやっぱり怖いですが…リーダーさんの背中を見てると、ちょっとだけ勇気が湧くんです。だから…その背中に少し、寄り添わせてください…いや、その、隠れさせてほしい気持ちもありますが…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Interaction_4"}
+, 
+[105303605] = {id = 105303605, bubble_text = "ようやく気付きました。私…自分が死にたくないのと同じくらい、リーダーさんにも、死んでほしくないんです。だから、リーダーさんの命を守るために…私も精一杯、戦います！　…で、できる限り、ですけどっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Interaction_5"}
+, 
+[105303611] = {id = 105303611, bubble_text = "――ッリ、リーダーさんでしたか…びっくりしました…。今はもう、悲鳴も上げられずにただ胸がきゅっとなってましたよ…驚かすのはやめてください…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Interaction_1"}
+, 
+[105303612] = {id = 105303612, bubble_text = "えっと、なんでしょうか…？あ、もしかして…私が死にかけた時のため、蘇生法を練習してくれてる…！？あ、ありがとうございます！この恩は忘れませんっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Interaction_2"}
+, 
+[105303613] = {id = 105303613, bubble_text = "いえっ、むしろ私からリーダーさんを触らせてくださいっ！　リーダーさんは怖いものなしなので、触ったらご利益があるかも…！　「死の恐怖を忘れられる」とかっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Interaction_3"}
+, 
+[105303614] = {id = 105303614, bubble_text = "戦いはやっぱり怖いですが…リーダーさんの背中を見てると、ちょっとだけ勇気が湧くんです。だから…その背中に少し、寄り添わせてください…いや、その、隠れさせてほしい気持ちもありますが…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Interaction_4"}
+, 
+[105303615] = {id = 105303615, bubble_text = "ようやく気付きました。私…自分が死にたくないのと同じくらい、リーダーさんにも、死んでほしくないんです。だから、リーダーさんの命を守るために…私も精一杯、戦います！　…で、できる限り、ですけどっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Interaction_5"}
+, 
+[105303621] = {id = 105303621, bubble_text = "――ッリ、リーダーさんでしたか…びっくりしました…。今はもう、悲鳴も上げられずにただ胸がきゅっとなってましたよ…驚かすのはやめてください…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Interaction_1"}
+, 
+[105303622] = {id = 105303622, bubble_text = "えっと、なんでしょうか…？あ、もしかして…私が死にかけた時のため、蘇生法を練習してくれてる…！？あ、ありがとうございます！この恩は忘れませんっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Interaction_2"}
+, 
+[105303623] = {id = 105303623, bubble_text = "いえっ、むしろ私からリーダーさんを触らせてくださいっ！　リーダーさんは怖いものなしなので、触ったらご利益があるかも…！　「死の恐怖を忘れられる」とかっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Interaction_3"}
+, 
+[105303624] = {id = 105303624, bubble_text = "戦いはやっぱり怖いですが…リーダーさんの背中を見てると、ちょっとだけ勇気が湧くんです。だから…その背中に少し、寄り添わせてください…いや、その、隠れさせてほしい気持ちもありますが…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Interaction_4"}
+, 
+[105303625] = {id = 105303625, bubble_text = "ようやく気付きました。私…自分が死にたくないのと同じくらい、リーダーさんにも、死んでほしくないんです。だから、リーダーさんの命を守るために…私も精一杯、戦います！　…で、できる限り、ですけどっ…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Interaction_5"}
+, 
+[106303601] = {id = 106303601, bubble_text = "私っ…生きてるぅー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Win_1"}
+, 
+[106303611] = {id = 106303611, bubble_text = "私っ…生きてるぅー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Win_1"}
+, 
+[106303621] = {id = 106303621, bubble_text = "私っ…生きてるぅー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Win_1"}
+, 
+[107303601] = {id = 107303601, bubble_text = "生きてるから勝ち…ってことにはなりませんか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Fail_1"}
+, 
+[107303611] = {id = 107303611, bubble_text = "生きてるから勝ち…ってことにはなりませんか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "351:242", direction = 1, voice_path = "mulimu_Fail_1"}
+, 
+[107303621] = {id = 107303621, bubble_text = "生きてるから勝ち…ってことにはなりませんか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "526:304", direction = 1, voice_path = "mulimu_Fail_1"}
+, 
+[108303601] = {id = 108303601, bubble_text = "死にたく…ない…！", voice_path = "mulimu_Go_1"}
+, 
+[109303601] = {id = 109303601, voice_path = "mulimu_Game_1"}
+, 
+[111303601] = {id = 111303601, voice_path = "mulimu_Battle_N_1"}
+, 
+[111303602] = {id = 111303602, voice_path = "mulimu_Battle_N_2"}
+, 
+[111303603] = {id = 111303603, voice_path = "mulimu_Battle_N_3"}
+, 
+[111303604] = {id = 111303604, voice_path = "mulimu_Battle_N_4"}
+, 
+[111303605] = {id = 111303605, voice_path = "mulimu_Battle_N_5"}
+, 
+[111303606] = {id = 111303606, voice_path = "mulimu_Battle_N_6"}
+, 
+[112303601] = {id = 112303601, voice_path = "mulimu_Battle_Hit_1"}
+, 
+[112303602] = {id = 112303602, voice_path = "mulimu_Battle_Hit_2"}
+, 
+[112303603] = {id = 112303603, voice_path = "mulimu_Battle_Hit_3"}
+, 
+[112303604] = {id = 112303604, voice_path = "mulimu_Battle_Hit_4"}
+, 
+[112303605] = {id = 112303605, voice_path = "mulimu_Battle_Hit_5"}
+, 
+[112303606] = {id = 112303606, voice_path = "mulimu_Battle_Hit_6"}
+, 
+[113303601] = {id = 113303601, voice_path = "mulimu_Battle_Die_1"}
+, 
+[114303601] = {id = 114303601, voice_path = "mulimu_Battle_H_1"}
+, 
+[114303602] = {id = 114303602, voice_path = "mulimu_Battle_H_2"}
+, 
+[115303601] = {id = 115303601, voice_path = "mulimu_Battle_C_1"}
+, 
+[115303602] = {id = 115303602, voice_path = "mulimu_Battle_C_2"}
+, 
+[116303601] = {id = 116303601, bubble_text = "どこかにつまづいて死んじゃいそうな場所、ありませんか…！？", voice_path = "mulimu_Home_In_1", top_position = 10}
+, 
+[117303601] = {id = 117303601, bubble_text = "…はっ！今一瞬、死への恐怖を忘れられたような――いえっ、やっぱり気のせいでした…！　死は、怖い…！", voice_path = "mulimu_Home_Talk_1", top_position = 10}
+, 
+[117303602] = {id = 117303602, bubble_text = "プライドのみなさんは、いつも元気に戦ってる子が多いですよね…死ぬのが怖くないなんて、すごいなぁ…", voice_path = "mulimu_Home_Talk_2", top_position = 10}
+, 
+[117303603] = {id = 117303603, bubble_text = "…ここでプライドのみなさんといれば、ちょっとだけ死なないかも、って思うんです。…ちょっとだけですけど…", voice_path = "mulimu_Home_Talk_3", top_position = 10}
 }

@@ -22,6 +22,9 @@ NewActivityDungeonExchangeWindow.OnInit = function(bridgeObj, ...)
   (NewActivityDungeonExchangeWindow.InitButtonEvent)()
   ;
   (NewActivityDungeonExchangeWindow.InitSfx)()
+  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).NewActivityDungeon)
+  ;
+  (NewActivityDungeonExchangeWindow.InitPanelIcons)(activityId)
 end
 
 NewActivityDungeonExchangeWindow.InitVariable = function(...)
@@ -38,7 +41,9 @@ NewActivityDungeonExchangeWindow.InitTopMenu = function(...)
   m.windowName = (WinResConfig.NewActivityDungeonExchangeWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStrip
-  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.ACTIVITY_SCORE_NEW}
+  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).NewActivityDungeon)
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, tonumber(imageConfigData.activity_shop_asset), tonumber(imageConfigData.activity_slot_asset)}
   ;
   (CommonWinMgr.RegisterAssets)(m)
 end
@@ -500,6 +505,13 @@ NewActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
       end
     end
   end
+end
+
+NewActivityDungeonExchangeWindow.InitPanelIcons = function(activityId, ...)
+  -- function num : 0_25 , upvalues : _ENV, uis
+  local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_slot_bkg)
 end
 
 return NewActivityDungeonExchangeWindow

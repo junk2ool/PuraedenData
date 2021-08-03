@@ -184,8 +184,12 @@ NewActivityDungeonGuildAssistWindow.RefreshTimes = function(...)
 
   if NewActivityDungeonData.AssistData == nil or config.assist_num <= (NewActivityDungeonData.AssistData).assistedTime then
     ((uis.SystemSetGrp).TouchNumberTxt).text = (PUtil.get)(60000630, "[color=" .. Const.RedColor .. "]" .. "0[/color][color=" .. Const.GreenColor .. "]", config.assist_num .. "[/color]")
+    ;
+    (RedDotMgr.EliminateRedDot)((WinResConfig.NewActivityDungeonMainWindow).name, RedDotComID.NAD_GuildHlep)
+    ;
+    (RedDotMgr.RefreshTreeUI)((WinResConfig.NewActivityDungeonMainWindow).name)
   else
-    -- DECOMPILER ERROR at PC58: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC72: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     ((uis.SystemSetGrp).TouchNumberTxt).text = (PUtil.get)(60000630, "[color=" .. Const.GreenColor .. "]" .. tostring(config.assist_num - (NewActivityDungeonData.AssistData).assistedTime), config.assist_num .. "[/color]")

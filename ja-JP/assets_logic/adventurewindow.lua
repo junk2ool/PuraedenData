@@ -430,6 +430,16 @@ AdventureWindow.InitBtn = function(...)
 )
   end
 )
+    local isExpandOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).TowerExpand)
+    if isExpandOpen then
+      local effect = nil
+      local pos = Vector2(((uis.MiddleComp).MapWorkshopIconBtn).width * 0.5, ((uis.MiddleComp).MapWorkshopIconBtn).height * 0.5)
+      relicEffect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_TIANZHITA_ZHUJIEMIAN_HEIDONG, false, (uis.MiddleComp).MapWorkshopIconBtn, pos, nil, 1, false)
+      -- DECOMPILER ERROR at PC155: Confused about usage of register: R4 in 'UnsetPending'
+
+      ;
+      (effect.transform).localPosition = Vector3(-11, -37, 0)
+    end
   end
 end
 

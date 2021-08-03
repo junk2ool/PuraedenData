@@ -1188,10 +1188,17 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
         if preChooseId == 2001 then
           local card = (self.GetNormalAttackCard)(atkCard)
           t_insert(preChooseCards, card)
-        end
-      end
-      do
-        t_sort(preChooseCards, function(a, b, ...)
+        else
+          do
+            if preChooseId == 2162 then
+              local cards = (self.GetTopAtkCards)(atkCard, false, 2)
+              local count = #cards
+              for i = 1, count do
+                t_insert(preChooseCards, cards[i])
+              end
+            end
+            do
+              t_sort(preChooseCards, function(a, b, ...)
       -- function num : 0_27_78_0
       if a.tempRandom >= b.tempRandom then
         do return a:GetHp() / a:GetMaxHp() ~= b:GetHp() / b:GetMaxHp() end
@@ -1200,50 +1207,53 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
       end
     end
 )
-        for index,value in ipairs(preChooseCards) do
-          print("备用选址", value:GetPosIndex())
-        end
-        local buffedCards = (BattleChoose.GetCardHaveBuffId)(atkCard, tarBuffId, false)
-        local t_buffedCards = {}
-        for index,value in ipairs(buffedCards) do
-          print("携带buffid为", tarBuffId, "的卡片位置为", value:GetPosIndex())
-          ;
-          (table.insert)(t_buffedCards, {card = value, isExsit = false})
-        end
-        local t_preChooseCards = {}
-        for index,value in ipairs(preChooseCards) do
-          (table.insert)(t_preChooseCards, {card = value, isBuffed = false})
-        end
-        local exsitNum = 0
-        for i,j in ipairs(t_preChooseCards) do
-          for n,m in ipairs(t_buffedCards) do
-            if (m.card):GetPosIndex() == (j.card):GetPosIndex() then
-              m.isExsit = true
-              j.isBuffed = true
-              exsitNum = exsitNum + 1
-            end
-          end
-        end
-        for i,j in ipairs(t_preChooseCards) do
-          print("备用选址卡片位置", (j.card):GetPosIndex(), "是否拥有buffid", j.isBuffed)
-        end
-        for index,value in ipairs(t_buffedCards) do
-          print("实际拥有buffid的卡片位置", (value.card):GetPosIndex(), "是否已存在备选卡片中", value.isExsit)
-        end
-        if exsitNum == #preChooseCards then
-          targetCards = preChooseCards
-        else
-          for i,j in ipairs(t_preChooseCards) do
-            for n,m in ipairs(t_buffedCards) do
-              if j.isBuffed == false and m.isExsit == false then
-                j.card = m.card
-                j.isBuffed = true
-                m.isExsit = true
+              for index,value in ipairs(preChooseCards) do
+                print("备用选址", value:GetPosIndex())
+              end
+              local buffedCards = (BattleChoose.GetCardHaveBuffId)(atkCard, tarBuffId, false)
+              local t_buffedCards = {}
+              for index,value in ipairs(buffedCards) do
+                print("携带buffid为", tarBuffId, "的卡片位置为", value:GetPosIndex())
+                ;
+                (table.insert)(t_buffedCards, {card = value, isExsit = false})
+              end
+              local t_preChooseCards = {}
+              for index,value in ipairs(preChooseCards) do
+                (table.insert)(t_preChooseCards, {card = value, isBuffed = false})
+              end
+              local exsitNum = 0
+              for i,j in ipairs(t_preChooseCards) do
+                for n,m in ipairs(t_buffedCards) do
+                  if (m.card):GetPosIndex() == (j.card):GetPosIndex() then
+                    m.isExsit = true
+                    j.isBuffed = true
+                    exsitNum = exsitNum + 1
+                  end
+                end
+              end
+              for i,j in ipairs(t_preChooseCards) do
+                print("备用选址卡片位置", (j.card):GetPosIndex(), "是否拥有buffid", j.isBuffed)
+              end
+              for index,value in ipairs(t_buffedCards) do
+                print("实际拥有buffid的卡片位置", (value.card):GetPosIndex(), "是否已存在备选卡片中", value.isExsit)
+              end
+              if exsitNum == #preChooseCards then
+                targetCards = preChooseCards
+              else
+                for i,j in ipairs(t_preChooseCards) do
+                  for n,m in ipairs(t_buffedCards) do
+                    if j.isBuffed == false and m.isExsit == false then
+                      j.card = m.card
+                      j.isBuffed = true
+                      m.isExsit = true
+                    end
+                  end
+                end
+                for index,value in ipairs(t_preChooseCards) do
+                  t_insert(targetCards, value.card)
+                end
               end
             end
-          end
-          for index,value in ipairs(t_preChooseCards) do
-            t_insert(targetCards, value.card)
           end
         end
       end

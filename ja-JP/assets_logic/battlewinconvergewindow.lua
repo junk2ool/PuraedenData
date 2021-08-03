@@ -751,15 +751,23 @@ BattleWinConvergeWindow.InitBottomReward = function(...)
                 else
                   -- DECOMPILER ERROR at PC169: Confused about usage of register: R1 in 'UnsetPending'
 
-                  if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).GUILD_WAR then
-                    ((uis.RewardGrp).c2Ctr).selectedIndex = 4
+                  if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).TOWER_EXPAND then
+                    ((uis.RewardGrp).c2Ctr).selectedIndex = 3
                     ;
-                    (BattleWinConvergeWindow.SetGuildBossInfo)()
+                    (BattleWinConvergeWindow.ShutLuck)()
                   else
-                    -- DECOMPILER ERROR at PC175: Confused about usage of register: R1 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC181: Confused about usage of register: R1 in 'UnsetPending'
 
-                    ;
-                    ((uis.RewardGrp).c2Ctr).selectedIndex = 1
+                    if winData.BattleType == (ProtoEnum.E_BATTLE_TYPE).GUILD_WAR then
+                      ((uis.RewardGrp).c2Ctr).selectedIndex = 4
+                      ;
+                      (BattleWinConvergeWindow.SetGuildBossInfo)()
+                    else
+                      -- DECOMPILER ERROR at PC187: Confused about usage of register: R1 in 'UnsetPending'
+
+                      ;
+                      ((uis.RewardGrp).c2Ctr).selectedIndex = 1
+                    end
                   end
                 end
               end
@@ -900,8 +908,19 @@ BattleWinConvergeWindow.SetLuck = function(...)
   ((uis.RewardGrp).TowerLuckTxt).text = winData.LuckNum
 end
 
+BattleWinConvergeWindow.ShutLuck = function(...)
+  -- function num : 0_20 , upvalues : uis
+  -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+  ((uis.RewardGrp).TowerTxt).text = ""
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.RewardGrp).TowerLuckTxt).text = ""
+end
+
 BattleWinConvergeWindow.DamageProgress = function(damageData, ...)
-  -- function num : 0_20 , upvalues : uis, _ENV, playerExpAniTime
+  -- function num : 0_21 , upvalues : uis, _ENV, playerExpAniTime
   local progressBar = (uis.RewardGrp).HurtProgressBar
   local progressTxt = (uis.RewardGrp).ExpNumberTxt
   progressTxt.text = ""
@@ -921,11 +940,11 @@ BattleWinConvergeWindow.DamageProgress = function(damageData, ...)
   progressBar.value = 0
   ;
   (SimpleTimer.setTimeout)(playerExpAniTime, function(...)
-    -- function num : 0_20_0 , upvalues : progressBar, totalSelfDamage, totalEnemyHp, _ENV, progressTxt
+    -- function num : 0_21_0 , upvalues : progressBar, totalSelfDamage, totalEnemyHp, _ENV, progressTxt
     progressBar:TweenValue(100 * totalSelfDamage / totalEnemyHp, 1)
     ;
     ((LeanTween.value)(0, totalSelfDamage, 1)):setOnUpdate(function(value, ...)
-      -- function num : 0_20_0_0 , upvalues : _ENV, totalEnemyHp, progressTxt
+      -- function num : 0_21_0_0 , upvalues : _ENV, totalEnemyHp, progressTxt
       local percent = (math.ceil)(value / totalEnemyHp * 100)
       progressTxt.text = (PUtil.get)(20000436, (Util.NumberTransformKilo)((math.ceil)(value)), (Util.NumberTransformKilo)(totalEnemyHp), percent)
     end
@@ -935,12 +954,12 @@ BattleWinConvergeWindow.DamageProgress = function(damageData, ...)
 end
 
 BattleWinConvergeWindow.SetTeamExp = function(...)
-  -- function num : 0_21 , upvalues : BattleWinConvergeWindow
+  -- function num : 0_22 , upvalues : BattleWinConvergeWindow
   (BattleWinConvergeWindow.SetExpAni)()
 end
 
 BattleWinConvergeWindow.SetExpTxt = function(level, exp, ...)
-  -- function num : 0_22 , upvalues : _ENV, uis
+  -- function num : 0_23 , upvalues : _ENV, uis
   local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[level + 72300000]
   -- DECOMPILER ERROR at PC17: Confused about usage of register: R3 in 'UnsetPending'
 
@@ -955,7 +974,7 @@ BattleWinConvergeWindow.SetExpTxt = function(level, exp, ...)
 end
 
 BattleWinConvergeWindow.SetBtnVisible = function(value, ...)
-  -- function num : 0_23 , upvalues : uis, winData
+  -- function num : 0_24 , upvalues : uis, winData
   if uis == nil then
     return 
   end
@@ -975,7 +994,7 @@ BattleWinConvergeWindow.SetBtnVisible = function(value, ...)
 end
 
 BattleWinConvergeWindow.SetExpAni = function(...)
-  -- function num : 0_24 , upvalues : winData, _ENV, uis, BattleWinConvergeWindow, playerExpAniTime
+  -- function num : 0_25 , upvalues : winData, _ENV, uis, BattleWinConvergeWindow, playerExpAniTime
   if not winData.ActorExp then
     local currentExp = (ActorData.GetExp)()
   end
@@ -999,10 +1018,10 @@ BattleWinConvergeWindow.SetExpAni = function(...)
       (BattleWinConvergeWindow.SetExpTxt)(level - 1, LevelUpNext.next_exp - next)
       ;
       (SimpleTimer.setTimeout)(playerExpAniTime, function(...)
-    -- function num : 0_24_0 , upvalues : _ENV, LevelUpNext, next, uis, BattleWinConvergeWindow, level
+    -- function num : 0_25_0 , upvalues : _ENV, LevelUpNext, next, uis, BattleWinConvergeWindow, level
     local gt = (GTween.To)(LevelUpNext.next_exp - next, LevelUpNext.next_exp, 1)
     gt:OnUpdate(function(...)
-      -- function num : 0_24_0_0 , upvalues : uis, gt, LevelUpNext, BattleWinConvergeWindow, level
+      -- function num : 0_25_0_0 , upvalues : uis, gt, LevelUpNext, BattleWinConvergeWindow, level
       -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
       if uis then
@@ -1013,7 +1032,7 @@ BattleWinConvergeWindow.SetExpAni = function(...)
     end
 )
     gt:OnComplete(function(...)
-      -- function num : 0_24_0_1 , upvalues : _ENV, uis, level, BattleWinConvergeWindow
+      -- function num : 0_25_0_1 , upvalues : _ENV, uis, level, BattleWinConvergeWindow
       -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
       if OvertureMgr.isPlaying == true then
@@ -1027,7 +1046,7 @@ BattleWinConvergeWindow.SetExpAni = function(...)
       end
       if (Util.IsPrepareLevelUpWindow)() then
         local func = function(...)
-        -- function num : 0_24_0_1_0 , upvalues : BattleWinConvergeWindow, _ENV
+        -- function num : 0_25_0_1_0 , upvalues : BattleWinConvergeWindow, _ENV
         (BattleWinConvergeWindow.SetBtnVisible)(false)
         OpenWindow((WinResConfig.PlayerLevelUpWindow).name, UILayer.HUD1)
       end
@@ -1035,7 +1054,7 @@ BattleWinConvergeWindow.SetExpAni = function(...)
         do
           if UIMgr:IsWindowOpen((WinResConfig.PiceGetShowWindow).name) then
             UIMgr:SetOnHideComplete((WinResConfig.PiceGetShowWindow).name, function(...)
-        -- function num : 0_24_0_1_1 , upvalues : func
+        -- function num : 0_25_0_1_1 , upvalues : func
         func()
       end
 )
@@ -1066,10 +1085,10 @@ BattleWinConvergeWindow.SetExpAni = function(...)
       (BattleWinConvergeWindow.SetExpTxt)(level, currentExp - addExp)
       ;
       (SimpleTimer.setTimeout)(playerExpAniTime, function(...)
-    -- function num : 0_24_1 , upvalues : _ENV, currentExp, addExp, uis, LevelUpData, BattleWinConvergeWindow, level
+    -- function num : 0_25_1 , upvalues : _ENV, currentExp, addExp, uis, LevelUpData, BattleWinConvergeWindow, level
     local gt = (GTween.To)(currentExp - addExp, currentExp, 1)
     gt:OnUpdate(function(...)
-      -- function num : 0_24_1_0 , upvalues : uis, gt, LevelUpData, BattleWinConvergeWindow, level
+      -- function num : 0_25_1_0 , upvalues : uis, gt, LevelUpData, BattleWinConvergeWindow, level
       -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
       if uis then
@@ -1086,7 +1105,7 @@ BattleWinConvergeWindow.SetExpAni = function(...)
 end
 
 BattleWinConvergeWindow.RewardItemRender = function(index, obj, ...)
-  -- function num : 0_25 , upvalues : itemList, itemType, _ENV
+  -- function num : 0_26 , upvalues : itemList, itemType, _ENV
   local data = itemList[index + 1]
   local itemData = data.item
   if data.type == itemType.FIRST then
@@ -1116,25 +1135,25 @@ BattleWinConvergeWindow.RewardItemRender = function(index, obj, ...)
 end
 
 BattleWinConvergeWindow.OnShown = function(...)
-  -- function num : 0_26 , upvalues : _ENV, uis
+  -- function num : 0_27 , upvalues : _ENV, uis
   (GuideMgr.CheckIsTriggerGuide)((WinResConfig.BattleWinConvergeWindow).name)
   local title = ((uis.WinTitle).root):GetChild("Decorate_01_Image")
   local pos = Vector2(title.x + title.width * 0.5, title.y + title.height + 30)
   local holder = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_BATTLE_SETTLE_WIN, false, (uis.WinTitle).root, pos)
   ;
   (SimpleTimer.setTimeout)(3, function(...)
-    -- function num : 0_26_0 , upvalues : holder
+    -- function num : 0_27_0 , upvalues : holder
     holder.visible = false
   end
 )
 end
 
 BattleWinConvergeWindow.OnHide = function(...)
-  -- function num : 0_27
+  -- function num : 0_28
 end
 
 BattleWinConvergeWindow.OnClose = function(...)
-  -- function num : 0_28 , upvalues : uis, _ENV, BattleWinConvergeWindow, contentPane, argTable, winData, battleSummarizeData, itemList
+  -- function num : 0_29 , upvalues : uis, _ENV, BattleWinConvergeWindow, contentPane, argTable, winData, battleSummarizeData, itemList
   if (uis.RewardGrp).ShowLoader then
     (Util.RecycleUIModel)((uis.RewardGrp).ShowLoader, true)
   end
@@ -1156,7 +1175,7 @@ BattleWinConvergeWindow.OnClose = function(...)
 end
 
 BattleWinConvergeWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_29 , upvalues : BattleWinConvergeWindow, uis, winData, _ENV
+  -- function num : 0_30 , upvalues : BattleWinConvergeWindow, uis, winData, _ENV
   if msgId == 1 then
     (BattleWinConvergeWindow.SetBtnVisible)(true)
     if uis then
@@ -1175,7 +1194,7 @@ BattleWinConvergeWindow.HandleMessage = function(msgId, para, ...)
           (BattleWinConvergeWindow.SetExpTxt)(level, 0)
           local LevelUpData = ((TableData.gTable).BasePlayerLevelUpData)[level + 72300000]
           gt2:OnUpdate(function(...)
-    -- function num : 0_29_0 , upvalues : uis, gt2, LevelUpData, BattleWinConvergeWindow, level
+    -- function num : 0_30_0 , upvalues : uis, gt2, LevelUpData, BattleWinConvergeWindow, level
     -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
     if uis then

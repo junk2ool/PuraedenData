@@ -5,6 +5,7 @@ GetTower_LayerBtnUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
   uis.LayerCutGrp = GetTower_LayerCutUis(ui:GetChild("LayerCutGrp"))
+  uis.NameTxt = ui:GetChild("NameTxt")
   uis.NumberTxt = ui:GetChild("NumberTxt")
   uis.buttonCtr = ui:GetController("button")
   uis.c1Ctr = ui:GetController("c1")

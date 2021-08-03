@@ -129,7 +129,7 @@ ActivityDungeonMainWindow.ItemRenderer = function(index, obj, ...)
 end
 
 ActivityDungeonMainWindow.InitInvariable = function(...)
-  -- function num : 0_4 , upvalues : _ENV, uis
+  -- function num : 0_4 , upvalues : _ENV, uis, ActivityDungeonMainWindow
   local acID = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
   local ActivityData = ((TableData.gTable).BaseActivityData)[acID]
   -- DECOMPILER ERROR at PC12: Confused about usage of register: R2 in 'UnsetPending'
@@ -179,11 +179,28 @@ ActivityDungeonMainWindow.InitInvariable = function(...)
   ((uis.PlotBtn):GetChild("RedDot")).visible = (ActivityMgr.PlotRedDotShow)()
   ;
   (GuideData.RegisterGuideAndControl)(ControlID.HandBook_Album, uis.PlotBtn, (WinResConfig.ActivityDungeonMainWindow).name)
+  ;
+  (ActivityDungeonMainWindow.InitPanelIcons)(acID)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
-ActivityDungeonMainWindow.SetTime = function(...)
+ActivityDungeonMainWindow.InitPanelIcons = function(activityId, ...)
   -- function num : 0_5 , upvalues : _ENV, uis
+  local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
+  local logoLoader = (FairyUIUtils.FindLoader)(uis.root, "LogoLoader")
+  local cardTipsLoader = (FairyUIUtils.FindLoader)(uis.CardInfoBtn, "CardTipsLoader")
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  if imageConfigData then
+    bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_bkg)
+    logoLoader.url = (Util.GetItemUrl)(imageConfigData.activity_title)
+    cardTipsLoader.url = (Util.GetItemUrl)(imageConfigData.activity_actor)
+  else
+    loge("Can Not Find Activity Image Config With " .. tostring(activityId))
+  end
+end
+
+ActivityDungeonMainWindow.SetTime = function(...)
+  -- function num : 0_6 , upvalues : _ENV, uis
   local data = (ActivityMgr.InitActivityDungeonData)()
   local startTime = (data.baseActivityInfo).beginTime
   local endTime = (data.baseActivityInfo).endTime
@@ -196,20 +213,20 @@ ActivityDungeonMainWindow.SetTime = function(...)
 end
 
 ActivityDungeonMainWindow.OnShown = function(...)
-  -- function num : 0_6 , upvalues : ActivityDungeonMainWindow
+  -- function num : 0_7 , upvalues : ActivityDungeonMainWindow
   (ActivityDungeonMainWindow.SetArrowShow)()
 end
 
 ActivityDungeonMainWindow.SetArrowShow = function(...)
-  -- function num : 0_7
-end
-
-ActivityDungeonMainWindow.OnHide = function(...)
   -- function num : 0_8
 end
 
+ActivityDungeonMainWindow.OnHide = function(...)
+  -- function num : 0_9
+end
+
 ActivityDungeonMainWindow.OnClose = function(...)
-  -- function num : 0_9 , upvalues : uis, contentPane, argTable, _ENV
+  -- function num : 0_10 , upvalues : uis, contentPane, argTable, _ENV
   uis = nil
   contentPane = nil
   argTable = {}
@@ -218,23 +235,25 @@ ActivityDungeonMainWindow.OnClose = function(...)
 end
 
 ActivityDungeonMainWindow.InitAssetStrip = function(...)
-  -- function num : 0_10 , upvalues : _ENV, uis
+  -- function num : 0_11 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.ActivityDungeonMainWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStrip
   m.explainFunc = function(...)
-    -- function num : 0_10_0 , upvalues : _ENV
+    -- function num : 0_11_0 , upvalues : _ENV
     OpenWindow((WinResConfig.ActivityExplainWindow).name, UILayer.HUD)
   end
 
-  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.ACTIVITYDUNGEON_COIN, AssetType.ACTIVITY_SCORE_NEW}
+  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, tonumber(imageConfigData.activity_shop_asset), tonumber(imageConfigData.activity_slot_asset)}
   ;
   (CommonWinMgr.RegisterAssets)(m)
 end
 
 ActivityDungeonMainWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_11 , upvalues : _ENV, ActivityDungeonMainWindow
+  -- function num : 0_12 , upvalues : _ENV, ActivityDungeonMainWindow
   if msgId == (WindowMsgEnum.ActivityMainDungeon).E_MSG_SET_TIME then
     (ActivityDungeonMainWindow.SetTime)()
   end

@@ -27,6 +27,7 @@ end
 TowerService.ReqTowerData = function(isOpen, ...)
   -- function num : 0_1 , upvalues : _ENV
   local m = {}
+  m.type = 1
   ;
   (Net.Send)((Proto.MsgName).ReqTowerInit, m, (Proto.MsgName).ResTowerInit)
 end
@@ -35,7 +36,22 @@ end
 
 TowerService.RecvTowerData = function(msg, ...)
   -- function num : 0_2 , upvalues : _ENV
-  (TowerMgr.RecvTowerData)(msg)
+  if msg.type == 1 then
+    (TowerMgr.RecvTowerData)(msg)
+    -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
+
+    TowerData.IsExpand = false
+    ;
+    (TowerService.ReqTowerExpandAcitvityInfo)()
+  else
+    -- DECOMPILER ERROR at PC17: Confused about usage of register: R1 in 'UnsetPending'
+
+    if msg.type == 2 then
+      TowerData.IsExpand = true
+      ;
+      (TowerTopStageMgr.RecvTowerTopStageData)(msg)
+    end
+  end
 end
 
 -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
@@ -58,9 +74,15 @@ end
 
 TowerService.RecvEnterTower = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
-  -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
-  TowerData.FormationInfo = msg.cardInfo
+  if TowerData.IsExpand == false then
+    TowerData.FormationInfo = msg.cardInfo
+  else
+    -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+
+    TowerTopStageData.FormationInfo = msg.cardInfo
+  end
 end
 
 -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
@@ -81,38 +103,83 @@ end
 
 TowerService.RecvSettleTower = function(msg, ...)
   -- function num : 0_6 , upvalues : _ENV
-  if msg.isSuccess then
-    local stageId = TowerData.LastReqStageId
-    if stageId == 0 then
-      stageId = (msg.towerStage).towerStageId
-    end
-    ;
-    (TowerData.UpdateTowerData)(msg)
-    ;
-    (TowerMgr.HandleReward)(msg, stageId)
-    local config = ((TableData.gTable).BaseTowerStageData)[stageId]
-    local cost = split(config.cost, ":")
-    if (ActorData.GetGoodsCount)(tonumber(cost[2]), tonumber(cost[1])) < tonumber(cost[3]) then
-      (RedDotMgr.EliminateRedDot)((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Tower)
-    end
+  local sweep = false
+  local expand = false
+  if msg.towerStage == nil then
+    sweep = true
   else
-    do
-      do
-        local m = {}
-        m.BattleType = (ProtoEnum.E_BATTLE_TYPE).TOWER
-        ;
-        (CommonWinMgr.OpenBattleFailConvergeWindow)(m)
-        -- DECOMPILER ERROR at PC67: Confused about usage of register: R1 in 'UnsetPending'
-
-        if TowerData.HaveBounsLevel ~= msg.triggerEncounter and msg.triggerEncounter then
-          TowerData.PopUpBounsLevel = true
+    sweep = false
+    local layerId = (((TableData.gTable).BaseTowerStageData)[(msg.towerStage).towerStageId]).tower_id
+    if (((TableData.gTable).BaseTowerData)[layerId]).type ~= 2 then
+      expand = false
+    else
+      expand = true
+    end
+  end
+  do
+    if not expand or sweep then
+      if msg.isSuccess then
+        local stageId = TowerData.LastReqStageId
+        if stageId == 0 then
+          stageId = (msg.towerStage).towerStageId
         end
-        -- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
+        ;
+        (TowerData.UpdateTowerData)(msg)
+        ;
+        (TowerMgr.HandleReward)(msg, stageId, 1)
+        local config = ((TableData.gTable).BaseTowerStageData)[stageId]
+        local cost = split(config.cost, ":")
+        if (ActorData.GetGoodsCount)(tonumber(cost[2]), tonumber(cost[1])) < tonumber(cost[3]) then
+          (RedDotMgr.EliminateRedDot)((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Tower)
+        end
+      else
+        do
+          do
+            local m = {}
+            m.BattleType = (ProtoEnum.E_BATTLE_TYPE).TOWER
+            ;
+            (CommonWinMgr.OpenBattleFailConvergeWindow)(m)
+            -- DECOMPILER ERROR at PC97: Confused about usage of register: R3 in 'UnsetPending'
 
-        if not TowerData.HaveBounsLevel then
-          TowerData.HaveBounsLevel = msg.triggerEncounter
-          loge("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~triggerEncounter:" .. tostring(msg.triggerEncounter))
-          UIMgr:SendWindowMessage((WinResConfig.TowerWindow).name, (WindowMsgEnum.Tower).E_MSG_REFRESH_BOUNS_STATUS)
+            if TowerData.HaveBounsLevel ~= msg.triggerEncounter and msg.triggerEncounter then
+              TowerData.PopUpBounsLevel = true
+            end
+            -- DECOMPILER ERROR at PC104: Confused about usage of register: R3 in 'UnsetPending'
+
+            if not TowerData.HaveBounsLevel then
+              TowerData.HaveBounsLevel = msg.triggerEncounter
+              loge("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~triggerEncounter:" .. tostring(msg.triggerEncounter))
+              -- DECOMPILER ERROR at PC114: Confused about usage of register: R3 in 'UnsetPending'
+
+              TowerData.ExpandOpen = msg.firstOpen
+              UIMgr:SendWindowMessage((WinResConfig.TowerWindow).name, (WindowMsgEnum.Tower).E_MSG_REFRESH_BOUNS_STATUS)
+              -- DECOMPILER ERROR at PC131: Confused about usage of register: R3 in 'UnsetPending'
+
+              if msg.isSuccess then
+                (TowerTopStageData.FormationInfo).yetUseCardIdList = msg.yetUseCardIdList
+                local stageId = TowerTopStageData.LastReqStageId
+                if stageId == 0 then
+                  stageId = (msg.towerStage).towerStageId
+                end
+                ;
+                (TowerTopStageData.UpdateExpandData)(msg)
+                ;
+                (TowerMgr.HandleReward)(msg, stageId, 2)
+                local config = ((TableData.gTable).BaseTowerStageData)[stageId]
+                local cost = split(config.cost, ":")
+                if (ActorData.GetGoodsCount)(tonumber(cost[2]), tonumber(cost[1])) < tonumber(cost[3]) then
+                  (RedDotMgr.EliminateRedDot)((WinResConfig.AdventureWindow).name, RedDotComID.Adventure_Tower)
+                end
+              else
+                do
+                  local m = {}
+                  m.BattleType = (ProtoEnum.E_BATTLE_TYPE).TOWER
+                  ;
+                  (CommonWinMgr.OpenBattleFailConvergeWindow)(m)
+                end
+              end
+            end
+          end
         end
       end
     end
@@ -141,11 +208,19 @@ TowerService.RecvTowerCardGroups = function(msg, ...)
     ;
     (TowerData.InitLuckyInfo)()
   else
-    -- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
 
-    if msg.type == (ProtoEnum.E_EMBATTLE_TYPE).EMBATTLE_ENCOUNTER then
-      (TowerData.BounsLevelData).myCards = msg.cardInfo
-      UIMgr:SendWindowMessage((WinResConfig.TowerBounsLevelWindow).name, (WindowMsgEnum.Tower).E_MSG_REFRESH_SELF_FC)
+    if msg.type == (ProtoEnum.E_EMBATTLE_TYPE).EMBATTLE_TOWER_EXPAND then
+      TowerTopStageData.FormationInfo = msg.cardInfo
+      ;
+      (TowerTopStageData.InitLuckyInfo)()
+    else
+      -- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+
+      if msg.type == (ProtoEnum.E_EMBATTLE_TYPE).EMBATTLE_ENCOUNTER then
+        (TowerData.BounsLevelData).myCards = msg.cardInfo
+        UIMgr:SendWindowMessage((WinResConfig.TowerBounsLevelWindow).name, (WindowMsgEnum.Tower).E_MSG_REFRESH_SELF_FC)
+      end
     end
   end
 end
@@ -262,7 +337,7 @@ end
 TowerService.ReqBounsCardGroups = function(formation, ...)
   -- function num : 0_15 , upvalues : _ENV
   local m = {}
-  m.type = (ProtoEnum.E_EMBATTLE_TYPE).EMBATTLE_ENCOUNTER
+  m.type = (ProtoEnum.E_EMBATTLE_TYPE).EMBATTLE_ENCOUNTEREMBATTLE_ENCOUNTER
   m.cardInfo = (Util.CovertLoaclFormationToRemote)(formation)
   ;
   (Net.Send)((Proto.MsgName).ReqEmbattle, m, (Proto.MsgName).ResEmbattle)
@@ -288,6 +363,13 @@ TowerService.RecvCancelEncounter = function(msg, ...)
 
   TowerData.BounsLevelData = nil
   UIMgr:SendWindowMessage((WinResConfig.TowerWindow).name, (WindowMsgEnum.Tower).E_MSG_REFRESH_BOUNS_STATUS)
+end
+
+-- DECOMPILER ERROR at PC58: Confused about usage of register: R0 in 'UnsetPending'
+
+TowerService.ReqTowerExpandAcitvityInfo = function(...)
+  -- function num : 0_18 , upvalues : _ENV
+  (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).TowerExpand)
 end
 
 ;

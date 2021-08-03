@@ -545,13 +545,13 @@
 , 
 [52700114] = {id = 52700114, name = "正面対決に！", remark = "正面対決に！", icon = "HandBookBanner:Activity_02_5", story_id = "75901201:75901202", sort = 5}
 , 
-[52700203] = {id = 52700203, name = "未定義(85181301)", remark = "未定義(85181301)", icon = "HandBookBanner:Activity_02_1", story_id = "75901301:75901302:75901303:75901311:75901312:75901313", sort = 1}
+[52700203] = {id = 52700203, name = "海で難破！？", remark = "海で難破！？", icon = "HandBookBanner:Activity_12_1", story_id = "75901301:75901302:75901303:75901311:75901312:75901313:75901314", sort = 1}
 , 
-[52700206] = {id = 52700206, name = "未定義(85181302)", remark = "未定義(85181302)", icon = "HandBookBanner:Activity_02_2", story_id = "75901321:75901331:75901332", sort = 2}
+[52700206] = {id = 52700206, name = "無人島を探索", remark = "無人島を探索", icon = "HandBookBanner:Activity_12_2", story_id = "75901321:75901331:75901332", sort = 2}
 , 
-[52700209] = {id = 52700209, name = "未定義(85181303)", remark = "未定義(85181303)", icon = "HandBookBanner:Activity_02_3", story_id = "75901341:75901342:75901343:75901351", sort = 3}
+[52700209] = {id = 52700209, name = "謎の少女発見", remark = "謎の少女発見", icon = "HandBookBanner:Activity_12_3", story_id = "75901341:75901342:75901343:75901351", sort = 3}
 , 
-[52700212] = {id = 52700212, name = "未定義(85181304)", remark = "未定義(85181304)", icon = "HandBookBanner:Activity_02_4", story_id = "75901361:75901371:75901381", sort = 4}
+[52700212] = {id = 52700212, name = "島から脱出せよ！", remark = "島から脱出せよ！", icon = "HandBookBanner:Activity_12_4", story_id = "75901361:75901371:75901381", sort = 4}
 , 
-[52700214] = {id = 52700214, name = "未定義(85181305)", remark = "未定義(85181305)", icon = "HandBookBanner:Activity_02_5", story_id = "75901391", sort = 5}
+[52700214] = {id = 52700214, name = "ハッピーエンド", remark = "ハッピーエンド", icon = "HandBookBanner:Activity_12_5", story_id = "75901391", sort = 5}
 }

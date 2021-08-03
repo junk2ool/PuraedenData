@@ -87,6 +87,8 @@ BaseWindowNameData = {
 , 
 [3051] = {id = 3051, window_name = "TowerChallengeWindow", red_dot_max = 7}
 , 
+[3052] = {id = 3052, window_name = "TowerTopStageWindow", rule_des = "0:88303051", red_dot_max = 7}
+, 
 [3060] = {id = 3060, window_name = "ExpeditionChoiceWindow", rule_des = "0:88303060", red_dot_max = 7}
 , 
 [3061] = {id = 3061, window_name = "ExpeditionWindow", rule_des = "0:88303060", red_dot_max = 7}

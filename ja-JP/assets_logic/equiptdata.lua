@@ -201,6 +201,9 @@ if Const then
   EquiptData.EditPreset = {}
   -- DECOMPILER ERROR at PC303: Confused about usage of register: R0 in 'UnsetPending'
 
+  EquiptData.SuitBuff = {}
+  -- DECOMPILER ERROR at PC306: Confused about usage of register: R0 in 'UnsetPending'
+
   EquiptData.InitConfig = function(...)
   -- function num : 0_0 , upvalues : _ENV
   if (_G.next)(EquiptData.GroupSuitInfo) ~= nil or IsBattleServer == true then
@@ -214,7 +217,7 @@ if Const then
   (EquiptData.InitGroupSuitInfo)()
 end
 
-  -- DECOMPILER ERROR at PC306: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC309: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitLevelUpConfig = function(...)
   -- function num : 0_1 , upvalues : _ENV
@@ -239,14 +242,14 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC309: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC312: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetPartName = function(part, ...)
   -- function num : 0_2 , upvalues : _ENV
   return (PUtil.get)(60000047 + part)
 end
 
-  -- DECOMPILER ERROR at PC312: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC315: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitPartMayContainAttrConfig = function(...)
   -- function num : 0_3 , upvalues : _ENV
@@ -284,7 +287,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC315: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC318: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitGroupSuitInfo = function(...)
   -- function num : 0_4 , upvalues : _ENV
@@ -330,7 +333,7 @@ SuitIdDic = {}
   end
 end
 
-  -- DECOMPILER ERROR at PC318: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC321: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitMaxIntelligence = function(...)
   -- function num : 0_5 , upvalues : _ENV
@@ -346,7 +349,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC321: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC324: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitEquiptAttributes = function(...)
   -- function num : 0_6 , upvalues : _ENV
@@ -370,7 +373,7 @@ end
 )
 end
 
-  -- DECOMPILER ERROR at PC324: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC327: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitEquiptBuff = function(...)
   -- function num : 0_7 , upvalues : _ENV
@@ -387,7 +390,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC327: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC330: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetWearEquipInfo = function(cardId, EquipId, ...)
   -- function num : 0_8 , upvalues : _ENV
@@ -401,7 +404,7 @@ end
   return nil
 end
 
-  -- DECOMPILER ERROR at PC330: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC333: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ClearEquipData = function(...)
   -- function num : 0_9 , upvalues : _ENV
@@ -448,7 +451,7 @@ end
   (EquiptData.ResetData)()
 end
 
-  -- DECOMPILER ERROR at PC333: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC336: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetCardSuitCount = function(cardId, ...)
   -- function num : 0_10 , upvalues : _ENV
@@ -458,7 +461,7 @@ end
   return #((EquiptData.GetCardSuitInfo)(cardId)).GroupId
 end
 
-  -- DECOMPILER ERROR at PC336: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC339: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetCardSuitStatue = function(cardId, suitId, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -469,7 +472,7 @@ end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
-  -- DECOMPILER ERROR at PC339: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC342: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetSuitInfobyEquipts = function(equipts, ...)
   -- function num : 0_12 , upvalues : _ENV
@@ -503,7 +506,7 @@ end
   return activedSuit
 end
 
-  -- DECOMPILER ERROR at PC342: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC345: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetCardSuitInfo = function(cardId, ...)
   -- function num : 0_13 , upvalues : _ENV
@@ -520,7 +523,7 @@ GroupId = {}
   return (EquiptData.SuitInfo)[cardId]
 end
 
-  -- DECOMPILER ERROR at PC345: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC348: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.UpdateCardSuitInfo = function(cardId, ...)
   -- function num : 0_14 , upvalues : _ENV
@@ -585,7 +588,7 @@ GroupDic = {}
   -- DECOMPILER ERROR: 3 unprocessed JMP targets
 end
 
-  -- DECOMPILER ERROR at PC348: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC351: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckAvailableParts = function(parts, id, ...)
   -- function num : 0_15 , upvalues : _ENV
@@ -600,7 +603,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC351: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC354: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.HandelAvailablePartsData = function(equipmentId, equiptConfigId, add, equip, ...)
   -- function num : 0_16 , upvalues : _ENV
@@ -666,7 +669,7 @@ Privilege = {}
   end
 end
 
-  -- DECOMPILER ERROR at PC354: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC357: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.StoreEquipments = function(equipments, ...)
   -- function num : 0_17 , upvalues : _ENV
@@ -703,7 +706,7 @@ end
   loge("..")
 end
 
-  -- DECOMPILER ERROR at PC357: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC360: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.HandleEquiptData = function(dataSet, data, add, ...)
   -- function num : 0_18 , upvalues : _ENV
@@ -740,7 +743,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC360: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC363: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.HandleEquiptObjectIndexData = function(dataSet, objectIndex, add, ...)
   -- function num : 0_19 , upvalues : _ENV
@@ -777,7 +780,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC363: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC366: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetData = function(...)
   -- function num : 0_20 , upvalues : _ENV
@@ -794,7 +797,7 @@ end
   (EquiptData.ResetIdentifyCost)()
 end
 
-  -- DECOMPILER ERROR at PC366: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC369: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetIdentifyCost = function(...)
   -- function num : 0_21 , upvalues : _ENV
@@ -805,7 +808,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC369: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC372: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitFilter = function(...)
   -- function num : 0_22 , upvalues : _ENV
@@ -818,7 +821,7 @@ end
   (EquiptData.InitSingleFilter)(EquiptSetType.Preset, EquiptData.AvailableEquipmentsInBag)
 end
 
-  -- DECOMPILER ERROR at PC372: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC375: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitSingleFilter = function(setType, data, ...)
   -- function num : 0_23 , upvalues : _ENV
@@ -848,7 +851,7 @@ end
   (EquiptData.Filters)[setType] = filter
 end
 
-  -- DECOMPILER ERROR at PC375: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC378: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.FilteringEquiptSet = function(setType, ...)
   -- function num : 0_24 , upvalues : _ENV
@@ -857,7 +860,7 @@ end
   (EquiptData.SortEquipmentSet)(setType)
 end
 
-  -- DECOMPILER ERROR at PC378: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC381: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetFilters = function(setType, ...)
   -- function num : 0_25 , upvalues : _ENV
@@ -876,7 +879,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC381: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC384: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.FilteringEquips = function(setType, currentRole, ...)
   -- function num : 0_26 , upvalues : _ENV
@@ -956,7 +959,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC384: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC387: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitPresetEditEquipments = function(presetData, ...)
   -- function num : 0_27 , upvalues : _ENV
@@ -1017,7 +1020,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC387: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC390: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ChangePresetEditFilter = function(type, ...)
   -- function num : 0_28 , upvalues : _ENV
@@ -1026,7 +1029,7 @@ end
   (EquiptData.SortPresetEquipments)()
 end
 
-  -- DECOMPILER ERROR at PC390: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC393: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SortPresetEquipments = function(...)
   -- function num : 0_29 , upvalues : _ENV
@@ -1050,7 +1053,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC393: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC396: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.HandlePresetResult = function(add, equiptInfo, ...)
   -- function num : 0_30 , upvalues : _ENV
@@ -1073,7 +1076,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC396: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC399: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.FilteringPresetEditEquipments = function(type, ...)
   -- function num : 0_31 , upvalues : _ENV
@@ -1110,7 +1113,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC399: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC402: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckAttributes = function(equipInfo, filter, ...)
   -- function num : 0_32 , upvalues : _ENV
@@ -1142,7 +1145,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC402: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC405: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckBuffs = function(equipInfo, filter, ...)
   -- function num : 0_33 , upvalues : _ENV
@@ -1170,7 +1173,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC405: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC408: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SortEquipmentSet = function(setType, ...)
   -- function num : 0_34 , upvalues : _ENV
@@ -1194,7 +1197,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC408: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC411: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.EquipmentIncreaseSort = function(equipInfoX, equipInfoY, ...)
   -- function num : 0_35 , upvalues : _ENV
@@ -1272,7 +1275,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC411: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC414: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.EquipmentDecreaseSort = function(equipInfoX, equipInfoY, ...)
   -- function num : 0_36 , upvalues : _ENV
@@ -1348,7 +1351,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC414: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC417: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentTypeWeight = function(equipmentType, ...)
   -- function num : 0_37 , upvalues : _ENV
@@ -1363,7 +1366,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC417: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC420: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetSortedAttrs = function(equipInfo, ...)
   -- function num : 0_38 , upvalues : _ENV
@@ -1388,7 +1391,7 @@ end
   return attrs
 end
 
-  -- DECOMPILER ERROR at PC420: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC423: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ChangeFilter = function(setType, filterType, arg1, arg2, ...)
   -- function num : 0_39 , upvalues : _ENV
@@ -1402,7 +1405,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC423: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC426: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SetTableFilter = function(filter, type, add, ...)
   -- function num : 0_40
@@ -1413,7 +1416,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC426: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC429: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentsFCById = function(equipIds, equipInfo, ...)
   -- function num : 0_41 , upvalues : _ENV
@@ -1430,7 +1433,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC429: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC432: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentsPresetEditFC = function(equipIds, ...)
   -- function num : 0_42 , upvalues : _ENV
@@ -1445,7 +1448,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC432: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC435: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentsFC = function(equipInfo, ...)
   -- function num : 0_43 , upvalues : _ENV
@@ -1460,14 +1463,14 @@ end
   return (math.ceil)(fc)
 end
 
-  -- DECOMPILER ERROR at PC435: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC438: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.AcquireEquipments = function(equipments, ...)
   -- function num : 0_44 , upvalues : _ENV
   (EquiptData.StoreEquipments)(equipments)
 end
 
-  -- DECOMPILER ERROR at PC438: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC441: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.LoseEquipments = function(equipmentIds, ...)
   -- function num : 0_45 , upvalues : _ENV
@@ -1495,7 +1498,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC441: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC444: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.AddToPreset = function(equipmentId, presetId, ...)
   -- function num : 0_46 , upvalues : _ENV
@@ -1511,7 +1514,7 @@ end
   (EquiptData.EquipBelongTo)[equipmentId] = presetId
 end
 
-  -- DECOMPILER ERROR at PC444: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC447: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.RemoveFromPreset = function(equipmentId, presetId, notRemove, ...)
   -- function num : 0_47 , upvalues : _ENV
@@ -1542,7 +1545,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC447: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC450: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.SortEquiptAttr = function(x, y, ...)
   -- function num : 0_48 , upvalues : _ENV
@@ -1555,7 +1558,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC450: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC453: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetColorByStar = function(star, ...)
   -- function num : 0_49 , upvalues : _ENV
@@ -1570,7 +1573,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC453: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC456: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ResetDecomposeData = function(...)
   -- function num : 0_50 , upvalues : _ENV
@@ -1582,7 +1585,7 @@ end
   EquiptData.AdvanceEquiptToDecompose = {}
 end
 
-  -- DECOMPILER ERROR at PC456: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC459: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipIndex = function(equipmentId, ...)
   -- function num : 0_51 , upvalues : _ENV
@@ -1595,7 +1598,7 @@ end
   return -1
 end
 
-  -- DECOMPILER ERROR at PC459: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC462: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.ClearFilterInfo = function(...)
   -- function num : 0_52 , upvalues : _ENV
@@ -1606,7 +1609,7 @@ end
   (EquiptData.ResetFilters)(EquiptSetType.Identify)
 end
 
-  -- DECOMPILER ERROR at PC462: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC465: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetRedDotList = function(...)
   -- function num : 0_53 , upvalues : _ENV
@@ -1626,7 +1629,7 @@ end
   return result, found
 end
 
-  -- DECOMPILER ERROR at PC465: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC468: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.CheckSingleRedDot = function(oneCardData, ...)
   -- function num : 0_54 , upvalues : _ENV
@@ -1650,7 +1653,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC468: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC471: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.InitEquipPresetData = function(list, ...)
   -- function num : 0_55 , upvalues : _ENV
@@ -1699,7 +1702,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC471: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC474: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.UpdateEquipPreset = function(data, add, ...)
   -- function num : 0_56 , upvalues : _ENV
@@ -1726,7 +1729,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC474: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC477: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentAttrById = function(equipIds, equipInfo, ...)
   -- function num : 0_57 , upvalues : _ENV
@@ -1743,7 +1746,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC477: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC480: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentPresetEditAttr = function(equipIds, ...)
   -- function num : 0_58 , upvalues : _ENV
@@ -1758,7 +1761,7 @@ end
   end
 end
 
-  -- DECOMPILER ERROR at PC480: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC483: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetEquipmentAttr = function(equipInfos, ...)
   -- function num : 0_59 , upvalues : _ENV
@@ -1780,7 +1783,7 @@ end
   return data
 end
 
-  -- DECOMPILER ERROR at PC483: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC486: Confused about usage of register: R0 in 'UnsetPending'
 
   EquiptData.GetCards = function(...)
   -- function num : 0_60 , upvalues : _ENV

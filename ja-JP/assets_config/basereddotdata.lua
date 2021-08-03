@@ -224,6 +224,12 @@ BaseRedDotData = {
 [24000002] = {id = 24000002, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
 , 
 [24000003] = {id = 24000003, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
+, 
+[24000004] = {id = 24000004, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
+, 
+[24000005] = {id = 24000005, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
+, 
+[24000006] = {id = 24000006, show_level_limit = "11:999", pass_level_limit = "11:999", priority = 14}
 }
 return BaseRedDotData
 

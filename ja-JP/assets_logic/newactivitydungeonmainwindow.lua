@@ -1,7 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 require("ActivityDungeonTwo_BattleMainByName")
-local PageType = {MainDungeon = 0, Exploration = 1, AssistFight = 2}
+local PageType = {MainDungeon = 0, Exploration = 1, BossFight = 2}
 local BTN_LINE = "LabelLine"
 local BTN_NAME = {"LabelABtn", "LabelBBtn", "LabelCBtn"}
 local BEGIN_ANIM = "begin"
@@ -63,7 +63,7 @@ NewActivityDungeonMainWindow.InitVariable = function(...)
   _pageBtns[PageType.Exploration] = (NewActivityDungeonMainWindow.InitPageBtns)(PageType.Exploration)
   ;
   (table.insert)(_pageLines, (NewActivityDungeonMainWindow.InitPageLine)())
-  _pageBtns[PageType.AssistFight] = (NewActivityDungeonMainWindow.InitPageBtns)(PageType.AssistFight)
+  _pageBtns[PageType.BossFight] = (NewActivityDungeonMainWindow.InitPageBtns)(PageType.BossFight)
   ;
   (table.insert)(_pageLines, (NewActivityDungeonMainWindow.InitPageLine)())
   local btns = {}
@@ -130,9 +130,9 @@ NewActivityDungeonMainWindow.InitButtonEvent = function(...)
   end
 )
   ;
-  ((_pageBtns[PageType.AssistFight]).onClick):Set(function(...)
+  ((_pageBtns[PageType.BossFight]).onClick):Set(function(...)
     -- function num : 0_6_2 , upvalues : NewActivityDungeonMainWindow, PageType
-    (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.AssistFight)
+    (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.BossFight)
   end
 )
   ;
@@ -161,12 +161,14 @@ NewActivityDungeonMainWindow.InitList = function(...)
 end
 
 NewActivityDungeonMainWindow.BindingUI = function(...)
-  -- function num : 0_8 , upvalues : _ENV, _pageBtns, PageType
+  -- function num : 0_8 , upvalues : _ENV, _pageBtns, PageType, uis
   local winName = (WinResConfig.NewActivityDungeonMainWindow).name
   local BindingUI = RedDotMgr.BindingUI
   local RedDotComID = RedDotComID
   BindingUI(winName, RedDotComID.NAD_Exploration, _pageBtns[PageType.Exploration])
-  BindingUI(winName, RedDotComID.NAD_AssitsFight, _pageBtns[PageType.AssistFight])
+  BindingUI(winName, RedDotComID.NAD_BossFight, _pageBtns[PageType.BossFight])
+  BindingUI(winName, RedDotComID.NAD_Reward, (uis.AssistBattleMain).BattleRewardBtn)
+  BindingUI(winName, RedDotComID.NAD_GuildHlep, (uis.AssistBattleMain).BattleHelpBtn)
   ;
   (RedDotMgr.RefreshTreeUI)(winName)
 end
@@ -232,7 +234,7 @@ NewActivityDungeonMainWindow.Init = function(...)
     if _openFromClose and _challengeBoss then
       _challengeBoss = false
       ;
-      (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.AssistFight)
+      (NewActivityDungeonMainWindow.ClickPageBtn)(PageType.BossFight)
       ;
       (NewActivityDungeonMainWindow.InitEffect)(function(...)
     -- function num : 0_12_0 , upvalues : uis
@@ -936,7 +938,7 @@ NewActivityDungeonMainWindow.RefreshActiveRoleItem = function(data, item, ...)
   end
 end
 
-NewActivityDungeonMainWindow.RefreshAssistFightInfo = function(...)
+NewActivityDungeonMainWindow.RefreshBosstFightInfo = function(...)
   -- function num : 0_34 , upvalues : NewActivityDungeonData, _assistTimer, _ENV, uis, NewActivityDungeonMainWindow, _bossId, _mask, _bossModel
   if NewActivityDungeonData.AssistData == nil or NewActivityDungeonData.NADData == nil then
     return 
@@ -1025,8 +1027,8 @@ NewActivityDungeonMainWindow.ClickPageBtn = function(type, ...)
   (_pageBtns[type]).selected = true
   ;
   (NewActivityDungeonMainWindow.RefreshPageLine)(type)
-  if ((uis.c1Ctr).selectedIndex == PageType.AssistFight and type ~= PageType.AssistFight) or (uis.c1Ctr).selectedIndex ~= PageType.AssistFight and type == PageType.AssistFight then
-    if type == PageType.AssistFight then
+  if ((uis.c1Ctr).selectedIndex == PageType.BossFight and type ~= PageType.BossFight) or (uis.c1Ctr).selectedIndex ~= PageType.BossFight and type == PageType.BossFight then
+    if type == PageType.BossFight then
       (SkeletonAnimationUtil.SetAnimation)(_book, 0, IDLE2_ANIM, true)
     else
       ;
@@ -1042,10 +1044,10 @@ NewActivityDungeonMainWindow.ClickPageBtn = function(type, ...)
   else
     ;
     (NewActivityDungeonMainWindow.StopCountDownTimer)()
-    if (uis.c1Ctr).selectedIndex == PageType.AssistFight then
+    if (uis.c1Ctr).selectedIndex == PageType.BossFight then
       (NewActivityDungeonMgr.InitAssistData)()
       ;
-      (NewActivityDungeonMainWindow.RefreshAssistFightInfo)()
+      (NewActivityDungeonMainWindow.RefreshBosstFightInfo)()
     else
       if not _dungeonInited then
         (NewActivityDungeonMainWindow.InitDungeonInfo)()
@@ -1103,8 +1105,8 @@ NewActivityDungeonMainWindow.HandleMessage = function(msgId, para, ...)
   end
   -- DECOMPILER ERROR at PC49: Unhandled construct in 'MakeBoolean' P1
 
-  if msgId == (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH_ASSIST_FIGHT and (uis.c1Ctr).selectedIndex == PageType.AssistFight then
-    (NewActivityDungeonMainWindow.RefreshAssistFightInfo)()
+  if msgId == (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH_ASSIST_FIGHT and (uis.c1Ctr).selectedIndex == PageType.BossFight then
+    (NewActivityDungeonMainWindow.RefreshBosstFightInfo)()
   end
   if msgId == (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH_BOSS_HP then
     (NewActivityDungeonMainWindow.RefreshBossHP)()

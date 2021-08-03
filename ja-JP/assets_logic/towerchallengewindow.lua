@@ -18,6 +18,7 @@ TowerChallengeWindow.OnInit = function(bridgeObj, ...)
   argTable = bridgeObj.argTable
   argTable.StageId = argTable[1]
   argTable.SkipSetFormation = argTable[2]
+  argTable.Type = argTable[3]
   uis = GetTower_RewardShowWindowUis(contentPane)
   ;
   (TowerChallengeWindow.InitVariable)()
@@ -35,9 +36,18 @@ TowerChallengeWindow.OnInit = function(bridgeObj, ...)
     if UIMgr:IsWindowOpen((WinResConfig.TowerChallengeWindow).name) == false then
       return 
     end
-    ;
-    (BattleBackground.PreLoad)(argTable.StageId, (ProtoEnum.E_BATTLE_TYPE).TOWER)
-    local enemyList = (BattleData.GetMonsterList)(1, argTable.StageId, (ProtoEnum.E_BATTLE_TYPE).TOWER)
+    if argTable.Type == 1 then
+      (BattleBackground.PreLoad)(argTable.StageId, (ProtoEnum.E_BATTLE_TYPE).TOWER)
+    else
+      ;
+      (BattleBackground.PreLoad)(argTable.StageId, (ProtoEnum.E_BATTLE_TYPE).TOWER_EXPAND)
+    end
+    local enemyList = {}
+    if argTable.Type == 1 then
+      enemyList = (BattleData.GetMonsterList)(1, argTable.StageId, (ProtoEnum.E_BATTLE_TYPE).TOWER)
+    else
+      enemyList = (BattleData.GetMonsterList)(1, argTable.StageId, (ProtoEnum.E_BATTLE_TYPE).TOWER_EXPAND)
+    end
     for _,monsterId in pairs(enemyList) do
       (BattleResource.PreLoadMonster)(monsterId)
     end
@@ -105,7 +115,7 @@ TowerChallengeWindow.InitText = function(...)
 end
 
 TowerChallengeWindow.InitList = function(...)
-  -- function num : 0_4 , upvalues : uis, _ENV, TowerChallengeWindow
+  -- function num : 0_4 , upvalues : uis, _ENV, TowerChallengeWindow, argTable
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
   (((uis.RewardShowGrp).Reward_01_Tips).RewardList).defaultItem = (Util.GetItemUrl)(TowerData.REWARD_ITEM_RESOURCE)
@@ -115,13 +125,16 @@ TowerChallengeWindow.InitList = function(...)
 
   ;
   (((uis.RewardShowGrp).Reward_01_Tips).RewardList).itemRenderer = TowerChallengeWindow.RefreshNormalItems
-  -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
+  if argTable.Type == 2 then
+    return 
+  end
+  -- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).Reward_02_Tips).RewardList).defaultItem = (Util.GetItemUrl)(TowerData.REWARD_ITEM_RESOURCE)
   ;
   (((uis.RewardShowGrp).Reward_02_Tips).RewardList):SetVirtual()
-  -- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC41: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).Reward_02_Tips).RewardList).itemRenderer = TowerChallengeWindow.RefreshLuckItems
@@ -169,10 +182,25 @@ TowerChallengeWindow.Init = function(...)
   (TowerChallengeWindow.RefreshBasicInfo)()
   ;
   (TowerChallengeWindow.RefreshRewards)()
+  ;
+  (TowerChallengeWindow.SetRewardPosition)()
+end
+
+TowerChallengeWindow.SetRewardPosition = function(...)
+  -- function num : 0_11 , upvalues : argTable, uis
+  if argTable.Type == 1 then
+    return 
+  end
+  ;
+  (((uis.RewardShowGrp).Reward_01_Tips).root):SetXY(555, 405)
+  -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((uis.RewardShowGrp).Reward_02_Tips).root).visible = false
 end
 
 TowerChallengeWindow.OnClose = function(...)
-  -- function num : 0_11 , upvalues : _tipsPanel, _ENV, TowerChallengeWindow, uis, contentPane, argTable
+  -- function num : 0_12 , upvalues : _tipsPanel, _ENV, TowerChallengeWindow, uis, contentPane, argTable
   if _tipsPanel ~= nil then
     _tipsPanel:Dispose()
     _tipsPanel = nil
@@ -193,7 +221,7 @@ TowerChallengeWindow.OnClose = function(...)
 end
 
 TowerChallengeWindow.ClickTipsBtn = function(...)
-  -- function num : 0_12 , upvalues : _tipsPanel, _ENV, TIPS_RESOURCES, uis
+  -- function num : 0_13 , upvalues : _tipsPanel, _ENV, TIPS_RESOURCES, uis
   if _tipsPanel == nil then
     _tipsPanel = (UIPackage.CreateObject)((WinResConfig.TowerBounsLevelWindow).package, TIPS_RESOURCES)
     ;
@@ -205,7 +233,7 @@ TowerChallengeWindow.ClickTipsBtn = function(...)
   end
   ;
   (GRoot.inst):AddCustomPopups(_tipsPanel, function(...)
-    -- function num : 0_12_0 , upvalues : _tipsPanel
+    -- function num : 0_13_0 , upvalues : _tipsPanel
     _tipsPanel.visible = false
   end
 )
@@ -213,7 +241,7 @@ TowerChallengeWindow.ClickTipsBtn = function(...)
 end
 
 TowerChallengeWindow.RefreshBasicInfo = function(...)
-  -- function num : 0_13 , upvalues : uis, _config, _ENV, argTable
+  -- function num : 0_14 , upvalues : uis, _config, _ENV, argTable
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.RewardShowGrp).NumberTxt).text = _config.name
@@ -250,47 +278,85 @@ TowerChallengeWindow.RefreshBasicInfo = function(...)
 
   ;
   (((uis.RewardShowGrp).Reward_02_Tips).LuckNumberTxt).text = TowerData.CurrentLucky
-  -- DECOMPILER ERROR at PC70: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC73: Confused about usage of register: R1 in 'UnsetPending'
 
-  ;
-  ((uis.RewardShowGrp).BattleNumberTxt).text = (ActorData.GetNumByCost)(_config.cost)
-  if (((TowerData.BaseInfo)[TowerData.CurrentLayer])[argTable.StageId]).isPass and (FunctionControlMgr.GetFunctionState)(ControlID.TowerDetail_Smash, false) then
-    (((uis.RewardShowGrp).root):GetController("lock")).selectedIndex = 0
-    local sweepCostStr = split(_config.sweep_cost, ":")
-    local count = ((ActorData.GetPropsIDAndNum)(tonumber(sweepCostStr[2]))).count
-    -- DECOMPILER ERROR at PC120: Confused about usage of register: R3 in 'UnsetPending'
-
-    if count < tonumber(sweepCostStr[3]) then
-      ((uis.RewardShowGrp).SweepNumberTxt).text = "[color=" .. Const.RedColor .. "]" .. count .. "[/color]"
-    else
-      -- DECOMPILER ERROR at PC124: Confused about usage of register: R3 in 'UnsetPending'
-
-      ;
-      ((uis.RewardShowGrp).SweepNumberTxt).text = count
-    end
+  if argTable.Type == 1 then
+    ((uis.RewardShowGrp).BattleNumberTxt).text = (ActorData.GetNumByCost)(_config.cost)
   else
-    do
-      ;
+    local costCount = tonumber((split(_config.cost, ":"))[3])
+    local propCount = (ActorData.GetNumByCost)(_config.cost)
+    local canChallengeCount = propCount % costCount
+    local showCount = 0
+    if canChallengeCount == 0 then
+      showCount = propCount / costCount
+    else
+      showCount = (math.floor)(propCount / costCount)
+    end
+    local a, b = (math.modf)(showCount)
+    -- DECOMPILER ERROR at PC103: Confused about usage of register: R7 in 'UnsetPending'
+
+    ;
+    ((uis.RewardShowGrp).BattleNumberTxt).text = a
+  end
+  do
+    local stageId = _config.id
+    local layerId = (((TableData.gTable).BaseTowerStageData)[stageId]).tower_id
+    local expand = (((TableData.gTable).BaseTowerData)[layerId]).type == 2
+    local baseInfo = {}
+    local currentLayer = 0
+    if expand == false then
+      baseInfo = TowerData.BaseInfo
+      currentLayer = TowerData.CurrentLayer
+    else
+      baseInfo = TowerTopStageData.BaseInfo
+      currentLayer = TowerTopStageData.CurrentLayer
+    end
+    if ((baseInfo[currentLayer])[argTable.StageId]).isPass and (FunctionControlMgr.GetFunctionState)(ControlID.TowerDetail_Smash, false) then
+      (((uis.RewardShowGrp).root):GetController("lock")).selectedIndex = 0
+      if expand == false then
+        local sweepCostStr = split(_config.sweep_cost, ":")
+        local count = ((ActorData.GetPropsIDAndNum)(tonumber(sweepCostStr[2]))).count
+        -- DECOMPILER ERROR at PC179: Confused about usage of register: R8 in 'UnsetPending'
+
+        if count < tonumber(sweepCostStr[3]) then
+          ((uis.RewardShowGrp).SweepNumberTxt).text = "[color=" .. Const.RedColor .. "]" .. count .. "[/color]"
+        else
+          -- DECOMPILER ERROR at PC183: Confused about usage of register: R8 in 'UnsetPending'
+
+          ((uis.RewardShowGrp).SweepNumberTxt).text = count
+        end
+      else
+        (((uis.RewardShowGrp).root):GetController("lock")).selectedIndex = 1
+      end
+    else
       (((uis.RewardShowGrp).root):GetController("lock")).selectedIndex = 1
     end
+    -- DECOMPILER ERROR: 7 unprocessed JMP targets
   end
 end
 
 TowerChallengeWindow.RefreshRewards = function(...)
-  -- function num : 0_14 , upvalues : _reward, _luckyReward, _ENV, argTable, uis
-  _reward = (TowerData.GetReward)(TowerData.CurrentLayer, argTable.StageId)
-  -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
+  -- function num : 0_15 , upvalues : argTable, _reward, _luckyReward, _ENV, uis
+  if argTable.Type == 1 then
+    _reward = (TowerData.GetReward)(TowerData.CurrentLayer, argTable.StageId)
+  else
+    _reward = (TowerTopStageData.GetReward)(TowerTopStageData.CurrentLayer, argTable.StageId)
+  end
+  -- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).Reward_01_Tips).RewardList).numItems = #_reward
-  -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+  if argTable.Type == 2 then
+    return 
+  end
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (((uis.RewardShowGrp).Reward_02_Tips).RewardList).numItems = #_luckyReward
 end
 
 TowerChallengeWindow.RefreshNormalItems = function(index, item, ...)
-  -- function num : 0_15 , upvalues : _reward, _ENV
+  -- function num : 0_16 , upvalues : _reward, _ENV
   index = index + 1
   local data = _reward[index]
   ;
@@ -306,7 +372,7 @@ TowerChallengeWindow.RefreshNormalItems = function(index, item, ...)
 end
 
 TowerChallengeWindow.RefreshLuckItems = function(index, item, ...)
-  -- function num : 0_16 , upvalues : _luckyReward, _ENV
+  -- function num : 0_17 , upvalues : _luckyReward, _ENV
   index = index + 1
   local data = _luckyReward[index]
   local lock = data.LuckyCondition > 0
@@ -316,7 +382,7 @@ TowerChallengeWindow.RefreshLuckItems = function(index, item, ...)
   (Util.SetAllItemIcon)(item, data.Id, data.Amount, false, data.First, false, data.Lucky, data.LuckyCondition > 0, data.LuckyCondition > 0)
   if lock then
     (item.onClick):Add(function(...)
-    -- function num : 0_16_0 , upvalues : _ENV, data
+    -- function num : 0_17_0 , upvalues : _ENV, data
     (MessageMgr.SendCenterTips)((PUtil.get)(60000372, data.LuckyCondition))
   end
 )
@@ -333,7 +399,7 @@ TowerChallengeWindow.RefreshLuckItems = function(index, item, ...)
 end
 
 TowerChallengeWindow.RefreshRewardItems = function(index, item, ...)
-  -- function num : 0_17 , upvalues : _rewardCount, _reward, _ENV
+  -- function num : 0_18 , upvalues : _rewardCount, _reward, _ENV
   index = index + 1
   local data = nil
   if index == _rewardCount + 1 then
@@ -352,7 +418,7 @@ TowerChallengeWindow.RefreshRewardItems = function(index, item, ...)
   (Util.SetAllItemIcon)(item, data.Id, data.Amount, false, data.First, false, data.Lucky, lock, lock)
   if lock then
     (item.onClick):Add(function(...)
-    -- function num : 0_17_0 , upvalues : _ENV, data
+    -- function num : 0_18_0 , upvalues : _ENV, data
     (MessageMgr.SendCenterTips)((PUtil.get)(60000372, data.LuckyCondition))
   end
 )
@@ -369,12 +435,12 @@ TowerChallengeWindow.RefreshRewardItems = function(index, item, ...)
 end
 
 TowerChallengeWindow.ClickCloseBtn = function(...)
-  -- function num : 0_18 , upvalues : _ENV
+  -- function num : 0_19 , upvalues : _ENV
   UIMgr:CloseWindow((WinResConfig.TowerChallengeWindow).name)
 end
 
 TowerChallengeWindow.ClickChallengeBtn = function(...)
-  -- function num : 0_19 , upvalues : TowerChallengeWindow, argTable, _ENV, _reward
+  -- function num : 0_20 , upvalues : TowerChallengeWindow, argTable, _ENV, _reward
   (TowerChallengeWindow.ClickCloseBtn)()
   local stageId = argTable.StageId
   local skip = argTable.SkipSetFormation
@@ -384,31 +450,35 @@ TowerChallengeWindow.ClickChallengeBtn = function(...)
   (GRoot.inst).touchable = false
   ;
   (SimpleTimer.setTimeout)(0.5, function(...)
-    -- function num : 0_19_0 , upvalues : _ENV, stageId, skip, _reward
+    -- function num : 0_20_0 , upvalues : _ENV, stageId, skip, _reward
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     (GRoot.inst).touchable = true
-    ;
-    (TowerMgr.TryEnterTower)(TowerData.CurrentLayer, stageId, false, skip, _reward)
+    if TowerData.IsExpand ~= true then
+      (TowerMgr.TryEnterTower)(TowerData.CurrentLayer, stageId, false, skip, _reward)
+    else
+      ;
+      (TowerMgr.TryEnterTower)(TowerTopStageData.CurrentLayer, stageId, false, skip, _reward)
+    end
   end
 )
 end
 
 TowerChallengeWindow.ClickSmashBtn = function(...)
-  -- function num : 0_20 , upvalues : TowerChallengeWindow, argTable, _ENV, _reward
+  -- function num : 0_21 , upvalues : TowerChallengeWindow, argTable, _ENV, _reward
   (TowerChallengeWindow.ClickCloseBtn)()
   local stageId = argTable.StageId
   local skip = argTable.SkipSetFormation
   ;
   (SimpleTimer.setTimeout)(0.5, function(...)
-    -- function num : 0_20_0 , upvalues : _ENV, stageId, skip, _reward
+    -- function num : 0_21_0 , upvalues : _ENV, stageId, skip, _reward
     (TowerMgr.TryEnterTower)(TowerData.CurrentLayer, stageId, true, skip, _reward)
   end
 )
 end
 
 TowerChallengeWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_21
+  -- function num : 0_22
 end
 
 return TowerChallengeWindow

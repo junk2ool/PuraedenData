@@ -112,7 +112,7 @@ end
 local m3 = {}
 local m4 = {}
 local m5 = {}
-FormationType = {Basic = 0, Single = 1, Tower = 2, Expedition = 3, CG = 4, GuildBattle = 5, Edit = 6, Relic = 99}
+FormationType = {Basic = 0, Single = 1, Tower = 2, Expedition = 3, CG = 4, GuildBattle = 5, Edit = 6, Relic = 99, TowerExpand = 7}
 local m6 = {}
 local m7 = {}
 MessageMgr.formationData = {}

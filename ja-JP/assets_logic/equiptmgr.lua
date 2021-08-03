@@ -707,7 +707,7 @@ EquiptMgr.SetEquipDetailPanel = function(panel, equipInfo, equipConfig, type, ca
   (EquiptMgr.SetDetailBasicInfo)(panel, equipInfo, equipConfig, cardID, isPreset)
   local bottomGComponent, percent = (EquiptMgr.SetDetailStatue)(equipInfo, panel, type)
   ;
-  (EquiptMgr.SetAttrs)(panel, equipInfo, srcEquipInfo)
+  (EquiptMgr.SetAttrs)(panel, equipInfo, srcEquipInfo, cardID)
   ;
   (EquiptMgr.CheckPopListSize)(panel, bottomGComponent, percent)
 end
@@ -722,7 +722,10 @@ EquiptMgr.CheckPopListSize = function(panel, bottomGComponent, percent, ...)
   if EquiptData.MAX_EQUIP_PANEL_SIZE < size then
     (panel.PopList).height = (panel.PopList).height - (size - EquiptData.MAX_EQUIP_PANEL_SIZE)
   end
-  -- DECOMPILER ERROR at PC20: Confused about usage of register: R4 in 'UnsetPending'
+  if EquiptData.MAX_EQUIP_PANEL_SIZE < size then
+    size = EquiptData.MAX_EQUIP_PANEL_SIZE
+  end
+  -- DECOMPILER ERROR at PC26: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   (panel.PopImage).height = size
@@ -800,15 +803,16 @@ end
 
 -- DECOMPILER ERROR at PC110: Confused about usage of register: R1 in 'UnsetPending'
 
-EquiptMgr.SetAttrs = function(panel, equipInfo, srcEquipInfo, ...)
+EquiptMgr.SetAttrs = function(panel, equipInfo, srcEquipInfo, cardId, ...)
   -- function num : 0_35 , upvalues : _ENV
   (panel.PopList):RemoveChildrenToPool()
   local height = ((panel.PopList).margin).top
   if equipInfo.identify then
     height = height + (EquiptMgr.SetDetailAttrs)(panel.PopList, equipInfo, srcEquipInfo)
+    height = height + (EquiptMgr.SetSuitBuffAttrs)(panel.PopList, equipInfo, cardId)
     height = height + (EquiptMgr.SetBuffAttrs)(panel.PopList, equipInfo)
   end
-  -- DECOMPILER ERROR at PC23: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   (panel.PopList).height = height
@@ -960,8 +964,108 @@ end
 
 -- DECOMPILER ERROR at PC131: Confused about usage of register: R1 in 'UnsetPending'
 
-EquiptMgr.TryUpgradeEquipment = function(equipInfo, cardId, expCost, coinCost, ...)
+EquiptMgr.SetSuitBuffAttrs = function(list, equipInfo, ...)
   -- function num : 0_42 , upvalues : _ENV
+  local height = 0
+  local suitId = (((TableData.gTable).BaseEquipData)[equipInfo.id]).setsId
+  if suitId == nil or suitId == 0 then
+    return height
+  end
+  local suitConfig = ((TableData.gTable).BaseEquipSetsData)[suitId]
+  height = height + (EquiptMgr.AddSeperater)(list, suitConfig.name) + list.lineGap
+  local suits = split(suitConfig.effect, ",")
+  local count = #suits
+  local buffs = {}
+  local suitType = nil
+  for i = 1, count do
+    local buffId = tonumber((split(suits[i], ":"))[2])
+    local buffType = tonumber((split(suits[i], ":"))[1])
+    if buffType == 1 then
+      buffs[i] = buffId
+    else
+      buffs[i] = 0
+    end
+  end
+  local lowerId = (EquiptMgr.JudgeHaveLowerBuff)(buffs, nil)
+  local constructEquipSet = (EquiptData.CurrentRoleData).equipSet
+  for k,v in ipairs(lowerId) do
+    (table.insert)(constructEquipSet, v)
+  end
+  for i = 1, count do
+    suitType = tonumber((split(suits[i], ":"))[1])
+    if suitType ~= 0 then
+      height = height + (EquiptMgr.AddSuitBuff)(list, buffs[i], constructEquipSet)
+    end
+  end
+  return height
+end
+
+-- DECOMPILER ERROR at PC134: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.JudgeHaveLowerBuff = function(buffs, cardEquipSet, ...)
+  -- function num : 0_43 , upvalues : _ENV
+  local buffList = nil
+  if cardEquipSet ~= nil then
+    buffList = cardEquipSet
+  else
+    buffList = (EquiptData.CurrentRoleData).equipSet
+  end
+  local index = 0
+  local lowerId = {}
+  for k,v in ipairs(buffList) do
+    for a,b in ipairs(buffs) do
+      if v ~= 0 and v == b then
+        index = a
+        break
+      end
+    end
+  end
+  for k,v in ipairs(buffs) do
+    if v ~= 0 and k < index then
+      local have = false
+      for a,b in ipairs(buffList) do
+        if b == v then
+          have = true
+        end
+      end
+      if have == false then
+        (table.insert)(lowerId, v)
+      end
+    end
+  end
+  return lowerId
+end
+
+-- DECOMPILER ERROR at PC137: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.AddSuitBuff = function(list, buffId, constructEquipSet, ...)
+  -- function num : 0_44 , upvalues : _ENV
+  local item = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, EquiptData.LIST_B_RESOURCE))
+  local buffPreConfig = ((TableData.gTable).BaseBuffPreBattleData)[buffId]
+  local setsId = buffPreConfig.setsId
+  local suitConfig = ((TableData.gTable).BaseEquipSetsData)[setsId]
+  if constructEquipSet ~= nil then
+    local count = #constructEquipSet
+    ;
+    (item:GetChild("WordTxt")).text = "[color=" .. Const.BlueGrayColor .. "]" .. buffPreConfig.remark .. "[/color]"
+    for i = 1, count do
+      if buffId == constructEquipSet[i] then
+        (item:GetChild("WordTxt")).text = "[color=" .. Const.GreenColor .. "]" .. buffPreConfig.remark .. "[/color]"
+      end
+    end
+  else
+    do
+      ;
+      (item:GetChild("WordTxt")).text = "[color=" .. Const.BlueGrayColor .. "]" .. buffPreConfig.remark .. "[/color]"
+      return item.height
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.TryUpgradeEquipment = function(equipInfo, cardId, expCost, coinCost, ...)
+  -- function num : 0_45 , upvalues : _ENV
   if (Util.CheckAssetByType)(coinCost, AssetType.GOLD) == false then
     return 
   end
@@ -972,10 +1076,10 @@ EquiptMgr.TryUpgradeEquipment = function(equipInfo, cardId, expCost, coinCost, .
   (EquiptService.ReqLevelUpEquip)(equipInfo.objectIndex, cardId, 1)
 end
 
--- DECOMPILER ERROR at PC134: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC143: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.TryFullyUpgradeEquipment = function(equipInfo, equipConfig, cardId, ...)
-  -- function num : 0_43 , upvalues : _ENV
+  -- function num : 0_46 , upvalues : _ENV
   local maxLevel = ((EquiptData.UpgradeConfig)[equipConfig.grow_type]).MaxLevel
   local coinCost = 0
   local expCost = 0
@@ -996,10 +1100,10 @@ EquiptMgr.TryFullyUpgradeEquipment = function(equipInfo, equipConfig, cardId, ..
   (EquiptService.ReqLevelUpEquip)(equipInfo.objectIndex, cardId, times)
 end
 
--- DECOMPILER ERROR at PC137: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC146: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.CheckShowEquipBagConfirm = function(acquireType, callback, ...)
-  -- function num : 0_44 , upvalues : _ENV
+  -- function num : 0_47 , upvalues : _ENV
   local args = {...}
   local rewards = {}
   local rewardsInfo, eachReward, count, config = nil, nil, nil, nil
@@ -1067,28 +1171,28 @@ EquiptMgr.CheckShowEquipBagConfirm = function(acquireType, callback, ...)
       if EquiptData.MaxBagSlots <= #EquiptData.Equipments then
         if acquireType == EquiptAcquireType.Shop then
           (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000345), function(...)
-    -- function num : 0_44_0 , upvalues : _ENV
+    -- function num : 0_47_0 , upvalues : _ENV
     (EquiptMgr.OpenEquipmentWindow)(EquiptOpenType.Decompose)
   end
 )
         else
           if acquireType == EquiptAcquireType.Gift then
             (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000346), function(...)
-    -- function num : 0_44_1 , upvalues : _ENV
+    -- function num : 0_47_1 , upvalues : _ENV
     (EquiptMgr.OpenEquipmentWindow)(EquiptOpenType.Decompose)
   end
 )
           else
             if acquireType == EquiptAcquireType.Lottory then
               (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000347), function(...)
-    -- function num : 0_44_2 , upvalues : _ENV
+    -- function num : 0_47_2 , upvalues : _ENV
     (EquiptMgr.OpenEquipmentWindow)(EquiptOpenType.Decompose)
   end
 )
             else
               ;
               (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000077), function(...)
-    -- function num : 0_44_3 , upvalues : _ENV
+    -- function num : 0_47_3 , upvalues : _ENV
     (EquiptMgr.OpenEquipmentWindow)(EquiptOpenType.Decompose)
   end
 , callback, (PUtil.get)(60000003), (PUtil.get)(60000072), (PUtil.get)(60000008))
@@ -1111,10 +1215,10 @@ EquiptMgr.CheckShowEquipBagConfirm = function(acquireType, callback, ...)
   end
 end
 
--- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC149: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.PreAutoDeletePreset = function(equipts, wordsId, cb, dstPresetId, ...)
-  -- function num : 0_45 , upvalues : _ENV
+  -- function num : 0_48 , upvalues : _ENV
   local equiptments = nil
   if equipts.equipIndex ~= nil then
     equiptments = equipts.equipIndex
@@ -1131,7 +1235,7 @@ EquiptMgr.PreAutoDeletePreset = function(equipts, wordsId, cb, dstPresetId, ...)
         presetData = (EquiptData.EquipPresets)[(EquiptData.EquipPresetsIndex)[presetId]]
         if #presetData.equipIndex == 1 then
           (MessageMgr.OpenConfirmWindow)((PUtil.get)(wordsId, presetData.schemeName), function(...)
-    -- function num : 0_45_0 , upvalues : cb
+    -- function num : 0_48_0 , upvalues : cb
     cb()
   end
 )
@@ -1143,21 +1247,21 @@ EquiptMgr.PreAutoDeletePreset = function(equipts, wordsId, cb, dstPresetId, ...)
   cb()
 end
 
--- DECOMPILER ERROR at PC143: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC152: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.TryChangeEquipment = function(id, cardInfo, equipType, ...)
-  -- function num : 0_46 , upvalues : _ENV
+  -- function num : 0_49 , upvalues : _ENV
   (EquiptMgr.PreAutoDeletePreset)({id}, 60000589, function(...)
-    -- function num : 0_46_0 , upvalues : _ENV, id, cardInfo
+    -- function num : 0_49_0 , upvalues : _ENV, id, cardInfo
     (EquiptService.ReqPutOnEquip)(id, 0, cardInfo.id)
   end
 , cardInfo.equipScheme)
 end
 
--- DECOMPILER ERROR at PC146: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC155: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.InitEquiptMainRedDot = function(...)
-  -- function num : 0_47 , upvalues : _ENV
+  -- function num : 0_50 , upvalues : _ENV
   local data, show = (EquiptData.GetRedDotList)()
   if show then
     (RedDotMgr.ProcessRedDot)(RedDotComID.Equipt_Role_List, data, true)
@@ -1167,10 +1271,10 @@ EquiptMgr.InitEquiptMainRedDot = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC149: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC158: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.RecvEquipPreset = function(msg, ...)
-  -- function num : 0_48 , upvalues : _ENV
+  -- function num : 0_51 , upvalues : _ENV
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   if EquiptData.ReInitialize then
@@ -1187,10 +1291,10 @@ EquiptMgr.RecvEquipPreset = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC152: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC161: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.ChangeFilterSortTypeForPreset = function(...)
-  -- function num : 0_49 , upvalues : _ENV
+  -- function num : 0_52 , upvalues : _ENV
   -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
 
   if (EquiptData.PresetEditEquipments).SortType == EquiptSortType.Increase then
@@ -1206,15 +1310,15 @@ EquiptMgr.ChangeFilterSortTypeForPreset = function(...)
   UIMgr:SendWindowMessage((WinResConfig.EquipmentWindow).name, (WindowMsgEnum.Equipt).E_MSG_REFRESH_EQUIPMENT_IN_BAG)
 end
 
--- DECOMPILER ERROR at PC155: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC164: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.UsePreset = function(presetId, ...)
-  -- function num : 0_50 , upvalues : _ENV
+  -- function num : 0_53 , upvalues : _ENV
   if (EquiptData.PresetBelongTo)[presetId] ~= nil and (EquiptData.PresetBelongTo)[presetId] ~= (EquiptData.CurrentRoleData).id then
     local other = (CardData.GetCardData)((EquiptData.PresetBelongTo)[presetId])
     ;
     (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000590, other.name), function(...)
-    -- function num : 0_50_0 , upvalues : _ENV, presetId
+    -- function num : 0_53_0 , upvalues : _ENV, presetId
     (EquiptService.ReqUseEquipScheme)(presetId, (EquiptData.CurrentRoleData).id)
   end
 )
@@ -1226,10 +1330,10 @@ EquiptMgr.UsePreset = function(presetId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC158: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC167: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.RecvUsePreset = function(msg, ...)
-  -- function num : 0_51 , upvalues : _ENV
+  -- function num : 0_54 , upvalues : _ENV
   if not msg.success then
     loge("ReqUseEquipScheme failed")
     return 
@@ -1252,6 +1356,8 @@ EquiptMgr.RecvUsePreset = function(msg, ...)
     (EquiptData.UpdateCardSuitInfo)(originRole.id)
     ;
     (CardData.ResetCardData)(originRole)
+    ;
+    (EquiptMgr.RefrshBuffByEquipInfo)(originRole)
   end
   do
     local count = #roleInfo.equipInfo
@@ -1263,17 +1369,19 @@ EquiptMgr.RecvUsePreset = function(msg, ...)
     for i = 1, count do
       (EquiptMgr.PutOnEquipment)(roleInfo, (presetData.equipIndex)[i])
     end
-    -- DECOMPILER ERROR at PC97: Confused about usage of register: R5 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC101: Confused about usage of register: R5 in 'UnsetPending'
 
     ;
     (EquiptData.PresetBelongTo)[msg.id] = msg.cardId
-    -- DECOMPILER ERROR at PC111: Confused about usage of register: R5 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC115: Confused about usage of register: R5 in 'UnsetPending'
 
     if roleInfo.equipScheme ~= 0 and roleInfo.equipScheme ~= nil then
       ((EquiptData.EquipPresets)[(EquiptData.EquipPresetsIndex)[roleInfo.equipScheme]]).cardId = 0
     end
     presetData.cardId = msg.cardId
     roleInfo.equipScheme = msg.id
+    ;
+    (EquiptMgr.RefrshBuffByEquipInfo)(roleInfo)
     ;
     (EquiptData.UpdateCardSuitInfo)(roleInfo.id)
     ;
@@ -1282,21 +1390,21 @@ EquiptMgr.RecvUsePreset = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC161: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC170: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.DeletePreset = function(presetId, ...)
-  -- function num : 0_52 , upvalues : _ENV
+  -- function num : 0_55 , upvalues : _ENV
   (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000576, ((EquiptData.EquipPresets)[(EquiptData.EquipPresetsIndex)[presetId]]).schemeName), function(...)
-    -- function num : 0_52_0 , upvalues : _ENV, presetId
+    -- function num : 0_55_0 , upvalues : _ENV, presetId
     (EquiptService.ReqRemoveEquipScheme)(presetId)
   end
 )
 end
 
--- DECOMPILER ERROR at PC164: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC173: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.RecvDeletePreset = function(msg, ...)
-  -- function num : 0_53 , upvalues : _ENV
+  -- function num : 0_56 , upvalues : _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   EquiptData.EditPreset = {}
@@ -1327,10 +1435,10 @@ EquiptMgr.RecvDeletePreset = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC167: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC176: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.ChangeEquiptInPresetEdit = function(remove, equiptInfo, oldEquipInfo, ...)
-  -- function num : 0_54 , upvalues : _ENV
+  -- function num : 0_57 , upvalues : _ENV
   if remove then
     local count = #(EquiptData.EditPreset).equipIndex
     for i = 1, count do
@@ -1375,22 +1483,22 @@ EquiptMgr.ChangeEquiptInPresetEdit = function(remove, equiptInfo, oldEquipInfo, 
   end
 end
 
--- DECOMPILER ERROR at PC170: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC179: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
-  -- function num : 0_55 , upvalues : _ENV
+  -- function num : 0_58 , upvalues : _ENV
   local new = (Util.StringIsNullOrEmpty)(presetData.schemeName)
   if presetData.equipIndex == nil or #presetData.equipIndex == 0 then
     if new then
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000579), function(...)
-    -- function num : 0_55_0 , upvalues : _ENV
+    -- function num : 0_58_0 , upvalues : _ENV
     UIMgr:SendWindowMessage((WinResConfig.EquipmentWindow).name, (WindowMsgEnum.Equipt).E_MSG_CANCEL_EDIT_PRESET)
   end
 )
     else
       ;
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000578), function(...)
-    -- function num : 0_55_1 , upvalues : _ENV, presetData
+    -- function num : 0_58_1 , upvalues : _ENV, presetData
     (EquiptService.ReqRemoveEquipScheme)(presetData.id)
   end
 )
@@ -1410,7 +1518,7 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
         end
       end
       local update = function(...)
-    -- function num : 0_55_2 , upvalues : presetData, name, _ENV
+    -- function num : 0_58_2 , upvalues : presetData, name, _ENV
     local nameChanged = presetData.schemeName ~= name
     presetData.schemeName = name
     local new = presetData.New
@@ -1450,7 +1558,7 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
   end
 
       local prompt = function(...)
-    -- function num : 0_55_3 , upvalues : presetData, _ENV, update
+    -- function num : 0_58_3 , upvalues : presetData, _ENV, update
     if presetData.New and presetData.cardId ~= 0 then
       local oldEquipts = {}
       local card = (CardData.GetCardData)(presetData.cardId)
@@ -1472,7 +1580,7 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
       end
       if not same then
         (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000591, card.name), function(...)
-      -- function num : 0_55_3_0 , upvalues : update
+      -- function num : 0_58_3_0 , upvalues : update
       update()
     end
 )
@@ -1487,7 +1595,7 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
   end
 
       local prompt2 = function(...)
-    -- function num : 0_55_4 , upvalues : presetData, _ENV, prompt
+    -- function num : 0_58_4 , upvalues : presetData, _ENV, prompt
     local count = #presetData.equipIndex
     local roles = {}
     local roleId = nil
@@ -1525,7 +1633,7 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
       finalStr = (PUtil.get)(60000592, roleStr)
       ;
       (MessageMgr.OpenConfirmWindow)(finalStr, function(...)
-      -- function num : 0_55_4_0 , upvalues : prompt
+      -- function num : 0_58_4_0 , upvalues : prompt
       prompt()
     end
 )
@@ -1538,9 +1646,9 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
         str = str .. (PUtil.get)(60000581)
         ;
         (MessageMgr.OpenConfirmWindow)(str, function(...)
-    -- function num : 0_55_5 , upvalues : _ENV, presetData, prompt2
+    -- function num : 0_58_5 , upvalues : _ENV, presetData, prompt2
     (EquiptMgr.PreAutoDeletePreset)(presetData, 60000588, function(...)
-      -- function num : 0_55_5_0 , upvalues : prompt2
+      -- function num : 0_58_5_0 , upvalues : prompt2
       prompt2()
     end
 , presetData.id)
@@ -1551,10 +1659,10 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
   end
 end
 
--- DECOMPILER ERROR at PC173: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC182: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.RecvUpdateEquipPreset = function(msg, ...)
-  -- function num : 0_56 , upvalues : _ENV
+  -- function num : 0_59 , upvalues : _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   EquiptData.EditPreset = {}
@@ -1661,10 +1769,10 @@ EquiptMgr.RecvUpdateEquipPreset = function(msg, ...)
   -- DECOMPILER ERROR: 7 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC176: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC185: Confused about usage of register: R1 in 'UnsetPending'
 
 EquiptMgr.CheckEditPresetChanged = function(name, ...)
-  -- function num : 0_57 , upvalues : _ENV
+  -- function num : 0_60 , upvalues : _ENV
   if (EquiptData.EditPreset).New then
     if (EquiptData.EditPreset).equipIndex == nil or #(EquiptData.EditPreset).equipIndex == 0 then
       return EquiptPresetEditStatus.EmptyNew
@@ -1699,6 +1807,137 @@ EquiptMgr.CheckEditPresetChanged = function(name, ...)
       end
     end
   end
+end
+
+-- DECOMPILER ERROR at PC188: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.GetSuitBuff = function(equiptInfo, ...)
+  -- function num : 0_61 , upvalues : _ENV
+  local suitBuff = {}
+  for k,v in pairs(equiptInfo) do
+    local id = (((TableData.gTable).BaseEquipData)[v.id]).setsId
+    if id ~= nil and id ~= 0 then
+      if suitBuff[id] ~= nil then
+        suitBuff[id] = suitBuff[id] + 1
+      else
+        suitBuff[id] = 1
+      end
+    end
+  end
+  return suitBuff
+end
+
+-- DECOMPILER ERROR at PC191: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.GetSuitPreBuffId = function(suitId, num, ...)
+  -- function num : 0_62 , upvalues : _ENV
+  local config = ((TableData.gTable).BaseEquipSetsData)[suitId]
+  local buffs = split(config.effect, ",")
+  local preBuffId = (split(buffs[num], ":"))[2]
+  return tonumber(preBuffId)
+end
+
+-- DECOMPILER ERROR at PC194: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.GetSuitBuffByEquiptInfo = function(equipInfo, ...)
+  -- function num : 0_63 , upvalues : _ENV
+  if equipInfo == nil then
+    return 
+  end
+  local equiptCpunt = #equipInfo
+  local preBuff = {}
+  local suitList = {}
+  local showList = {}
+  local typeList = {}
+  local buffList = {}
+  suitList = (EquiptMgr.GetSuitBuff)(equipInfo)
+  for k,v in pairs(suitList) do
+    local suitId = k
+    local count = v
+    local config = ((TableData.gTable).BaseEquipSetsData)[suitId]
+    local suits = split(config.effect, ",")
+    local suitsCount = #suits
+    local lowId = 0
+    for i = 1, suitsCount do
+      local buffType = tonumber((split(suits[i], ":"))[1])
+      local buffId = tonumber((split(suits[i], ":"))[2])
+      if i == v then
+        buffList[1] = buffId
+        lowId = buffId
+      end
+      if buffType == 1 then
+        preBuff[i] = buffId
+      else
+        preBuff[i] = 0
+      end
+    end
+    local lowerIds = (EquiptMgr.FindLowerSuiBuff)(preBuff, buffList)
+    ;
+    (table.insert)(showList, lowerIds)
+    typeList = {}
+    preBuff = {}
+    buffList = {}
+  end
+  return showList
+end
+
+-- DECOMPILER ERROR at PC197: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.FindLowerSuiBuff = function(preBuff, buffList, ...)
+  -- function num : 0_64 , upvalues : _ENV
+  local lowerId = (EquiptMgr.JudgeHaveLowerBuff)(preBuff, buffList)
+  local lowerIdCount = #lowerId
+  for k,v in ipairs(lowerId) do
+    (table.insert)(buffList, v)
+  end
+  if lowerIdCount ~= 0 then
+    (table.sort)(buffList, function(a, b, ...)
+    -- function num : 0_64_0 , upvalues : _ENV
+    local aC = ((TableData.gTable).BaseBuffPreBattleData)[a]
+    local bC = ((TableData.gTable).BaseBuffPreBattleData)[b]
+    if b >= a then
+      do return bC.sortId >= aC.sortId end
+      do return a < b end
+      -- DECOMPILER ERROR: 4 unprocessed JMP targets
+    end
+  end
+)
+  end
+  return buffList
+end
+
+-- DECOMPILER ERROR at PC200: Confused about usage of register: R1 in 'UnsetPending'
+
+EquiptMgr.RefrshBuffByEquipInfo = function(roleData, ...)
+  -- function num : 0_65 , upvalues : _ENV
+  local equipInfo = roleData.equipInfo
+  local equipSetBuff = {}
+  local suitBuff = {}
+  suitBuff = (EquiptMgr.GetSuitBuff)(equipInfo)
+  for k,v in pairs(suitBuff) do
+    local equipConfig = ((TableData.gTable).BaseEquipSetsData)[k]
+    local suits = split(equipConfig.effect, ",")
+    local count = #suits
+    local preBuffId = 0
+    for i = v, 1, -1 do
+      local buffId = tonumber((split(suits[i], ":"))[2])
+      local buffType = tonumber((split(suits[i], ":"))[1])
+      if buffType ~= 0 then
+        preBuffId = buffId
+        break
+      end
+    end
+    do
+      do
+        if preBuffId ~= 0 then
+          (table.insert)(equipSetBuff, preBuffId)
+        end
+        -- DECOMPILER ERROR at PC52: LeaveBlock: unexpected jumping out DO_STMT
+
+      end
+    end
+  end
+  roleData.equipSet = equipSetBuff
 end
 
 

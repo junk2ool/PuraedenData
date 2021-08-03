@@ -63,6 +63,8 @@ BaseBuffPreBattleData = {
 , 
 [46330350] = {id = 46330350, buff_list = "1:46330351:3001:10000,3:46330353:3001:10000"}
 , 
+[46330360] = {id = 46330360, buff_list = "1:46330361:3001:10000,2:46330362:3001:10000,3:46330363:3001:10000,7:46330367:3001:10000,12:46330315:3001:10000"}
+, 
 [47000001] = {id = 47000001, buff_list = "1:46700001:3004:10000", level = 1, show_type = 1, type = 0, value = "0"}
 , 
 [47000002] = {id = 47000002, buff_list = "1:46700002:2005:10000", level = 1, show_type = 1, type = 0, value = "0"}
@@ -158,6 +160,16 @@ BaseBuffPreBattleData = {
 [47001113] = {id = 47001113, buff_list = "1:46711130:3004:10000", name = (PUtil.get)(85011011, 3), remark = (PUtil.get)(85021011, 20), icon = "BuffIcon:buff_tower_3", level = 1, show_type = 1, type = 0, value = "0"}
 , 
 [47001114] = {id = 47001114, buff_list = "1:46711140:3004:10000", name = (PUtil.get)(85011011, 4), remark = (PUtil.get)(85021011, 25), icon = "BuffIcon:buff_tower_3", level = 1, show_type = 1, type = 0, value = "0"}
+, 
+[47001211] = {id = 47001211, buff_list = "1:46711201:2002:10000", name = (PUtil.get)(85011121), remark = (PUtil.get)(85021121, 12), icon = "BuffIcon:buff_tower_1", level = 1}
+, 
+[47001221] = {id = 47001221, buff_list = "1:46711205:2002:10000,2:46711206:3004:10000", name = (PUtil.get)(85011122), remark = (PUtil.get)(85021122, 20), icon = "BuffIcon:buff_tower_2", level = 1}
+, 
+[47001231] = {id = 47001231, buff_list = "1:46711215:3004:10000", name = (PUtil.get)(85011123), remark = (PUtil.get)(85021123, 10), icon = "BuffIcon:buff_tower_3", level = 1}
+, 
+[47001241] = {id = 47001241, buff_list = "1:46711220:3001:10000,2:46711221:3001:10000", name = (PUtil.get)(85011124), remark = (PUtil.get)(85021124, 12, 20, 200), icon = "BuffIcon:buff_tower_1", level = 1}
+, 
+[47001242] = {id = 47001242, buff_list = "3:46711222:2002:10000", name = (PUtil.get)(85011124), remark = (PUtil.get)(85021124, 12, 20, 200), icon = "BuffIcon:buff_tower_1", level = 1}
 , 
 [47002001] = {id = 47002001, buff_list = "0", name = (PUtil.get)(85012001), remark = (PUtil.get)(85022001), icon = "Expedition:buff_expedition_d1", level = 1, show_type = 1, type = 4, value = "0"}
 , 
@@ -701,6 +713,14 @@ BaseBuffPreBattleData = {
 , 
 [47106092] = {id = 47106092, buff_list = "1:46860920:3001:10000", name = (PUtil.get)(85013055), remark = (PUtil.get)(85023228), level = 5, show_type = 1}
 , 
+[47107011] = {id = 47107011, buff_list = "1:46870101:3001:10000", remark = (PUtil.get)(85024011, 5, 170, 3), setsId = 101, sortId = 1}
+, 
+[47107012] = {id = 47107012, buff_list = "10:46870110:3001:10000", remark = (PUtil.get)(85024012, 170, 245, 200, 3, 6), setsId = 101, sortId = 2}
+, 
+[47107021] = {id = 47107021, buff_list = "1:46870101:3001:10000,6:46870106:3001:10000", setsId = 102, sortId = 1}
+, 
+[47107022] = {id = 47107022, buff_list = "6:46870106:3001:10000,8:46870108:3001:10000", setsId = 102, sortId = 2}
+, 
 [47410001] = {id = 47410001, buff_list = "1:47400001:2002:10000"}
 , 
 [47410002] = {id = 47410002, buff_list = "1:47400002:3001:10000"}
@@ -920,6 +940,16 @@ BaseBuffPreBattleData = {
 [49300640] = {id = 49300640, buff_list = "1:49400641:3001:10000"}
 , 
 [49300650] = {id = 49300650, buff_list = "1:49400651:3001:10000"}
+, 
+[49300710] = {id = 49300710, buff_list = "1:49400711:3001:10000"}
+, 
+[49300720] = {id = 49300720, buff_list = "1:49400721:3001:10000"}
+, 
+[49300730] = {id = 49300730, buff_list = "1:49400731:3001:10000"}
+, 
+[49300740] = {id = 49300740, buff_list = "1:49400741:3001:10000"}
+, 
+[49300750] = {id = 49300750, buff_list = "1:49400751:3001:10000"}
 }
 return BaseBuffPreBattleData
 

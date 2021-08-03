@@ -332,7 +332,9 @@ end
 
 NewActivityDungeonMgr.InitAssistData = function(...)
   -- function num : 0_15 , upvalues : _ENV
-  (NewActivityDungeonService.ReqAssistFightInit)()
+  if (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).NewActivityDungeon) then
+    (NewActivityDungeonService.ReqAssistFightInit)()
+  end
 end
 
 -- DECOMPILER ERROR at PC52: Confused about usage of register: R0 in 'UnsetPending'

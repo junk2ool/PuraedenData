@@ -19,6 +19,9 @@ NewActivityDungeonShopWindow.OnInit = function(bridgeObj, ...)
   (NewActivityDungeonShopWindow.InitText)()
   ;
   (NewActivityDungeonShopWindow.InitList)()
+  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).NewActivityDungeon)
+  ;
+  (NewActivityDungeonShopWindow.InitPanelIcons)(activityId)
 end
 
 NewActivityDungeonShopWindow.InitTopMenu = function(...)
@@ -56,17 +59,28 @@ NewActivityDungeonShopWindow.InitList = function(...)
   (uis.CommodityList):SetBeginAnim(false, "up", 0.05, 0.05, true)
 end
 
+NewActivityDungeonShopWindow.InitPanelIcons = function(activityId, ...)
+  -- function num : 0_4 , upvalues : _ENV, uis
+  local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  if imageConfigData then
+    bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_shop_bkg)
+  else
+    loge("Can Not Find Image Config Data With Activity Id:" .. tostring(activityId))
+  end
+end
+
 NewActivityDungeonShopWindow.OnShown = function(...)
-  -- function num : 0_4 , upvalues : NewActivityDungeonShopWindow
+  -- function num : 0_5 , upvalues : NewActivityDungeonShopWindow
   (NewActivityDungeonShopWindow.Init)()
 end
 
 NewActivityDungeonShopWindow.OnHide = function(...)
-  -- function num : 0_5
+  -- function num : 0_6
 end
 
 NewActivityDungeonShopWindow.OnClose = function(...)
-  -- function num : 0_6 , upvalues : _cards, _ENV, _currentRoleIndex, uis, contentPane, argTable
+  -- function num : 0_7 , upvalues : _cards, _ENV, _currentRoleIndex, uis, contentPane, argTable
   _cards = {}
   ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.NewActivityDungeonShopWindow).name)
@@ -77,7 +91,7 @@ NewActivityDungeonShopWindow.OnClose = function(...)
 end
 
 NewActivityDungeonShopWindow.Init = function(...)
-  -- function num : 0_7 , upvalues : NewActivityDungeonShopWindow, _currentRoleIndex, uis, _ENV
+  -- function num : 0_8 , upvalues : NewActivityDungeonShopWindow, _currentRoleIndex, uis, _ENV
   (NewActivityDungeonShopWindow.ChoseRole)(_currentRoleIndex)
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -86,7 +100,7 @@ NewActivityDungeonShopWindow.Init = function(...)
 end
 
 NewActivityDungeonShopWindow.ChoseRole = function(index, roleData, ...)
-  -- function num : 0_8 , upvalues : _currentRoleIndex, _cards, NewActivityDungeonShopWindow, uis
+  -- function num : 0_9 , upvalues : _currentRoleIndex, _cards, NewActivityDungeonShopWindow, uis
   _currentRoleIndex = index
   if roleData == nil then
     roleData = _cards[index]
@@ -100,7 +114,7 @@ NewActivityDungeonShopWindow.ChoseRole = function(index, roleData, ...)
 end
 
 NewActivityDungeonShopWindow.RefreshStageUpInfo = function(roleData, ...)
-  -- function num : 0_9 , upvalues : _ENV, uis, NewActivityDungeonShopWindow
+  -- function num : 0_10 , upvalues : _ENV, uis, NewActivityDungeonShopWindow
   -- DECOMPILER ERROR at PC9: Confused about usage of register: R1 in 'UnsetPending'
 
   if roleData.quality < (CardData.GetRoleMaxStage)(roleData.id) then
@@ -128,7 +142,7 @@ NewActivityDungeonShopWindow.RefreshStageUpInfo = function(roleData, ...)
 end
 
 NewActivityDungeonShopWindow.RefreshCommodityItem = function(index, item, ...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   item = item:GetChild("ShopTips")
   local model = GetActivityDungeonTwo_ShopTipsUis(item)
   index = index + 1
@@ -207,7 +221,7 @@ NewActivityDungeonShopWindow.RefreshCommodityItem = function(index, item, ...)
   end
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_10_0 , upvalues : data, GridData, _ENV, needList
+    -- function num : 0_11_0 , upvalues : data, GridData, _ENV, needList
     if GridData.sell_limit_time <= data.useNum then
       log("已售罄")
       return 
@@ -232,7 +246,7 @@ NewActivityDungeonShopWindow.RefreshCommodityItem = function(index, item, ...)
 end
 
 NewActivityDungeonShopWindow.RefreshNeedsItem = function(index, item, ...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   local mData = (NewActivityDungeonData.RoleNeedGoods)[index]
   if not mData then
     return 
@@ -268,7 +282,7 @@ NewActivityDungeonShopWindow.RefreshNeedsItem = function(index, item, ...)
 end
 
 NewActivityDungeonShopWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_12 , upvalues : _ENV, NewActivityDungeonShopWindow, _currentRoleIndex
+  -- function num : 0_13 , upvalues : _ENV, NewActivityDungeonShopWindow, _currentRoleIndex
   if msgId == (WindowMsgEnum.ActivityDungeonShopWindow).E_MSG_REFRESH_ITEMLIST then
     (NewActivityDungeonShopWindow.ChoseRole)(_currentRoleIndex)
   end

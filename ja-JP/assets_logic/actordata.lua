@@ -341,6 +341,7 @@ ActorData.ChangeActorData = function(msg, ...)
             cardObject.equipInfo = {}
             local fashionConfig = (CardData.GetFashionConfig)(cardObject)
             cardObject.fashionId = fashionConfig.id
+            cardObject.equipSet = {}
             ;
             (CardData.ObtainNewCard)(cardObject)
           else
@@ -430,53 +431,53 @@ ActorData.ChangeActorData = function(msg, ...)
                                     do
                                       ;
                                       (HomelandData.UpdateFurnitureData)(v)
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out DO_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out DO_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                      -- DECOMPILER ERROR at PC291: LeaveBlock: unexpected jumping out IF_STMT
+                                      -- DECOMPILER ERROR at PC293: LeaveBlock: unexpected jumping out IF_STMT
 
                                     end
                                   end

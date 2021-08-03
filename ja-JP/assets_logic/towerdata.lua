@@ -49,14 +49,20 @@ TowerData.TowerStageNumber = {}
 TowerData.LastReqStageId = 0
 -- DECOMPILER ERROR at PC43: Confused about usage of register: R0 in 'UnsetPending'
 
-TowerData.HaveBounsLevel = false
+TowerData.IsExpand = nil
 -- DECOMPILER ERROR at PC45: Confused about usage of register: R0 in 'UnsetPending'
 
-TowerData.BounsLevelData = nil
+TowerData.ExpandOpen = nil
 -- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
 
+TowerData.HaveBounsLevel = false
+-- DECOMPILER ERROR at PC49: Confused about usage of register: R0 in 'UnsetPending'
+
+TowerData.BounsLevelData = nil
+-- DECOMPILER ERROR at PC51: Confused about usage of register: R0 in 'UnsetPending'
+
 TowerData.PopUpBounsLevel = false
--- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC54: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.InitData = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -65,7 +71,7 @@ TowerData.InitData = function(...)
   TowerData.TowerLayerData = {}
   local config, preConfig = nil, nil
   for k,v in pairs((TableData.gTable).BaseTowerData) do
-    if v.pre == 0 then
+    if v.pre == 0 and v.type == 1 then
       config = v
       break
     end
@@ -73,28 +79,28 @@ TowerData.InitData = function(...)
   do
     repeat
       (table.insert)(TowerData.TowerLayerData, config.id)
-      -- DECOMPILER ERROR at PC29: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC32: Confused about usage of register: R2 in 'UnsetPending'
 
       ;
       (TowerData.TowerLayerNumber)[config.id] = #TowerData.TowerLayerData
       config = ((TableData.gTable).BaseTowerData)[config.next]
     until config == nil
-    -- DECOMPILER ERROR at PC39: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC42: Confused about usage of register: R2 in 'UnsetPending'
 
     TowerData.TowerStageData = {}
     for k,v in pairs((TableData.gTable).BaseTowerStageData) do
-      -- DECOMPILER ERROR at PC68: Confused about usage of register: R7 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC71: Confused about usage of register: R7 in 'UnsetPending'
 
       if (TowerData.TowerStageData)[v.tower_id] == nil and (v.pre == 0 or (((TableData.gTable).BaseTowerStageData)[v.pre]).tower_id ~= v.tower_id) then
         (TowerData.TowerStageData)[v.tower_id] = {}
-        -- DECOMPILER ERROR at PC73: Confused about usage of register: R7 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC76: Confused about usage of register: R7 in 'UnsetPending'
 
         ;
         (TowerData.TowerStageNumber)[v.tower_id] = {}
         config = v
         repeat
           (table.insert)((TowerData.TowerStageData)[v.tower_id], config.id)
-          -- DECOMPILER ERROR at PC93: Confused about usage of register: R7 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC96: Confused about usage of register: R7 in 'UnsetPending'
 
           ;
           ((TowerData.TowerStageNumber)[v.tower_id])[config.id] = #(TowerData.TowerStageData)[v.tower_id]
@@ -105,7 +111,7 @@ TowerData.InitData = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC53: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC57: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.InitTowerData = function(data, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -153,7 +159,7 @@ TowerData.InitTowerData = function(data, ...)
   (TowerData.InitLuckyInfo)()
 end
 
--- DECOMPILER ERROR at PC56: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC60: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.InitLuckyInfo = function(...)
   -- function num : 0_2 , upvalues : _ENV
@@ -162,7 +168,7 @@ TowerData.InitLuckyInfo = function(...)
   TowerData.CurrentLucky = (CardData.GetFormationLucky)(TowerData.FormationInfo)
 end
 
--- DECOMPILER ERROR at PC59: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC63: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.UpdateTowerData = function(data, ...)
   -- function num : 0_3 , upvalues : _ENV
@@ -215,7 +221,7 @@ TowerData.UpdateTowerData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC62: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC66: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.GetReward = function(layer, stage, ...)
   -- function num : 0_4 , upvalues : _ENV
@@ -248,7 +254,7 @@ TowerData.GetReward = function(layer, stage, ...)
   end
 end
 
--- DECOMPILER ERROR at PC65: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.GetRewardItem = function(first, data, lucky, ...)
   -- function num : 0_5 , upvalues : _ENV
@@ -260,10 +266,13 @@ TowerData.GetRewardItem = function(first, data, lucky, ...)
   item.LuckyCondition = 0
   item.Lucky = lucky or false
   local value = tonumber(info[3])
+  if value == nil then
+    return item
+  end
   if first then
     item.Amount = value
   else
-    -- DECOMPILER ERROR at PC32: Unhandled construct in 'MakeBoolean' P1
+    -- DECOMPILER ERROR at PC35: Unhandled construct in 'MakeBoolean' P1
 
     if lucky and TowerData.CurrentLucky < value then
       item.LuckyCondition = value
@@ -273,7 +282,7 @@ TowerData.GetRewardItem = function(first, data, lucky, ...)
   return item
 end
 
--- DECOMPILER ERROR at PC68: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.GetActualReward = function(data, ...)
   -- function num : 0_6 , upvalues : _ENV
@@ -342,7 +351,7 @@ TowerData.GetActualReward = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC71: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC75: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.Sort = function(x, y, ...)
   -- function num : 0_7 , upvalues : _ENV
@@ -372,7 +381,7 @@ TowerData.Sort = function(x, y, ...)
   -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC74: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.GetActualRewardItem = function(first, id, amount, type, ...)
   -- function num : 0_8
@@ -384,7 +393,7 @@ TowerData.GetActualRewardItem = function(first, id, amount, type, ...)
   return item
 end
 
--- DECOMPILER ERROR at PC77: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC81: Confused about usage of register: R0 in 'UnsetPending'
 
 TowerData.GetCurrentTowerBGAndBGM = function(...)
   -- function num : 0_9 , upvalues : _ENV

@@ -693,4 +693,39 @@ CardMgr.ClearIntelligenceEffectsPool = function(...)
   intelligenceEffectsPool = {}
 end
 
+-- DECOMPILER ERROR at PC132: Confused about usage of register: R15 in 'UnsetPending'
+
+CardMgr.RefreshSuitBuffData = function(msg, ...)
+  -- function num : 0_36 , upvalues : _ENV
+  local id = 0
+  if msg.sourceCardId ~= 0 then
+    id = msg.sourceCardId
+  end
+  if msg.cardId ~= 0 then
+    id = msg.cardId
+  end
+  local equipBuffs = msg.equipSetsBuff
+  local equipBuffsCount = #equipBuffs
+  if equipBuffsCount == 0 then
+    ((CardData.GetCardData)(id)).equipSet = equipBuffs
+  else
+    for k,v in pairs(equipBuffs) do
+      id = v.cardId
+      local buff = v.equipSetsBuff
+      ;
+      ((CardData.GetCardData)(id)).equipSet = buff
+    end
+  end
+  do
+    local cardLis = (CardData.GetObtainedCardList)()
+    for k,v in pairs(cardLis) do
+      -- DECOMPILER ERROR at PC48: Confused about usage of register: R10 in 'UnsetPending'
+
+      if (EquiptData.CurrentRoleData).id == v.id then
+        (EquiptData.CurrentRoleData).equipSet = v.equipSet
+      end
+    end
+  end
+end
+
 

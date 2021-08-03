@@ -42,6 +42,8 @@ end
 
 EquiptService.RecvPutOnEquip = function(msg, ...)
   -- function num : 0_2 , upvalues : _ENV
+  (CardMgr.RefreshSuitBuffData)(msg)
+  ;
   (EquiptMgr.AfterEquipChange)(msg)
 end
 

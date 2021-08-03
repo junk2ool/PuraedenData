@@ -26,6 +26,8 @@ LuaEffect.AddUIEffect = function(effectName, PlayOverIsDestroy, DisableIsDestroy
       goWrapper.PlayOverIsDestroy = PlayOverIsDestroy
       wrapper.supportStencil = true
       holder:SetNativeObject(wrapper)
+      local transform = effect.transform
+      transform.localPosition = ((CS.UnityEngine).Vector3).zero
     end
   end
   do

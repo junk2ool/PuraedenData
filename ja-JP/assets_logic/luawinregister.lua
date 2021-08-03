@@ -467,6 +467,12 @@ NewActivityDungeonGuildAssistWindow = {name = "NewActivityDungeonGuildAssistWind
 NewActivityDungeonPlotDetailWindow = {name = "NewActivityDungeonPlotDetailWindow", package = "ActivityDungeonTwo", comName = "PlotDetailWindow", hideBelow = false, notReopen = true}
 , 
 HandbookMainPlotWindow = {name = "HandbookMainPlotWindow", package = "HandBook", comName = "MainPlot", hideBelow = false}
+, 
+TowerTopStageWindow = {name = "TowerTopStageWindow", package = "Tower", comName = "ThemeMainStage", hideBelow = false}
+, 
+TowerExpandBattleWindow = {name = "TowerExpandBattleWindow", package = "Tower", comName = "TopStage", hideBelow = false}
+, 
+TowerChooseEquipWindow = {name = "TowerChooseEquipWindow", package = "Tower", comName = "ChoiceEquipt", hideBelow = false}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -749,5 +755,7 @@ NewActivityDungeonMainWindow = {"ActivityDungeon"}
 NewActivityDungeonExchangeWindow = {"ActivityDungeon", "ItemIcon"}
 , 
 HandbookMainPlotWindow = {"HandBookBanner", "HandBookMainBanner"}
+, 
+TowerTopStageWindow = {"TowerPic"}
 }
 

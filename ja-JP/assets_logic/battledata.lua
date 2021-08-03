@@ -1352,6 +1352,10 @@ BattleData.GetPlayTypeByBattleType = function(battleType, ...)
                                 else
                                   if battleType == E_BATTLE_TYPE.ASSIST then
                                     return PlayType.Assist_Fight
+                                  else
+                                    if battleType == E_BATTLE_TYPE.TOWER_EXPAND then
+                                      return PlayType.Tower
+                                    end
                                   end
                                 end
                               end
@@ -1474,7 +1478,7 @@ BattleData.GetMonsterGroup = function(wave, stageId, battleType, ...)
         end
       else
         do
-          if battleType == E_BATTLE_TYPE.TOWER then
+          if battleType == E_BATTLE_TYPE.TOWER or battleType == E_BATTLE_TYPE.TOWER_EXPAND then
             local stageConfig = ((TableData.gTable).BaseTowerStageData)[stageId]
             if stageConfig then
               local monster_group_list = split(stageConfig.monster_group_list, ":")
@@ -1598,6 +1602,10 @@ BattleData.GetBattleMapAndBGM = function(stageId, battleType, curWave, ...)
       else
         if battleType == (ProtoEnum.E_BATTLE_TYPE).TOWER_ENCOUNTER then
           return (TowerData.GetCurrentTowerBGAndBGM)()
+        else
+          if battleType == (ProtoEnum.E_BATTLE_TYPE).TOWER_EXPAND then
+            return (TowerTopStageData.GetCurrentTowerBGAndBGM)()
+          end
         end
       end
       if not curWave then
@@ -1673,6 +1681,10 @@ BattleData.GetChallengeType = function(battleType, ...)
                                 else
                                   if battleType == E_BATTLE_TYPE.ASSIST then
                                     return E_CHALLENGE_TYPE.NEW_ACTIVITY_ASSIST
+                                  else
+                                    if battleType == E_BATTLE_TYPE.TOWER_EXPAND then
+                                      return E_CHALLENGE_TYPE.TOWER_EXPAND_CHALLENGE
+                                    end
                                   end
                                 end
                               end

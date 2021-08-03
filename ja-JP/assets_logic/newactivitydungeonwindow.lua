@@ -21,6 +21,8 @@ NewActivityDungeonWindow.OnInit = function(bridgeObj, ...)
   ;
   (NewActivityDungeonWindow.InitFunctionControl)()
   ;
+  (NewActivityDungeonWindow.InitPanelIcons)((ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).NewActivityDungeon))
+  ;
   (NewActivityDungeonWindow.BindingUI)()
 end
 
@@ -64,27 +66,48 @@ NewActivityDungeonWindow.InitFunctionControl = function(...)
   (GuideData.RegisterGuideAndControl)(ControlID.HandBook_Album, uis.PlotBtn, (WinResConfig.NewActivityDungeonWindow).name)
 end
 
-NewActivityDungeonWindow.BindingUI = function(...)
+NewActivityDungeonWindow.InitPanelIcons = function(activityId, ...)
   -- function num : 0_5 , upvalues : _ENV, uis
+  local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
+  local logoLoader = (FairyUIUtils.FindLoader)(uis.root, "LogoLoader")
+  local cardTipsLoader = (FairyUIUtils.FindLoader)(uis.CardInfoBtn, "CardTipsLoader")
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  if imageConfigData then
+    bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_bkg)
+    logoLoader.url = (Util.GetItemUrl)(imageConfigData.activity_title)
+    cardTipsLoader.url = (Util.GetItemUrl)(imageConfigData.activity_actor)
+  else
+    loge("Can Not Find Activity Image Config With " .. tostring(activityId))
+  end
+end
+
+NewActivityDungeonWindow.BindingUI = function(...)
+  -- function num : 0_6 , upvalues : _ENV, uis
   local winName = (WinResConfig.NewActivityDungeonWindow).name
   local BindingUI = RedDotMgr.BindingUI
   local RedDotComID = RedDotComID
   BindingUI(winName, RedDotComID.ActivityDungeon_Btn, uis.BattleBtn)
+  local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
+  if config.assist_num <= (NewActivityDungeonData.AssistData).assistedTime then
+    (RedDotMgr.EliminateRedDot)((WinResConfig.NewActivityDungeonMainWindow).name, RedDotComID.NAD_GuildHlep)
+    ;
+    (RedDotMgr.RefreshTreeUI)((WinResConfig.NewActivityDungeonMainWindow).name)
+  end
   ;
   (RedDotMgr.RefreshTreeUI)(winName)
 end
 
 NewActivityDungeonWindow.OnShown = function(...)
-  -- function num : 0_6 , upvalues : NewActivityDungeonWindow
+  -- function num : 0_7 , upvalues : NewActivityDungeonWindow
   (NewActivityDungeonWindow.Init)()
 end
 
 NewActivityDungeonWindow.OnHide = function(...)
-  -- function num : 0_7
+  -- function num : 0_8
 end
 
 NewActivityDungeonWindow.OnClose = function(...)
-  -- function num : 0_8 , upvalues : _ENV, uis, _miniLoader, contentPane, argTable
+  -- function num : 0_9 , upvalues : _ENV, uis, _miniLoader, contentPane, argTable
   (CommonWinMgr.RemoveAssets)((WinResConfig.NewActivityDungeonWindow).name)
   ;
   (Util.RecycleUIModel)(uis.CardLoader)
@@ -96,19 +119,19 @@ NewActivityDungeonWindow.OnClose = function(...)
 end
 
 NewActivityDungeonWindow.Init = function(...)
-  -- function num : 0_9 , upvalues : NewActivityDungeonWindow
+  -- function num : 0_10 , upvalues : NewActivityDungeonWindow
   (NewActivityDungeonWindow.ShowExplainWindow)()
   ;
   (NewActivityDungeonWindow.Refresh)()
 end
 
 NewActivityDungeonWindow.ShowExplainWindow = function(...)
-  -- function num : 0_10 , upvalues : argTable, _ENV
+  -- function num : 0_11 , upvalues : argTable, _ENV
   if argTable[1] == 0 then
     argTable[1] = 1
     ;
     (SimpleTimer.setTimeout)(0.1, function(...)
-    -- function num : 0_10_0 , upvalues : _ENV
+    -- function num : 0_11_0 , upvalues : _ENV
     (NewActivityDungeonMgr.OpenActivityExplatin)()
   end
 )
@@ -116,7 +139,7 @@ NewActivityDungeonWindow.ShowExplainWindow = function(...)
 end
 
 NewActivityDungeonWindow.Refresh = function(...)
-  -- function num : 0_11 , upvalues : _ENV, uis, _miniLoader, MODEL_SCALE
+  -- function num : 0_12 , upvalues : _ENV, uis, _miniLoader, MODEL_SCALE
   if NewActivityDungeonData.NADData == nil then
     return 
   end
@@ -153,19 +176,19 @@ NewActivityDungeonWindow.Refresh = function(...)
 end
 
 NewActivityDungeonWindow.ClickBattleBtn = function(...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_13 , upvalues : _ENV
   (NewActivityDungeonMgr.OpenMainNADUI)()
 end
 
 NewActivityDungeonWindow.ClickExchangeBtn = function(...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_14 , upvalues : _ENV
   ld("Slots")
   ;
   (SlotsService.ReqSlotsData)((SlotsData.SlotType).ACTIVITY_SLOT)
 end
 
 NewActivityDungeonWindow.ClickCardInfoBtn = function(...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   if NewActivityDungeonData.NADData == nil then
     return 
   end
@@ -175,7 +198,7 @@ NewActivityDungeonWindow.ClickCardInfoBtn = function(...)
 end
 
 NewActivityDungeonWindow.ClickChoiceShopBtn = function(...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   if ShopService == nil then
     ld("Shop")
   end
@@ -184,12 +207,12 @@ NewActivityDungeonWindow.ClickChoiceShopBtn = function(...)
 end
 
 NewActivityDungeonWindow.ClickPlotBtn = function(...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   (HandBookService.OnReqAdventureStoryChapter)((ProtoEnum.E_BATTLE_TYPE).ACTIVITY, ActivityData.story_type)
 end
 
 NewActivityDungeonWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_17 , upvalues : _ENV, NewActivityDungeonWindow
+  -- function num : 0_18 , upvalues : _ENV, NewActivityDungeonWindow
   if msgId == (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH_UI then
     (NewActivityDungeonWindow.Refresh)()
   end

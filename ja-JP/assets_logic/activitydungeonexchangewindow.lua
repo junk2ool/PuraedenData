@@ -33,6 +33,9 @@ ActivityDungeonExchangeWindow.OnInit = function(bridgeObj, ...)
   (ActivityDungeonExchangeWindow.SetResetShow)()
   ;
   (ActivityDungeonExchangeWindow.InitSkipAni)()
+  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+  ;
+  (ActivityDungeonExchangeWindow.InitPanelIcons)(activityId)
 end
 
 ActivityDungeonExchangeWindow.InitSkipAni = function(...)
@@ -521,7 +524,9 @@ ActivityDungeonExchangeWindow.InitAssetStrip = function(...)
   m.windowName = (WinResConfig.ActivityDungeonExchangeWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStrip
-  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.ACTIVITY_SCORE_NEW}
+  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, tonumber(imageConfigData.activity_shop_asset), tonumber(imageConfigData.activity_slot_asset)}
   ;
   (CommonWinMgr.RegisterAssets)(m)
 end
@@ -646,6 +651,13 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
       end
     end
   end
+end
+
+ActivityDungeonExchangeWindow.InitPanelIcons = function(activityId, ...)
+  -- function num : 0_22 , upvalues : _ENV, uis
+  local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_slot_bkg)
 end
 
 return ActivityDungeonExchangeWindow

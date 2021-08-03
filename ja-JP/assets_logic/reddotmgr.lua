@@ -68,7 +68,11 @@ RedDotMgr.Init = function(...)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_Exploration, RedDotComID.NAD_Main)
   ;
-  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_AssitsFight, RedDotComID.NAD_Main)
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_BossFight, RedDotComID.NAD_Main)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_Reward, RedDotComID.NAD_BossFight)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_GuildHlep, RedDotComID.NAD_BossFight)
   winName = (WinResConfig.TitleWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Title_Main, RedDotComID.Setting_Title, (WinResConfig.ActorInfoWindow).name)
@@ -645,7 +649,7 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
                                                                       end
                                                                     else
                                                                       do
-                                                                        if id == RedDotComID.NAD_AssitsFight or id == RedDotComID.NAD_Exploration then
+                                                                        if id == RedDotComID.NAD_BossFight or id == RedDotComID.NAD_Exploration then
                                                                           local node = RedDotManager:GetNodeByObj((WinResConfig.NewActivityDungeonMainWindow).name, id)
                                                                           if node then
                                                                             loge(logStr .. "普通红点ID" .. id .. " " .. tostring(IsAdd))
@@ -658,7 +662,7 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
                                                                             do
                                                                               local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
                                                                               if node then
-                                                                                loge(logStr .. "普通红点ID" .. id .. " " .. tostring(IsAdd))
+                                                                                loge(logStr .. "普通红点ID" .. id)
                                                                                 node.NodeValue = IsAdd
                                                                               else
                                                                                 loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")

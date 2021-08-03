@@ -287,6 +287,10 @@ ActivityService.ResActivityInfo = function(msg, ...)
                   if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).NewActivityDungeon then
                     NewActivityDungeonData.NADData = msg.baseActivityInfo
                     UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonWindow).name, (WindowMsgEnum.ActivityMainDungeon).E_MSG_REFRESH_UI)
+                  else
+                    if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).TowerExpand then
+                      (ActivityMgr.InitTowerExpandData)(msg)
+                    end
                   end
                 end
               end
