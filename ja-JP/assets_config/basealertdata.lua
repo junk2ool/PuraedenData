@@ -466,6 +466,8 @@ pay_rebate_success = {id = "pay_rebate_success", name = "pay_rebate_success", na
 already_login = {id = "already_login", name = "すでにログインしている場合", name_cn = "账号已经在其他客户端登陆,请从其他设备下线后再次尝试"}
 , 
 activity_not_open = {id = "activity_not_open", name = "イベントは終了しました", name_cn = "活动未开启"}
+, 
+risk_time_not_enough = {id = "risk_time_not_enough", name = "イベントはまもなく終了となりますので、探索することができません。", name_cn = "活动即将结束，无法开始探索"}
 }
 return BaseAlertData
 
