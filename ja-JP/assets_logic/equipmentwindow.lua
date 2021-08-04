@@ -2784,8 +2784,9 @@ EquipmentWindow.InitEquiptBuffForPreset = function(list, presetData, resources1,
   end
   for i = 1, suitCount do
     wordTxt = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.EquipmentWindow).package, resources2))
+    local setConfig = ((TableData.gTable).BaseEquipSetsData)[(canShowBuff[i]).setsId]
     ;
-    (wordTxt:GetChild("WordTxt")).text = "[color=" .. Const.GreenColor .. "]" .. (canShowBuff[i]).name .. (canShowBuff[i]).remark .. "[/color]"
+    (wordTxt:GetChild("WordTxt")).text = "[color=" .. Const.GreenColor .. "]" .. (PUtil.get)(setConfig.name) .. (canShowBuff[i]).remark .. "[/color]"
   end
   for k,v in pairs(attData) do
     if v then
