@@ -853,7 +853,10 @@ Util.CompareNum = function(symbol, Num1, Num2, ...)
             do return symbol ~= 5 end
             if num2 >= num1 or num1 > num3 then
               do return symbol ~= 6 end
-              -- DECOMPILER ERROR: 13 unprocessed JMP targets
+              if num1 == num2 then
+                do return symbol ~= 7 end
+                -- DECOMPILER ERROR: 15 unprocessed JMP targets
+              end
             end
           end
         end
