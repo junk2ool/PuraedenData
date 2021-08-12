@@ -53,9 +53,8 @@ ActivityDungeonShopWindow.OnInit = function(bridgeObj, ...)
     (ActivityDungeonShopWindow.SetBreakArticleShow)()
     ;
     (ActivityDungeonShopWindow.FilterShopData)()
-    local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
     ;
-    (ActivityDungeonShopWindow.InitPanelIcons)(activityId)
+    (ActivityDungeonShopWindow.InitPanelIcons)((ActivityDungeonData.GetCurrentActivityDungeonId)())
   end
 end
 
@@ -319,7 +318,8 @@ ActivityDungeonShopWindow.RendererList = function(index, obj, ...)
     buyData.needCards = needList
     buyData.gridID = data.shopGridId
     buyData.poolID = data.shopPoolId
-    buyData.shopType = ShopType.ActivityDungeonShop
+    local shopItem = (ShopMgr.GetShopDataItemByActivityId)((ActivityDungeonData.GetCurrentActivityDungeonId)())
+    buyData.shopId = shopItem.id
     buyData.buyTime = data.useNum
     OpenWindow((WinResConfig.ActivityDungeonShopBuyWindow).name, UILayer.HUD, buyData)
   end
@@ -335,7 +335,7 @@ end
 
 ActivityDungeonShopWindow.InitAssetStrip = function(...)
   -- function num : 0_8 , upvalues : _ENV, uis
-  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+  local activityId = (ActivityMgr.GetCachedActivityDungeonId)()
   local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
   if imageConfigData then
     local m = {}

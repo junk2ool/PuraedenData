@@ -18,8 +18,9 @@ local showModel = nil
 local FxManager = require("FxManager")
 local lastClickIndex = 1
 local fxMainEffect = nil
+local cardIndex = false
 CardGetShowWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, lastClickIndex, fxMainEffect, cardID, isLottery, moveConfig, isAutoClose, isHave, picesNum, isTheLast, isTheFirst, CardGetShowWindow
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, lastClickIndex, fxMainEffect, cardID, isLottery, moveConfig, isAutoClose, isHave, picesNum, isTheLast, isTheFirst, cardIndex, CardGetShowWindow
   bridgeObj:SetView((WinResConfig.CardGetShowWindow).package, (WinResConfig.CardGetShowWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
@@ -59,9 +60,12 @@ CardGetShowWindow.OnInit = function(bridgeObj, ...)
   else
     isTheFirst = false
   end
+  if argTable[9] then
+    cardIndex = argTable[9]
+  end
   local excelData = ((TableData.gTable).BaseCardData)[cardID]
   isTheFirst = not isTheFirst or excelData.intelligence < 2
-  -- DECOMPILER ERROR at PC101: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC106: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.WhiteEffect).root).visible = isTheFirst
@@ -89,59 +93,51 @@ CardGetShowWindow.OnInit = function(bridgeObj, ...)
   -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
+local CloseAndBroadcast = function(...)
+  -- function num : 0_1 , upvalues : _ENV, cardIndex
+  UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)
+  UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLOSE_NEWGET, cardIndex)
+end
+
 CardGetShowWindow.ClassicInit = function(...)
-  -- function num : 0_1 , upvalues : uis, isAutoClose, isHave, isTheLast, _ENV, isLottery, CardGetShowWindow
-  -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
-
-  ((uis.CardGetShowEffectGrp).SkipBtn).visible = (isAutoClose or isHave) and not isTheLast
+  -- function num : 0_2 , upvalues : uis, isAutoClose, isHave, isTheLast, _ENV, CloseAndBroadcast, isLottery, CardGetShowWindow
+  local skipBtn = (uis.CardGetShowEffectGrp).SkipBtn
+  local loader = (uis.CardGetShowEffectGrp).EffcetLoader
+  skipBtn.visible = (isAutoClose or isHave) and not isTheLast
   ;
-  (((uis.CardGetShowEffectGrp).EffcetLoader).onClick):Clear()
-  ;
-  (((uis.CardGetShowEffectGrp).SkipBtn).onClick):Add(function(...)
-    -- function num : 0_1_0 , upvalues : isAutoClose, uis, isHave, _ENV
+  (skipBtn.onClick):Set(function(...)
+    -- function num : 0_2_0 , upvalues : isAutoClose, skipBtn, isHave, _ENV, CloseAndBroadcast
     isAutoClose = true
-    -- DECOMPILER ERROR at PC4: Confused about usage of register: R0 in 'UnsetPending'
-
-    ;
-    ((uis.CardGetShowEffectGrp).SkipBtn).visible = false
+    skipBtn.visible = false
     if isHave then
-      (SimpleTimer.setTimeout)(1.5, function(...)
-      -- function num : 0_1_0_0 , upvalues : _ENV
-      UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)
-      UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLOSE_NEWGET, {})
-    end
-)
+      (SimpleTimer.setTimeout)(1.5, CloseAndBroadcast)
     else
-      UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)
-      UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLOSE_NEWGET, {})
+      CloseAndBroadcast()
     end
-    UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLICKCARDGET_SKIPBTN, {})
+    UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLICKCARDGET_SKIPBTN)
   end
 )
   ;
   (((uis.CardGetShowEffectGrp).EffcetLoader).onClick):Clear()
   if isLottery then
-    (((uis.CardGetShowEffectGrp).EffcetLoader).onClick):Add(function(...)
-    -- function num : 0_1_1 , upvalues : isAutoClose, isHave, _ENV
+    (loader.onClick):Set(function(...)
+    -- function num : 0_2_1 , upvalues : isAutoClose, isHave, CloseAndBroadcast, _ENV
     if isAutoClose == false then
       if isHave then
-        UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)
-        UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLOSE_NEWGET, {})
+        CloseAndBroadcast()
       else
         local isFreshLine = (LotteryData.GetIsFreshLine)()
         if isFreshLine then
           (LotteryData.SetIsFreshLine)(false)
           UIMgr:CloseToWindow((WinResConfig.HomeWindow).name)
         else
-          UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)
-          UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLOSE_NEWGET, {})
+          CloseAndBroadcast()
         end
       end
     else
       do
         if not isHave then
-          UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)
-          UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLOSE_NEWGET, {})
+          CloseAndBroadcast()
         end
       end
     end
@@ -149,11 +145,27 @@ CardGetShowWindow.ClassicInit = function(...)
 )
   else
     (((uis.CardGetShowEffectGrp).EffcetLoader).onClick):Add(function(...)
-    -- function num : 0_1_2 , upvalues : _ENV
+    -- function num : 0_2_2 , upvalues : _ENV
     UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name)
   end
 )
   end
+  ;
+  (skipBtn.onClick):Add(function(...)
+    -- function num : 0_2_3 , upvalues : loader, skipBtn
+    (loader.onClick):Clear()
+    ;
+    (skipBtn.onClick):Clear()
+  end
+)
+  ;
+  (loader.onClick):Add(function(...)
+    -- function num : 0_2_4 , upvalues : loader, skipBtn
+    (loader.onClick):Clear()
+    ;
+    (skipBtn.onClick):Clear()
+  end
+)
   ;
   (CardGetShowWindow.RefreshDetailInfo)()
   ;
@@ -162,7 +174,7 @@ CardGetShowWindow.ClassicInit = function(...)
 end
 
 CardGetShowWindow.RefreshDetailInfo = function(...)
-  -- function num : 0_2 , upvalues : _ENV, cardID, uis, CardGetShowWindow, FxManager, lastClickIndex, isHave, isAutoClose, moveConfig
+  -- function num : 0_3 , upvalues : _ENV, cardID, uis, CardGetShowWindow, FxManager, lastClickIndex, isHave, isAutoClose, CloseAndBroadcast, moveConfig
   local excelData = ((TableData.gTable).BaseCardData)[cardID]
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -195,7 +207,7 @@ CardGetShowWindow.RefreshDetailInfo = function(...)
       (btn.onClick):ClearCallFunc()
       ;
       (btn.onClick):Add(function(...)
-    -- function num : 0_2_0 , upvalues : lastClickIndex, i, CardGetShowWindow, fashionIds, excelData
+    -- function num : 0_3_0 , upvalues : lastClickIndex, i, CardGetShowWindow, fashionIds, excelData
     if lastClickIndex ~= i then
       (CardGetShowWindow.ChangeFashion)(i, fashionIds, excelData)
       lastClickIndex = i
@@ -252,12 +264,7 @@ CardGetShowWindow.RefreshDetailInfo = function(...)
       holder:SetXY(uiMap.width / 2, uiMap.height / 2)
       uiMap:AddChild(holder)
       if isAutoClose then
-        (SimpleTimer.setTimeout)(1.5, function(...)
-    -- function num : 0_2_1 , upvalues : _ENV
-    UIMgr:CloseWindow((WinResConfig.CardGetShowWindow).name, true, true)
-    UIMgr:SendWindowMessage((WinResConfig.LotteryWindow).name, (WindowMsgEnum.Lottery).E_MSG_ONCLOSE_NEWGET, {})
-  end
-)
+        (SimpleTimer.setTimeout)(1.5, CloseAndBroadcast)
       end
       if moveConfig == nil and not isHave then
         (Util.ShowGuideTips)(GuideTipsCheckPoint.AcquireCharacter, (((TableData.gTable).BaseCardData)[cardID]).name)
@@ -270,7 +277,7 @@ CardGetShowWindow.RefreshDetailInfo = function(...)
 end
 
 CardGetShowWindow.GetUnlockText = function(fashionConfig, ...)
-  -- function num : 0_3 , upvalues : _ENV, uis
+  -- function num : 0_4 , upvalues : _ENV, uis
   if fashionConfig and fashionConfig.loterry_bubble_ids then
     local unlock_bubble_ids = fashionConfig.loterry_bubble_ids
     if unlock_bubble_ids then
@@ -284,7 +291,7 @@ CardGetShowWindow.GetUnlockText = function(fashionConfig, ...)
 end
 
 CardGetShowWindow.SetIntelligenceEffect = function(intelligence, ...)
-  -- function num : 0_4 , upvalues : _ENV, uis
+  -- function num : 0_5 , upvalues : _ENV, uis
   local effect = nil
   if intelligence == 1 then
     (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERY_CARDGET_BLUE, false, (uis.CardGetEffect).root, (Vector2(((uis.CardGetEffect).root).width * 0.5, ((uis.CardGetEffect).root).height * 0.5)), nil, 1, true)
@@ -300,7 +307,7 @@ CardGetShowWindow.SetIntelligenceEffect = function(intelligence, ...)
 end
 
 CardGetShowWindow.ChangeFashion = function(index, fashionIds, excelData, ...)
-  -- function num : 0_5 , upvalues : _ENV, uis, fxMainEffect, contentPane, FxManager, CardGetShowWindow
+  -- function num : 0_6 , upvalues : _ENV, uis, fxMainEffect, contentPane, FxManager, CardGetShowWindow
   local fashionId = tonumber(fashionIds[index])
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   ;
@@ -345,7 +352,7 @@ CardGetShowWindow.ChangeFashion = function(index, fashionIds, excelData, ...)
 end
 
 CardGetShowWindow.ClearHolder = function(...)
-  -- function num : 0_6 , upvalues : fxMainEffect, _ENV
+  -- function num : 0_7 , upvalues : fxMainEffect, _ENV
   if fxMainEffect then
     (LuaEffect.DestroyEffect)(fxMainEffect)
     fxMainEffect = nil
@@ -353,7 +360,7 @@ CardGetShowWindow.ClearHolder = function(...)
 end
 
 CardGetShowWindow.OnClose = function(...)
-  -- function num : 0_7 , upvalues : _ENV, uis, contentPane, controller, argTable, isLottery, moveConfig, isAutoClose, isHave, fashionData, isSkip, picesNum, showModel, CardGetShowWindow, FxManager
+  -- function num : 0_8 , upvalues : _ENV, uis, contentPane, controller, argTable, isLottery, moveConfig, isAutoClose, isHave, fashionData, isSkip, picesNum, showModel, CardGetShowWindow, FxManager
   (AudioManager.DisposeCurAudioAndBubble)()
   uis = nil
   contentPane = nil
@@ -375,7 +382,7 @@ CardGetShowWindow.OnClose = function(...)
 end
 
 CardGetShowWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_8
+  -- function num : 0_9
 end
 
 return CardGetShowWindow

@@ -210,7 +210,7 @@ ShopWindow.RendererList = function(index, obj, ...)
     buyData.needCards = needList
     buyData.gridID = data.shopGridId
     buyData.poolID = data.shopPoolId
-    buyData.shopType = (ShopMgr.InitOpenShop)()
+    buyData.shopId = (ShopMgr.InitOpenShop)()
     buyData.buyTime = data.useNum
     OpenWindow((WinResConfig.ShopBuyWindow).name, UILayer.HUD, buyData)
   end
@@ -299,22 +299,23 @@ ShopWindow.RefreshWin = function(...)
   (uis.c1Ctr).selectedIndex = 2
   ;
   (ShopWindow.SetInputIgnore)()
-  local shopType, time, refreshTimes = (ShopMgr.InitOpenShop)()
+  local shopId, time, refreshTimes = (ShopMgr.InitOpenShop)()
+  local shopType = (ShopMgr.GetShopTypeByShopId)(shopId)
   currentType = shopType
-  if shopType == nil then
+  if shopType == nil or shopType == -1 then
     return 
   end
   if mTime then
     mTime:Stop()
   end
   mTime = (LuaTime.CountDown)(time.bTime * 0.001 - (ActorData.GetServerTime)() * 0.001, uis.TimeTxt, function(...)
-    -- function num : 0_7_0 , upvalues : isSendMsg, _ENV, shopType
+    -- function num : 0_7_0 , upvalues : isSendMsg, _ENV, shopId
     if not isSendMsg then
       isSendMsg = true
       ;
       (SimpleTimer.setTimeout)(1, function(...)
-      -- function num : 0_7_0_0 , upvalues : _ENV, shopType
-      (ShopService.OnReqShopGridData)(shopType)
+      -- function num : 0_7_0_0 , upvalues : _ENV, shopId
+      (ShopService.ReqShopGridDataByShopId)(shopId)
     end
 )
       ;
@@ -328,12 +329,12 @@ ShopWindow.RefreshWin = function(...)
 )
   ;
   (ShopWindow.SetTypeShow)(shopType)
-  local shopData = (ShopMgr.GetConfigDataByShopType)(shopType)
+  local shopData = (ShopMgr.GetShopDataItemByShopType)(shopType)
   ;
   (ShopWindow.RefreshItemList)()
   local RefreshNumberTxt = (uis.RefreshBtn):GetChild("RefreshNumberTxt")
   local consume = (ShopMgr.GetRefreshConsumption)(shopData.id, refreshTimes + 1)
-  -- DECOMPILER ERROR at PC82: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC88: Confused about usage of register: R7 in 'UnsetPending'
 
   ;
   (uis.RefreshBtn).text = (PUtil.get)(20000070)
@@ -362,7 +363,7 @@ ShopWindow.RefreshWin = function(...)
     RefreshNumberTxt.text = consumeConfigs[3]
   else
     do
-      -- DECOMPILER ERROR at PC115: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC121: Confused about usage of register: R7 in 'UnsetPending'
 
       ;
       (uis.RefreshBtn).visible = false

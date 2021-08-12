@@ -192,21 +192,25 @@ HandBookCardPlotBattleWindow.SetToolsValue = function(...)
   ToolsTxt.text = str
 end
 
+local unity = CS.UnityEngine
 HandBookCardPlotBattleWindow.Update = function(...)
-  -- function num : 0_7 , upvalues : _ENV, ToolsBtn, ToolsTxt, HandBookCardPlotBattleWindow, tempPop
-  if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.C) then
-    ToolsBtn.visible = false
-    ToolsTxt.text = ""
-    ;
-    (HandBookCardPlotBattleWindow.SetToolsValue)()
-    ;
-    (GRoot.inst):ShowPopup(tempPop)
-  else
-    if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.X) then
-      ToolsBtn.visible = true
-      ChangeUIController(tempPop, "c1", 1)
+  -- function num : 0_7 , upvalues : unity, _ENV, ToolsBtn, ToolsTxt, HandBookCardPlotBattleWindow, tempPop
+  local platform = (unity.Application).platform
+  if platform == (unity.RuntimePlatform).WindowsEditor or platform == (unity.RuntimePlatform).OSXEditor then
+    if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.C) then
+      ToolsBtn.visible = false
+      ToolsTxt.text = ""
+      ;
+      (HandBookCardPlotBattleWindow.SetToolsValue)()
       ;
       (GRoot.inst):ShowPopup(tempPop)
+    else
+      if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.X) then
+        ToolsBtn.visible = true
+        ChangeUIController(tempPop, "c1", 1)
+        ;
+        (GRoot.inst):ShowPopup(tempPop)
+      end
     end
   end
 end

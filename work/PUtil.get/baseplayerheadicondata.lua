@@ -27,6 +27,8 @@
 , 
 [78601309] = {id = 78601309, name = "海辺のモーモー　アイコン", des = "水遊びしよう～\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_009", condition = "0", sort = 14, reward_sort = 9880001, own_show = 1, open_time = "1627074000"}
 , 
+[78601310] = {id = 78601310, name = "金魚の舞　アイコン", des = "ひらひら踊りましょう～\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_010", condition = "0", sort = 15, reward_sort = 9880001, own_show = 1, open_time = "1629752400"}
+, 
 [78601401] = {id = 78601401, name = "嘘？！　アイコン", des = "200回連続募集でSSR冒険者が出現しなかった際に贈られるアイコン。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
 , 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}
@@ -205,5 +207,11 @@
 , 
 [78601188] = {id = 78601188, name = "フラワー(水着)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300035_2", condition = "72501008:11300035:10", sort = 913, reward_sort = 9880001, own_show = 1, open_time = "1626296400"}
 , 
-[78601191] = {id = 78601191, name = "ムリム", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300036_2", condition = "72501008:11300036:10", sort = 910, reward_sort = 9880001, own_show = 1, open_time = "1627693200"}
+[78601189] = {id = 78601189, name = "未定義(81013056)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300056_2", condition = "72501008:11300056:10", sort = 912, reward_sort = 9880001, own_show = 1, open_time = "2051193600"}
+, 
+[78601190] = {id = 78601190, name = "未定義(81013057)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300057_2", condition = "72501008:11300057:10", sort = 911, reward_sort = 9880001, own_show = 1, open_time = "2051193600"}
+, 
+[78601191] = {id = 78601191, name = "ムリム", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300036_2", condition = "72501008:11300036:10", sort = 910, reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
+, 
+[78601192] = {id = 78601192, name = "ツバキ(水着)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300037_2", condition = "72501008:11300037:10", sort = 909, reward_sort = 9880001, own_show = 1, open_time = "1628974800"}
 }

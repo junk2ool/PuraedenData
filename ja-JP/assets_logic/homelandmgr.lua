@@ -217,6 +217,9 @@ HomelandMgr.ReqChangeRoomLayout = function(data, ...)
     if (v.Floor).Id ~= 0 then
       (table.insert)(furnitureData, {uid = (v.Floor).Uid, id = (v.Floor).Id, time = (HomelandData.GetFurnitureTime)((v.Floor).Uid)})
     end
+    if (v.Background).Id ~= 0 then
+      (table.insert)(furnitureData, {uid = (v.Background).Uid, id = (v.Background).Id, time = (HomelandData.GetFurnitureTime)((v.Background).Uid)})
+    end
     eachData.furnitureData = furnitureData
     if k == (HomelandData.RoomData).StyleId then
       lastData = eachData
@@ -285,12 +288,18 @@ HomelandMgr.RecvChangeRoomLayout = function(msg, ...)
 
         if config.type == HomelandFurnitureType.Floor then
           ((HomelandData.StyleWF)[data.styleId]).Floor = {Id = subData.id, Uid = subData.uid}
+        else
+          -- DECOMPILER ERROR at PC83: Confused about usage of register: R15 in 'UnsetPending'
+
+          if config.type == HomelandFurnitureType.Background then
+            ((HomelandData.StyleWF)[data.styleId]).Background = {Id = subData.id, Uid = subData.uid}
+          end
         end
       end
     end
     if data.styleId == (HomelandData.RoomData).StyleId then
       currentRoomData = data
-      -- DECOMPILER ERROR at PC79: Confused about usage of register: R11 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC95: Confused about usage of register: R11 in 'UnsetPending'
 
       ;
       (HomelandData.RoomData).Furniture = data.furnitureData
@@ -302,31 +311,42 @@ HomelandMgr.RecvChangeRoomLayout = function(msg, ...)
         local operate = {}
         if ((HomelandData.RoomData).Wall).Id ~= 0 then
           operate.Wall = (((HomelandData.StyleWF)[currentRoomData.styleId]).Wall).Uid
-          -- DECOMPILER ERROR at PC116: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC132: Confused about usage of register: R8 in 'UnsetPending'
 
           ;
           (HomelandData.RoomData).Wall = {Id = 0}
-          -- DECOMPILER ERROR at PC121: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC137: Confused about usage of register: R8 in 'UnsetPending'
 
           ;
           ((HomelandData.StyleWF)[currentRoomData.styleId]).Wall = nil
         end
         if ((HomelandData.RoomData).Floor).Id ~= 0 then
           operate.Floor = (((HomelandData.StyleWF)[currentRoomData.styleId]).Floor).Uid
-          -- DECOMPILER ERROR at PC139: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC155: Confused about usage of register: R8 in 'UnsetPending'
 
           ;
           (HomelandData.RoomData).Floor = {Id = 0}
-          -- DECOMPILER ERROR at PC144: Confused about usage of register: R8 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC160: Confused about usage of register: R8 in 'UnsetPending'
 
           ;
           ((HomelandData.StyleWF)[currentRoomData.styleId]).Floor = nil
         end
-        -- DECOMPILER ERROR at PC148: Confused about usage of register: R8 in 'UnsetPending'
+        if ((HomelandData.RoomData).Background).Id ~= 0 then
+          operate.Background = (((HomelandData.StyleWF)[currentRoomData.styleId]).Background).Uid
+          -- DECOMPILER ERROR at PC178: Confused about usage of register: R8 in 'UnsetPending'
+
+          ;
+          (HomelandData.RoomData).Background = {Id = 0}
+          -- DECOMPILER ERROR at PC183: Confused about usage of register: R8 in 'UnsetPending'
+
+          ;
+          ((HomelandData.StyleWF)[currentRoomData.styleId]).Background = nil
+        end
+        -- DECOMPILER ERROR at PC187: Confused about usage of register: R8 in 'UnsetPending'
 
         ;
         (HomelandData.RoomData).GridUsage = {}
-        -- DECOMPILER ERROR at PC152: Confused about usage of register: R8 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC191: Confused about usage of register: R8 in 'UnsetPending'
 
         ;
         (HomelandData.RoomData).CarpetGridUsage = {}
@@ -334,15 +354,20 @@ HomelandMgr.RecvChangeRoomLayout = function(msg, ...)
       else
         do
           UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_CHANGE_ROOM_LAYOUT_SUCCESS)
-          -- DECOMPILER ERROR at PC188: Confused about usage of register: R7 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC227: Confused about usage of register: R7 in 'UnsetPending'
 
           if ((HomelandData.StyleWF)[currentRoomData.styleId]).Wall then
             (HomelandData.RoomData).Wall = ((HomelandData.StyleWF)[currentRoomData.styleId]).Wall
           end
-          -- DECOMPILER ERROR at PC203: Confused about usage of register: R7 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC242: Confused about usage of register: R7 in 'UnsetPending'
 
           if ((HomelandData.StyleWF)[currentRoomData.styleId]).Floor then
             (HomelandData.RoomData).Floor = ((HomelandData.StyleWF)[currentRoomData.styleId]).Floor
+          end
+          -- DECOMPILER ERROR at PC257: Confused about usage of register: R7 in 'UnsetPending'
+
+          if ((HomelandData.StyleWF)[currentRoomData.styleId]).Background then
+            (HomelandData.RoomData).Background = ((HomelandData.StyleWF)[currentRoomData.styleId]).Background
           end
           ;
           (HomelandData.RefreshFurnitureData)()

@@ -90,7 +90,12 @@ ActorData.SaveActorData = function(msg, completeCallBack, ...)
   local tableData = (TableData.gTable).BaseMessagePushData
   for k,v in pairs(tableData) do
     if ListData[v.push_type] == nil then
-      ListData[v.push_type] = true
+      local state = (PlayerPrefs.GetInt)(v.storeKey, 0)
+      if state == 0 then
+        ListData[v.push_type] = true
+      else
+        ListData[v.push_type] = false
+      end
     end
   end
   self.pushSetInfo = ListData
@@ -1371,18 +1376,23 @@ end
 
 -- DECOMPILER ERROR at PC244: Confused about usage of register: R5 in 'UnsetPending'
 
-ActorData.SetPushData = function(type, value, ...)
-  -- function num : 0_71 , upvalues : self
-  -- DECOMPILER ERROR at PC3: Confused about usage of register: R2 in 'UnsetPending'
+ActorData.SetPushData = function(data, value, ...)
+  -- function num : 0_71 , upvalues : self, _ENV
+  local state = 0
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R3 in 'UnsetPending'
 
   if value == true then
-    (self.pushSetInfo)[type] = true
+    (self.pushSetInfo)[data.push_type] = true
+    state = 0
   else
-    -- DECOMPILER ERROR at PC6: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC10: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
-    (self.pushSetInfo)[type] = false
+    (self.pushSetInfo)[data.push_type] = false
+    state = 1
   end
+  ;
+  (PlayerPrefs.SetInt)(data.storeKey, state)
 end
 
 -- DECOMPILER ERROR at PC247: Confused about usage of register: R5 in 'UnsetPending'

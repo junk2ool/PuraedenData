@@ -24,7 +24,7 @@ ActivityExplainWindow.OnInit = function(bridgeObj, ...)
     UIMgr:CloseWindow((WinResConfig.ActivityExplainWindow).name)
   end
 )
-  local test = (((TableData.gTable).BaseActivityData)[33000101]).pic
+  local test = (((TableData.gTable).BaseActivityData)[(ActivityDungeonData.GetCurrentActivityDungeonId)()]).pic
   for index,value in ipairs(split(test, ",")) do
     (table.insert)(picData, value)
   end

@@ -410,12 +410,8 @@ end
 -- DECOMPILER ERROR at PC89: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetActivitySelectDungeon = function(...)
-  -- function num : 0_15 , upvalues : _ENV, self
-  if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-    return NewActivityDungeonData.CurrentDungeon
-  else
-    return self.CurrentDungeon
-  end
+  -- function num : 0_15 , upvalues : self
+  return self.CurrentDungeon
 end
 
 -- DECOMPILER ERROR at PC92: Confused about usage of register: R2 in 'UnsetPending'
@@ -454,30 +450,21 @@ end
 -- DECOMPILER ERROR at PC101: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.GetActivityDungeonPlayerFc = function(playerActivityFc, ...)
-  -- function num : 0_19 , upvalues : _ENV, self
-  if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-    return NewActivityDungeonData.PlayerFC
+  -- function num : 0_19 , upvalues : self
+  if playerActivityFc == nil then
+    return self.playerActivityFc
   else
-    if playerActivityFc == nil then
-      return self.playerActivityFc
-    else
-      self.playerActivityFc = playerActivityFc
-    end
+    self.playerActivityFc = playerActivityFc
   end
 end
 
 -- DECOMPILER ERROR at PC104: Confused about usage of register: R2 in 'UnsetPending'
 
 PlotDungeonMgr.ActivityDungeonEnemyFc = function(fc, ...)
-  -- function num : 0_20 , upvalues : _ENV, self
-  if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-    return NewActivityDungeonData.EnemyFC
-  else
-    if fc == nil then
-      return self.activityEnemyFc
-    else
-      self.activityEnemyFc = fc
-    end
+  -- function num : 0_20 , upvalues : self
+  if not self.activityEnemyFc then
+    do return fc ~= nil or 0 end
+    self.activityEnemyFc = fc
   end
 end
 
@@ -1038,6 +1025,8 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
           UIMgr:SendWindowMessage((WinResConfig.PlotPlayWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
           UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH)
           UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonMainWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH)
+          ;
+          (ActivityDungeonMgr.SendMessageActivityDungeonWindow)((WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH)
         end
         local stageData = ((TableData.gTable).BaseStageData)[stageInfo.id]
         do
@@ -1069,6 +1058,8 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
             UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_SET_LIST)
             UIMgr:SendWindowMessage((WinResConfig.PlotPlayWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH, true)
             UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH)
+            ;
+            (ActivityDungeonMgr.SendMessageActivityDungeonWindow)((WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH)
             return 
           end
           local SettleWinData = {}
@@ -1147,13 +1138,8 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
           if (PlotDungeonMgr.GetStageChapterType)((msg.stageInfo).id) == DungeonType.ActivityDungeon or (PlotDungeonMgr.GetStageChapterType)((msg.stageInfo).id) == DungeonType.NewActivityDungeon then
             local winName, activityType = nil, nil
             do
-              if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-                winName = (WinResConfig.NewActivityDungeonMainWindow).name
-                activityType = (ActivityMgr.ActivityType).NewActivityDungeon
-              else
-                winName = (WinResConfig.ActivityDungeonWindow).name
-                activityType = (ActivityMgr.ActivityType).ActivityDungeon
-              end
+              activityType = (ActivityMgr.GetCurrentActivityDungeonType)()
+              winName = (ActivityDungeonMgr.GetDungeonWindowName)()
               UIMgr:SetOnShownComplete(winName, function(...)
       -- function num : 0_50_4_2 , upvalues : msg, _ENV, activityType, stageData
       local stageID = (msg.stageInfo).id
@@ -1192,7 +1178,7 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
         end
       end
       do
-        if NewActivityDungeonData.ActivityDungeonStatus ~= ADStatus.NAD then
+        if activityType == (ActivityMgr.ActivityType).ActivityDungeon then
           UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH_RED)
           if msg.isFirst and stageData.next_stage == 0 and stageData.activity_type == 0 then
             UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_SHOW_DIFFICULT_RED)
@@ -1394,6 +1380,8 @@ PlotDungeonMgr.ResAwardBox = function(msg, ...)
       else
         if (PlotDungeonMgr.GetStageChapterType)(msg.stageId) == DungeonType.ActivityDungeon then
           UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH)
+          ;
+          (ActivityDungeonMgr.SendMessageActivityDungeonWindow)((WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH)
         end
       end
     end

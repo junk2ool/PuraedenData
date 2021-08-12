@@ -12766,4 +12766,140 @@
 [117303602] = {id = 117303602, bubble_text = "プライドのみなさんは、いつも元気に戦ってる子が多いですよね…死ぬのが怖くないなんて、すごいなぁ…", voice_path = "mulimu_Home_Talk_2", top_position = 10}
 , 
 [117303603] = {id = 117303603, bubble_text = "…ここでプライドのみなさんといれば、ちょっとだけ死なないかも、って思うんです。…ちょっとだけですけど…", voice_path = "mulimu_Home_Talk_3", top_position = 10}
+, 
+[97030371] = {id = 97030371, bubble_text = "あの…どちら様でしょうか。一緒に海に来ているということは、何か特別な関係の方だったりしますか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_1"}
+, 
+[97030372] = {id = 97030372, bubble_text = "私達以外には誰もいない島でのんびりと過ごす…これもきっと特別な思い出になりますよね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_2"}
+, 
+[97030373] = {id = 97030373, bubble_text = "リーダーさんは、どうして波が起こるか知っていますか？　ふふ、実はあれって…どうしてでしたっけ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_3"}
+, 
+[97030374] = {id = 97030374, bubble_text = "覚えている限りだと、海ではあまり泳いだことがないんです。でも、夏の暑い日の海はとっても気持ちがいいですね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_4"}
+, 
+[97130371] = {id = 97130371, bubble_text = "あの…どちら様でしょうか。一緒に海に来ているということは、何か特別な関係の方だったりしますか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_1"}
+, 
+[97130372] = {id = 97130372, bubble_text = "私達以外には誰もいない島でのんびりと過ごす…これもきっと特別な思い出になりますよね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_2"}
+, 
+[97130373] = {id = 97130373, bubble_text = "リーダーさんは、どうして波が起こるか知っていますか？　ふふ、実はあれって…どうしてでしたっけ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_3"}
+, 
+[97130374] = {id = 97130374, bubble_text = "覚えている限りだと、海ではあまり泳いだことがないんです。でも、夏の暑い日の海はとっても気持ちがいいですね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_4"}
+, 
+[97230371] = {id = 97230371, bubble_text = "あの…どちら様でしょうか。一緒に海に来ているということは、何か特別な関係の方だったりしますか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_1"}
+, 
+[97230372] = {id = 97230372, bubble_text = "私達以外には誰もいない島でのんびりと過ごす…これもきっと特別な思い出になりますよね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_2"}
+, 
+[97230373] = {id = 97230373, bubble_text = "リーダーさんは、どうして波が起こるか知っていますか？　ふふ、実はあれって…どうしてでしたっけ？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_3"}
+, 
+[97230374] = {id = 97230374, bubble_text = "覚えている限りだと、海ではあまり泳いだことがないんです。でも、夏の暑い日の海はとっても気持ちがいいですね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_4"}
+, 
+[101303701] = {id = 101303701, bubble_text = "ええと…たしかリーダーさん、でしたよね。あの…私はどうしてここで水着を着ているんでしょうか…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Get_1"}
+, 
+[101303711] = {id = 101303711, bubble_text = "ふふ。水着でいるだけで、なんだか楽しいです。これならたとえ忘れても、何度でも嬉しくなれると思います。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Stage_2"}
+, 
+[101303721] = {id = 101303721, bubble_text = "たとえ、この記憶が波にさらわれても…あなたへの思いは、この胸に刻んでおきましょう。夏が終わっても、いつまでも…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Stage_3"}
+, 
+[102303701] = {id = 102303701, bubble_text = "今日の予定はなんだったでしょうか。海へ行くんでしたっけ、それともプール…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_In_1"}
+, 
+[102303702] = {id = 102303702, bubble_text = "今日の予定はなんだったでしょうか。海へ行くんでしたっけ、それともプール…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_In_1"}
+, 
+[102303703] = {id = 102303703, bubble_text = "今日の予定はなんだったでしょうか。海へ行くんでしたっけ、それともプール…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_In_1"}
+, 
+[103303701] = {id = 103303701, bubble_text = "思い出が、この身に深く刻まれるよう…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:312", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
+, 
+[103303711] = {id = 103303711, bubble_text = "思い出が、この身に深く刻まれるよう…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
+, 
+[103303721] = {id = 103303721, bubble_text = "思い出が、この身に深く刻まれるよう…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
+, 
+[104303701] = {id = 104303701, bubble_text = "忘れられない夏になっていきますね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:312", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
+, 
+[104303711] = {id = 104303711, bubble_text = "忘れられない夏になっていきますね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
+, 
+[104303721] = {id = 104303721, bubble_text = "忘れられない夏になっていきますね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
+, 
+[105303701] = {id = 105303701, bubble_text = "もしかして、私を泳ぎに誘ってくれているんでしょうか？　もちろん構いませんが、その前に…名前を教えてもらってもいいでしょうか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_1"}
+, 
+[105303702] = {id = 105303702, bubble_text = "リーダーさんもこの水着、気に入ってくれましたか？　私も気に入りました。全身で夏を感じられて、すべてを、ずっと覚えていられそうですから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_2"}
+, 
+[105303703] = {id = 105303703, bubble_text = "一緒に泳いだこと、海に沈む夕日を見たこと…他愛ない出来事かもしれません。でも、リーダーさん達と一緒だったから…たとえすぐに忘れてしまったとしても…どれも、大切な思い出です", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_3"}
+, 
+[105303704] = {id = 105303704, bubble_text = "この夏が過ぎれば、また忘れてしまうんじゃないかと考えると、とても怖いです。でもあなたなら…もし私が全てを忘れ去ってしまっても、大切なことを思い出させてくれそうな…そんな気がするんです。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_4"}
+, 
+[105303705] = {id = 105303705, bubble_text = "あなたに触れられた場所が、この夏の日差しよりも熱く感じられます…よければ、いつまでも触れていてください。この熱が、思い出のように消えてなくならないように…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_5"}
+, 
+[105303711] = {id = 105303711, bubble_text = "もしかして、私を泳ぎに誘ってくれているんでしょうか？　もちろん構いませんが、その前に…名前を教えてもらってもいいでしょうか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_1"}
+, 
+[105303712] = {id = 105303712, bubble_text = "リーダーさんもこの水着、気に入ってくれましたか？　私も気に入りました。全身で夏を感じられて、すべてを、ずっと覚えていられそうですから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_2"}
+, 
+[105303713] = {id = 105303713, bubble_text = "一緒に泳いだこと、海に沈む夕日を見たこと…他愛ない出来事かもしれません。でも、リーダーさん達と一緒だったから…たとえすぐに忘れてしまったとしても…どれも、大切な思い出です", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_3"}
+, 
+[105303714] = {id = 105303714, bubble_text = "この夏が過ぎれば、また忘れてしまうんじゃないかと考えると、とても怖いです。でもあなたなら…もし私が全てを忘れ去ってしまっても、大切なことを思い出させてくれそうな…そんな気がするんです。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_4"}
+, 
+[105303715] = {id = 105303715, bubble_text = "あなたに触れられた場所が、この夏の日差しよりも熱く感じられます…よければ、いつまでも触れていてください。この熱が、思い出のように消えてなくならないように…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_5"}
+, 
+[105303721] = {id = 105303721, bubble_text = "もしかして、私を泳ぎに誘ってくれているんでしょうか？　もちろん構いませんが、その前に…名前を教えてもらってもいいでしょうか？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_1"}
+, 
+[105303722] = {id = 105303722, bubble_text = "リーダーさんもこの水着、気に入ってくれましたか？　私も気に入りました。全身で夏を感じられて、すべてを、ずっと覚えていられそうですから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_2"}
+, 
+[105303723] = {id = 105303723, bubble_text = "一緒に泳いだこと、海に沈む夕日を見たこと…他愛ない出来事かもしれません。でも、リーダーさん達と一緒だったから…たとえすぐに忘れてしまったとしても…どれも、大切な思い出です", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_3"}
+, 
+[105303724] = {id = 105303724, bubble_text = "この夏が過ぎれば、また忘れてしまうんじゃないかと考えると、とても怖いです。でもあなたなら…もし私が全てを忘れ去ってしまっても、大切なことを思い出させてくれそうな…そんな気がするんです。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_4"}
+, 
+[105303725] = {id = 105303725, bubble_text = "あなたに触れられた場所が、この夏の日差しよりも熱く感じられます…よければ、いつまでも触れていてください。この熱が、思い出のように消えてなくならないように…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_5"}
+, 
+[106303701] = {id = 106303701, bubble_text = "またひと夏の思い出ができましたね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Win_1"}
+, 
+[106303711] = {id = 106303711, bubble_text = "またひと夏の思い出ができましたね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Win_1"}
+, 
+[106303721] = {id = 106303721, bubble_text = "またひと夏の思い出ができましたね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Win_1"}
+, 
+[107303701] = {id = 107303701, bubble_text = "海水が、しょっぱいですね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Fail_1"}
+, 
+[107303711] = {id = 107303711, bubble_text = "海水が、しょっぱいですね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Fail_1"}
+, 
+[107303721] = {id = 107303721, bubble_text = "海水が、しょっぱいですね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Fail_1"}
+, 
+[108303701] = {id = 108303701, bubble_text = "今から泳ぎに行くんでしょうか…？", voice_path = "Tsubaki_mizugi_Go_1"}
+, 
+[109303701] = {id = 109303701, voice_path = "Tsubaki_mizugi_Game_1"}
+, 
+[111303701] = {id = 111303701, voice_path = "Tsubaki_mizugi_Battle_N_1"}
+, 
+[111303702] = {id = 111303702, voice_path = "Tsubaki_mizugi_Battle_N_2"}
+, 
+[111303703] = {id = 111303703, voice_path = "Tsubaki_mizugi_Battle_N_3"}
+, 
+[111303704] = {id = 111303704, voice_path = "Tsubaki_mizugi_Battle_N_4"}
+, 
+[111303705] = {id = 111303705, voice_path = "Tsubaki_mizugi_Battle_N_5"}
+, 
+[111303706] = {id = 111303706, voice_path = "Tsubaki_mizugi_Battle_N_6"}
+, 
+[112303701] = {id = 112303701, voice_path = "Tsubaki_mizugi_Battle_Hit_1"}
+, 
+[112303702] = {id = 112303702, voice_path = "Tsubaki_mizugi_Battle_Hit_2"}
+, 
+[112303703] = {id = 112303703, voice_path = "Tsubaki_mizugi_Battle_Hit_3"}
+, 
+[112303704] = {id = 112303704, voice_path = "Tsubaki_mizugi_Battle_Hit_4"}
+, 
+[112303705] = {id = 112303705, voice_path = "Tsubaki_mizugi_Battle_Hit_5"}
+, 
+[112303706] = {id = 112303706, voice_path = "Tsubaki_mizugi_Battle_Hit_6"}
+, 
+[113303701] = {id = 113303701, voice_path = "Tsubaki_mizugi_Battle_Die_1"}
+, 
+[114303701] = {id = 114303701, voice_path = "Tsubaki_mizugi_Battle_H_1"}
+, 
+[114303702] = {id = 114303702, voice_path = "Tsubaki_mizugi_Battle_H_2"}
+, 
+[115303701] = {id = 115303701, voice_path = "Tsubaki_mizugi_Battle_C_1"}
+, 
+[115303702] = {id = 115303702, voice_path = "Tsubaki_mizugi_Battle_C_2"}
+, 
+[116303701] = {id = 116303701, bubble_text = "思い出にできそうな貝殻なんてありますか？", voice_path = "Tsubaki_mizugi_Home_In_1", top_position = 10}
+, 
+[117303701] = {id = 117303701, bubble_text = "あっ…！？…いえ、大丈夫でした。水着だったのを忘れていまして、とうとう服まで着忘れたかと驚いただけです。", voice_path = "Tsubaki_mizugi_Home_Talk_1", top_position = 10}
+, 
+[117303702] = {id = 117303702, bubble_text = "私は忘れっぽいですけど、さすがに泳ぎ方は忘れたりしません。本当ですよ、一緒に泳ぎに行きましょうか？", voice_path = "Tsubaki_mizugi_Home_Talk_2", top_position = 10}
+, 
+[117303703] = {id = 117303703, bubble_text = "エヴァンテさんから何か頼まれていた気がするんです。たしか冷たくて甘くて、すぐに届けないと溶けてなくなっちゃうものだったような…", voice_path = "Tsubaki_mizugi_Home_Talk_3", top_position = 10}
 }

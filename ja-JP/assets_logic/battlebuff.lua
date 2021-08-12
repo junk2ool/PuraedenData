@@ -1744,9 +1744,14 @@ BattleBuff.IsTriggerConditionComplete = function(card, buff, atkInfo, ...)
                           else
                             do
                               if trigger_condition == BuffTriggerCondition.ATTACK_TARGET_TYPE then
-                                local config = card:GetCardConfig()
-                                if config then
-                                  return CompareNum(trigger_type, config.attr_prior, trigger_value)
+                                local defCardsInfo = atkInfo.defCardsInfo
+                                for _,v in ipairs(defCardsInfo) do
+                                  local defPos = v.defPos
+                                  if defPos ~= atkPos then
+                                    local defCard = (BattleData.GetCardInfoByPos)(defPos)
+                                    local config = defCard:GetCardConfig()
+                                    return CompareNum(trigger_type, config.attr_prior, trigger_value)
+                                  end
                                 end
                               else
                                 do

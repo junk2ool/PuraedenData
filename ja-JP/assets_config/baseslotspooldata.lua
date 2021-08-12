@@ -5,83 +5,73 @@ BaseSlotsPoolData = {
 , 
 [24400102] = {id = 24400102, type = 1, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
-[24400103] = {id = 24400103, type = 1, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 40, sort = 3, bottom_num = 0}
+[24400103] = {id = 24400103, type = 1, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 69, sort = 3, bottom_num = 0}
 , 
-[24400104] = {id = 24400104, type = 1, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 6, bottom_num = 0}
+[24400104] = {id = 24400104, type = 1, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 5, bottom_num = 0}
 , 
-[24400105] = {id = 24400105, type = 1, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 7, bottom_num = 0}
+[24400105] = {id = 24400105, type = 1, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 6, bottom_num = 0}
 , 
-[24400106] = {id = 24400106, type = 1, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 8, bottom_num = 0}
+[24400106] = {id = 24400106, type = 1, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 7, bottom_num = 0}
 , 
-[24400107] = {id = 24400107, type = 1, reward = "2:21100012:50", reward_lab = 2, reward_type = 2, reward_max = 29, sort = 4, bottom_num = 0}
+[24400107] = {id = 24400107, type = 1, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24400108] = {id = 24400108, type = 1, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 5, bottom_num = 0}
+[24400108] = {id = 24400108, type = 2, reward = "1:21122105:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
-[24400201] = {id = 24400201, type = 2, reward = "1:21122105:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24400201] = {id = 24400201, type = 2, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
-[24400202] = {id = 24400202, type = 2, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
+[24400202] = {id = 24400202, type = 2, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 69, sort = 3, bottom_num = 0}
 , 
-[24400203] = {id = 24400203, type = 2, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 40, sort = 3, bottom_num = 0}
+[24400203] = {id = 24400203, type = 2, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 5, bottom_num = 0}
 , 
-[24400204] = {id = 24400204, type = 2, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 6, bottom_num = 0}
+[24400204] = {id = 24400204, type = 2, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 6, bottom_num = 0}
 , 
-[24400205] = {id = 24400205, type = 2, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 7, bottom_num = 0}
+[24400205] = {id = 24400205, type = 2, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 7, bottom_num = 0}
 , 
-[24400206] = {id = 24400206, type = 2, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 8, bottom_num = 0}
+[24400206] = {id = 24400206, type = 2, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24400207] = {id = 24400207, type = 2, reward = "2:21100012:50", reward_lab = 2, reward_type = 2, reward_max = 29, sort = 4, bottom_num = 0}
+[24400207] = {id = 24400207, type = 3, reward = "1:21121107:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
-[24400208] = {id = 24400208, type = 2, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 5, bottom_num = 0}
+[24400208] = {id = 24400208, type = 3, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
-[24400301] = {id = 24400301, type = 3, reward = "1:21121107:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24400301] = {id = 24400301, type = 3, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 69, sort = 3, bottom_num = 0}
 , 
-[24400302] = {id = 24400302, type = 3, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
+[24400302] = {id = 24400302, type = 3, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 5, bottom_num = 0}
 , 
-[24400303] = {id = 24400303, type = 3, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 40, sort = 3, bottom_num = 0}
+[24400303] = {id = 24400303, type = 3, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 6, bottom_num = 0}
 , 
-[24400304] = {id = 24400304, type = 3, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 6, bottom_num = 0}
+[24400304] = {id = 24400304, type = 3, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 7, bottom_num = 0}
 , 
-[24400305] = {id = 24400305, type = 3, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 7, bottom_num = 0}
+[24400305] = {id = 24400305, type = 3, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24400306] = {id = 24400306, type = 3, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 8, bottom_num = 0}
+[24400306] = {id = 24400306, type = 4, reward = "1:21122105:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
-[24400307] = {id = 24400307, type = 3, reward = "2:21100012:50", reward_lab = 2, reward_type = 2, reward_max = 29, sort = 4, bottom_num = 0}
+[24400307] = {id = 24400307, type = 4, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
-[24400308] = {id = 24400308, type = 3, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 5, bottom_num = 0}
+[24400308] = {id = 24400308, type = 4, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 69, sort = 3, bottom_num = 0}
 , 
-[24400401] = {id = 24400401, type = 4, reward = "1:21122105:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24400401] = {id = 24400401, type = 4, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 5, bottom_num = 0}
 , 
-[24400402] = {id = 24400402, type = 4, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
+[24400402] = {id = 24400402, type = 4, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 6, bottom_num = 0}
 , 
-[24400403] = {id = 24400403, type = 4, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 40, sort = 3, bottom_num = 0}
+[24400403] = {id = 24400403, type = 4, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 7, bottom_num = 0}
 , 
-[24400404] = {id = 24400404, type = 4, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 6, bottom_num = 0}
+[24400404] = {id = 24400404, type = 4, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24400405] = {id = 24400405, type = 4, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 7, bottom_num = 0}
+[24400405] = {id = 24400405, type = 5, reward = "2:21100001:25", reward_lab = 2, reward_type = 2, reward_max = 18, sort = 1, bottom_num = 0}
 , 
-[24400406] = {id = 24400406, type = 4, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 8, bottom_num = 0}
+[24400406] = {id = 24400406, type = 5, reward = "1:21120000:1", reward_lab = 2, reward_type = 1, reward_max = 2, sort = 2, bottom_num = 0}
 , 
-[24400407] = {id = 24400407, type = 4, reward = "2:21100012:50", reward_lab = 2, reward_type = 2, reward_max = 29, sort = 4, bottom_num = 0}
+[24400407] = {id = 24400407, type = 5, reward = "1:21120001:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 3, bottom_num = 0}
 , 
-[24400408] = {id = 24400408, type = 4, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 5, bottom_num = 0}
+[24400408] = {id = 24400408, type = 5, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 65, sort = 4, bottom_num = 0}
 , 
-[24400501] = {id = 24400501, type = 5, reward = "2:21100001:25", reward_lab = 2, reward_type = 2, reward_max = 18, sort = 1, bottom_num = 0}
+[24400501] = {id = 24400501, type = 5, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 6, bottom_num = 0}
 , 
-[24400502] = {id = 24400502, type = 5, reward = "1:21120000:1", reward_lab = 2, reward_type = 1, reward_max = 2, sort = 2, bottom_num = 0}
+[24400502] = {id = 24400502, type = 5, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 7, bottom_num = 0}
 , 
-[24400503] = {id = 24400503, type = 5, reward = "1:21120001:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 3, bottom_num = 0}
+[24400503] = {id = 24400503, type = 5, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 8, bottom_num = 0}
 , 
-[24400504] = {id = 24400504, type = 5, reward = "2:21100003:4000", reward_lab = 2, reward_type = 2, reward_max = 40, sort = 4, bottom_num = 0}
-, 
-[24400505] = {id = 24400505, type = 5, reward = "1:21110003:1", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 7, bottom_num = 0}
-, 
-[24400506] = {id = 24400506, type = 5, reward = "1:21110002:1", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 8, bottom_num = 0}
-, 
-[24400507] = {id = 24400507, type = 5, reward = "1:21110001:1", reward_lab = 2, reward_type = 2, reward_max = 30, sort = 9, bottom_num = 0}
-, 
-[24400508] = {id = 24400508, type = 5, reward = "2:21100012:50", reward_lab = 2, reward_type = 2, reward_max = 25, sort = 5, bottom_num = 0}
-, 
-[24400509] = {id = 24400509, type = 5, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 6, bottom_num = 0}
+[24400504] = {id = 24400504, type = 5, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 5, bottom_num = 0}
 , 
 [24401101] = {id = 24401101, type = 6, reward = "1:21122112:30", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
@@ -303,7 +293,7 @@ BaseSlotsPoolData = {
 , 
 [24410102] = {id = 24410102, type = 101, reward = "1:21120000:4", reward_lab = 1, reward_type = 1, reward_max = 10, sort = 2, group_icon = "Prize:y_21120000", intelligence = 3, tip_id = 21500614, reward_show = "1:21120000:4", bottom_num = 0}
 , 
-[24410103] = {id = 24410103, type = 101, reward = "1:21500616:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 3, group_icon = "Prize:y_21500616", intelligence = 3, tip_id = 21500616, reward_show = "1:21140014:38,1:21140018:42,1:21140017:42,1:21140016:38,1:21140015:38,1:21140013:38", bottom_num = 0}
+[24410103] = {id = 24410103, type = 101, reward = "1:21500619:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 3, group_icon = "Prize:y_I21500619", intelligence = 3, tip_id = 21500619, reward_show = "8:21600801:1,8:21600802:1,8:21600803:1,8:21600804:1,8:21600805:1,8:21600806:2,8:21600807:2,8:21600808:1,8:21600809:1,8:21600810:1,8:21600811:1,8:21600812:1,8:21600813:1,8:21600814:1,8:21600815:1,8:21600816:1,8:21600817:1,8:21600818:1,8:21600819:1,8:21600820:1,8:21600821:1,8:21610001:1", bottom_num = 0}
 , 
 [24410104] = {id = 24410104, type = 101, reward = "1:21120001:5", reward_lab = 2, reward_type = 2, reward_max = 4, sort = 4, group_icon = "Prize:y_21120001", intelligence = 2, tip_id = 21500615, reward_show = "1:21120001:5", bottom_num = 0}
 , 
@@ -329,11 +319,11 @@ BaseSlotsPoolData = {
 , 
 [24410115] = {id = 24410115, type = 101, reward = "1:21500606:1", reward_lab = 2, reward_type = 2, reward_max = 1, sort = 12, group_icon = "Prize:y_21500606", intelligence = 1, tip_id = 21500606, reward_show = "1:21140005:22,1:21140008:26,1:21140007:26,1:21140006:26,1:21140004:22", bottom_num = 0}
 , 
-[24410116] = {id = 24410116, type = 101, reward = "2:21100003:140000", reward_lab = 2, reward_type = 2, reward_max = 25, sort = 13, group_icon = "Prize:y_21100003", intelligence = 1, tip_id = 21500612, reward_show = "2:21100003:100000", bottom_num = 0}
+[24410116] = {id = 24410116, type = 101, reward = "2:21100003:140000", reward_lab = 2, reward_type = 2, reward_max = 25, sort = 13, group_icon = "Prize:y_21100003", intelligence = 1, tip_id = 21500612, reward_show = "2:211000030", bottom_num = 0}
 , 
 [24410117] = {id = 24410117, type = 101, reward = "1:21110004:9", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 14, group_icon = "Prize:y_21110004", intelligence = 1, tip_id = 21500613, reward_show = "1:21110004:8", bottom_num = 0}
 , 
-[24410118] = {id = 24410118, type = 101, reward = "9:78601309:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601309:1", bottom_num = 76}
+[24410118] = {id = 24410118, type = 101, reward = "9:78601310:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601309:1", bottom_num = 76}
 }
 return BaseSlotsPoolData
 

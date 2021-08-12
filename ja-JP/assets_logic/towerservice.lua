@@ -74,12 +74,13 @@ end
 
 TowerService.RecvEnterTower = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
-  -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
+  local type = (((TableData.gTable).BaseTowerStageData)[(msg.towerStage).towerStageId]).stage_type
+  -- DECOMPILER ERROR at PC11: Confused about usage of register: R2 in 'UnsetPending'
 
-  if TowerData.IsExpand == false then
+  if type == nil then
     TowerData.FormationInfo = msg.cardInfo
   else
-    -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC15: Confused about usage of register: R2 in 'UnsetPending'
 
     TowerTopStageData.FormationInfo = msg.cardInfo
   end

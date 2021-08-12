@@ -1635,39 +1635,39 @@
 , 
 [75602201] = {id = 75602201, scene_path = "92000012", dialogue_ids = "75422001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
 , 
-[75602311] = {id = 75602311, scene_path = "92000010", dialogue_ids = "75423101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602311] = {id = 75602311, scene_path = "92000038", dialogue_ids = "75423101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタはプライドに入団しようとするが、その前にあるテストをクリアしなければならなかった。", times = 0}
 , 
-[75602312] = {id = 75602312, scene_path = "92000010", dialogue_ids = "75423116", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602312] = {id = 75602312, scene_path = "92000038", dialogue_ids = "75423116", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタはプライドに入団しようとするが、その前にあるテストをクリアしなければならなかった。", times = 0}
 , 
-[75602321] = {id = 75602321, scene_path = "92000012", dialogue_ids = "75423201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602321] = {id = 75602321, scene_path = "92000038", dialogue_ids = "75423201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラは一人でモンスターの棲家に行くことにしましたが、リーダーがついてきた。", times = 0}
 , 
-[75602322] = {id = 75602322, scene_path = "92000012", dialogue_ids = "75423203", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602322] = {id = 75602322, scene_path = "92000038", dialogue_ids = "75423203", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラは一人でモンスターの棲家に行くことにしましたが、リーダーがついてきた。", times = 0}
 , 
-[75602331] = {id = 75602331, scene_path = "92000008", dialogue_ids = "75423301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602331] = {id = 75602331, scene_path = "92000013", dialogue_ids = "75423301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ずっと働いていたウルスラに休ませようとしたが、休みとして、ウルスラはリーダーにお仕えすることに。", times = 0}
 , 
-[75602332] = {id = 75602332, scene_path = "92000008", dialogue_ids = "75423309", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602332] = {id = 75602332, scene_path = "92000013", dialogue_ids = "75423309", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ずっと働いていたウルスラに休ませようとしたが、休みとして、ウルスラはリーダーにお仕えすることに。", times = 0}
 , 
-[75602341] = {id = 75602341, scene_path = "92000008", dialogue_ids = "75423401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602341] = {id = 75602341, scene_path = "92000008", dialogue_ids = "75423401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "任務に付き添うなんて、ウルスラは自分がリーダーの信頼を勝ち取れないと考え…", times = 0}
 , 
-[75602342] = {id = 75602342, scene_path = "92000008", dialogue_ids = "75423408", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602342] = {id = 75602342, scene_path = "92000008", dialogue_ids = "75423408", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "任務に付き添うなんて、ウルスラは自分がリーダーの信頼を勝ち取れないと考え…", times = 0}
 , 
-[75602351] = {id = 75602351, scene_path = "92000012", dialogue_ids = "75423501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602351] = {id = 75602351, scene_path = "92000012", dialogue_ids = "75423501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "もっと強くなるために、マルタはリーダーに特訓を付き合ってもらうことに。", times = 0}
 , 
-[75602352] = {id = 75602352, scene_path = "92000012", dialogue_ids = "75423506", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602352] = {id = 75602352, scene_path = "92000012", dialogue_ids = "75423506", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "もっと強くなるために、マルタはリーダーに特訓を付き合ってもらうことに。", times = 0}
 , 
-[75602361] = {id = 75602361, scene_path = "92000010", dialogue_ids = "75423601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602361] = {id = 75602361, scene_path = "92000038", dialogue_ids = "75423601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "人一倍の力で、マルタは様々な重い仕事を楽にこなすことができた。", times = 0}
 , 
-[75602371] = {id = 75602371, scene_path = "92000008", dialogue_ids = "75423701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602371] = {id = 75602371, scene_path = "92000008", dialogue_ids = "75423701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "危険に遭わないよう、マルタは必ずリーダーを守ってみせようと約束した。", times = 0}
 , 
-[75602372] = {id = 75602372, scene_path = "92000008", dialogue_ids = "75423704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602372] = {id = 75602372, scene_path = "92000008", dialogue_ids = "75423704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "危険に遭わないよう、マルタは必ずリーダーを守ってみせようと約束した。", times = 0}
 , 
-[75602381] = {id = 75602381, scene_path = "92000015", dialogue_ids = "75423801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602381] = {id = 75602381, scene_path = "92000009", dialogue_ids = "75423801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "盗賊団に囲まれ、ウルスラはリーダーと一緒に戦って勝利を手にした。", times = 0}
 , 
-[75602391] = {id = 75602391, scene_path = "92000015", dialogue_ids = "75423901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602391] = {id = 75602391, scene_path = "92000033", dialogue_ids = "75423901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを表現するために、マルタはご馳走を用意したが、二人っきりになれなかったことに少し残念。", times = 0}
 , 
-[75602301] = {id = 75602301, scene_path = "92000012", dialogue_ids = "75423001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602301] = {id = 75602301, scene_path = "92000015", dialogue_ids = "75423001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタは自分がプライドに加入したことで、大きな変化を遂げたと感じ、その気持ちをリーダーに伝える。", times = 0}
 , 
-[75602302] = {id = 75602302, scene_path = "92000012", dialogue_ids = "75423007", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ストーリーをスキップしますか？", times = 0}
+[75602302] = {id = 75602302, scene_path = "92000015", dialogue_ids = "75423007", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタは自分がプライドに加入したことで、大きな変化を遂げたと感じ、その気持ちをリーダーに伝える。", times = 0}
 , 
 [75602411] = {id = 75602411, scene_path = "92000011", dialogue_ids = "75424101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "街では、ウィチタ団団長と名乗る少女が、リーダーを引っ張ってウィチタ団の会合に向かう。", times = 0}
 , 
@@ -2375,37 +2375,37 @@
 , 
 [75604501] = {id = 75604501, scene_path = "92000009", dialogue_ids = "75445001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "散歩中、本音を打ち明けるチェルシー。リーダーのおかげで、恋愛であってもなくても、嘘偽りなくいろんな話ができることに感謝している。", times = 0}
 , 
-[75604611] = {id = 75604611, scene_path = "92000028", dialogue_ids = "75446101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604611] = {id = 75604611, scene_path = "92000028", dialogue_ids = "75446101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "画家のベロニカがプライドに加入した、しかし彼女の描いた作品はとても奥深かった。", times = 0}
 , 
-[75604621] = {id = 75604621, scene_path = "92000015", dialogue_ids = "75446201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604621] = {id = 75604621, scene_path = "92000015", dialogue_ids = "75446201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "エイプリルはベロニカのドリンクを飲みたいと言い出した、しかし実は彼女がいつも飲んでいたのは毒だった。", times = 0}
 , 
-[75604631] = {id = 75604631, scene_path = "92000009", dialogue_ids = "75446301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604631] = {id = 75604631, scene_path = "92000009", dialogue_ids = "75446301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "凶暴なモンスターに対し、ベロニカは余裕を見せ、絵を描きながら戦った。", times = 0}
 , 
-[75604632] = {id = 75604632, scene_path = "92000009", dialogue_ids = "75446305", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604632] = {id = 75604632, scene_path = "92000009", dialogue_ids = "75446305", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "凶暴なモンスターに対し、ベロニカは余裕を見せ、絵を描きながら戦った。", times = 0}
 , 
-[75604641] = {id = 75604641, scene_path = "92000011", dialogue_ids = "75446401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604641] = {id = 75604641, scene_path = "92000009", dialogue_ids = "75446401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "絵に夢中過ぎて、ベロニカは食事のことすら忘れていた。", times = 0}
 , 
-[75604642] = {id = 75604642, scene_path = "92000015", dialogue_ids = "75446402", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604642] = {id = 75604642, scene_path = "92000011", dialogue_ids = "75446402", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "絵に夢中過ぎて、ベロニカは食事のことすら忘れていた。", times = 0}
 , 
-[75604651] = {id = 75604651, scene_path = "92000024", dialogue_ids = "75446501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604651] = {id = 75604651, scene_path = "92000013", dialogue_ids = "75446501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ベロニカとリーダーはスラム街に取材を取りに行った時、不良に目をつけられたが、ベロニカは絵の具で簡単に彼らを仕留めた。", times = 0}
 , 
-[75604652] = {id = 75604652, scene_path = "92000024", dialogue_ids = "75446508", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604652] = {id = 75604652, scene_path = "92000013", dialogue_ids = "75446508", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ベロニカとリーダーはスラム街に取材を取りに行った時、不良に目をつけられたが、ベロニカは絵の具で簡単に彼らを仕留めた。", times = 0}
 , 
-[75604661] = {id = 75604661, scene_path = "92000012", dialogue_ids = "75446601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604661] = {id = 75604661, scene_path = "92000012", dialogue_ids = "75446601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ベロニカはリーダーと絵を描く頃の昔話をした。", times = 0}
 , 
-[75604671] = {id = 75604671, scene_path = "92000028", dialogue_ids = "75446701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604671] = {id = 75604671, scene_path = "92000028", dialogue_ids = "75446701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウィチタは犯人が見つからず悩んでいたところ、ベロニカは正確に犯人の似顔絵を書いた。", times = 0}
 , 
-[75604672] = {id = 75604672, scene_path = "92000028", dialogue_ids = "75446707", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604672] = {id = 75604672, scene_path = "92000028", dialogue_ids = "75446707", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウィチタは犯人が見つからず悩んでいたところ、ベロニカは正確に犯人の似顔絵を書いた。", times = 0}
 , 
-[75604673] = {id = 75604673, scene_path = "92000028", dialogue_ids = "75446714", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604673] = {id = 75604673, scene_path = "92000028", dialogue_ids = "75446714", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウィチタは犯人が見つからず悩んでいたところ、ベロニカは正確に犯人の似顔絵を書いた。", times = 0}
 , 
-[75604681] = {id = 75604681, scene_path = "92000015", dialogue_ids = "75446801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604681] = {id = 75604681, scene_path = "92000015", dialogue_ids = "75446801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ベロニカは新しい絵を描くか、今の絵を完成するかを悩んでいた。そこでリーダーのアドバイスを求める。", times = 0}
 , 
-[75604691] = {id = 75604691, scene_path = "92000012", dialogue_ids = "75446901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604691] = {id = 75604691, scene_path = "92000012", dialogue_ids = "75446901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ベロニカはリーダーと一緒にお絵描きし、いい思い出を作った。", times = 0}
 , 
-[75604692] = {id = 75604692, scene_path = "92000012", dialogue_ids = "75446904", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604692] = {id = 75604692, scene_path = "92000012", dialogue_ids = "75446904", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ベロニカはリーダーと一緒にお絵描きし、いい思い出を作った。", times = 0}
 , 
-[75604601] = {id = 75604601, scene_path = "92000015", dialogue_ids = "75446001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604601] = {id = 75604601, scene_path = "92000015", dialogue_ids = "75446001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ベロニカさんはリーダーをイメージして描いた絵を見せた、それはアロエの毒を飲まずありのままの思いをこもった作品だった。", times = 0}
 , 
 [75604711] = {id = 75604711, scene_path = "92000010", dialogue_ids = "75447101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クエストの帰り道、お菓子職人のショコラと出会った。私心のあるショウはショコラにプライドへの加入を勧める。", times = 0}
 , 
@@ -2435,31 +2435,31 @@
 , 
 [75604701] = {id = 75604701, scene_path = "92000033", dialogue_ids = "75447001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ショコラは、リーダーに出会ったことでこのプライドに入れたのだとお礼を述べつつ、これからも一緒にお菓子を食べたいという気持ちも伝えた。", times = 0}
 , 
-[75604811] = {id = 75604811, scene_path = "92000009", dialogue_ids = "75448101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604811] = {id = 75604811, scene_path = "92000009", dialogue_ids = "75448101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "プライドは任務報酬として奇特な石を入手し、捨てようとしていたところ、宝石商人のキキに注意され、その石の貴重さが分かった。", times = 0}
 , 
-[75604821] = {id = 75604821, scene_path = "92000015", dialogue_ids = "75448201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604821] = {id = 75604821, scene_path = "92000015", dialogue_ids = "75448201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "宝石のことになると、キキはとても熱狂的になり、リーダーに宝石の話を語り始めた。", times = 0}
 , 
-[75604831] = {id = 75604831, scene_path = "92000008", dialogue_ids = "75448301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604831] = {id = 75604831, scene_path = "92000008", dialogue_ids = "75448301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "宝物を探しているところ、一行は土砂崩れに遭遇、キキは自分の能力を十分に発揮し、砂の中から道を作った。", times = 0}
 , 
-[75604841] = {id = 75604841, scene_path = "92000008", dialogue_ids = "75448401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604841] = {id = 75604841, scene_path = "92000008", dialogue_ids = "75448401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "宝石を目につけた盗賊団をやっつけ、騎士団が来るのを待つ最中に、キキは彼らに宝石の話語り始め、止まらなくなった…", times = 0}
 , 
-[75604842] = {id = 75604842, scene_path = "92000008", dialogue_ids = "75448404", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604842] = {id = 75604842, scene_path = "92000008", dialogue_ids = "75448404", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "宝石を目につけた盗賊団をやっつけ、騎士団が来るのを待つ最中に、キキは彼らに宝石の話語り始め、止まらなくなった…", times = 0}
 , 
-[75604851] = {id = 75604851, scene_path = "92000031", dialogue_ids = "75448501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604851] = {id = 75604851, scene_path = "92000009", dialogue_ids = "75448501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リッタはキキが安い値段で宝石を売る行為に不満を持ったが、キキは宝石は皆自分のあるべき持ち主が持っているこそ価値があると思っている。", times = 0}
 , 
-[75604861] = {id = 75604861, scene_path = "92000032", dialogue_ids = "75448601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604861] = {id = 75604861, scene_path = "92000034", dialogue_ids = "75448601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "キキはまた貴重な古代宝石を見つけ、リーダーと分かち合いたいと思った。", times = 0}
 , 
-[75604871] = {id = 75604871, scene_path = "92000008", dialogue_ids = "75448701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604871] = {id = 75604871, scene_path = "92000034", dialogue_ids = "75448701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "宝石に夢中になりすぎて道に迷ったキキ、リーダーが迎えに行って嬉しそうだ。", times = 0}
 , 
-[75604881] = {id = 75604881, scene_path = "92000031", dialogue_ids = "75448801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604881] = {id = 75604881, scene_path = "92000015", dialogue_ids = "75448801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リーダーは宝石のように独特の輝きを放っていると感じたキキだった。", times = 0}
 , 
-[75604891] = {id = 75604891, scene_path = "92000009", dialogue_ids = "75448901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604891] = {id = 75604891, scene_path = "92000009", dialogue_ids = "75448901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "キキはリーダーが自分の恩師に似ていると語る、何故なら彼女に多くの支持と助けを与えたから。", times = 0}
 , 
-[75604801] = {id = 75604801, scene_path = "92000012", dialogue_ids = "75448001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75604801] = {id = 75604801, scene_path = "92000012", dialogue_ids = "75448001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "キキはリーダーと一緒にいることがとても幸せだからこれからもリーダーのそばにいたいと思った。", times = 0}
 , 
-[75604911] = {id = 75604911, scene_path = "92000009", dialogue_ids = "75449101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "モンスターと戦っている女の子に出会い、彼女を助けようとしたが断られた。その後、彼女はある変なお願いを申し出た。", times = 0}
+[75604911] = {id = 75604911, scene_path = "92000009", dialogue_ids = "75449101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタはプライドに入団しようとするが、その前にあるテストをクリアしなければならなかった。", times = 0}
 , 
-[75604912] = {id = 75604912, scene_path = "92000008", dialogue_ids = "75449105", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "モンスターと戦っている女の子に出会い、彼女を助けようとしたが断られた。その後、彼女はある変なお願いを申し出た。", times = 0}
+[75604912] = {id = 75604912, scene_path = "92000008", dialogue_ids = "75449105", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタはプライドに入団しようとするが、その前にあるテストをクリアしなければならなかった。", times = 0}
 , 
 [75604921] = {id = 75604921, scene_path = "92000008", dialogue_ids = "75449201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラは一人でモンスターの棲家に行くことにしましたが、リーダーがついてきた。", times = 0}
 , 
@@ -2471,17 +2471,17 @@
 , 
 [75604942] = {id = 75604942, scene_path = "92000009", dialogue_ids = "75449407", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "任務に付き添うなんて、ウルスラは自分がリーダーの信頼を勝ち取れないと考え…", times = 0}
 , 
-[75604951] = {id = 75604951, scene_path = "92000012", dialogue_ids = "75449501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "休みの日でも、ウルスラはリーダーのそばにいさせてほしい。", times = 0}
+[75604951] = {id = 75604951, scene_path = "92000012", dialogue_ids = "75449501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "もっと強くなるために、マルタはリーダーに特訓を付き合ってもらうことに。", times = 0}
 , 
-[75604961] = {id = 75604961, scene_path = "92000031", dialogue_ids = "75449601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラに可愛い服を着替えしようとするが、結局恥ずかしさのあまり、それをやめてしまった。", times = 0}
+[75604961] = {id = 75604961, scene_path = "92000031", dialogue_ids = "75449601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "人一倍の力で、マルタは様々な重い仕事を楽にこなすことができた。", times = 0}
 , 
-[75604971] = {id = 75604971, scene_path = "92000025", dialogue_ids = "75449701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分に命令をしないことに疑問を抱くウルスラは、リーダーにはっきり聞くことに。", times = 0}
+[75604971] = {id = 75604971, scene_path = "92000025", dialogue_ids = "75449701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "危険に遭わないよう、マルタは必ずリーダーを守ってみせようと約束した。", times = 0}
 , 
 [75604981] = {id = 75604981, scene_path = "92000008", dialogue_ids = "75449801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "盗賊団に囲まれ、ウルスラはリーダーと一緒に戦って勝利を手にした。", times = 0}
 , 
 [75604982] = {id = 75604982, scene_path = "92000008", dialogue_ids = "75449808", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "盗賊団に囲まれ、ウルスラはリーダーと一緒に戦って勝利を手にした。", times = 0}
 , 
-[75604991] = {id = 75604991, scene_path = "92000015", dialogue_ids = "75449901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラとフランは本に書いてある通り、頑張って笑顔の練習をしている…", times = 0}
+[75604991] = {id = 75604991, scene_path = "92000015", dialogue_ids = "75449901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを表現するために、マルタはご馳走を用意したが、二人っきりになれなかったことに少し残念。", times = 0}
 , 
 [75604901] = {id = 75604901, scene_path = "92000013", dialogue_ids = "75449001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラは感謝の意を表し、まだ迷うことがあるけど、リーダーと共に生きていきたいと言い切った。", times = 0}
 , 
@@ -2563,35 +2563,35 @@
 , 
 [75605102] = {id = 75605102, scene_path = "92000011", dialogue_ids = "75451002", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
 , 
-[75605311] = {id = 75605311, scene_path = "92000030", dialogue_ids = "75453101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605311] = {id = 75605311, scene_path = "92000030", dialogue_ids = "75453101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "喫茶店での収入が少なくて困っていリサと出会った。生活を維持するため、リサはブライドに参加することに。", times = 0}
 , 
-[75605312] = {id = 75605312, scene_path = "92000030", dialogue_ids = "75453104", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605312] = {id = 75605312, scene_path = "92000030", dialogue_ids = "75453104", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "喫茶店での収入が少なくて困っていリサと出会った。生活を維持するため、リサはブライドに参加することに。", times = 0}
 , 
-[75605321] = {id = 75605321, scene_path = "92000008", dialogue_ids = "75453201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605321] = {id = 75605321, scene_path = "92000008", dialogue_ids = "75453201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "森の中で歌の練習をしているリサを見かけ、アンコールするリリー、しかしリサは緊張して歌えなかった。でもいつかは舞台で最高の歌声を聞かせてあげると約束した。", times = 0}
 , 
-[75605331] = {id = 75605331, scene_path = "92000008", dialogue_ids = "75453301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605331] = {id = 75605331, scene_path = "92000008", dialogue_ids = "75453301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "任務実行中リサのミスで新たな怪物を呼び寄せた。リーダーの優しさに逆ギレし、もっと自分を厳しく叱るように言い張った。", times = 0}
 , 
-[75605332] = {id = 75605332, scene_path = "92000008", dialogue_ids = "75453308", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605332] = {id = 75605332, scene_path = "92000008", dialogue_ids = "75453308", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "任務実行中リサのミスで新たな怪物を呼び寄せた。リーダーの優しさに逆ギレし、もっと自分を厳しく叱るように言い張った。", times = 0}
 , 
-[75605341] = {id = 75605341, scene_path = "92000013", dialogue_ids = "75453401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605341] = {id = 75605341, scene_path = "92000013", dialogue_ids = "75453401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分より同僚のノエルのほうが男性客の人気が高いと思ったリサは、リーダーの所に意見を求めた、するとチェルシーはもっと言葉扱いに気をつけなさいっとアドバイスした。", times = 0}
 , 
-[75605351] = {id = 75605351, scene_path = "92000026", dialogue_ids = "75453501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605351] = {id = 75605351, scene_path = "92000026", dialogue_ids = "75453501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リサとエマは似たような理念を持っていた、そして二人は協力して埠頭のモンスターを排除した。", times = 0}
 , 
-[75605352] = {id = 75605352, scene_path = "92000026", dialogue_ids = "75453509", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605352] = {id = 75605352, scene_path = "92000026", dialogue_ids = "75453509", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リサとエマは似たような理念を持っていた、そして二人は協力して埠頭のモンスターを排除した。", times = 0}
 , 
-[75605361] = {id = 75605361, scene_path = "92000033", dialogue_ids = "75453601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605361] = {id = 75605361, scene_path = "92000033", dialogue_ids = "75453601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "酔っ払いのニコリータをおぶっているリサを発見し、二人は古い知り合いだった事を知った。", times = 0}
 , 
-[75605371] = {id = 75605371, scene_path = "92000008", dialogue_ids = "75453701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605371] = {id = 75605371, scene_path = "92000008", dialogue_ids = "75453701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リサがオペラ舞台に出場することになった。台詞は少ないが、リーダーたちと一緒に練習して最高の舞台を仕上げたいと思った。", times = 0}
 , 
-[75605381] = {id = 75605381, scene_path = "92000008", dialogue_ids = "75453801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605381] = {id = 75605381, scene_path = "92000008", dialogue_ids = "75453801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "アイリーンが遊びに来た。うれしいが悔しさもあるリサはもっと練習を励むところ、疲れて眠くなったアイリーンをみて、優しく子守唄を歌ってあげた。", times = 0}
 , 
-[75605382] = {id = 75605382, scene_path = "92000008", dialogue_ids = "75453807", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605382] = {id = 75605382, scene_path = "92000008", dialogue_ids = "75453807", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "アイリーンが遊びに来た。うれしいが悔しさもあるリサはもっと練習を励むところ、疲れて眠くなったアイリーンをみて、優しく子守唄を歌ってあげた。", times = 0}
 , 
-[75605383] = {id = 75605383, scene_path = "92000008", dialogue_ids = "75453819", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605383] = {id = 75605383, scene_path = "92000008", dialogue_ids = "75453819", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "アイリーンが遊びに来た。うれしいが悔しさもあるリサはもっと練習を励むところ、疲れて眠くなったアイリーンをみて、優しく子守唄を歌ってあげた。", times = 0}
 , 
-[75605391] = {id = 75605391, scene_path = "92000008", dialogue_ids = "75453901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605391] = {id = 75605391, scene_path = "92000008", dialogue_ids = "75453901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リサはスランプに陥った。リーダーに励まされ、自信を取り戻したリサは再び練習を続け始めた。", times = 0}
 , 
-[75605301] = {id = 75605301, scene_path = "92000030", dialogue_ids = "75453001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
+[75605301] = {id = 75605301, scene_path = "92000030", dialogue_ids = "75453001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リサは自分が出演する舞台のチケットをリーダー渡す、そして今ここまで来られたのはリーダーのおかげだと感謝した。", times = 0}
 , 
 [75605411] = {id = 75605411, scene_path = "92000011", dialogue_ids = "75454101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを伝えるために、アリシアは手紙を書いた……", times = 0}
 , 

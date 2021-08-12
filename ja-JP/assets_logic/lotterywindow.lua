@@ -523,10 +523,14 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
     ;
     ((uis.LotteryPanelGrp).BgImage).visible = true
   elseif msgId == windowMsgEnum.E_MSG_ONCLOSE_NEWGET then
+    if para ~= cardIndex then
+      return 
+    end
+    ;
     (LotteryWindow.DealNextCardProcess)()
   elseif msgId == windowMsgEnum.E_MSG_ONCLICKCARDGET_SKIPBTN then
     isAutoPlay = true
-    -- DECOMPILER ERROR at PC406: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC410: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.GechaCardEffectGrp).SkipBtn).visible = false
@@ -535,7 +539,7 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
   elseif msgId == windowMsgEnum.E_MSG_CLOSEEXCHANGE then
     (LotteryService.ReqLotteryInit)(lotteryType)
   end
-  -- DECOMPILER ERROR: 33 unprocessed JMP targets
+  -- DECOMPILER ERROR: 34 unprocessed JMP targets
 end
 
 LotteryWindow.DealNextCardProcess = function(...)
@@ -781,9 +785,9 @@ LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
   if cardExcelData.lottery_show then
     if cardInfo.isHave == false or isAutoPlay == false then
       video:PlayVideo(uis.VideoLoader, cardExcelData.lottery_show, function(...)
-    -- function num : 0_12_0 , upvalues : _ENV, cardInfo, isAutoPlay, isTheLast, isTheFirst, uis
-    OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
-    -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
+    -- function num : 0_12_0 , upvalues : _ENV, cardInfo, isAutoPlay, isTheLast, isTheFirst, index, uis
+    OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst, index)
+    -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
 
     ;
     (uis.VideoLoader).visible = false
@@ -836,12 +840,12 @@ LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)
 )
     else
       print("已获得 并且开启自动跳过timeline")
-      OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
+      OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst, index)
     end
   else
     local moveConfig = ((TableData.gTable).BaseLotteryCameraShowData)[cardExcelData.lottery_camera_id]
-    OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst)
-    -- DECOMPILER ERROR at PC98: Confused about usage of register: R6 in 'UnsetPending'
+    OpenWindow((WinResConfig.CardGetShowWindow).name, UILayer.HUD, cardInfo.id, true, nil, isAutoPlay, cardInfo.isHave, cardInfo.picesNum, isTheLast, isTheFirst, index)
+    -- DECOMPILER ERROR at PC100: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     ((uis.StartWord).root).visible = false

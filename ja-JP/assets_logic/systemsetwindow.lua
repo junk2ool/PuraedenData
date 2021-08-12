@@ -489,7 +489,7 @@ SystemSetWindow.ClickPushBtn = function(data, obj, ...)
   local state = ((obj:GetChild("Content_01_Grp")):GetController("c1")).selectedIndex
   local receive = state == 0
   ;
-  (ActorData.SetPushData)(data.push_type, receive)
+  (ActorData.SetPushData)(data, receive)
   ;
   (MessageMgr.SetPushTypeData)(data.push_type, true)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets

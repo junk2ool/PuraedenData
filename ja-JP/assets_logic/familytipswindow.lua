@@ -84,36 +84,36 @@ FamilyTipsWindow.SetFurnitrueInfo = function(...)
 
   ;
   ((uis.Tips).ItemNameTxt).text = config.name
-  -- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
 
-  if config.type == HomelandFurnitureType.Wall or config.type == HomelandFurnitureType.Floor then
+  if config.type == HomelandFurnitureType.Wall or config.type == HomelandFurnitureType.Floor or config.type == HomelandFurnitureType.Background then
     ((uis.Tips).HaveNumber_01_Txt).text = ""
-    -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC41: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     ((uis.Tips).HaveNumberTxt).text = ""
   else
-    -- DECOMPILER ERROR at PC44: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     ((uis.Tips).HaveNumber_01_Txt).text = (PUtil.get)(60000553)
     local size = split(config.size, ":")
-    -- DECOMPILER ERROR at PC55: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC60: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     ((uis.Tips).HaveNumberTxt).text = size[1] .. " x " .. size[2]
   end
   do
-    -- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC64: Confused about usage of register: R1 in 'UnsetPending'
 
     ;
     ((uis.Tips).ItemWordTxt).text = config.remark
-    -- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC70: Confused about usage of register: R1 in 'UnsetPending'
 
     if config.time == -1 then
       ((uis.Tips).TimeTxt).text = ""
     else
-      -- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC85: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       ((uis.Tips).TimeTxt).text = (PUtil.get)(60000554) .. ":" .. (LuaTime.GetLeftTimeStr)(_time, true)

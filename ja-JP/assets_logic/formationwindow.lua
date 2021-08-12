@@ -308,18 +308,13 @@ FormationWindow.Refresh = function(init, ...)
       end
     end
 
-    if (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.ActivityDungeon or (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.RelicDungeon then
+    if (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.ActivityDungeon or (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.RelicDungeon or (PlotDungeonMgr.GetStageChapterType)(stageID) == DungeonType.NewActivityDungeon then
       local fcTxt = recordEnemyFc
       if fcTxt then
         (PlotDungeonMgr.ActivityDungeonEnemyFc)(tonumber(fcTxt))
       end
     else
       do
-        -- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
-
-        if (PlotDungeonMgr.GetStageChapterType)(stageID) == (ProtoEnum.E_CHALLENGE_TYPE).NEW_ACTIVITY_CHALLENGE and recordEnemyFc then
-          NewActivityDungeonData.EnemyFC = tonumber(recordEnemyFc)
-        end
         if (PlotDungeonMgr.GetTowerExpandChapterType)(stageID) == DungeonType.TowerExpand and recordEnemyFc then
           (TowerTopStageMgr.TowerExpandFc)(tonumber(recordEnemyFc))
         end

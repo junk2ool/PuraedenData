@@ -76,10 +76,10 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     ;
     (PlotDungeonMgr.IsQuestHeroData)(true)
   end
-  ;
-  (NewActivityDungeonMgr.InitAssistData)()
-  ;
-  (SimpleTimer.setTimeout)(0.2, function(...)
+  if (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).NewActivityDungeon) then
+    (NewActivityDungeonMgr.InitAssistData)()
+    ;
+    (SimpleTimer.setTimeout)(0.2, function(...)
     -- function num : 0_1_3 , upvalues : _ENV
     local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
     if config.assist_num <= (NewActivityDungeonData.AssistData).assistedTime then
@@ -89,6 +89,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     end
   end
 )
+  end
   ;
   (HomeWindow.CheckActivityIcon)()
   ;
@@ -111,7 +112,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ((uis.FamilyBtn).onClick):Set(HomeWindow.ClickHomelandBtn)
   ;
   ((uis.AnnouncementBtn).onClick):Set(HomeWindow.ClickAnnouncementBtn)
-  -- DECOMPILER ERROR at PC184: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC192: Confused about usage of register: R1 in 'UnsetPending'
 
   if IsIOSReview == true then
     (uis.AnnouncementBtn).visible = false
@@ -119,8 +120,8 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ;
   ((uis.ActivityDungeonBtn).onClick):Set(function(...)
     -- function num : 0_1_4 , upvalues : _ENV
-    if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-      (NewActivityDungeonMgr.TryOpenNAD)()
+    if (ActivityMgr.GetCurrentActivityDungeonType)() == (ActivityMgr.ActivityType).NewActivityDungeon then
+      (PlotDungeonService.ReqStoryInfo)(DungeonType.NewActivityDungeon)
     else
       ;
       (PlotDungeonService.ReqStoryInfo)(DungeonType.ActivityDungeon)
@@ -162,7 +163,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
 )
   end
   do
-    -- DECOMPILER ERROR at PC258: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC266: Confused about usage of register: R1 in 'UnsetPending'
 
     if Game.testPackage ~= true and uis.ServerNameTxt then
       (uis.ServerNameTxt).text = (LoginMgr.GetServerName)()
@@ -204,16 +205,16 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     (LoginMgr.ReturnToLoginWindow)()
   end
 , nil, (PUtil.get)(60000004))
-          -- DECOMPILER ERROR at PC357: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC365: Confused about usage of register: R3 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
         end
       else
         do
-          -- DECOMPILER ERROR at PC360: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC368: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
-          -- DECOMPILER ERROR at PC363: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC371: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
           if ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).WindowsEditor and ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).OSXEditor then
@@ -241,38 +242,33 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.CarnivalBtn).visible = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).SevenTask)
-  -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  (uis.ActivityDungeonBtn).visible = NewActivityDungeonData.ActivityDungeonStatus ~= ADStatus.None
-  -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+  (uis.ActivityDungeonBtn).visible = (ActivityMgr.GetCurrentActivityDungeonType)() ~= -1
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
 
   if (uis.CarnivalBtn).visible == false and (uis.ActivityDungeonBtn).visible == true then
     (uis.ActivityDungeonBtn).xy = ActivityPos[1]
   end
+  if (uis.ActivityDungeonBtn).visible then
+    (HomeWindow.UpdateActivityBtnIcon)((ActivityMgr.GetCurrentActivityDungeonId)())
+  end
+  if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
+    (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityDungeon, uis.ActivityDungeonBtn)
+  end
+  ;
+  (uis.LeftList):RemoveChildrenToPool()
+  local TenMailID = (ActorService.RegisterMail)()
+  local Appointment = (uis.LeftList):GetChild("Appointment")
   do
-    if (uis.ActivityDungeonBtn).visible then
-      if not (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon) then
-        local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).NewActivityDungeon)
-      end
-      ;
-      (HomeWindow.UpdateActivityBtnIcon)(activityId)
-    end
-    if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-      (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityDungeon, uis.ActivityDungeonBtn)
-    end
-    ;
-    (uis.LeftList):RemoveChildrenToPool()
-    local TenMailID = (ActorService.RegisterMail)()
-    local Appointment = (uis.LeftList):GetChild("Appointment")
-    do
-      -- DECOMPILER ERROR at PC89: Unhandled construct in 'MakeBoolean' P1
+    -- DECOMPILER ERROR at PC76: Unhandled construct in 'MakeBoolean' P1
 
-      if TenMailID and TenMailID > 0 and Appointment == nil then
-        local AppointmentBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "AppointmentBtn"))
-        AppointmentBtn.name = "Appointment"
-        ;
-        (AppointmentBtn.onClick):Set(function(...)
+    if TenMailID and TenMailID > 0 and Appointment == nil then
+      local AppointmentBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "AppointmentBtn"))
+      AppointmentBtn.name = "Appointment"
+      ;
+      (AppointmentBtn.onClick):Set(function(...)
     -- function num : 0_3_0 , upvalues : _ENV
     ld("Mail", function(...)
       -- function num : 0_3_0_0 , upvalues : _ENV
@@ -281,80 +277,94 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
 )
   end
 )
+    end
+    if Appointment then
+      (uis.LeftList):RemoveChild(Appointment)
+    end
+    local PrizeCom = (uis.LeftList):GetChild("Prize")
+    local Prize = ((ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Prize))
+    local data = nil
+    local timeTip = ""
+    local configTable = (TableData.gTable).BaseActivityData
+    for _,v in pairs(configTable) do
+      if v.type == 11 then
+        data = v
       end
-      if Appointment then
-        (uis.LeftList):RemoveChild(Appointment)
-      end
-      local PrizeCom = (uis.LeftList):GetChild("Prize")
-      local Prize = ((ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Prize))
-      local data = nil
-      local timeTip = ""
-      local configTable = (TableData.gTable).BaseActivityData
-      for _,v in pairs(configTable) do
-        if v.type == 11 then
-          data = v
-        end
-      end
-      if data ~= nil then
-        timeTip = (LuaTime.GetBeginAndEndTime)(data.begin_time, data.end_time)
-      end
-      do
-        -- DECOMPILER ERROR at PC146: Unhandled construct in 'MakeBoolean' P1
+    end
+    if data ~= nil then
+      timeTip = (LuaTime.GetBeginAndEndTime)(data.begin_time, data.end_time)
+    end
+    do
+      -- DECOMPILER ERROR at PC133: Unhandled construct in 'MakeBoolean' P1
 
-        if Prize == true and PrizeCom == nil then
-          local PrizeBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "PrizeBtn"))
-          ;
-          (PrizeBtn:GetChild("TimeTxt")).text = timeTip
-          PrizeBtn.name = "Prize"
-          ;
-          (PrizeBtn.onClick):Set(function(...)
+      if Prize == true and PrizeCom == nil then
+        local PrizeBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "PrizeBtn"))
+        ;
+        (PrizeBtn:GetChild("TimeTxt")).text = timeTip
+        PrizeBtn.name = "Prize"
+        ;
+        (PrizeBtn.onClick):Set(function(...)
     -- function num : 0_3_1 , upvalues : _ENV
     (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).Prize)
   end
 )
-        end
-        if PrizeCom then
-          (uis.LeftList):RemoveChild(PrizeCom)
-        end
-        local lotteryIntergral = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).LotteryIntergral)
-        local lotteryIntergralCom = (uis.LeftList):GetChild("LotteryIntegral")
-        if lotteryIntergral == true then
-          local lotteryIntergralBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "LotteryIntegralBtn"))
-          if lotteryIntergralCom == nil then
-            lotteryIntergralBtn.name = "LotteryIntegral"
-            ;
-            (lotteryIntergralBtn.onClick):Set(function(...)
+      end
+      if PrizeCom then
+        (uis.LeftList):RemoveChild(PrizeCom)
+      end
+      local lotteryIntergral = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).LotteryIntergral)
+      local lotteryIntergralCom = (uis.LeftList):GetChild("LotteryIntegral")
+      if lotteryIntergral == true then
+        local lotteryIntergralBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "LotteryIntegralBtn"))
+        if lotteryIntergralCom == nil then
+          lotteryIntergralBtn.name = "LotteryIntegral"
+          ;
+          (lotteryIntergralBtn.onClick):Set(function(...)
     -- function num : 0_3_2 , upvalues : _ENV
     OpenWindow((WinResConfig.LotteryIntegralWindow).name, UILayer.HUD)
   end
 )
-          end
+        end
+        ;
+        (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_LotteryIntegral, lotteryIntergralBtn)
+        ;
+        (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
+      elseif lotteryIntergralCom then
+        (uis.LeftList):RemoveChild(lotteryIntergralCom)
+      end
+      local returnOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Return)
+      do
+        if returnOpen then
+          local returnBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "ReturnBtn"))
           ;
-          (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_LotteryIntegral, lotteryIntergralBtn)
+          (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityReturn, returnBtn)
           ;
           (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
-        elseif lotteryIntergralCom then
-          (uis.LeftList):RemoveChild(lotteryIntergralCom)
-        end
-        local returnOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Return)
-        do
-          if returnOpen then
-            local returnBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "ReturnBtn"))
-            ;
-            (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityReturn, returnBtn)
-            ;
-            (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
-            ;
-            (returnBtn.onClick):Set(function(...)
+          ;
+          (returnBtn.onClick):Set(function(...)
     -- function num : 0_3_3 , upvalues : _ENV
     ld("ActivityReturn")
     ;
     (ActivityReturnMgr.TryOpenUI)()
   end
 )
-          end
-          -- DECOMPILER ERROR: 15 unprocessed JMP targets
         end
+        local isNAD = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).NewActivityDungeon)
+        if isNAD == true then
+          (NewActivityDungeonMgr.InitAssistData)()
+          ;
+          (SimpleTimer.setTimeout)(0.2, function(...)
+    -- function num : 0_3_4 , upvalues : _ENV
+    local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
+    if config.assist_num <= (NewActivityDungeonData.AssistData).assistedTime then
+      (RedDotMgr.EliminateRedDot)((WinResConfig.NewActivityDungeonMainWindow).name, RedDotComID.NAD_GuildHlep)
+      ;
+      (RedDotMgr.RefreshTreeUI)((WinResConfig.NewActivityDungeonMainWindow).name)
+    end
+  end
+)
+        end
+        -- DECOMPILER ERROR: 15 unprocessed JMP targets
       end
     end
   end

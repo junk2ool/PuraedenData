@@ -105,12 +105,12 @@ FamilyShopWindow.OnInit = function(bridgeObj, ...)
   ;
   ((uis.ShopPanel).ZhongZiBtn).visible = false
   if argTable[1] then
-    shopType = (argTable[1]).shopType
-    initType = (argTable[1]).shopType
+    shopType = (ShopMgr.GetShopTypeByShopId)((argTable[1]).shopId)
+    initType = shopType
     print("===================shopType", shopType)
     ;
     (FamilyShopWindow.RefreshShopWindow)(argTable[1])
-    -- DECOMPILER ERROR at PC136: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC138: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     ((uis.ShopPanel).c1Ctr).selectedIndex = shopType - 6
@@ -127,13 +127,13 @@ FamilyShopWindow.RefreshShopWindow = function(_data, ...)
     end
   end
   local data = tmpShopGridData
-  print("商店类型", data.shopType, data.resetNum, #data.shopGridData)
-  local shopConfig = ((TableData.gTable).BaseShopData)[23000000 + data.shopType]
-  -- DECOMPILER ERROR at PC28: Confused about usage of register: R3 in 'UnsetPending'
+  print("商店类型", data.shopId, data.resetNum, #data.shopGridData)
+  local shopData = (ShopMgr.GetShopDataItemByShopId)(data.shopId)
+  -- DECOMPILER ERROR at PC26: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
-  (uis.RefreshBtn).visible = shopConfig.reset_type == 1
-  -- DECOMPILER ERROR at PC30: Confused about usage of register: R3 in 'UnsetPending'
+  (uis.RefreshBtn).visible = shopData.reset_type == 1
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.TimeTxt).visible = false
@@ -149,7 +149,7 @@ FamilyShopWindow.RefreshShopWindow = function(_data, ...)
       ;
       (SimpleTimer.setTimeout)(1, function(...)
       -- function num : 0_1_0_0 , upvalues : _ENV, data
-      (HomelandService.ReqShopGridDataByType)(data.shopType)
+      (HomelandService.ReqShopGridDataByType)(data.shopId)
     end
 )
       ;
@@ -171,7 +171,7 @@ FamilyShopWindow.RefreshShopWindow = function(_data, ...)
   local shopNum = #data.shopGridData
   local shopGrpNum = (math.ceil)(shopNum / 5)
   local t = 1
-  -- DECOMPILER ERROR at PC80: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC78: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (GRoot.inst).touchable = false
@@ -328,7 +328,7 @@ FamilyShopWindow.SetShopItem = function(shopData, shopItem, ...)
     buyData.needCards = needList
     buyData.gridID = data.shopGridId
     buyData.poolID = data.shopPoolId
-    buyData.shopType = shopType
+    buyData.shopId = (ShopMgr.GetShopIdByShopType)(shopType)
     buyData.buyTime = data.useNum
     OpenWindow((WinResConfig.ShopBuyWindow).name, UILayer.HUD, buyData)
   end

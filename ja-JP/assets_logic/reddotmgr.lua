@@ -3,10 +3,23 @@
 RedDotMgr = {}
 local winConList = {}
 local RedDotList = {}
--- DECOMPILER ERROR at PC6: Confused about usage of register: R2 in 'UnsetPending'
+local ActivityDungeonWindowNames = {
+{name = "ActivityDungeonWindow33001401", new = true}
+, 
+{name = "ActivityDungeonWindow33001402", new = true}
+, 
+{name = "ActivityDungeonWindow33001403", new = true}
+, 
+{name = "ActivityDungeonWindow33000101", new = false}
+, 
+{name = "ActivityDungeonWindow33000102", new = false}
+, 
+{name = "ActivityDungeonWindow33000103", new = false}
+}
+-- DECOMPILER ERROR at PC26: Confused about usage of register: R3 in 'UnsetPending'
 
 RedDotMgr.Init = function(...)
-  -- function num : 0_0 , upvalues : _ENV
+  -- function num : 0_0 , upvalues : _ENV, ActivityDungeonWindowNames
   local winName = (WinResConfig.HomeWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Home_Main, -1, "")
@@ -57,22 +70,25 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Setting_Main, RedDotComID.Home_Setting, (WinResConfig.HomeWindow).name)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Setting_Title, RedDotComID.Setting_Main)
-  winName = (WinResConfig.NewActivityDungeonWindow).name
+  winName = (WinResConfig.ActivityDungeonMainWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.ActivityDungeon_Main, RedDotComID.Home_ActivityDungeon, (WinResConfig.HomeWindow).name)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.ActivityDungeon_Btn, RedDotComID.ActivityDungeon_Main)
-  winName = (WinResConfig.NewActivityDungeonMainWindow).name
-  ;
-  (RedDotMgr.RegisterRootNode)(winName, RedDotComID.NAD_Main, RedDotComID.ActivityDungeon_Btn, (WinResConfig.NewActivityDungeonWindow).name)
-  ;
-  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_Exploration, RedDotComID.NAD_Main)
-  ;
-  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_BossFight, RedDotComID.NAD_Main)
-  ;
-  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_Reward, RedDotComID.NAD_BossFight)
-  ;
-  (RedDotMgr.RegisterNode)(winName, RedDotComID.NAD_GuildHlep, RedDotComID.NAD_BossFight)
+  for k,item in pairs(ActivityDungeonWindowNames) do
+    local name = item.name
+    if item.new then
+      (RedDotMgr.RegisterRootNode)(name, RedDotComID.NAD_Main, RedDotComID.ActivityDungeon_Btn, (WinResConfig.ActivityDungeonMainWindow).name)
+      ;
+      (RedDotMgr.RegisterNode)(name, RedDotComID.NAD_Exploration, RedDotComID.NAD_Main)
+      ;
+      (RedDotMgr.RegisterNode)(name, RedDotComID.NAD_BossFight, RedDotComID.NAD_Main)
+      ;
+      (RedDotMgr.RegisterNode)(name, RedDotComID.NAD_Reward, RedDotComID.NAD_BossFight)
+      ;
+      (RedDotMgr.RegisterNode)(name, RedDotComID.NAD_GuildHelp, RedDotComID.NAD_BossFight)
+    end
+  end
   winName = (WinResConfig.TitleWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Title_Main, RedDotComID.Setting_Title, (WinResConfig.ActorInfoWindow).name)
@@ -298,21 +314,21 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.ActivityReturn_Vigour_Reward, RedDotComID.ActivityReturn_Main)
 end
 
--- DECOMPILER ERROR at PC9: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC29: Confused about usage of register: R3 in 'UnsetPending'
 
 RedDotMgr.InitRedDotList = function(data, ...)
   -- function num : 0_1 , upvalues : RedDotList
   RedDotList = data
 end
 
--- DECOMPILER ERROR at PC12: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC32: Confused about usage of register: R3 in 'UnsetPending'
 
 RedDotMgr.GetRedDotList = function(...)
   -- function num : 0_2 , upvalues : RedDotList
   return RedDotList
 end
 
--- DECOMPILER ERROR at PC15: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC35: Confused about usage of register: R3 in 'UnsetPending'
 
 RedDotMgr.GetContainRedDot = function(redID, ...)
   -- function num : 0_3 , upvalues : _ENV, RedDotList
@@ -325,14 +341,14 @@ RedDotMgr.GetContainRedDot = function(redID, ...)
 end
 
 local StoryData = {}
--- DECOMPILER ERROR at PC19: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R4 in 'UnsetPending'
 
 RedDotMgr.StoryPlotData = function(...)
   -- function num : 0_4 , upvalues : StoryData
   return StoryData
 end
 
--- DECOMPILER ERROR at PC22: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R4 in 'UnsetPending'
 
 RedDotMgr.IsContainStoryPlotData = function(id, ...)
   -- function num : 0_5 , upvalues : _ENV, StoryData
@@ -345,14 +361,14 @@ RedDotMgr.IsContainStoryPlotData = function(id, ...)
 end
 
 local HeroData = {}
--- DECOMPILER ERROR at PC26: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC46: Confused about usage of register: R5 in 'UnsetPending'
 
 RedDotMgr.HeroPlotData = function(...)
   -- function num : 0_6 , upvalues : HeroData
   return HeroData
 end
 
--- DECOMPILER ERROR at PC29: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC49: Confused about usage of register: R5 in 'UnsetPending'
 
 RedDotMgr.IsContainHeroPlotData = function(id, ...)
   -- function num : 0_7 , upvalues : _ENV, HeroData
@@ -365,7 +381,7 @@ RedDotMgr.IsContainHeroPlotData = function(id, ...)
 end
 
 local HandBookStory = {}
--- DECOMPILER ERROR at PC33: Confused about usage of register: R5 in 'UnsetPending'
+-- DECOMPILER ERROR at PC53: Confused about usage of register: R6 in 'UnsetPending'
 
 RedDotMgr.HandBookStory = function(...)
   -- function num : 0_8 , upvalues : HandBookStory
@@ -373,7 +389,7 @@ RedDotMgr.HandBookStory = function(...)
 end
 
 local HandBook_Intimacy = {}
--- DECOMPILER ERROR at PC37: Confused about usage of register: R6 in 'UnsetPending'
+-- DECOMPILER ERROR at PC57: Confused about usage of register: R7 in 'UnsetPending'
 
 RedDotMgr.HandBookIntimacyList = function(...)
   -- function num : 0_9 , upvalues : HandBook_Intimacy
@@ -381,14 +397,14 @@ RedDotMgr.HandBookIntimacyList = function(...)
 end
 
 local Title_RedList = {}
--- DECOMPILER ERROR at PC41: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC61: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.TitleRedList = function(...)
   -- function num : 0_10 , upvalues : Title_RedList
   return Title_RedList
 end
 
--- DECOMPILER ERROR at PC44: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC64: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.InitRedDotData = function(...)
   -- function num : 0_11 , upvalues : _ENV, RedDotList
@@ -399,7 +415,7 @@ RedDotMgr.InitRedDotData = function(...)
   (RedDotMgr.SpecialIntimacyList)()
 end
 
--- DECOMPILER ERROR at PC47: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC67: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.SpecialIntimacyList = function(...)
   -- function num : 0_12 , upvalues : HandBook_Intimacy, _ENV
@@ -428,7 +444,7 @@ RedDotMgr.SpecialIntimacyList = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC50: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC70: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.RemoveIntimacyInfoRedDot = function(cardID, story, voice, ...)
   -- function num : 0_13 , upvalues : _ENV
@@ -451,10 +467,10 @@ RedDotMgr.RemoveIntimacyInfoRedDot = function(cardID, story, voice, ...)
   (RedDotMgr.SpecialIntimacyList)()
 end
 
--- DECOMPILER ERROR at PC53: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC73: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
-  -- function num : 0_14 , upvalues : _ENV, StoryData, HeroData, HandBookStory, Title_RedList
+  -- function num : 0_14 , upvalues : _ENV, StoryData, HeroData, HandBookStory, Title_RedList, ActivityDungeonWindowNames
   local logStr = ""
   if IsAdd then
     logStr = "增加"
@@ -650,12 +666,16 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
                                                                     else
                                                                       do
                                                                         if id == RedDotComID.NAD_BossFight or id == RedDotComID.NAD_Exploration then
-                                                                          local node = RedDotManager:GetNodeByObj((WinResConfig.NewActivityDungeonMainWindow).name, id)
-                                                                          if node then
-                                                                            loge(logStr .. "普通红点ID" .. id .. " " .. tostring(IsAdd))
-                                                                            node.NodeValue = IsAdd
-                                                                          else
-                                                                            loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")
+                                                                          for k,item in pairs(ActivityDungeonWindowNames) do
+                                                                            if item.new then
+                                                                              local node = RedDotManager:GetNodeByObj(item.name, id)
+                                                                              if node then
+                                                                                loge(logStr .. "普通红点ID" .. id .. " " .. tostring(IsAdd))
+                                                                                node.NodeValue = IsAdd
+                                                                              else
+                                                                                loge("红点id" .. id .. "未找到该节点(是否忘了注册？)")
+                                                                              end
+                                                                            end
                                                                           end
                                                                         else
                                                                           do
@@ -710,7 +730,7 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
   end
 end
 
--- DECOMPILER ERROR at PC56: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC76: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.IsContainKey = function(list, key, ...)
   -- function num : 0_15 , upvalues : _ENV
@@ -722,7 +742,7 @@ RedDotMgr.IsContainKey = function(list, key, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC59: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC79: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.ListProcessor = function(list, params, isAdd, ...)
   -- function num : 0_16 , upvalues : _ENV
@@ -759,7 +779,7 @@ RedDotMgr.ListProcessor = function(list, params, isAdd, ...)
   end
 end
 
--- DECOMPILER ERROR at PC62: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC82: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.RegisterRootNode = function(winName, key, parentKey, parentWinName, ...)
   -- function num : 0_17 , upvalues : _ENV
@@ -773,7 +793,7 @@ RedDotMgr.RegisterRootNode = function(winName, key, parentKey, parentWinName, ..
   RedDotManager:RegisterRootNode(winName, key, parentWinName, parentKey, maxDot)
 end
 
--- DECOMPILER ERROR at PC65: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC85: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.RegisterNode = function(winName, key, parentKey, ...)
   -- function num : 0_18 , upvalues : _ENV
@@ -785,7 +805,7 @@ RedDotMgr.RegisterNode = function(winName, key, parentKey, ...)
   RedDotManager:RegisterNode(winName, key, parentKey, baseData.priority, baseData.show_level_limit, baseData.pass_level_limit)
 end
 
--- DECOMPILER ERROR at PC68: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC88: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.RegisterNodeWithList = function(winName, key, parentKey, ...)
   -- function num : 0_19 , upvalues : _ENV
@@ -797,14 +817,14 @@ RedDotMgr.RegisterNodeWithList = function(winName, key, parentKey, ...)
   RedDotManager:RegisterNodeWithList(winName, key, parentKey, baseData.priority, baseData.show_level_limit, baseData.pass_level_limit)
 end
 
--- DECOMPILER ERROR at PC71: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC91: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.RefreshTreeUI = function(winName, ...)
   -- function num : 0_20 , upvalues : _ENV
   RedDotManager:RefreshTreeUI(winName)
 end
 
--- DECOMPILER ERROR at PC74: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC94: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.RefreshOpenUI = function(...)
   -- function num : 0_21 , upvalues : _ENV
@@ -819,7 +839,7 @@ RedDotMgr.RefreshOpenUI = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC77: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC97: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.BindingUI = function(winName, comId, ui, isList, ...)
   -- function num : 0_22 , upvalues : _ENV, winConList
@@ -844,13 +864,13 @@ RedDotMgr.BindingUI = function(winName, comId, ui, isList, ...)
         end
         ;
         (table.insert)(list, ss)
-        loge(winName .. comId .. "未找到该节点")
+        loge(winName .. tostring(comId) .. "未找到该节点")
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC80: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC100: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.RemoveUIRefer = function(winName, ...)
   -- function num : 0_23 , upvalues : winConList, _ENV
@@ -864,14 +884,14 @@ RedDotMgr.RemoveUIRefer = function(winName, ...)
   end
 end
 
--- DECOMPILER ERROR at PC83: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC103: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.EliminateRedDot = function(winName, id, param, ...)
   -- function num : 0_24 , upvalues : _ENV
   (RedDotService.ReqRemoveRedDot)(winName, id, param)
 end
 
--- DECOMPILER ERROR at PC86: Confused about usage of register: R7 in 'UnsetPending'
+-- DECOMPILER ERROR at PC106: Confused about usage of register: R8 in 'UnsetPending'
 
 RedDotMgr.CheckTalentStarEnergy = function(...)
   -- function num : 0_25 , upvalues : _ENV

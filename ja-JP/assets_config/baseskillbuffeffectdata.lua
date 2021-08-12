@@ -314,6 +314,10 @@ BaseSkillBuffEffectData = {
 [906] = {id = 906, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [907] = {id = 907, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "BuffIcon:buff_117", icon_priority = 2, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[908] = {id = 908, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "FX_buff_luka", effect_body_priority = 1, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[909] = {id = 909, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "BuffIcon:buff_909", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 }
 return BaseSkillBuffEffectData
 

@@ -304,5 +304,311 @@ BaseStoryDialogueDataPart25 = {
 [75151535] = {id = 75151535, remark = (PUtil.get)(86206559), type = 1, option_ids = "0", next = 75151536, role_ids = "75201004:75201002", role_type = 75201002, position = "195:606:10000,642:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
 [75151536] = {id = 75151536, remark = (PUtil.get)(86206560), type = 1, option_ids = "0", next = -1, role_ids = "75201010", role_type = 75201010, position = "418:606:10050", role_admission_type = "75201010:0:0", role_departure_type = "75201004:0:0,75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152101] = {id = 75152101, remark = (PUtil.get)(86206561), type = 1, option_ids = "0", next = 75152102, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152102] = {id = 75152102, remark = (PUtil.get)(86206562), type = 1, option_ids = "0", next = 75152103, role_ids = "75201002:75201005", role_type = 75201005, position = "195:606:10000,642:606:10050", role_admission_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152103] = {id = 75152103, remark = (PUtil.get)(86206563), type = 1, option_ids = "0", next = 75152104, role_ids = "75201005:75201004", role_type = 75201004, role_admission_type = "75201004:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152104] = {id = 75152104, remark = (PUtil.get)(86206564), type = 1, option_ids = "0", next = 75152105, role_ids = "75201002:75201004", role_type = 75201002, role_admission_type = "75201002:0:0", role_departure_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152105] = {id = 75152105, remark = (PUtil.get)(86206565), type = 1, option_ids = "0", next = 75152106, role_ids = "75201002:75201004", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152106] = {id = 75152106, remark = (PUtil.get)(86206566), type = 1, option_ids = "0", next = 75152107, role_ids = "75209004", role_type = 75209004, position = "418:606:10050", role_admission_type = "75209004:0:0", role_departure_type = "75201002:0:0,75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152107] = {id = 75152107, remark = (PUtil.get)(86206567), type = 1, option_ids = "0", next = 75152108, role_ids = "75201004", role_type = 75201004, position = "418:606:10050", role_admission_type = "75201004:0:0", role_departure_type = "75209004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152108] = {id = 75152108, remark = (PUtil.get)(86206568), type = 1, option_ids = "0", next = 75152109, role_ids = "75201005", role_type = 75201005, position = "418:606:10050", role_admission_type = "75201005:0:0", role_departure_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152109] = {id = 75152109, remark = (PUtil.get)(86206569), type = 1, option_ids = "0", next = 75152110, role_ids = "75201005:75201003", role_type = 75201003, role_admission_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152110] = {id = 75152110, remark = (PUtil.get)(86206570), type = 1, option_ids = "0", next = 75152111, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_admission_type = "75210018:0:0", role_departure_type = "75201005:0:0,75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152111] = {id = 75152111, remark = (PUtil.get)(86206571), type = 1, option_ids = "0", next = 75152112, role_ids = "75201002:75210018", role_type = 75201002, role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152112] = {id = 75152112, remark = (PUtil.get)(86206572), type = 1, option_ids = "0", next = 75152113, role_ids = "75209001", role_type = 75209001, position = "418:606:10050", role_admission_type = "75209001:0:0", role_departure_type = "75201002:0:0,75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152113] = {id = 75152113, remark = (PUtil.get)(86206573), type = 1, option_ids = "0", next = 75152114, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75209001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152114] = {id = 75152114, remark = (PUtil.get)(86206574), type = 1, option_ids = "0", next = 75152115, role_ids = "75201005", role_type = 75201005, position = "418:606:10050", role_admission_type = "75201005:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152115] = {id = 75152115, remark = (PUtil.get)(86206575), type = 1, option_ids = "0", next = 75152116, role_ids = "75201003:75201005", role_type = 75201003, role_admission_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152116] = {id = 75152116, remark = (PUtil.get)(86206576), type = 1, option_ids = "0", next = 75152117, role_ids = "75201003:75201005", role_type = 75201003, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152117] = {id = 75152117, remark = (PUtil.get)(86206577), type = 1, option_ids = "0", next = 75152118, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", role_admission_type = "75201001:0:0", role_departure_type = "75201003:0:0,75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152118] = {id = 75152118, remark = (PUtil.get)(86206578), type = 1, option_ids = "0", next = 75152119, role_ids = "75201002:75201001", role_type = 75201002, role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152119] = {id = 75152119, remark = (PUtil.get)(86206579), type = 1, option_ids = "0", next = 75152120, role_ids = "75201005:75201002", role_type = 75201005, role_admission_type = "75201005:0:0", role_departure_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152120] = {id = 75152120, remark = (PUtil.get)(86206580), type = 1, option_ids = "75352011:75352012", next = 0, role_ids = "75201002:75201001", role_type = 75201001, role_admission_type = "75201001:0:0", role_departure_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152121] = {id = 75152121, remark = (PUtil.get)(86206581), type = 1, option_ids = "0", next = 75152122, role_ids = "75201002:75201001", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152122] = {id = 75152122, remark = (PUtil.get)(86206582), type = 1, option_ids = "0", next = 75152125, role_ids = "75201002:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152123] = {id = 75152123, remark = (PUtil.get)(86206583), type = 1, option_ids = "0", next = 75152124, role_ids = "75201002:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152124] = {id = 75152124, remark = (PUtil.get)(86206584), type = 1, option_ids = "0", next = 75152125, role_ids = "75201002:75201001", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152125] = {id = 75152125, remark = (PUtil.get)(86206585), type = 1, option_ids = "0", next = 75152126, role_ids = "75201002:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152126] = {id = 75152126, remark = (PUtil.get)(86206586), type = 1, option_ids = "0", next = 75152127, role_ids = "75201002:75201001", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152127] = {id = 75152127, remark = (PUtil.get)(86206587), type = 1, option_ids = "0", next = 75152128, role_ids = "75201002:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152128] = {id = 75152128, remark = (PUtil.get)(86206588), type = 1, option_ids = "0", next = 75152129, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_departure_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152129] = {id = 75152129, remark = (PUtil.get)(86206589), type = 1, option_ids = "0", next = 75152130, role_ids = "75210018:75201002", role_type = 75210018, role_admission_type = "75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152130] = {id = 75152130, remark = (PUtil.get)(86206590), type = 1, option_ids = "0", next = 75152131, role_ids = "75201004", role_type = 75201004, position = "418:606:10050", role_admission_type = "75201004:0:0", role_departure_type = "75210018:0:0,75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152131] = {id = 75152131, remark = (PUtil.get)(86206591), type = 1, option_ids = "0", next = 75152132, role_ids = "75201005:75201004", role_type = 75201005, role_admission_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152132] = {id = 75152132, remark = (PUtil.get)(86206592), type = 1, option_ids = "0", next = 75152133, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", role_admission_type = "75201003:0:0", role_departure_type = "75201005:0:0,75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152133] = {id = 75152133, remark = (PUtil.get)(86206593), type = 1, option_ids = "0", next = 75152134, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152134] = {id = 75152134, remark = (PUtil.get)(86206594), type = 1, option_ids = "0", next = 75152135, role_ids = "75201004:75201003", role_type = 75201004, role_admission_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152135] = {id = 75152135, remark = (PUtil.get)(86206595), type = 1, option_ids = "0", next = 75152136, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_admission_type = "75210018:0:0", role_departure_type = "75201004:0:0,75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152136] = {id = 75152136, remark = (PUtil.get)(86206596), type = 1, option_ids = "0", next = -1, role_ids = "75210018:75201002", role_type = 75201002, role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152201] = {id = 75152201, remark = (PUtil.get)(86206597), type = 1, option_ids = "0", next = 75152202, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_admission_type = "75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152202] = {id = 75152202, remark = (PUtil.get)(86206598), type = 1, option_ids = "0", next = 75152203, role_ids = "75201003:75210018", role_type = 75201003, role_admission_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152203] = {id = 75152203, remark = (PUtil.get)(86206599), type = 1, option_ids = "0", next = 75152204, role_ids = "75201002:75210018", role_type = 75201002, role_admission_type = "75201002:0:0", role_departure_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152204] = {id = 75152204, remark = (PUtil.get)(86206600), type = 1, option_ids = "0", next = 75152205, role_ids = "75201002:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152205] = {id = 75152205, remark = (PUtil.get)(86206601), type = 1, option_ids = "0", next = 75152206, role_ids = "75201002:75210018", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152206] = {id = 75152206, remark = (PUtil.get)(86206602), type = 1, option_ids = "0", next = 75152207, role_ids = "75201002:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152207] = {id = 75152207, remark = (PUtil.get)(86206603), type = 1, option_ids = "0", next = 75152208, role_ids = "75201002:75210018", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152208] = {id = 75152208, remark = (PUtil.get)(86206604), type = 1, option_ids = "0", next = 75152209, role_ids = "75201002:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152209] = {id = 75152209, remark = (PUtil.get)(86206605), type = 1, option_ids = "0", next = 75152210, role_ids = "75201002:75210018", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152210] = {id = 75152210, remark = (PUtil.get)(86206606), type = 1, option_ids = "0", next = 75152211, role_ids = "75210018:75201004", role_type = 75201004, role_admission_type = "75201004:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152211] = {id = 75152211, remark = (PUtil.get)(86206607), type = 1, option_ids = "0", next = 75152212, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", role_admission_type = "75201003:0:0", role_departure_type = "75210018:0:0,75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152212] = {id = 75152212, remark = (PUtil.get)(86206608), type = 1, option_ids = "0", next = 75152213, role_ids = "75201005:75201002", role_type = 75201005, role_admission_type = "75201005:0:0,75201002:0:0", role_departure_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152213] = {id = 75152213, remark = (PUtil.get)(86206609), type = 1, option_ids = "0", next = 75152214, role_ids = "75201005:75201002", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152214] = {id = 75152214, remark = (PUtil.get)(86206610), type = 1, option_ids = "0", next = 75152215, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_admission_type = "75210018:0:0", role_departure_type = "75201005:0:0,75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152215] = {id = 75152215, remark = (PUtil.get)(86206611), type = 1, option_ids = "0", next = 75152216, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152216] = {id = 75152216, remark = (PUtil.get)(86206612), type = 1, option_ids = "0", next = 75152217, role_ids = "75201003:75210018", role_type = 75201003, role_admission_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152217] = {id = 75152217, remark = (PUtil.get)(86206613), type = 1, option_ids = "0", next = 75152218, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_departure_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152218] = {id = 75152218, remark = (PUtil.get)(86206614), type = 1, option_ids = "0", next = 75152219, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152219] = {id = 75152219, remark = (PUtil.get)(86206615), type = 1, option_ids = "0", next = 75152220, role_ids = "75210018:75201004", role_type = 75201004, role_admission_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152220] = {id = 75152220, remark = (PUtil.get)(86206616), type = 1, option_ids = "0", next = 75152221, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_departure_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152221] = {id = 75152221, remark = (PUtil.get)(86206617), type = 1, option_ids = "0", next = 75152222, role_ids = "75201003:75210018", role_type = 75201003, role_admission_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152222] = {id = 75152222, remark = (PUtil.get)(86206618), type = 1, option_ids = "0", next = 75152223, role_ids = "75201003:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152223] = {id = 75152223, remark = (PUtil.get)(86206619), type = 1, option_ids = "0", next = 75152224, role_ids = "75201003:75210018", role_type = 75201003, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152224] = {id = 75152224, remark = (PUtil.get)(86206620), type = 1, option_ids = "0", next = 75152225, role_ids = "75201005", role_type = 75201005, position = "418:606:10050", role_admission_type = "75201005:0:0", role_departure_type = "75201003:0:0,75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152225] = {id = 75152225, remark = (PUtil.get)(86206621), type = 1, option_ids = "0", next = 75152226, role_ids = "75201004:75201005", role_type = 75201004, role_admission_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152226] = {id = 75152226, remark = (PUtil.get)(86206622), type = 1, option_ids = "0", next = 75152227, role_ids = "75201002:75210018", role_type = 75201002, role_admission_type = "75201002:0:0,75210018:0:0", role_departure_type = "75201004:0:0,75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152227] = {id = 75152227, remark = (PUtil.get)(86206623), type = 1, option_ids = "0", next = 75152228, role_ids = "75201002:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152228] = {id = 75152228, remark = (PUtil.get)(86206624), type = 1, option_ids = "0", next = 75152229, role_ids = "75201002:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152229] = {id = 75152229, remark = (PUtil.get)(86206625), type = 1, option_ids = "0", next = 75152230, role_ids = "75201004:75210018", role_type = 75201004, role_admission_type = "75201004:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152230] = {id = 75152230, remark = (PUtil.get)(86206626), type = 1, option_ids = "75352013:75352014", next = 0, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_departure_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152231] = {id = 75152231, remark = (PUtil.get)(86206627), type = 1, option_ids = "0", next = 75152233, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152232] = {id = 75152232, remark = (PUtil.get)(86206628), type = 1, option_ids = "0", next = 75152233, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152233] = {id = 75152233, remark = (PUtil.get)(86206629), type = 1, option_ids = "0", next = 75152234, role_ids = "75201002:75210018", role_type = 75201002, role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152234] = {id = 75152234, remark = (PUtil.get)(86206630), type = 1, option_ids = "0", next = 75152235, role_ids = "75201002:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152235] = {id = 75152235, remark = (PUtil.get)(86206631), type = 1, option_ids = "0", next = -1, role_ids = "75201004:75210018", role_type = 75201004, role_admission_type = "75201004:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152301] = {id = 75152301, remark = (PUtil.get)(86206632), type = 1, option_ids = "0", next = 75152302, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_admission_type = "75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152302] = {id = 75152302, remark = (PUtil.get)(86206633), type = 1, option_ids = "0", next = 75152303, role_ids = "75201004:75210018", role_type = 75201004, role_admission_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152303] = {id = 75152303, remark = (PUtil.get)(86206634), type = 1, option_ids = "0", next = 75152304, role_ids = "75201005", role_type = 75201005, position = "418:606:10050", role_admission_type = "75201005:0:0", role_departure_type = "75201004:0:0,75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152304] = {id = 75152304, remark = (PUtil.get)(86206635), type = 1, option_ids = "0", next = 75152305, role_ids = "75201005:75201001", role_type = 75201001, role_admission_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152305] = {id = 75152305, remark = (PUtil.get)(86206636), type = 1, option_ids = "0", next = 75152306, role_ids = "75201004:75201001", role_type = 75201004, role_admission_type = "75201004:0:0", role_departure_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152306] = {id = 75152306, remark = (PUtil.get)(86206637), type = 1, option_ids = "0", next = 75152307, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75201004:0:0,75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152307] = {id = 75152307, remark = (PUtil.get)(86206638), type = 1, option_ids = "0", next = 75152308, role_ids = "75201004:75201001", role_type = 75201004, role_admission_type = "75201004:0:0,75201001:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152308] = {id = 75152308, remark = (PUtil.get)(86206639), type = 1, option_ids = "0", next = 75152309, role_ids = "75201004:75201001", role_type = 75201004, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152309] = {id = 75152309, remark = (PUtil.get)(86206640), type = 1, option_ids = "0", next = 75152310, role_ids = "75201004:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152310] = {id = 75152310, remark = (PUtil.get)(86206641), type = 1, option_ids = "0", next = 75152311, role_ids = "75201001:75201002", role_type = 75201002, role_admission_type = "75201002:0:0", role_departure_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152311] = {id = 75152311, remark = (PUtil.get)(86206642), type = 1, option_ids = "0", next = 75152312, role_ids = "75201005", role_type = 75201005, position = "418:606:10050", role_admission_type = "75201005:0:0", role_departure_type = "75201001:0:0,75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152312] = {id = 75152312, remark = (PUtil.get)(86206643), type = 1, option_ids = "0", next = 75152313, role_ids = "75201005", role_type = 75201005, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152313] = {id = 75152313, remark = (PUtil.get)(86206644), type = 1, option_ids = "0", next = 75152314, role_ids = "75201001:75201002", role_type = 75201002, role_admission_type = "75201001:0:0,75201002:0:0", role_departure_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152314] = {id = 75152314, remark = (PUtil.get)(86206645), type = 1, option_ids = "0", next = 75152315, role_ids = "75201001:75201002", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152315] = {id = 75152315, remark = (PUtil.get)(86206646), type = 1, option_ids = "0", next = 75152316, role_ids = "75201001:75201002", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152316] = {id = 75152316, remark = (PUtil.get)(86206647), type = 1, option_ids = "0", next = 75152317, role_ids = "75201001:75201002", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152317] = {id = 75152317, remark = (PUtil.get)(86206648), type = 1, option_ids = "0", next = 75152318, role_ids = "75210018:75201001", role_type = 75210018, role_admission_type = "75210018:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152318] = {id = 75152318, remark = (PUtil.get)(86206649), type = 1, option_ids = "0", next = 75152319, role_ids = "75210018:75201002", role_type = 75201002, role_admission_type = "75201002:0:0", role_departure_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152319] = {id = 75152319, remark = (PUtil.get)(86206650), type = 1, option_ids = "0", next = 75152320, role_ids = "75210018:75201002", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152320] = {id = 75152320, remark = (PUtil.get)(86206651), type = 1, option_ids = "0", next = 75152321, role_ids = "75210018:75201002", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152321] = {id = 75152321, remark = (PUtil.get)(86206652), type = 1, option_ids = "0", next = 75152322, role_ids = "75210018:75201001", role_type = 75201001, role_admission_type = "75201001:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152322] = {id = 75152322, remark = (PUtil.get)(86206653), type = 1, option_ids = "0", next = 75152323, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_departure_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152323] = {id = 75152323, remark = (PUtil.get)(86206654), type = 1, option_ids = "0", next = -1, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152401] = {id = 75152401, remark = (PUtil.get)(86206655), type = 1, option_ids = "0", next = 75152402, role_ids = "75210018", role_type = 75210018, position = "418:606:10050", role_admission_type = "75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152402] = {id = 75152402, remark = (PUtil.get)(86206656), type = 1, option_ids = "0", next = 75152403, role_ids = "75201001:75210018", role_type = 75201001, role_admission_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152403] = {id = 75152403, remark = (PUtil.get)(86206657), type = 1, option_ids = "0", next = 75152404, role_ids = "75201001:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152404] = {id = 75152404, remark = (PUtil.get)(86206658), type = 1, option_ids = "0", next = 75152405, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", role_admission_type = "75201003:0:0", role_departure_type = "75201001:0:0,75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152405] = {id = 75152405, remark = (PUtil.get)(86206659), type = 1, option_ids = "0", next = 75152406, role_ids = "75201001:75210018", role_type = 75201001, role_admission_type = "75201001:0:0,75210018:0:0", role_departure_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152406] = {id = 75152406, remark = (PUtil.get)(86206660), type = 1, option_ids = "0", next = 75152407, role_ids = "75201001:75210018", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152407] = {id = 75152407, remark = (PUtil.get)(86206661), type = 1, option_ids = "0", next = 75152408, role_ids = "75201001:75210018", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152408] = {id = 75152408, remark = (PUtil.get)(86206662), type = 1, option_ids = "0", next = 75152409, role_ids = "75201001:75210018", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152409] = {id = 75152409, remark = (PUtil.get)(86206663), type = 1, option_ids = "0", next = 75152410, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", role_admission_type = "75201003:0:0", role_departure_type = "75201001:0:0,75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152410] = {id = 75152410, remark = (PUtil.get)(86206664), type = 1, option_ids = "0", next = 75152411, role_ids = "75201003:75201001", role_type = 75201001, role_admission_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152411] = {id = 75152411, remark = (PUtil.get)(86206665), type = 1, option_ids = "0", next = 75152412, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75201003:0:0,75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152412] = {id = 75152412, remark = (PUtil.get)(86206666), type = 1, option_ids = "0", next = 75152413, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152413] = {id = 75152413, remark = (PUtil.get)(86206667), type = 1, option_ids = "0", next = 75152414, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", role_admission_type = "75201001:0:0", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152414] = {id = 75152414, remark = (PUtil.get)(86206668), type = 1, option_ids = "75352015:75352016", next = 0, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152415] = {id = 75152415, remark = (PUtil.get)(86206669), type = 1, option_ids = "0", next = 75152416, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152416] = {id = 75152416, remark = (PUtil.get)(86206670), type = 1, option_ids = "0", next = 75152419, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152417] = {id = 75152417, remark = (PUtil.get)(86206671), type = 1, option_ids = "0", next = 75152418, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152418] = {id = 75152418, remark = (PUtil.get)(86206672), type = 1, option_ids = "0", next = 75152419, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152419] = {id = 75152419, remark = (PUtil.get)(86206673), type = 1, option_ids = "0", next = 75152420, role_ids = "75210018:75201001", role_type = 75210018, role_admission_type = "75210018:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152420] = {id = 75152420, remark = (PUtil.get)(86206674), type = 1, option_ids = "0", next = 75152421, role_ids = "75210018:75201001", role_type = 75210018, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152421] = {id = 75152421, remark = (PUtil.get)(86206675), type = 1, option_ids = "0", next = 75152422, role_ids = "75210018:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152422] = {id = 75152422, remark = (PUtil.get)(86206676), type = 1, option_ids = "0", next = 75152423, role_ids = "75201005", role_type = 75201005, position = "418:606:10050", role_admission_type = "75201005:0:0", role_departure_type = "75210018:0:0,75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152423] = {id = 75152423, remark = (PUtil.get)(86206677), type = 1, option_ids = "0", next = -1, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152501] = {id = 75152501, remark = (PUtil.get)(86206678), type = 1, option_ids = "0", next = 75152502, role_ids = "75201020", role_type = 75201020, position = "418:606:10050", role_admission_type = "75201020:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152502] = {id = 75152502, remark = (PUtil.get)(86206679), type = 1, option_ids = "0", next = 75152503, role_ids = "75201001:75201020", role_type = 75201001, role_admission_type = "75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152503] = {id = 75152503, remark = (PUtil.get)(86206680), type = 1, option_ids = "0", next = 75152504, role_ids = "75201001:75201020", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152504] = {id = 75152504, remark = (PUtil.get)(86206681), type = 1, option_ids = "0", next = 75152505, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", role_admission_type = "75201003:0:0", role_departure_type = "75201001:0:0,75201020:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152505] = {id = 75152505, remark = (PUtil.get)(86206682), type = 1, option_ids = "0", next = 75152506, role_ids = "75210043", role_type = 75210043, position = "418:606:10050", role_admission_type = "75210043:0:0", role_departure_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152506] = {id = 75152506, remark = (PUtil.get)(86206683), type = 1, option_ids = "75352017:75352018", next = 0, role_ids = "75210043", role_type = 75210043, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152507] = {id = 75152507, remark = (PUtil.get)(86206684), type = 1, option_ids = "0", next = 75152508, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", role_admission_type = "75201001:0:0", role_departure_type = "75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152508] = {id = 75152508, remark = (PUtil.get)(86206685), type = 1, option_ids = "0", next = 75152512, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75201001:0:0,75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152509] = {id = 75152509, remark = (PUtil.get)(86206686), type = 1, option_ids = "0", next = 75152510, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", role_admission_type = "75201001:0:0", role_departure_type = "75201002:0:0,75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152510] = {id = 75152510, remark = (PUtil.get)(86206687), type = 1, option_ids = "0", next = 75152511, role_ids = "75201005:75201001", role_type = 75201005, role_admission_type = "75201005:0:0", role_departure_type = "75201002:0:0,75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152511] = {id = 75152511, remark = (PUtil.get)(86206688), type = 1, option_ids = "0", next = 75152512, role_ids = "75201005:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152512] = {id = 75152512, remark = (PUtil.get)(86206689), type = 1, option_ids = "0", next = 75152513, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", role_departure_type = "75201005:0:0,75201002:0:0,75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152513] = {id = 75152513, remark = (PUtil.get)(86206690), type = 1, option_ids = "0", next = 75152514, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152514] = {id = 75152514, remark = (PUtil.get)(86206691), type = 1, option_ids = "0", next = 75152515, role_ids = "75201002:75201001", role_type = 75201002, role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152515] = {id = 75152515, remark = (PUtil.get)(86206692), type = 1, option_ids = "0", next = 75152516, role_ids = "75201002:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152516] = {id = 75152516, remark = (PUtil.get)(86206693), type = 1, option_ids = "0", next = 75152517, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", role_departure_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152517] = {id = 75152517, remark = (PUtil.get)(86206694), type = 1, option_ids = "0", next = 75152518, role_ids = "75210043:75201001", role_type = 75210043, role_admission_type = "75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152518] = {id = 75152518, remark = (PUtil.get)(86206695), type = 1, option_ids = "0", next = 75152519, role_ids = "75210043:75201001", role_type = 75210043, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152519] = {id = 75152519, remark = (PUtil.get)(86206696), type = 1, option_ids = "0", next = 75152520, role_ids = "75210043:75201001", role_type = 75210043, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152520] = {id = 75152520, remark = (PUtil.get)(86206697), type = 1, option_ids = "0", next = 75152521, role_ids = "75210043:75201001", role_type = 75210043, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152521] = {id = 75152521, remark = (PUtil.get)(86206698), type = 1, option_ids = "0", next = 75152522, role_ids = "75201004", role_type = 75201004, position = "418:606:10050", role_admission_type = "75201004:0:0", role_departure_type = "75210043:0:0,75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152522] = {id = 75152522, remark = (PUtil.get)(86206699), type = 1, option_ids = "0", next = 75152523, role_ids = "75201020:75201004", role_type = 75201020, role_admission_type = "75201020:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152523] = {id = 75152523, remark = (PUtil.get)(86206700), type = 1, option_ids = "0", next = 75152524, role_ids = "75201020:75201001", role_type = 75201001, role_admission_type = "75201001:0:0", role_departure_type = "75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152524] = {id = 75152524, remark = (PUtil.get)(86206701), type = 1, option_ids = "0", next = 75152525, role_ids = "75201001:75201004", role_type = 75201004, role_admission_type = "75201004:0:0", role_departure_type = "75201020:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152525] = {id = 75152525, remark = (PUtil.get)(86206702), type = 1, option_ids = "0", next = 75152526, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", role_admission_type = "75201003:0:0", role_departure_type = "75201001:0:0,75201004:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152526] = {id = 75152526, remark = (PUtil.get)(86206703), type = 1, option_ids = "0", next = 75152527, role_ids = "75210043:75201003", role_type = 75210043, role_admission_type = "75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152527] = {id = 75152527, remark = (PUtil.get)(86206704), type = 1, option_ids = "0", next = 75152528, role_ids = "75210043:75201001", role_type = 75210043, role_admission_type = "75201001:0:0", role_departure_type = "75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152528] = {id = 75152528, remark = (PUtil.get)(86206705), type = 1, option_ids = "0", next = 75152529, role_ids = "75210043:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152529] = {id = 75152529, remark = (PUtil.get)(86206706), type = 1, option_ids = "0", next = 75152530, role_ids = "75201001", role_type = 75201001, position = "418:606:10050", role_departure_type = "75210043:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152530] = {id = 75152530, remark = (PUtil.get)(86206707), type = 1, option_ids = "0", next = 75152531, role_ids = "75201002:75201001", role_type = 75201002, role_admission_type = "75201002:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152531] = {id = 75152531, remark = (PUtil.get)(86206708), type = 1, option_ids = "0", next = 75152532, role_ids = "75201002:75201001", role_type = 75201001, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152532] = {id = 75152532, remark = (PUtil.get)(86206709), type = 1, option_ids = "0", next = 75152533, role_ids = "75201002:75201001", role_type = 75201002, scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152533] = {id = 75152533, remark = (PUtil.get)(86206710), type = 1, option_ids = "0", next = 75152534, role_ids = "75201003", role_type = 75201003, position = "418:606:10050", role_admission_type = "75201003:0:0", role_departure_type = "75201002:0:0,75201001:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152534] = {id = 75152534, remark = (PUtil.get)(86206711), type = 1, option_ids = "0", next = 75152535, role_ids = "75201005:75201003", role_type = 75201005, role_admission_type = "75201005:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152535] = {id = 75152535, remark = (PUtil.get)(86206712), type = 1, option_ids = "0", next = 75152536, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", role_admission_type = "75201002:0:0", role_departure_type = "75201005:0:0,75201003:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+, 
+[75152536] = {id = 75152536, remark = (PUtil.get)(86206713), type = 1, option_ids = "0", next = -1, role_ids = "75201002", role_type = 75201002, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 }
 

@@ -107,4 +107,40 @@ SlotsData.GetItemTimes = function(round, poolId, ...)
   return 0
 end
 
+local cachedSlotsDataItem = nil
+-- DECOMPILER ERROR at PC35: Confused about usage of register: R2 in 'UnsetPending'
+
+SlotsData.GetCurrentSlotsData = function(...)
+  -- function num : 0_8 , upvalues : _ENV, cachedSlotsDataItem
+  local activityId = (ActivityDungeonData.GetCurrentActivityDungeonId)()
+  if cachedSlotsDataItem == nil or cachedSlotsDataItem.activity_id ~= activityId then
+    cachedSlotsDataItem = nil
+    for i,slotsDataItem in pairs((TableData.gTable).BaseSlotsData) do
+      if slotsDataItem.activity_id == activityId then
+        cachedSlotsDataItem = slotsDataItem
+        break
+      end
+    end
+  end
+  do
+    return cachedSlotsDataItem
+  end
+end
+
+-- DECOMPILER ERROR at PC38: Confused about usage of register: R2 in 'UnsetPending'
+
+SlotsData.GetUITypeBySlotsType = function(type, ...)
+  -- function num : 0_9 , upvalues : _ENV
+  local uitype = -1
+  for i,slotsDataItem in pairs((TableData.gTable).BaseSlotsData) do
+    if slotsDataItem.type == type then
+      uitype = slotsDataItem.ui_type
+      break
+    end
+  end
+  do
+    return uitype
+  end
+end
+
 

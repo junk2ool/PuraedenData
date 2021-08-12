@@ -51,31 +51,26 @@ PlotDungeonService.OnResStoryInfo = function(msg, ...)
           (PlotDungeonMgr.CurrentHeroChapter)((storyChapter[#storyChapter]).id)
         else
           do
-            if msg.type == DungeonType.ActivityDungeon then
+            if msg.type == DungeonType.ActivityDungeon or msg.type == (ProtoEnum.E_CHALLENGE_TYPE).NEW_ACTIVITY_CHALLENGE then
               local storyChapter = msg.chapterInfo
               ;
               (PlotDungeonMgr.GetActivityDungeonPlayerFc)((storyChapter[1]).playerActivityFc)
               local activityFirstOpen = (storyChapter[1]).activityFirstOpen
-              OpenWindow((WinResConfig.ActivityDungeonMainWindow).name, UILayer.HUD, activityFirstOpen)
+              -- DECOMPILER ERROR at PC80: Confused about usage of register: R3 in 'UnsetPending'
+
+              ActivityDungeonData.IsFirstOpen = activityFirstOpen
+              ;
+              (ActivityService.ReqCurrentActivityDungeonInfo)()
             else
               do
                 do
-                  if not (msg.chapterInfo)[1] or not ((msg.chapterInfo)[1]).activityFirstOpen then
-                    local activityFirstOpen = msg.type ~= (ProtoEnum.E_CHALLENGE_TYPE).NEW_ACTIVITY_CHALLENGE or 0
+                  if msg.type == DungeonType.TowerExpand then
+                    local storyChapter = msg.chapterInfo
+                    ;
+                    (PlotDungeonMgr.GetTowerExpandFcPlayerFc)((storyChapter[1]).playerActivityFc)
                   end
-                  -- DECOMPILER ERROR at PC109: Confused about usage of register: R2 in 'UnsetPending'
-
-                  NewActivityDungeonData.PlayerFC = (msg.chapterInfo)[1] and ((msg.chapterInfo)[1]).playerActivityFc or 0
-                  OpenWindow((WinResConfig.NewActivityDungeonWindow).name, UILayer.HUD, activityFirstOpen)
-                  do
-                    if msg.type == DungeonType.TowerExpand then
-                      local storyChapter = msg.chapterInfo
-                      ;
-                      (PlotDungeonMgr.GetTowerExpandFcPlayerFc)((storyChapter[1]).playerActivityFc)
-                    end
-                    if msg.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
-                      UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
-                    end
+                  if msg.type == (ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE then
+                    UIMgr:SendWindowMessage((WinResConfig.HeroDungeonMainWindow).name, (WindowMsgEnum.PlotPlayWindow).E_MSG_ENEMY_REFRESH)
                   end
                 end
               end

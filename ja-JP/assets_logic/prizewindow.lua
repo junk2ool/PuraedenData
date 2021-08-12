@@ -323,7 +323,7 @@ PrizeWindow.PlaySingleAni = function(poolID, func, ...)
   ;
   (GRoot.inst).touchable = false
   ;
-  (LuaEffect.CreateEffectToObj)("FX_ui_yifanshang_2", true, item, Vector2(90, 100))
+  (LuaEffect.CreateEffectToObj)("FX_ui_yifanshang_2", true, item, Vector2(90, 75))
   ;
   (SimpleTimer.setTimeout)(0.7, function(...)
     -- function num : 0_15_0 , upvalues : _ENV, func, PrizeWindow
@@ -360,7 +360,7 @@ PrizeWindow.PlayTenAni = function(poolsID, func, ...)
     local num = (math.random)(1, freeNum)
     local item = freeItem[num]
     ;
-    (LuaEffect.CreateEffectToObj)("FX_ui_yifanshang_1", true, item, Vector2(90, 100))
+    (LuaEffect.CreateEffectToObj)("FX_ui_yifanshang_1", true, item, Vector2(90, 75))
   end
 , function(...)
     -- function num : 0_16_1 , upvalues : _ENV, poolsID, RewardShow, func, PrizeWindow
@@ -370,7 +370,7 @@ PrizeWindow.PlayTenAni = function(poolsID, func, ...)
         local poolData = ((TableData.gTable).BaseSlotsPoolData)[v]
         local item = RewardShow:GetChild("Item_" .. poolData.sort)
         ;
-        (LuaEffect.CreateEffectToObj)("FX_ui_yifanshang_2", true, item, Vector2(90, 100))
+        (LuaEffect.CreateEffectToObj)("FX_ui_yifanshang_2", true, item, Vector2(90, 75))
       end
       ;
       (SimpleTimer.setTimeout)(1, function(...)

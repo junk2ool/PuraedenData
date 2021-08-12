@@ -218,11 +218,8 @@ ActorService.OnResGoodsChange = function(msg, ...)
 )
     else
       if msg.reqMsgId == (Proto.MsgIdByName).ReqSlotsOperation then
-        if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-          UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonExchangeWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_SHOW_RESULT, {msg.goods, msg.equip})
-        else
-          UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_SHOW_RESULT, {msg.goods, msg.equip})
-        end
+        UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_SHOW_RESULT, {msg.goods, msg.equip})
+        UIMgr:SendWindowMessage((WinResConfig.PrizeWindow).name, (WindowMsgEnum.PrizeWindow).E_MSG_SLOTS_RESULT, {msg.goods, msg.equip})
       else
         if msg.reqMsgId == (Proto.MsgIdByName).ReqLotteryConversion then
           (ActorService.OtherWayToGetCardShowForLotteryExchange)(msg.goods, function(...)

@@ -503,11 +503,11 @@
 , 
 [75210014] = {id = 75210014, name = "メリ", role_path = "img_12010014", effect_path = "FIGHT_KILL", fashion_id = "15010014", offset = "0:70"}
 , 
-[75210015] = {id = 75210015, name = "シルヴィ", role_path = "img_12010015", effect_path = "FIGHT_KILL", fashion_id = "15010015", offset = "10:70"}
+[75210015] = {id = 75210015, name = "アドリア", role_path = "img_12010015", effect_path = "FIGHT_KILL", fashion_id = "15010015", offset = "10:70"}
 , 
 [75210016] = {id = 75210016, name = "レナ", role_path = "img_12010016", effect_path = "FIGHT_KILL", fashion_id = "15010016", offset = "-5:95"}
 , 
-[75210017] = {id = 75210017, name = "りんりんこ", role_path = "img_12010017", effect_path = "FIGHT_KILL", fashion_id = "15010017", offset = "25:45"}
+[75210017] = {id = 75210017, name = "りりこ", role_path = "img_12010017", effect_path = "FIGHT_KILL", fashion_id = "15010017", offset = "25:45"}
 , 
 [75210018] = {id = 75210018, name = "ハリー", role_path = "img_12020001", effect_path = "FIGHT_KILL", fashion_id = "15020001", offset = "50:-70"}
 , 
@@ -697,7 +697,7 @@
 , 
 [75210111] = {id = 75210111, name = "オーナー", role_path = "img_13010008", effect_path = "FIGHT_KILL", fashion_id = "15040009", offset = "20:-230"}
 , 
-[75203001] = {id = 75203001, name = "犀角山豚", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
+[75203001] = {id = 75203001, name = "山豚", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 
 [75203002] = {id = 75203002, name = "森の長い羽の鳥", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010019"}
 , 
@@ -733,11 +733,11 @@
 , 
 [75203018] = {id = 75203018, name = "メリ", role_path = "npcCardSpine_12010014", effect_path = "FIGHT_KILL", fashion_id = "15010014", offset = "0:70"}
 , 
-[75203019] = {id = 75203019, name = "シルヴィ", role_path = "l2d_12010015", effect_path = "FIGHT_KILL", fashion_id = "15010015", offset = "10:70"}
+[75203019] = {id = 75203019, name = "アドリア", role_path = "l2d_12010015", effect_path = "FIGHT_KILL", fashion_id = "15010015", offset = "10:70"}
 , 
 [75203020] = {id = 75203020, name = "レナ", role_path = "npcCardSpine_12010016", effect_path = "FIGHT_KILL", fashion_id = "15010016", offset = "-5:95"}
 , 
-[75203021] = {id = 75203021, name = "りんりんこ", role_path = "npcCardSpine_12010017", effect_path = "FIGHT_KILL", fashion_id = "15010017", offset = "25:45"}
+[75203021] = {id = 75203021, name = "りりこ", role_path = "npcCardSpine_12010017", effect_path = "FIGHT_KILL", fashion_id = "15010017", offset = "25:45"}
 , 
 [75203022] = {id = 75203022, name = "荒漠グリフォン", effect_path = "FIGHT_KILL", fashion_id = "15010022"}
 , 

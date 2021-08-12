@@ -1,5 +1,5 @@
 {
-[51400001] = {id = 51400001, name = "大図書館を訪ねて", icon = "ActivityDungeon:ActivityDungeon_1", normal_chapter = 51410011, hard_chapter = 51420011, sort = 1, activity_id = 33000101}
+[51400001] = {id = 51400001, name = "届け！遠海よりの唄", icon = "ActivityDungeon:ActivityDungeon_1", normal_chapter = 51410001, hard_chapter = 51420001, sort = 1, activity_id = 33000101}
 , 
 [51400002] = {id = 51400002, name = "脱出！無人島？", icon = "ActivityDungeon:ActivityDungeon_1", normal_chapter = 51610101, hard_chapter = 0, sort = 2, set_style = "ActivityDungeonTwo:Map_3", activity_id = 33001401}
 , 

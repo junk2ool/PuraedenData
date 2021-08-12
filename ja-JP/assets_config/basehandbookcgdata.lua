@@ -173,9 +173,9 @@ BaseHandbookCGData = {
 , 
 [26131060] = {id = 26131060, name = (PUtil.get)(86502001), remark = (PUtil.get)(86602001), des = (PUtil.get)(90000001, (PUtil.get)(86400040)), type = 2, chapter_id = 11301006, index = 50, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 
-[26300101] = {id = 26300101, name = (PUtil.get)(86508001), remark = (PUtil.get)(86608001), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92108001", fashion_id = "92108001", activity_sort = 1, activity_name = (PUtil.get)(90100001), open_time = 0}
+[26300101] = {id = 26300101, name = (PUtil.get)(86508001), remark = (PUtil.get)(86608001), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92108001", fashion_id = "92108001", activity_sort = 1, activity_name = (PUtil.get)(90100001), open_time = 1596157200}
 , 
-[26300102] = {id = 26300102, name = (PUtil.get)(86508002), remark = (PUtil.get)(86608002), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410001, index = 2, icon = "HandBookCGBanner:92108002", fashion_id = "92108002", activity_sort = 1, activity_name = (PUtil.get)(90100001), open_time = 0}
+[26300102] = {id = 26300102, name = (PUtil.get)(86508002), remark = (PUtil.get)(86608002), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410001, index = 2, icon = "HandBookCGBanner:92108002", fashion_id = "92108002", activity_sort = 1, activity_name = (PUtil.get)(90100001), open_time = 1596157200}
 , 
 [26300201] = {id = 26300201, name = (PUtil.get)(86508003), remark = (PUtil.get)(86608003), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410002, index = 1, icon = "HandBookCGBanner:92108003", fashion_id = "92108003", activity_sort = 2, activity_name = (PUtil.get)(90100002), open_time = 0}
 , 
@@ -221,7 +221,7 @@ BaseHandbookCGData = {
 , 
 [26301104] = {id = 26301104, name = (PUtil.get)(86508046), remark = (PUtil.get)(86608046), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410012, index = 2, icon = "HandBookCGBanner:92108046", fashion_id = "92108046", activity_sort = 12, activity_name = (PUtil.get)(90100012), open_time = 1625014800}
 , 
-[26301105] = {id = 26301105, name = (PUtil.get)(86508047), remark = (PUtil.get)(86608047), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410013, index = 1, icon = "HandBookCGBanner:92108047", fashion_id = "92108047", activity_sort = 13, activity_name = (PUtil.get)(90100013), open_time = 1627693200}
+[26301105] = {id = 26301105, name = (PUtil.get)(86508047), remark = (PUtil.get)(86608047), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410013, index = 1, icon = "HandBookCGBanner:92108047", fashion_id = "92108047", activity_sort = 13, activity_name = (PUtil.get)(90100013), open_time = 1625014800}
 }
 return BaseHandbookCGData
 

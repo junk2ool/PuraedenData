@@ -74,28 +74,38 @@ end
 TowerExpandBattleWindow.LoadStageList = function(config, list, ...)
   -- function num : 0_4 , upvalues : _ENV
   list:RemoveChildrenToPool()
+  ;
+  (list.itemPool):Clear()
   local stageIdList = split(config.stages, ":")
   local stageCount = #stageIdList
   local battleTipsBtnUrl = UIMgr:GetItemUrl("Tower", "BattleTipsBtn")
   for i = 1, stageCount do
-    local item = list:AddItemFromPool(battleTipsBtnUrl)
+    local stageId = tonumber(stageIdList[i])
     do
-      local stageId = tonumber(stageIdList[i])
       local stageConfig = ((TableData.gTable).BaseTowerStageData)[stageId]
       local data = ((TowerTopStageData.BaseInfo)[stageConfig.tower_id])[stageConfig.id]
+      local item = list:AddItemFromPool(battleTipsBtnUrl)
+      item.alpha = 0
       local battleTips = item:GetChild("BattleTips")
       ;
       (battleTips:GetChild("NameTxt")).text = stageConfig.name
       ;
       (battleTips:GetChild("PicLoader")).url = (Util.GetItemUrl)(stageConfig.exstage_icon)
-      PlayUITrans(item, "up", nil, i * 0.05)
+      ;
+      (SimpleTimer.setTimeout)(0.05 * i, function(...)
+    -- function num : 0_4_0 , upvalues : item, _ENV
+    item.alpha = 1
+    PlayUITrans(item, "up", nil)
+  end
+)
       if data ~= nil and i <= (TowerTopStageData.UnlockStage)[stageConfig.tower_id] then
         if data.isPass then
+          ChangeUIController(item, "c1", 0)
           if data.challengeRound < 0 then
             (battleTips:GetController("c1")).selectedIndex = 0
             ;
             (battleTips.onClick):Set(function(...)
-    -- function num : 0_4_0 , upvalues : _ENV, stageConfig
+    -- function num : 0_4_1 , upvalues : _ENV, stageConfig
     (LuaSound.PlaySound)(LuaSound.COMMON_POP_WIN, SoundBank.OTHER)
     ;
     (TowerTopStageMgr.CurStageId)(stageConfig.id)
@@ -107,14 +117,14 @@ TowerExpandBattleWindow.LoadStageList = function(config, list, ...)
               (battleTips:GetController("c1")).selectedIndex = 2
               ;
               (battleTips.onClick):Set(function(...)
-    -- function num : 0_4_1 , upvalues : _ENV
+    -- function num : 0_4_2 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(40002086))
   end
 )
             else
               ;
               (battleTips.onClick):Set(function(...)
-    -- function num : 0_4_2 , upvalues : _ENV, stageConfig
+    -- function num : 0_4_3 , upvalues : _ENV, stageConfig
     (LuaSound.PlaySound)(LuaSound.COMMON_POP_WIN, SoundBank.OTHER)
     ;
     (TowerTopStageMgr.CurStageId)(stageConfig.id)
@@ -124,11 +134,12 @@ TowerExpandBattleWindow.LoadStageList = function(config, list, ...)
             end
           end
         else
+          ChangeUIController(item, "c1", 1)
           ;
           (battleTips:GetController("c1")).selectedIndex = 0
           ;
           (battleTips.onClick):Set(function(...)
-    -- function num : 0_4_3 , upvalues : _ENV, stageConfig
+    -- function num : 0_4_4 , upvalues : _ENV, stageConfig
     (LuaSound.PlaySound)(LuaSound.COMMON_POP_WIN, SoundBank.OTHER)
     ;
     (TowerTopStageMgr.CurStageId)(stageConfig.id)
@@ -141,7 +152,7 @@ TowerExpandBattleWindow.LoadStageList = function(config, list, ...)
         (battleTips:GetController("c1")).selectedIndex = 1
         ;
         (battleTips.onClick):Set(function(...)
-    -- function num : 0_4_4 , upvalues : _ENV
+    -- function num : 0_4_5 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(60000091))
   end
 )

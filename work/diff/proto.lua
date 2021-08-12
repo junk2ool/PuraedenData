@@ -6500,12 +6500,12 @@ message ShopData{
 //请求商店格子
 message ReqShopGridData{
 
-	int32 shopType                        = 1;//商店的唯一id
+	int32 shopId                        = 1;//商店的唯一id
 
 }
 
 message ResShopGridData{
-	int32 shopType              		    = 1;
+	int32 shopId              		    = 1;
 	ConfigTime   updateTime   			= 2;//商店的更新时间
 	repeated ShopGridData shopGridData  = 3;
 	int32 resetNum                      = 4;//商店刷新次数
@@ -6523,12 +6523,12 @@ message ShopGridData{
 
 //请求刷新商店
 message ReqShopReset{
-	int32 shopType                            = 1;//商店的唯一id
+	int32 shopId                            = 1;//商店的唯一id
 }
 
 //商店刷新 
 message ResShopReset{
-	int32 shopType              			    = 1;
+	int32 shopId              			    = 1;
 	ConfigTime   updateTime   				= 2;//商店的更新时间
 	repeated ShopGridData shopGridData      = 3;//
 	int32 resetNum                          = 4;//商店刷新次数
@@ -6537,7 +6537,7 @@ message ResShopReset{
 //商店购买
 message ReqShopBuy{
 	
-	int32 shopType             = 1;//商店的唯一id
+	int32 shopId             = 1;//商店的唯一id
 	int32 shopGridId         = 2;//商店格子id
 	int32 shopPoolId         = 3;//商品池id
 	int32 shopNum            = 4;//购买个数 服务器需要判断 如果该数量够大于可购买数量 按照可购买数量处理
@@ -6548,7 +6548,7 @@ message ReqShopBuy{
 message ResShopBuy{
 	bool success                = 1;//购买是够成功  如果成功 才返回更新数据 失败则不返回
 	ShopGridData shopGridData   = 2;//商店购买之后更新商店数据结构
-	int32 shopType                = 3;//商店的唯一id
+	int32 shopId                = 3;//商店的唯一id
 }
 
 //809获取购买资源次数

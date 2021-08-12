@@ -244,8 +244,11 @@ ActivityService.ResActivityInfo = function(msg, ...)
     (ActivityMgr.InitSevenDayTaskData)(msg)
     OpenWindow((WinResConfig.ActivityCarnivalWindow).name, UILayer.HUD)
   else
-    if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).ActivityDungeon then
+    if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).ActivityDungeon or (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).NewActivityDungeon then
       (ActivityMgr.InitActivityDungeonData)(msg)
+      ;
+      (ActivityDungeonData.Init)(msg.baseActivityInfo)
+      OpenWindow((WinResConfig.ActivityDungeonMainWindow).name, UILayer.HUD, ActivityDungeonData.IsFirstOpen or 0)
       UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonMainWindow).name, (WindowMsgEnum.ActivityMainDungeon).E_MSG_SET_TIME)
     else
       if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Drop_Multiple then
@@ -282,15 +285,8 @@ ActivityService.ResActivityInfo = function(msg, ...)
                 if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Return then
                   (ActivityReturnMgr.RecvActivityData)(msg)
                 else
-                  -- DECOMPILER ERROR at PC160: Confused about usage of register: R1 in 'UnsetPending'
-
-                  if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).NewActivityDungeon then
-                    NewActivityDungeonData.NADData = msg.baseActivityInfo
-                    UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonWindow).name, (WindowMsgEnum.ActivityMainDungeon).E_MSG_REFRESH_UI)
-                  else
-                    if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).TowerExpand then
-                      (ActivityMgr.InitTowerExpandData)(msg)
-                    end
+                  if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).TowerExpand then
+                    (ActivityMgr.InitTowerExpandData)(msg)
                   end
                 end
               end
@@ -614,6 +610,19 @@ ActivityService.OnResGetReward = function(msg, ...)
 )
     end
   end
+end
+
+-- DECOMPILER ERROR at PC118: Confused about usage of register: R0 in 'UnsetPending'
+
+ActivityService.ReqCurrentActivityDungeonInfo = function(...)
+  -- function num : 0_38 , upvalues : _ENV
+  local actId = (ActivityMgr.GetCurrentActivityDungeonId)()
+  if not actId or actId == -1 then
+    loge("当前没有开启的后动副本信息")
+    return 
+  end
+  ;
+  (Net.Send)((Proto.MsgName).ReqActivityInfo, {actId = actId}, (Proto.MsgName).ResActivityInfo)
 end
 
 ;

@@ -33,9 +33,8 @@ ActivityDungeonExchangeWindow.OnInit = function(bridgeObj, ...)
   (ActivityDungeonExchangeWindow.SetResetShow)()
   ;
   (ActivityDungeonExchangeWindow.InitSkipAni)()
-  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
   ;
-  (ActivityDungeonExchangeWindow.InitPanelIcons)(activityId)
+  (ActivityDungeonExchangeWindow.InitPanelIcons)((ActivityDungeonData.GetCurrentActivityDungeonId)())
 end
 
 ActivityDungeonExchangeWindow.InitSkipAni = function(...)
@@ -62,14 +61,8 @@ ActivityDungeonExchangeWindow.InitSkipAni = function(...)
 end
 
 ActivityDungeonExchangeWindow.GetConfigData = function(...)
-  -- function num : 0_2 , upvalues : _ENV, configData
-  local type = (SlotsData.GetCurrentType)()
-  local ShowData = (TableData.gTable).BaseSlotsData
-  for _,v in pairs(ShowData) do
-    if v.type == type then
-      configData = v
-    end
-  end
+  -- function num : 0_2 , upvalues : configData, _ENV
+  configData = (SlotsData.GetCurrentSlotsData)()
 end
 
 ActivityDungeonExchangeWindow.InitSfx = function(...)
@@ -385,8 +378,49 @@ ActivityDungeonExchangeWindow.SetListShow = function(mList, isAim, ...)
   end
 end
 
+ActivityDungeonExchangeWindow.GettingAllItems = function(roundData, round, ...)
+  -- function num : 0_13 , upvalues : _ENV
+  local slotsPoolData = (TableData.gTable).BaseSlotsPoolData
+  local totalCount, getCount = 0, 0
+  for _,v in pairs(slotsPoolData) do
+    if v.type == roundData.pool then
+      totalCount = totalCount + v.reward_max
+      local times = (SlotsData.GetItemTimes)(roundData.num_round, v.id)
+      if times == -1 then
+        times = v.reward_max
+      end
+      if round == roundData.num_round then
+        local get = times
+        getCount = getCount + get
+      else
+        do
+          do
+            if roundData.num_round < round then
+              getCount = times + (getCount)
+            else
+              getCount = 0
+            end
+            -- DECOMPILER ERROR at PC35: LeaveBlock: unexpected jumping out DO_STMT
+
+            -- DECOMPILER ERROR at PC35: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+            -- DECOMPILER ERROR at PC35: LeaveBlock: unexpected jumping out IF_STMT
+
+            -- DECOMPILER ERROR at PC35: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+            -- DECOMPILER ERROR at PC35: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
+        end
+      end
+    end
+  end
+  do return getCount == totalCount end
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+end
+
 ActivityDungeonExchangeWindow.GetAimCount = function(List, ...)
-  -- function num : 0_13 , upvalues : _ENV, RoundData
+  -- function num : 0_14 , upvalues : _ENV, RoundData
   local roundNum = (SlotsData.SlotRound)()
   local count = 0
   local getCount = 0
@@ -421,7 +455,7 @@ ActivityDungeonExchangeWindow.GetAimCount = function(List, ...)
 end
 
 ActivityDungeonExchangeWindow.InitLabelList = function(...)
-  -- function num : 0_14 , upvalues : uis, _ENV, RoundDataList, configData, RoundData, ActivityDungeonExchangeWindow
+  -- function num : 0_15 , upvalues : uis, _ENV, RoundDataList, configData, RoundData, ActivityDungeonExchangeWindow
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.RewardShow).LabelList).numItems = 0
@@ -442,7 +476,7 @@ ActivityDungeonExchangeWindow.InitLabelList = function(...)
   end
   ;
   (table.sort)(RoundDataList, function(a, b, ...)
-    -- function num : 0_14_0
+    -- function num : 0_15_0
     do return a.num_round < b.num_round end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -458,7 +492,7 @@ ActivityDungeonExchangeWindow.InitLabelList = function(...)
     end
     ;
     (obj.onClick):Set(function(...)
-    -- function num : 0_14_1 , upvalues : RoundData, v, ActivityDungeonExchangeWindow, uis, i
+    -- function num : 0_15_1 , upvalues : RoundData, v, ActivityDungeonExchangeWindow, uis, i
     RoundData = v
     ;
     (ActivityDungeonExchangeWindow.RefreshRewardList)()
@@ -472,41 +506,124 @@ ActivityDungeonExchangeWindow.InitLabelList = function(...)
   end
 end
 
+ActivityDungeonExchangeWindow.UpdatePanelState = function(...)
+  -- function num : 0_16 , upvalues : RoundDataList, _ENV, uis, ActivityDungeonExchangeWindow
+  local maxRound = 4
+  local unlimited = false
+  local count = #RoundDataList
+  local roundData = nil
+  for i = count, 1, -1 do
+    local data = RoundDataList[i]
+    if data.num_round == maxRound then
+      roundData = data
+      unlimited = data.end_round == nil
+      break
+    end
+  end
+  if unlimited then
+    ChangeUIController(uis.root, "c1", 0)
+    return 
+  end
+  local round = SlotsData.round
+  local totalRound = SlotsData.roundTotalChange
+  if totalRound - round == roundData.end_round and (ActivityDungeonExchangeWindow.GettingAllItems)(roundData, round) then
+    ChangeUIController(uis.root, "c1", 2)
+  else
+    ChangeUIController(uis.root, "c1", 1)
+  end
+  -- DECOMPILER ERROR at PC60: Confused about usage of register: R6 in 'UnsetPending'
+
+  ;
+  ((uis.Tips).TipsTxt).text = (PUtil.get)(60000659)
+  -- DECOMPILER ERROR: 6 unprocessed JMP targets
+end
+
+ActivityDungeonExchangeWindow.UpdateLabelList = function(...)
+  -- function num : 0_17 , upvalues : _ENV, uis, RoundDataList, ActivityDungeonExchangeWindow
+  local round = SlotsData.round
+  local totalRound = SlotsData.roundTotalChange
+  local count = ((uis.RewardShow).LabelList).numItems
+  for i = 1, count do
+    local obj = ((uis.RewardShow).LabelList):GetChildAt(i - 1)
+    if obj then
+      local roundIndex = i - 1
+      if roundIndex < round then
+        ChangeUIController(obj, "c1", 2)
+      else
+        if roundIndex == round then
+          local roundData = nil
+          for k,v in pairs(RoundDataList) do
+            if v.num_round == round then
+              roundData = v
+              break
+            end
+          end
+          do
+            do
+              do
+                if roundData and roundData.end_round then
+                  if totalRound - round == roundData.end_round and (ActivityDungeonExchangeWindow.GettingAllItems)(roundData, round) then
+                    ChangeUIController(obj, "c1", 2)
+                  else
+                    ChangeUIController(obj, "c1", 1)
+                  end
+                else
+                  ChangeUIController(obj, "c1", 1)
+                end
+                ChangeUIController(obj, "c1", 0)
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out DO_STMT
+
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out DO_STMT
+
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out IF_STMT
+
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out IF_STMT
+
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out IF_THEN_STMT
+
+                -- DECOMPILER ERROR at PC79: LeaveBlock: unexpected jumping out IF_STMT
+
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
 ActivityDungeonExchangeWindow.SetRoundShow = function(round, ...)
-  -- function num : 0_15 , upvalues : _ENV, RoundDataList, RoundData, ActivityDungeonExchangeWindow, uis
+  -- function num : 0_18 , upvalues : ActivityDungeonExchangeWindow, _ENV, RoundDataList, RoundData, uis
+  (ActivityDungeonExchangeWindow.UpdatePanelState)()
+  ;
+  (ActivityDungeonExchangeWindow.UpdateLabelList)()
   for i,v in ipairs(RoundDataList) do
     if v.num_round == round then
       RoundData = v
       ;
       (ActivityDungeonExchangeWindow.RefreshRewardList)()
-      -- DECOMPILER ERROR at PC19: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC23: Confused about usage of register: R6 in 'UnsetPending'
 
       if ((uis.RewardShow).LabelList).selectedIndex ~= i - 1 then
         ((uis.RewardShow).LabelList).selectedIndex = i - 1
         ;
         ((uis.RewardShow).LabelList):ScrollToView(i - 1)
       end
-    end
-  end
-  local count = ((uis.RewardShow).LabelList).numItems
-  for i = 1, count do
-    local obj = ((uis.RewardShow).LabelList):GetChildAt(i - 1)
-    if obj then
-      if i - 1 == round then
-        ChangeUIController(obj, "c1", 1)
-      else
-        ChangeUIController(obj, "c1", 0)
-      end
+      break
     end
   end
 end
 
 ActivityDungeonExchangeWindow.OnHide = function(...)
-  -- function num : 0_16
+  -- function num : 0_19
 end
 
 ActivityDungeonExchangeWindow.ModifyLastLabel = function(...)
-  -- function num : 0_17 , upvalues : _ENV, uis
+  -- function num : 0_20 , upvalues : _ENV, uis
   local total = (SlotsData.ChangeTotalRound)()
   local curr = (SlotsData.SlotRound)()
   if total <= curr then
@@ -519,20 +636,24 @@ ActivityDungeonExchangeWindow.ModifyLastLabel = function(...)
 end
 
 ActivityDungeonExchangeWindow.InitAssetStrip = function(...)
-  -- function num : 0_18 , upvalues : _ENV, uis
+  -- function num : 0_21 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.ActivityDungeonExchangeWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStrip
-  local activityId = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+  local activityId = (ActivityMgr.GetCachedActivityDungeonId)()
   local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
-  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, tonumber(imageConfigData.activity_shop_asset), tonumber(imageConfigData.activity_slot_asset)}
-  ;
-  (CommonWinMgr.RegisterAssets)(m)
+  if imageConfigData then
+    m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, tonumber(imageConfigData.activity_shop_asset), tonumber(imageConfigData.activity_slot_asset)}
+    ;
+    (CommonWinMgr.RegisterAssets)(m)
+  else
+    loge("Can Not Find Image Config Data With Activity Id " .. tostring(activityId))
+  end
 end
 
 ActivityDungeonExchangeWindow.OnClose = function(...)
-  -- function num : 0_19 , upvalues : mTime, _ENV, uis, cardLoader, laba, cardModel, contentPane, argTable
+  -- function num : 0_22 , upvalues : mTime, _ENV, uis, cardLoader, laba, cardModel, contentPane, argTable
   if mTime then
     mTime:Stop()
   end
@@ -551,7 +672,7 @@ ActivityDungeonExchangeWindow.OnClose = function(...)
 end
 
 ActivityDungeonExchangeWindow.GetLotteryColor = function(goods, equip, ...)
-  -- function num : 0_20 , upvalues : _ENV
+  -- function num : 0_23 , upvalues : _ENV
   local id = 0
   for _,v in pairs(goods) do
     if v.value >= 0 then
@@ -582,7 +703,7 @@ ActivityDungeonExchangeWindow.GetLotteryColor = function(goods, equip, ...)
 end
 
 ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_21 , upvalues : _ENV, ActivityDungeonExchangeWindow, aniName, isSkipAni
+  -- function num : 0_24 , upvalues : _ENV, ActivityDungeonExchangeWindow, aniName, isSkipAni
   if msgId == (WindowMsgEnum.ActivityDungeonExchange).E_MSG_SHOW_RESULT then
     local data = para
     local goods = data[1]
@@ -611,7 +732,7 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
           end
           ;
           (SimpleTimer.setTimeout)(waitTime, function(...)
-    -- function num : 0_21_0 , upvalues : ActivityDungeonExchangeWindow, _ENV
+    -- function num : 0_24_0 , upvalues : ActivityDungeonExchangeWindow, _ENV
     (ActivityDungeonExchangeWindow.SetRoundShow)((SlotsData.SlotRound)())
     ;
     (ActivityDungeonExchangeWindow.SetResetShow)()
@@ -623,11 +744,11 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
             ;
             (SlotsData.ChangeRound)(false)
             UIMgr:SetOnHideComplete((WinResConfig.RewardShowWindow).name, function(...)
-    -- function num : 0_21_1 , upvalues : _ENV
+    -- function num : 0_24_1 , upvalues : _ENV
     local content = (PUtil.get)(20000512, (SlotsData.ChangeTotalRound)() + 1)
     ;
     (SimpleTimer.setTimeout)(0.01, function(...)
-      -- function num : 0_21_1_0 , upvalues : _ENV, content
+      -- function num : 0_24_1_0 , upvalues : _ENV, content
       (MessageMgr.OpenSoloConfirmWindow)(content, nil, (PUtil.get)(20000513))
     end
 )
@@ -654,7 +775,7 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
 end
 
 ActivityDungeonExchangeWindow.InitPanelIcons = function(activityId, ...)
-  -- function num : 0_22 , upvalues : _ENV, uis
+  -- function num : 0_25 , upvalues : _ENV, uis
   local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
   local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
   bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_slot_bkg)

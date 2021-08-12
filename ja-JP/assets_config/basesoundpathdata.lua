@@ -5904,6 +5904,42 @@ BaseSoundPathData = {
 [230360109] = {id = 230360109, play_frame = 438, path = "sfx_rongyuan_big_tx_438fr", bank = "rongyuan"}
 , 
 [230360110] = {id = 230360110, play_frame = 482, path = "sfx_rongyuan_big_tx_482fr", bank = "rongyuan"}
+, 
+[230370101] = {id = 230370101, play_frame = 3, path = "sfx_jinyu_yongzhuang_big_tx_3fr", bank = "jinyu_yongzhuang"}
+, 
+[230370102] = {id = 230370102, play_frame = 73, path = "sfx_jinyu_yongzhuang_big_tx_73fr", bank = "jinyu_yongzhuang"}
+, 
+[230370103] = {id = 230370103, play_frame = 91, path = "sfx_jinyu_yongzhuang_big_tx_91fr", bank = "jinyu_yongzhuang"}
+, 
+[230370104] = {id = 230370104, play_frame = 151, path = "sfx_jinyu_yongzhuang_big_tx_151fr", bank = "jinyu_yongzhuang"}
+, 
+[230370105] = {id = 230370105, play_frame = 198, path = "sfx_jinyu_yongzhuang_big_tx_198fr", bank = "jinyu_yongzhuang"}
+, 
+[230370106] = {id = 230370106, play_frame = 257, path = "sfx_jinyu_yongzhuang_big_tx_257fr", bank = "jinyu_yongzhuang"}
+, 
+[230370107] = {id = 230370107, play_frame = 365, path = "sfx_jinyu_yongzhuang_big_tx_365fr", bank = "jinyu_yongzhuang"}
+, 
+[230370108] = {id = 230370108, play_frame = 379, path = "sfx_jinyu_yongzhuang_big_tx_379fr", bank = "jinyu_yongzhuang"}
+, 
+[230370109] = {id = 230370109, play_frame = 413, path = "sfx_jinyu_yongzhuang_big_tx_427fr", bank = "jinyu_yongzhuang"}
+, 
+[230370110] = {id = 230370110, play_frame = 455, path = "sfx_jinyu_yongzhuang_big_tx_469fr", bank = "jinyu_yongzhuang"}
+, 
+[230370111] = {id = 230370111, play_frame = 498, path = "sfx_jinyu_yongzhuang_big_tx_517fr", bank = "jinyu_yongzhuang"}
+, 
+[230370201] = {id = 230370201, play_frame = 4, path = "sfx_jinyu_yongzhuang_pt_wh_4fr", bank = "jinyu_yongzhuang"}
+, 
+[230370202] = {id = 230370202, play_frame = 47, path = "sfx_jinyu_yongzhuang_pt_cast_47fr", bank = "jinyu_yongzhuang"}
+, 
+[230370203] = {id = 230370203, play_frame = 77, path = "sfx_jinyu_yongzhuang_pt_tx_77fr", bank = "jinyu_yongzhuang"}
+, 
+[230370301] = {id = 230370301, play_frame = 2, path = "sfx_jinyu_yongzhuang_small_wh_2fr", bank = "jinyu_yongzhuang"}
+, 
+[230370302] = {id = 230370302, play_frame = 54, path = "sfx_jinyu_yongzhuang_small_wh_54fr", bank = "jinyu_yongzhuang"}
+, 
+[230370303] = {id = 230370303, play_frame = 90, path = "sfx_jinyu_yongzhuang_small_cast_90fr", bank = "jinyu_yongzhuang"}
+, 
+[230370304] = {id = 230370304, play_frame = 100, path = "sfx_jinyu_yongzhuang_small_tx_100fr", bank = "jinyu_yongzhuang"}
 }
 return BaseSoundPathData
 

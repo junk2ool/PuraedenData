@@ -38,12 +38,7 @@ SlotsService.OnResSlotsData = function(msg, ...)
   ;
   (SlotsData.GetCurrentType)(msg.type)
   if msg.type == (SlotsData.SlotType).ACTIVITY_SLOT then
-    if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-      (NewActivityDungeonData.InitSlotsRelativeData)()
-      OpenWindow((WinResConfig.NewActivityDungeonExchangeWindow).name, UILayer.HUD)
-    else
-      OpenWindow((WinResConfig.ActivityDungeonExchangeWindow).name, UILayer.HUD)
-    end
+    OpenWindow((WinResConfig.ActivityDungeonExchangeWindow).name, UILayer.HUD)
   else
     if msg.type == (SlotsData.SlotType).PRIZE_SLOT then
       OpenWindow((WinResConfig.PrizeWindow).name, UILayer.HUD)
@@ -71,11 +66,7 @@ SlotsService.OnResSlotsReset = function(msg, ...)
   (SlotsData.ChangeTotalRound)(total + 1)
   ;
   (SlotsData.CanReset)(false)
-  if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-    UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonExchangeWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_RESET)
-  else
-    UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_RESET)
-  end
+  UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_RESET)
 end
 
 -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
@@ -93,7 +84,8 @@ end
 
 SlotsService.ResSlotsOperation = function(msg, ...)
   -- function num : 0_6 , upvalues : _ENV
-  if msg.type == (SlotsData.SlotType).ACTIVITY_SLOT then
+  local uitype = (SlotsData.GetUITypeBySlotsType)(msg.type)
+  if uitype == (SlotsData.SlotType).ACTIVITY_SLOT then
     local preSlot = (SlotsData.SlotRound)()
     if msg.resetRound and preSlot < msg.round then
       (SlotsData.SetRoundItemData)({round = preSlot, data = -1})
@@ -108,14 +100,10 @@ SlotsService.ResSlotsOperation = function(msg, ...)
     (SlotsData.ChangeRound)(msg.resetRound)
     ;
     (SlotsData.SlotRound)(msg.round)
-    if NewActivityDungeonData.ActivityDungeonStatus == ADStatus.NAD then
-      UIMgr:SendWindowMessage((WinResConfig.NewActivityDungeonExchangeWindow).name, (WindowMsgEnum.NewActivityDungeon).E_MSG_REFRESH)
-    else
-      UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
-    end
+    UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
   else
     do
-      if msg.type == (SlotsData.SlotType).PRIZE_SLOT then
+      if uitype == (SlotsData.SlotType).PRIZE_SLOT then
         (SlotsData.SetRoundItemData)((msg.RewardItems)[1])
         ;
         (SlotsData.CanReset)(msg.reset)

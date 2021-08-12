@@ -13,8 +13,9 @@ local itemX, starUrl = nil, nil
 local sortTab = {}
 local CONSTWORDPOS_Y = 5.5
 local curShowItems = {}
+local firstOpen = nil
 HandBookRelationWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, curCardItemIndex, itemX, lastCardItemIndex, MAXNUM, HandBookRelationWindow
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, firstOpen, curCardItemIndex, itemX, lastCardItemIndex, MAXNUM, HandBookRelationWindow
   bridgeObj:SetView((WinResConfig.HandBookRelationWindow).package, (WinResConfig.HandBookRelationWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
@@ -24,22 +25,23 @@ HandBookRelationWindow.OnInit = function(bridgeObj, ...)
   m.Tip = (PUtil.get)(157)
   m.model = uis.AssetStripGrp
   m.closeToWindow = (WinResConfig.HandBookMainWindow).name
+  firstOpen = true
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
   ;
   (CommonWinMgr.RegisterAssets)(m)
-  -- DECOMPILER ERROR at PC50: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC52: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (((uis.AssetStripGrp).Assets_01_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC54: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC56: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (((uis.AssetStripGrp).Assets_02_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC58: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC60: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (((uis.AssetStripGrp).Assets_03_Grp).root).visible = false
-  -- DECOMPILER ERROR at PC62: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC64: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (((uis.AssetStripGrp).Assets_04_Grp).root).visible = false
@@ -67,7 +69,13 @@ HandBookRelationWindow.OnInit = function(bridgeObj, ...)
 )
   ;
   (uis.Relation_CardList):SetVirtual()
-  -- DECOMPILER ERROR at PC74: Confused about usage of register: R2 in 'UnsetPending'
+  ;
+  (((uis.Relation_CardList).scrollPane).onScroll):Add(function(...)
+    -- function num : 0_0_1 , upvalues : uis
+    (uis.Relation_CardList):RefreshVirtualList()
+  end
+)
+  -- DECOMPILER ERROR at PC82: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.Relation_CardList).itemRenderer = HandBookRelationWindow.RefreshCardListItem
@@ -75,7 +83,7 @@ HandBookRelationWindow.OnInit = function(bridgeObj, ...)
   (uis.Relation_CardList):SpecifyScrollPos(0.5, 0.5)
   ;
   (HandBookRelationWindow.InitEvent)(true)
-  -- DECOMPILER ERROR at PC89: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC97: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.AttributeTipsGrp).Word_00_Txt).text = (PUtil.get)(159)
@@ -142,7 +150,7 @@ HandBookRelationWindow.InitEvent = function(isInit, ...)
 end
 
 HandBookRelationWindow.RefreshCardListItem = function(index, item, ...)
-  -- function num : 0_4 , upvalues : itemX, treeData, HandBookRelationWindow, _ENV, starUrl, curShowItems
+  -- function num : 0_4 , upvalues : itemX, treeData, HandBookRelationWindow, _ENV, starUrl, curShowItems, firstOpen, uis
   if itemX == nil then
     itemX = item.width
   end
@@ -287,7 +295,11 @@ HandBookRelationWindow.RefreshCardListItem = function(index, item, ...)
       end
     end
   end
-  -- DECOMPILER ERROR: 3 unprocessed JMP targets
+  if firstOpen == true then
+    (uis.Relation_CardList):RefreshVirtualList()
+    firstOpen = false
+  end
+  -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
 HandBookRelationWindow.SetAttributeInfo = function(cIndex, ...)

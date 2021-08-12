@@ -1,7 +1,7 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BaseActivityChapterData = {
-[51400001] = {id = 51400001, name = (PUtil.get)(85110003), icon = "ActivityDungeon:ActivityDungeon_1", normal_chapter = 51410011, hard_chapter = 51420011, sort = 1, activity_id = 33000101}
+[51400001] = {id = 51400001, name = (PUtil.get)(85180100), icon = "ActivityDungeon:ActivityDungeon_1", normal_chapter = 51410001, hard_chapter = 51420001, sort = 1, activity_id = 33000101}
 , 
 [51400002] = {id = 51400002, name = (PUtil.get)(85181300), icon = "ActivityDungeon:ActivityDungeon_1", normal_chapter = 51610101, hard_chapter = 0, sort = 2, set_style = "ActivityDungeonTwo:Map_3", activity_id = 33001401}
 , 

@@ -12768,6 +12768,142 @@ BaseFashionBubbleData = {
 [117303602] = {id = 117303602, bubble_text = (PUtil.get)(117303602), voice_path = "mulimu_Home_Talk_2", top_position = 10}
 , 
 [117303603] = {id = 117303603, bubble_text = (PUtil.get)(117303603), voice_path = "mulimu_Home_Talk_3", top_position = 10}
+, 
+[97030371] = {id = 97030371, bubble_text = (PUtil.get)(97030371), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_1"}
+, 
+[97030372] = {id = 97030372, bubble_text = (PUtil.get)(97030372), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_2"}
+, 
+[97030373] = {id = 97030373, bubble_text = (PUtil.get)(97030373), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_3"}
+, 
+[97030374] = {id = 97030374, bubble_text = (PUtil.get)(97030374), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Main_4"}
+, 
+[97130371] = {id = 97130371, bubble_text = (PUtil.get)(97130371), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_1"}
+, 
+[97130372] = {id = 97130372, bubble_text = (PUtil.get)(97130372), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_2"}
+, 
+[97130373] = {id = 97130373, bubble_text = (PUtil.get)(97130373), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_3"}
+, 
+[97130374] = {id = 97130374, bubble_text = (PUtil.get)(97130374), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Main_4"}
+, 
+[97230371] = {id = 97230371, bubble_text = (PUtil.get)(97230371), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_1"}
+, 
+[97230372] = {id = 97230372, bubble_text = (PUtil.get)(97230372), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_2"}
+, 
+[97230373] = {id = 97230373, bubble_text = (PUtil.get)(97230373), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_3"}
+, 
+[97230374] = {id = 97230374, bubble_text = (PUtil.get)(97230374), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Main_4"}
+, 
+[101303701] = {id = 101303701, bubble_text = (PUtil.get)(101303701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Get_1"}
+, 
+[101303711] = {id = 101303711, bubble_text = (PUtil.get)(101303711), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Stage_2"}
+, 
+[101303721] = {id = 101303721, bubble_text = (PUtil.get)(101303721), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Stage_3"}
+, 
+[102303701] = {id = 102303701, bubble_text = (PUtil.get)(102303701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_In_1"}
+, 
+[102303702] = {id = 102303702, bubble_text = (PUtil.get)(102303702), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_In_1"}
+, 
+[102303703] = {id = 102303703, bubble_text = (PUtil.get)(102303703), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_In_1"}
+, 
+[103303701] = {id = 103303701, bubble_text = (PUtil.get)(103303701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:312", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
+, 
+[103303711] = {id = 103303711, bubble_text = (PUtil.get)(103303711), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
+, 
+[103303721] = {id = 103303721, bubble_text = (PUtil.get)(103303721), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
+, 
+[104303701] = {id = 104303701, bubble_text = (PUtil.get)(104303701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:312", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
+, 
+[104303711] = {id = 104303711, bubble_text = (PUtil.get)(104303711), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
+, 
+[104303721] = {id = 104303721, bubble_text = (PUtil.get)(104303721), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
+, 
+[105303701] = {id = 105303701, bubble_text = (PUtil.get)(105303701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_1"}
+, 
+[105303702] = {id = 105303702, bubble_text = (PUtil.get)(105303702), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_2"}
+, 
+[105303703] = {id = 105303703, bubble_text = (PUtil.get)(105303703), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_3"}
+, 
+[105303704] = {id = 105303704, bubble_text = (PUtil.get)(105303704), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_4"}
+, 
+[105303705] = {id = 105303705, bubble_text = (PUtil.get)(105303705), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Interaction_5"}
+, 
+[105303711] = {id = 105303711, bubble_text = (PUtil.get)(105303711), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_1"}
+, 
+[105303712] = {id = 105303712, bubble_text = (PUtil.get)(105303712), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_2"}
+, 
+[105303713] = {id = 105303713, bubble_text = (PUtil.get)(105303713), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_3"}
+, 
+[105303714] = {id = 105303714, bubble_text = (PUtil.get)(105303714), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_4"}
+, 
+[105303715] = {id = 105303715, bubble_text = (PUtil.get)(105303715), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_5"}
+, 
+[105303721] = {id = 105303721, bubble_text = (PUtil.get)(105303721), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_1"}
+, 
+[105303722] = {id = 105303722, bubble_text = (PUtil.get)(105303722), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_2"}
+, 
+[105303723] = {id = 105303723, bubble_text = (PUtil.get)(105303723), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_3"}
+, 
+[105303724] = {id = 105303724, bubble_text = (PUtil.get)(105303724), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_4"}
+, 
+[105303725] = {id = 105303725, bubble_text = (PUtil.get)(105303725), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Interaction_5"}
+, 
+[106303701] = {id = 106303701, bubble_text = (PUtil.get)(106303701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Win_1"}
+, 
+[106303711] = {id = 106303711, bubble_text = (PUtil.get)(106303711), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Win_1"}
+, 
+[106303721] = {id = 106303721, bubble_text = (PUtil.get)(106303721), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Win_1"}
+, 
+[107303701] = {id = 107303701, bubble_text = (PUtil.get)(107303701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "573:314", direction = 1, voice_path = "Tsubaki_mizugi_Fail_1"}
+, 
+[107303711] = {id = 107303711, bubble_text = (PUtil.get)(107303711), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "772:330", direction = 2, voice_path = "Tsubaki_mizugi_Fail_1"}
+, 
+[107303721] = {id = 107303721, bubble_text = (PUtil.get)(107303721), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_Fail_1"}
+, 
+[108303701] = {id = 108303701, bubble_text = (PUtil.get)(108303701), voice_path = "Tsubaki_mizugi_Go_1"}
+, 
+[109303701] = {id = 109303701, voice_path = "Tsubaki_mizugi_Game_1"}
+, 
+[111303701] = {id = 111303701, voice_path = "Tsubaki_mizugi_Battle_N_1"}
+, 
+[111303702] = {id = 111303702, voice_path = "Tsubaki_mizugi_Battle_N_2"}
+, 
+[111303703] = {id = 111303703, voice_path = "Tsubaki_mizugi_Battle_N_3"}
+, 
+[111303704] = {id = 111303704, voice_path = "Tsubaki_mizugi_Battle_N_4"}
+, 
+[111303705] = {id = 111303705, voice_path = "Tsubaki_mizugi_Battle_N_5"}
+, 
+[111303706] = {id = 111303706, voice_path = "Tsubaki_mizugi_Battle_N_6"}
+, 
+[112303701] = {id = 112303701, voice_path = "Tsubaki_mizugi_Battle_Hit_1"}
+, 
+[112303702] = {id = 112303702, voice_path = "Tsubaki_mizugi_Battle_Hit_2"}
+, 
+[112303703] = {id = 112303703, voice_path = "Tsubaki_mizugi_Battle_Hit_3"}
+, 
+[112303704] = {id = 112303704, voice_path = "Tsubaki_mizugi_Battle_Hit_4"}
+, 
+[112303705] = {id = 112303705, voice_path = "Tsubaki_mizugi_Battle_Hit_5"}
+, 
+[112303706] = {id = 112303706, voice_path = "Tsubaki_mizugi_Battle_Hit_6"}
+, 
+[113303701] = {id = 113303701, voice_path = "Tsubaki_mizugi_Battle_Die_1"}
+, 
+[114303701] = {id = 114303701, voice_path = "Tsubaki_mizugi_Battle_H_1"}
+, 
+[114303702] = {id = 114303702, voice_path = "Tsubaki_mizugi_Battle_H_2"}
+, 
+[115303701] = {id = 115303701, voice_path = "Tsubaki_mizugi_Battle_C_1"}
+, 
+[115303702] = {id = 115303702, voice_path = "Tsubaki_mizugi_Battle_C_2"}
+, 
+[116303701] = {id = 116303701, bubble_text = (PUtil.get)(116303701), voice_path = "Tsubaki_mizugi_Home_In_1", top_position = 10}
+, 
+[117303701] = {id = 117303701, bubble_text = (PUtil.get)(117303701), voice_path = "Tsubaki_mizugi_Home_Talk_1", top_position = 10}
+, 
+[117303702] = {id = 117303702, bubble_text = (PUtil.get)(117303702), voice_path = "Tsubaki_mizugi_Home_Talk_2", top_position = 10}
+, 
+[117303703] = {id = 117303703, bubble_text = (PUtil.get)(117303703), voice_path = "Tsubaki_mizugi_Home_Talk_3", top_position = 10}
 }
 return BaseFashionBubbleData
 

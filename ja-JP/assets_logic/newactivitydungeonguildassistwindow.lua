@@ -77,19 +77,20 @@ end
 
 NewActivityDungeonGuildAssistWindow.RefreshTips = function(...)
   -- function num : 0_8 , upvalues : _ENV, uis
-  -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
+  local assistData = (ActivityRiskData.GetAssistData)()
+  -- DECOMPILER ERROR at PC8: Confused about usage of register: R1 in 'UnsetPending'
 
-  if NewActivityDungeonData.AssistData == nil then
+  if assistData == nil then
     (((uis.SystemSetGrp).Tips).TipsTxt).text = ""
   else
-    local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
+    local config = ((TableData.gTable).BaseActivityAidData)[assistData.id]
     local rewardStrs = split(config.assist_reward, ",")
     local count = #rewardStrs
     local str = ""
     for i = 1, count do
       str = str .. (MessageMgr.GetCostImgHtmlByStr)(rewardStrs[i], nil, 25)
     end
-    -- DECOMPILER ERROR at PC48: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC47: Confused about usage of register: R5 in 'UnsetPending'
 
     ;
     (((uis.SystemSetGrp).Tips).TipsTxt).text = (PUtil.get)(60000634, str, (math.floor)(config.assist_hp * 0.01))
@@ -136,7 +137,8 @@ NewActivityDungeonGuildAssistWindow.RefreshGuildMemberItem = function(index, ite
     ;
     ((item:GetChild("TitlePic")):GetChild("PicLoader")).url = (Util.GetItemUrl)((((TableData.gTable).BasePlayerTitleData)[data.titleId]).icon)
   end
-  local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
+  local assistData = (ActivityRiskData.GetAssistData)()
+  local config = ((TableData.gTable).BaseActivityAidData)[assistData.id]
   local leftTimes = config.assisted_num - data.byAssistTime
   local battleInfo = item:GetChild("BattleInfo")
   ;
@@ -162,7 +164,7 @@ NewActivityDungeonGuildAssistWindow.RefreshGuildMemberItem = function(index, ite
       ;
       (battleBtn.onClick):Set(function(...)
     -- function num : 0_10_0 , upvalues : _ENV, data
-    (NewActivityDungeonMgr.TryAssistGuildMember)(data)
+    (ActivityDungeonMgr.TryAssistGuildMember)(data)
     ;
     (Util.SetOnClickDelay)(0.5)
   end
@@ -179,20 +181,21 @@ end
 
 NewActivityDungeonGuildAssistWindow.RefreshTimes = function(...)
   -- function num : 0_11 , upvalues : _ENV, uis
-  local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
-  -- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+  local assistData = (ActivityRiskData.GetAssistData)()
+  local config = ((TableData.gTable).BaseActivityAidData)[assistData.id]
+  -- DECOMPILER ERROR at PC32: Confused about usage of register: R2 in 'UnsetPending'
 
-  if NewActivityDungeonData.AssistData == nil or config.assist_num <= (NewActivityDungeonData.AssistData).assistedTime then
+  if assistData == nil or config.assist_num <= assistData.assistedTime then
     ((uis.SystemSetGrp).TouchNumberTxt).text = (PUtil.get)(60000630, "[color=" .. Const.RedColor .. "]" .. "0[/color][color=" .. Const.GreenColor .. "]", config.assist_num .. "[/color]")
     ;
     (RedDotMgr.EliminateRedDot)((WinResConfig.NewActivityDungeonMainWindow).name, RedDotComID.NAD_GuildHlep)
     ;
     (RedDotMgr.RefreshTreeUI)((WinResConfig.NewActivityDungeonMainWindow).name)
   else
-    -- DECOMPILER ERROR at PC72: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC67: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
-    ((uis.SystemSetGrp).TouchNumberTxt).text = (PUtil.get)(60000630, "[color=" .. Const.GreenColor .. "]" .. tostring(config.assist_num - (NewActivityDungeonData.AssistData).assistedTime), config.assist_num .. "[/color]")
+    ((uis.SystemSetGrp).TouchNumberTxt).text = (PUtil.get)(60000630, "[color=" .. Const.GreenColor .. "]" .. tostring(config.assist_num - assistData.assistedTime), config.assist_num .. "[/color]")
   end
 end
 

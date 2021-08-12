@@ -473,6 +473,18 @@ TowerTopStageWindow = {name = "TowerTopStageWindow", package = "Tower", comName 
 TowerExpandBattleWindow = {name = "TowerExpandBattleWindow", package = "Tower", comName = "TopStage", hideBelow = false}
 , 
 TowerChooseEquipWindow = {name = "TowerChooseEquipWindow", package = "Tower", comName = "ChoiceEquipt", hideBelow = false}
+, 
+ActivityDungeonWindow33000101 = {name = "ActivityDungeonWindow33000101", package = "ActivityDungeon", comName = "ActivityDungeon", hideBelow = true}
+, 
+ActivityDungeonWindow33000102 = {name = "ActivityDungeonWindow33000102", package = "ActivityDungeon", comName = "ActivityDungeon", hideBelow = true}
+, 
+ActivityDungeonWindow33000103 = {name = "ActivityDungeonWindow33000103", package = "ActivityDungeon", comName = "ActivityDungeon", hideBelow = true}
+, 
+ActivityDungeonWindow33001401 = {name = "ActivityDungeonWindow33001401", package = "ActivityDungeonTwo", comName = "BattleMain", hideBelow = true}
+, 
+ActivityDungeonWindow33001402 = {name = "ActivityDungeonWindow33001402", package = "ActivityDungeonTwo", comName = "BattleMain", hideBelow = true}
+, 
+ActivityDungeonWindow33001403 = {name = "ActivityDungeonWindow33001403", package = "ActivityDungeonTwo", comName = "BattleMain", hideBelow = true}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV
@@ -730,7 +742,7 @@ PrizeInformationWindow = {"Equipicon", "CardHeadIconCircle"}
 , 
 PlayerBusinessCardWindow = {"HomeAd", "CardHeadIconCircle", "HomeBg", "Title"}
 , 
-HomelandRoomWindow = {"FamilyFurniture", "Title", "CardHeadIconCircle"}
+HomelandRoomWindow = {"FamilyFurniture", "Title", "CardHeadIconCircle", "FamilyBg"}
 , 
 HomelandFarmWindow = {"FamilyFurniture"}
 , 
@@ -757,5 +769,23 @@ NewActivityDungeonExchangeWindow = {"ActivityDungeon", "ItemIcon"}
 HandbookMainPlotWindow = {"HandBookBanner", "HandBookMainBanner"}
 , 
 TowerTopStageWindow = {"TowerPic"}
+, 
+ActivityDungeonMainWindow = {"ActivityDungeonTwo"}
+, 
+ActivityDungeonShopWindow = {"ActivityDungeonTwo"}
+, 
+ActivityDungeonExchangeWindow = {"ActivityDungeonTwo"}
+, 
+ActivityDungeonWindow33000101 = {"ActivityDungeonTwo"}
+, 
+ActivityDungeonWindow33000102 = {"ActivityDungeonTwo"}
+, 
+ActivityDungeonWindow33000103 = {"ActivityDungeonTwo"}
+, 
+ActivityDungeonWindow33001401 = {"ActivityDungeon"}
+, 
+ActivityDungeonWindow33001402 = {"ActivityDungeon"}
+, 
+ActivityDungeonWindow33001403 = {"ActivityDungeon"}
 }
 

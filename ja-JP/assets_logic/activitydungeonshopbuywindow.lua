@@ -151,7 +151,7 @@ ActivityDungeonShopBuyWindow.InitBtn = function(...)
       end
       do
         ;
-        (ShopService.OnReqShopBuy)(buyData.shopType, buyData.poolID, buyData.gridID, tonumber((uis.ChangeNumberTxt).text))
+        (ShopService.OnReqShopBuy)(buyData.shopId, buyData.poolID, buyData.gridID, tonumber((uis.ChangeNumberTxt).text))
       end
     end
 , nil, function(...)

@@ -27,48 +27,58 @@ ActivityDungeonWindow.OnInit = function(bridgeObj, ...)
   ;
   (ActivityDungeonWindow.InitMapList)()
   isInit = true
-  local argID = tonumber((PlotDungeonMgr.ActivityDungeonRecodeID)())
-  local ActivityData = ((TableData.gTable).BaseActivityChapterData)[argID]
-  ChapterIds = {Simple = ActivityData.normal_chapter, Difficult = ActivityData.hard_chapter}
+  local result, chapterData = (ActivityDungeonData.TryGetChapterDataByIndex)(1)
+  if not result then
+    return 
+  end
   ;
   (ActivityDungeonWindow.InitBtnEvent)()
-  -- DECOMPILER ERROR at PC49: Confused about usage of register: R3 in 'UnsetPending'
+  local result = (ActivityDungeonData.CurrentActivityIsNew)()
+  if result == false then
+    local chapter = ((ActivityDungeonData.GetAllStages)())[chapterData.id]
+    ChapterIds = {Simple = (chapter.normal).chapterId, Difficult = (chapter.hard).chapterId}
+    -- DECOMPILER ERROR at PC59: Confused about usage of register: R5 in 'UnsetPending'
 
-  if currentChapter > 0 then
-    if currentChapter == ChapterIds.Simple then
-      (uis.c1Ctr).selectedIndex = 0
-      ;
-      ((uis.Difficulty_01_Btn).onClick):Call()
+    if currentChapter > 0 then
+      if currentChapter == ChapterIds.Simple then
+        (uis.c1Ctr).selectedIndex = 0
+        ;
+        ((uis.Difficulty_01_Btn).onClick):Call()
+      else
+        -- DECOMPILER ERROR at PC66: Confused about usage of register: R5 in 'UnsetPending'
+
+        ;
+        (uis.c1Ctr).selectedIndex = 1
+        ;
+        ((uis.Difficulty_02_Btn).onClick):Call()
+      end
     else
-      -- DECOMPILER ERROR at PC56: Confused about usage of register: R3 in 'UnsetPending'
+      local hard = (PlotDungeonMgr.ChapterIsOpen)(ChapterIds.Difficult)
+      -- DECOMPILER ERROR at PC79: Confused about usage of register: R6 in 'UnsetPending'
 
-      ;
-      (uis.c1Ctr).selectedIndex = 1
-      ;
-      ((uis.Difficulty_02_Btn).onClick):Call()
+      if hard then
+        (uis.c1Ctr).selectedIndex = 1
+        ;
+        ((uis.Difficulty_02_Btn).onClick):Call()
+      else
+        -- DECOMPILER ERROR at PC86: Confused about usage of register: R6 in 'UnsetPending'
+
+        ;
+        (uis.c1Ctr).selectedIndex = 0
+        ;
+        ((uis.Difficulty_01_Btn).onClick):Call()
+      end
     end
   else
-    local hard = (PlotDungeonMgr.ChapterIsOpen)(ChapterIds.Difficult)
-    -- DECOMPILER ERROR at PC69: Confused about usage of register: R4 in 'UnsetPending'
-
-    if hard then
-      (uis.c1Ctr).selectedIndex = 1
-      ;
-      ((uis.Difficulty_02_Btn).onClick):Call()
-    else
-      -- DECOMPILER ERROR at PC76: Confused about usage of register: R4 in 'UnsetPending'
-
-      ;
-      (uis.c1Ctr).selectedIndex = 0
-      ;
-      ((uis.Difficulty_01_Btn).onClick):Call()
-    end
   end
   do
-    -- DECOMPILER ERROR at PC83: Confused about usage of register: R3 in 'UnsetPending'
+    if result == true then
+      (ActivityDungeonWindow.InitPanelIcons)((ActivityDungeonData.GetCurrentActivityDungeonId)())
+      -- DECOMPILER ERROR at PC101: Confused about usage of register: R4 in 'UnsetPending'
 
-    ;
-    ((uis.MapList).scrollPane).bouncebackEffect = false
+      ;
+      ((uis.MapList).scrollPane).bouncebackEffect = false
+    end
   end
 end
 
@@ -367,7 +377,6 @@ ActivityDungeonWindow.InitAssetStrip = function(...)
   m.windowName = (WinResConfig.ActivityDungeonWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStripGrp
-  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
   m.CloseBtnFun = function(...)
     -- function num : 0_13_0 , upvalues : currentChapter
     currentChapter = 0
@@ -378,6 +387,9 @@ ActivityDungeonWindow.InitAssetStrip = function(...)
     currentChapter = 0
   end
 
+  local activityId = (ActivityMgr.GetCachedActivityDungeonId)()
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, tonumber(imageConfigData.activity_shop_asset), tonumber(imageConfigData.activity_slot_asset)}
   ;
   (CommonWinMgr.RegisterAssets)(m)
 end
@@ -393,6 +405,15 @@ ActivityDungeonWindow.HandleMessage = function(msgId, para, ...)
   else
   end
   if msgId == (WindowMsgEnum.ActivityDungeon).E_MSG_SHOW_DIFFICULT_RED then
+  end
+end
+
+ActivityDungeonWindow.InitPanelIcons = function(activityId, ...)
+  -- function num : 0_15 , upvalues : _ENV, uis
+  local bgLoader = (FairyUIUtils.FindLoader)(uis.root, "BgLoader")
+  local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
+  if imageConfigData and imageConfigData.activity_old_stage_bkg then
+    bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_old_stage_bkg)
   end
 end
 

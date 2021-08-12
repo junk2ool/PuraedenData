@@ -485,7 +485,7 @@ BaseStoryDialogueDataPart172 = {
 , 
 [75446717] = {id = 75446717, remark = (PUtil.get)(86246363), type = 1, option_ids = "0", next = -1, role_ids = "75200241:75200461", expression = "0", action = "0", action_type = "0", role_type = 75200461, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
-[75446801] = {id = 75446801, remark = (PUtil.get)(86246364), type = 1, option_ids = "0", next = 75446802, role_ids = "75200461", expression = "0", action = "0", action_type = "0", role_type = 75200461, position = "418:606:10050", role_admission_type = "75200461:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+[75446801] = {id = 75446801, remark = (PUtil.get)(86246364), type = 1, option_ids = "0", next = 75446803, role_ids = "75200461", expression = "0", action = "0", action_type = "0", role_type = 75200461, position = "418:606:10050", role_admission_type = "75200461:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 
 [75446802] = {id = 75446802, remark = (PUtil.get)(86246365), type = 1, option_ids = "0", next = 75446803, role_ids = "75200461", expression = "0", action = "0", action_type = "0", role_type = 75200461, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 

@@ -42,7 +42,7 @@ ActorInfoService.onResSet = function(msg, ...)
       else
       end
     end
-    if type ~= (ProtoEnumEnum.E_SET_TYPE).FASHION_SHOW or type == (ProtoEnum.E_SET_TYPE).SIGNATURE then
+    if type ~= (ProtoEnum.E_SET_TYPE).FASHION_SHOW or type == (ProtoEnum.E_SET_TYPE).SIGNATURE then
       (ActorData.SetSignature)(value)
     else
       if type == (ProtoEnum.E_SET_TYPE).NICK_NAME or type == (ProtoEnum.E_SET_TYPE).NICK_NAME_NO_COST then

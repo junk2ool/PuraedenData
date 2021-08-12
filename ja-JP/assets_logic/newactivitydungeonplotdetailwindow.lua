@@ -106,56 +106,56 @@ end
 NewActivityDungeonPlotDetailWindow.RefreshDetail = function(...)
   -- function num : 0_8 , upvalues : NewActivityDungeonPlotDetailWindow, _ENV, uis
   (NewActivityDungeonPlotDetailWindow.RefreshBtn)()
-  local config = ((TableData.gTable).BaseStageData)[NewActivityDungeonData.CurrentDungeon]
-  -- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
+  local config = ((TableData.gTable).BaseStageData)[(ActivityDungeonData.GetSelectedStageId)()]
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.PlotDetail).PlotImageLoader).url = (Util.GetItemUrl)(config.battle_banner_show)
-  -- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.PlotDetail).vitalitynumberTxt).text = (ActorData.GetAssetCount)(AssetType.PHYSICAL)
-  -- DECOMPILER ERROR at PC32: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.PlotDetail).vitalitynumber_01_Txt).text = (ActorData.GetAssetCount)(AssetType.PHYSICAL) - config.need_vit
-  -- DECOMPILER ERROR at PC38: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.PlotDetail).mycombatnumberTxt).text = (ActorData.GetFc)()
   if config.activity_fc then
     local battleNum = (math.max)(config.fc, (PlotDungeonMgr.GetActivityDungeonPlayerFc)())
-    -- DECOMPILER ERROR at PC57: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC58: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     ((uis.PlotDetail).recommendedcombatmumberTxt).text = (math.floor)(battleNum * config.activity_fc * 0.0001)
   else
     do
-      -- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       ((uis.PlotDetail).recommendedcombatmumberTxt).text = config.fc
-      -- DECOMPILER ERROR at PC72: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC73: Confused about usage of register: R1 in 'UnsetPending'
 
       if Const.NoShowAmount <= tonumber(config.challenge_num) then
         ((uis.PlotDetail).challengenumberTxt).visible = false
-        -- DECOMPILER ERROR at PC75: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC76: Confused about usage of register: R1 in 'UnsetPending'
 
         ;
         ((uis.PlotDetail).BattleImage).visible = false
       else
-        -- DECOMPILER ERROR at PC91: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
 
         if config.challenge_num == -1 and config.type == StageType.FIGHT then
           ((uis.PlotDetail).challengenumberTxt).text = (PUtil.get)(20000086)
         else
-          local canChange = (PlotDungeonMgr.GetCanChangeTimesDungeon)(NewActivityDungeonData.CurrentDungeon)
-          -- DECOMPILER ERROR at PC107: Confused about usage of register: R2 in 'UnsetPending'
+          local canChange = (PlotDungeonMgr.GetCanChangeTimesDungeon)((ActivityDungeonData.GetSelectedStageId)())
+          -- DECOMPILER ERROR at PC109: Confused about usage of register: R2 in 'UnsetPending'
 
           if canChange > 0 then
             ((uis.PlotDetail).challengenumberTxt).text = (PUtil.get)(20000372, canChange)
           else
-            -- DECOMPILER ERROR at PC116: Confused about usage of register: R2 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC118: Confused about usage of register: R2 in 'UnsetPending'
 
             ;
             ((uis.PlotDetail).challengenumberTxt).text = (PUtil.get)(20000373, canChange)
@@ -163,17 +163,17 @@ NewActivityDungeonPlotDetailWindow.RefreshDetail = function(...)
         end
       end
       do
-        -- DECOMPILER ERROR at PC120: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'
 
         ;
         ((uis.PlotDetail).NumberTxt).text = config.name
-        -- DECOMPILER ERROR at PC124: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC126: Confused about usage of register: R1 in 'UnsetPending'
 
         ;
         ((uis.PlotDetail).WordTxt).text = config.remark
         ;
         ((uis.PlotDetail).Prop1List):RemoveChildrenToPool()
-        if not (PlotDungeonMgr.IsPassDungeon)(NewActivityDungeonData.CurrentDungeon) then
+        if not (PlotDungeonMgr.IsPassDungeon)((ActivityDungeonData.GetSelectedStageId)()) then
           local first_drop_show = config.first_drop_show
           local firstConfigs = (Util.ParseConfigStr)(first_drop_show)
           for _,v in ipairs(firstConfigs) do
@@ -249,18 +249,18 @@ end
 
 NewActivityDungeonPlotDetailWindow.RefreshBtn = function(...)
   -- function num : 0_11 , upvalues : _ENV, uis
-  -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC18: Confused about usage of register: R0 in 'UnsetPending'
 
-  if not (PlotDungeonMgr.IsPassDungeon)(NewActivityDungeonData.CurrentDungeon) or not (FunctionControlMgr.GetFunctionState)(ControlID.StageDetail_SweepOneBtn, false) then
+  if not (PlotDungeonMgr.IsPassDungeon)((ActivityDungeonData.GetSelectedStageId)()) or not (FunctionControlMgr.GetFunctionState)(ControlID.StageDetail_SweepOneBtn, false) then
     ((uis.PlotDetail).c1Ctr).selectedIndex = 0
   else
     local tenSweep = (FunctionControlMgr.GetFunctionState)(ControlID.StageDetail_SweepTenBtn, false)
-    -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
 
     if tenSweep then
       ((uis.PlotDetail).c1Ctr).selectedIndex = 1
     else
-      -- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC34: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       ((uis.PlotDetail).c1Ctr).selectedIndex = 3
@@ -270,25 +270,26 @@ end
 
 NewActivityDungeonPlotDetailWindow.ClickSmashBtn = function(...)
   -- function num : 0_12 , upvalues : _ENV
-  (PlotDungeonMgr.StartSweep)(NewActivityDungeonData.CurrentDungeon, 1, nil)
+  (PlotDungeonMgr.StartSweep)((ActivityDungeonData.GetSelectedStageId)(), 1, nil)
   ;
   (Util.SetOnClickDelay)(0.5)
 end
 
 NewActivityDungeonPlotDetailWindow.ClickMultiplySmashBtn = function(...)
   -- function num : 0_13 , upvalues : _ENV
-  (PlotDungeonMgr.StartSweep)(NewActivityDungeonData.CurrentDungeon, 10, nil)
+  (PlotDungeonMgr.StartSweep)((ActivityDungeonData.GetSelectedStageId)(), 10, nil)
   ;
   (Util.SetOnClickDelay)(0.5)
 end
 
 NewActivityDungeonPlotDetailWindow.ClickChallengeBtn = function(...)
   -- function num : 0_14 , upvalues : _ENV
-  local config = ((TableData.gTable).BaseStageData)[NewActivityDungeonData.CurrentDungeon]
-  if (PlotDungeonMgr.IsPassDungeon)(NewActivityDungeonData.CurrentDungeon) then
+  local selectedStageId = (ActivityDungeonData.GetSelectedStageId)()
+  local config = ((TableData.gTable).BaseStageData)[(ActivityDungeonData.GetSelectedStageId)()]
+  if (PlotDungeonMgr.IsPassDungeon)(selectedStageId) then
     (EquiptMgr.CheckShowEquipBagConfirm)(EquiptAcquireType.Dungeon, function(...)
-    -- function num : 0_14_0 , upvalues : _ENV
-    (PlotDungeonMgr.OnClickChallengeDungeon)(NewActivityDungeonData.CurrentDungeon)
+    -- function num : 0_14_0 , upvalues : _ENV, selectedStageId
+    (PlotDungeonMgr.OnClickChallengeDungeon)(selectedStageId)
     ;
     (Util.SetOnClickDelay)(0.5)
   end
@@ -296,8 +297,8 @@ NewActivityDungeonPlotDetailWindow.ClickChallengeBtn = function(...)
   else
     ;
     (EquiptMgr.CheckShowEquipBagConfirm)(EquiptAcquireType.Dungeon, function(...)
-    -- function num : 0_14_1 , upvalues : _ENV
-    (PlotDungeonMgr.OnClickChallengeDungeon)(NewActivityDungeonData.CurrentDungeon)
+    -- function num : 0_14_1 , upvalues : _ENV, selectedStageId
+    (PlotDungeonMgr.OnClickChallengeDungeon)(selectedStageId)
     ;
     (Util.SetOnClickDelay)(0.5)
   end
