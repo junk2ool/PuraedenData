@@ -22,7 +22,7 @@ local RoleMoveDirection = {RightDown = 0, LeftUp = 1, LeftDown = 2, RightUp = 3}
 local RoleCoverRange = {Up = 4, Side = 1}
 local RoleCoverType = {SelfCor = 1, LeftSide = 2, RightSide = 3, Upward = 4}
 local ROLE_SIZE = (Vector2(100, 200))
-local _floorHolder, _leftWallHolder, _backgroundHolder, _floor, _leftWall, _rightWall, _background = nil, nil, nil, nil, nil, nil, nil
+local _floorHolder, _leftWallHolder, _rightWallHolder, _backgroundHolder, _floor, _leftWall, _rightWall, _background = nil, nil, nil, nil, nil, nil, nil, nil
 local _furnitureInfo = {}
 local _editGridUsage = {}
 local _editCarpetGridUsage = {}
@@ -110,7 +110,7 @@ HomelandRoomWindow.InitTopMenu = function(...)
 end
 
 HomelandRoomWindow.InitVariable = function(...)
-  -- function num : 0_2 , upvalues : _editor, _ENV, _ui, uis, _bgImg, _bgImgOriginScale, _bgImgUVRect, _posDiff, _originPosDiff, _floorHolder, _leftWallHolder, _backgroundHolder, _hemmingOirginPos, _roomOriginHeight, _roomWidth, _roomOffset, _tan, _sin, _cos, _sin2, _styleBtns, _uiAnim, _topUIAnim, _infoAnim
+  -- function num : 0_2 , upvalues : _editor, _ENV, _ui, uis, _bgImg, _bgImgOriginScale, _bgImgUVRect, _posDiff, _originPosDiff, _floorHolder, _leftWallHolder, _rightWallHolder, _backgroundHolder, _hemmingOirginPos, _roomOriginHeight, _roomWidth, _roomOffset, _tan, _sin, _cos, _sin2, _styleBtns, _uiAnim, _topUIAnim, _infoAnim
   _editor = Application.platform == RuntimePlatform.WindowsEditor or Application.platform == RuntimePlatform.OSXEditor
   _ui = (uis.root):GetChild("My")
   _bgImg = ((uis.CurrencyWindow).root):GetChild("PicLoader")
@@ -124,8 +124,6 @@ HomelandRoomWindow.InitVariable = function(...)
   _leftWallHolder = ((uis.Currency).root):GetChild("LeftWallImage")
   _leftWallHolder.gameObjectName = "LeftWallHolder"
   _rightWallHolder = ((uis.Currency).root):GetChild("RightWallImage")
-  -- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'
-
   _rightWallHolder.gameObjectName = "RightWallHolder"
   _backgroundHolder = _bgImg
   _backgroundHolder.gameObjectName = "BackgroundHolder"
@@ -529,7 +527,7 @@ HomelandRoomWindow.RefreshEditRoom = function(...)
 end
 
 HomelandRoomWindow.Update = function(...)
-  -- function num : 0_17 , upvalues : _editor, _ENV, HomelandRoomWindow, uis, _furnitureMoving, _dragingCard, _touch1, _lastTouchPos, _touch2, _lastDis
+  -- function num : 0_17 , upvalues : _editor, _ENV, HomelandRoomWindow, uis, _rightWallHolder, _furnitureMoving, _dragingCard, _touch1, _lastTouchPos, _touch2, _lastDis
   if _editor then
     if (Input.GetKey)(KeyCode.Z) then
       (HomelandRoomWindow.ZoomInRoom)()
@@ -1644,7 +1642,7 @@ HomelandRoomWindow.RecycleCardLoader = function(loader, shadow, ...)
 end
 
 HomelandRoomWindow.RefreshWall = function(id, ...)
-  -- function num : 0_48 , upvalues : _ENV, _leftWall, HomelandRoomWindow, _leftWallHolder, _rightWall, uis
+  -- function num : 0_48 , upvalues : _ENV, _leftWall, HomelandRoomWindow, _leftWallHolder, _rightWall, _rightWallHolder, uis
   if id == nil then
     id = ((HomelandData.RoomData).Wall).Id
   end
@@ -2328,7 +2326,7 @@ HomelandRoomWindow.ChangePlacedFurnitureStatus = function(data, status, noAnim, 
 end
 
 HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...)
-  -- function num : 0_73 , upvalues : _ENV, _moveComInfo, HomelandRoomWindow, uis, _editFurnitureInfo, _currentEditGridUsage, _editCarpetGridUsage, _editGridUsage, SELECTED_ALPHA, _occupiedFurniture
+  -- function num : 0_73 , upvalues : _ENV, _moveComInfo, HomelandRoomWindow, uis, _editFurnitureInfo, _currentEditGridUsage, _editCarpetGridUsage, _editGridUsage, SELECTED_ALPHA, _occupiedFurniture, _rightWallHolder
   if (_G.next)(_moveComInfo) == nil then
     (HomelandRoomWindow.InitMoveComponentInfo)()
   end
@@ -2441,30 +2439,30 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
                   else
                     turn = nil
                   end
-                  -- DECOMPILER ERROR at PC291: Confused about usage of register: R7 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC290: Confused about usage of register: R7 in 'UnsetPending'
 
                   if turn then
                     (_moveComInfo.Furniture).flip = (FairyGUI.FlipType).Horizontal
                   else
-                    -- DECOMPILER ERROR at PC297: Confused about usage of register: R7 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC296: Confused about usage of register: R7 in 'UnsetPending'
 
                     (_moveComInfo.Furniture).flip = (FairyGUI.FlipType).None
                   end
                   _moveComInfo.Turn = turn
                   flip = _moveComInfo.Turn
                 else
-                  -- DECOMPILER ERROR at PC305: Confused about usage of register: R6 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC304: Confused about usage of register: R6 in 'UnsetPending'
 
                   (_moveComInfo.Furniture).flip = (FairyGUI.FlipType).None
                   _moveComInfo.Turn = nil
                 end
                 ;
                 (HomelandRoomWindow.InitSelectedBelongGrid)(config.id, flip)
-                -- DECOMPILER ERROR at PC322: Confused about usage of register: R6 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC321: Confused about usage of register: R6 in 'UnsetPending'
 
                 ;
                 (_moveComInfo.Furniture).xy = (HomelandRoomWindow.GetFunritureOffset)(config, _moveComInfo.BelongTo, _moveComInfo.Size, (_moveComInfo.Furniture).width, (_moveComInfo.Furniture).height, _moveComInfo.Turn)
-                -- DECOMPILER ERROR at PC343: Confused about usage of register: R6 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC342: Confused about usage of register: R6 in 'UnsetPending'
 
                 if config.type == HomelandFurnitureType.Decorate then
                   (_moveComInfo.AdjustCom).xy = Vector2((_moveComInfo.Furniture).x + (_moveComInfo.Com).width * 0.5, (_moveComInfo.Furniture).y + (_moveComInfo.Com).height * 0.5)
@@ -2485,20 +2483,20 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
                 _moveComInfo.BelongingGrid = (HomelandRoomWindow.RecycleBelongingGrid)(_moveComInfo.BelongingGrid)
                 if not (Util.StringIsNullOrEmpty)(config.perspectivity) then
                   _moveComInfo.WindowView = (HomelandRoomWindow.SetWindowView)(config, (_moveComInfo.Furniture).x + (_moveComInfo.Com).x, (_moveComInfo.Furniture).y + (_moveComInfo.Com).y, _moveComInfo.WindowView, nil, _moveComInfo.Com, (_moveComInfo.Com):GetChildIndex(_moveComInfo.Furniture) - 1)
-                  -- DECOMPILER ERROR at PC405: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC404: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).alpha = SELECTED_ALPHA
-                  -- DECOMPILER ERROR at PC412: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC411: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).x = (_moveComInfo.Furniture).x + (_moveComInfo.WindowViewRect).x
-                  -- DECOMPILER ERROR at PC419: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC418: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).y = (_moveComInfo.Furniture).y + (_moveComInfo.WindowViewRect).y
                 else
-                  -- DECOMPILER ERROR at PC425: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC424: Confused about usage of register: R5 in 'UnsetPending'
 
                   if _moveComInfo.WindowView ~= nil then
                     (_moveComInfo.WindowView).visible = false
@@ -2539,10 +2537,10 @@ HomelandRoomWindow.InitMoveComponentInfo = function(...)
   ;
   ((uis.Currency).root):AddChild(_moveComInfo.Com)
   _moveComInfo.AdjustCom = (_moveComInfo.Com):GetChild("Adjust")
-  -- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
-  (_moveComInfo.AdjustCom).xy = Vector2.zero
+  ((_moveComInfo.AdjustCom).root).xy = Vector2.zero
   _moveComInfo.CoverImg = (_moveComInfo.AdjustCom):GetChild("n0")
   _moveComInfo.OriginCoverImgSize = (_moveComInfo.CoverImg).size
   _moveComInfo.ChangeOrientationBtn = (_moveComInfo.AdjustCom):GetChild("TurnBtn")
@@ -2695,7 +2693,7 @@ HomelandRoomWindow.InitSelectedBelongGrid = function(id, turn, ...)
 end
 
 HomelandRoomWindow.InitBelongingGrid = function(turn, id, com, belongTo, furnitureSize, size, ...)
-  -- function num : 0_80 , upvalues : _ENV, HomelandRoomWindow, _leftWallHolder, _leftWall, _floorHolder
+  -- function num : 0_80 , upvalues : _ENV, HomelandRoomWindow, _leftWallHolder, _leftWall, _rightWallHolder, _floorHolder
   local config = ((TableData.gTable).BaseFamilyFurnitureData)[id]
   local beginPos = Vector2.zero
   local line, greenGrid, redGrid, originPoint, sizeX, sizeY = nil, nil, nil, nil, nil, nil
@@ -3272,7 +3270,7 @@ HomelandRoomWindow.RefreshDecorateSort = function(data, type, oldBelongTo, newBe
 end
 
 HomelandRoomWindow.SetDecorateSort = function(belongTo, uid, furniture, ...)
-  -- function num : 0_97 , upvalues : _ENV, uis, _leftSideDecorateSortListIndex, _floorHolder, _rightSideDecorateSortListIndex
+  -- function num : 0_97 , upvalues : _ENV, uis, _rightWallHolder, _leftSideDecorateSortListIndex, _floorHolder, _rightSideDecorateSortListIndex
   local index, baseIndex = nil, nil
   if belongTo == HomelandRoomGridType.LeftWall then
     baseIndex = ((uis.Currency).root):GetChildIndex(_rightWallHolder)
@@ -3879,7 +3877,7 @@ HomelandRoomWindow.GetPositionByCoordinate = function(coordinate, ...)
 end
 
 HomelandRoomWindow.PlaceSingleFurniture = function(config, turn, position, offset, uid, new, newCord, size, gridStatus, specifyGridType, view, rect, ...)
-  -- function num : 0_112 , upvalues : HomelandRoomWindow, _ENV, uis, _leftSideDecorateSortListIndex, _floorHolder, _rightSideDecorateSortListIndex, _moveComInfo
+  -- function num : 0_112 , upvalues : HomelandRoomWindow, _ENV, uis, _rightWallHolder, _leftSideDecorateSortListIndex, _floorHolder, _rightSideDecorateSortListIndex, _moveComInfo
   local furniture = (HomelandRoomWindow.PullFromPool)(HomelandRoomResources.FurnitureCom, (uis.Currency).root, true)
   local loader = furniture:GetChild("FurnitureItemLoader")
   loader.url = (Util.GetItemUrl)(config.resource)
@@ -3935,7 +3933,7 @@ HomelandRoomWindow.PlaceSingleFurniture = function(config, turn, position, offse
             end
             local view, rect = nil, nil
             local setPos = function(pos, ...)
-    -- function num : 0_112_0 , upvalues : turn, loader, offset, _ENV, config, view, rect, HomelandRoomWindow, furniture, uis
+    -- function num : 0_112_0 , upvalues : turn, loader, offset, _ENV, config, view, rect, HomelandRoomWindow, furniture, uis, _rightWallHolder
     if turn then
       loader.scaleX = -1
       loader.x = (loader.size).x + offset.x
@@ -4480,7 +4478,7 @@ HomelandRoomWindow.CheckDecorateFlip = function(direction, belongTo, furniture, 
 end
 
 HomelandRoomWindow.GetTouchPositionAndCoordinate = function(type, updateMoveComInfo, offsetPos, ...)
-  -- function num : 0_124 , upvalues : HomelandRoomWindow, _moveComInfo, _ENV, _sin2, _tan, _sin, _cos
+  -- function num : 0_124 , upvalues : HomelandRoomWindow, _moveComInfo, _ENV, _rightWallHolder, _sin2, _tan, _sin, _cos
   local point = (HomelandRoomWindow.GetTouchPosition)()
   if offsetPos == nil and _moveComInfo.BelongingGrid then
     offsetPos = (((_moveComInfo.BelongingGrid)[1])[1]).GreenGrid
@@ -4492,7 +4490,7 @@ HomelandRoomWindow.GetTouchPositionAndCoordinate = function(type, updateMoveComI
       if _rightWallHolder.x > point.x or not HomelandRoomGridType.RightWall then
         local belongTo = HomelandRoomGridType.LeftWall
       end
-      -- DECOMPILER ERROR at PC49: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC48: Unhandled construct in 'MakeBoolean' P1
 
       if updateMoveComInfo and belongTo ~= _moveComInfo.BelongTo then
         _moveComInfo.BelongTo = belongTo
@@ -4501,11 +4499,11 @@ HomelandRoomWindow.GetTouchPositionAndCoordinate = function(type, updateMoveComI
         ;
         (HomelandRoomWindow.InitSelectedBelongGrid)(_moveComInfo.Id)
         local config = ((TableData.gTable).BaseFamilyFurnitureData)[_moveComInfo.Id]
-        -- DECOMPILER ERROR at PC74: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC73: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (_moveComInfo.Furniture).xy = (HomelandRoomWindow.GetFunritureOffset)(config, _moveComInfo.BelongTo, _moveComInfo.Size, (_moveComInfo.Furniture).width, (_moveComInfo.Furniture).height, _moveComInfo.Turn)
-        -- DECOMPILER ERROR at PC90: Confused about usage of register: R6 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC89: Confused about usage of register: R6 in 'UnsetPending'
 
         ;
         (_moveComInfo.AdjustCom).xy = Vector2((_moveComInfo.Furniture).x + (_moveComInfo.Com).width * 0.5, (_moveComInfo.Furniture).y + (_moveComInfo.Com).height * 0.5)

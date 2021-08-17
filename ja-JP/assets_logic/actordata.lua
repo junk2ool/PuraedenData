@@ -90,7 +90,7 @@ ActorData.SaveActorData = function(msg, completeCallBack, ...)
   local tableData = (TableData.gTable).BaseMessagePushData
   for k,v in pairs(tableData) do
     if ListData[v.push_type] == nil then
-      local state = (PlayerPrefs.GetInt)(v.storeKey, 0)
+      local state = (Util.GetIntPlayerSetting)(v.storeKey, 0)
       if state == 0 then
         ListData[v.push_type] = true
       else
@@ -1392,7 +1392,7 @@ ActorData.SetPushData = function(data, value, ...)
     state = 1
   end
   ;
-  (PlayerPrefs.SetInt)(data.storeKey, state)
+  (Util.SetIntPlayerSetting)(data.storeKey, state)
 end
 
 -- DECOMPILER ERROR at PC247: Confused about usage of register: R5 in 'UnsetPending'

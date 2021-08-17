@@ -628,14 +628,18 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                       else
                         if deduction_round_type == BattleBuffDeductionRoundType.DAMAGE_REACH_MAXHP then
                           local curDefPos = buff:GetCurDefPos()
-                          local config = buff:GetBuffConfig()
-                          local strTable = split(config.star_config, ":")
-                          local card = (BattleData.GetCardInfoByPos)(curDefPos)
-                          local trigger = tonumber(strTable[card:GetStar()]) * 0.0001
-                          trigger = trigger * card:GetMaxHp()
-                          if trigger <= card:GetTotalDamage() then
-                            (self.RealUpdateBuffCount)(buff, atkInfo)
-                            card:SetTotalDamage(0)
+                          if arg == curDefPos then
+                            local config = buff:GetBuffConfig()
+                            local strTable = split(config.star_config, ":")
+                            local card = (BattleData.GetCardInfoByPos)(curDefPos)
+                            local trigger = tonumber(strTable[card:GetStar()]) * 0.0001
+                            trigger = trigger * card:GetMaxHp()
+                            local totalDamage = card:GetTotalDamage()
+                            local cardId = card:GetCardId()
+                            if trigger <= totalDamage then
+                              (self.RealUpdateBuffCount)(buff, atkInfo)
+                              card:SetTotalDamage(0)
+                            end
                           end
                         else
                           do
@@ -643,41 +647,41 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                               if deduction_round_type == BattleBuffDeductionRoundType.AFTER_OWNER_CRIT then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
                               end
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC495: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
 
                             end
                           end
@@ -825,6 +829,7 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
   local allBuffTable = (BattleAtk.curAtkInfo).allBuffTable
   local curActiveCount = buff:GetActiveCount()
   local maxActiveCount = buff:GetTotalCount()
+  local isEffect = false
   if curActiveCount < maxActiveCount then
     local isCanEffect = buff:IsCanEffect()
     if isCanEffect == true then
@@ -842,6 +847,7 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
           print("更新buff生效回合 ", buff:GetBuffLog())
           PrintTable(buff:GetBuffInfo())
         end
+        isEffect = true
         if notRemove == nil and buff:NeedRemove() == true then
           (Util.InsertTable)(allBuffTable, {buff = buff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.DELETE}, true)
           if IsBattleServer == nil then
@@ -850,7 +856,9 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
           ;
           (BattleBuffMgr.RemoveBuffFromList)(buff)
         end
-        ExtraTrigger = (self.DealExtraBuffList)(buff, atkInfo, "deduction_buff_list")
+        if isEffect then
+          ExtraTrigger = (self.DealExtraBuffList)(buff, atkInfo, "deduction_buff_list")
+        end
         return ExtraTrigger
       end
     end

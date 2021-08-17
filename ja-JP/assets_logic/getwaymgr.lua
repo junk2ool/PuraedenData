@@ -52,7 +52,7 @@ GetWayMgr.Goto = function(id, ...)
                   if ControlID.Shop_Grocer <= id and id <= ControlID.Shop_Expedition then
                     ld("Shop", function(...)
     -- function num : 0_0_1 , upvalues : _ENV, id
-    (ShopMgr.ExternalGotoShop)(id - 102000)
+    (ShopService.OnReqShopGridData)(id - 102000)
   end
 )
                   else

@@ -152,19 +152,9 @@ GetWayWindow.RefreshWay = function(index, item, ...)
   else
     if ControlID.Shop_Grocer <= config.type and config.type <= ControlID.Shop_Expedition then
       ld("Shop")
-      ;
-      (ShopMgr.ExternalGetShopState)(config.type, config.type - 102000, function(unlock, ...)
-    -- function num : 0_10_3 , upvalues : gotoBtn, item, _ENV, ctr, timesText
-    gotoBtn.visible = unlock
-    if unlock == false then
-      (item:GetChild("WordTxt")).text = (PUtil.get)(60000085)
-      ctr.selectedIndex = 1
-    else
       timesText.text = ""
       ctr.selectedIndex = 0
-    end
-  end
-)
+      gotoBtn.visible = true
     else
       gotoBtn.visible = (FunctionControlMgr.GetFunctionState)(config.type)
       timesText.text = ""
