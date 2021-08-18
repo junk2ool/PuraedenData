@@ -724,7 +724,7 @@ HandBookIntimacyWindow.PlayVoice = function(cardID, DetailID, showEffect, func, 
     end
     do
       local talkPrefab = nil
-      if direction == 1 then
+      if direction == "1" then
         talkPrefab = UIMgr:CreateObject("CommonResource", "TalkLeft")
       else
         talkPrefab = UIMgr:CreateObject("CommonResource", "TalkRight")
