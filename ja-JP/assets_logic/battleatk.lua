@@ -307,7 +307,7 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, multipleSkil
         if #assistCard > 0 and defCard:IsDead() ~= true and #curTargetCards <= 1 then
           atkInfo.moveCamera = true
           for _,card in ipairs(assistCard) do
-            if defCard:IsDead() ~= true then
+            if defCard:IsDead() ~= true and not card:IsDead() then
               local assistSkillConfig = card:GetAssistSkillConfig()
               local oneAssistAtkInfo = (self.InitAtkInfo)(card, {defCard}, assistSkillConfig)
               t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)
@@ -419,7 +419,7 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, multipleSkill
           local assistCard = (self.IsAssistAtk)(atkCard)
           if #assistCard > 0 and defCard:IsDead() ~= true then
             for _,card in ipairs(assistCard) do
-              if defCard:IsDead() ~= true then
+              if defCard:IsDead() ~= true and not card:IsDead() then
                 local assistSkillConfig = card:GetAssistSkillConfig()
                 local oneAssistAtkInfo = (self.InitAtkInfo)(card, curTargetCards, assistSkillConfig)
                 t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)

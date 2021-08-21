@@ -76,20 +76,6 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     ;
     (PlotDungeonMgr.IsQuestHeroData)(true)
   end
-  if (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).NewActivityDungeon) then
-    (NewActivityDungeonMgr.InitAssistData)()
-    ;
-    (SimpleTimer.setTimeout)(0.2, function(...)
-    -- function num : 0_1_3 , upvalues : _ENV
-    local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
-    if config.assist_num <= (NewActivityDungeonData.AssistData).assistedTime then
-      (RedDotMgr.EliminateRedDot)((WinResConfig.NewActivityDungeonMainWindow).name, RedDotComID.NAD_GuildHlep)
-      ;
-      (RedDotMgr.RefreshTreeUI)((WinResConfig.NewActivityDungeonMainWindow).name)
-    end
-  end
-)
-  end
   ;
   (HomeWindow.CheckActivityIcon)()
   ;
@@ -112,14 +98,14 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   ((uis.FamilyBtn).onClick):Set(HomeWindow.ClickHomelandBtn)
   ;
   ((uis.AnnouncementBtn).onClick):Set(HomeWindow.ClickAnnouncementBtn)
-  -- DECOMPILER ERROR at PC192: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC176: Confused about usage of register: R1 in 'UnsetPending'
 
   if IsIOSReview == true then
     (uis.AnnouncementBtn).visible = false
   end
   ;
   ((uis.ActivityDungeonBtn).onClick):Set(function(...)
-    -- function num : 0_1_4 , upvalues : _ENV
+    -- function num : 0_1_3 , upvalues : _ENV
     if (ActivityMgr.GetCurrentActivityDungeonType)() == (ActivityMgr.ActivityType).NewActivityDungeon then
       (PlotDungeonService.ReqStoryInfo)(DungeonType.NewActivityDungeon)
     else
@@ -134,7 +120,7 @@ HomeWindow.OnInit = function(bridgeObj, ...)
   (HomeWindow.RefreshActivityBtnVisible)()
   ;
   ((uis.CarnivalBtn).onClick):Set(function(...)
-    -- function num : 0_1_5 , upvalues : _ENV
+    -- function num : 0_1_4 , upvalues : _ENV
     (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).SevenTask)
   end
 )
@@ -157,13 +143,13 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     LongPressGesture.trigger = 2
     ;
     (LongPressGesture.onAction):Set(function(...)
-    -- function num : 0_1_6 , upvalues : _ENV, popup
+    -- function num : 0_1_5 , upvalues : _ENV, popup
     (GRoot.inst):ShowPopup(popup)
   end
 )
   end
   do
-    -- DECOMPILER ERROR at PC266: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC250: Confused about usage of register: R1 in 'UnsetPending'
 
     if Game.testPackage ~= true and uis.ServerNameTxt then
       (uis.ServerNameTxt).text = (LoginMgr.GetServerName)()
@@ -201,20 +187,20 @@ HomeWindow.OnInit = function(bridgeObj, ...)
         local curMin = (math.floor)((os.date)("%M", (math.floor)((ActorData.GetServerTime)() / 1000)))
         if curMin >= 1 then
           (MessageMgr.OpenSoloConfirmWindow)((PUtil.get)(40000013), function(...)
-    -- function num : 0_1_7 , upvalues : _ENV
+    -- function num : 0_1_6 , upvalues : _ENV
     (LoginMgr.ReturnToLoginWindow)()
   end
 , nil, (PUtil.get)(60000004))
-          -- DECOMPILER ERROR at PC365: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC349: Confused about usage of register: R3 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
         end
       else
         do
-          -- DECOMPILER ERROR at PC368: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC352: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
-          -- DECOMPILER ERROR at PC371: Confused about usage of register: R2 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC355: Confused about usage of register: R2 in 'UnsetPending'
 
           LoginMgr.lastOnlineHour = curHour
           if ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).WindowsEditor and ((CS.UnityEngine).Application).platform ~= ((CS.UnityEngine).RuntimePlatform).OSXEditor then
@@ -349,20 +335,11 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
   end
 )
         end
-        local isNAD = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).NewActivityDungeon)
+        local isNAD = (uis.ActivityDungeonBtn).visible
         if isNAD == true then
-          (NewActivityDungeonMgr.InitAssistData)()
+          (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityDungeon, uis.ActivityDungeonBtn)
           ;
-          (SimpleTimer.setTimeout)(0.2, function(...)
-    -- function num : 0_3_4 , upvalues : _ENV
-    local config = ((TableData.gTable).BaseActivityAidData)[(NewActivityDungeonData.AssistData).id]
-    if config.assist_num <= (NewActivityDungeonData.AssistData).assistedTime then
-      (RedDotMgr.EliminateRedDot)((WinResConfig.NewActivityDungeonMainWindow).name, RedDotComID.NAD_GuildHlep)
-      ;
-      (RedDotMgr.RefreshTreeUI)((WinResConfig.NewActivityDungeonMainWindow).name)
-    end
-  end
-)
+          (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
         end
         -- DECOMPILER ERROR: 15 unprocessed JMP targets
       end

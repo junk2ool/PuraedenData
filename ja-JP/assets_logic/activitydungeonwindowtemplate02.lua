@@ -498,11 +498,7 @@ ActivityDungeonWindow.RefreshMapItem = function(index, item, ...)
         (stageItem:GetChild("NumberTxt")).text = config.name
         ;
         (stageItem.onClick):Set(function(...)
-    -- function num : 0_15_0 , upvalues : _ENV, config
-    if (ActorData.GetServerTime)() >= 1628956799000 then
-      (MessageMgr.SendCenterTips)((PUtil.get)(40002085))
-      return 
-    end
+    -- function num : 0_15_0 , upvalues : config, _ENV
     if config.type == StageType.FIGHT then
       (ActivityDungeonMgr.SetSelectDungeon)(config.id)
     else
@@ -854,11 +850,6 @@ ActivityDungeonWindow.RefreshExplorationBtn = function(id, data, ...)
     ;
     (startBtn.onClick):Set(function(...)
     -- function num : 0_24_1 , upvalues : _ENV, id
-    if (ActorData.GetServerTime)() >= 1628956799000 then
-      (MessageMgr.SendCenterTips)((PUtil.get)(40002085))
-      return 
-    end
-    ;
     (ActivityDungeonMgr.ReqBeginRisk)(id)
   end
 )
@@ -990,11 +981,6 @@ end
 
 ActivityDungeonWindow.ClickGuildAssistBtn = function(...)
   -- function num : 0_32 , upvalues : _ENV
-  if (ActorData.GetServerTime)() >= 1628956799000 then
-    (MessageMgr.SendCenterTips)((PUtil.get)(40002085))
-    return 
-  end
-  ;
   (ActivityDungeonMgr.OpenGuildAssist)()
 end
 
@@ -1005,10 +991,6 @@ end
 
 ActivityDungeonWindow.ClickChallengeBtn = function(...)
   -- function num : 0_34 , upvalues : _ENV, challengeBoss
-  if (ActorData.GetServerTime)() >= 1628956799000 then
-    (MessageMgr.SendCenterTips)((PUtil.get)(40002085))
-    return 
-  end
   if (ActivityDungeonMgr.TryChallengeBoss)() then
     challengeBoss = true
   end

@@ -513,8 +513,20 @@ end
 
 -- DECOMPILER ERROR at PC70: Confused about usage of register: R0 in 'UnsetPending'
 
-HomelandMgr.AddFurnitureToUI = function(id, uid, ...)
+HomelandMgr.IsInclude = function(value, tab, ...)
   -- function num : 0_22 , upvalues : _ENV
+  for _,v in pairs(tab) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
+
+-- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'
+
+HomelandMgr.AddFurnitureToUI = function(id, uid, ...)
+  -- function num : 0_23 , upvalues : _ENV
   if id == nil or uid == nil then
     return 
   end
@@ -531,16 +543,17 @@ HomelandMgr.AddFurnitureToUI = function(id, uid, ...)
       ;
       (HomelandData.EditPileFurnitures)[id] = {}
     end
-    ;
-    (table.insert)((HomelandData.EditPileFurnitures)[id], uid)
+    if (HomelandMgr.IsInclude)(uid, (HomelandData.EditPileFurnitures)[id]) == false then
+      (table.insert)((HomelandData.EditPileFurnitures)[id], uid)
+    end
     UIMgr:SendWindowMessage((WinResConfig.HomelandRoomWindow).name, (WindowMsgEnum.Family).E_MSG_REFRESH_FURNITURE_VIRTUAL_LIST)
   end
 end
 
--- DECOMPILER ERROR at PC73: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC76: Confused about usage of register: R0 in 'UnsetPending'
 
 HomelandMgr.RemoveFurnitureFromUI = function(id, uid, timeUp, ...)
-  -- function num : 0_23 , upvalues : _ENV
+  -- function num : 0_24 , upvalues : _ENV
   local count = #(HomelandData.EditPileFurnitures)[id]
   for i = 1, count do
     if uid == ((HomelandData.EditPileFurnitures)[id])[i] then
@@ -571,10 +584,10 @@ HomelandMgr.RemoveFurnitureFromUI = function(id, uid, timeUp, ...)
   end
 end
 
--- DECOMPILER ERROR at PC76: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC79: Confused about usage of register: R0 in 'UnsetPending'
 
 HomelandMgr.UpdateCardGridUsage = function(x, y, id, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   if (HomelandData.UpdateCardGridUsage)(x, y, id) and not id and ((HomelandData.RoomData).GridWaiting)[x] and (((HomelandData.RoomData).GridWaiting)[x])[y] and #(((HomelandData.RoomData).GridWaiting)[x])[y] > 0 then
     local data = (table.remove)((((HomelandData.RoomData).GridWaiting)[x])[y], 1)
     data.Reason = nil
