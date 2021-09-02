@@ -2462,11 +2462,10 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
 
                 ;
                 (_moveComInfo.Furniture).xy = (HomelandRoomWindow.GetFunritureOffset)(config, _moveComInfo.BelongTo, _moveComInfo.Size, (_moveComInfo.Furniture).width, (_moveComInfo.Furniture).height, _moveComInfo.Turn)
-                -- DECOMPILER ERROR at PC342: Confused about usage of register: R6 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC337: Confused about usage of register: R6 in 'UnsetPending'
 
-                if config.type == HomelandFurnitureType.Decorate then
-                  (_moveComInfo.AdjustCom).xy = Vector2((_moveComInfo.Furniture).x + (_moveComInfo.Com).width * 0.5, (_moveComInfo.Furniture).y + (_moveComInfo.Com).height * 0.5)
-                end
+                ;
+                (_moveComInfo.AdjustCom).xy = Vector2((_moveComInfo.Furniture).x + (_moveComInfo.Com).width * 0.5, (_moveComInfo.Furniture).y + (_moveComInfo.Com).height * 0.5)
                 ;
                 (HomelandRoomWindow.InitEditGrids)(config)
                 if _editFurnitureInfo[uid] ~= nil then
@@ -2483,20 +2482,20 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
                 _moveComInfo.BelongingGrid = (HomelandRoomWindow.RecycleBelongingGrid)(_moveComInfo.BelongingGrid)
                 if not (Util.StringIsNullOrEmpty)(config.perspectivity) then
                   _moveComInfo.WindowView = (HomelandRoomWindow.SetWindowView)(config, (_moveComInfo.Furniture).x + (_moveComInfo.Com).x, (_moveComInfo.Furniture).y + (_moveComInfo.Com).y, _moveComInfo.WindowView, nil, _moveComInfo.Com, (_moveComInfo.Com):GetChildIndex(_moveComInfo.Furniture) - 1)
-                  -- DECOMPILER ERROR at PC404: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC399: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).alpha = SELECTED_ALPHA
-                  -- DECOMPILER ERROR at PC411: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC406: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).x = (_moveComInfo.Furniture).x + (_moveComInfo.WindowViewRect).x
-                  -- DECOMPILER ERROR at PC418: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC413: Confused about usage of register: R5 in 'UnsetPending'
 
                   ;
                   (_moveComInfo.WindowView).y = (_moveComInfo.Furniture).y + (_moveComInfo.WindowViewRect).y
                 else
-                  -- DECOMPILER ERROR at PC424: Confused about usage of register: R5 in 'UnsetPending'
+                  -- DECOMPILER ERROR at PC419: Confused about usage of register: R5 in 'UnsetPending'
 
                   if _moveComInfo.WindowView ~= nil then
                     (_moveComInfo.WindowView).visible = false
@@ -2506,7 +2505,7 @@ HomelandRoomWindow.InitMoveFurniture = function(config, uid, new, totalSize, ...
                 ;
                 (HomelandRoomWindow.SetAdjustComSize)(_moveComInfo.Type)
                 do return true end
-                -- DECOMPILER ERROR: 28 unprocessed JMP targets
+                -- DECOMPILER ERROR: 27 unprocessed JMP targets
               end
             end
           end

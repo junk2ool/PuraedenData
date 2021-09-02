@@ -484,11 +484,15 @@ AdventureGame_GoldGame.Randomx = function(m, n, cnt, ...)
 end
 
 AdventureGame_GoldGame.OnClose = function(...)
-  -- function num : 0_14 , upvalues : _ENV, dropTimer, uis, contentPane, argTable, nodeId, dropGrps, gameState, GameState, timer, swipe, dog, dogIsRun, getRewards, dropGoodsItem, dropGoodsId, dogSpeed, randomDropPos, timerR, timerL
+  -- function num : 0_14 , upvalues : _ENV, dropTimer, timer, uis, contentPane, argTable, nodeId, dropGrps, gameState, GameState, swipe, dog, dogIsRun, getRewards, dropGoodsItem, dropGoodsId, dogSpeed, randomDropPos, timerR, timerL
   (LuaSound.LoadAndPlayBGM)(1010005)
   if dropTimer ~= nil then
     dropTimer:stop()
     dropTimer = nil
+  end
+  if timer ~= nill then
+    timer:stop()
+    timer = nil
   end
   uis = nil
   contentPane = nil
@@ -519,13 +523,18 @@ AdventureGame_GoldGame.OnClose = function(...)
 end
 
 AdventureGame_GoldGame.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV, AdventureGame_GoldGame
   local windowMsgEnum = WindowMsgEnum.Adventure
   if msgId == windowMsgEnum.E_MSG_CLOSE_REWARDGET_WINDOW then
     UIMgr:CloseWindow((WinResConfig.AdventureGame_GoldGame).name)
   else
     if msgId == windowMsgEnum.E_MSG_GOLD_REWARDS then
       (AdventureMgr.AfterShowResult)()
+    else
+      if msgId == (WindowMsgEnum.MessageWindow).E_MSG_CLOSE_CANCEL then
+        (AdventureGame_GoldGame.OnClose)()
+        UIMgr:CloseWindow((WinResConfig.AdventureGame_GoldGame).name)
+      end
     end
   end
 end

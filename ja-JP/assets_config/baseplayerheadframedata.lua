@@ -24,6 +24,8 @@ BasePlayerHeadFrameData = {
 [78610011] = {id = 78610011, name = (PUtil.get)(84124011), des = (PUtil.get)(84122009), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0011", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1625018399"}
 , 
 [78610012] = {id = 78610012, name = (PUtil.get)(84124012), des = (PUtil.get)(84122010), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0013", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
+, 
+[78610013] = {id = 78610013, name = (PUtil.get)(84124013), des = (PUtil.get)(84122011), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0014", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
 }
 return BasePlayerHeadFrameData
 

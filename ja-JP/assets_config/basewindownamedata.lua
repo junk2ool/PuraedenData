@@ -51,7 +51,7 @@ BaseWindowNameData = {
 , 
 [2302] = {id = 2302, window_name = "HandBookStoryPlotWindow", red_dot_max = 7}
 , 
-[2303] = {id = 2303, window_name = "HandBookCardPlotWindow", rule_des = "0:88302303", red_dot_max = 7}
+[2303] = {id = 2303, window_name = "HandBookCardPlotWindow", rule_des = "0:88302302", red_dot_max = 7}
 , 
 [2304] = {id = 2304, window_name = "HandBookCardPlotBattleWindow", rule_des = "0:88302303", red_dot_max = 7}
 , 

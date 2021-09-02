@@ -306,10 +306,17 @@ BattleMgr.StartToAtkPlayBack = function(...)
   local attackInfo = (BattleData.curRoundData).attackInfo
   if attackInfo and attackInfo[1] then
     local atkInfo = attackInfo[1]
+    local card = (BattleData.GetCardInfoByUid)(atkInfo.atkCardUid)
+    if card:IsDead() then
+      (table.remove)(attackInfo, 1)
+      ;
+      (BattleMgr.StartToAtkPlayBack)()
+      return 
+    end
     for index,assistInfo in pairs(atkInfo.assistAtkInfo) do
       if assistInfo then
-        local card = (BattleData.GetCardInfoByUid)(assistInfo.atkCardUid)
-        if card and card:IsDead() then
+        local assistCard = (BattleData.GetCardInfoByUid)(assistInfo.atkCardUid)
+        if assistCard and assistCard:IsDead() then
           (table.remove)(atkInfo.assistAtkInfo, index)
         end
       end
@@ -344,7 +351,7 @@ BattleMgr.StartToAtkPlayBack = function(...)
     end
     do
       do
-        -- DECOMPILER ERROR at PC96: Confused about usage of register: R5 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC113: Confused about usage of register: R6 in 'UnsetPending'
 
         BattleAtk.curAtkInfo = atkInfo
         ;

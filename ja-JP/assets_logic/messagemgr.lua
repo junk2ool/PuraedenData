@@ -1105,11 +1105,19 @@ MessageMgr.AndroidBackBtnFun = function(winName, ...)
       end
     end
   end
-  local func = mWindowFunc[winName]
-  if func then
-    func()
+  if winName == (WinResConfig.AdventureGame_GoldGame).name then
+    UIMgr:SendWindowMessage((WinResConfig.AdventureGame_GoldGame).name, (WindowMsgEnum.MessageWindow).E_MSG_CLOSE_CANCEL)
   else
-    UIMgr:CloseWindow(winName)
+    if winName == (WinResConfig.AdventureGame_BrickGame).name then
+      UIMgr:SendWindowMessage((WinResConfig.AdventureGame_BrickGame).name, (WindowMsgEnum.MessageWindow).E_MSG_CLOSE_CANCEL)
+    else
+      local func = mWindowFunc[winName]
+      if func then
+        func()
+      else
+        UIMgr:CloseWindow(winName)
+      end
+    end
   end
 end
 

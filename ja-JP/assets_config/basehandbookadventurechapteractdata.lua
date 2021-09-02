@@ -26,6 +26,8 @@ BaseHandbookAdventureChapterActData = {
 [36000012] = {id = 36000012, name = (PUtil.get)(89001005), icon = "HandBookPlotBanner:ActivityPlot_12", activity_type = 312, sort = 12}
 , 
 [36000013] = {id = 36000013, name = (PUtil.get)(89001005), icon = "HandBookPlotBanner:ActivityPlot_13", activity_type = 313, sort = 13}
+, 
+[36000014] = {id = 36000014, name = (PUtil.get)(89001005), icon = "HandBookPlotBanner:ActivityPlot_14", activity_type = 314, sort = 14}
 }
 return BaseHandbookAdventureChapterActData
 

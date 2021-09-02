@@ -597,6 +597,10 @@ AdventureGameWindow.OnClose = function(...)
   ;
   (AdventureGameWindow.RecycleDice)()
   _currentDragStatue = true
+  -- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (GRoot.inst).touchable = true
   _lastObstacle = nil
   _role = nil
   uis = nil

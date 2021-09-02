@@ -468,6 +468,10 @@ already_login = {id = "already_login", name = "すでにログインしている
 activity_not_open = {id = "activity_not_open", name = "イベントは終了しました", name_cn = "活动未开启"}
 , 
 risk_time_not_enough = {id = "risk_time_not_enough", name = "イベントはまもなく終了となりますので、探索することができません。", name_cn = "活动即将结束，无法开始探索"}
+, 
+text_is_empty = {id = "text_is_empty", name = "空のテキスト", name_cn = "文本为空"}
+, 
+player_del_not_support = {id = "player_del_not_support", name = "player_del_not_support", name_cn = "对方账号异常，无法使用该支援角色"}
 }
 return BaseAlertData
 

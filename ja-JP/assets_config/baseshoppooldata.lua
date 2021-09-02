@@ -1793,17 +1793,17 @@ BaseShopPoolData = {
 , 
 [23541002] = {id = 23541002, grid_id = "23005141", sell_time = "0", item = "1:21140007:1", sell_price = "2:21100027:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
-[23542002] = {id = 23542002, grid_id = "23005142", sell_time = "0", item = "1:21140006:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
+[23542002] = {id = 23542002, grid_id = "23005142", sell_time = "0", item = "1:21140006:1", sell_price = "2:21100027:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
-[23543002] = {id = 23543002, grid_id = "23005143", sell_time = "0", item = "1:21140005:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
+[23543002] = {id = 23543002, grid_id = "23005143", sell_time = "0", item = "1:21140005:1", sell_price = "2:21100027:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
-[23544002] = {id = 23544002, grid_id = "23005144", sell_time = "0", item = "1:21140004:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
+[23544002] = {id = 23544002, grid_id = "23005144", sell_time = "0", item = "1:21140004:1", sell_price = "2:21100027:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
-[23545002] = {id = 23545002, grid_id = "23005145", sell_time = "0", item = "1:21140003:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
+[23545002] = {id = 23545002, grid_id = "23005145", sell_time = "0", item = "1:21140003:1", sell_price = "2:21100027:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
-[23546002] = {id = 23546002, grid_id = "23005146", sell_time = "0", item = "1:21140002:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
+[23546002] = {id = 23546002, grid_id = "23005146", sell_time = "0", item = "1:21140002:1", sell_price = "2:21100027:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
-[23547002] = {id = 23547002, grid_id = "23005147", sell_time = "0", item = "1:21140001:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
+[23547002] = {id = 23547002, grid_id = "23005147", sell_time = "0", item = "1:21140001:1", sell_price = "2:21100027:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
 [23548002] = {id = 23548002, grid_id = "23005148", sell_time = "0", item = "2:21100003:2000", sell_price = "2:21100028:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 }

@@ -265,8 +265,12 @@ AdventureGame_BrickGame.RefreshWindow = function(...)
 end
 
 AdventureGame_BrickGame.OnClose = function(...)
-  -- function num : 0_4 , upvalues : _ENV, uis, contentPane, argTable, nodeId, brickGrps, gameState, GameState, countDown, timer, getRewards, rdIndex, curBricks
+  -- function num : 0_4 , upvalues : _ENV, timer, uis, contentPane, argTable, nodeId, brickGrps, gameState, GameState, countDown, getRewards, rdIndex, curBricks
   (LuaSound.LoadAndPlayBGM)(1010005)
+  if timer ~= nil then
+    timer:stop()
+    timer = nil
+  end
   uis = nil
   contentPane = nil
   argTable = {}
@@ -303,13 +307,18 @@ AdventureGame_BrickGame.Randomx = function(m, n, cnt, ...)
 end
 
 AdventureGame_BrickGame.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_6 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV, AdventureGame_BrickGame
   local windowMsgEnum = WindowMsgEnum.Adventure
   if msgId == windowMsgEnum.E_MSG_CLOSE_REWARDGET_WINDOW then
     UIMgr:CloseWindow((WinResConfig.AdventureGame_BrickGame).name)
   else
     if msgId == windowMsgEnum.E_MSG_BRICK_REWARDS then
       (AdventureMgr.AfterShowResult)()
+    else
+      if msgId == (WindowMsgEnum.MessageWindow).E_MSG_CLOSE_CANCEL then
+        (AdventureGame_BrickGame.OnClose)()
+        UIMgr:CloseWindow((WinResConfig.AdventureGame_BrickGame).name)
+      end
     end
   end
 end

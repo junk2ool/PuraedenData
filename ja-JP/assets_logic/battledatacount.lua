@@ -444,7 +444,7 @@ end
 -- DECOMPILER ERROR at PC187: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
-  -- function num : 0_14 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, ipairs, self
+  -- function num : 0_14 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, ipairs, pairs, BattleDisplayEffect, BattleBuffDeductionRoundType, self
   if not atkInfo then
     atkInfo = BattleAtk.curAtkInfo
   end
@@ -462,33 +462,38 @@ BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
     else
       local isReset, canAdd = (BattleBuff.IsBuffReset)(card, tempBuff, atkInfo)
       if canAdd ~= false then
-        do
-          local resetBuffTable = (BattleBuffMgr.ResetAllSameBuff)(card, tempBuff, not isReset)
-          if #resetBuffTable > 0 then
-            for _,v in ipairs(resetBuffTable) do
-              t_insert(allBuffTable, {buff = v:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.RESET})
-              if IsBattleServer == nil then
-                print("重置相同的buff ", v:GetBuffLog())
-                ;
-                (BattleData.SaveBattleProcess)("  重置buff " .. v:GetBuffLog())
-              end
-            end
-          end
-          if canAdd then
-            (BattleBuffMgr.AddBuffToList)(tempBuff)
-            t_insert(allBuffTable, {buff = tempBuff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.NEW})
+        local resetBuffTable = (BattleBuffMgr.ResetAllSameBuff)(card, tempBuff, not isReset)
+        if #resetBuffTable > 0 then
+          for _,v in ipairs(resetBuffTable) do
+            t_insert(allBuffTable, {buff = v:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.RESET})
             if IsBattleServer == nil then
-              (BattleData.SaveBattleProcess)("  新增buff " .. tempBuff:GetBuffLog())
+              print("重置相同的buff ", v:GetBuffLog())
+              ;
+              (BattleData.SaveBattleProcess)("  重置buff " .. v:GetBuffLog())
             end
-            loge("  新增buff " .. tempBuff:GetBuffLog())
-            ;
-            (BattleBuffMgr.DealClearBuff)(card, tempBuff)
-            ;
-            (self.DealExtraBuffList)(tempBuff, atkInfo, "settle_buff_list")
-            return true
           end
-          -- DECOMPILER ERROR: 5 unprocessed JMP targets
         end
+        if canAdd then
+          (BattleBuffMgr.AddBuffToList)(tempBuff)
+          local effectTable = tempBuff:GetEffectTable()
+          for k,v in pairs(effectTable) do
+            if v.effectId == BattleDisplayEffect.SHIELD then
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_SHIELD_GOT, card:GetPosIndex())
+              break
+            end
+          end
+          t_insert(allBuffTable, {buff = tempBuff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.NEW})
+          if IsBattleServer == nil then
+            (BattleData.SaveBattleProcess)("  新增buff " .. tempBuff:GetBuffLog())
+          end
+          loge("  新增buff " .. tempBuff:GetBuffLog())
+          ;
+          (BattleBuffMgr.DealClearBuff)(card, tempBuff)
+          ;
+          (self.DealExtraBuffList)(tempBuff, atkInfo, "settle_buff_list")
+          return true
+        end
+        -- DECOMPILER ERROR: 7 unprocessed JMP targets
       end
     end
   end
@@ -646,42 +651,51 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                             do
                               if deduction_round_type == BattleBuffDeductionRoundType.AFTER_OWNER_CRIT then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
+                              else
+                                -- DECOMPILER ERROR at PC510: Unhandled construct in 'MakeBoolean' P1
+
+                                if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SHIELD_INVALID and arg == buff:GetCurDefPos() then
+                                  (self.RealUpdateBuffCount)(buff, atkInfo)
+                                end
                               end
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
+                              if deductionRoundType == BattleBuffDeductionRoundType.AFTER_SHIELD_GOT and arg == buff:GetCurDefPos() then
+                                (self.RealUpdateBuffCount)(buff, atkInfo)
+                              end
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC499: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC523: LeaveBlock: unexpected jumping out IF_STMT
 
                             end
                           end
@@ -820,7 +834,7 @@ end
 -- DECOMPILER ERROR at PC196: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
-  -- function num : 0_17 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, self
+  -- function num : 0_17 , upvalues : _ENV, t_insert, BattleBuffOprType, BattleBuffMgr, pairs, BattleDisplayEffect, BattleBuffDeductionRoundType, self
   local ExtraTrigger = false
   if not atkInfo then
     atkInfo = BattleAtk.curAtkInfo
@@ -855,11 +869,19 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
           end
           ;
           (BattleBuffMgr.RemoveBuffFromList)(buff)
+          local effectTable = buff:GetEffectTable()
+          for k,effect in pairs(effectTable) do
+            if effect.effectId == BattleDisplayEffect.SHIELD then
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_SHIELD_INVALID, buff:GetCurDefPos())
+            end
+          end
         end
-        if isEffect then
-          ExtraTrigger = (self.DealExtraBuffList)(buff, atkInfo, "deduction_buff_list")
+        do
+          if isEffect then
+            ExtraTrigger = (self.DealExtraBuffList)(buff, atkInfo, "deduction_buff_list")
+          end
+          return ExtraTrigger
         end
-        return ExtraTrigger
       end
     end
   end
@@ -1213,7 +1235,7 @@ end
 -- DECOMPILER ERROR at PC205: Confused about usage of register: R47 in 'UnsetPending'
 
 BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtkCard, costTable, ...)
-  -- function num : 0_20 , upvalues : self, _ENV, BattleSkillType, ceil, BattleDisplayEffect, ipairs, BattleBuffDeductionRoundType, shanghai_fudong_min, shanghai_fudong_max, max, t_insert, math
+  -- function num : 0_20 , upvalues : self, _ENV, BattleSkillType, ceil, BattleDisplayEffect, ipairs, BattleBuffDeductionRoundType, shanghai_fudong_min, shanghai_fudong_max, max, t_insert
   atkInfo.defCardsInfo = {}
   ;
   (self.DealOneAliveEnemyBuff)(atkCard, atkInfo)
@@ -1576,24 +1598,16 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
     if not costDander then
       do
         danderAtk = danderAtk - atkCard:GetMaxDander(true)
-        local extraDander = atkCard:GetExtraDander()
-        if extraDander ~= 0 then
-          local maxDander = atkCard:GetMaxDander(true)
-          danderAtk = danderAtk + extraDander
-          local overflow = (math.max)(0, danderAtk + atkCard:GetDander() - maxDander)
-          danderAtk = danderAtk - overflow
-          atkCard:SetExtraDander(overflow)
-        end
+        danderAtk = (BattleDataCount.CalcDeltaDanderWithExtraDander)(atkCard, danderAtk)
         atkInfo.danderAtk = danderAtk
-        atkCard:SetDander(atkCard:GetDander() + (danderAtk))
-        atkCard:ClearExtraDander()
+        atkCard:SetDander(atkCard:GetDander() + danderAtk)
         if killCount > 0 and mainAtkCard then
           for i = 1, killCount do
             (self.DealDamageKill)(mainAtkCard, atkInfo)
           end
         end
         do return defCardInfoTable, killCount end
-        -- DECOMPILER ERROR: 36 unprocessed JMP targets
+        -- DECOMPILER ERROR: 35 unprocessed JMP targets
       end
     end
   end
@@ -1882,6 +1896,23 @@ end
 BattleDataCount.GetAtkDanderCount = function(atkInfo, ...)
   -- function num : 0_27
   local atkPos = atkInfo.atkPos
+end
+
+-- DECOMPILER ERROR at PC229: Confused about usage of register: R47 in 'UnsetPending'
+
+BattleDataCount.CalcDeltaDanderWithExtraDander = function(card, deltaDander, ...)
+  -- function num : 0_28 , upvalues : math
+  local extraDander = card:GetExtraDander()
+  if extraDander ~= 0 then
+    local maxDander = card:GetMaxDander(true)
+    deltaDander = deltaDander + extraDander
+    local overflow = (math.max)(0, deltaDander + card:GetDander() - maxDander)
+    deltaDander = deltaDander - overflow
+    card:SetExtraDander(overflow)
+  end
+  do
+    return deltaDander
+  end
 end
 
 

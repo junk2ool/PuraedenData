@@ -15,6 +15,7 @@ local constY = -40
 local constScaleY = 0.9
 local blackImg = nil
 local oriBlackImgHeight = 0
+local showBgEffect = true
 PlayerBusinessCardWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, bridge, argTable, uis, curClickedCardIndex, curClickedCardId, visibleAttr, blackImg, curClickedBgId, PlayerBusinessCardWindow, oriBlackImgHeight
   bridgeObj:SetView((WinResConfig.PlayerBusinessCardWindow).package, (WinResConfig.PlayerBusinessCardWindow).comName)
@@ -159,9 +160,9 @@ PlayerBusinessCardWindow.RefreshWindow = function(...)
 end
 
 PlayerBusinessCardWindow.InitCardList = function(...)
-  -- function num : 0_2 , upvalues : _ENV, uis, curClickedCardIndex, curClickedCardId, PlayerBusinessCardWindow
+  -- function num : 0_2 , upvalues : _ENV, uis, curClickedCardIndex, curClickedCardId, showBgEffect, PlayerBusinessCardWindow
   (CardMgr.SetButtomRoleList)((uis.ListChoice).CardHeadList, function(index, data, ...)
-    -- function num : 0_2_0 , upvalues : curClickedCardIndex, curClickedCardId, _ENV, uis, PlayerBusinessCardWindow
+    -- function num : 0_2_0 , upvalues : curClickedCardIndex, curClickedCardId, _ENV, uis, showBgEffect, PlayerBusinessCardWindow
     if index ~= curClickedCardIndex then
       curClickedCardIndex = index
       curClickedCardId = data.id
@@ -172,6 +173,7 @@ PlayerBusinessCardWindow.InitCardList = function(...)
 
       ;
       ((uis.Cothes_A_Btn).c1Ctr).selectedIndex = 0
+      showBgEffect = true
       ;
       (PlayerBusinessCardWindow.UpdateBg)(fashionId)
     end
@@ -180,7 +182,12 @@ PlayerBusinessCardWindow.InitCardList = function(...)
 end
 
 PlayerBusinessCardWindow.ChangeFashion = function(index, ...)
-  -- function num : 0_3 , upvalues : _ENV, curClickedCardId, PlayerBusinessCardWindow
+  -- function num : 0_3 , upvalues : showBgEffect, _ENV, curClickedCardId, PlayerBusinessCardWindow
+  if index == 1 or index == 2 then
+    showBgEffect = true
+  else
+    showBgEffect = false
+  end
   local fashionIds = (((TableData.gTable).BaseCardData)[curClickedCardId]).fashion_ids
   ;
   (PlayerBusinessCardWindow.UpdateBg)(tonumber((split(fashionIds, ":"))[index]))
@@ -275,7 +282,7 @@ PlayerBusinessCardWindow.InitBgList = function(...)
 end
 
 PlayerBusinessCardWindow.UpdateOneBg = function(hand, config, ...)
-  -- function num : 0_6 , upvalues : holderEffectBack, _ENV, holderEffectFront, uis, holder, contentPane, texture
+  -- function num : 0_6 , upvalues : holderEffectBack, _ENV, holderEffectFront, uis, holder, contentPane, texture, showBgEffect
   if holderEffectBack then
     (LuaEffect.DestroyEffect)(holderEffectBack)
     holderEffectBack = nil
@@ -315,6 +322,21 @@ PlayerBusinessCardWindow.UpdateOneBg = function(hand, config, ...)
       holderEffectFront = (LuaEffect.AddNotDeletedUIEffect)(config.effect_front, Vector3.zero, 1)
       holderEffectFront:SetXY(contentPane.width / 2, contentPane.height / 2)
       contentPane:AddChildAt(holderEffectFront, contentPane:GetChildIndex(uis.ShowLoader) + 1)
+    end
+    if showBgEffect == true then
+      if holderEffectBack ~= nil then
+        holderEffectBack.visible = true
+      end
+      if holderEffectFront ~= nil then
+        holderEffectFront.visible = true
+      end
+    else
+      if holderEffectBack ~= nil then
+        holderEffectBack.visible = false
+      end
+      if holderEffectFront ~= nil then
+        holderEffectFront.visible = false
+      end
     end
   end
 end
@@ -413,11 +435,26 @@ PlayerBusinessCardWindow.InitBackground = function(onlyBg, ...)
 end
 
 PlayerBusinessCardWindow.UpdateBg = function(fashionShow, ...)
-  -- function num : 0_10 , upvalues : _ENV, uis, holder, contentPane, showModel, curClickedCardId
+  -- function num : 0_10 , upvalues : _ENV, uis, holder, showBgEffect, holderEffectBack, holderEffectFront, contentPane, showModel, curClickedCardId
   (Util.RecycleUIModel)(uis.ShowLoader)
   if holder then
     (LuaEffect.DestroyEffect)(holder)
     holder = nil
+  end
+  if showBgEffect == true then
+    if holderEffectBack ~= nil then
+      holderEffectBack.visible = true
+    end
+    if holderEffectFront ~= nil then
+      holderEffectFront.visible = true
+    end
+  else
+    if holderEffectBack ~= nil then
+      holderEffectBack.visible = false
+    end
+    if holderEffectFront ~= nil then
+      holderEffectFront.visible = false
+    end
   end
   local fashionConfig = ((TableData.gTable).BaseFashionData)[fashionShow]
   local isStatic = (Util.GetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, "0")
@@ -431,18 +468,18 @@ PlayerBusinessCardWindow.UpdateBg = function(fashionShow, ...)
       if effect then
         showModel = effect:GetComponentInChildren(typeof(((CS.Spine).Unity).SkeletonAnimation))
       end
-      -- DECOMPILER ERROR at PC64: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC84: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
       (uis.BackgroundLoader).visible = false
     else
       do
         do
-          -- DECOMPILER ERROR at PC66: Overwrote pending register: R4 in 'AssignReg'
+          -- DECOMPILER ERROR at PC86: Overwrote pending register: R4 in 'AssignReg'
 
           ;
           (effect.CreateShowModel)(fashionShow, uis.ShowLoader, true)
-          -- DECOMPILER ERROR at PC73: Confused about usage of register: R4 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC93: Confused about usage of register: R4 in 'UnsetPending'
 
           ;
           (uis.BackgroundLoader).visible = true
@@ -455,7 +492,7 @@ PlayerBusinessCardWindow.UpdateBg = function(fashionShow, ...)
             local f1 = tonumber((split(fashionIds, ":"))[1])
             local f1Cfg = ((TableData.gTable).BaseFashionData)[f1]
             local f1Bool = f1Cfg.unlock_quality <= cardData.quality
-            -- DECOMPILER ERROR at PC114: Confused about usage of register: R8 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC134: Confused about usage of register: R8 in 'UnsetPending'
 
             ;
             ((uis.Cothes_A_Btn).Cothes_A_Btn).touchable = f1Bool
@@ -467,7 +504,7 @@ PlayerBusinessCardWindow.UpdateBg = function(fashionShow, ...)
             local f2 = tonumber((split(fashionIds, ":"))[2])
             local f2Cfg = ((TableData.gTable).BaseFashionData)[f2]
             local f2Bool = f2Cfg.unlock_quality <= cardData.quality
-            -- DECOMPILER ERROR at PC149: Confused about usage of register: R11 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC169: Confused about usage of register: R11 in 'UnsetPending'
 
             ;
             ((uis.Cothes_A_Btn).Cothes_B_Btn).touchable = f2Bool
@@ -479,7 +516,7 @@ PlayerBusinessCardWindow.UpdateBg = function(fashionShow, ...)
             local f3 = tonumber((split(fashionIds, ":"))[3])
             local f3Cfg = ((TableData.gTable).BaseFashionData)[f3]
             local f3Bool = f3Cfg.unlock_quality <= cardData.quality
-            -- DECOMPILER ERROR at PC184: Confused about usage of register: R14 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC204: Confused about usage of register: R14 in 'UnsetPending'
 
             ;
             ((uis.Cothes_A_Btn).Cothes_C_Btn).touchable = f3Bool
