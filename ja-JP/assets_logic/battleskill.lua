@@ -30,54 +30,76 @@ end
 -- DECOMPILER ERROR at PC15: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleSkill.GetAllBuffByBuffList = function(atkCard, defCards, buff_list, skillConfig, atkInfo, ...)
-  -- function num : 0_1 , upvalues : s_find, split, ipairs, tonumber, t_insert, pairs, _ENV
+  -- function num : 0_1 , upvalues : s_find, _ENV, split, tonumber, ipairs, t_insert, pairs
   if s_find(buff_list, ":") == nil then
     return {}
   end
-  local buffConfigTable = split(buff_list, ",")
-  local buffTable = {}
-  for _,buff_config in ipairs(buffConfigTable) do
-    local buffInfoList = split(buff_config, ":")
-    local groupId = tonumber(buffInfoList[1])
-    local id = tonumber(buffInfoList[2])
-    local targetId = tonumber(buffInfoList[3])
-    local prob = tonumber(buffInfoList[4])
-    if not buffTable[groupId] then
-      do
-        buffTable[groupId] = {}
-        t_insert(buffTable[groupId], {id = id, targetId = targetId, prob = prob})
-        -- DECOMPILER ERROR at PC45: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-        -- DECOMPILER ERROR at PC45: LeaveBlock: unexpected jumping out IF_STMT
-
-      end
+  local oddsChangedBuffs, containsBuff, deltaOdds = nil, 0, 0
+  local buff_add_odds = skillConfig and skillConfig.buff_add_odds or nil
+  do
+    if buff_add_odds and not (Util.StringIsNullOrEmpty)(buff_add_odds) and buff_add_odds ~= "0" then
+      local splits = split(buff_add_odds, ",")
+      oddsChangedBuffs = split(splits[1], ":")
+      splits = split(splits[2], "|")
+      containsBuff = tonumber(splits[1])
+      deltaOdds = tonumber(splits[2])
     end
-  end
-  local activeBuffTable = {}
-  for groupId,groupBuffs in pairs(buffTable) do
-    local totalProp = 0
-    local random = (BattleData.GetRandomSeed)()
-    for _,groupBuff in ipairs(groupBuffs) do
-      if random <= totalProp + groupBuff.prob then
-        local buff = (BattleBuff.Initial)(atkCard, defCards, groupBuff.id, groupBuff.targetId, skillConfig, atkInfo)
-        t_insert(activeBuffTable, buff)
-        break
-      else
-        do
+    local buffConfigTable = split(buff_list, ",")
+    local buffTable = {}
+    for _,buff_config in ipairs(buffConfigTable) do
+      local buffInfoList = split(buff_config, ":")
+      local groupId = tonumber(buffInfoList[1])
+      local id = tonumber(buffInfoList[2])
+      local targetId = tonumber(buffInfoList[3])
+      local prob = tonumber(buffInfoList[4])
+      if oddsChangedBuffs then
+        for i = 1, #oddsChangedBuffs do
+          if tonumber(oddsChangedBuffs[i]) == id and (BattleBuff.ContainBuffId)(atkCard, containsBuff) then
+            prob = prob + deltaOdds
+          end
+        end
+      end
+      do
+        if not buffTable[groupId] then
           do
-            totalProp = totalProp + groupBuff.prob
-            -- DECOMPILER ERROR at PC81: LeaveBlock: unexpected jumping out DO_STMT
+            buffTable[groupId] = {}
+            t_insert(buffTable[groupId], {id = id, targetId = targetId, prob = prob})
+            -- DECOMPILER ERROR at PC106: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-            -- DECOMPILER ERROR at PC81: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+            -- DECOMPILER ERROR at PC106: LeaveBlock: unexpected jumping out IF_STMT
 
-            -- DECOMPILER ERROR at PC81: LeaveBlock: unexpected jumping out IF_STMT
+            -- DECOMPILER ERROR at PC106: LeaveBlock: unexpected jumping out DO_STMT
 
           end
         end
       end
     end
+    local activeBuffTable = {}
+    for groupId,groupBuffs in pairs(buffTable) do
+      local totalProp = 0
+      local random = (BattleData.GetRandomSeed)()
+      for _,groupBuff in ipairs(groupBuffs) do
+        if random <= totalProp + groupBuff.prob then
+          local buff = (BattleBuff.Initial)(atkCard, defCards, groupBuff.id, groupBuff.targetId, skillConfig, atkInfo)
+          t_insert(activeBuffTable, buff)
+          break
+        else
+          do
+            do
+              totalProp = totalProp + groupBuff.prob
+              -- DECOMPILER ERROR at PC142: LeaveBlock: unexpected jumping out DO_STMT
+
+              -- DECOMPILER ERROR at PC142: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+
+              -- DECOMPILER ERROR at PC142: LeaveBlock: unexpected jumping out IF_STMT
+
+            end
+          end
+        end
+      end
+    end
+    return activeBuffTable
   end
-  return activeBuffTable
 end
 
 -- DECOMPILER ERROR at PC18: Confused about usage of register: R6 in 'UnsetPending'

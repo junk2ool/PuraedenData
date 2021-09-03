@@ -90,6 +90,7 @@ BattleCard.Initial = function(data, ...)
   local copyFashionID = 0
   local multipleSkillTimes = 0
   local waitingSkill = false
+  local needClearTransfigurationBeforeSkill = false
   battleCard.ClearChangeWave = function(self, ...)
     -- function num : 0_0_0 , upvalues : foePos, foeDamage
     foePos = nil
@@ -3668,6 +3669,16 @@ effectTable = {eff}
     if headInfo then
       headInfo:UpdateAtkOrderTxt(atkOrder)
     end
+  end
+
+  battleCard.SetNeedClearTransfigurationBeforeSkill = function(self, value, ...)
+    -- function num : 0_0_184 , upvalues : needClearTransfigurationBeforeSkill
+    needClearTransfigurationBeforeSkill = value
+  end
+
+  battleCard.IsNeedClearTransfigurationBeforeSkill = function(self, ...)
+    -- function num : 0_0_185 , upvalues : needClearTransfigurationBeforeSkill
+    return needClearTransfigurationBeforeSkill
   end
 
   battleCard:Init(data)

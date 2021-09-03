@@ -19,7 +19,7 @@ local math = math
 -- DECOMPILER ERROR at PC22: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.Initial = function(atkCard, defCards, buffId, targetId, skillConfig, atkInfo, ...)
-  -- function num : 0_0 , upvalues : _ENV, t_insert, ipairs, BattleBuffOprType, BattleDisplayEffect, split, tonumber, math, BattleBuffDeductionRoundType, BattleBuffEffectCalType, BattleBuffEffectDependType, BattleBuffMgr
+  -- function num : 0_0 , upvalues : _ENV, t_insert, ipairs, BattleBuffOprType, BattleDisplayEffect, BattleBuffMgr, split, tonumber, math, BattleBuffDeductionRoundType, BattleBuffEffectCalType, BattleBuffEffectDependType
   if atkCard then
     local battleBuff = {buffId = buffId, atkPos = atkCard:GetPosIndex(), curDefPos = 0, 
 targetPosTable = {}
@@ -149,7 +149,7 @@ effectRounds = {}
   end
 
     battleBuff.DealSpecialEffect = function(self, ...)
-    -- function num : 0_0_16 , upvalues : _ENV, ipairs, BattleDisplayEffect
+    -- function num : 0_0_16 , upvalues : _ENV, ipairs, BattleDisplayEffect, BattleBuffMgr
     local curDefPos = self:GetCurDefPos()
     local card = (BattleData.GetCardInfoByPos)(curDefPos)
     if card then
@@ -171,6 +171,13 @@ effectRounds = {}
           local atkCard = (BattleData.GetCardInfoByPos)(curAtkPos)
           local curdefPos = self:GetCurDefPos()
           local defCard = (BattleData.GetCardInfoByPos)(curdefPos)
+          local contains, buff, effect = (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.TRANSFIGURATION)
+          if contains then
+            (BattleBuffMgr.RemoveBuffFromList)(buff)
+            ;
+            (BattleBuffMgr.RemoveBuffFromPlayBackList)(buff)
+            card:SetNeedClearTransfigurationBeforeSkill(true)
+          end
           if atkCard:GetCampFlag() ~= defCard:GetCampFlag() then
             (BattleData.SetSkillAdditional)(card, {atkCard})
           end

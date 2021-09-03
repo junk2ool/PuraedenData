@@ -699,6 +699,10 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
     atkCard:PlayCommonSkillEffect(callBack)
   else
     if atkInfo.atkFail ~= true and skillType == BattleSkillType.SKILL and skillConfig then
+      if atkCard:IsNeedClearTransfigurationBeforeSkill() then
+        atkCard:SetNeedClearTransfigurationBeforeSkill(false)
+        atkCard:SetControlType(BattleDisplayEffect.TRANSFIGURATION, false)
+      end
       local fashionId = atkCard:GetFashionId()
       local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
       local skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]

@@ -736,7 +736,13 @@ HandBookIntimacyWindow.PlayVoice = function(cardID, DetailID, showEffect, func, 
       ;
       (uis.root):AddChildAt(talkPrefab, (uis.root).numChildren)
       local loader = uis.PictureLoader
-      talkPrefab.xy = Vector2(mPosX + loader.x, tonumber(mPosY + loader.y))
+      mPosX = mPosX + (ResolutionHandler.AdaptOffset).X
+      mPosY = mPosY + (ResolutionHandler.AdaptOffset).Y
+      local width = 0
+      if direction == "1" then
+        width = talkPrefab.width
+      end
+      talkPrefab.xy = Vector2(mPosX + width, mPosY)
       ;
       (talkPrefab:GetChild("TalkTxt")).text = RoleData.remark
       ;

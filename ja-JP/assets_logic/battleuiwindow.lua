@@ -1835,9 +1835,7 @@ end
 BattleUIWindow.UpdateSkillUIState = function(visible, param, ...)
   -- function num : 0_58 , upvalues : contentPane, _ENV
   local interval = 0
-  if visible == true then
-    interval = param.interval
-  end
+  interval = visible ~= true or param.interval or 0
   contentPane.touchable = visible
   contentPane.visible = visible
   if interval > 0 then

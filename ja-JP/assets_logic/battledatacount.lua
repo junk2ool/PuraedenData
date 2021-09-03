@@ -1001,7 +1001,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
             local skillId = atkInfo.skillId
             local skillConfig = (TableData.GetBaseSkillData)(skillId)
             local defFashion = defCard:GetOriginFashionConfig()
-            if skillConfig and defFashion.air_show ~= 0 then
+            if skillConfig and defFashion and defFashion.air_show ~= 0 then
               local random = (BattleData.GetRandomSeed)()
               local strike_prob = skillConfig.strike_prob
               if strike_prob > 0 and random <= strike_prob then
@@ -1054,11 +1054,11 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                       if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                         killCount = killCount + 1
                       end
-                      -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out DO_STMT
+                      -- DECOMPILER ERROR at PC445: LeaveBlock: unexpected jumping out DO_STMT
 
-                      -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                      -- DECOMPILER ERROR at PC445: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                      -- DECOMPILER ERROR at PC443: LeaveBlock: unexpected jumping out IF_STMT
+                      -- DECOMPILER ERROR at PC445: LeaveBlock: unexpected jumping out IF_STMT
 
                     end
                   end
@@ -1144,7 +1144,7 @@ BattleDataCount.GetNormalAtkDataCount = function(atkCard, defCard, atkInfo, main
                                 danderDef = defCardConfig.dander_hit_assist
                               end
                             else
-                              -- DECOMPILER ERROR at PC677: Unhandled construct in 'MakeBoolean' P1
+                              -- DECOMPILER ERROR at PC679: Unhandled construct in 'MakeBoolean' P1
 
                               if (isDoubleAttack == true or isMultipleAttack == true) and killCount > 0 then
                                 danderAtk = (killCount) * atkCard:GetDanderKill()
@@ -1334,7 +1334,7 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
               local skillId = atkInfo.skillId
               local skillConfig = (TableData.GetBaseSkillData)(skillId)
               local defFashion = defCard:GetOriginFashionConfig()
-              if skillConfig and defFashion.air_show ~= 0 then
+              if skillConfig and defFashion and defFashion.air_show ~= 0 then
                 local random = (BattleData.GetRandomSeed)()
                 local strike_prob = skillConfig.strike_prob
                 if strike_prob > 0 and random <= strike_prob then
@@ -1388,11 +1388,11 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                           if card:GetHp() <= 0 and assistCardHpBeforeAtk > 0 then
                             killCount = killCount + 1
                           end
-                          -- DECOMPILER ERROR at PC460: LeaveBlock: unexpected jumping out DO_STMT
+                          -- DECOMPILER ERROR at PC462: LeaveBlock: unexpected jumping out DO_STMT
 
-                          -- DECOMPILER ERROR at PC460: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                          -- DECOMPILER ERROR at PC462: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                          -- DECOMPILER ERROR at PC460: LeaveBlock: unexpected jumping out IF_STMT
+                          -- DECOMPILER ERROR at PC462: LeaveBlock: unexpected jumping out IF_STMT
 
                         end
                       end
@@ -1513,61 +1513,61 @@ BattleDataCount.GetSkillDataCount = function(atkCard, defCards, atkInfo, mainAtk
                                             end
                                             defCard:SetHp(realDefHp, atkCard:GetPosIndex())
                                             t_insert(defCardInfoTable, defCardInfo)
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out DO_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                            -- DECOMPILER ERROR at PC839: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC841: LeaveBlock: unexpected jumping out IF_STMT
 
                                           end
                                         end

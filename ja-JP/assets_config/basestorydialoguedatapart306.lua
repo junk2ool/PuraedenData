@@ -133,7 +133,7 @@ BaseStoryDialogueDataPart306 = {
 , 
 [75713133] = {id = 75713133, remark = (PUtil.get)(86274070), type = 1, option_ids = "0", next = -1, role_ids = "75200021:75200151", role_type = 75200021, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020010}
 , 
-[75713201] = {id = 75713201, remark = (PUtil.get)(86274071), type = 1, option_ids = "0", next = 75713202, role_ids = "75200773", role_type = 75200773, position = "418:606:10050", role_admission_type = "75200773:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+[75713201] = {id = 75713201, remark = (PUtil.get)(86274071), type = 1, option_ids = "0", next = 75713202, role_ids = "75200773", role_type = 75200773, position = "418:606:10050", role_admission_type = "75200773:0:0", role_departure_type = "75200021:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
 [75713202] = {id = 75713202, remark = (PUtil.get)(86274072), type = 1, option_ids = "0", next = 75713203, role_ids = "75200792:75200773", role_type = 75200792, position = "195:606:10050,642:606:10000", role_admission_type = "75200792:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
@@ -753,7 +753,7 @@ BaseStoryDialogueDataPart306 = {
 , 
 [75714238] = {id = 75714238, remark = (PUtil.get)(86274380), type = 1, option_ids = "0", next = 75714239, role_ids = "75200061:75200021", role_type = 75200061, position = "195:606:10050,642:606:10000", role_admission_type = "75200061:0:0,75200021:0:0", role_departure_type = "75200081:0:0,75200802:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
 , 
-[75714239] = {id = 75714239, remark = (PUtil.get)(86274381), type = 1, option_ids = "0", next = 75714240, role_ids = "75200021", role_type = 75200021, position = "418:606:10050", role_admission_type = "75200021:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
+[75714239] = {id = 75714239, remark = (PUtil.get)(86274381), type = 1, option_ids = "0", next = 75714240, role_ids = "75200021", role_type = 75200021, position = "418:606:10050", role_admission_type = "75200021:0:0", role_departure_type = "75200061:0:0", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
 , 
 [75714240] = {id = 75714240, remark = (PUtil.get)(86274382), type = 1, option_ids = "0", next = -1, role_ids = "75200021", role_type = 75200021, position = "418:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020005}
 , 
