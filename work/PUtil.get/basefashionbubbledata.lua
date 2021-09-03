@@ -12671,13 +12671,13 @@
 , 
 [103303611] = {id = 103303611, bubble_text = "胸がどきどきするのは…良い兆し、ですよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Stage_1"}
 , 
-[103303621] = {id = 103303621, bubble_text = "胸がどきどきするのは…良い兆し、ですよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Stage_1"}
+[103303621] = {id = 103303621, bubble_text = "胸がどきどきするのは…良い兆し、ですよね？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 1, voice_path = "mulimu_Stage_1"}
 , 
 [104303601] = {id = 104303601, bubble_text = "これで、もっと長生きできますか…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:235", direction = 2, voice_path = "mulimu_Star_1"}
 , 
 [104303611] = {id = 104303611, bubble_text = "これで、もっと長生きできますか…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Star_1"}
 , 
-[104303621] = {id = 104303621, bubble_text = "これで、もっと長生きできますか…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 2, voice_path = "mulimu_Star_1"}
+[104303621] = {id = 104303621, bubble_text = "これで、もっと長生きできますか…！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "405:228", direction = 1, voice_path = "mulimu_Star_1"}
 , 
 [105303601] = {id = 105303601, bubble_text = "――ッリ、リーダーさんでしたか…びっくりしました…。今はもう、悲鳴も上げられずにただ胸がきゅっとなってましたよ…驚かすのはやめてください…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "376:244", direction = 1, voice_path = "mulimu_Interaction_1"}
 , 
@@ -12803,13 +12803,13 @@
 , 
 [102303703] = {id = 102303703, bubble_text = "今日の予定はなんだったでしょうか。海へ行くんでしたっけ、それともプール…？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "500:384", direction = 2, voice_path = "Tsubaki_mizugi_In_1"}
 , 
-[103303701] = {id = 103303701, bubble_text = "思い出が、この身に深く刻まれるよう…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:312", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
+[103303701] = {id = 103303701, bubble_text = "思い出が、この身に深く刻まれるよう…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "265:312", direction = 1, voice_path = "Tsubaki_mizugi_Stage_1"}
 , 
 [103303711] = {id = 103303711, bubble_text = "思い出が、この身に深く刻まれるよう…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
 , 
 [103303721] = {id = 103303721, bubble_text = "思い出が、この身に深く刻まれるよう…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Stage_1"}
 , 
-[104303701] = {id = 104303701, bubble_text = "忘れられない夏になっていきますね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "599:312", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
+[104303701] = {id = 104303701, bubble_text = "忘れられない夏になっていきますね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "265:312", direction = 1, voice_path = "Tsubaki_mizugi_Star_1"}
 , 
 [104303711] = {id = 104303711, bubble_text = "忘れられない夏になっていきますね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "463:320", direction = 2, voice_path = "Tsubaki_mizugi_Star_1"}
 , 
@@ -12902,4 +12902,276 @@
 [117303702] = {id = 117303702, bubble_text = "私は忘れっぽいですけど、さすがに泳ぎ方は忘れたりしません。本当ですよ、一緒に泳ぎに行きましょうか？", voice_path = "Tsubaki_mizugi_Home_Talk_2", top_position = 10}
 , 
 [117303703] = {id = 117303703, bubble_text = "エヴァンテさんから何か頼まれていた気がするんです。たしか冷たくて甘くて、すぐに届けないと溶けてなくなっちゃうものだったような…", voice_path = "Tsubaki_mizugi_Home_Talk_3", top_position = 10}
+, 
+[97030481] = {id = 97030481, bubble_text = "ご飯は大切よ。だって美味しいものを食べているときだけは、どんなに辛くても、どんなに悲しくても…幸せな気持ちになれるもの。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Main_1"}
+, 
+[97030482] = {id = 97030482, bubble_text = "レッドだの、アンレッドだの…どうしてそんなことを気にする人がいるのかしらね…。そんな人がいなければ、私は、私は…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Main_2"}
+, 
+[97030483] = {id = 97030483, bubble_text = "私の家は貧しくて、お腹いっぱいご飯を食べることなんて夢のまた夢だったの。だから…だから何でも食べなくちゃいけないの、もっともっと食べなくちゃいけないの…あなたもそう思うでしょう？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Main_3"}
+, 
+[97030484] = {id = 97030484, bubble_text = "誰に脅かされることもなく、静かに過ごす…そんなふうに生きられたら、いいと思わない？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Main_4"}
+, 
+[97130481] = {id = 97130481, bubble_text = "ご飯は大切よ。だって美味しいものを食べているときだけは、どんなに辛くても、どんなに悲しくても…幸せな気持ちになれるもの。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Main_1"}
+, 
+[97130482] = {id = 97130482, bubble_text = "レッドだの、アンレッドだの…どうしてそんなことを気にする人がいるのかしらね…。そんな人がいなければ、私は、私は…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Main_2"}
+, 
+[97130483] = {id = 97130483, bubble_text = "私の家は貧しくて、お腹いっぱいご飯を食べることなんて夢のまた夢だったの。だから…だから何でも食べなくちゃいけないの、もっともっと食べなくちゃいけないの…あなたもそう思うでしょう？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Main_3"}
+, 
+[97130484] = {id = 97130484, bubble_text = "誰に脅かされることもなく、静かに過ごす…そんなふうに生きられたら、いいと思わない？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Main_4"}
+, 
+[97230481] = {id = 97230481, bubble_text = "ご飯は大切よ。だって美味しいものを食べているときだけは、どんなに辛くても、どんなに悲しくても…幸せな気持ちになれるもの。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Main_1"}
+, 
+[97230482] = {id = 97230482, bubble_text = "レッドだの、アンレッドだの…どうしてそんなことを気にする人がいるのかしらね…。そんな人がいなければ、私は、私は…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Main_2"}
+, 
+[97230483] = {id = 97230483, bubble_text = "私の家は貧しくて、お腹いっぱいご飯を食べることなんて夢のまた夢だったの。だから…だから何でも食べなくちゃいけないの、もっともっと食べなくちゃいけないの…あなたもそう思うでしょう？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Main_3"}
+, 
+[97230484] = {id = 97230484, bubble_text = "誰に脅かされることもなく、静かに過ごす…そんなふうに生きられたら、いいと思わない？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Main_4"}
+, 
+[101304801] = {id = 101304801, bubble_text = "…ドロイアよ。行くあてのない私を受け入れてくれたのには、感謝しているわ。いつまで私をここに居させてくれるつもりなのかは、わからないけど…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Get_1"}
+, 
+[101304811] = {id = 101304811, bubble_text = "どうして、もっと早く助けてくれなかったの…？　どうして、どうして…？　そう、逆恨みしたこともあったわ。でも…ここに私を連れてきてくれたことは、感謝してる。それは本当だから。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Stage_2"}
+, 
+[101304821] = {id = 101304821, bubble_text = "望んでレッドになったわけじゃない。だけどリーダー、あなたのおかげで、自分の姿を少しだけ受け入れられた気がするわ。ここまで私に付き合ってくれて、ありがとう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Stage_3"}
+, 
+[102304801] = {id = 102304801, bubble_text = "リーダーね。今日はどんな実験を…あぁ、もう研究所にいるんじゃなかったのよね。忘れてちょうだい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_In_1"}
+, 
+[102304802] = {id = 102304802, bubble_text = "リーダーね。今日はどんな実験を…あぁ、もう研究所にいるんじゃなかったのよね。忘れてちょうだい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_In_1"}
+, 
+[102304803] = {id = 102304803, bubble_text = "リーダーね。今日はどんな実験を…あぁ、もう研究所にいるんじゃなかったのよね。忘れてちょうだい。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_In_1"}
+, 
+[103304801] = {id = 103304801, bubble_text = "レッドとして成長すること…それは私にとっていいことなのかしらね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "367:230", direction = 2, voice_path = "Doloia_Stage_1"}
+, 
+[103304811] = {id = 103304811, bubble_text = "レッドとして成長すること…それは私にとっていいことなのかしらね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "394:201", direction = 2, voice_path = "Doloia_Stage_1"}
+, 
+[103304821] = {id = 103304821, bubble_text = "レッドとして成長すること…それは私にとっていいことなのかしらね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "394:201", direction = 2, voice_path = "Doloia_Stage_1"}
+, 
+[104304801] = {id = 104304801, bubble_text = "もっと、もっと強くならないと…つらい目に、合わなくてもすむように…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "367:230", direction = 2, voice_path = "Doloia_Star_1"}
+, 
+[104304811] = {id = 104304811, bubble_text = "もっと、もっと強くならないと…つらい目に、合わなくてもすむように…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "394:201", direction = 2, voice_path = "Doloia_Star_1"}
+, 
+[104304821] = {id = 104304821, bubble_text = "もっと、もっと強くならないと…つらい目に、合わなくてもすむように…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "394:201", direction = 2, voice_path = "Doloia_Star_1"}
+, 
+[105304801] = {id = 105304801, bubble_text = "ひっ！？　ごめんなさい…！　次は成果を出しますから痛いことはやめて…あ、り、リーダーだったのね…よかった…。悪いけど、これから私に触れるときは、事前に声をかけてくれると嬉しいわ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Interaction_1"}
+, 
+[105304802] = {id = 105304802, bubble_text = "リーダー…も、もしかして、今度こそ私を用なしとして捨てるつもり…？　…そうじゃないの？　いつまでも私を受け入れてくれるなんて、あなたは珍しい人ね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Interaction_2"}
+, 
+[105304803] = {id = 105304803, bubble_text = "あなたの手は、暖かいのね…。研究所で触れていた、あの冷たい手とはまるで違うわ…。もっと触れていたいと思うくらいよ。ダメ、かしら？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Interaction_3"}
+, 
+[105304804] = {id = 105304804, bubble_text = "リーダー。最近、あなたと話していると心がどこか落ち着く気がするの。今まではずっと、ご飯を食べているとき以外は、不安で仕方なかったのに…。本当に、不思議ね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Interaction_4"}
+, 
+[105304805] = {id = 105304805, bubble_text = "心が完全に壊れてしまえば、もっと楽になれると思っていたわ。だけど、そうなってしまえば、きっとあなたとは出会えなかった。…私を連れ出してくれて、本当にありがとう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Interaction_5"}
+, 
+[105304811] = {id = 105304811, bubble_text = "ひっ！？　ごめんなさい…！　次は成果を出しますから痛いことはやめて…あ、り、リーダーだったのね…よかった…。悪いけど、これから私に触れるときは、事前に声をかけてくれると嬉しいわ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Interaction_1"}
+, 
+[105304812] = {id = 105304812, bubble_text = "リーダー…も、もしかして、今度こそ私を用なしとして捨てるつもり…？　…そうじゃないの？　いつまでも私を受け入れてくれるなんて、あなたは珍しい人ね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Interaction_2"}
+, 
+[105304813] = {id = 105304813, bubble_text = "あなたの手は、暖かいのね…。研究所で触れていた、あの冷たい手とはまるで違うわ…。もっと触れていたいと思うくらいよ。ダメ、かしら？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Interaction_3"}
+, 
+[105304814] = {id = 105304814, bubble_text = "リーダー。最近、あなたと話していると心がどこか落ち着く気がするの。今まではずっと、ご飯を食べているとき以外は、不安で仕方なかったのに…。本当に、不思議ね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Interaction_4"}
+, 
+[105304815] = {id = 105304815, bubble_text = "心が完全に壊れてしまえば、もっと楽になれると思っていたわ。だけど、そうなってしまえば、きっとあなたとは出会えなかった。…私を連れ出してくれて、本当にありがとう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Interaction_5"}
+, 
+[105304821] = {id = 105304821, bubble_text = "ひっ！？　ごめんなさい…！　次は成果を出しますから痛いことはやめて…あ、り、リーダーだったのね…よかった…。悪いけど、これから私に触れるときは、事前に声をかけてくれると嬉しいわ。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Interaction_1"}
+, 
+[105304822] = {id = 105304822, bubble_text = "リーダー…も、もしかして、今度こそ私を用なしとして捨てるつもり…？　…そうじゃないの？　いつまでも私を受け入れてくれるなんて、あなたは珍しい人ね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Interaction_2"}
+, 
+[105304823] = {id = 105304823, bubble_text = "あなたの手は、暖かいのね…。研究所で触れていた、あの冷たい手とはまるで違うわ…。もっと触れていたいと思うくらいよ。ダメ、かしら？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Interaction_3"}
+, 
+[105304824] = {id = 105304824, bubble_text = "リーダー。最近、あなたと話していると心がどこか落ち着く気がするの。今まではずっと、ご飯を食べているとき以外は、不安で仕方なかったのに…。本当に、不思議ね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Interaction_4"}
+, 
+[105304825] = {id = 105304825, bubble_text = "心が完全に壊れてしまえば、もっと楽になれると思っていたわ。だけど、そうなってしまえば、きっとあなたとは出会えなかった。…私を連れ出してくれて、本当にありがとう。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Interaction_5"}
+, 
+[106304801] = {id = 106304801, bubble_text = "今日も無事に終わった、終わったわ…ふふ、あはは…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Win_1"}
+, 
+[106304811] = {id = 106304811, bubble_text = "今日も無事に終わった、終わったわ…ふふ、あはは…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Win_1"}
+, 
+[106304821] = {id = 106304821, bubble_text = "今日も無事に終わった、終わったわ…ふふ、あはは…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Win_1"}
+, 
+[107304801] = {id = 107304801, bubble_text = "ごめんなさいごめんなさい…！　お願いだから捨てないで…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "663:243", direction = 2, voice_path = "Doloia_Fail_1"}
+, 
+[107304811] = {id = 107304811, bubble_text = "ごめんなさいごめんなさい…！　お願いだから捨てないで…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "687:207", direction = 2, voice_path = "Doloia_Fail_1"}
+, 
+[107304821] = {id = 107304821, bubble_text = "ごめんなさいごめんなさい…！　お願いだから捨てないで…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "507:273", direction = 2, voice_path = "Doloia_Fail_1"}
+, 
+[108304801] = {id = 108304801, bubble_text = "私に、何をさせる気なの？", voice_path = "Doloia_Go_1"}
+, 
+[109304801] = {id = 109304801, voice_path = "Doloia_Game_1"}
+, 
+[111304801] = {id = 111304801, voice_path = "Doloia_Battle_N_1"}
+, 
+[111304802] = {id = 111304802, voice_path = "Doloia_Battle_N_2"}
+, 
+[111304803] = {id = 111304803, voice_path = "Doloia_Battle_N_3"}
+, 
+[111304804] = {id = 111304804, voice_path = "Doloia_Battle_N_4"}
+, 
+[111304805] = {id = 111304805, voice_path = "Doloia_Battle_N_5"}
+, 
+[111304806] = {id = 111304806, voice_path = "Doloia_Battle_N_6"}
+, 
+[112304801] = {id = 112304801, voice_path = "Doloia_Battle_Hit_1"}
+, 
+[112304802] = {id = 112304802, voice_path = "Doloia_Battle_Hit_2"}
+, 
+[112304803] = {id = 112304803, voice_path = "Doloia_Battle_Hit_3"}
+, 
+[112304804] = {id = 112304804, voice_path = "Doloia_Battle_Hit_4"}
+, 
+[112304805] = {id = 112304805, voice_path = "Doloia_Battle_Hit_5"}
+, 
+[112304806] = {id = 112304806, voice_path = "Doloia_Battle_Hit_6"}
+, 
+[113304801] = {id = 113304801, voice_path = "Doloia_Battle_Die_1"}
+, 
+[114304801] = {id = 114304801, voice_path = "Doloia_Battle_H_1"}
+, 
+[114304802] = {id = 114304802, voice_path = "Doloia_Battle_H_2"}
+, 
+[115304801] = {id = 115304801, voice_path = "Doloia_Battle_C_1"}
+, 
+[115304802] = {id = 115304802, voice_path = "Doloia_Battle_C_2"}
+, 
+[116304801] = {id = 116304801, bubble_text = "ここなら静かに過ごすことができるかしら…？", voice_path = "Doloia_Home_In_1", top_position = 10}
+, 
+[117304801] = {id = 117304801, bubble_text = "誰も私を実験動物を見るような目で見ない…ここはいいところよね。", voice_path = "Doloia_Home_Talk_1", top_position = 10}
+, 
+[117304802] = {id = 117304802, bubble_text = "もう毎日、怯える必要はないのよね…", voice_path = "Doloia_Home_Talk_2", top_position = 10}
+, 
+[117304803] = {id = 117304803, bubble_text = "お腹、空いた…何か、何か食べないと…私…", voice_path = "Doloia_Home_Talk_3", top_position = 10}
+, 
+[97022211] = {id = 97022211, bubble_text = "やっぱり大都会はすごいなー！　人はたくさんいるし、なんでも売ってるし…本当はここ、都会じゃなくて天国なんじゃないかな！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Main_1"}
+, 
+[97022212] = {id = 97022212, bubble_text = "都会に来たからには流行の最先端を行きたいと思ってるんだ！　だから、ナウい言葉とかあったら教えてね！　えへへ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Main_2"}
+, 
+[97022213] = {id = 97022213, bubble_text = "かくれんぼは大好きなんだけど、都会でやると迷子になっちゃうかな？　でもリーダーなら、きっと見つけてくれるよね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Main_3"}
+, 
+[97022214] = {id = 97022214, bubble_text = "都会じゃ、なかなか穴掘りの腕を見せる機会がないなぁ。穴を掘ることがあったら、絶対に僕に声をかけてねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Main_4"}
+, 
+[97122211] = {id = 97122211, bubble_text = "やっぱり大都会はすごいなー！　人はたくさんいるし、なんでも売ってるし…本当はここ、都会じゃなくて天国なんじゃないかな！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Main_1"}
+, 
+[97122212] = {id = 97122212, bubble_text = "都会に来たからには流行の最先端を行きたいと思ってるんだ！　だから、ナウい言葉とかあったら教えてね！　えへへ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Main_2"}
+, 
+[97122213] = {id = 97122213, bubble_text = "かくれんぼは大好きなんだけど、都会でやると迷子になっちゃうかな？　でもリーダーなら、きっと見つけてくれるよね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Main_3"}
+, 
+[97122214] = {id = 97122214, bubble_text = "都会じゃ、なかなか穴掘りの腕を見せる機会がないなぁ。穴を掘ることがあったら、絶対に僕に声をかけてねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Main_4"}
+, 
+[97222211] = {id = 97222211, bubble_text = "やっぱり大都会はすごいなー！　人はたくさんいるし、なんでも売ってるし…本当はここ、都会じゃなくて天国なんじゃないかな！？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Main_1"}
+, 
+[97222212] = {id = 97222212, bubble_text = "都会に来たからには流行の最先端を行きたいと思ってるんだ！　だから、ナウい言葉とかあったら教えてね！　えへへ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Main_2"}
+, 
+[97222213] = {id = 97222213, bubble_text = "かくれんぼは大好きなんだけど、都会でやると迷子になっちゃうかな？　でもリーダーなら、きっと見つけてくれるよね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Main_3"}
+, 
+[97222214] = {id = 97222214, bubble_text = "都会じゃ、なかなか穴掘りの腕を見せる機会がないなぁ。穴を掘ることがあったら、絶対に僕に声をかけてねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Main_4"}
+, 
+[101222101] = {id = 101222101, bubble_text = "僕はスティックだよっ！　憧れの大都会…たっぷり楽しまなくちゃ！　都会っぽいところにはぜひとも案内してねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Get_1"}
+, 
+[101222111] = {id = 101222111, bubble_text = "僕、やっぱり連れてきてもらって良かったよ！　憧れの都会に来れたってのもあるけど、たくさん友達もできたし、仕事は楽しいし！　リーダー、ありがとねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Stage_2"}
+, 
+[101222121] = {id = 101222121, bubble_text = "最初はリーダーのこと、「都会の人はやっぱりすごいな」って思ってた。でも、違うんだ。都会とか関係なく、リーダーはかっこよくて優しい人なんだって。えへへ、リーダーのこと、これからも見習わせてもらうからね！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Stage_3"}
+, 
+[102222101] = {id = 102222101, bubble_text = "今日も都会の空気が美味しいなぁー♪　リーダーが連れてきてくれたおかげだよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_In_1"}
+, 
+[102222102] = {id = 102222102, bubble_text = "今日も都会の空気が美味しいなぁー♪　リーダーが連れてきてくれたおかげだよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_In_1"}
+, 
+[102222103] = {id = 102222103, bubble_text = "今日も都会の空気が美味しいなぁー♪　リーダーが連れてきてくれたおかげだよ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_In_1"}
+, 
+[103222101] = {id = 103222101, bubble_text = "もっと都会に馴染んじゃいそう！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "456:241", direction = 2, voice_path = "Stick_Stage_1"}
+, 
+[103222111] = {id = 103222111, bubble_text = "もっと都会に馴染んじゃいそう！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "411:268", direction = 2, voice_path = "Stick_Stage_1"}
+, 
+[103222121] = {id = 103222121, bubble_text = "もっと都会に馴染んじゃいそう！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "411:268", direction = 2, voice_path = "Stick_Stage_1"}
+, 
+[104222101] = {id = 104222101, bubble_text = "僕もけっこー垢抜けてきたかも！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "456:241", direction = 2, voice_path = "Stick_Star_1"}
+, 
+[104222111] = {id = 104222111, bubble_text = "僕もけっこー垢抜けてきたかも！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "411:268", direction = 2, voice_path = "Stick_Star_1"}
+, 
+[104222121] = {id = 104222121, bubble_text = "僕もけっこー垢抜けてきたかも！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "411:268", direction = 2, voice_path = "Stick_Star_1"}
+, 
+[105222101] = {id = 105222101, bubble_text = "わっ、なになに！？　もしかしてこれが都会流の挨拶なの！？　へぇーっ、結構大胆なんだね…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Interaction_1"}
+, 
+[105222102] = {id = 105222102, bubble_text = "ん、くすぐりっこ？　山にいたときはけっこーやったけど、都会じゃ子供っぽいって思われないかな…。ま、いっか！　それそれー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Interaction_2"}
+, 
+[105222103] = {id = 105222103, bubble_text = "この間、街でちょっと気になるお店を見つけたんだ。ご飯を食べるお店なんだけど、ちょっとオシャレすぎて、怖くて入れなくてさ…。リーダーがよかったら、一緒にどうかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Interaction_3"}
+, 
+[105222104] = {id = 105222104, bubble_text = "最近アクセサリーとか売ってる店を覗いたりしてるんだ。僕もこういうの付けちゃっていいのかなー、なんて思ったりして…。でも、僕に可愛いものなんて似合うのかな…そ、その～、リーダーはどう思う？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Interaction_4"}
+, 
+[105222105] = {id = 105222105, bubble_text = "あ、あのさ、都会だとさ、好きな人に告白するときとかって何て言うのがオシャレなの？　やっぱり、リーダーに好きって言うなら可愛くスマートにいきたいから…って、ぴゃわわーっ！？　今のなしっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Interaction_5"}
+, 
+[105222111] = {id = 105222111, bubble_text = "わっ、なになに！？　もしかしてこれが都会流の挨拶なの！？　へぇーっ、結構大胆なんだね…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Interaction_1"}
+, 
+[105222112] = {id = 105222112, bubble_text = "ん、くすぐりっこ？　山にいたときはけっこーやったけど、都会じゃ子供っぽいって思われないかな…。ま、いっか！　それそれー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Interaction_2"}
+, 
+[105222113] = {id = 105222113, bubble_text = "この間、街でちょっと気になるお店を見つけたんだ。ご飯を食べるお店なんだけど、ちょっとオシャレすぎて、怖くて入れなくてさ…。リーダーがよかったら、一緒にどうかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Interaction_3"}
+, 
+[105222114] = {id = 105222114, bubble_text = "最近アクセサリーとか売ってる店を覗いたりしてるんだ。僕もこういうの付けちゃっていいのかなー、なんて思ったりして…。でも、僕に可愛いものなんて似合うのかな…そ、その～、リーダーはどう思う？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Interaction_4"}
+, 
+[105222115] = {id = 105222115, bubble_text = "あ、あのさ、都会だとさ、好きな人に告白するときとかって何て言うのがオシャレなの？　やっぱり、リーダーに好きって言うなら可愛くスマートにいきたいから…って、ぴゃわわーっ！？　今のなしっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Interaction_5"}
+, 
+[105222121] = {id = 105222121, bubble_text = "わっ、なになに！？　もしかしてこれが都会流の挨拶なの！？　へぇーっ、結構大胆なんだね…！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Interaction_1"}
+, 
+[105222122] = {id = 105222122, bubble_text = "ん、くすぐりっこ？　山にいたときはけっこーやったけど、都会じゃ子供っぽいって思われないかな…。ま、いっか！　それそれー！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Interaction_2"}
+, 
+[105222123] = {id = 105222123, bubble_text = "この間、街でちょっと気になるお店を見つけたんだ。ご飯を食べるお店なんだけど、ちょっとオシャレすぎて、怖くて入れなくてさ…。リーダーがよかったら、一緒にどうかな？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Interaction_3"}
+, 
+[105222124] = {id = 105222124, bubble_text = "最近アクセサリーとか売ってる店を覗いたりしてるんだ。僕もこういうの付けちゃっていいのかなー、なんて思ったりして…。でも、僕に可愛いものなんて似合うのかな…そ、その～、リーダーはどう思う？", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Interaction_4"}
+, 
+[105222125] = {id = 105222125, bubble_text = "あ、あのさ、都会だとさ、好きな人に告白するときとかって何て言うのがオシャレなの？　やっぱり、リーダーに好きって言うなら可愛くスマートにいきたいから…って、ぴゃわわーっ！？　今のなしっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Interaction_5"}
+, 
+[106222101] = {id = 106222101, bubble_text = "山でも都会でも、勝つと嬉しいねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Win_1"}
+, 
+[106222111] = {id = 106222111, bubble_text = "山でも都会でも、勝つと嬉しいねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Win_1"}
+, 
+[106222121] = {id = 106222121, bubble_text = "山でも都会でも、勝つと嬉しいねっ！", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Win_1"}
+, 
+[107222101] = {id = 107222101, bubble_text = "こんなの全然スマートじゃないよね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "752:252", direction = 2, voice_path = "Stick_Fail_1"}
+, 
+[107222111] = {id = 107222111, bubble_text = "こんなの全然スマートじゃないよね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "349:298", direction = 1, voice_path = "Stick_Fail_1"}
+, 
+[107222121] = {id = 107222121, bubble_text = "こんなの全然スマートじゃないよね…", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "446:405", direction = 2, voice_path = "Stick_Fail_1"}
+, 
+[108222101] = {id = 108222101, bubble_text = "次はどんな都会に行く！？", voice_path = "Stick_Go_1"}
+, 
+[109222101] = {id = 109222101, voice_path = "Stick_Game_1"}
+, 
+[111222101] = {id = 111222101, voice_path = "Stick_Battle_N_1"}
+, 
+[111222102] = {id = 111222102, voice_path = "Stick_Battle_N_2"}
+, 
+[111222103] = {id = 111222103, voice_path = "Stick_Battle_N_3"}
+, 
+[111222104] = {id = 111222104, voice_path = "Stick_Battle_N_4"}
+, 
+[111222105] = {id = 111222105, voice_path = "Stick_Battle_N_5"}
+, 
+[111222106] = {id = 111222106, voice_path = "Stick_Battle_N_6"}
+, 
+[112222101] = {id = 112222101, voice_path = "Stick_Battle_Hit_1"}
+, 
+[112222102] = {id = 112222102, voice_path = "Stick_Battle_Hit_2"}
+, 
+[112222103] = {id = 112222103, voice_path = "Stick_Battle_Hit_3"}
+, 
+[112222104] = {id = 112222104, voice_path = "Stick_Battle_Hit_4"}
+, 
+[112222105] = {id = 112222105, voice_path = "Stick_Battle_Hit_5"}
+, 
+[112222106] = {id = 112222106, voice_path = "Stick_Battle_Hit_6"}
+, 
+[113222101] = {id = 113222101, voice_path = "Stick_Battle_Die_1"}
+, 
+[114222101] = {id = 114222101, voice_path = "Stick_Battle_H_1"}
+, 
+[114222102] = {id = 114222102, voice_path = "Stick_Battle_H_2"}
+, 
+[115222101] = {id = 115222101, voice_path = "Stick_Battle_C_1"}
+, 
+[115222102] = {id = 115222102, voice_path = "Stick_Battle_C_2"}
+, 
+[116222101] = {id = 116222101, bubble_text = "都会っぽいものとか流行ってるものはあるかな！？", voice_path = "Stick_Home_In_1", top_position = 10}
+, 
+[117222101] = {id = 117222101, bubble_text = "おおーっ、これが都会の家かあ！　知ってるよ、こういうの「シャレオツ」って言うんだよね！", voice_path = "Stick_Home_Talk_1", top_position = 10}
+, 
+[117222102] = {id = 117222102, bubble_text = "リーダー、カフェしに行こうよ！　都会ではお茶のことそう言うんでしょ！", voice_path = "Stick_Home_Talk_2", top_position = 10}
+, 
+[117222103] = {id = 117222103, bubble_text = "う～ん、食器や壁紙一つとってもやっぱり大都会は違うなあ…！", voice_path = "Stick_Home_Talk_3", top_position = 10}
 }

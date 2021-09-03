@@ -37,5 +37,7 @@
 , 
 [29000019] = {id = 29000019, name = "無人島の覇者 称号", goods_icon = "ItemIcon:29000019", type = 1, quality = 3, remark = "イベント「脱出！無人島？」より獲得可能。", des = "無人島から脱出した者に贈られる称号。", icon = "Title:29000019", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
 , 
+[29000020] = {id = 29000020, name = "トラブルメーカー  称号", goods_icon = "ItemIcon:29000020", type = 1, quality = 3, remark = "イベント「闇の研究所」より獲得可能。", des = "研究所からドロイアを救出した者に贈られる称号。", icon = "Title:29000020", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
+, 
 [29000101] = {id = 29000101, name = "気丈な心持ち主　称号", goods_icon = "ItemIcon:29000101", type = 1, quality = 3, remark = "250回連続募集でSSR冒険者が出現しなかった際に贈られる称号。", des = "気丈な心の持ち主　称号", icon = "Title:29000101", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1620403200"}
 }

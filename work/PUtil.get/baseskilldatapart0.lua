@@ -95,6 +95,8 @@
 , 
 [41002217] = {id = 41002217, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[41002221] = {id = 41002221, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [41003001] = {id = 41003001, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [41003002] = {id = 41003002, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -164,6 +166,8 @@
 [41003036] = {id = 41003036, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [41003037] = {id = 41003037, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[41003048] = {id = 41003048, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [41003101] = {id = 41003101, name = "通常攻撃", type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 

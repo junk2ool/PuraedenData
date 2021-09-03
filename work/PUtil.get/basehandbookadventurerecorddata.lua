@@ -554,4 +554,14 @@
 [52700212] = {id = 52700212, name = "島から脱出せよ！", remark = "島から脱出せよ！", icon = "HandBookBanner:Activity_12_4", story_id = "75901361:75901371:75901381", sort = 4}
 , 
 [52700214] = {id = 52700214, name = "ハッピーエンド", remark = "ハッピーエンド", icon = "HandBookBanner:Activity_12_5", story_id = "75901391", sort = 5}
+, 
+[52700303] = {id = 52700303, name = "謎のペットを探せ！", remark = "謎のペットを探せ！", icon = "HandBookBanner:Activity_10_1", story_id = "75901401:75901402:75901411", sort = 1}
+, 
+[52700306] = {id = 52700306, name = "山奥の廃屋", remark = "山奥の廃屋", icon = "HandBookBanner:Activity_10_2", story_id = "75901421:75901422:75901431:75901432", sort = 2}
+, 
+[52700309] = {id = 52700309, name = "研究所からの脱出", remark = "研究所からの脱出", icon = "HandBookBanner:Activity_10_3", story_id = "75901441:75901442:75901451:75901452:75901453", sort = 3}
+, 
+[52700312] = {id = 52700312, name = "研究員達を捕まえに！", remark = "研究員達を捕まえに！", icon = "HandBookBanner:Activity_10_4", story_id = "75901461:75901462:75901471", sort = 4}
+, 
+[52700314] = {id = 52700314, name = "真実は闇の中", remark = "真実は闇の中", icon = "HandBookBanner:Activity_10_5", story_id = "75901481", sort = 5}
 }

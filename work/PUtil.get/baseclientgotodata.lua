@@ -391,19 +391,19 @@
 , 
 [77422112] = {id = 77422112, name = "イベント", remark = "イベント 「集客!波乱のサマー」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77422111] = {id = 77422111, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77422111] = {id = 77422111, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77422208] = {id = 77422208, name = "イベント", remark = "イベント 「密着！ビッグスターの裏顔」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423011] = {id = 77423011, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423011] = {id = 77423011, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
-[77423012] = {id = 77423012, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423012] = {id = 77423012, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77422209] = {id = 77422209, name = "イベント", remark = "イベント 「WRAITH BANQUET」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77423013] = {id = 77423013, name = "募集", remark = "「WRAITH BANQUET」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423014] = {id = 77423014, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423014] = {id = 77423014, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77422210] = {id = 77422210, name = "イベント", remark = "イベント 「クリスマス 正義を貫くサンタ」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
@@ -411,7 +411,7 @@
 , 
 [77423016] = {id = 77423016, name = "募集", remark = "「白い聖夜の贈り物」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423024] = {id = 77423024, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423024] = {id = 77423024, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77422214] = {id = 77422214, name = "イベント", remark = "イベント 「正月 お見合い攻防戦」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
@@ -421,33 +421,33 @@
 , 
 [77423019] = {id = 77423019, name = "募集", remark = "「パッションで雪を溶かす！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423030] = {id = 77423030, name = "募集", remark = "「ファミリーの名にかけて！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423030] = {id = 77423030, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
-[77423026] = {id = 77423026, name = "募集", remark = "「臆病なストラテジスト」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423026] = {id = 77423026, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77422213] = {id = 77422213, name = "イベント", remark = "イベント 「無言の歌姫」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423022] = {id = 77423022, name = "募集", remark = "「無言の歌姫」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423022] = {id = 77423022, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
-[77423025] = {id = 77423025, name = "募集", remark = "「暁闇の葬送者」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423025] = {id = 77423025, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77423027] = {id = 77423027, name = "募集", remark = "「勇気100％　BunnyBunny」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423028] = {id = 77423028, name = "募集", remark = "「微風の鼓動」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423028] = {id = 77423028, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
-[77422215] = {id = 77422215, name = "イベント", remark = "イベント 「野生児の反撃」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77422215] = {id = 77422215, name = "イベント", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
-[77423029] = {id = 77423029, name = "募集", remark = "「野生児の反撃」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423029] = {id = 77423029, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
-[77423031] = {id = 77423031, name = "募集", remark = "「森の守護者」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423031] = {id = 77423031, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77422216] = {id = 77422216, name = "イベント", remark = "イベント 「嘘の契り」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423032] = {id = 77423032, name = "募集", remark = "「嘘の契り」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423032] = {id = 77423032, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77423023] = {id = 77423023, name = "募集", remark = "「アニバーサリー記念募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
-[77423033] = {id = 77423033, name = "募集", remark = "「アニバーサリー記念募集」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+[77423033] = {id = 77423033, name = "募集", remark = "「冒険者募集」で獲得する", icon = "ItemIcon:21160003", type = 100108, value = 0, sort = 40}
 , 
 [77422217] = {id = 77422217, name = "イベント", remark = "イベント 「奪還！海の家！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
@@ -458,6 +458,10 @@
 [77423036] = {id = 77423036, name = "募集", remark = "「脱出！無人島？」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77423037] = {id = 77423037, name = "募集", remark = "「金魚姫の暑中見舞」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77422221] = {id = 77422221, name = "イベント", remark = "イベント 「闇の研究所」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423048] = {id = 77423048, name = "募集", remark = "「闇の研究所」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 , 

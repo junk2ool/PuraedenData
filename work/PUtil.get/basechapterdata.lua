@@ -145,13 +145,13 @@
 , 
 [51420008] = {id = 51420008, name = "無言の歌姫", type = 101, stages = "52510801:52510802:52510803:52510804:52510805:52510806", open_condition = "72501001:0:1,72504611:52500815:1", pre = 51410008, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
-[51410009] = {id = 51410009, name = "勇気100％　BunnyBunny", type = 101, stages = "52500901:52500902:52500903:52500904:52500905:52500906:52500907:52500908:52500909:52500910:52500911:52500912:52500913:52500914:52500915", open_condition = "72501001:0:1", pre = 0, next = "51420009", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+[51410009] = {id = 51410009, name = "勇気100％　BunnyBunny", type = 101, stages = "52500901:52500902:52500903:52500904:52500905:52500906:52500907:52500908:52500909:52500910:52500911:52500912:52500913:52500914:52500915", open_condition = "72501001:0:1", pre = 0, next = "51420009", activity_id = 33000103, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
-[51420009] = {id = 51420009, name = "勇気100％　BunnyBunny", type = 101, stages = "52510901:52510902:52510903:52510904:52510905:52510906", open_condition = "72501001:0:1,72504611:52500915:1", pre = 51410009, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+[51420009] = {id = 51420009, name = "勇気100％　BunnyBunny", type = 101, stages = "52510901:52510902:52510903:52510904:52510905:52510906", open_condition = "72501001:0:1,72504611:52500915:1", pre = 51410009, next = "0", activity_id = 33000103, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
-[51410010] = {id = 51410010, name = "野生児の反撃", type = 101, stages = "52501001:52501002:52501003:52501004:52501005:52501006:52501007:52501008:52501009:52501010:52501011:52501012:52501013:52501014:52501015", open_condition = "72501001:0:1", pre = 0, next = "51420010", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+[51410010] = {id = 51410010, name = "野生児の反撃", type = 101, stages = "52501001:52501002:52501003:52501004:52501005:52501006:52501007:52501008:52501009:52501010:52501011:52501012:52501013:52501014:52501015", open_condition = "72501001:0:1", pre = 0, next = "51420010", activity_id = 33000102, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
-[51420010] = {id = 51420010, name = "野生児の反撃", type = 101, stages = "52511001:52511002:52511003:52511004:52511005:52511006", open_condition = "72501001:0:1,72504611:52501015:1", pre = 51410010, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+[51420010] = {id = 51420010, name = "野生児の反撃", type = 101, stages = "52511001:52511002:52511003:52511004:52511005:52511006", open_condition = "72501001:0:1,72504611:52501015:1", pre = 51410010, next = "0", activity_id = 33000102, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
 [51410011] = {id = 51410011, name = "嘘の契り", type = 101, stages = "52501101:52501102:52501103:52501104:52501105:52501106:52501107:52501108:52501109:52501110:52501111:52501112:52501113:52501114:52501115", open_condition = "72501001:0:1", pre = 0, next = "51420011", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
@@ -168,4 +168,10 @@
 [51610102] = {id = 51610102, name = "奪還！海の家！", type = 201, stages = "52700206:52700207:52700208:52700209", open_condition = "72501001:0:1", pre = 51610101, next = "51610103", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
 [51610103] = {id = 51610103, name = "奪還！海の家！", type = 201, stages = "52700210:52700211:52700212:52700213:52700214", open_condition = "72501001:0:1", pre = 51610102, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610201] = {id = 51610201, name = "闇の研究所", type = 201, stages = "52700301:52700302:52700303:52700304:52700305", open_condition = "72501001:0:1", pre = 0, next = "51610202", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610202] = {id = 51610202, name = "闇の研究所", type = 201, stages = "52700306:52700307:52700308:52700309", open_condition = "72501001:0:1,72504612:52700305:1", pre = 51610201, next = "51610203", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610203] = {id = 51610203, name = "闇の研究所", type = 201, stages = "52700310:52700311:52700312:52700313:52700314", open_condition = "72501001:0:1,72504612:52700309:1", pre = 51610202, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 }

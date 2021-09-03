@@ -191,6 +191,10 @@
 , 
 [21123037] = {id = 21123037, name = "ツバキ(水着)の欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300037", quality = 3, type = 2, effect_value = "11300037", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423037", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
 , 
+[21122221] = {id = 21122221, name = "スティックの欠片", remark = "欠片を30個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11202021", quality = 3, type = 2, effect_value = "11202021", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77422221", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
+, 
+[21123048] = {id = 21123048, name = "ドロイアの欠片", remark = "欠片を55個集めると当冒険者をスカウトできる。\nまた、冒険者の覚醒に欠かせない素材！", icon = "ItemIcon:11300048", quality = 3, type = 2, effect_value = "11300048", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423048", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013, time = -1, own_show = 0}
+, 
 [21130001] = {id = 21130001, name = "花輪ブレスレット", remark = "冒険者の好感度30点アップ。", icon = "ItemIcon:21130001", quality = 1, type = 3, effect_value = "30", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20405, go_to_id = "77230001:77330001", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9490001, time = -1, own_show = 0}
 , 
 [21130002] = {id = 21130002, name = "蝴蝶のブローチ", remark = "冒険者の好感度60点アップ。", icon = "ItemIcon:21130002", quality = 2, type = 3, effect_value = "60", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20404, go_to_id = "77230002", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9510001, time = -1, own_show = 0}

@@ -475,6 +475,18 @@
 , 
 [75200793] = {id = 75200793, name = "ツバキ", role_path = "img_11202016_2", effect_path = "FIGHT_KILL", offset = "-49:-358"}
 , 
+[75200801] = {id = 75200801, name = "???", role_path = "img_11202021_2", effect_path = "FIGHT_KILL", fashion_id = "14222101", offset = "-50:-159"}
+, 
+[75200802] = {id = 75200802, name = "スティック", role_path = "img_11202021_2", effect_path = "FIGHT_KILL", fashion_id = "14222101", offset = "-50:-159"}
+, 
+[75200803] = {id = 75200803, name = "スティック", role_path = "img_11202021_2", effect_path = "FIGHT_KILL", fashion_id = "14222101", offset = "-50:-159"}
+, 
+[75200811] = {id = 75200811, name = "???", role_path = "img_11300048_1", effect_path = "FIGHT_KILL", fashion_id = "14304800", offset = "109:73"}
+, 
+[75200812] = {id = 75200812, name = "ドロイア", role_path = "img_11300048_1", effect_path = "FIGHT_KILL", fashion_id = "14304800", offset = "109:73"}
+, 
+[75200813] = {id = 75200813, name = "ドロイア", role_path = "img_11300048_2", effect_path = "FIGHT_KILL", fashion_id = "14304801", offset = "0:0"}
+, 
 [75210001] = {id = 75210001, name = "リルス", role_path = "img_12010001", effect_path = "FIGHT_KILL", fashion_id = "15010001", offset = "10:80"}
 , 
 [75210002] = {id = 75210002, name = "コニー", role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
@@ -696,6 +708,12 @@
 [75210110] = {id = 75210110, name = "司会者", role_path = "img_13010007", effect_path = "FIGHT_KILL", fashion_id = "15040008", offset = "20:175"}
 , 
 [75210111] = {id = 75210111, name = "オーナー", role_path = "img_13010008", effect_path = "FIGHT_KILL", fashion_id = "15040009", offset = "20:-230"}
+, 
+[75210112] = {id = 75210112, name = "研究員１", role_path = "img_13010014", effect_path = "FIGHT_KILL", fashion_id = "15040014", offset = "-50:358"}
+, 
+[75210113] = {id = 75210113, name = "研究員２", role_path = "img_13010015", effect_path = "FIGHT_KILL", fashion_id = "15040015", offset = "0:202"}
+, 
+[75210114] = {id = 75210114, name = "謎の男", role_path = "img_13010014", effect_path = "FIGHT_KILL", fashion_id = "15040014", offset = "-50:358"}
 , 
 [75203001] = {id = 75203001, name = "山豚", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 

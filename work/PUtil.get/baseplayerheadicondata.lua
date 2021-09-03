@@ -207,11 +207,11 @@
 , 
 [78601188] = {id = 78601188, name = "フラワー(水着)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300035_2", condition = "72501008:11300035:10", sort = 913, reward_sort = 9880001, own_show = 1, open_time = "1626296400"}
 , 
-[78601189] = {id = 78601189, name = "未定義(81013056)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300056_2", condition = "72501008:11300056:10", sort = 912, reward_sort = 9880001, own_show = 1, open_time = "2051193600"}
-, 
-[78601190] = {id = 78601190, name = "未定義(81013057)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300057_2", condition = "72501008:11300057:10", sort = 911, reward_sort = 9880001, own_show = 1, open_time = "2051193600"}
-, 
 [78601191] = {id = 78601191, name = "ムリム", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300036_2", condition = "72501008:11300036:10", sort = 910, reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
 , 
 [78601192] = {id = 78601192, name = "ツバキ(水着)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300037_2", condition = "72501008:11300037:10", sort = 909, reward_sort = 9880001, own_show = 1, open_time = "1628974800"}
+, 
+[78601193] = {id = 78601193, name = "スティック", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11202021_2", condition = "72501008:11202021:10", sort = 908, reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
+, 
+[78601194] = {id = 78601194, name = "ドロイア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300048_2", condition = "72501008:11300048:10", sort = 907, reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
 }

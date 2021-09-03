@@ -122,4 +122,6 @@
 [51610001] = {id = 51610001, type = 3, activity_type = 312, name = "奪還！海の家！", remark = "奪還！海の家！", record_ids = "52700103:52700106:52700109:52700112:52700114", sort = 12, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
 [51610101] = {id = 51610101, type = 3, activity_type = 313, name = "脱出！無人島？", remark = "脱出！無人島？", record_ids = "52700203:52700206:52700209:52700212:52700214", sort = 13, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51610201] = {id = 51610201, type = 3, activity_type = 314, name = "闇の研究所", remark = "闇の研究所", record_ids = "52700303:52700306:52700309:52700312:52700314", sort = 14, unlockPoints = 0, nextId = 0, needStage = 0}
 }
