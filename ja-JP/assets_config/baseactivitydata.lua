@@ -119,7 +119,7 @@ BaseActivityData = {
 , 
 [33001503] = {id = 33001503, type = 15, name = (PUtil.get)(87301301), remark = (PUtil.get)(87300001), open_condition = "72501018:0:43200", initial_condition = 0, time_type = 1, relative_begin_time = 0, relative_end_time = 777600, reward_time = 172800, post_time = 0, task_group = "0", mail_id = "78400033", parameter1 = "102", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 , 
-[33001601] = {id = 33001601, type = 16, name = (PUtil.get)(87301601), remark = (PUtil.get)(87300001), open_condition = "72504411:52311104:1", initial_condition = 0, time_type = 0, begin_time = "5:202108030500:MX0", end_time = "5:202108092359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "0", parameter2 = "0", parameter3 = "0", fashion_id = 0}
+[33001601] = {id = 33001601, type = 16, name = (PUtil.get)(87301601), remark = (PUtil.get)(87300001), open_condition = "72504411:52311104:1", initial_condition = 0, time_type = 0, begin_time = "5:202109030500:MX0", end_time = "5:202109092359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "0", parameter2 = "0", parameter3 = "0", fashion_id = 0}
 }
 return BaseActivityData
 

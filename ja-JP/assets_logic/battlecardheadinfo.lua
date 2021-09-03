@@ -125,46 +125,42 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
       battleCard:SetHp(_nowHp)
     end
     if _nowHp < _lastHP then
-      ((LeanTween.value)(hpYellowProgressBar.value, targetValue, 0.5)):setOnUpdate(function(value, ...)
-      -- function num : 0_0_5_0 , upvalues : percentageTxt, math
-      if percentageTxt then
-        local num = (math.ceil)(value)
-        percentageTxt.text = num .. "%"
-      end
-    end
-)
-      hpGreenProgressBar.value = targetValue
-      hpEliteProgressBar.value = targetValue
-      hpBossProgressBar.value = targetValue
-      hpYellowProgressBar:TweenValue(targetValue, 0.5)
-    else
-      if _lastHP < _nowHp then
-        ((LeanTween.value)(hpYellowProgressBar.value, targetValue, 0.5)):setOnUpdate(function(value, ...)
-      -- function num : 0_0_5_1 , upvalues : percentageTxt, math
-      if percentageTxt then
-        local num = (math.ceil)(value)
-        percentageTxt.text = num .. "%"
-      end
-    end
-)
-        hpGreenProgressBar:TweenValue(targetValue, 0.5)
-        hpEliteProgressBar:TweenValue(targetValue, 0.5)
-        hpBossProgressBar:TweenValue(targetValue, 0.5)
-        hpYellowProgressBar.value = targetValue
-      else
-        percentageTxt.text = (math.ceil)(targetValue) .. "%"
+      (LeanTween.value)(hpYellowProgressBar.value, targetValue, 0.5)
+      do
+        if percentageTxt then
+          local num = (math.ceil)(targetValue)
+          percentageTxt.text = tostring(num) .. "%"
+        end
         hpGreenProgressBar.value = targetValue
         hpEliteProgressBar.value = targetValue
         hpBossProgressBar.value = targetValue
-        hpYellowProgressBar.value = targetValue
-      end
-    end
-    self.lastHp = _nowHp
-    if battleCard:GetCampFlag() == BattleCardCamp.LEFT then
-      UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_CARD_HP, {posIndex = battleCard:GetPosIndex(), lastHp = _lastHP, nowHp = _nowHp, targetValue = targetValue})
-    else
-      if battleCard:IsBoss() == true then
-        UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_BOSS_BLOOD, {maxHp = maxHp, lastHp = _lastHP, nowHp = _nowHp})
+        hpYellowProgressBar:TweenValue(targetValue, 0.5)
+        if _lastHP < _nowHp then
+          (LeanTween.value)(hpYellowProgressBar.value, targetValue, 0.5)
+          do
+            if percentageTxt then
+              local num = (math.ceil)(targetValue)
+              percentageTxt.text = tostring(num) .. "%"
+            end
+            hpGreenProgressBar:TweenValue(targetValue, 0.5)
+            hpEliteProgressBar:TweenValue(targetValue, 0.5)
+            hpBossProgressBar:TweenValue(targetValue, 0.5)
+            hpYellowProgressBar.value = targetValue
+            percentageTxt.text = (math.ceil)(targetValue) .. "%"
+            hpGreenProgressBar.value = targetValue
+            hpEliteProgressBar.value = targetValue
+            hpBossProgressBar.value = targetValue
+            hpYellowProgressBar.value = targetValue
+            self.lastHp = _nowHp
+            if battleCard:GetCampFlag() == BattleCardCamp.LEFT then
+              UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_CARD_HP, {posIndex = battleCard:GetPosIndex(), lastHp = _lastHP, nowHp = _nowHp, targetValue = targetValue})
+            else
+              if battleCard:IsBoss() == true then
+                UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_BOSS_BLOOD, {maxHp = maxHp, lastHp = _lastHP, nowHp = _nowHp})
+              end
+            end
+          end
+        end
       end
     end
   end

@@ -224,9 +224,6 @@ BattleDataCount.GetPreRoundCount = function(...)
       v:SetDander(v:GetDander() + subAtkInfo.danderDef)
     end
   end
-  for _,v in ipairs(liveCards) do
-    v:SetRoundDamage(0)
-  end
   ;
   (self.DealActiveBuff)(nil, preRoundInfo, BattleBuffSettleRoundType.BEFORE_ROUND)
   local oe = curRound % 2
@@ -245,6 +242,9 @@ BattleDataCount.GetPreRoundCount = function(...)
   (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY)
   ;
   (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.AFTER_DAMAGE)
+  for _,v in ipairs(liveCards) do
+    v:SetRoundDamage(0)
+  end
   return preRoundInfo
 end
 
