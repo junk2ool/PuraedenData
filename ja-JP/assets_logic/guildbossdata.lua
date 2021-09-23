@@ -25,6 +25,9 @@ GuildBossData.SkillLevelData = {}
 GuildBossData.SkillStartId = {}
 -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
 
+GuildBossData.Info = {}
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
+
 GuildBossData.InitGuildSkillData = function(...)
   -- function num : 0_0 , upvalues : _ENV
   if (_G.next)(GuildBossData.SkillLevelData) ~= nil then
@@ -92,7 +95,7 @@ GuildBossData.InitGuildSkillData = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.GetUnlockCondition = function(skillId, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -129,7 +132,7 @@ GuildBossData.GetUnlockCondition = function(skillId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC33: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.CheckUnlockAvailable = function(id, ...)
   -- function num : 0_2 , upvalues : _ENV
@@ -156,7 +159,7 @@ GuildBossData.CheckUnlockAvailable = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.CheckSkillAvailable = function(...)
   -- function num : 0_3 , upvalues : _ENV
@@ -214,7 +217,7 @@ GuildBossData.CheckSkillAvailable = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC39: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.ResetGuildSkillInfo = function(...)
   -- function num : 0_4 , upvalues : _ENV
@@ -226,7 +229,7 @@ GuildBossData.ResetGuildSkillInfo = function(...)
   GuildBossData.TotalInvestPoint = 0
 end
 
--- DECOMPILER ERROR at PC42: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC45: Confused about usage of register: R0 in 'UnsetPending'
 
 GuildBossData.ResetData = function(...)
   -- function num : 0_5 , upvalues : _ENV

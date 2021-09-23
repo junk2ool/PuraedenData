@@ -3180,7 +3180,7 @@ FormationWindow.OnHide = function(...)
 end
 
 FormationWindow.OnClose = function(...)
-  -- function num : 0_99 , upvalues : _ENV, DragModel, DragDropManager, enemyLoaderList, FormationWindow, selfLoaderList, grpTalkCom, myselfFightDate, enemyFightDate, alreadyCard, MaxFight, ExpeditionListData, appaySfx, putHolder, uis, contentPane, scrollList, cardListDate, speedSort, selfGrp, _gestureDic, bgModel, currentTxt, expeditionSweep
+  -- function num : 0_99 , upvalues : _ENV, DragModel, DragDropManager, enemyLoaderList, FormationWindow, selfLoaderList, grpTalkCom, mFormationData, myselfFightDate, supportID, supportPlayerIndex, enemyFightDate, alreadyCard, MaxFight, ExpeditionListData, appaySfx, putHolder, uis, contentPane, scrollList, cardListDate, speedSort, selfGrp, _gestureDic, bgModel, currentTxt, expeditionSweep
   (BattleBackground.ClearBackground)(true)
   DragModel = nil
   local dragAgent = (DragDropManager.inst).dragAgent
@@ -3202,7 +3202,14 @@ FormationWindow.OnClose = function(...)
     end
   end
   grpTalkCom = {}
-  -- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC64: Confused about usage of register: R1 in 'UnsetPending'
+
+  if mFormationData.formationType == FormationType.GuildBattle then
+    (MessageMgr.formationData).myselfList = myselfFightDate
+    ;
+    (GuildBossMgr.SaveCardList)(myselfFightDate, supportID, supportPlayerIndex)
+  end
+  -- DECOMPILER ERROR at PC75: Confused about usage of register: R1 in 'UnsetPending'
 
   if FormationPresetData then
     FormationPresetData.FormationData = nil
@@ -3222,7 +3229,7 @@ FormationWindow.OnClose = function(...)
   (LuaEffect.DestroyEffect)(appaySfx)
   ;
   (LuaEffect.DestroyEffect)(putHolder)
-  -- DECOMPILER ERROR at PC99: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC114: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (GRoot.inst).IgnoreItemClick = true
@@ -3249,7 +3256,7 @@ FormationWindow.OnClose = function(...)
 end
 
 FormationWindow.InitAsset = function(formationData, ...)
-  -- function num : 0_100 , upvalues : _ENV, uis, battleType, myselfFightDate, FormationWindow
+  -- function num : 0_100 , upvalues : _ENV, uis, battleType, myselfFightDate, supportID, supportPlayerIndex, FormationWindow
   local m = {}
   m.windowName = (WinResConfig.FormationWindow).name
   m.Tip = (PUtil.get)(20000035)
@@ -3267,16 +3274,16 @@ FormationWindow.InitAsset = function(formationData, ...)
 
   end
   m.CloseBtnFun = function(...)
-    -- function num : 0_100_1 , upvalues : formationData, myselfFightDate
+    -- function num : 0_100_1 , upvalues : formationData, myselfFightDate, supportID, supportPlayerIndex
     if formationData.closeFun then
-      (formationData.closeFun)(myselfFightDate)
+      (formationData.closeFun)(myselfFightDate, supportID, supportPlayerIndex)
     end
   end
 
   m.BackBtnFun = function(...)
-    -- function num : 0_100_2 , upvalues : formationData, myselfFightDate
+    -- function num : 0_100_2 , upvalues : formationData, myselfFightDate, supportID, supportPlayerIndex
     if formationData.backFun then
-      (formationData.backFun)(myselfFightDate)
+      (formationData.backFun)(myselfFightDate, supportID, supportPlayerIndex)
     end
   end
 

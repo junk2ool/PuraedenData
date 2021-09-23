@@ -13176,6 +13176,142 @@ BaseFashionBubbleData = {
 [117222102] = {id = 117222102, bubble_text = (PUtil.get)(117222102), voice_path = "Stick_Home_Talk_2", top_position = 10}
 , 
 [117222103] = {id = 117222103, bubble_text = (PUtil.get)(117222103), voice_path = "Stick_Home_Talk_3", top_position = 10}
+, 
+[97030431] = {id = 97030431, bubble_text = (PUtil.get)(97030431), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Main_1"}
+, 
+[97030432] = {id = 97030432, bubble_text = (PUtil.get)(97030432), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Main_2"}
+, 
+[97030433] = {id = 97030433, bubble_text = (PUtil.get)(97030433), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Main_3"}
+, 
+[97030434] = {id = 97030434, bubble_text = (PUtil.get)(97030434), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Main_4"}
+, 
+[97130431] = {id = 97130431, bubble_text = (PUtil.get)(97130431), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Main_1"}
+, 
+[97130432] = {id = 97130432, bubble_text = (PUtil.get)(97130432), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Main_2"}
+, 
+[97130433] = {id = 97130433, bubble_text = (PUtil.get)(97130433), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Main_3"}
+, 
+[97130434] = {id = 97130434, bubble_text = (PUtil.get)(97130434), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Main_4"}
+, 
+[97230431] = {id = 97230431, bubble_text = (PUtil.get)(97230431), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Main_1"}
+, 
+[97230432] = {id = 97230432, bubble_text = (PUtil.get)(97230432), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Main_2"}
+, 
+[97230433] = {id = 97230433, bubble_text = (PUtil.get)(97230433), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Main_3"}
+, 
+[97230434] = {id = 97230434, bubble_text = (PUtil.get)(97230434), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Main_4"}
+, 
+[101304301] = {id = 101304301, bubble_text = (PUtil.get)(101304301), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Get_1"}
+, 
+[101304311] = {id = 101304311, bubble_text = (PUtil.get)(101304311), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Stage_2"}
+, 
+[101304321] = {id = 101304321, bubble_text = (PUtil.get)(101304321), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Stage_3"}
+, 
+[102304301] = {id = 102304301, bubble_text = (PUtil.get)(102304301), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_In_1"}
+, 
+[102304302] = {id = 102304302, bubble_text = (PUtil.get)(102304302), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_In_1"}
+, 
+[102304303] = {id = 102304303, bubble_text = (PUtil.get)(102304303), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_In_1"}
+, 
+[103304301] = {id = 103304301, bubble_text = (PUtil.get)(103304301), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:207", direction = 2, voice_path = "hyoka_Stage_1"}
+, 
+[103304311] = {id = 103304311, bubble_text = (PUtil.get)(103304311), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:241", direction = 2, voice_path = "hyoka_Stage_1"}
+, 
+[103304321] = {id = 103304321, bubble_text = (PUtil.get)(103304321), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:241", direction = 2, voice_path = "hyoka_Stage_1"}
+, 
+[104304301] = {id = 104304301, bubble_text = (PUtil.get)(104304301), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "432:207", direction = 2, voice_path = "hyoka_Star_1"}
+, 
+[104304311] = {id = 104304311, bubble_text = (PUtil.get)(104304311), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:241", direction = 2, voice_path = "hyoka_Star_1"}
+, 
+[104304321] = {id = 104304321, bubble_text = (PUtil.get)(104304321), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "407:241", direction = 2, voice_path = "hyoka_Star_1"}
+, 
+[105304301] = {id = 105304301, bubble_text = (PUtil.get)(105304301), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Interaction_1"}
+, 
+[105304302] = {id = 105304302, bubble_text = (PUtil.get)(105304302), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Interaction_2"}
+, 
+[105304303] = {id = 105304303, bubble_text = (PUtil.get)(105304303), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Interaction_3"}
+, 
+[105304304] = {id = 105304304, bubble_text = (PUtil.get)(105304304), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Interaction_4"}
+, 
+[105304305] = {id = 105304305, bubble_text = (PUtil.get)(105304305), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Interaction_5"}
+, 
+[105304311] = {id = 105304311, bubble_text = (PUtil.get)(105304311), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Interaction_1"}
+, 
+[105304312] = {id = 105304312, bubble_text = (PUtil.get)(105304312), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Interaction_2"}
+, 
+[105304313] = {id = 105304313, bubble_text = (PUtil.get)(105304313), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Interaction_3"}
+, 
+[105304314] = {id = 105304314, bubble_text = (PUtil.get)(105304314), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Interaction_4"}
+, 
+[105304315] = {id = 105304315, bubble_text = (PUtil.get)(105304315), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Interaction_5"}
+, 
+[105304321] = {id = 105304321, bubble_text = (PUtil.get)(105304321), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Interaction_1"}
+, 
+[105304322] = {id = 105304322, bubble_text = (PUtil.get)(105304322), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Interaction_2"}
+, 
+[105304323] = {id = 105304323, bubble_text = (PUtil.get)(105304323), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Interaction_3"}
+, 
+[105304324] = {id = 105304324, bubble_text = (PUtil.get)(105304324), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Interaction_4"}
+, 
+[105304325] = {id = 105304325, bubble_text = (PUtil.get)(105304325), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Interaction_5"}
+, 
+[106304301] = {id = 106304301, bubble_text = (PUtil.get)(106304301), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Win_1"}
+, 
+[106304311] = {id = 106304311, bubble_text = (PUtil.get)(106304311), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Win_1"}
+, 
+[106304321] = {id = 106304321, bubble_text = (PUtil.get)(106304321), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Win_1"}
+, 
+[107304301] = {id = 107304301, bubble_text = (PUtil.get)(107304301), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "746:211", direction = 2, voice_path = "hyoka_Fail_1"}
+, 
+[107304311] = {id = 107304311, bubble_text = (PUtil.get)(107304311), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "320:242", direction = 1, voice_path = "hyoka_Fail_1"}
+, 
+[107304321] = {id = 107304321, bubble_text = (PUtil.get)(107304321), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "282:260", direction = 1, voice_path = "hyoka_Fail_1"}
+, 
+[108304301] = {id = 108304301, bubble_text = (PUtil.get)(108304301), voice_path = "hyoka_Go_1"}
+, 
+[109304301] = {id = 109304301, voice_path = "hyoka_Game_1"}
+, 
+[111304301] = {id = 111304301, voice_path = "hyoka_Battle_N_1"}
+, 
+[111304302] = {id = 111304302, voice_path = "hyoka_Battle_N_2"}
+, 
+[111304303] = {id = 111304303, voice_path = "hyoka_Battle_N_3"}
+, 
+[111304304] = {id = 111304304, voice_path = "hyoka_Battle_N_4"}
+, 
+[111304305] = {id = 111304305, voice_path = "hyoka_Battle_N_5"}
+, 
+[111304306] = {id = 111304306, voice_path = "hyoka_Battle_N_6"}
+, 
+[112304301] = {id = 112304301, voice_path = "hyoka_Battle_Hit_1"}
+, 
+[112304302] = {id = 112304302, voice_path = "hyoka_Battle_Hit_2"}
+, 
+[112304303] = {id = 112304303, voice_path = "hyoka_Battle_Hit_3"}
+, 
+[112304304] = {id = 112304304, voice_path = "hyoka_Battle_Hit_4"}
+, 
+[112304305] = {id = 112304305, voice_path = "hyoka_Battle_Hit_5"}
+, 
+[112304306] = {id = 112304306, voice_path = "hyoka_Battle_Hit_6"}
+, 
+[113304301] = {id = 113304301, voice_path = "hyoka_Battle_Die_1"}
+, 
+[114304301] = {id = 114304301, voice_path = "hyoka_Battle_H_1"}
+, 
+[114304302] = {id = 114304302, voice_path = "hyoka_Battle_H_2"}
+, 
+[115304301] = {id = 115304301, voice_path = "hyoka_Battle_C_1"}
+, 
+[115304302] = {id = 115304302, voice_path = "hyoka_Battle_C_2"}
+, 
+[116304301] = {id = 116304301, bubble_text = (PUtil.get)(116304301), voice_path = "hyoka_Home_In_1", top_position = 10}
+, 
+[117304301] = {id = 117304301, bubble_text = (PUtil.get)(117304301), voice_path = "hyoka_Home_Talk_1", top_position = 10}
+, 
+[117304302] = {id = 117304302, bubble_text = (PUtil.get)(117304302), voice_path = "hyoka_Home_Talk_2", top_position = 10}
+, 
+[117304303] = {id = 117304303, bubble_text = (PUtil.get)(117304303), voice_path = "hyoka_Home_Talk_3", top_position = 10}
 }
 return BaseFashionBubbleData
 

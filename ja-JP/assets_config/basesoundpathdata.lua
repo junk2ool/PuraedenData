@@ -6070,6 +6070,124 @@ BaseSoundPathData = {
 [230480401] = {id = 230480401, play_frame = 13, path = "sfx_xiaobaishu_pt_wh_60fr", bank = "xiaobaishu"}
 , 
 [230480402] = {id = 230480402, play_frame = 18, path = "sfx_xiaobaishu_pt_tx_73fr", bank = "xiaobaishu"}
+, 
+[282550101] = {id = 282550101, play_frame = 17, path = "sfx_hesitiya_big_tx_17fr", bank = "hesitiya"}
+, 
+[282550102] = {id = 282550102, play_frame = 52, path = "sfx_hesitiya_big_wh_52fr", bank = "hesitiya"}
+, 
+[282550103] = {id = 282550103, play_frame = 83, path = "sfx_hesitiya_big_vo_83fr", bank = "hesitiya"}
+, 
+[282550104] = {id = 282550104, play_frame = 89, path = "sfx_hesitiya_big_wh_89fr", bank = "hesitiya"}
+, 
+[282550105] = {id = 282550105, play_frame = 128, path = "sfx_hesitiya_big_tx_128fr", bank = "hesitiya"}
+, 
+[282550106] = {id = 282550106, play_frame = 148, path = "sfx_hesitiya_big_tx_148fr", bank = "hesitiya"}
+, 
+[282550201] = {id = 282550201, play_frame = 5, path = "sfx_hesitiya_pt_wh_5fr", bank = "hesitiya"}
+, 
+[282550202] = {id = 282550202, play_frame = 19, path = "sfx_hesitiya_pt_wh_19fr", bank = "hesitiya"}
+, 
+[282550203] = {id = 282550203, play_frame = 56, path = "sfx_hesitiya_pt_wh_56fr", bank = "hesitiya"}
+, 
+[282550204] = {id = 282550204, play_frame = 68, path = "sfx_hesitiya_pt_tx_68fr", bank = "hesitiya"}
+, 
+[282550301] = {id = 282550301, play_frame = 5, path = "sfx_hesitiya_small_wh_5fr", bank = "hesitiya"}
+, 
+[282550302] = {id = 282550302, play_frame = 63, path = "sfx_hesitiya_small_vo_63fr", bank = "hesitiya"}
+, 
+[282550303] = {id = 282550303, play_frame = 68, path = "sfx_hesitiya_small_wh_68fr", bank = "hesitiya"}
+, 
+[282550304] = {id = 282550304, play_frame = 92, path = "sfx_hesitiya_small_tx_92fr", bank = "hesitiya"}
+, 
+[230430101] = {id = 230430101, play_frame = 3, path = "sfx_heijinghe_big_tx_3fr", bank = "heijinghe"}
+, 
+[230430102] = {id = 230430102, play_frame = 113, path = "sfx_heijinghe_big_wh_113fr", bank = "heijinghe"}
+, 
+[230430103] = {id = 230430103, play_frame = 148, path = "sfx_heijinghe_big_wh_148fr", bank = "heijinghe"}
+, 
+[230430104] = {id = 230430104, play_frame = 172, path = "sfx_heijinghe_big_wh_172fr", bank = "heijinghe"}
+, 
+[230430105] = {id = 230430105, play_frame = 196, path = "sfx_heijinghe_big_tx_196fr", bank = "heijinghe"}
+, 
+[230430106] = {id = 230430106, play_frame = 228, path = "sfx_heijinghe_big_tx_228fr", bank = "heijinghe"}
+, 
+[230430107] = {id = 230430107, play_frame = 243, path = "sfx_heijinghe_big_tx_243fr", bank = "heijinghe"}
+, 
+[230430108] = {id = 230430108, play_frame = 253, path = "sfx_heijinghe_big_tx_253fr", bank = "heijinghe"}
+, 
+[230430109] = {id = 230430109, play_frame = 263, path = "sfx_heijinghe_big_tx_263fr", bank = "heijinghe"}
+, 
+[230430110] = {id = 230430110, play_frame = 277, path = "sfx_heijinghe_big_tx_277fr", bank = "heijinghe"}
+, 
+[230430111] = {id = 230430111, play_frame = 297, path = "sfx_heijinghe_big_tx_297fr", bank = "heijinghe"}
+, 
+[230430112] = {id = 230430112, play_frame = 324, path = "sfx_heijinghe_big_tx_324fr", bank = "heijinghe"}
+, 
+[230430113] = {id = 230430113, play_frame = 347, path = "sfx_heijinghe_big_tx_347fr", bank = "heijinghe"}
+, 
+[230430114] = {id = 230430114, play_frame = 358, path = "sfx_heijinghe_big_tx_358fr", bank = "heijinghe"}
+, 
+[230430115] = {id = 230430115, play_frame = 399, path = "sfx_heijinghe_big_tx_399fr", bank = "heijinghe"}
+, 
+[230430116] = {id = 230430116, play_frame = 409, path = "sfx_heijinghe_big_tx_409fr", bank = "heijinghe"}
+, 
+[230430117] = {id = 230430117, play_frame = 419, path = "sfx_heijinghe_big_tx_419fr", bank = "heijinghe"}
+, 
+[230430118] = {id = 230430118, play_frame = 501, path = "sfx_heijinghe_big_tx_504fr", bank = "heijinghe"}
+, 
+[230430119] = {id = 230430119, play_frame = 532, path = "sfx_heijinghe_big_tx_535fr", bank = "heijinghe"}
+, 
+[230430201] = {id = 230430201, play_frame = 24, path = "sfx_heijinghe_pt_wh_24fr", bank = "heijinghe"}
+, 
+[230430202] = {id = 230430202, play_frame = 74, path = "sfx_heijinghe_pt_wh_74fr", bank = "heijinghe"}
+, 
+[230430203] = {id = 230430203, play_frame = 89, path = "sfx_heijinghe_pt_tx_89fr", bank = "heijinghe"}
+, 
+[230430301] = {id = 230430301, play_frame = 9, path = "sfx_heijinghe_small_wh_9fr", bank = "heijinghe"}
+, 
+[230430302] = {id = 230430302, play_frame = 29, path = "sfx_heijinghe_small_wh_29fr", bank = "heijinghe"}
+, 
+[230430303] = {id = 230430303, play_frame = 63, path = "sfx_heijinghe_small_wh_63fr", bank = "heijinghe"}
+, 
+[230430304] = {id = 230430304, play_frame = 107, path = "sfx_heijinghe_small_tx_107fr", bank = "heijinghe"}
+, 
+[282560101] = {id = 282560101, play_frame = 7, path = "sfx_dionysus_big_wh_7fr", bank = "dionysus"}
+, 
+[282560102] = {id = 282560102, play_frame = 91, path = "sfx_dionysus_big_wh_91fr", bank = "dionysus"}
+, 
+[282560103] = {id = 282560103, play_frame = 108, path = "sfx_dionysus_big_wh_108fr", bank = "dionysus"}
+, 
+[282560104] = {id = 282560104, play_frame = 165, path = "sfx_dionysus_big_wh_165fr", bank = "dionysus"}
+, 
+[282560201] = {id = 282560201, play_frame = 17, path = "sfx_dionysus_pt_wh_17fr", bank = "dionysus"}
+, 
+[282560202] = {id = 282560202, play_frame = 48, path = "sfx_dionysus_pt_wh_48fr", bank = "dionysus"}
+, 
+[282560203] = {id = 282560203, play_frame = 53, path = "sfx_dionysus_pt_wh_53fr", bank = "dionysus"}
+, 
+[282560204] = {id = 282560204, play_frame = 59, path = "sfx_dionysus_pt_tx_59fr", bank = "dionysus"}
+, 
+[282560205] = {id = 282560205, play_frame = 61, path = "sfx_dionysus_pt_wh_61fr", bank = "dionysus"}
+, 
+[282560206] = {id = 282560206, play_frame = 69, path = "sfx_dionysus_pt_tx_69fr", bank = "dionysus"}
+, 
+[282560207] = {id = 282560207, play_frame = 69, path = "sfx_dionysus_pt_wh_69fr", bank = "dionysus"}
+, 
+[282560208] = {id = 282560208, play_frame = 79, path = "sfx_dionysus_pt_tx_79fr", bank = "dionysus"}
+, 
+[282560209] = {id = 282560209, play_frame = 84, path = "sfx_dionysus_pt_tx_84fr", bank = "dionysus"}
+, 
+[282560301] = {id = 282560301, play_frame = 9, path = "sfx_dionysus_small_wh_9fr", bank = "dionysus"}
+, 
+[282560302] = {id = 282560302, play_frame = 85, path = "sfx_dionysus_small_wh_85fr", bank = "dionysus"}
+, 
+[282560303] = {id = 282560303, play_frame = 112, path = "sfx_dionysus_small_wh_112fr", bank = "dionysus"}
+, 
+[282560304] = {id = 282560304, play_frame = 116, path = "sfx_dionysus_small_tx_116fr", bank = "dionysus"}
+, 
+[282560305] = {id = 282560305, play_frame = 122, path = "sfx_dionysus_small_wh_122fr", bank = "dionysus"}
+, 
+[282560306] = {id = 282560306, play_frame = 127, path = "sfx_dionysus_small_tx_127fr", bank = "dionysus"}
 }
 return BaseSoundPathData
 

@@ -94,6 +94,54 @@ BaseGuildExpressionData = {
 [78500146] = {id = 78500146, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f646", sort = 46}
 , 
 [78500147] = {id = 78500147, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f647", sort = 47}
+, 
+[78500148] = {id = 78500148, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f648", sort = 48}
+, 
+[78500149] = {id = 78500149, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f649", sort = 49}
+, 
+[78500150] = {id = 78500150, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f650", sort = 50}
+, 
+[78500151] = {id = 78500151, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f651", sort = 51}
+, 
+[78500152] = {id = 78500152, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f652", sort = 52}
+, 
+[78500153] = {id = 78500153, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f653", sort = 53}
+, 
+[78500154] = {id = 78500154, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f654", sort = 54}
+, 
+[78500155] = {id = 78500155, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f655", sort = 55}
+, 
+[78500156] = {id = 78500156, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f656", sort = 56}
+, 
+[78500157] = {id = 78500157, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f657", sort = 57}
+, 
+[78500158] = {id = 78500158, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f658", sort = 58}
+, 
+[78500159] = {id = 78500159, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f659", sort = 59}
+, 
+[78500160] = {id = 78500160, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f660", sort = 60}
+, 
+[78500161] = {id = 78500161, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f661", sort = 61}
+, 
+[78500162] = {id = 78500162, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f662", sort = 62}
+, 
+[78500163] = {id = 78500163, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f663", sort = 63}
+, 
+[78500164] = {id = 78500164, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f664", sort = 64}
+, 
+[78500165] = {id = 78500165, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f665", sort = 65}
+, 
+[78500166] = {id = 78500166, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f666", sort = 66}
+, 
+[78500167] = {id = 78500167, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f667", sort = 67}
+, 
+[78500168] = {id = 78500168, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f668", sort = 68}
+, 
+[78500169] = {id = 78500169, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f669", sort = 69}
+, 
+[78500170] = {id = 78500170, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f670", sort = 70}
+, 
+[78500171] = {id = 78500171, open_condition = "72501101:1101:1", group_id = 1, remark = (PUtil.get)(89050001), name = "1f671", sort = 71}
 }
 return BaseGuildExpressionData
 

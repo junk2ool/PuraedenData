@@ -627,8 +627,62 @@ GuildBossMgr.EnterFormation = function(msg, ...)
 
   ;
   (formationData.GuildBossExternal).cantUseCard = msg.canNotUse
+  formationData.closeFun = function(forData, supportId, supportPlayerIndex, ...)
+    -- function num : 0_43_1 , upvalues : _ENV
+    (GuildBossMgr.SaveCardList)(forData, supportId, supportPlayerIndex)
+  end
+
+  formationData.backFun = function(forData, supportId, supportPlayerIndex, ...)
+    -- function num : 0_43_2 , upvalues : _ENV
+    (GuildBossMgr.SaveCardList)(forData, supportId, supportPlayerIndex)
+  end
+
   ;
   (MessageMgr.OpenFormationWindow)(formationData)
+end
+
+-- DECOMPILER ERROR at PC137: Confused about usage of register: R1 in 'UnsetPending'
+
+GuildBossMgr.SaveCardList = function(forData, supportId, supportPlayerIndex, ...)
+  -- function num : 0_44 , upvalues : _ENV
+  local serverId = 0
+  if supportId and supportId > 0 then
+    for _,v in ipairs((GuildBossData.Info).supportCard) do
+      if v.playerIndex == supportPlayerIndex and v.id == supportId then
+        serverId = v.serverId
+      end
+    end
+  end
+  do
+    local cardList = {}
+    for i,v in pairs(forData) do
+      if v > 0 then
+        local m = {}
+        m.id = v
+        m.value = i
+        if supportId == nil then
+          supportId = 0
+        end
+        if supportId > 0 and supportId == v then
+          m.playerIndex = supportPlayerIndex
+          m.serverId = serverId
+        else
+          m.playerIndex = (ActorData.GetPlayerIndex)()
+        end
+        ;
+        (table.insert)(cardList, m)
+      end
+    end
+    ;
+    (GuildBossService.ReqSaveCardGroup)(cardList)
+  end
+end
+
+-- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
+
+GuildBossMgr.ReqSaveCardGroup = function(cardList, ...)
+  -- function num : 0_45 , upvalues : _ENV
+  (GuildBossService.ReqSaveCardGroup)(cardList)
 end
 
 

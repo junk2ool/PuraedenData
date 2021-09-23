@@ -38,6 +38,8 @@ GuildBossService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResHurtReport, GuildBossService.OnResHurtReport)
   ;
   (Net.AddListener)((Proto.MsgName).ResGuildWarInfo, GuildBossService.OnResGuildBattleRecord)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResSaveCardGroup, GuildBossService.ReSsaveCardGroup)
 end
 
 local update = false
@@ -388,6 +390,9 @@ end
 
 GuildBossService.OnResInGuildStage = function(msg, ...)
   -- function num : 0_28 , upvalues : _ENV
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
+
+  GuildBossData.Info = msg
   if #msg.aliveBoss > 0 then
     UIMgr:CloseWindow((WinResConfig.GuildBossDetailWindow).name, true, true)
     ;
@@ -490,6 +495,22 @@ GuildBossService.OnResGuildBattleRecord = function(msg, ...)
   ;
   (GuildBossMgr.GuildeInBattleInfo)(msg.inBattleInfo)
   UIMgr:SendWindowMessage((WinResConfig.GuildBossMainWindow).name, (WindowMsgEnum.GuildBoss).E_MSG_GUILD_RECORD)
+end
+
+-- DECOMPILER ERROR at PC111: Confused about usage of register: R2 in 'UnsetPending'
+
+GuildBossService.ReqSaveCardGroup = function(cardList, ...)
+  -- function num : 0_35 , upvalues : _ENV
+  local m = {}
+  m.cardGroup = cardList
+  ;
+  (Net.Send)((Proto.MsgName).ReqSaveCardGroup, m)
+end
+
+-- DECOMPILER ERROR at PC114: Confused about usage of register: R2 in 'UnsetPending'
+
+GuildBossService.ReSsaveCardGroup = function(...)
+  -- function num : 0_36
 end
 
 ;

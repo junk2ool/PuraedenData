@@ -6,6 +6,7 @@ local uis, contentPane, bridge, argTable = nil, nil, nil, nil
 local lotteryType = 1
 local scoreNum = 0
 local goodsInfo = {}
+local itemNeedScore = nil
 LotteryScoreExchangeWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, bridge, argTable, uis, lotteryType, scoreNum, goodsInfo, LotteryScoreExchangeWindow
   bridgeObj:SetView((WinResConfig.LotteryScoreExchangeWindow).package, (WinResConfig.LotteryScoreExchangeWindow).comName)
@@ -59,7 +60,7 @@ LotteryScoreExchangeWindow.OnInit = function(bridgeObj, ...)
 end
 
 LotteryScoreExchangeWindow.RefreshWindow = function(...)
-  -- function num : 0_1 , upvalues : _ENV, lotteryType, uis, scoreNum, goodsInfo
+  -- function num : 0_1 , upvalues : _ENV, lotteryType, uis, scoreNum, itemNeedScore, goodsInfo
   local lotteryConfig = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
   local integral_exchange = split(lotteryConfig.integral_exchange, ":")
   local exchangeName = ""
@@ -101,7 +102,7 @@ LotteryScoreExchangeWindow.RefreshWindow = function(...)
             local item = (uis.CardList):AddItemFromPool()
             local itemId = tonumber(config[2])
             local itemType = tonumber(config[1])
-            local itemNeedScore = tonumber(config[4])
+            itemNeedScore = tonumber(config[4])
             local itemChargeMax = tonumber(config[5])
             print("-------------", itemType, itemId, itemNeedScore, itemChargeMax)
             local color = "[color=#ff5656]"
@@ -177,7 +178,7 @@ LotteryScoreExchangeWindow.RefreshWindow = function(...)
 end
 
 LotteryScoreExchangeWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_2 , upvalues : _ENV, lotteryType, scoreNum, goodsInfo, LotteryScoreExchangeWindow
+  -- function num : 0_2 , upvalues : _ENV, lotteryType, scoreNum, goodsInfo, LotteryScoreExchangeWindow, itemNeedScore
   local windowMsgEnum = WindowMsgEnum.Lottery
   if msgId == windowMsgEnum.E_MSG_LOTTERYCONVERSION then
     lotteryType = (para.data).type
@@ -189,16 +190,36 @@ LotteryScoreExchangeWindow.HandleMessage = function(msgId, para, ...)
     for index,value in ipairs(goodsInfo) do
       conNum = conNum + value.value
     end
-    do
-      if scoreNum <= 0 or conNum <= 0 then
-        (RedDotMgr.EliminateRedDot)((WinResConfig.LotteryWindow).name, 2039994 + lotteryType)
-      end
+    if scoreNum < itemNeedScore then
+      (LotteryScoreExchangeWindow.RemoveRedDot)(lotteryType)
     end
   end
 end
 
+LotteryScoreExchangeWindow.RemoveRedDot = function(_lotteryType, ...)
+  -- function num : 0_3 , upvalues : _ENV
+  local windowName = (WinResConfig.LotteryWindow).name
+  if _lotteryType == LotteryType.HuoDongUp then
+    (RedDotMgr.EliminateRedDot)(windowName, RedDotComID.LotteryActivty_Score1)
+  else
+    if _lotteryType == LotteryType.HuoDongUp2 then
+      (RedDotMgr.EliminateRedDot)(windowName, RedDotComID.LotteryActivty_Score2)
+    else
+      if _lotteryType == LotteryType.HuoDongUp3 then
+        (RedDotMgr.EliminateRedDot)(windowName, RedDotComID.LotteryActivty_Score3)
+      else
+        if _lotteryType == LotteryType.HuoDongUp4 then
+          (RedDotMgr.EliminateRedDot)(windowName, RedDotComID.LotteryActivty_Score4)
+        end
+      end
+    end
+  end
+  ;
+  (RedDotMgr.RefreshTreeUI)(windowName)
+end
+
 LotteryScoreExchangeWindow.OnClose = function(...)
-  -- function num : 0_3 , upvalues : uis, contentPane, bridge, argTable, goodsInfo, _ENV
+  -- function num : 0_4 , upvalues : uis, contentPane, bridge, argTable, goodsInfo, _ENV
   uis = nil
   contentPane = nil
   bridge = nil

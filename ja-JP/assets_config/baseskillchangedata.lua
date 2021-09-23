@@ -14,6 +14,10 @@ BaseSkillChangeData = {
 [47760917] = {id = 47760917, normal_atk_skill_id = 47700092, special_skill_id = 47701092, unique_skill_id = 47702092, assist_skill_id = 47703092, change_skin = "kuangbao"}
 , 
 [47760947] = {id = 47760947, normal_atk_skill_id = 47700094, special_skill_id = 47701094, unique_skill_id = 47702094, assist_skill_id = 47703094, change_skin = "kuangbao"}
+, 
+[47761016] = {id = 47761016, normal_atk_skill_id = 47700102, special_skill_id = 47701102, unique_skill_id = 47702102, assist_skill_id = 47703102, change_skin = "kuangbao"}
+, 
+[47761033] = {id = 47761033, normal_atk_skill_id = 47700104, special_skill_id = 47701104, unique_skill_id = 47702104, assist_skill_id = 47703104, change_skin = "kuangbao"}
 }
 return BaseSkillChangeData
 

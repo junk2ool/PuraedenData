@@ -911,6 +911,16 @@ BaseHandbookRoleDetailData = {
 , 
 [17100915] = {id = 17100915, name = 17100915, remark = (PUtil.get)(92100915)}
 , 
+[17100921] = {id = 17100921, name = 17100921, remark = (PUtil.get)(92100921)}
+, 
+[17100922] = {id = 17100922, name = 17100922, remark = (PUtil.get)(92100922)}
+, 
+[17100923] = {id = 17100923, name = 17100923, remark = (PUtil.get)(92100923)}
+, 
+[17100924] = {id = 17100924, name = 17100924, remark = (PUtil.get)(92100924)}
+, 
+[17100925] = {id = 17100925, name = 17100925, remark = (PUtil.get)(92100925)}
+, 
 [18100151] = {id = 18100151, name = (PUtil.get)(95000141), remark = (PUtil.get)(117100101), voice_path = "Shanon_Home_Talk_1", sort = 151, bubble_id = "14000100:2:445:258,14000101:2:445:258,14000102:2:445:258"}
 , 
 [18100152] = {id = 18100152, name = (PUtil.get)(95000142), remark = (PUtil.get)(117100102), voice_path = "Shanon_Home_Talk_2", sort = 152, bubble_id = "14000100:2:445:258,14000101:2:445:258,14000102:2:445:258"}
@@ -7876,6 +7886,84 @@ BaseHandbookRoleDetailData = {
 [18222152] = {id = 18222152, name = (PUtil.get)(95000142), remark = (PUtil.get)(117222102), voice_path = "Stick_Home_Talk_2", sort = 152, bubble_id = "14222100:2:456:241,14222101:2:411:268,14222102:2:411:268"}
 , 
 [18222153] = {id = 18222153, name = (PUtil.get)(95000143), remark = (PUtil.get)(117222103), voice_path = "Stick_Home_Talk_3", sort = 153, bubble_id = "14222100:2:456:241,14222101:2:411:268,14222102:2:411:268"}
+, 
+[18304301] = {id = 18304301, name = (PUtil.get)(95000001), remark = (PUtil.get)(101304301), voice_path = "hyoka_Get_1", sort = 10, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304302] = {id = 18304302, name = (PUtil.get)(95000002), remark = (PUtil.get)(102304301), voice_path = "hyoka_In_1", sort = 20, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304303] = {id = 18304303, name = (PUtil.get)(95000011), remark = (PUtil.get)(97030431), voice_path = "hyoka_Main_1", sort = 30, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304304] = {id = 18304304, name = (PUtil.get)(95000012), remark = (PUtil.get)(97030432), voice_path = "hyoka_Main_2", sort = 31, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304305] = {id = 18304305, name = (PUtil.get)(95000013), remark = (PUtil.get)(97030433), voice_path = "hyoka_Main_3", sort = 32, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304306] = {id = 18304306, name = (PUtil.get)(95000014), remark = (PUtil.get)(97030434), voice_path = "hyoka_Main_4", sort = 33, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304307] = {id = 18304307, name = (PUtil.get)(95000021), remark = (PUtil.get)(103304301), voice_path = "hyoka_Stage_1", sort = 40, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304308] = {id = 18304308, name = (PUtil.get)(95000031), remark = (PUtil.get)(101304311), voice_path = "hyoka_Stage_2", sort = 41, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304309] = {id = 18304309, name = (PUtil.get)(95000032), remark = (PUtil.get)(101304321), voice_path = "hyoka_Stage_3", sort = 42, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304310] = {id = 18304310, name = (PUtil.get)(95000041), remark = (PUtil.get)(104304301), voice_path = "hyoka_Star_1", sort = 50, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304311] = {id = 18304311, name = (PUtil.get)(95000051), remark = (PUtil.get)(105304301), type = 1, voice_path = "hyoka_Interaction_1", sort = 140, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304312] = {id = 18304312, name = (PUtil.get)(95000052), remark = (PUtil.get)(105304302), type = 1, voice_path = "hyoka_Interaction_2", sort = 141, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304313] = {id = 18304313, name = (PUtil.get)(95000053), remark = (PUtil.get)(105304303), type = 1, voice_path = "hyoka_Interaction_3", sort = 142, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304314] = {id = 18304314, name = (PUtil.get)(95000054), remark = (PUtil.get)(105304304), type = 1, voice_path = "hyoka_Interaction_4", sort = 143, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304315] = {id = 18304315, name = (PUtil.get)(95000055), remark = (PUtil.get)(105304305), type = 1, voice_path = "hyoka_Interaction_5", sort = 144, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304316] = {id = 18304316, name = (PUtil.get)(95000061), remark = (PUtil.get)(108304301), voice_path = "hyoka_Go_1", sort = 60, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304317] = {id = 18304317, name = (PUtil.get)(95000071), remark = (PUtil.get)(111304301), voice_path = "hyoka_Battle_N_1", sort = 70, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304318] = {id = 18304318, name = (PUtil.get)(95000072), remark = (PUtil.get)(111304302), voice_path = "hyoka_Battle_N_2", sort = 71, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304319] = {id = 18304319, name = (PUtil.get)(95000073), remark = (PUtil.get)(111304303), voice_path = "hyoka_Battle_N_3", sort = 72, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304320] = {id = 18304320, name = (PUtil.get)(95000074), remark = (PUtil.get)(111304304), voice_path = "hyoka_Battle_N_4", sort = 73, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304321] = {id = 18304321, name = (PUtil.get)(95000075), remark = (PUtil.get)(111304305), voice_path = "hyoka_Battle_N_5", sort = 74, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304322] = {id = 18304322, name = (PUtil.get)(95000076), remark = (PUtil.get)(111304306), voice_path = "hyoka_Battle_N_6", sort = 75, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304323] = {id = 18304323, name = (PUtil.get)(95000081), remark = (PUtil.get)(112304301), voice_path = "hyoka_Battle_Hit_1", sort = 80, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304324] = {id = 18304324, name = (PUtil.get)(95000082), remark = (PUtil.get)(112304302), voice_path = "hyoka_Battle_Hit_2", sort = 81, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304325] = {id = 18304325, name = (PUtil.get)(95000083), remark = (PUtil.get)(112304303), voice_path = "hyoka_Battle_Hit_3", sort = 82, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304326] = {id = 18304326, name = (PUtil.get)(95000084), remark = (PUtil.get)(112304304), voice_path = "hyoka_Battle_Hit_4", sort = 83, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304327] = {id = 18304327, name = (PUtil.get)(95000085), remark = (PUtil.get)(112304305), voice_path = "hyoka_Battle_Hit_5", sort = 84, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304328] = {id = 18304328, name = (PUtil.get)(95000086), remark = (PUtil.get)(112304306), voice_path = "hyoka_Battle_Hit_6", sort = 85, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304329] = {id = 18304329, name = (PUtil.get)(95000091), remark = (PUtil.get)(113304301), voice_path = "hyoka_Battle_Die_1", sort = 90, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304330] = {id = 18304330, name = (PUtil.get)(95000101), remark = (PUtil.get)(114304301), voice_path = "hyoka_Battle_H_1", sort = 100, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304331] = {id = 18304331, name = (PUtil.get)(95000102), remark = (PUtil.get)(114304302), voice_path = "hyoka_Battle_H_2", sort = 101, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304332] = {id = 18304332, name = (PUtil.get)(95000111), remark = (PUtil.get)(115304301), voice_path = "hyoka_Battle_C_1", sort = 110, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304333] = {id = 18304333, name = (PUtil.get)(95000112), remark = (PUtil.get)(115304302), voice_path = "hyoka_Battle_C_2", sort = 111, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304334] = {id = 18304334, name = (PUtil.get)(95000121), remark = (PUtil.get)(106304301), voice_path = "hyoka_Win_1", sort = 120, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304335] = {id = 18304335, name = (PUtil.get)(95000131), remark = (PUtil.get)(107304301), voice_path = "hyoka_Fail_1", sort = 130, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304350] = {id = 18304350, name = (PUtil.get)(95000140), remark = (PUtil.get)(116304301), voice_path = "hyoka_Home_In_1", sort = 150, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304351] = {id = 18304351, name = (PUtil.get)(95000141), remark = (PUtil.get)(117304301), voice_path = "hyoka_Home_Talk_1", sort = 151, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304352] = {id = 18304352, name = (PUtil.get)(95000142), remark = (PUtil.get)(117304302), voice_path = "hyoka_Home_Talk_2", sort = 152, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
+, 
+[18304353] = {id = 18304353, name = (PUtil.get)(95000143), remark = (PUtil.get)(117304303), voice_path = "hyoka_Home_Talk_3", sort = 153, bubble_id = "14304300:2:432:207,14304301:2:407:241,14304302:2:407:241"}
 }
 return BaseHandbookRoleDetailData
 

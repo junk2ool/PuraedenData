@@ -1,13 +1,13 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BaseActivityBannerData = {
-[34100001] = {id = 34100001, icon = "HomeAd:HomeAd_052", goto_id = 100108, time_type = 0, begin_time = "1628625599", end_time = "1629385200", sort = 3}
+[34100001] = {id = 34100001, icon = "HomeAd:HomeAd_056", goto_id = 100108, time_type = 0, begin_time = "1631303999", end_time = "1631890800", sort = 3}
 , 
-[34100002] = {id = 34100002, icon = "HomeAd:HomeAd_053", goto_id = 100108, time_type = 0, begin_time = "1629680400", end_time = "1630335600", sort = 4}
+[34100002] = {id = 34100002, icon = "HomeAd:HomeAd_058", goto_id = 100108, time_type = 0, begin_time = "1632272400", end_time = "1632927600", sort = 4}
 , 
 [34100003] = {id = 34100003, icon = "HomeAd:HomeAd_055", goto_id = 100108, time_type = 0, begin_time = "1630371600", end_time = "1631718000", sort = 1}
 , 
-[34100004] = {id = 34100004, icon = "HomeAd:HomeAd_054", goto_id = 100108, time_type = 0, begin_time = "1628971199", end_time = "1630422000", sort = 2}
+[34100004] = {id = 34100004, icon = "HomeAd:HomeAd_057", goto_id = 100108, time_type = 0, begin_time = "1631649599", end_time = "1633014000", sort = 2}
 , 
 [34100011] = {id = 34100011, icon = "HomeAd:HomeAd_008", goto_id = 300103, time_type = 0, begin_time = "1614974399", end_time = "1615147199", sort = 6}
 , 
