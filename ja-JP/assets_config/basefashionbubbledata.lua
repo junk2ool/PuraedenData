@@ -9065,6 +9065,34 @@ BaseFashionBubbleData = {
 , 
 [125302201] = {id = 125302201, voice_path = "MB_Diomedes_Battle_C_1"}
 , 
+[121302301] = {id = 121302301, voice_path = "MB_Hestia_Battle_N_1"}
+, 
+[121302302] = {id = 121302302, voice_path = "MB_Hestia_Battle_N_2"}
+, 
+[122302301] = {id = 122302301, voice_path = "MB_Hestia_Battle_Hit_1"}
+, 
+[122302302] = {id = 122302302, voice_path = "MB_Hestia_Battle_Hit_2"}
+, 
+[122302303] = {id = 122302303, voice_path = "MB_Hestia_Battle_Hit_3"}
+, 
+[124302301] = {id = 124302301, voice_path = "MB_Hestia_Battle_H_1"}
+, 
+[125302301] = {id = 125302301, voice_path = "MB_Hestia_Battle_C_1"}
+, 
+[121302401] = {id = 121302401, voice_path = "MB_Dionysus_Battle_N_1"}
+, 
+[121302402] = {id = 121302402, voice_path = "MB_Dionysus_Battle_N_2"}
+, 
+[122302401] = {id = 122302401, voice_path = "MB_Dionysus_Battle_Hit_1"}
+, 
+[122302402] = {id = 122302402, voice_path = "MB_Dionysus_Battle_Hit_2"}
+, 
+[122302403] = {id = 122302403, voice_path = "MB_Dionysus_Battle_Hit_3"}
+, 
+[124302401] = {id = 124302401, voice_path = "MB_Dionysus_Battle_H_1"}
+, 
+[125302401] = {id = 125302401, voice_path = "MB_Dionysus_Battle_C_1"}
+, 
 [97022101] = {id = 97022101, bubble_text = (PUtil.get)(97022101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_1"}
 , 
 [97022102] = {id = 97022102, bubble_text = (PUtil.get)(97022102), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_2"}
