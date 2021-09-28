@@ -1166,6 +1166,8 @@ BattlePlay.PlayEnd = function(...)
   (BattleAtk.ClearAtkInfo)()
   ;
   (BattleMgr.InitCurAtkInfo)()
+  ;
+  (BattlePlay.PlayAtkOrderShow)()
 end
 
 -- DECOMPILER ERROR at PC97: Confused about usage of register: R15 in 'UnsetPending'

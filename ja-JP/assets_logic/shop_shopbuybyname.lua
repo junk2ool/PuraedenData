@@ -30,9 +30,12 @@ GetShop_ShopBuyUis = function(ui, ...)
   uis.CardGrp = ui:GetChild("CardGrp")
   uis.CloseBtn = ui:GetChild("CloseBtn")
   uis.BuyBtn = ui:GetChild("BuyBtn")
+  uis.TimeImage = ui:GetChild("TimeImage")
+  uis.TimeTxt = ui:GetChild("TimeTxt")
   uis.BuyTipsMessageGrp = ui:GetChild("BuyTipsMessageGrp")
   uis.c1Ctr = ui:GetController("c1")
   uis.c2Ctr = ui:GetController("c2")
+  uis.c3Ctr = ui:GetController("c3")
   uis.root = ui
   return uis
 end

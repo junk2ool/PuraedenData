@@ -6,7 +6,7 @@ local CLEAN_UP_DURATION = 3
 local GuildWelfareWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
-local _panels = {}
+local clearItems = {}
 GuildWelfareWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, GuildWelfareWindow
   bridgeObj:SetView((WinResConfig.GuildWelfareWindow).package, (WinResConfig.GuildWelfareWindow).comName)
@@ -59,7 +59,7 @@ GuildWelfareWindow.OnShown = function(...)
   -- function num : 0_7 , upvalues : GuildWelfareWindow
   (GuildWelfareWindow.InitEvent)()
   ;
-  (GuildWelfareWindow.Init)()
+  (GuildWelfareWindow.InitItem)()
 end
 
 GuildWelfareWindow.OnHide = function(...)
@@ -67,74 +67,105 @@ GuildWelfareWindow.OnHide = function(...)
 end
 
 GuildWelfareWindow.Init = function(...)
-  -- function num : 0_9 , upvalues : GUILD_TIDY_SLOTS_AMOUNT, GuildWelfareWindow
+  -- function num : 0_9
+end
+
+GuildWelfareWindow.InitItem = function(...)
+  -- function num : 0_10 , upvalues : GUILD_TIDY_SLOTS_AMOUNT, GuildWelfareWindow
   for i = 1, GUILD_TIDY_SLOTS_AMOUNT do
-    (GuildWelfareWindow.RefreshSingleItem)(i)
+    (GuildWelfareWindow.InitClearItem)(i)
   end
 end
 
-GuildWelfareWindow.RefreshSingleItem = function(index, ...)
-  -- function num : 0_10 , upvalues : uis, _ENV, CLEAN_UP_DURATION
+GuildWelfareWindow.InitClearItem = function(index, ...)
+  -- function num : 0_11 , upvalues : uis, _ENV, clearItems, CLEAN_UP_DURATION
   local content = (uis.WelfareContent)["Content_0" .. tostring(index)]
-  local pressPanel = (content.root):GetChildAt((content.root).numChildren - 2)
-  -- DECOMPILER ERROR at PC25: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC19: Confused about usage of register: R2 in 'UnsetPending'
 
   if (GuildData.RewardStatus)[index] ~= nil and not ((GuildData.RewardStatus)[index]).isDraw then
     (content.root).visible = true
-    local tweener, ctrl = nil, nil
-    do
-      ctrl = pressPanel:GetController("c1")
-      local longPress = (FairyGUI.LongPressGesture)(content.root)
-      longPress:Enable(true)
-      longPress.trigger = 0
-      longPress.interval = 0.1
-      local sound = nil
-      longPress:AddEventListener("onLongPressBegin", function(...)
-    -- function num : 0_10_0 , upvalues : sound, _ENV, ctrl, pressPanel, tweener, CLEAN_UP_DURATION, content, index
+    ;
+    (table.insert)(clearItems, content)
+  else
+    -- DECOMPILER ERROR at PC27: Confused about usage of register: R2 in 'UnsetPending'
+
+    ;
+    (content.root).visible = false
+  end
+  local longPress = (FairyGUI.LongPressGesture)((uis.WelfareContent).root)
+  longPress:Enable(true)
+  longPress.trigger = 0
+  longPress.interval = 0.1
+  local sound, pressPanel = nil, nil
+  local ctrls = {}
+  local tweens = {}
+  longPress:AddEventListener("onLongPressBegin", function(...)
+    -- function num : 0_11_0 , upvalues : clearItems, sound, _ENV, pressPanel, ctrls, CLEAN_UP_DURATION, tweens
+    if #clearItems < 1 then
+      return 
+    end
     sound = (LuaSound.PlaySound)(LuaSound.GUILD_WELFARE_TOUCH, SoundBank.OTHER)
-    ctrl.selectedIndex = 1
-    local bar = pressPanel:GetChild("ClearBar")
-    bar.value = 0
-    tweener = ((bar:TweenValue(100, CLEAN_UP_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnComplete(function(...)
-      -- function num : 0_10_0_0 , upvalues : content, _ENV, index
+    for i = 1, #clearItems do
+      do
+        local _content = clearItems[i]
+        local ctrl, bar, tweener = nil, nil, nil
+        pressPanel = (_content.root):GetChildAt((_content.root).numChildren - 2)
+        ctrl = pressPanel:GetController("c1")
+        ;
+        (table.insert)(ctrls, ctrl)
+        ctrl.selectedIndex = 1
+        bar = pressPanel:GetChild("ClearBar")
+        bar.value = 0
+        tweener = ((bar:TweenValue(100, CLEAN_UP_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnComplete(function(...)
+      -- function num : 0_11_0_0 , upvalues : _content, i, clearItems, _ENV
       -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
-      (content.root).visible = false
+      (_content.root).visible = false
+      if i == #clearItems then
+        clearItems = {}
+      end
+      local index = (string.gsub)((_content.root).gameObjectName, "Content_0", "")
+      index = tonumber(index)
       ;
-      (GuildService.ReqGuildGiftGet)(index)
+      (SimpleTimer.setTimeout)(0.2 * i, function(...)
+        -- function num : 0_11_0_0_0 , upvalues : _ENV, index
+        (GuildService.ReqGuildGiftGet)(index)
+      end
+)
     end
 )
+        ;
+        (table.insert)(tweens, tweener)
+      end
+    end
   end
 )
-      longPress:AddEventListener("onLongPressEnd", function(...)
-    -- function num : 0_10_1 , upvalues : _ENV, sound, tweener, ctrl
+  longPress:AddEventListener("onLongPressEnd", function(...)
+    -- function num : 0_11_1 , upvalues : _ENV, sound, clearItems, tweens, ctrls
     (LuaSound.StopSound)(sound)
-    tweener:Kill(false)
-    ctrl.selectedIndex = 0
+    for i = 1, #clearItems do
+      if tweens[i] then
+        (tweens[i]):Kill(false)
+      end
+      -- DECOMPILER ERROR at PC20: Confused about usage of register: R4 in 'UnsetPending'
+
+      if ctrls[i] then
+        (ctrls[i]).selectedIndex = 0
+      end
+    end
+    tweens = {}
+    ctrls = {}
   end
 )
-    end
-  else
-    do
-      -- DECOMPILER ERROR at PC52: Confused about usage of register: R3 in 'UnsetPending'
-
-      ;
-      (content.root).visible = false
-      ;
-      ((content.root).onTouchBegin):Clear()
-      ;
-      ((content.root).onTouchEnd):Clear()
-    end
-  end
 end
 
 GuildWelfareWindow.ClickRankingBtn = function(...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   (GuildService.ReqGuildGiftRank)()
 end
 
 GuildWelfareWindow.OnClose = function(...)
-  -- function num : 0_12 , upvalues : _ENV, GuildWelfareWindow, uis, contentPane, argTable
+  -- function num : 0_13 , upvalues : _ENV, GuildWelfareWindow, uis, contentPane, argTable
   (CommonWinMgr.RemoveAssets)((WinResConfig.GuildWelfareWindow).name)
   ;
   (GuildWelfareWindow.RemoveEvent)()
@@ -144,7 +175,7 @@ GuildWelfareWindow.OnClose = function(...)
 end
 
 GuildWelfareWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_13 , upvalues : _ENV, GuildWelfareWindow
+  -- function num : 0_14 , upvalues : _ENV, GuildWelfareWindow
   if msgId == (WindowMsgEnum.Guild).E_MSG_REFRESH_WELFARE_STATUS then
     (GuildWelfareWindow.Init)()
   end

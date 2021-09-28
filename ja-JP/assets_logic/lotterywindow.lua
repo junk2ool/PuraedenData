@@ -9,6 +9,9 @@ require("LotteryWindow_Activity")
 require("LotteryWindow_Activity2")
 require("LotteryWindow_Activity3")
 require("LotteryWindow_Activity4")
+require("LotteryWindow_Activity5")
+require("LotteryWindow_Activity6")
+require("LotteryWindow_Activity7")
 require("LotteryWindow_YouChangActivity")
 require("LotteryWindow_YouChangActivity2")
 require("LotteryWindow_YouChangActivity3")
@@ -34,6 +37,15 @@ LotteryWindow.OnInit = function(bridgeObj, ...)
   ResHelper = CS.ResHelper
   ;
   (ResHelper.ClearAllCache)()
+  if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp7) then
+    (LotteryWindow_Activity7.PreLoadFxMain)(uis)
+  end
+  if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp6) then
+    (LotteryWindow_Activity6.PreLoadFxMain)(uis)
+  end
+  if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp5) then
+    (LotteryWindow_Activity5.PreLoadFxMain)(uis)
+  end
   if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp4) then
     (LotteryWindow_Activity4.PreLoadFxMain)(uis)
   end
@@ -183,6 +195,15 @@ LotteryWindow.LotteryButtonRefresh = function(...)
       if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp4) then
         (table.insert)(btnTab, LotteryType.HuoDongUp4)
       end
+      if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp5) then
+        (table.insert)(btnTab, LotteryType.HuoDongUp5)
+      end
+      if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp6) then
+        (table.insert)(btnTab, LotteryType.HuoDongUp6)
+      end
+      if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp7) then
+        (table.insert)(btnTab, LotteryType.HuoDongUp7)
+      end
       if (ActorData.GetLotteryActivityNum)(LotteryType.YouChangHuoDongUp) then
         (table.insert)(btnTab, LotteryType.YouChangHuoDongUp)
       end
@@ -216,9 +237,9 @@ LotteryWindow.LotteryButtonRefresh = function(...)
         do
           isStillChooseThisType = true
           do break end
-          -- DECOMPILER ERROR at PC172: LeaveBlock: unexpected jumping out IF_THEN_STMT
+          -- DECOMPILER ERROR at PC211: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-          -- DECOMPILER ERROR at PC172: LeaveBlock: unexpected jumping out IF_STMT
+          -- DECOMPILER ERROR at PC211: LeaveBlock: unexpected jumping out IF_STMT
 
         end
       end
@@ -231,11 +252,11 @@ LotteryWindow.LotteryButtonRefresh = function(...)
     end
     local button = ((uis.LotteryPanelGrp).ButtonList):AddItemFromPool((UIPackage.GetItemURL)("Lottery", showData.button_asset))
     lotteryBtns[value] = button
-    -- DECOMPILER ERROR at PC203: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC242: Confused about usage of register: R9 in 'UnsetPending'
 
     if value == lotteryType then
       ((uis.LotteryPanelGrp).ButtonList).selectedIndex = index - 1
-      -- DECOMPILER ERROR at PC207: Confused about usage of register: R9 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC246: Confused about usage of register: R9 in 'UnsetPending'
 
       ;
       ((uis.LotteryPanelGrp).c1Ctr).selectedIndex = showData.selected_index
@@ -278,18 +299,30 @@ LotteryWindow.RefreshLotteryPanel = function(...)
         if lotteryType == LotteryType.HuoDongUp4 then
           (LotteryWindow_Activity4.RefreshWindow)(uis)
         else
-          if lotteryType == LotteryType.YouChangHuoDongUp then
-            (LotteryWindow_YouChangActivity.RefreshWindow)(uis)
+          if lotteryType == LotteryType.HuoDongUp5 then
+            (LotteryWindow_Activity5.RefreshWindow)(uis)
           else
-            if lotteryType == LotteryType.YouChangHuoDongUp2 then
-              (LotteryWindow_YouChangActivity2.RefreshWindow)(uis)
+            if lotteryType == LotteryType.HuoDongUp6 then
+              (LotteryWindow_Activity6.RefreshWindow)(uis)
             else
-              if lotteryType == LotteryType.YouChangHuoDongUp3 then
-                (LotteryWindow_YouChangActivity3.RefreshWindow)(uis)
+              if lotteryType == LotteryType.HuoDongUp7 then
+                (LotteryWindow_Activity7.RefreshWindow)(uis)
               else
-                if lotteryType == LotteryType.YouChangHuoDongUp4 then
-                  (LotteryWindow_YouChangActivity4.RefreshWindow)(uis)
+                if lotteryType == LotteryType.YouChangHuoDongUp then
+                  (LotteryWindow_YouChangActivity.RefreshWindow)(uis)
                 else
+                  if lotteryType == LotteryType.YouChangHuoDongUp2 then
+                    (LotteryWindow_YouChangActivity2.RefreshWindow)(uis)
+                  else
+                    if lotteryType == LotteryType.YouChangHuoDongUp3 then
+                      (LotteryWindow_YouChangActivity3.RefreshWindow)(uis)
+                    else
+                      if lotteryType == LotteryType.YouChangHuoDongUp4 then
+                        (LotteryWindow_YouChangActivity4.RefreshWindow)(uis)
+                      else
+                      end
+                    end
+                  end
                 end
               end
             end
@@ -382,6 +415,12 @@ LotteryWindow.OnClose = function(...)
   ;
   (LotteryWindow_Activity4.OnClose)()
   ;
+  (LotteryWindow_Activity5.OnClose)()
+  ;
+  (LotteryWindow_Activity6.OnClose)()
+  ;
+  (LotteryWindow_Activity7.OnClose)()
+  ;
   (LotteryWindow_YouChangActivity.OnClose)()
   ;
   (LotteryWindow_YouChangActivity2.OnClose)()
@@ -437,6 +476,12 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
       (LotteryWindow_Activity3.ReceiveInitData)()
     elseif lotteryType == LotteryType.HuoDongUp4 then
       (LotteryWindow_Activity4.ReceiveInitData)()
+    elseif lotteryType == LotteryType.HuoDongUp5 then
+      (LotteryWindow_Activity5.ReceiveInitData)()
+    elseif lotteryType == LotteryType.HuoDongUp6 then
+      (LotteryWindow_Activity6.ReceiveInitData)()
+    elseif lotteryType == LotteryType.HuoDongUp7 then
+      (LotteryWindow_Activity7.ReceiveInitData)()
     elseif lotteryType == LotteryType.YouChangHuoDongUp then
       (LotteryWindow_YouChangActivity.ReceiveInitData)()
     elseif lotteryType == LotteryType.YouChangHuoDongUp2 then
@@ -464,6 +509,12 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
       (LotteryWindow_Activity3.ReceiveDrawedData)(para)
     elseif lotteryType == LotteryType.HuoDongUp4 then
       (LotteryWindow_Activity4.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.HuoDongUp5 then
+      (LotteryWindow_Activity5.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.HuoDongUp6 then
+      (LotteryWindow_Activity6.ReceiveDrawedData)(para)
+    elseif lotteryType == LotteryType.HuoDongUp7 then
+      (LotteryWindow_Activity7.ReceiveDrawedData)(para)
     elseif lotteryType == LotteryType.YouChangHuoDongUp then
       (LotteryWindow_YouChangActivity.ReceiveDrawedData)(para)
     elseif lotteryType == LotteryType.YouChangHuoDongUp2 then
@@ -476,12 +527,12 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
     local randomCard = (Util.Shuffle)((para.data).goods)
     ;
     (LotteryWindow.BubbleSortGoods)(randomCard)
-    -- DECOMPILER ERROR at PC332: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC389: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
     (para.data).goods = randomCard
     drawResult = para
-    -- DECOMPILER ERROR at PC335: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC392: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
     (uis.TouchScreenBtn).visible = true
@@ -494,17 +545,23 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
     ;
     (LotteryWindow_Activity4.HideOrShowFxMain)(false)
     ;
+    (LotteryWindow_Activity5.HideOrShowFxMain)(false)
+    ;
+    (LotteryWindow_Activity6.HideOrShowFxMain)(false)
+    ;
+    (LotteryWindow_Activity7.HideOrShowFxMain)(false)
+    ;
     (LotteryService.ReqLotteryInit)(lotteryType)
   else
-    -- DECOMPILER ERROR at PC361: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC430: Confused about usage of register: R3 in 'UnsetPending'
 
     if msgId == windowMsgEnum.E_MSG_LOTTERY_REWARDCLOSE then
       (uis.TouchScreenBtn).visible = false
-      -- DECOMPILER ERROR at PC364: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC433: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       ((uis.StartWord).root).visible = false
-      -- DECOMPILER ERROR at PC367: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC436: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       ((uis.LotteryPanelGrp).BgImage).visible = false
@@ -518,7 +575,7 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
     isAutoPlay = false
     ;
     (LotteryWindow.ShowCardProcess)(drawResult)
-    -- DECOMPILER ERROR at PC391: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC460: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.LotteryPanelGrp).BgImage).visible = true
@@ -530,7 +587,7 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
     (LotteryWindow.DealNextCardProcess)()
   elseif msgId == windowMsgEnum.E_MSG_ONCLICKCARDGET_SKIPBTN then
     isAutoPlay = true
-    -- DECOMPILER ERROR at PC410: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC479: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.GechaCardEffectGrp).SkipBtn).visible = false
@@ -539,7 +596,7 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
   elseif msgId == windowMsgEnum.E_MSG_CLOSEEXCHANGE then
     (LotteryService.ReqLotteryInit)(lotteryType)
   end
-  -- DECOMPILER ERROR: 34 unprocessed JMP targets
+  -- DECOMPILER ERROR: 40 unprocessed JMP targets
 end
 
 LotteryWindow.DealNextCardProcess = function(...)
@@ -558,6 +615,12 @@ LotteryWindow.DealNextCardProcess = function(...)
     (LotteryWindow_Activity3.HideOrShowFxMain)(true)
     ;
     (LotteryWindow_Activity4.HideOrShowFxMain)(true)
+    ;
+    (LotteryWindow_Activity5.HideOrShowFxMain)(true)
+    ;
+    (LotteryWindow_Activity6.HideOrShowFxMain)(true)
+    ;
+    (LotteryWindow_Activity7.HideOrShowFxMain)(true)
     if lotteryType == LotteryType.Card then
       (LotteryWindow_Card.ShowResult)(drawResult)
     else
@@ -597,25 +660,43 @@ LotteryWindow.DealNextCardProcess = function(...)
                       ;
                       (LotteryWindow.ClassicInit)()
                     else
-                      if lotteryType == LotteryType.YouChangHuoDongUp then
-                        (LotteryWindow_YouChangActivity.ShowResult)(drawResult)
+                      if lotteryType == LotteryType.HuoDongUp5 then
+                        (LotteryWindow_Activity5.ShowResult)(drawResult)
                         ;
                         (LotteryWindow.ClassicInit)()
                       else
-                        if lotteryType == LotteryType.YouChangHuoDongUp2 then
-                          (LotteryWindow_YouChangActivity2.ShowResult)(drawResult)
+                        if lotteryType == LotteryType.HuoDongUp6 then
+                          (LotteryWindow_Activity6.ShowResult)(drawResult)
                           ;
                           (LotteryWindow.ClassicInit)()
                         else
-                          if lotteryType == LotteryType.YouChangHuoDongUp3 then
-                            (LotteryWindow_YouChangActivity3.ShowResult)(drawResult)
+                          if lotteryType == LotteryType.HuoDongUp7 then
+                            (LotteryWindow_Activity7.ShowResult)(drawResult)
                             ;
                             (LotteryWindow.ClassicInit)()
                           else
-                            if lotteryType == LotteryType.YouChangHuoDongUp4 then
-                              (LotteryWindow_YouChangActivity4.ShowResult)(drawResult)
+                            if lotteryType == LotteryType.YouChangHuoDongUp then
+                              (LotteryWindow_YouChangActivity.ShowResult)(drawResult)
                               ;
                               (LotteryWindow.ClassicInit)()
+                            else
+                              if lotteryType == LotteryType.YouChangHuoDongUp2 then
+                                (LotteryWindow_YouChangActivity2.ShowResult)(drawResult)
+                                ;
+                                (LotteryWindow.ClassicInit)()
+                              else
+                                if lotteryType == LotteryType.YouChangHuoDongUp3 then
+                                  (LotteryWindow_YouChangActivity3.ShowResult)(drawResult)
+                                  ;
+                                  (LotteryWindow.ClassicInit)()
+                                else
+                                  if lotteryType == LotteryType.YouChangHuoDongUp4 then
+                                    (LotteryWindow_YouChangActivity4.ShowResult)(drawResult)
+                                    ;
+                                    (LotteryWindow.ClassicInit)()
+                                  end
+                                end
+                              end
                             end
                           end
                         end
@@ -626,7 +707,7 @@ LotteryWindow.DealNextCardProcess = function(...)
               end
             end
           end
-          -- DECOMPILER ERROR at PC177: Confused about usage of register: R0 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC225: Confused about usage of register: R0 in 'UnsetPending'
 
           ;
           ((uis.GechaCardEffectGrp).root).visible = false

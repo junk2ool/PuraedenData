@@ -173,7 +173,7 @@ TowerTopStageMgr.CheckEntranceOpen = function(expandConfig, ...)
       end
     end
   end
-  if #towerId > 1 then
+  if #towerId > 0 then
     configOpen = true
   end
   if (TowerTopStageData.GetLayerOpenById)(expandConfig) then

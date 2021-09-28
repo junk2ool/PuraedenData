@@ -97,7 +97,7 @@ TowerTopStageWindow.LoadOldEntrance = function(list, id, ...)
       -- DECOMPILER ERROR at PC53: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
-      (itemUis.NameTxt).text = (PUtil.get)(40002080)
+      (itemUis.NameTxt).text = (PUtil.get)(40002089)
       local openTime = (TowerTopStageMgr.GetEnterNextOpenTime)(config)
       -- DECOMPILER ERROR at PC65: Confused about usage of register: R7 in 'UnsetPending'
 

@@ -1741,15 +1741,11 @@ PlotPlayPanelWindow.PrepareForRT = function(roleInfo, ...)
 
   ;
   (roleInfo.Loader).width = ResolutionHandler.Width
-  -- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
-
-  ;
-  ((roleInfo.Loader).parent).xy = Vector2.zero
   local target = nil
   if (roleInfo.Loader).CurrentResType == ResType.Live2D then
     target = (((roleInfo.Model).transform):GetChild(0)):GetComponent(typeof(CubismRenderController))
     roleInfo.OriginColor = (roleInfo.Loader).TexColor
-    -- DECOMPILER ERROR at PC39: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC34: Confused about usage of register: R2 in 'UnsetPending'
 
     ;
     (roleInfo.Loader).TexColor = UnityColor.white
@@ -1765,7 +1761,7 @@ PlotPlayPanelWindow.PrepareForRT = function(roleInfo, ...)
         target = ((roleInfo.Model).transform):GetComponentInChildren(typeof(Renderer))
       end
       roleInfo.OriginColor = (roleInfo.Loader).TexColor
-      -- DECOMPILER ERROR at PC88: Confused about usage of register: R2 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC83: Confused about usage of register: R2 in 'UnsetPending'
 
       ;
       (roleInfo.Loader).TexColor = UnityColor.white

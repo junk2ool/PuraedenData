@@ -143,54 +143,67 @@ ShopWindow.RendererList = function(index, obj, ...)
         ((model.SaleTipCompGrp).SaleTxt).text = (PUtil.get)(20000071, PoolData.sell_type)
       end
       local times = GridData.sell_limit_time - data.useNum
-      -- DECOMPILER ERROR at PC128: Confused about usage of register: R12 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC131: Confused about usage of register: R12 in 'UnsetPending'
 
-      if tonumber(GridData.reset_type) == 0 then
-        ((model.DayBuy).root).visible = true
-        -- DECOMPILER ERROR at PC136: Confused about usage of register: R12 in 'UnsetPending'
-
-        ;
-        ((model.DayBuy).DayBuyNumberTxt).text = (PUtil.get)(20000320, times)
-      else
-        -- DECOMPILER ERROR at PC143: Confused about usage of register: R12 in 'UnsetPending'
-
-        if GridData.sell_limit_time > 1 then
+      if GridData.begin_time == "0" then
+        if tonumber(GridData.reset_type) == 0 then
           ((model.DayBuy).root).visible = true
-          -- DECOMPILER ERROR at PC151: Confused about usage of register: R12 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC139: Confused about usage of register: R12 in 'UnsetPending'
 
           ;
           ((model.DayBuy).DayBuyNumberTxt).text = (PUtil.get)(20000320, times)
         else
-          -- DECOMPILER ERROR at PC155: Confused about usage of register: R12 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC146: Confused about usage of register: R12 in 'UnsetPending'
 
-          ((model.DayBuy).root).visible = false
+          if GridData.sell_limit_time > 1 then
+            ((model.DayBuy).root).visible = true
+            -- DECOMPILER ERROR at PC154: Confused about usage of register: R12 in 'UnsetPending'
+
+            ;
+            ((model.DayBuy).DayBuyNumberTxt).text = (PUtil.get)(20000320, times)
+          else
+            -- DECOMPILER ERROR at PC158: Confused about usage of register: R12 in 'UnsetPending'
+
+            ((model.DayBuy).root).visible = false
+          end
         end
-      end
-      -- DECOMPILER ERROR at PC163: Confused about usage of register: R12 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC166: Confused about usage of register: R12 in 'UnsetPending'
 
-      if (ShopWindow.IsInfiniteTime)(GridData.sell_limit_time) then
-        ((model.DayBuy).DayBuyNumberTxt).text = "∞"
+        if (ShopWindow.IsInfiniteTime)(GridData.sell_limit_time) then
+          ((model.DayBuy).DayBuyNumberTxt).text = "∞"
+        end
+      else
+        -- DECOMPILER ERROR at PC170: Confused about usage of register: R12 in 'UnsetPending'
+
+        ((model.DayBuy).root).visible = true
+        local str = (LuaTime.GetTimeStrDHM2)((math.floor)(data.endTime * 0.001) - (LuaTime.GetTimeStamp)())
+        str = "[color=" .. "#3DFFBD" .. "]" .. str .. "[/color] "
+        str = (PUtil.get)(60000661, str)
+        -- DECOMPILER ERROR at PC197: Confused about usage of register: R13 in 'UnsetPending'
+
+        ;
+        ((model.DayBuy).DayBuyNumberTxt).text = str
       end
       local cost = (ShopMgr.GetRangeStr)(PoolData.sell_time, PoolData.sell_price, data.useNum)
       local contNum = tonumber(cost[3])
-      -- DECOMPILER ERROR at PC176: Confused about usage of register: R14 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC210: Confused about usage of register: R14 in 'UnsetPending'
 
       if contNum <= 0 then
         (model.c3Ctr).selectedIndex = 1
       else
-        -- DECOMPILER ERROR at PC179: Confused about usage of register: R14 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC213: Confused about usage of register: R14 in 'UnsetPending'
 
         (model.c3Ctr).selectedIndex = 0
         ;
         (Util.SetConsumptionByID)(cost[2], cost[3], model.CostLoader, model.CostTxt, false)
       end
       local needList = (ShopMgr.GetQualityUpCard)(itemData.id)
-      -- DECOMPILER ERROR at PC197: Confused about usage of register: R15 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC231: Confused about usage of register: R15 in 'UnsetPending'
 
       if GridData.sell_limit_time <= data.useNum then
         (model.c2Ctr).selectedIndex = 1
       else
-        -- DECOMPILER ERROR at PC200: Confused about usage of register: R15 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC234: Confused about usage of register: R15 in 'UnsetPending'
 
         (model.c2Ctr).selectedIndex = 0
       end
@@ -212,18 +225,20 @@ ShopWindow.RendererList = function(index, obj, ...)
     buyData.poolID = data.shopPoolId
     buyData.shopId = (ShopMgr.InitOpenShop)()
     buyData.buyTime = data.useNum
+    buyData.reset_type = GridData.reset_type
+    buyData.sell_limit_time = GridData.sell_limit_time
     OpenWindow((WinResConfig.ShopBuyWindow).name, UILayer.HUD, buyData)
   end
 )
-      -- DECOMPILER ERROR at PC206: Confused about usage of register: R15 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC240: Confused about usage of register: R15 in 'UnsetPending'
 
       ;
       (model.RedDollGrp).visible = false
-      -- DECOMPILER ERROR at PC218: Confused about usage of register: R15 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC252: Confused about usage of register: R15 in 'UnsetPending'
 
       ;
       ((model.CardUse).root).visible = #needList > 0 and data.useNum < GridData.sell_limit_time
-      -- DECOMPILER ERROR: 14 unprocessed JMP targets
+      -- DECOMPILER ERROR: 15 unprocessed JMP targets
     end
   end
 end

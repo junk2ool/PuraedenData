@@ -40,5 +40,5 @@ _ENV.GuideTipsCheckPoint = {AcquireCharacter = 1, BreakThrough = 2, AcquireChara
 _ENV.SystemSetType = {NonBattle = 0, Arena = 1, Battle = 2}
 _ENV.ItemSortType = {}
 _ENV.MultipleDropType = {COPY_STORE = 1, COPY_ELITE = 2, COPY_GOLD = 3, COPY_EXP = 4, COPY_EQUIP = 5, COPY_TOWER = 6, COPY_EXPEDITION = 7, COPY_ACTIVITY = 8, MOON_RES = 9, MOON_DIA = 10}
-_ENV.LotteryType = {Card = 1, Equip = 2, Coupon = 3, Fresh = 4, ShilianBiChu = 6, HuoDongUp = 7, HuoDongUp2 = 8, HuoDongUp3 = 9, HuoDongUp4 = 10, YouChangHuoDongUp = 11, YouChangHuoDongUp2 = 12, YouChangHuoDongUp3 = 13, YouChangHuoDongUp4 = 14}
+_ENV.LotteryType = {Card = 1, Equip = 2, Coupon = 3, Fresh = 4, ShilianBiChu = 6, HuoDongUp = 7, HuoDongUp2 = 8, HuoDongUp3 = 9, HuoDongUp4 = 10, YouChangHuoDongUp = 11, YouChangHuoDongUp2 = 12, YouChangHuoDongUp3 = 13, YouChangHuoDongUp4 = 14, HuoDongUp5 = 15, HuoDongUp6 = 16, HuoDongUp7 = 17}
 
