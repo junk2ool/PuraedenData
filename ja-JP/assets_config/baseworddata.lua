@@ -671,7 +671,7 @@ BaseWordData = {
 , 
 [81042548] = {id = 81042548, name = "素早さ制圧"}
 , 
-[81042549] = {id = 81042549, name = "拘束"}
+[81042549] = {id = 81042549, name = "凍結"}
 , 
 [81042550] = {id = 81042550, name = "魔力蓄積"}
 , 
@@ -2003,7 +2003,7 @@ BaseWordData = {
 , 
 [81603038] = {id = 81603038, name = "「花鳥風月」\n戦闘開始時、追加で自身のSPを[color=#3cbcff]100[/color]点復する。\n\n「ターンヒール」\nアクアの攻撃による敵のSP・HP回復は発動しない。\n\n「ブレイクスペル」\n毎ラウンド開始時、確率で発動する。効果発動に成功したら、自身がかかっている妨害効果をリセットさせ、次の攻撃によるダメージを上昇させる。\n覚醒レベルによって「ブレイクスペル」効果が異なる。\n[color=#3cbcff]★3[/color]：[color=#3cbcff]20%%[/color]の確率で発動する；次の攻撃によるダメージを[color=#3cbcff]10%%[/color]上昇させる。\n[color=#3cbcff]★5[/color]：[color=#3cbcff]40%%[/color]の確率で発動する；次の攻撃によるダメージを[color=#3cbcff]20%%[/color]上昇させる。\n[color=#3cbcff]★7[/color]：[color=#3cbcff]60%%[/color]の確率で発動する；次の攻撃によるダメージを[color=#3cbcff]40%%[/color]上昇させる。"}
 , 
-[81603039] = {id = 81603039, name = "「平和のために」\n戦闘開始時、追加で自身のSPを[color=#3cbcff]100[/color]点復する。\n\n「フリーズ」\n[color=#3cbcff]極寒[/color]状態の敵を攻撃すると、一定の確率で目標を[color=#3cbcff]拘束[/color]させる。\n覚醒レベルによって確率が異なる。\n[color=#3cbcff]★3/5/7[/color]：[color=#3cbcff]10%%/20%%/40%%[/color]の確率で拘束させる。"}
+[81603039] = {id = 81603039, name = "「平和のために」\n戦闘開始時、追加で自身のSPを[color=#3cbcff]100[/color]点復する。\n\n「フリーズ」\n[color=#3cbcff]凍結[/color]状態の敵を攻撃すると、一定の確率で目標を[color=#3cbcff]拘束[/color]させる。\n覚醒レベルによって確率が異なる。\n[color=#3cbcff]★3/5/7[/color]：[color=#3cbcff]10%%/20%%/40%%[/color]の確率で拘束させる。"}
 , 
 [81610001] = {id = 81610001, name = "[color=#919bb0]%s[/color]\n\n[color=#e2ecff]%s[/color]"}
 , 
@@ -2205,7 +2205,7 @@ BaseWordData = {
 , 
 [81653038] = {id = 81653038, name = "最も攻撃が高い敵[color=#3cbcff]3[/color]名に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、目標人数が少ないほど、各単体に与えるダメージが高くなる；目標のSPを[color=#3cbcff]150[/color]点減少させ、味方全体のデバフ効果を[color=#3cbcff]1[/color]つ解除する。"}
 , 
-[81653039] = {id = 81653039, name = "十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与える；目標が[color=#3cbcff]極寒[/color]効果を受けていると、追加で今回の与えたダメージを[color=#3cbcff]20%%[/color]上昇させる。"}
+[81653039] = {id = 81653039, name = "十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与える；目標が[color=#3cbcff]凍結[/color]効果を受けていると、追加で今回の与えたダメージを[color=#3cbcff]20%%[/color]上昇させる。"}
 , 
 [81661001] = {id = 81661001, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]50%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]混乱[/color]させる。\n\n[color=#ffac26]「混乱：奥義と特技を使用できない、通常攻撃の目標はランダムであり、協擊を発動しない」[/color]"}
 , 
@@ -2397,7 +2397,7 @@ BaseWordData = {
 , 
 [81663038] = {id = 81663038, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、自身の攻撃・会心率・会心力を各[color=#3cbcff]15%%[/color]上昇させ、[color=#3cbcff]1[/color]行動ターン持続。"}
 , 
-[81663039] = {id = 81663039, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、今回の与えたダメージの[color=#3cbcff]20%%[/color]を自身のHPに転化させ、自身の攻撃[color=#3cbcff]30%%[/color]分の[color=#3cbcff]極寒[/color]効果を付与し、[color=#3cbcff]2[/color]ラウンド持続。"}
+[81663039] = {id = 81663039, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B)[/color]点のダメージを与え、今回の与えたダメージの[color=#3cbcff]20%%[/color]を自身のHPに転化させ、敵全体を[color=#3cbcff]凍結[/color]状態にする。\n\n[color=#ffac26]「凍結：ラウンドごとに与えたダメージの40%%の追加ダメージを与え（重複可能）、2ラウンド持続。」[/color]"}
 , 
 [81670001] = {id = 81670001, name = "敵単体にダメージを与え%s"}
 , 
@@ -5613,7 +5613,7 @@ BaseWordData = {
 , 
 [85025012] = {id = 85025012, name = "「ダメなだけじゃない！」\n戦闘開始時、自身と同じ縦列にいる味方に「祝福」を付与する；その味方が致命的ダメージを受けた時、1点のHPを残したまま生き残る（1行動ターン持続、デッドが無効になる）。"}
 , 
-[85025013] = {id = 85025013, name = "「ただの雑貨屋店主」\n敵に「極寒効果」がかかっている場合、敵の防御を5%%ダウンさせ、1行動ターン持続。"}
+[85025013] = {id = 85025013, name = "「ただの雑貨屋店主」\n敵に「凍結効果」がかかっている場合、敵の防御を5%%ダウンさせ、1行動ターン持続。"}
 , 
 [85025014] = {id = 85025014, name = "「我が力、示すとき！」\n奥義を発動した際に、経過ラウンド数が多いほど与えるダメージが高くなる。"}
 , 
@@ -6334,6 +6334,8 @@ BaseWordData = {
 [85181400] = {id = 85181400, name = "闇の研究所"}
 , 
 [85181500] = {id = 85181500, name = "この素晴らしいエデン大陸に祝福を！"}
+, 
+[85181509] = {id = 85181509, name = "この素晴らしい\nエデン大陸に祝福を！"}
 , 
 [85180701] = {id = 85180701, name = "謎の少女"}
 , 

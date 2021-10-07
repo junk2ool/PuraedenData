@@ -1681,6 +1681,7 @@ message ResArenaReward{
 //章节关卡触发下一章时发送该消息 534
 message ResNextChapterInfo{
 	ChapterInfo  chapterInfo = 1;//下一章节信息
+	bool isPlay = 2;//是否开启英雄本拓展动画
 }
 
 //领取章节关卡额外奖励 535
@@ -4517,6 +4518,17 @@ enum WAR_SETTLE_TYPE
 	PASSED                   = 3;//已通关
 }
 
+//2167请求保存卡组
+message ReqSaveCardGroup
+{
+	repeated SupportObject                     cardGroup = 1;//布阵卡组
+}
+//2168返回保存卡组
+message ResSaveCardGroup
+{
+
+}
+
 
 
 //1301手账初始化
@@ -5650,6 +5662,9 @@ enum E_MSG_ID
 	GuildWar_ReqSettleGuildWar             = 2165;//请求结算战斗
 	GuildWar_ResSettleGuildWar             = 2166;//返回结算战斗
 
+	GuildWar_ReqSaveCardGroup              = 2167;//请求保存卡组
+	GuildWar_ResSaveCardGroup              = 2168;//返回保存卡组
+
 	
 	Friend_ReqRelations                    = 2201;//请求好友关系数据
 	Friend_ResRelations                    = 2202;//返回好友关系数据
@@ -6518,6 +6533,7 @@ message ShopGridData{
 	ConfigTime  updateTime   	= 3;//格子下次更新时间
 	int32 shopPoolId            = 4;//格子上的商品配置id
 	bool corner                 = 5;//是否有new角标
+	int64 endTime               = 6;//格子过期时间
 	
 }
 
@@ -7240,6 +7256,8 @@ ReqInGuildWar = 2163,
 ResInGuildWar = 2164,
 ReqSettleGuildWar = 2165,
 ResSettleGuildWar = 2166,
+ReqSaveCardGroup = 2167,
+ResSaveCardGroup = 2168,
 ReqRelations = 2201,
 ResRelations = 2202,
 ReqSearch = 2211,
@@ -7823,6 +7841,8 @@ MsgNameByID = {[0] = "Unknown",
 [2164] = "ResInGuildWar",
 [2165] = "ReqSettleGuildWar",
 [2166] = "ResSettleGuildWar",
+[2167] = "ReqSaveCardGroup",
+[2168] = "ResSaveCardGroup",
 [2201] = "ReqRelations",
 [2202] = "ResRelations",
 [2211] = "ReqSearch",
@@ -7963,6 +7983,7 @@ ResSlotsOperation = "ResSlotsOperation",
 CardSummarizeData = "CardSummarizeData",
 ResCreateGuild = "ResCreateGuild",
 ResSetHandbookCover = "ResSetHandbookCover",
+ResSaveCardGroup = "ResSaveCardGroup",
 AllBattleTeamCardState = "AllBattleTeamCardState",
 ReqExpedition = "ReqExpedition",
 ArenaRival = "ArenaRival",
@@ -8365,6 +8386,7 @@ MatrixTreeInfo = "MatrixTreeInfo",
 ReqEndRisk = "ReqEndRisk",
 ResOpenFunction = "ResOpenFunction",
 ResArenaReward = "ResArenaReward",
+ReqSaveCardGroup = "ReqSaveCardGroup",
 SupportCardInfo = "SupportCardInfo",
 ResChat = "ResChat",
 ReqInAdventureBattleEmba = "ReqInAdventureBattleEmba",

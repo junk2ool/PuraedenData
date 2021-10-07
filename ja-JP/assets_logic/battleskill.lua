@@ -60,16 +60,24 @@ BattleSkill.GetAllBuffByBuffList = function(atkCard, defCards, buff_list, skillC
         end
       end
       do
-        if not buffTable[groupId] then
-          do
-            buffTable[groupId] = {}
-            t_insert(buffTable[groupId], {id = id, targetId = targetId, prob = prob})
-            -- DECOMPILER ERROR at PC106: LeaveBlock: unexpected jumping out IF_THEN_STMT
+        local config = (TableData.GetBaseSkillBuffData)(id)
+        do
+          if config.star_value then
+            local starTbl = split(config.star_value, ":")
+          end
+          if (starTbl and tonumber(starTbl[atkCard:GetStar()])) or not buffTable[groupId] then
+            do
+              buffTable[groupId] = {}
+              t_insert(buffTable[groupId], {id = id, targetId = targetId, prob = prob})
+              -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-            -- DECOMPILER ERROR at PC106: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out IF_STMT
 
-            -- DECOMPILER ERROR at PC106: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out DO_STMT
 
+              -- DECOMPILER ERROR at PC126: LeaveBlock: unexpected jumping out DO_STMT
+
+            end
           end
         end
       end
@@ -87,11 +95,11 @@ BattleSkill.GetAllBuffByBuffList = function(atkCard, defCards, buff_list, skillC
           do
             do
               totalProp = totalProp + groupBuff.prob
-              -- DECOMPILER ERROR at PC142: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC162: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC142: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC162: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC142: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC162: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end

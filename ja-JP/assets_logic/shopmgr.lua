@@ -102,6 +102,7 @@ end
 ShopMgr.ExternalGotoShop = function(type, ...)
   -- function num : 0_4 , upvalues : _ENV
   if type == ShopType.Recharge and (FunctionControlMgr.GetFunctionState)(ControlID.Shop_Recharge, true) then
+    UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_SET_TYPE, ShopType.Recharge)
     OpenWindow((WinResConfig.ShopWindow).name, UILayer.HUD, ShopType.Recharge)
     ;
     (PayService.ReqPayData)(false)

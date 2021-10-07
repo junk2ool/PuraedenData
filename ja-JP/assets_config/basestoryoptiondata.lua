@@ -2973,9 +2973,9 @@ BaseStoryOptionData = {
 , 
 [75801520] = {id = 75801520, remark = (PUtil.get)(86370390), next = 75715930}
 , 
-[75801521] = {id = 75801521, remark = (PUtil.get)(86370391), next = 75716010}
+[75801521] = {id = 75801521, remark = (PUtil.get)(86370391), next = 75715958}
 , 
-[75801522] = {id = 75801522, remark = (PUtil.get)(86370392), next = 75716010}
+[75801522] = {id = 75801522, remark = (PUtil.get)(86370392), next = 75715958}
 }
 return BaseStoryOptionData
 

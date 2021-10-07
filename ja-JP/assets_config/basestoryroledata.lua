@@ -511,7 +511,7 @@ BaseStoryRoleData = {
 , 
 [75200862] = {id = 75200862, name = (PUtil.get)(86101108), role_path = "img_11300041_2", effect_path = "FIGHT_KILL", fashion_id = "14304101", offset = "0:-62"}
 , 
-[75200833] = {id = 75200833, name = (PUtil.get)(86101105), role_path = "img_11300038_2", effect_path = "FIGHT_KILL", fashion_id = "14303801", offset = "-21:-50"}
+[75200833] = {id = 75200833, name = (PUtil.get)(86101102), role_path = "img_11300038_2", effect_path = "FIGHT_KILL", fashion_id = "14303801", offset = "-21:-50"}
 , 
 [75200834] = {id = 75200834, name = (PUtil.get)(86101102), role_path = "img_11202018_1", effect_path = "FIGHT_KILL", fashion_id = "14221800", offset = "83:92"}
 , 
@@ -521,7 +521,7 @@ BaseStoryRoleData = {
 , 
 [75200837] = {id = 75200837, name = (PUtil.get)(86101102), role_path = "img_11300041_1", effect_path = "FIGHT_KILL", fashion_id = "14304100", offset = "0:-62"}
 , 
-[75200838] = {id = 75200838, name = (PUtil.get)(86101102), role_path = "img_11300040_1", effect_path = "FIGHT_KILL", fashion_id = "14304000", offset = "122:42"}
+[75200838] = {id = 75200838, name = (PUtil.get)(86101102), role_path = "img_11300040_1", effect_path = "FIGHT_KILL", fashion_id = "14304000", offset = "122:-42"}
 , 
 [75210001] = {id = 75210001, name = (PUtil.get)(86103005), role_path = "img_12010001", effect_path = "FIGHT_KILL", fashion_id = "15010001", offset = "10:80"}
 , 
@@ -762,6 +762,8 @@ BaseStoryRoleData = {
 [75210119] = {id = 75210119, name = (PUtil.get)(86109023), role_path = "img_12010013", effect_path = "FIGHT_KILL", fashion_id = "15010013", offset = "25:-30"}
 , 
 [75210120] = {id = 75210120, name = (PUtil.get)(86109024), role_path = "img_12010013", effect_path = "FIGHT_KILL", fashion_id = "15010013", offset = "25:-30"}
+, 
+[75210121] = {id = 75210121, name = (PUtil.get)(86101102), role_path = "img_13010016", effect_path = "FIGHT_KILL", fashion_id = "15040016", offset = "0:-108"}
 , 
 [75203001] = {id = 75203001, name = (PUtil.get)(86103001), role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 

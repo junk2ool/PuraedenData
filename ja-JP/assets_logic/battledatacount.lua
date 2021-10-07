@@ -315,7 +315,7 @@ BattleDataCount.DealEquipBuff = function(atkCard, tempBuff, atkInfo, ...)
     if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.TREATMENT_EXTRA) == true then
       (self.DealTreatDirectBuff)(atkCard, atkInfo)
     end
-    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.FIX_DAMAGE_PER) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_EXTRA) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_LIKE) == true then
+    if (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERCENT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_REPEAT) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.FIX_DAMAGE_PER) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_EXTRA) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_LIKE) == true or (BattleBuff.IsBuffContainEffectId)(tempBuff, BattleDisplayEffect.DAMAGE_PERSIST_LIKE_EX) == true then
       (self.DealActiveDamageBuff)(atkCard, atkInfo)
     end
   end

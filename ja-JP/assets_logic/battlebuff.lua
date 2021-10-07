@@ -1206,376 +1206,376 @@ effectRounds = {}
                                                                                                                                                                                                                                                   end
                                                                                                                                                                                                                                                   do
                                                                                                                                                                                                                                                     do
-                                                                                                                                                                                                                                                      if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST or oneEffect.effectId == BattleDisplayEffect.DAMAGE_REPEAT or oneEffect.effectId == BattleDisplayEffect.FIX_DAMAGE_PER or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_EXTRA or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_LIKE then
+                                                                                                                                                                                                                                                      if oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST or oneEffect.effectId == BattleDisplayEffect.DAMAGE_REPEAT or oneEffect.effectId == BattleDisplayEffect.FIX_DAMAGE_PER or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_EXTRA or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_LIKE or oneEffect.effectId == BattleDisplayEffect.DAMAGE_PERSIST_LIKE_EX then
                                                                                                                                                                                                                                                         local isContain, buff, effect = ContainEffectId(atkCard, BattleDisplayEffect.DAMAGE_PERSIST_UP)
                                                                                                                                                                                                                                                         if isContain == true then
                                                                                                                                                                                                                                                           totalValue = (math.ceil)(totalValue * (10000 + effect.realValue) / 10000)
                                                                                                                                                                                                                                                         end
                                                                                                                                                                                                                                                       end
                                                                                                                                                                                                                                                       t_insert(effectTable, {absorbDamage = 0, isInvincible = false, isKeepAlive = false, effectId = oneEffect.effectId, attributeId = oneEffect.attributeId, value = totalValue, realValue = totalValue})
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out DO_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out DO_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1887: LeaveBlock: unexpected jumping out IF_STMT
+                                                                                                                                                                                                                                                      -- DECOMPILER ERROR at PC1891: LeaveBlock: unexpected jumping out IF_STMT
 
                                                                                                                                                                                                                                                     end
                                                                                                                                                                                                                                                   end
@@ -3039,8 +3039,21 @@ end
 
 -- DECOMPILER ERROR at PC181: Confused about usage of register: R14 in 'UnsetPending'
 
+BattleBuff.IsTaunt = function(card, ...)
+  -- function num : 0_53 , upvalues : _ENV, BattleDisplayEffect
+  do
+    if card then
+      local isTaunt, buff = (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.Taunt)
+      return isTaunt, buff
+    end
+    return 
+  end
+end
+
+-- DECOMPILER ERROR at PC184: Confused about usage of register: R14 in 'UnsetPending'
+
 BattleBuff.GetShapeShiftID = function(card, ...)
-  -- function num : 0_53 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect, tonumber
+  -- function num : 0_54 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect, tonumber
   if card then
     local buffTable = (BattleBuffMgr.GetBuffList)()
     for _,v in ipairs(buffTable) do
@@ -3057,10 +3070,10 @@ BattleBuff.GetShapeShiftID = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC184: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC187: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetCounterValue = function(card, ...)
-  -- function num : 0_54 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
+  -- function num : 0_55 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
   local totalValue = 0
   if card then
     local buffTable = (BattleBuffMgr.GetBuffList)()
@@ -3081,10 +3094,10 @@ BattleBuff.GetCounterValue = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC187: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC190: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetDamageShareInfo = function(buff, ...)
-  -- function num : 0_55 , upvalues : ipairs, BattleDisplayEffect, _ENV
+  -- function num : 0_56 , upvalues : ipairs, BattleDisplayEffect, _ENV
   local value = 0
   local buffData = buff:GetBuffInfo()
   local atkPos = buff:GetAtkPos()
@@ -3101,10 +3114,10 @@ BattleBuff.GetDamageShareInfo = function(buff, ...)
   return card, value
 end
 
--- DECOMPILER ERROR at PC190: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC193: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetBuffEffectValue = function(buff, effectId, ...)
-  -- function num : 0_56 , upvalues : ipairs
+  -- function num : 0_57 , upvalues : ipairs
   local value = 0
   local buffData = buff:GetBuffInfo()
   local effectTable = buffData.effectTable
@@ -3116,20 +3129,20 @@ BattleBuff.GetBuffEffectValue = function(buff, effectId, ...)
   return value
 end
 
--- DECOMPILER ERROR at PC193: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC196: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.IsCardCanShareDamage = function(card, ...)
-  -- function num : 0_57 , upvalues : _ENV
+  -- function num : 0_58 , upvalues : _ENV
   if (BattleBuff.IsBuffSleep)(card) == true or (BattleBuff.IsBuffStun)(card) == true or (BattleBuff.IsBuffParalysis)(card) == true then
     return false
   end
   return true
 end
 
--- DECOMPILER ERROR at PC196: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC199: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainEffectId = function(card, effectId, ...)
-  -- function num : 0_58 , upvalues : _ENV, BattleBuffMgr, ipairs
+  -- function num : 0_59 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and effectId then
     if BattleConfig.isPlayBack == true then
       local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
@@ -3165,10 +3178,10 @@ BattleBuff.ContainEffectId = function(card, effectId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC199: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC202: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainBuffId = function(card, buffId, ...)
-  -- function num : 0_59 , upvalues : _ENV, BattleBuffMgr, ipairs
+  -- function num : 0_60 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and buffId then
     if BattleConfig.isPlayBack == true then
       local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
@@ -3196,10 +3209,10 @@ BattleBuff.ContainBuffId = function(card, buffId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC202: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC205: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainDeductionRoundType = function(card, id, ...)
-  -- function num : 0_60 , upvalues : _ENV, BattleBuffMgr, ipairs
+  -- function num : 0_61 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and id then
     if BattleConfig.isPlayBack == true then
       local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
@@ -3230,10 +3243,10 @@ BattleBuff.ContainDeductionRoundType = function(card, id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC205: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC208: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainBuffGroup = function(card, type, ...)
-  -- function num : 0_61 , upvalues : BattleBuffMgr, ipairs
+  -- function num : 0_62 , upvalues : BattleBuffMgr, ipairs
   if card and type then
     local buffTable = (BattleBuffMgr.GetBuffList)()
     for _,v in ipairs(buffTable) do
@@ -3248,10 +3261,10 @@ BattleBuff.ContainBuffGroup = function(card, type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC208: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC211: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
-  -- function num : 0_62 , upvalues : ipairs
+  -- function num : 0_63 , upvalues : ipairs
   if buff and effectId then
     local effectTable = nil
     if buff.GetEffectTable then
@@ -3270,10 +3283,10 @@ BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC211: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC214: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetDamageDivideCards = function(card, ...)
-  -- function num : 0_63 , upvalues : _ENV, ipairs
+  -- function num : 0_64 , upvalues : _ENV, ipairs
   local cards = {}
   local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
   for i,v in ipairs(allCard) do
@@ -3285,10 +3298,10 @@ BattleBuff.GetDamageDivideCards = function(card, ...)
   return cards
 end
 
--- DECOMPILER ERROR at PC214: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC217: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetExtraDamageDivideCards = function(card, ...)
-  -- function num : 0_64 , upvalues : _ENV, ipairs
+  -- function num : 0_65 , upvalues : _ENV, ipairs
   local cards = {}
   local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
   for i,v in ipairs(allCard) do
@@ -3300,10 +3313,10 @@ BattleBuff.GetExtraDamageDivideCards = function(card, ...)
   return cards
 end
 
--- DECOMPILER ERROR at PC217: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC220: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetUniqueSkillDamageAdd = function(atkCard, ...)
-  -- function num : 0_65 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
+  -- function num : 0_66 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
   local totalAddPercent = 0
   local buffTable = BattleBuffMgr.buffList
   for _,buff in ipairs(buffTable) do

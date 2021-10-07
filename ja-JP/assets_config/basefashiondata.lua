@@ -771,7 +771,7 @@ BaseFashionData = {
 , 
 [15040015] = {id = 15040015, head_icon_square = "MonsterHeadSquare:HeadSquare_13010014", show_texture = "img_13010015", show_texture_scale = 10000, show_texture_position = "0:0:0"}
 , 
-[15040016] = {id = 15040016, head_icon_square = "MonsterHeadSquare:HeadSquare_13010016", show_texture = "img_13010016", show_texture_scale = 10000, show_texture_position = "0:0:0"}
+[15040016] = {id = 15040016, head_icon_square = "CardHeadIconSquare:HeadSquare_13010016", show_texture = "img_13010016", show_texture_scale = 10000, show_texture_position = "0:0:0"}
 , 
 [15040011] = {id = 15040011, head_icon_square = "MonsterHeadSquare:HeadSquare_12010002"}
 , 
