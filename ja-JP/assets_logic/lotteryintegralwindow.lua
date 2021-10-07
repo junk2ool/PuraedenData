@@ -91,7 +91,7 @@ LotteryIntegralWindow.RefreshWindow = function(...)
     create = nil
   end
   ;
-  ((uis.Integral).RewardList):RemoveChildrenToPool()
+  (((uis.Integral).RewardListShow).RewardList):RemoveChildrenToPool()
   local shopNum = #rewards
   local shopGrpNum = (math.ceil)(shopNum / 5)
   local t = 1
@@ -102,7 +102,7 @@ LotteryIntegralWindow.RefreshWindow = function(...)
   end
   canEffect = {}
   for i = 1, shopGrpNum do
-    local rewardItemList = (((uis.Integral).RewardList):AddItemFromPool()):GetChild("RewardItemList")
+    local rewardItemList = ((((uis.Integral).RewardListShow).RewardList):AddItemFromPool()):GetChild("RewardItemList")
     do
       rewardItemList:RemoveChildrenToPool()
       for j = 1, 5 do
@@ -133,12 +133,14 @@ LotteryIntegralWindow.RefreshWindow = function(...)
           do
             if (rewards[shopIndex]).status ~= (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT or (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
               local holder, effect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERYINTERGRAL_LOOP, true, shopItem, Vector2(shopItem.width / 2, shopItem.height / 2))
-              -- DECOMPILER ERROR at PC267: Confused about usage of register: R28 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC269: Confused about usage of register: R28 in 'UnsetPending'
 
               ;
               (effect.transform).localPosition = Vector3(0, ((effect.transform).localPosition).y, 0)
               ;
               (table.insert)(canEffect, holder)
+              ;
+              (Util.SetSfxClipInListCom)((holder.displayObject).gameObject, ((uis.Integral).RewardListShow).RewardList)
             else
             end
             if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
@@ -178,15 +180,15 @@ LotteryIntegralWindow.RefreshWindow = function(...)
     -- DECOMPILER ERROR: 6 unprocessed JMP targets
   end
 )
-                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_STMT
 
-                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                -- DECOMPILER ERROR at PC286: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC296: LeaveBlock: unexpected jumping out IF_STMT
 
               end
             end

@@ -65,6 +65,8 @@ BagGiftOptionWindow.listRender = function(index, obj, ...)
     local NumberTxt = obj:GetChild("NumberTxt")
     if itemType == PropType.ASSET then
       haveTxt.text = (PUtil.get)(20000418, (ActorData.GetAssetCount)(itemID))
+    elseif itemType == PropType.EQUIP then
+      haveTxt.text = (PUtil.get)(20000418, (ActorData.GetEquipsByID)(itemID))
     else
       haveTxt.text = (PUtil.get)(20000418, (ActorData.GetPropsByID)(itemID))
     end
@@ -96,7 +98,7 @@ BagGiftOptionWindow.listRender = function(index, obj, ...)
     end
   end
 )
-  -- DECOMPILER ERROR: 7 unprocessed JMP targets
+  -- DECOMPILER ERROR: 8 unprocessed JMP targets
 end
 
 BagGiftOptionWindow.SetListShow = function(...)

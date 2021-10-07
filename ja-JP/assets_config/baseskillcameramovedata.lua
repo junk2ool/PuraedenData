@@ -1043,6 +1043,32 @@ BaseSkillCameraMoveData = {
 , 
 [48120525] = {id = 48120525, scale = 4, move_time = 117}
 , 
+[48120526] = {id = 48120526, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
+, 
+[48120527] = {id = 48120527, end_type = 2, move_time = 300}
+, 
+[48120528] = {id = 48120528, position_a = "0,4", move_time = 467}
+, 
+[48120529] = {id = 48120529, position_a = "0,-4", move_time = 67}
+, 
+[48120530] = {id = 48120530, scale = -2, move_time = 200}
+, 
+[48120531] = {id = 48120531, scale = 0.4, move_time = 83}
+, 
+[48120532] = {id = 48120532, scale = 0.4, move_time = 83}
+, 
+[48120533] = {id = 48120533, scale = 0.4, move_time = 83}
+, 
+[48120534] = {id = 48120534, scale = 0.4, move_time = 83}
+, 
+[48120535] = {id = 48120535, scale = 0.4, move_time = 83}
+, 
+[48120536] = {id = 48120536, scale = -2, move_time = 200}
+, 
+[48120537] = {id = 48120537, position_a = "10,0", move_time = 967}
+, 
+[48120538] = {id = 48120538, scale = 3, move_time = 67}
+, 
 [48220001] = {id = 48220001, scale = -1, end_type = 1, position_a = "10,0", position_b = "18,0", move_time = 200}
 , 
 [48220002] = {id = 48220002, scale = -2, end_type = 2, move_time = 267}

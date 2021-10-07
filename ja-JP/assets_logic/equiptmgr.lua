@@ -1314,18 +1314,41 @@ end
 
 EquiptMgr.UsePreset = function(presetId, ...)
   -- function num : 0_53 , upvalues : _ENV
-  if (EquiptData.PresetBelongTo)[presetId] ~= nil and (EquiptData.PresetBelongTo)[presetId] ~= (EquiptData.CurrentRoleData).id then
-    local other = (CardData.GetCardData)((EquiptData.PresetBelongTo)[presetId])
-    ;
-    (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000590, other.name), function(...)
+  local presetData = nil
+  for k,v in pairs(EquiptData.EquipPresets) do
+    if v.id == presetId then
+      presetData = v
+      break
+    end
+  end
+  do
+    if presetData then
+      for k,v in pairs(presetData.equipIndex) do
+        local equipData = (EquiptData.Equipments)[(EquiptData.Equipments)[v]]
+        if equipData then
+          local config = ((TableData.gTable).BaseEquipData)[equipData.id]
+          if config.card_id > 0 and config.card_id ~= (EquiptData.CurrentRoleData).id then
+            (MessageMgr.SendCenterTips)((PUtil.get)(60000662))
+            return 
+          end
+        end
+      end
+    end
+    do
+      if (EquiptData.PresetBelongTo)[presetId] ~= nil and (EquiptData.PresetBelongTo)[presetId] ~= (EquiptData.CurrentRoleData).id then
+        local other = (CardData.GetCardData)((EquiptData.PresetBelongTo)[presetId])
+        ;
+        (MessageMgr.OpenConfirmWindow)((PUtil.get)(60000590, other.name), function(...)
     -- function num : 0_53_0 , upvalues : _ENV, presetId
     (EquiptService.ReqUseEquipScheme)(presetId, (EquiptData.CurrentRoleData).id)
   end
 )
-  else
-    do
-      ;
-      (EquiptService.ReqUseEquipScheme)(presetId, (EquiptData.CurrentRoleData).id)
+      else
+        do
+          ;
+          (EquiptService.ReqUseEquipScheme)(presetId, (EquiptData.CurrentRoleData).id)
+        end
+      end
     end
   end
 end

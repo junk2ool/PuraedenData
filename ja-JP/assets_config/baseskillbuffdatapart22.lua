@@ -1,0 +1,22 @@
+-- params : ...
+-- function num : 0 , upvalues : _ENV
+BaseSkillBuffDataPart22 = {
+[47122181] = {id = 47122181, name = (PUtil.get)(47122181), type = 100, value = "503:4:1000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 4, deduction_round_type = 18, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47122182] = {id = 47122182, name = (PUtil.get)(47122182), type = 100, value = "1:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 4, deduction_round_type = 46, settle_round_cnt = 99, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "3:47122183:3001:10000", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0, star_config = "1500:1500:1500:1500:1500:1500:1500"}
+, 
+[47122183] = {id = 47122183, name = (PUtil.get)(47122183), type = 31, value = "301:2:6000:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 23, deduction_round_type = 1, settle_round_cnt = 2, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47130381] = {id = 47130381, name = (PUtil.get)(47130381), type = 100, value = "318:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 4, deduction_round_type = 32, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "2:47130382:1002:10000", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47130382] = {id = 47130382, name = (PUtil.get)(47130382), type = 100, value = "1:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 23, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "3:47130383:1002:10000", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47130383] = {id = 47130383, type = 30, value = "303:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, immune_group = "3:108", overlay_num = 0, overlay_buff_list = "0", settle_round_type = 23, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47130391] = {id = 47130391, name = (PUtil.get)(47130391), type = 100, value = "1:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 4, deduction_round_type = 41, settle_round_cnt = 99, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "2:47130392:3001:10000", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47130392] = {id = 47130392, name = (PUtil.get)(47130392), type = 100, value = "1:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 1, deduction_round_type = 2, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "3:47130393:2002:10000", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47130393] = {id = 47130393, name = (PUtil.get)(47130393), type = 70, value = "703:4:-500:2", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 3, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+}
+

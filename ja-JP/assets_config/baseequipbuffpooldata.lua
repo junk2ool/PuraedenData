@@ -48,6 +48,16 @@ BaseEquipBuffPoolData = {
 [603] = {id = 603, buffList = "47106015:10000"}
 , 
 [604] = {id = 604, buffList = "47103135:10000"}
+, 
+[701] = {id = 701, buffList = "47122180:10000"}
+, 
+[702] = {id = 702, buffList = "47130380:10000"}
+, 
+[703] = {id = 703, buffList = "47130390:10000"}
+, 
+[704] = {id = 704, buffList = "47130400:10000"}
+, 
+[705] = {id = 705, buffList = "47130410:10000"}
 }
 return BaseEquipBuffPoolData
 

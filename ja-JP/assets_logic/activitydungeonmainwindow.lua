@@ -18,8 +18,8 @@ ActivityDungeonMainWindow.OnInit = function(bridgeObj, ...)
       activityFirstOpen = 1
       ;
       (SimpleTimer.setTimeout)(0.1, function(...)
-    -- function num : 0_0_0 , upvalues : _ENV
-    OpenWindow((WinResConfig.ActivityExplainWindow).name, UILayer.HUD)
+    -- function num : 0_0_0 , upvalues : ActivityDungeonMainWindow
+    (ActivityDungeonMainWindow.OpenExplainWindow)()
   end
 )
     end
@@ -256,17 +256,26 @@ ActivityDungeonMainWindow.OnClose = function(...)
   (CommonWinMgr.RemoveAssets)((WinResConfig.ActivityDungeonMainWindow).name)
 end
 
+ActivityDungeonMainWindow.OpenExplainWindow = function(...)
+  -- function num : 0_12 , upvalues : _ENV
+  local activityId = (ActivityMgr.GetCachedActivityDungeonId)()
+  local activityData = ((TableData.gTable).BaseActivityData)[activityId]
+  do
+    if activityData.help_type and activityData.help_type == 0 and activityData.desc_str then
+      local ruleDes = activityData.desc_str
+      OpenWindow((WinResConfig.ExplainWindow).name, UILayer.HUD1, tostring(ruleDes))
+    end
+    OpenWindow((WinResConfig.ActivityExplainWindow).name, UILayer.HUD)
+  end
+end
+
 ActivityDungeonMainWindow.InitAssetStrip = function(...)
-  -- function num : 0_12 , upvalues : _ENV, uis
+  -- function num : 0_13 , upvalues : _ENV, uis, ActivityDungeonMainWindow
   local m = {}
   m.windowName = (WinResConfig.ActivityDungeonMainWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStrip
-  m.explainFunc = function(...)
-    -- function num : 0_12_0 , upvalues : _ENV
-    OpenWindow((WinResConfig.ActivityExplainWindow).name, UILayer.HUD)
-  end
-
+  m.explainFunc = ActivityDungeonMainWindow.OpenExplainWindow
   local activityId = (ActivityMgr.GetCachedActivityDungeonId)()
   local imageConfigData = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
   if imageConfigData then
@@ -279,7 +288,7 @@ ActivityDungeonMainWindow.InitAssetStrip = function(...)
 end
 
 ActivityDungeonMainWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_13 , upvalues : _ENV, ActivityDungeonMainWindow
+  -- function num : 0_14 , upvalues : _ENV, ActivityDungeonMainWindow
   if msgId == (WindowMsgEnum.ActivityMainDungeon).E_MSG_SET_TIME then
     (ActivityDungeonMainWindow.SetTime)()
   end

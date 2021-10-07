@@ -237,53 +237,59 @@ ActivityDungeonShopWindow.RendererList = function(index, obj, ...)
   local PoolData = ((TableData.gTable).BaseShopPoolData)[data.shopPoolId]
   local configItem = ((Util.ParseConfigStr)(PoolData.item))[1]
   local itemData, DataType = (Util.GetConfigDataByID)(configItem[2])
-  -- DECOMPILER ERROR at PC36: Confused about usage of register: R9 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC40: Confused about usage of register: R9 in 'UnsetPending'
 
-  ;
-  (model.c1Ctr).selectedIndex = itemData.quality
-  -- DECOMPILER ERROR at PC42: Confused about usage of register: R9 in 'UnsetPending'
+  if DataType == PropType.EQUIP then
+    (model.c1Ctr).selectedIndex = itemData.intelligence
+  else
+    -- DECOMPILER ERROR at PC44: Confused about usage of register: R9 in 'UnsetPending'
+
+    ;
+    (model.c1Ctr).selectedIndex = itemData.quality
+  end
+  -- DECOMPILER ERROR at PC50: Confused about usage of register: R9 in 'UnsetPending'
 
   ;
   (model.IconLoader).url = (Util.GetItemUrl)(itemData.icon)
   local PoolDataStr = (ShopMgr.GetRangeStr)(PoolData.sell_time, PoolData.item, data.useNum)
   local amount = tonumber(PoolDataStr[3])
-  -- DECOMPILER ERROR at PC57: Confused about usage of register: R11 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC65: Confused about usage of register: R11 in 'UnsetPending'
 
   ;
   (model.IconNumberTxt).visible = amount > 1
-  -- DECOMPILER ERROR at PC59: Confused about usage of register: R11 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC67: Confused about usage of register: R11 in 'UnsetPending'
 
   ;
   (model.IconNumberTxt).text = amount
-  -- DECOMPILER ERROR at PC62: Confused about usage of register: R11 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC70: Confused about usage of register: R11 in 'UnsetPending'
 
   ;
   (model.ItemNameTxt).text = itemData.name
   local times = GridData.sell_limit_time - data.useNum
-  -- DECOMPILER ERROR at PC73: Confused about usage of register: R12 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC81: Confused about usage of register: R12 in 'UnsetPending'
 
   if tonumber(GridData.reset_type) == 0 then
     ((model.DayBuyNumber).root).visible = true
-    -- DECOMPILER ERROR at PC81: Confused about usage of register: R12 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC89: Confused about usage of register: R12 in 'UnsetPending'
 
     ;
     ((model.DayBuyNumber).DayBuyNumberTxt).text = (PUtil.get)(20000320, times)
   else
-    -- DECOMPILER ERROR at PC88: Confused about usage of register: R12 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC96: Confused about usage of register: R12 in 'UnsetPending'
 
     if GridData.sell_limit_time > 1 then
       ((model.DayBuyNumber).root).visible = true
-      -- DECOMPILER ERROR at PC96: Confused about usage of register: R12 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC104: Confused about usage of register: R12 in 'UnsetPending'
 
       ;
       ((model.DayBuyNumber).DayBuyNumberTxt).text = (PUtil.get)(20000320, times)
     else
-      -- DECOMPILER ERROR at PC100: Confused about usage of register: R12 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC108: Confused about usage of register: R12 in 'UnsetPending'
 
       ((model.DayBuyNumber).root).visible = false
     end
   end
-  -- DECOMPILER ERROR at PC108: Confused about usage of register: R12 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC116: Confused about usage of register: R12 in 'UnsetPending'
 
   if (ActivityDungeonShopWindow.IsInfiniteTime)(GridData.sell_limit_time) then
     ((model.DayBuyNumber).DayBuyNumberTxt).text = "∞"
@@ -293,12 +299,12 @@ ActivityDungeonShopWindow.RendererList = function(index, obj, ...)
   ;
   (Util.SetConsumptionByID)(cost[2], cost[3], model.CostLoader, model.CostTxt, false)
   local needList = (ShopMgr.GetQualityUpCard)(itemData.id)
-  -- DECOMPILER ERROR at PC135: Confused about usage of register: R15 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC143: Confused about usage of register: R15 in 'UnsetPending'
 
   if GridData.sell_limit_time <= data.useNum then
     (model.c2Ctr).selectedIndex = 1
   else
-    -- DECOMPILER ERROR at PC138: Confused about usage of register: R15 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC146: Confused about usage of register: R15 in 'UnsetPending'
 
     (model.c2Ctr).selectedIndex = 0
   end

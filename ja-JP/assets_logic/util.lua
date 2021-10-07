@@ -1277,8 +1277,24 @@ Util.SetSfxClipInList = function(sfx, list, ...)
   end
 end
 
-Util.GetComponentArea = function(com, ...)
+Util.SetSfxClipInListCom = function(sfx, com, ...)
   -- function num : 0_53 , upvalues : _ENV, Util
+  if sfx == nil then
+    return 
+  end
+  local renderS = sfx:GetComponentsInChildren(typeof((CS.UnityEngine).Renderer))
+  local count = renderS.Length
+  for i = 0, count - 1 do
+    local render = renderS[i]
+    local mat = render.material
+    mat:EnableKeyword("CLIPPED")
+    mat:SetFloat(((FairyGUI.ShaderConfig).IDs)._BlendSrcFactor, 5)
+    mat:SetVector(((FairyGUI.ShaderConfig).IDs)._ClipBox, (Util.GetComponentArea)(com))
+  end
+end
+
+Util.GetComponentArea = function(com, ...)
+  -- function num : 0_54 , upvalues : _ENV, Util
   if com == nil then
     return 
   end
@@ -1287,7 +1303,7 @@ Util.GetComponentArea = function(com, ...)
 end
 
 Util.GetListClipArea = function(list, ...)
-  -- function num : 0_54 , upvalues : Util
+  -- function num : 0_55 , upvalues : Util
   if list == nil then
     return 
   end
@@ -1296,7 +1312,7 @@ Util.GetListClipArea = function(list, ...)
 end
 
 Util.GetRectClipArea = function(rect, ...)
-  -- function num : 0_55 , upvalues : _ENV
+  -- function num : 0_56 , upvalues : _ENV
   local Vector4 = (CS.UnityEngine).Vector4
   rect.x = rect.x + rect.width / 2
   rect.y = rect.y + rect.height / 2
@@ -1306,19 +1322,19 @@ Util.GetRectClipArea = function(rect, ...)
 end
 
 Util.CreateSelfMiniModel = function(loader, callback, ...)
-  -- function num : 0_56 , upvalues : Util, _ENV
+  -- function num : 0_57 , upvalues : Util, _ENV
   if loader then
     (Util.CreateMiniModel)(loader, (ActorData.GetFashionShow)(), callback)
   end
 end
 
 Util.CreateMiniModelByPath = function(loader, path, callback, IsFlipX, scale, isAutoPlay, ...)
-  -- function num : 0_57 , upvalues : Util, _ENV
+  -- function num : 0_58 , upvalues : Util, _ENV
   if isAutoPlay == nil then
     isAutoPlay = true
   end
   return (Util.ShowUIModel)(path, loader, nil, true, function(model, ...)
-    -- function num : 0_57_0 , upvalues : IsFlipX, _ENV, scale, isAutoPlay, callback
+    -- function num : 0_58_0 , upvalues : IsFlipX, _ENV, scale, isAutoPlay, callback
     if model then
       if IsFlipX then
         (SkeletonAnimationUtil.SetFlip)(model, true, false)
@@ -1345,7 +1361,7 @@ Util.CreateMiniModelByPath = function(loader, path, callback, IsFlipX, scale, is
 end
 
 Util.CreateMiniModel = function(loader, fashionId, callback, IsFlipX, useConfigScale, ...)
-  -- function num : 0_58 , upvalues : _ENV, Util
+  -- function num : 0_59 , upvalues : _ENV, Util
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   if fashionData == nil then
     return 
@@ -1358,7 +1374,7 @@ Util.CreateMiniModel = function(loader, fashionId, callback, IsFlipX, useConfigS
 end
 
 Util.CreateNo3rdSelfShowModel = function(loader, ...)
-  -- function num : 0_59 , upvalues : _ENV, Util
+  -- function num : 0_60 , upvalues : _ENV, Util
   local fashionShow = (ActorData.GetFashionShow)()
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionShow]
   local cardData = (CardData.GetCardData)(fashionData.card_id)
@@ -1378,7 +1394,7 @@ Util.CreateNo3rdSelfShowModel = function(loader, ...)
 end
 
 Util.CreateSelfShowModel = function(loader, showFinal, ...)
-  -- function num : 0_60 , upvalues : _ENV, Util
+  -- function num : 0_61 , upvalues : _ENV, Util
   if loader then
     local fashionShow = (ActorData.GetFashionShow)()
     return (Util.CreateShowModel)(fashionShow, loader, showFinal)
@@ -1386,7 +1402,7 @@ Util.CreateSelfShowModel = function(loader, showFinal, ...)
 end
 
 Util.CreateShowModel = function(fashionId, loader, showFinalSpine, isAsync, doNotPlayIn, isPlayEffect, param, ...)
-  -- function num : 0_61 , upvalues : _ENV, Util
+  -- function num : 0_62 , upvalues : _ENV, Util
   isAsync = false
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   if fashionData == nil then
@@ -1410,7 +1426,7 @@ Util.CreateShowModel = function(fashionId, loader, showFinalSpine, isAsync, doNo
     local SetAnimation = SkeletonAnimationUtil.SetAnimation
     if isAsync then
       (Util.ShowUIModel)(fashionData.show_spine, loader, fashionData.show_spine_type, true, function(model, ...)
-    -- function num : 0_61_0 , upvalues : Util, fashionData, SetAnimation
+    -- function num : 0_62_0 , upvalues : Util, fashionData, SetAnimation
     (Util.UpdateShowSpineByConfig)(model, fashionData)
     if model then
       SetAnimation(model, 0, "idle", true)
@@ -1431,7 +1447,7 @@ Util.CreateShowModel = function(fashionId, loader, showFinalSpine, isAsync, doNo
 end
 
 Util.CreateAutoFitModel = function(fashionId, loader, showFinalSpine, isAsync, doNotPlayIn, isPlayEffect, param, ...)
-  -- function num : 0_62 , upvalues : _ENV, Util, split
+  -- function num : 0_63 , upvalues : _ENV, Util, split
   isAsync = false
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   if fashionData == nil then
@@ -1453,7 +1469,7 @@ Util.CreateAutoFitModel = function(fashionId, loader, showFinalSpine, isAsync, d
     local SetAnimation = SkeletonAnimationUtil.SetAnimation
     if isAsync then
       (Util.ShowUIModel)(fashionData.show_spine, loader, fashionData.show_spine_type, true, function(model, ...)
-    -- function num : 0_62_0 , upvalues : SetAnimation
+    -- function num : 0_63_0 , upvalues : SetAnimation
     if model then
       SetAnimation(model, 0, "idle", true)
     end
@@ -1479,7 +1495,7 @@ Util.CreateAutoFitModel = function(fashionId, loader, showFinalSpine, isAsync, d
 end
 
 Util.RecycleUIModel = function(loader, destroy, ...)
-  -- function num : 0_63 , upvalues : _ENV, Util
+  -- function num : 0_64 , upvalues : _ENV, Util
   -- DECOMPILER ERROR at PC14: Unhandled construct in 'MakeBoolean' P1
 
   if loader.CurrentResType == ((FairyGUI.GLoader).ResType).Texture and loader.texture ~= nil then
@@ -1523,7 +1539,7 @@ Util.RecycleUIModel = function(loader, destroy, ...)
 end
 
 Util.UpdateShowSpineByConfig = function(model, fashionConfig, isRight, ...)
-  -- function num : 0_64 , upvalues : _ENV, split
+  -- function num : 0_65 , upvalues : _ENV, split
   if model == nil or fashionConfig == nil then
     return 
   end
@@ -1542,7 +1558,7 @@ Util.UpdateShowSpineByConfig = function(model, fashionConfig, isRight, ...)
 end
 
 Util.UpdateShowTextureByConfig = function(textureObj, fashionConfig, ...)
-  -- function num : 0_65 , upvalues : _ENV, split
+  -- function num : 0_66 , upvalues : _ENV, split
   if textureObj == nil or fashionConfig == nil then
     return 
   end
@@ -1555,19 +1571,19 @@ Util.UpdateShowTextureByConfig = function(textureObj, fashionConfig, ...)
 end
 
 Util.CheckNullString = function(str, ...)
-  -- function num : 0_66 , upvalues : Util
+  -- function num : 0_67 , upvalues : Util
   do return str ~= "0" and (Util.StringIsNullOrEmpty)(str) end
   -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
 Util.StringIsNullOrEmpty = function(str, ...)
-  -- function num : 0_67
+  -- function num : 0_68
   do return str == nil or str == "" or str == "\000" end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 Util.GetUrlFromItemID = function(itemID, itemType, ...)
-  -- function num : 0_68 , upvalues : _ENV, Util
+  -- function num : 0_69 , upvalues : _ENV, Util
   if itemID == nil or itemType == nil then
     print("Error Input", itemID, itemType)
     return ""
@@ -1584,7 +1600,7 @@ Util.GetUrlFromItemID = function(itemID, itemType, ...)
 end
 
 Util.GetConfigByItemIDAndType = function(itemID, itemType, ...)
-  -- function num : 0_69 , upvalues : _ENV
+  -- function num : 0_70 , upvalues : _ENV
   local PropType = PropType
   local excelTable = {}
   if itemType == PropType.ITEM then
@@ -1601,7 +1617,7 @@ Util.GetConfigByItemIDAndType = function(itemID, itemType, ...)
 end
 
 Util.GetHeadIconByFashionId = function(fashionId, type, ...)
-  -- function num : 0_70 , upvalues : _ENV, Util
+  -- function num : 0_71 , upvalues : _ENV, Util
   local fashionConfig = ((TableData.gTable).BasePlayerHeadIconData)[fashionId]
   if fashionConfig then
     return (Util.GetResUrl)(fashionConfig.icon_path)
@@ -1609,7 +1625,7 @@ Util.GetHeadIconByFashionId = function(fashionId, type, ...)
 end
 
 Util.GetHeadIcon = function(name, type, ...)
-  -- function num : 0_71 , upvalues : _ENV, Util
+  -- function num : 0_72 , upvalues : _ENV, Util
   local HeadIconType = HeadIconType
   if type == HeadIconType.SQUARE then
     return (Util.GetResUrl)("CardHeadIconSquare:" .. name)
@@ -1633,7 +1649,7 @@ Util.GetHeadIcon = function(name, type, ...)
 end
 
 Util.PlayAnimation = function(obj, animName, ...)
-  -- function num : 0_72 , upvalues : _ENV
+  -- function num : 0_73 , upvalues : _ENV
   if animName and animName ~= "" and obj ~= nil then
     local Animator = (CS.UnityEngine).Animator
     local anim = obj:GetComponent(typeof(Animator))
@@ -1649,7 +1665,7 @@ Util.PlayAnimation = function(obj, animName, ...)
 end
 
 Util.GetClipLength = function(obj, clipName, ...)
-  -- function num : 0_73 , upvalues : _ENV
+  -- function num : 0_74 , upvalues : _ENV
   local length = 0
   if clipName and clipName ~= "" then
     local anim = obj:GetComponent(typeof((CS.UnityEngine).Animator))
@@ -1669,7 +1685,7 @@ Util.GetClipLength = function(obj, clipName, ...)
 end
 
 Util.PlayAnimationWithNormalLizedTime = function(obj, animName, value, ...)
-  -- function num : 0_74 , upvalues : _ENV
+  -- function num : 0_75 , upvalues : _ENV
   if animName and animName ~= "" and obj ~= nil then
     local Animator = (CS.UnityEngine).Animator
     local anim = obj:GetComponent(typeof(Animator))
@@ -1688,7 +1704,7 @@ Util.PlayAnimationWithNormalLizedTime = function(obj, animName, value, ...)
 end
 
 Util.SetAnimationSpeed = function(obj, value, ...)
-  -- function num : 0_75 , upvalues : _ENV
+  -- function num : 0_76 , upvalues : _ENV
   if obj ~= nil then
     local Animator = (CS.UnityEngine).Animator
     local anim = obj:GetComponent(typeof(Animator))
@@ -1699,7 +1715,7 @@ Util.SetAnimationSpeed = function(obj, value, ...)
 end
 
 Util.SetAnimatorBool = function(obj, boolName, value, ...)
-  -- function num : 0_76 , upvalues : _ENV
+  -- function num : 0_77 , upvalues : _ENV
   if obj ~= nil and boolName ~= nil and boolName ~= "" and value ~= nil then
     local Animator = (CS.UnityEngine).Animator
     local anim = obj:GetComponent(typeof(Animator))
@@ -1710,12 +1726,12 @@ Util.SetAnimatorBool = function(obj, boolName, value, ...)
 end
 
 Util.RemoveTableKey = function(t, k, ...)
-  -- function num : 0_77 , upvalues : _ENV
+  -- function num : 0_78 , upvalues : _ENV
   (table.remove)(t, k)
 end
 
 Util.GetCardSpeed = function(cardObject, ...)
-  -- function num : 0_78 , upvalues : _ENV
+  -- function num : 0_79 , upvalues : _ENV
   local info = {}
   ;
   (CardData.InitCardAttr)(info, cardObject)
@@ -1723,7 +1739,7 @@ Util.GetCardSpeed = function(cardObject, ...)
 end
 
 Util.SetPlayerSetting = function(key, Value, ...)
-  -- function num : 0_79 , upvalues : _ENV
+  -- function num : 0_80 , upvalues : _ENV
   if key and Value then
     local SetKey = (ActorData.GetPlayerIndex)() .. key
     ;
@@ -1732,7 +1748,7 @@ Util.SetPlayerSetting = function(key, Value, ...)
 end
 
 Util.GetPlayerSetting = function(key, defaultValue, ...)
-  -- function num : 0_80 , upvalues : _ENV
+  -- function num : 0_81 , upvalues : _ENV
   if key then
     local SetKey = (ActorData.GetPlayerIndex)() .. key
     if (PlayerPrefs.HasKey)(SetKey) then
@@ -1744,7 +1760,7 @@ Util.GetPlayerSetting = function(key, defaultValue, ...)
 end
 
 Util.SetIntPlayerSetting = function(key, Value, ...)
-  -- function num : 0_81 , upvalues : _ENV
+  -- function num : 0_82 , upvalues : _ENV
   if key and Value and tonumber(Value) ~= nil then
     local SetKey = (ActorData.GetPlayerIndex)() .. key
     ;
@@ -1753,7 +1769,7 @@ Util.SetIntPlayerSetting = function(key, Value, ...)
 end
 
 Util.GetIntPlayerSetting = function(key, defaultValue, ...)
-  -- function num : 0_82 , upvalues : _ENV
+  -- function num : 0_83 , upvalues : _ENV
   if not defaultValue then
     defaultValue = 0
   end
@@ -1765,7 +1781,7 @@ Util.GetIntPlayerSetting = function(key, defaultValue, ...)
 end
 
 Util.SetFloatPlayerSetting = function(key, Value, ...)
-  -- function num : 0_83 , upvalues : _ENV
+  -- function num : 0_84 , upvalues : _ENV
   if key and Value and tonumber(Value) ~= nil then
     local SetKey = (ActorData.GetPlayerIndex)() .. key
     ;
@@ -1774,7 +1790,7 @@ Util.SetFloatPlayerSetting = function(key, Value, ...)
 end
 
 Util.GetFloatPlayerSetting = function(key, defaultValue, ...)
-  -- function num : 0_84 , upvalues : _ENV
+  -- function num : 0_85 , upvalues : _ENV
   if not defaultValue then
     defaultValue = 0
   end
@@ -1786,14 +1802,14 @@ Util.GetFloatPlayerSetting = function(key, defaultValue, ...)
 end
 
 Util.CardIsMaxLevel = function(cardData, ...)
-  -- function num : 0_85 , upvalues : _ENV
+  -- function num : 0_86 , upvalues : _ENV
   local nextExp = ((CardData.GetCardLevelUpConfig)(cardData.grow_type, cardData.level)).next_exp
   do return nextExp <= cardData.exp end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 Util.SetConsumptionByID = function(id, num, loader, txt, ShowFree, showColor, ...)
-  -- function num : 0_86 , upvalues : _ENV, Util
+  -- function num : 0_87 , upvalues : _ENV, Util
   local itemID = tonumber(id)
   local itemNum = tonumber(num)
   local consumeData, propType = (Util.GetConfigDataByID)(itemID)
@@ -1822,14 +1838,14 @@ Util.SetConsumptionByID = function(id, num, loader, txt, ShowFree, showColor, ..
 end
 
 Util.SetConsumption = function(consume, loader, txt, ShowFree, showColor, ...)
-  -- function num : 0_87 , upvalues : split, Util
+  -- function num : 0_88 , upvalues : split, Util
   local consumeConfigs = split(consume, ":")
   ;
   (Util.SetConsumptionByID)(consumeConfigs[2], consumeConfigs[3], loader, txt, ShowFree, showColor)
 end
 
 Util.CheckAssetEnough = function(assetID, needNum, ...)
-  -- function num : 0_88 , upvalues : _ENV
+  -- function num : 0_89 , upvalues : _ENV
   local possess = 0
   local GetAssetCount = ActorData.GetAssetCount
   local AssetType = AssetType
@@ -1843,7 +1859,7 @@ Util.CheckAssetEnough = function(assetID, needNum, ...)
 end
 
 Util.IsAssetCondition = function(assetType, num, isShowTips, ...)
-  -- function num : 0_89 , upvalues : _ENV
+  -- function num : 0_90 , upvalues : _ENV
   assetType = tonumber(assetType)
   num = tonumber(num)
   local GetAssetCount = ActorData.GetAssetCount
@@ -1861,7 +1877,7 @@ Util.IsAssetCondition = function(assetType, num, isShowTips, ...)
 end
 
 Util.SetTransition = function(ObjS, ...)
-  -- function num : 0_90 , upvalues : pairs
+  -- function num : 0_91 , upvalues : pairs
   for _,v in pairs(ObjS) do
     local cnt = v.numChildren
     for i = 0, cnt - 1 do
@@ -1877,7 +1893,7 @@ Util.SetTransition = function(ObjS, ...)
 end
 
 Util.CheckAssetByType = function(cost, type, ...)
-  -- function num : 0_91 , upvalues : _ENV, Util
+  -- function num : 0_92 , upvalues : _ENV, Util
   if (ActorData.GetAssetCount)(type) < cost then
     (MessageMgr.SendCenterTips)(((Util.GetConfigDataByID)(type)).name .. (PUtil.get)(60000036))
     return false
@@ -1887,7 +1903,7 @@ Util.CheckAssetByType = function(cost, type, ...)
 end
 
 Util.CreateHeadDebris = function(id, num, isFirst, ...)
-  -- function num : 0_92 , upvalues : _ENV, Util
+  -- function num : 0_93 , upvalues : _ENV, Util
   local data = ((TableData.gTable).BasePropData)[tonumber(id)]
   if not data then
     return 
@@ -1929,7 +1945,7 @@ Util.CreateHeadDebris = function(id, num, isFirst, ...)
 end
 
 Util.SetEquipFrame = function(equipFrame, equipInfo, selected, ...)
-  -- function num : 0_93 , upvalues : _ENV, Util
+  -- function num : 0_94 , upvalues : _ENV, Util
   if equipFrame == nil or equipInfo == nil then
     return 
   end
@@ -1966,7 +1982,7 @@ Util.SetEquipFrame = function(equipFrame, equipInfo, selected, ...)
 end
 
 Util.SetEquipFrameOnlyForShow = function(equipFrame, id, gray, selected, lock, luck, ...)
-  -- function num : 0_94 , upvalues : _ENV, Util
+  -- function num : 0_95 , upvalues : _ENV, Util
   if equipFrame == nil then
     return 
   end
@@ -2029,7 +2045,7 @@ Util.SetEquipFrameOnlyForShow = function(equipFrame, id, gray, selected, lock, l
 end
 
 Util.GoodsToItemDataModel = function(goodsObj, ...)
-  -- function num : 0_95 , upvalues : ipairs, _ENV
+  -- function num : 0_96 , upvalues : ipairs, _ENV
   local mGoods = {}
   if goodsObj then
     for _,v in ipairs(goodsObj) do
@@ -2066,7 +2082,7 @@ Util.GoodsToItemDataModel = function(goodsObj, ...)
 end
 
 Util.SetEnemyHeadFrameGray = function(frame, gray, ...)
-  -- function num : 0_96 , upvalues : _ENV
+  -- function num : 0_97 , upvalues : _ENV
   local color = ((CS.UnityEngine).Color).white
   if gray then
     color = Const.GrayRGB
@@ -2080,7 +2096,7 @@ Util.SetEnemyHeadFrameGray = function(frame, gray, ...)
 end
 
 Util.SetItemFrameByConfig = function(item, str, get, isFirst, ...)
-  -- function num : 0_97 , upvalues : split, _ENV, Util
+  -- function num : 0_98 , upvalues : split, _ENV, Util
   local info = split(str, ":")
   if #info ~= 3 then
     loge("传入道具参数有误:" .. str)
@@ -2091,7 +2107,7 @@ Util.SetItemFrameByConfig = function(item, str, get, isFirst, ...)
 end
 
 Util.SetItemFrame = function(item, id, number, get, isFirst, hideNum, gray, time, ...)
-  -- function num : 0_98 , upvalues : _ENV, Util
+  -- function num : 0_99 , upvalues : _ENV, Util
   if not get then
     get = false
   end
@@ -2148,7 +2164,7 @@ Util.SetItemFrame = function(item, id, number, get, isFirst, hideNum, gray, time
 end
 
 Util.SetDebrisFrameByConfig = function(item, str, ...)
-  -- function num : 0_99 , upvalues : split, _ENV, Util
+  -- function num : 0_100 , upvalues : split, _ENV, Util
   local info = split(str, ":")
   if #info ~= 3 then
     loge("传入道具参数有误:" .. str)
@@ -2159,7 +2175,7 @@ Util.SetDebrisFrameByConfig = function(item, str, ...)
 end
 
 Util.SetDebrisFrame = function(item, id, number, isFirst, HideNum, forbiddenLongPress, gray, ...)
-  -- function num : 0_100 , upvalues : _ENV, Util
+  -- function num : 0_101 , upvalues : _ENV, Util
   if not gray then
     gray = false
   end
@@ -2199,7 +2215,7 @@ Util.SetDebrisFrame = function(item, id, number, isFirst, HideNum, forbiddenLong
 end
 
 Util.SetFrameByConfig = function(str, list, get, isFirst, ...)
-  -- function num : 0_101 , upvalues : split, _ENV, Util
+  -- function num : 0_102 , upvalues : split, _ENV, Util
   local info = split(str, ":")
   if #info ~= 3 then
     loge("传入道具参数有误:" .. str)
@@ -2210,7 +2226,7 @@ Util.SetFrameByConfig = function(str, list, get, isFirst, ...)
 end
 
 Util.SetFrame = function(id, number, list, get, isFirst, hideNum, time, ...)
-  -- function num : 0_102 , upvalues : _ENV, Util
+  -- function num : 0_103 , upvalues : _ENV, Util
   id = tonumber(id)
   number = tonumber(number)
   local PropItemType = PropItemType
@@ -2239,7 +2255,7 @@ Util.SetFrame = function(id, number, list, get, isFirst, hideNum, time, ...)
         ((frame:GetChild("IconLoader")).onClick):Clear()
         ;
         ((frame:GetChild("IconLoader")).onClick):Add(function(...)
-    -- function num : 0_102_0 , upvalues : _ENV, id
+    -- function num : 0_103_0 , upvalues : _ENV, id
     OpenWindow("CardDetailsWindow", UILayer.HUD, id)
   end
 )
@@ -2267,7 +2283,7 @@ Util.SetFrame = function(id, number, list, get, isFirst, hideNum, time, ...)
 end
 
 Util.SetAllItemIconByConfig = function(frame, str, get, isFirst, ...)
-  -- function num : 0_103 , upvalues : split, _ENV, Util
+  -- function num : 0_104 , upvalues : split, _ENV, Util
   local info = split(str, ":")
   if #info ~= 3 then
     loge("传入道具参数有误:" .. str)
@@ -2278,7 +2294,7 @@ Util.SetAllItemIconByConfig = function(frame, str, get, isFirst, ...)
 end
 
 Util.SetAllItemIcon = function(frame, id, number, get, isFirst, hideNum, lucky, lock, gray, headDebris, ...)
-  -- function num : 0_104 , upvalues : _ENV, Util
+  -- function num : 0_105 , upvalues : _ENV, Util
   id = tonumber(id)
   local PropType = PropType
   local PropItemType = PropItemType
@@ -2324,7 +2340,7 @@ Util.SetAllItemIcon = function(frame, id, number, get, isFirst, hideNum, lucky, 
 end
 
 Util.GetFrameFromPoolOrCreate = function(type, list, ...)
-  -- function num : 0_105 , upvalues : _ENV
+  -- function num : 0_106 , upvalues : _ENV
   local pkg, res = nil, nil
   local GoodsIconType = GoodsIconType
   if type == GoodsIconType.EQUIPMENT then
@@ -2352,12 +2368,12 @@ Util.GetFrameFromPoolOrCreate = function(type, list, ...)
 end
 
 Util.CreateFrame = function(id, get, number, isFirst, hideNum, ...)
-  -- function num : 0_106 , upvalues : Util
+  -- function num : 0_107 , upvalues : Util
   return (Util.SetFrame)(id, number, nil, get, isFirst, hideNum)
 end
 
 Util.SetFrameInLoader = function(loader, id, number, time, ...)
-  -- function num : 0_107 , upvalues : Util, _ENV
+  -- function num : 0_108 , upvalues : Util, _ENV
   local ConfigData, type = (Util.GetConfigDataByID)(id)
   local PropType = PropType
   if type == PropType.ITEM or type == PropType.ASSET then
@@ -2383,7 +2399,7 @@ Util.SetFrameInLoader = function(loader, id, number, time, ...)
 end
 
 Util.CreateBuffFrame = function(id, ...)
-  -- function num : 0_108 , upvalues : _ENV, Util
+  -- function num : 0_109 , upvalues : _ENV, Util
   local buff = ((TableData.gTable).BaseBuffPreBattleData)[tonumber(id)]
   if not buff then
     return 
@@ -2395,13 +2411,13 @@ Util.CreateBuffFrame = function(id, ...)
 end
 
 Util.ShowGetWay = function(id, btnCB, needAmont, ...)
-  -- function num : 0_109 , upvalues : _ENV
+  -- function num : 0_110 , upvalues : _ENV
   ld("GetWay")
   OpenWindow((WinResConfig.GetWayWindow).name, UILayer.HUD, id, btnCB, needAmont, ...)
 end
 
 Util.GrayBtn = function(btn, gray, ...)
-  -- function num : 0_110 , upvalues : _ENV, Util
+  -- function num : 0_111 , upvalues : _ENV, Util
   if btn == nil then
     return 
   end
@@ -2433,7 +2449,7 @@ Util.GrayBtn = function(btn, gray, ...)
 end
 
 Util.GrayLoader = function(loader, gray, ...)
-  -- function num : 0_111 , upvalues : _ENV
+  -- function num : 0_112 , upvalues : _ENV
   if loader then
     local Const = Const
     if gray then
@@ -2445,7 +2461,7 @@ Util.GrayLoader = function(loader, gray, ...)
 end
 
 Util.GrayImage = function(imgage, gray, ...)
-  -- function num : 0_112 , upvalues : _ENV
+  -- function num : 0_113 , upvalues : _ENV
   if imgage then
     local Const = Const
     if gray then
@@ -2457,22 +2473,22 @@ Util.GrayImage = function(imgage, gray, ...)
 end
 
 Util.GetWayGoto = function(funId, ...)
-  -- function num : 0_113 , upvalues : _ENV
+  -- function num : 0_114 , upvalues : _ENV
   ld("GetWay", function(...)
-    -- function num : 0_113_0 , upvalues : _ENV, funId
+    -- function num : 0_114_0 , upvalues : _ENV, funId
     (GetWayMgr.Goto)(funId)
   end
 )
 end
 
 Util.SetOnClickDelay = function(timer, ...)
-  -- function num : 0_114 , upvalues : _ENV
+  -- function num : 0_115 , upvalues : _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   (GRoot.inst).touchable = false
   ;
   (SimpleTimer.setTimeout)(timer, function(...)
-    -- function num : 0_114_0 , upvalues : _ENV
+    -- function num : 0_115_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     (GRoot.inst).touchable = true
@@ -2481,7 +2497,7 @@ Util.SetOnClickDelay = function(timer, ...)
 end
 
 Util.SetDelayCall = function(func, time, ...)
-  -- function num : 0_115 , upvalues : _ENV
+  -- function num : 0_116 , upvalues : _ENV
   if func == nil then
     return 
   end
@@ -2491,7 +2507,7 @@ Util.SetDelayCall = function(func, time, ...)
   (GRoot.inst).touchable = false
   ;
   (LeanTween.delayedCall)(time or 0.04, function(...)
-    -- function num : 0_115_0 , upvalues : _ENV, func
+    -- function num : 0_116_0 , upvalues : _ENV, func
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     (GRoot.inst).touchable = true
@@ -2501,16 +2517,16 @@ Util.SetDelayCall = function(func, time, ...)
 end
 
 Util.PreloadResource = function(...)
-  -- function num : 0_116
+  -- function num : 0_117
 end
 
 Util.SetStageCameraActive = function(isActive, ...)
-  -- function num : 0_117 , upvalues : _ENV
+  -- function num : 0_118 , upvalues : _ENV
   (((FairyGUI.StageCamera).main).gameObject):SetActive(isActive)
 end
 
 Util.CheckConsumeByStr = function(str, fun, ...)
-  -- function num : 0_118 , upvalues : split, Util
+  -- function num : 0_119 , upvalues : split, Util
   local consumeConfigs = split(str, ":")
   if #consumeConfigs < 3 then
     return 
@@ -2520,7 +2536,7 @@ Util.CheckConsumeByStr = function(str, fun, ...)
 end
 
 Util.CheckConsumeAsset = function(assetID, assetNum, fun, ...)
-  -- function num : 0_119 , upvalues : _ENV
+  -- function num : 0_120 , upvalues : _ENV
   assetID = tonumber(assetID)
   assetNum = tonumber(assetNum)
   local possession = (ActorData.GetAssetCount)(assetID)
@@ -2534,7 +2550,7 @@ Util.CheckConsumeAsset = function(assetID, assetNum, fun, ...)
 end
 
 Util.IsInParticularAssetConfig = function(type, ...)
-  -- function num : 0_120 , upvalues : pairs, _ENV
+  -- function num : 0_121 , upvalues : pairs, _ENV
   for _,v in pairs(ParticularAssetType) do
     if v == type then
       return true
@@ -2543,7 +2559,7 @@ Util.IsInParticularAssetConfig = function(type, ...)
 end
 
 Util.Shuffle = function(t, ...)
-  -- function num : 0_121 , upvalues : type, _ENV
+  -- function num : 0_122 , upvalues : type, _ENV
   if type(t) ~= "table" then
     return 
   end
@@ -2565,7 +2581,7 @@ Util.Shuffle = function(t, ...)
 end
 
 Util.MajorSort = function(items, ...)
-  -- function num : 0_122 , upvalues : ipairs, _ENV, Util
+  -- function num : 0_123 , upvalues : ipairs, _ENV, Util
   local finalTable = items
   for a,b in ipairs(finalTable) do
     b.bWeight = 0
@@ -2613,7 +2629,7 @@ Util.MajorSort = function(items, ...)
   end
   ;
   (table.sort)(finalTable, function(a, b, ...)
-    -- function num : 0_122_0
+    -- function num : 0_123_0
     if b.id >= a.id then
       do return a.bWeight ~= b.bWeight end
       do return b.bWeight < a.bWeight end
@@ -2625,7 +2641,7 @@ Util.MajorSort = function(items, ...)
 end
 
 Util.GetQualityById = function(itype, id, ...)
-  -- function num : 0_123 , upvalues : _ENV
+  -- function num : 0_124 , upvalues : _ENV
   local quality = 0
   local PropType = PropType
   if itype == PropType.ITEM then
@@ -2659,7 +2675,7 @@ Util.GetQualityById = function(itype, id, ...)
 end
 
 Util.SetUseAndTotalText = function(haveCount, needCount, ...)
-  -- function num : 0_124 , upvalues : _ENV
+  -- function num : 0_125 , upvalues : _ENV
   if haveCount > 0 then
     return (PUtil.get)(20000063, haveCount, needCount)
   else
@@ -2668,7 +2684,7 @@ Util.SetUseAndTotalText = function(haveCount, needCount, ...)
 end
 
 Util.GetCardIntimacyData = function(cardID, ...)
-  -- function num : 0_125 , upvalues : _ENV, pairs
+  -- function num : 0_126 , upvalues : _ENV, pairs
   local oneCard = (CardData.GetCardData)(cardID)
   if not oneCard then
     return 
@@ -2685,7 +2701,7 @@ Util.GetCardIntimacyData = function(cardID, ...)
 end
 
 Util.GetCardStoryIndex = function(cardID, ...)
-  -- function num : 0_126 , upvalues : _ENV
+  -- function num : 0_127 , upvalues : _ENV
   local oneCard = (CardData.GetCardData)(cardID)
   if not oneCard then
     return 
@@ -2699,29 +2715,6 @@ Util.GetCardStoryIndex = function(cardID, ...)
 end
 
 Util.GetBuyTimesGain = function(type, times, ...)
-  -- function num : 0_127 , upvalues : _ENV, pairs, t_insert, ipairs
-  local buyData = {}
-  local BuyTimeData = (TableData.gTable).BaseBuyTimeData
-  for _,v in pairs(BuyTimeData) do
-    if v.type == type then
-      t_insert(buyData, v)
-    end
-  end
-  ;
-  (table.sort)(buyData, function(a, b, ...)
-    -- function num : 0_127_0
-    do return a.start < b.start end
-    -- DECOMPILER ERROR: 1 unprocessed JMP targets
-  end
-)
-  for _,v in ipairs(buyData) do
-    if v.start <= times and times <= v.finish then
-      return v.reward
-    end
-  end
-end
-
-Util.GetBuyTimesConsume = function(type, times, ...)
   -- function num : 0_128 , upvalues : _ENV, pairs, t_insert, ipairs
   local buyData = {}
   local BuyTimeData = (TableData.gTable).BaseBuyTimeData
@@ -2739,6 +2732,29 @@ Util.GetBuyTimesConsume = function(type, times, ...)
 )
   for _,v in ipairs(buyData) do
     if v.start <= times and times <= v.finish then
+      return v.reward
+    end
+  end
+end
+
+Util.GetBuyTimesConsume = function(type, times, ...)
+  -- function num : 0_129 , upvalues : _ENV, pairs, t_insert, ipairs
+  local buyData = {}
+  local BuyTimeData = (TableData.gTable).BaseBuyTimeData
+  for _,v in pairs(BuyTimeData) do
+    if v.type == type then
+      t_insert(buyData, v)
+    end
+  end
+  ;
+  (table.sort)(buyData, function(a, b, ...)
+    -- function num : 0_129_0
+    do return a.start < b.start end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+  for _,v in ipairs(buyData) do
+    if v.start <= times and times <= v.finish then
       return v.cost
     end
   end
@@ -2748,7 +2764,7 @@ Util.GetBuyTimesConsume = function(type, times, ...)
 end
 
 Util.SetTimesShow = function(str, times, maxTimes, ...)
-  -- function num : 0_129 , upvalues : _ENV
+  -- function num : 0_130 , upvalues : _ENV
   if times <= 0 then
     return (PUtil.get)(20000171, str, times, maxTimes)
   else
@@ -2757,7 +2773,7 @@ Util.SetTimesShow = function(str, times, maxTimes, ...)
 end
 
 Util.StrLength = function(input, ...)
-  -- function num : 0_130 , upvalues : s_len, s_byte
+  -- function num : 0_131 , upvalues : s_len, s_byte
   if input == nil then
     return 0
   end
@@ -2783,7 +2799,7 @@ Util.StrLength = function(input, ...)
 end
 
 Util.StrUnicodeLength = function(input, ...)
-  -- function num : 0_131 , upvalues : s_len, s_byte
+  -- function num : 0_132 , upvalues : s_len, s_byte
   if input == nil then
     return 0
   end
@@ -2815,7 +2831,7 @@ Util.StrUnicodeLength = function(input, ...)
 end
 
 Util.NameCheck = function(name, prefix, minLength, maxLength, ignoreLegalCheck, isGiftCode, ...)
-  -- function num : 0_132 , upvalues : Util, _ENV
+  -- function num : 0_133 , upvalues : Util, _ENV
   local length = (Util.StrUnicodeLength)(name)
   if prefix == nil then
     prefix = ""
@@ -2853,7 +2869,7 @@ Util.NameCheck = function(name, prefix, minLength, maxLength, ignoreLegalCheck, 
 end
 
 Util.StrUnicodeSub = function(str, startIndex, endIndex, ...)
-  -- function num : 0_133 , upvalues : Util, _ENV
+  -- function num : 0_134 , upvalues : Util, _ENV
   if (Util.StringIsNullOrEmpty)(str) then
     return 
   end
@@ -2863,7 +2879,7 @@ Util.StrUnicodeSub = function(str, startIndex, endIndex, ...)
 end
 
 Util.GetUnicodeIndex = function(str, index, start, ...)
-  -- function num : 0_134 , upvalues : s_byte
+  -- function num : 0_135 , upvalues : s_byte
   local arr = {0, 192, 224, 240, 248, 252}
   local len = #str
   local tmp = nil
@@ -2948,14 +2964,14 @@ Util.GetUnicodeIndex = function(str, index, start, ...)
 end
 
 Util.ReplaceSpace = function(str, ...)
-  -- function num : 0_135 , upvalues : _ENV
+  -- function num : 0_136 , upvalues : _ENV
   local content = (string.gsub)(str, "\r+", "")
   content = (string.gsub)(content, "\n+", "")
   return content
 end
 
 Util.TextLegalCheck = function(text, ...)
-  -- function num : 0_136 , upvalues : _ENV
+  -- function num : 0_137 , upvalues : _ENV
   if ((CS.DirtyWordChecker).Singleton):Match(text) then
     (MessageMgr.SendCenterTips)((PUtil.get)(20000187))
     return false
@@ -2964,14 +2980,14 @@ Util.TextLegalCheck = function(text, ...)
 end
 
 Util.SetCurrencyWithConfig = function(data, icon, txt, ...)
-  -- function num : 0_137 , upvalues : split, Util, _ENV
+  -- function num : 0_138 , upvalues : split, Util, _ENV
   local cost = split(data, ":")
   ;
   (Util.SetCurrency)(tonumber(cost[2]), tonumber(cost[3]), icon, txt)
 end
 
 Util.GetMaxAssetNum = function(assetID, ...)
-  -- function num : 0_138 , upvalues : _ENV, split
+  -- function num : 0_139 , upvalues : _ENV, split
   local fixID = nil
   if assetID == AssetType.PHYSICAL then
     fixID = Const.MaxPhysicalFixedID
@@ -2992,12 +3008,12 @@ Util.GetMaxAssetNum = function(assetID, ...)
 end
 
 Util.GetEquipRemainSlot = function(...)
-  -- function num : 0_139 , upvalues : _ENV
+  -- function num : 0_140 , upvalues : _ENV
   return EquiptData.MaxBagSlots - #EquiptData.Equipments
 end
 
 Util.GetGiftIsContainEquip = function(itemID, ...)
-  -- function num : 0_140 , upvalues : _ENV, pairs, split, Util
+  -- function num : 0_141 , upvalues : _ENV, pairs, split, Util
   local propData = ((TableData.gTable).BasePropData)[itemID]
   if propData.type ~= PropItemType.GIFT then
     return 
@@ -3029,7 +3045,7 @@ Util.GetGiftIsContainEquip = function(itemID, ...)
 end
 
 Util.SetCurrency = function(id, amount, icon, txt, ...)
-  -- function num : 0_141 , upvalues : _ENV, Util
+  -- function num : 0_142 , upvalues : _ENV, Util
   local currencyAmount = (ActorData.GetAssetCount)(id)
   if id == AssetType.DIAMOND_BIND then
     local diamondAmount = (ActorData.GetAssetCount)(AssetType.DIAMOND)
@@ -3061,7 +3077,7 @@ end
 
 ShakeType = {Horizontal = 1, Vertical = 2, Multiply = 3}
 Util.Shake = function(component, type, amplitude, duration, callback, ...)
-  -- function num : 0_142 , upvalues : _ENV, Util
+  -- function num : 0_143 , upvalues : _ENV, Util
   if component == nil then
     return 
   end
@@ -3078,7 +3094,7 @@ Util.Shake = function(component, type, amplitude, duration, callback, ...)
   local tweener, action = nil, nil
   if type == ShakeType.Horizontal then
     action = function(...)
-    -- function num : 0_142_0 , upvalues : Util, component, originXY, tweener
+    -- function num : 0_143_0 , upvalues : Util, component, originXY, tweener
     if not (Util.IsNil)(component) then
       component.x = originXY.x + (tweener.value).x
     end
@@ -3087,7 +3103,7 @@ Util.Shake = function(component, type, amplitude, duration, callback, ...)
   else
     if type == ShakeType.Vertical then
       action = function(...)
-    -- function num : 0_142_1 , upvalues : Util, component, originXY, tweener
+    -- function num : 0_143_1 , upvalues : Util, component, originXY, tweener
     if not (Util.IsNil)(component) then
       component.y = originXY.y + (tweener.value).y
     end
@@ -3096,7 +3112,7 @@ Util.Shake = function(component, type, amplitude, duration, callback, ...)
     else
       if type == ShakeType.Multiply then
         action = function(...)
-    -- function num : 0_142_2 , upvalues : Util, component, originXY, tweener
+    -- function num : 0_143_2 , upvalues : Util, component, originXY, tweener
     if not (Util.IsNil)(component) then
       component.x = originXY.x + (tweener.value).x
       component.y = originXY.y + (tweener.value).y
@@ -3109,13 +3125,13 @@ Util.Shake = function(component, type, amplitude, duration, callback, ...)
     end
   end
   tweener = ((((FairyGUI.GTween).Shake)(Vector3.zero, amplitude, duration)):OnUpdate(function(...)
-    -- function num : 0_142_3 , upvalues : action
+    -- function num : 0_143_3 , upvalues : action
     if action ~= nil then
       action()
     end
   end
 )):OnComplete(function(...)
-    -- function num : 0_142_4 , upvalues : callback
+    -- function num : 0_143_4 , upvalues : callback
     if callback ~= nil then
       callback()
     end
@@ -3124,7 +3140,7 @@ Util.Shake = function(component, type, amplitude, duration, callback, ...)
 end
 
 Util.GoodsObjectToItemDataModel = function(goodsObj, ...)
-  -- function num : 0_143 , upvalues : ipairs, t_insert
+  -- function num : 0_144 , upvalues : ipairs, t_insert
   local mGoods = {}
   if goodsObj then
     for _,v in ipairs(goodsObj) do
@@ -3142,18 +3158,18 @@ Util.GoodsObjectToItemDataModel = function(goodsObj, ...)
 end
 
 Util.IsFightScene = function(...)
-  -- function num : 0_144 , upvalues : _ENV
+  -- function num : 0_145 , upvalues : _ENV
   do return UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 local prepareLevelUp = false
 Util.OpenPlayerLevelUpWindow = function(...)
-  -- function num : 0_145 , upvalues : Util, _ENV
+  -- function num : 0_146 , upvalues : Util, _ENV
   (Util.IsPrepareLevelUpWindow)(true)
   ;
   (SimpleTimer.setTimeout)(0.1, function(...)
-    -- function num : 0_145_0 , upvalues : _ENV, Util
+    -- function num : 0_146_0 , upvalues : _ENV, Util
     if not UIMgr:IsWindowOpen((WinResConfig.BattleWinConvergeWindow).name) and not UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) and not UIMgr:IsWindowOpen((WinResConfig.ClearingWindow).name) then
       if UIMgr:IsWindowOpen((WinResConfig.RewardShowWindow).name) then
         OpenWindow((WinResConfig.PlayerLevelUpWindow).name, UILayer.HUD1)
@@ -3166,7 +3182,7 @@ Util.OpenPlayerLevelUpWindow = function(...)
 end
 
 Util.IsPrepareLevelUpWindow = function(value, ...)
-  -- function num : 0_146 , upvalues : prepareLevelUp
+  -- function num : 0_147 , upvalues : prepareLevelUp
   if value == nil then
     return prepareLevelUp
   else
@@ -3175,7 +3191,7 @@ Util.IsPrepareLevelUpWindow = function(value, ...)
 end
 
 Util.SetNotFoundEffect = function(loader, ...)
-  -- function num : 0_147 , upvalues : Util, _ENV
+  -- function num : 0_148 , upvalues : Util, _ENV
   if loader.Model ~= nil then
     return 
   end
@@ -3188,7 +3204,7 @@ Util.SetNotFoundEffect = function(loader, ...)
 end
 
 Util.GetSelfBattlePosByPos = function(pos, ...)
-  -- function num : 0_148
+  -- function num : 0_149
   if pos < 4 then
     return pos
   else
@@ -3197,7 +3213,7 @@ Util.GetSelfBattlePosByPos = function(pos, ...)
 end
 
 Util.GetSelfPosByBattlePos = function(pos, ...)
-  -- function num : 0_149
+  -- function num : 0_150
   if pos < 10 then
     return pos
   else
@@ -3206,7 +3222,7 @@ Util.GetSelfPosByBattlePos = function(pos, ...)
 end
 
 Util.GetEnemyBattlePosByPos = function(pos, ...)
-  -- function num : 0_150
+  -- function num : 0_151
   if pos < 4 then
     return 100 + pos
   else
@@ -3215,7 +3231,7 @@ Util.GetEnemyBattlePosByPos = function(pos, ...)
 end
 
 Util.GetEnemyPosByBattlePos = function(pos, ...)
-  -- function num : 0_151
+  -- function num : 0_152
   if pos < 110 then
     return pos - 100
   else
@@ -3224,7 +3240,7 @@ Util.GetEnemyPosByBattlePos = function(pos, ...)
 end
 
 Util.GetAllFomation = function(selfFormation, enemyFormation, ...)
-  -- function num : 0_152 , upvalues : _ENV, Util, pairs
+  -- function num : 0_153 , upvalues : _ENV, Util, pairs
   local battleFormation = {}
   local count = #selfFormation
   for i = 1, count do
@@ -3239,7 +3255,7 @@ Util.GetAllFomation = function(selfFormation, enemyFormation, ...)
 end
 
 Util.CoverBattleFormation2SelfFormation = function(battleFormation, ...)
-  -- function num : 0_153 , upvalues : _ENV, Util
+  -- function num : 0_154 , upvalues : _ENV, Util
   local selfFormation = {}
   local count = #battleFormation
   for i = 1, count do
@@ -3251,7 +3267,7 @@ Util.CoverBattleFormation2SelfFormation = function(battleFormation, ...)
 end
 
 Util.SortingCost = function(cost, ...)
-  -- function num : 0_154 , upvalues : split, _ENV, Util
+  -- function num : 0_155 , upvalues : split, _ENV, Util
   local count = #cost
   local costInfo = nil
   for i = 1, count do
@@ -3264,7 +3280,7 @@ Util.SortingCost = function(cost, ...)
   end
   ;
   (table.sort)(cost, function(x, y, ...)
-    -- function num : 0_154_0
+    -- function num : 0_155_0
     if x.Weight == y.Weight then
       return false
     else
@@ -3277,7 +3293,7 @@ Util.SortingCost = function(cost, ...)
 end
 
 Util.GetAssetWeight = function(id, ...)
-  -- function num : 0_155 , upvalues : _ENV
+  -- function num : 0_156 , upvalues : _ENV
   if id == AssetType.DIAMOND then
     return 100
   else
@@ -3290,7 +3306,7 @@ Util.GetAssetWeight = function(id, ...)
 end
 
 Util.CheckCostResources = function(cost, func, notEnoughFunc, notShowTips, showAmount, AimNum, ...)
-  -- function num : 0_156 , upvalues : type, split, Util, _ENV
+  -- function num : 0_157 , upvalues : type, split, Util, _ENV
   local costInfo = nil
   if type(cost) == "string" then
     costInfo = split(cost, ",")
@@ -3372,14 +3388,14 @@ Util.CheckCostResources = function(cost, func, notEnoughFunc, notShowTips, showA
 end
 
 Util.PlayUIEffect = function(uis, contentPane, delta, ...)
-  -- function num : 0_157 , upvalues : _ENV
+  -- function num : 0_158 , upvalues : _ENV
   local holder = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_UNLOCK, true)
   holder:SetXY(((uis.ResultImageGrp).root).x + ((uis.ResultImageGrp).root).width * 0.5, ((uis.ResultImageGrp).root).y + delta)
   contentPane:AddChild(holder)
 end
 
 Util.PlayProgressBarAni = function(cardData, addExp, ProgressBar, waitTime, ...)
-  -- function num : 0_158 , upvalues : _ENV, Util
+  -- function num : 0_159 , upvalues : _ENV, Util
   if cardData == nil or addExp == nil or addExp <= 0 or ProgressBar == nil then
     return 
   end
@@ -3390,10 +3406,10 @@ Util.PlayProgressBarAni = function(cardData, addExp, ProgressBar, waitTime, ...)
   ProgressBar.value = (mCurExp - mAddExp) / mMax * 100
   ;
   (SimpleTimer.setTimeout)(waitTime, function(...)
-    -- function num : 0_158_0 , upvalues : timer, Util, ProgressBar, mCurExp, mAddExp, mMax, mNum, currentExp, nextExp, _ENV
+    -- function num : 0_159_0 , upvalues : timer, Util, ProgressBar, mCurExp, mAddExp, mMax, mNum, currentExp, nextExp, _ENV
     if timer > 0 then
       (Util.SetProgressAni)(ProgressBar, mCurExp - mAddExp, mMax, mMax, 1, function(...)
-      -- function num : 0_158_0_0 , upvalues : Util, mNum, timer, ProgressBar, currentExp, nextExp
+      -- function num : 0_159_0_0 , upvalues : Util, mNum, timer, ProgressBar, currentExp, nextExp
       (Util.SetCallBack)(mNum, timer, ProgressBar, currentExp, nextExp)
     end
 )
@@ -3401,7 +3417,7 @@ Util.PlayProgressBarAni = function(cardData, addExp, ProgressBar, waitTime, ...)
       local gt = (GTween.To)(mCurExp - mAddExp, currentExp, 1)
       do
         gt:OnUpdate(function(...)
-      -- function num : 0_158_0_1 , upvalues : ProgressBar, gt, mMax
+      -- function num : 0_159_0_1 , upvalues : ProgressBar, gt, mMax
       ProgressBar.value = (gt.value).x / mMax * 100
     end
 )
@@ -3412,14 +3428,14 @@ Util.PlayProgressBarAni = function(cardData, addExp, ProgressBar, waitTime, ...)
 end
 
 Util.SetCallBack = function(mNum, timer, ProgressBar, currentExp, nextExp, ...)
-  -- function num : 0_159 , upvalues : Util
+  -- function num : 0_160 , upvalues : Util
   mNum = mNum + 1
   if timer <= mNum then
     (Util.SetProgressAni)(ProgressBar, 0, currentExp, nextExp, 1)
   else
     ;
     (Util.SetProgressAni)(ProgressBar, 0, 100, 100, 1, function(...)
-    -- function num : 0_159_0 , upvalues : Util, mNum, timer, ProgressBar, currentExp, nextExp
+    -- function num : 0_160_0 , upvalues : Util, mNum, timer, ProgressBar, currentExp, nextExp
     (Util.SetCallBack)(mNum, timer, ProgressBar, currentExp, nextExp)
   end
 )
@@ -3427,15 +3443,15 @@ Util.SetCallBack = function(mNum, timer, ProgressBar, currentExp, nextExp, ...)
 end
 
 Util.SetProgressAni = function(Progress, startValue, endValue, max, duration, callBack, ...)
-  -- function num : 0_160 , upvalues : _ENV
+  -- function num : 0_161 , upvalues : _ENV
   local gt = (GTween.To)(startValue, endValue, duration)
   gt:OnUpdate(function(...)
-    -- function num : 0_160_0 , upvalues : Progress, gt, max
+    -- function num : 0_161_0 , upvalues : Progress, gt, max
     Progress.value = (gt.value).x / max * 100
   end
 )
   gt:OnComplete(function(...)
-    -- function num : 0_160_1 , upvalues : callBack
+    -- function num : 0_161_1 , upvalues : callBack
     if callBack ~= nil then
       callBack()
     end
@@ -3444,7 +3460,7 @@ Util.SetProgressAni = function(Progress, startValue, endValue, max, duration, ca
 end
 
 Util.GetUpLevelNum = function(cardData, curExp, addExp, lvTimer, ...)
-  -- function num : 0_161 , upvalues : _ENV, Util
+  -- function num : 0_162 , upvalues : _ENV, Util
   local currentExp = curExp
   if addExp <= currentExp then
     local maxExp = curExp
@@ -3466,14 +3482,14 @@ Util.GetUpLevelNum = function(cardData, curExp, addExp, lvTimer, ...)
 end
 
 Util.ShowGuideTips = function(checkpoint, ...)
-  -- function num : 0_162 , upvalues : _ENV
+  -- function num : 0_163 , upvalues : _ENV
   ld("GuideTips")
   ;
   (GuideTipsMgr.ShowGuideTips)(checkpoint, ...)
 end
 
 Util.GetChapterIDByStageID = function(stageId, ...)
-  -- function num : 0_163 , upvalues : _ENV
+  -- function num : 0_164 , upvalues : _ENV
   stageId = tonumber(stageId)
   local chapterId = stageId % 10000
   chapterId = (math.floor)(chapterId / 100)
@@ -3492,24 +3508,24 @@ Util.GetChapterIDByStageID = function(stageId, ...)
 end
 
 Util.IsNil = function(uobj, ...)
-  -- function num : 0_164
+  -- function num : 0_165
   do return uobj ~= nil and uobj:Equals(nil) end
   -- DECOMPILER ERROR: 2 unprocessed JMP targets
 end
 
 Util.SetBackGroundWithCardId = function(loader, cardId, ...)
-  -- function num : 0_165 , upvalues : _ENV, Util
+  -- function num : 0_166 , upvalues : _ENV, Util
   local cardData = ((TableData.gTable).BaseCardData)[cardId]
   local url = (Util.GetResUrl)(cardData.intelligence_bg)
   loader.url = url
 end
 
 Util.GetANewCard = function(...)
-  -- function num : 0_166
+  -- function num : 0_167
 end
 
 Util.NumberTransformKilo = function(num, ...)
-  -- function num : 0_167 , upvalues : _ENV
+  -- function num : 0_168 , upvalues : _ENV
   local num = tonumber(num)
   if num == nil then
     return 
@@ -3534,7 +3550,7 @@ Util.NumberTransformKilo = function(num, ...)
 end
 
 Util.SetSliverHeadIcon = function(fashionId, loader, ...)
-  -- function num : 0_168 , upvalues : _ENV, Util
+  -- function num : 0_169 , upvalues : _ENV, Util
   local fashionConfig = ((TableData.gTable).BaseFashionData)[fashionId]
   if not fashionConfig then
     loge(fashionId .. "fashionId" .. "未找到")
@@ -3546,7 +3562,7 @@ Util.SetSliverHeadIcon = function(fashionId, loader, ...)
 end
 
 Util.SetTxt = function(content, list, ...)
-  -- function num : 0_169 , upvalues : split, ipairs, Util
+  -- function num : 0_170 , upvalues : split, ipairs, Util
   list.numItems = 0
   local ruleDes = content
   local rule = split(ruleDes, "::")
@@ -3561,7 +3577,7 @@ Util.SetTxt = function(content, list, ...)
 end
 
 Util.CreateLine = function(content, ...)
-  -- function num : 0_170 , upvalues : Util, _ENV
+  -- function num : 0_171 , upvalues : Util, _ENV
   if (Util.StringIsNullOrEmpty)(content) then
     return 
   end
@@ -3579,7 +3595,7 @@ Util.CreateLine = function(content, ...)
 end
 
 Util.CheckPassWordLegal = function(content, showTip, minLen, maxLen, ...)
-  -- function num : 0_171 , upvalues : _ENV
+  -- function num : 0_172 , upvalues : _ENV
   local len = (string.len)(content)
   if len < minLen then
     if showTip then
@@ -3627,7 +3643,7 @@ Util.CheckPassWordLegal = function(content, showTip, minLen, maxLen, ...)
 end
 
 Util.SetTitleShow = function(com, titleID, ...)
-  -- function num : 0_172 , upvalues : _ENV, Util
+  -- function num : 0_173 , upvalues : _ENV, Util
   if titleID and titleID > 0 then
     ChangeUIController(com, "c1", 0)
     local configData = ((TableData.gTable).BasePlayerTitleData)[titleID]
@@ -3651,7 +3667,7 @@ Util.SetTitleShow = function(com, titleID, ...)
 end
 
 Util.LimitContentType = function(content, digital, letter, ...)
-  -- function num : 0_173 , upvalues : _ENV
+  -- function num : 0_174 , upvalues : _ENV
   local len = (string.len)(content)
   local containDigital = false
   local containLetter = false
@@ -3681,7 +3697,7 @@ Util.LimitContentType = function(content, digital, letter, ...)
 end
 
 Util.CreatCardSpineWithStaticOrNot = function(loader, cardData, isNeedShutter, forceStatic, ...)
-  -- function num : 0_174 , upvalues : Util, _ENV, require
+  -- function num : 0_175 , upvalues : Util, _ENV, require
   (Util.RecycleUIModel)(loader)
   local isStatic = (Util.GetPlayerSetting)(cardData.id .. "Static", "0")
   local fashionConfig = (CardData.GetFashionConfig)(cardData)
@@ -3706,13 +3722,13 @@ Util.CreatCardSpineWithStaticOrNot = function(loader, cardData, isNeedShutter, f
 end
 
 Util.RegistCaptureScreenShot = function(shotBtn, logo, code, wid, hei, ...)
-  -- function num : 0_175 , upvalues : _ENV
+  -- function num : 0_176 , upvalues : _ENV
   logo.visible = false
   code.visible = false
   shotBtn.visible = false
   ;
   (shotBtn.onClick):Set(function(...)
-    -- function num : 0_175_0 , upvalues : _ENV, shotBtn, logo, code, wid, hei
+    -- function num : 0_176_0 , upvalues : _ENV, shotBtn, logo, code, wid, hei
     if (FunctionControlMgr.GetFunctionState)(ControlID.Share, true) then
       ((CS.ScreenShotManager).Instance):HideOrShowBackGroundCamera(false)
       shotBtn.visible = false
@@ -3720,7 +3736,7 @@ Util.RegistCaptureScreenShot = function(shotBtn, logo, code, wid, hei, ...)
       code.visible = true
       ;
       ((CS.ScreenShotManager).Instance):StartScreenShoot(wid, hei, function(...)
-      -- function num : 0_175_0_0 , upvalues : _ENV, shotBtn, logo, code
+      -- function num : 0_176_0_0 , upvalues : _ENV, shotBtn, logo, code
       OpenWindow((WinResConfig.ShareMainWindow).name, UILayer.HUD, shotBtn, logo, code)
     end
 )
@@ -3730,7 +3746,7 @@ Util.RegistCaptureScreenShot = function(shotBtn, logo, code, wid, hei, ...)
 end
 
 Util.GetActivityIds = function(playId, ...)
-  -- function num : 0_176 , upvalues : _ENV, ipairs, split
+  -- function num : 0_177 , upvalues : _ENV, ipairs, split
   local playData = ((TableData.gTable).BasePlayData)[playId]
   local buffIds = {}
   for index,value in ipairs(split(playData.double_activity_id, ":")) do
@@ -3742,7 +3758,7 @@ Util.GetActivityIds = function(playId, ...)
 end
 
 Util.Round = function(value, ...)
-  -- function num : 0_177 , upvalues : _ENV
+  -- function num : 0_178 , upvalues : _ENV
   if not value then
     value = 0
   end
@@ -3751,7 +3767,7 @@ Util.Round = function(value, ...)
 end
 
 Util.GetIconPathByID = function(id, ...)
-  -- function num : 0_178 , upvalues : Util, _ENV
+  -- function num : 0_179 , upvalues : Util, _ENV
   local configData, dataType = (Util.GetConfigDataByID)(tonumber(id))
   if dataType == PropType.TITLE then
     return (Util.GetItemUrl)(configData.goods_icon)
@@ -3765,7 +3781,7 @@ Util.GetIconPathByID = function(id, ...)
 end
 
 Util.isPointInRect = function(point, ltPoint, lbPoint, rtPoint, rbPoint, ...)
-  -- function num : 0_179
+  -- function num : 0_180
   local a = (ltPoint.x - lbPoint.x) * (point.y - lbPoint.y) - (ltPoint.y - lbPoint.y) * (point.x - lbPoint.x)
   local b = (rtPoint.x - ltPoint.x) * (point.y - ltPoint.y) - (rtPoint.y - ltPoint.y) * (point.x - ltPoint.x)
   local c = (rbPoint.x - rtPoint.x) * (point.y - rtPoint.y) - (rbPoint.y - rtPoint.y) * (point.x - rtPoint.x)
@@ -3778,7 +3794,7 @@ Util.isPointInRect = function(point, ltPoint, lbPoint, rtPoint, rbPoint, ...)
 end
 
 Util.CopyVec = function(vec, ...)
-  -- function num : 0_180 , upvalues : _ENV
+  -- function num : 0_181 , upvalues : _ENV
   if vec.z == nil then
     return Vector2(vec.x, vec.y)
   else
@@ -3787,18 +3803,18 @@ Util.CopyVec = function(vec, ...)
 end
 
 Util.Dot = function(v1, v2, ...)
-  -- function num : 0_181
+  -- function num : 0_182
   return v1.x * v2.x + v1.y * v2.y
 end
 
 Util.Cross = function(v1, v2, ...)
-  -- function num : 0_182
+  -- function num : 0_183
   local v3 = {x = v1.y * v2.z - v2.y * v1.z, y = v2.x * v1.z - v1.x * v2.z, z = v1.x * v2.y - v2.x * v1.y}
   return v3
 end
 
 Util.InitIndexList = function(data, pushFunc, sortFunc, ...)
-  -- function num : 0_183 , upvalues : pairs, _ENV
+  -- function num : 0_184 , upvalues : pairs, _ENV
   if data == nil then
     return 
   end
@@ -3834,7 +3850,7 @@ Util.InitIndexList = function(data, pushFunc, sortFunc, ...)
 end
 
 Util.AddToIndexList = function(data, list, indexList, specifyFunc, ...)
-  -- function num : 0_184 , upvalues : _ENV
+  -- function num : 0_185 , upvalues : _ENV
   if data == nil or list == nil or indexList == nil then
     return false
   end
@@ -3868,7 +3884,7 @@ Util.AddToIndexList = function(data, list, indexList, specifyFunc, ...)
 end
 
 Util.RemoveFromIndexList = function(id, list, indexList, ...)
-  -- function num : 0_185 , upvalues : _ENV
+  -- function num : 0_186 , upvalues : _ENV
   if list == nil or indexList == nil then
     return false
   end
@@ -3897,7 +3913,7 @@ Util.RemoveFromIndexList = function(id, list, indexList, ...)
 end
 
 Util.EncodeBase64 = function(source_str, ...)
-  -- function num : 0_186 , upvalues : _ENV
+  -- function num : 0_187 , upvalues : _ENV
   local b64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
   local s64 = ""
   local str = source_str
@@ -3927,7 +3943,7 @@ Util.EncodeBase64 = function(source_str, ...)
 end
 
 Util.DecodeBase64 = function(str64, ...)
-  -- function num : 0_187 , upvalues : _ENV
+  -- function num : 0_188 , upvalues : _ENV
   local b64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
   local temp = {}
   for i = 1, 64 do
@@ -3972,9 +3988,9 @@ Util.DecodeBase64 = function(str64, ...)
 end
 
 Util.DecodeURI = function(s, ...)
-  -- function num : 0_188 , upvalues : _ENV
+  -- function num : 0_189 , upvalues : _ENV
   s = (string.gsub)(s, "%%(%x%x)", function(h, ...)
-    -- function num : 0_188_0 , upvalues : _ENV
+    -- function num : 0_189_0 , upvalues : _ENV
     return (string.char)(tonumber(h, 16))
   end
 )
@@ -3982,9 +3998,9 @@ Util.DecodeURI = function(s, ...)
 end
 
 Util.EncodeURI = function(s, ...)
-  -- function num : 0_189 , upvalues : _ENV
+  -- function num : 0_190 , upvalues : _ENV
   s = (string.gsub)(s, "([^%w%.%- ])", function(c, ...)
-    -- function num : 0_189_0 , upvalues : _ENV
+    -- function num : 0_190_0 , upvalues : _ENV
     return (string.format)("%%%02X", (string.byte)(c))
   end
 )
@@ -3992,7 +4008,7 @@ Util.EncodeURI = function(s, ...)
 end
 
 Util.GetPushSetState = function(...)
-  -- function num : 0_190 , upvalues : _ENV, Util
+  -- function num : 0_191 , upvalues : _ENV, Util
   local show = false
   if Game.gameVersion == "cn" then
     show = true
@@ -4008,7 +4024,7 @@ Util.GetPushSetState = function(...)
 end
 
 Util.CompareVersion = function(nVersion, version, ...)
-  -- function num : 0_191 , upvalues : split, _ENV
+  -- function num : 0_192 , upvalues : split, _ENV
   local enough = false
   local nVersionList = split(nVersion, ".")
   local VersionList = split(version, ".")
@@ -4029,7 +4045,7 @@ Util.CompareVersion = function(nVersion, version, ...)
 end
 
 Util.AddUIModel = function(modelName, ...)
-  -- function num : 0_192 , upvalues : Util, _ENV
+  -- function num : 0_193 , upvalues : Util, _ENV
   if (Util.StringIsNullOrEmpty)(modelName) then
     return 
   end
@@ -4039,7 +4055,7 @@ Util.AddUIModel = function(modelName, ...)
     if model then
       local wrapper = (FairyGUI.GoWrapper)(model)
       wrapper.DestroyAction = function(go, ...)
-    -- function num : 0_192_0 , upvalues : _ENV
+    -- function num : 0_193_0 , upvalues : _ENV
     (ResHelper.DestroyGameObject)(go, false)
   end
 
@@ -4051,7 +4067,7 @@ Util.AddUIModel = function(modelName, ...)
 end
 
 Util.GetGoodsStr = function(goods, ...)
-  -- function num : 0_193 , upvalues : Util, _ENV
+  -- function num : 0_194 , upvalues : Util, _ENV
   if goods == nil then
     return 
   end

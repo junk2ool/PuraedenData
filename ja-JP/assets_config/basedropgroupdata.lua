@@ -1395,6 +1395,14 @@ BaseDropGroupData = {
 , 
 [22501304] = {id = 22501304, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050014:1:5000,61100014:1:2800,61500014:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 
+[22501401] = {id = 22501401, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050011:1:5000,61100011:1:2800,61500021:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[22501402] = {id = 22501402, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050012:1:5000,61100012:1:2800,61500022:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[22501403] = {id = 22501403, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050013:1:5000,61100013:1:2800,61500023:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[22501404] = {id = 22501404, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050014:1:5000,61100014:1:2800,61500024:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
 [22520001] = {id = 22520001, type = 1, propType = 0, assetType = 0, cardType = 0, equipType = 1, equips = "61010012:1:1", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 
 [22520002] = {id = 22520002, type = 1, propType = 0, assetType = 0, cardType = 0, equipType = 1, equips = "61010013:1:1", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
@@ -2006,6 +2014,8 @@ BaseDropGroupData = {
 [22800203] = {id = 22800203, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 
 [22800204] = {id = 22800204, type = 2, propType = 2, assetType = 2, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[22800205] = {id = 22800205, type = 2, propType = 2, assetType = 2, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 
 [22841001] = {id = 22841001, type = 1, propType = 1, assetType = 1, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", seedType = 1, seeds = "21600431:1:833,21600461:1:500,21600471:1:333", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 

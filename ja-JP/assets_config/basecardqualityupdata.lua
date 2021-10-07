@@ -4092,6 +4092,138 @@ BaseCardQualityUpData = {
 [1130004320] = {id = 1130004320, name = (PUtil.get)(81040008), level = 20, level_show = "8:3:4", card_id = 11300043, add_attr = "1:81050003:24875,1:81050004:3875,1:81050002:166925,1:81050021:76,1:81050022:79", card_lv_limit = 70, need_goods = "2:21100003:1300000,1:21140044:68,1:21140043:60,1:21140042:60,1:21140041:60,1:21140040:60,1:21140039:60", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
 , 
 [1130004321] = {id = 1130004321, name = (PUtil.get)(81040008), level = 21, level_show = "9:0:5", card_id = 11300043, add_attr = "1:81050003:27230,1:81050004:4245,1:81050002:182730,1:81050021:80,1:81050022:83", card_lv_limit = 72, need_goods = "2:21100003:1400000,1:21140047:60,1:21140046:60,1:21140045:60,1:21140044:60,1:21140043:68,1:21140042:68", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201800] = {id = 1120201800, name = 0, level = 0, level_show = "0", card_id = 11202018, add_attr = "0", card_lv_limit = 0, need_goods = "0", skill_level_number = 7, unlock_fashion_id = 14221800, unlock_secFashion_id = 0}
+, 
+[1120201801] = {id = 1120201801, name = (PUtil.get)(81040001), level = 1, level_show = "1:0:1", card_id = 11202018, add_attr = "1:81050003:110,1:81050004:25,1:81050002:1105,1:81050021:3,1:81050022:4", card_lv_limit = 1, need_goods = "2:21100003:5000,1:21140001:8", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201802] = {id = 1120201802, name = (PUtil.get)(81040001), level = 2, level_show = "1:1:1", card_id = 11202018, add_attr = "1:81050003:225,1:81050004:50,1:81050002:2210,1:81050021:6,1:81050022:6", card_lv_limit = 1, need_goods = "2:21100003:10000,1:21140002:8,1:21140001:8", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201803] = {id = 1120201803, name = (PUtil.get)(81040002), level = 3, level_show = "2:0:1", card_id = 11202018, add_attr = "1:81050003:340,1:81050004:75,1:81050002:3370,1:81050021:9,1:81050022:8", card_lv_limit = 1, need_goods = "2:21100003:18000,1:21140002:10,1:21140001:10", skill_level_number = 7, unlock_fashion_id = 14221801, unlock_secFashion_id = 0}
+, 
+[1120201804] = {id = 1120201804, name = (PUtil.get)(81040002), level = 4, level_show = "2:1:1", card_id = 11202018, add_attr = "1:81050003:575,1:81050004:125,1:81050002:5675,1:81050021:12,1:81050022:13", card_lv_limit = 1, need_goods = "2:21100003:28000,1:21140004:18,1:21140003:14,1:21140002:14", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201805] = {id = 1120201805, name = (PUtil.get)(81040003), level = 5, level_show = "3:0:2", card_id = 11202018, add_attr = "1:81050003:900,1:81050004:195,1:81050002:8885,1:81050021:15,1:81050022:17", card_lv_limit = 1, need_goods = "2:21100003:40000,1:21140006:22,1:21140005:22,1:21140004:16,1:21140003:16", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201806] = {id = 1120201806, name = (PUtil.get)(81040003), level = 6, level_show = "3:1:2", card_id = 11202018, add_attr = "1:81050003:1310,1:81050004:280,1:81050002:12895,1:81050021:18,1:81050022:21", card_lv_limit = 22, need_goods = "2:21100003:60000,1:21140005:22,1:21140008:26,1:21140007:26,1:21140006:26,1:21140004:22", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201807] = {id = 1120201807, name = (PUtil.get)(81040004), level = 7, level_show = "4:0:2", card_id = 11202018, add_attr = "1:81050003:1795,1:81050004:385,1:81050002:17710,1:81050021:21,1:81050022:25", card_lv_limit = 26, need_goods = "2:21100003:80000,1:21140011:32,1:21140010:32,1:21140009:30,1:21140008:30,1:21140007:26,1:21140006:26", skill_level_number = 7, unlock_fashion_id = 14221802, unlock_secFashion_id = 0}
+, 
+[1120201808] = {id = 1120201808, name = (PUtil.get)(81040004), level = 8, level_show = "4:1:2", card_id = 11202018, add_attr = "1:81050003:2365,1:81050004:505,1:81050002:23330,1:81050021:24,1:81050022:29", card_lv_limit = 30, need_goods = "2:21100003:100000,1:21140014:36,1:21140013:36,1:21140012:32,1:21140011:32,1:21140010:28,1:21140009:28", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201809] = {id = 1120201809, name = (PUtil.get)(81040005), level = 9, level_show = "5:0:3", card_id = 11202018, add_attr = "1:81050003:3020,1:81050004:645,1:81050002:29750,1:81050021:27,1:81050022:33", card_lv_limit = 35, need_goods = "2:21100003:125000,1:21140014:34,1:21140013:34,1:21140016:38,1:21140015:38,1:21140012:34,1:21140011:34", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201810] = {id = 1120201810, name = (PUtil.get)(81040005), level = 10, level_show = "5:1:3", card_id = 11202018, add_attr = "1:81050003:3750,1:81050004:805,1:81050002:36975,1:81050021:30,1:81050022:38", card_lv_limit = 40, need_goods = "2:21100003:175000,1:21140014:38,1:21140018:42,1:21140017:42,1:21140016:38,1:21140015:38,1:21140013:38", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201811] = {id = 1120201811, name = (PUtil.get)(81040006), level = 11, level_show = "6:0:3", card_id = 11202018, add_attr = "1:81050003:4565,1:81050004:980,1:81050002:45000,1:81050021:33,1:81050022:42", card_lv_limit = 45, need_goods = "2:21100003:250000,1:21140020:46,1:21140019:46,1:21140018:42,1:21140017:42,1:21140016:42,1:21140015:42", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201812] = {id = 1120201812, name = (PUtil.get)(81040006), level = 12, level_show = "6:1:3", card_id = 11202018, add_attr = "1:81050003:5460,1:81050004:1170,1:81050002:53830,1:81050021:36,1:81050022:46", card_lv_limit = 50, need_goods = "2:21100003:350000,1:21140022:52,1:21140021:52,1:21140020:46,1:21140019:46,1:21140018:46,1:21140017:46", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201813] = {id = 1120201813, name = (PUtil.get)(81040006), level = 13, level_show = "6:2:3", card_id = 11202018, add_attr = "1:81050003:6440,1:81050004:1380,1:81050002:63465,1:81050021:39,1:81050022:50", card_lv_limit = 52, need_goods = "2:21100003:450000,1:21140024:52,1:21140023:52,1:21140022:52,1:21140021:52,1:21140020:52,1:21140019:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201814] = {id = 1120201814, name = (PUtil.get)(81040007), level = 14, level_show = "7:0:4", card_id = 11202018, add_attr = "1:81050003:7495,1:81050004:1605,1:81050002:73900,1:81050021:42,1:81050022:54", card_lv_limit = 55, need_goods = "2:21100003:600000,1:21140026:60,1:21140025:52,1:21140024:52,1:21140023:52,1:21140022:52,1:21140021:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201815] = {id = 1120201815, name = (PUtil.get)(81040007), level = 15, level_show = "7:1:4", card_id = 11202018, add_attr = "1:81050003:8635,1:81050004:1850,1:81050002:85135,1:81050021:45,1:81050022:58", card_lv_limit = 57, need_goods = "2:21100003:750000,1:21140029:60,1:21140028:60,1:21140027:52,1:21140026:52,1:21140025:52,1:21140024:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201816] = {id = 1120201816, name = (PUtil.get)(81040007), level = 16, level_show = "7:2:4", card_id = 11202018, add_attr = "1:81050003:9860,1:81050004:2110,1:81050002:97175,1:81050021:48,1:81050022:63", card_lv_limit = 60, need_goods = "2:21100003:900000,1:21140032:60,1:21140031:60,1:21140030:60,1:21140029:52,1:21140028:52,1:21140027:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201817] = {id = 1120201817, name = (PUtil.get)(81040008), level = 17, level_show = "8:0:4", card_id = 11202018, add_attr = "1:81050003:11160,1:81050004:2390,1:81050002:110020,1:81050021:51,1:81050022:67", card_lv_limit = 62, need_goods = "2:21100003:1000000,1:21140035:60,1:21140034:60,1:21140033:60,1:21140032:60,1:21140031:52,1:21140030:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201818] = {id = 1120201818, name = (PUtil.get)(81040008), level = 18, level_show = "8:1:4", card_id = 11202018, add_attr = "1:81050003:12545,1:81050004:2690,1:81050002:123665,1:81050021:54,1:81050022:71", card_lv_limit = 65, need_goods = "2:21100003:1100000,1:21140038:60,1:21140037:60,1:21140036:60,1:21140035:60,1:21140034:60,1:21140033:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201819] = {id = 1120201819, name = (PUtil.get)(81040008), level = 19, level_show = "8:2:4", card_id = 11202018, add_attr = "1:81050003:14010,1:81050004:3000,1:81050002:138110,1:81050021:57,1:81050022:75", card_lv_limit = 67, need_goods = "2:21100003:1200000,1:21140041:60,1:21140040:60,1:21140039:60,1:21140038:60,1:21140037:60,1:21140036:60", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201820] = {id = 1120201820, name = (PUtil.get)(81040008), level = 20, level_show = "8:3:4", card_id = 11202018, add_attr = "1:81050003:15475,1:81050004:3310,1:81050002:152555,1:81050021:60,1:81050022:79", card_lv_limit = 70, need_goods = "2:21100003:1300000,1:21140044:68,1:21140043:60,1:21140042:60,1:21140041:60,1:21140040:60,1:21140039:60", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1120201821] = {id = 1120201821, name = (PUtil.get)(81040008), level = 21, level_show = "9:0:5", card_id = 11202018, add_attr = "1:81050003:16940,1:81050004:3620,1:81050002:167000,1:81050021:63,1:81050022:83", card_lv_limit = 72, need_goods = "2:21100003:1400000,1:21140047:60,1:21140046:60,1:21140045:60,1:21140044:60,1:21140043:68,1:21140042:68", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003800] = {id = 1130003800, name = 0, level = 0, level_show = "0", card_id = 11300038, add_attr = "0", card_lv_limit = 0, need_goods = "0", skill_level_number = 7, unlock_fashion_id = 14303800, unlock_secFashion_id = 0}
+, 
+[1130003801] = {id = 1130003801, name = (PUtil.get)(81040001), level = 1, level_show = "1:0:1", card_id = 11300038, add_attr = "1:81050003:130,1:81050004:40,1:81050002:1690,1:81050021:4,1:81050022:4", card_lv_limit = 1, need_goods = "2:21100003:5000,1:21140001:8", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003802] = {id = 1130003802, name = (PUtil.get)(81040001), level = 2, level_show = "1:1:1", card_id = 11300038, add_attr = "1:81050003:255,1:81050004:80,1:81050002:3380,1:81050021:8,1:81050022:6", card_lv_limit = 1, need_goods = "2:21100003:10000,1:21140002:8,1:21140001:8", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003803] = {id = 1130003803, name = (PUtil.get)(81040002), level = 3, level_show = "2:0:1", card_id = 11300038, add_attr = "1:81050003:390,1:81050004:120,1:81050002:5155,1:81050021:11,1:81050022:8", card_lv_limit = 1, need_goods = "2:21100003:18000,1:21140002:10,1:21140001:10", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003804] = {id = 1130003804, name = (PUtil.get)(81040002), level = 4, level_show = "2:1:1", card_id = 11300038, add_attr = "1:81050003:660,1:81050004:205,1:81050002:8675,1:81050021:15,1:81050022:13", card_lv_limit = 1, need_goods = "2:21100003:28000,1:21140004:18,1:21140003:14,1:21140002:14", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003805] = {id = 1130003805, name = (PUtil.get)(81040003), level = 5, level_show = "3:0:2", card_id = 11300038, add_attr = "1:81050003:1030,1:81050004:320,1:81050002:13580,1:81050021:19,1:81050022:17", card_lv_limit = 1, need_goods = "2:21100003:40000,1:21140006:22,1:21140005:22,1:21140004:16,1:21140003:16", skill_level_number = 7, unlock_fashion_id = 14303801, unlock_secFashion_id = 0}
+, 
+[1130003806] = {id = 1130003806, name = (PUtil.get)(81040003), level = 6, level_show = "3:1:2", card_id = 11300038, add_attr = "1:81050003:1495,1:81050004:465,1:81050002:19715,1:81050021:23,1:81050022:21", card_lv_limit = 22, need_goods = "2:21100003:60000,1:21140005:22,1:21140008:26,1:21140007:26,1:21140006:26,1:21140004:22", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003807] = {id = 1130003807, name = (PUtil.get)(81040004), level = 7, level_show = "4:0:2", card_id = 11300038, add_attr = "1:81050003:2055,1:81050004:640,1:81050002:27080,1:81050021:26,1:81050022:25", card_lv_limit = 26, need_goods = "2:21100003:80000,1:21140011:32,1:21140010:32,1:21140009:30,1:21140008:30,1:21140007:26,1:21140006:26", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003808] = {id = 1130003808, name = (PUtil.get)(81040004), level = 8, level_show = "4:1:2", card_id = 11300038, add_attr = "1:81050003:2705,1:81050004:845,1:81050002:35670,1:81050021:30,1:81050022:29", card_lv_limit = 30, need_goods = "2:21100003:100000,1:21140014:36,1:21140013:36,1:21140012:32,1:21140011:32,1:21140010:28,1:21140009:28", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003809] = {id = 1130003809, name = (PUtil.get)(81040005), level = 9, level_show = "5:0:3", card_id = 11300038, add_attr = "1:81050003:3450,1:81050004:1080,1:81050002:45485,1:81050021:34,1:81050022:33", card_lv_limit = 35, need_goods = "2:21100003:125000,1:21140014:34,1:21140013:34,1:21140016:38,1:21140015:38,1:21140012:34,1:21140011:34", skill_level_number = 7, unlock_fashion_id = 14303802, unlock_secFashion_id = 0}
+, 
+[1130003810] = {id = 1130003810, name = (PUtil.get)(81040005), level = 10, level_show = "5:1:3", card_id = 11300038, add_attr = "1:81050003:4285,1:81050004:1340,1:81050002:56535,1:81050021:38,1:81050022:38", card_lv_limit = 40, need_goods = "2:21100003:175000,1:21140014:38,1:21140018:42,1:21140017:42,1:21140016:38,1:21140015:38,1:21140013:38", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003811] = {id = 1130003811, name = (PUtil.get)(81040006), level = 11, level_show = "6:0:3", card_id = 11300038, add_attr = "1:81050003:5220,1:81050004:1630,1:81050002:68805,1:81050021:42,1:81050022:42", card_lv_limit = 45, need_goods = "2:21100003:250000,1:21140020:46,1:21140019:46,1:21140018:42,1:21140017:42,1:21140016:42,1:21140015:42", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003812] = {id = 1130003812, name = (PUtil.get)(81040006), level = 12, level_show = "6:1:3", card_id = 11300038, add_attr = "1:81050003:6240,1:81050004:1950,1:81050002:82305,1:81050021:45,1:81050022:46", card_lv_limit = 50, need_goods = "2:21100003:350000,1:21140022:52,1:21140021:52,1:21140020:46,1:21140019:46,1:21140018:46,1:21140017:46", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003813] = {id = 1130003813, name = (PUtil.get)(81040006), level = 13, level_show = "6:2:3", card_id = 11300038, add_attr = "1:81050003:7360,1:81050004:2300,1:81050002:97035,1:81050021:49,1:81050022:50", card_lv_limit = 52, need_goods = "2:21100003:450000,1:21140024:52,1:21140023:52,1:21140022:52,1:21140021:52,1:21140020:52,1:21140019:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003814] = {id = 1130003814, name = (PUtil.get)(81040007), level = 14, level_show = "7:0:4", card_id = 11300038, add_attr = "1:81050003:8570,1:81050004:2680,1:81050002:112990,1:81050021:53,1:81050022:54", card_lv_limit = 55, need_goods = "2:21100003:600000,1:21140026:60,1:21140025:52,1:21140024:52,1:21140023:52,1:21140022:52,1:21140021:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003815] = {id = 1130003815, name = (PUtil.get)(81040007), level = 15, level_show = "7:1:4", card_id = 11300038, add_attr = "1:81050003:9870,1:81050004:3085,1:81050002:130175,1:81050021:57,1:81050022:58", card_lv_limit = 57, need_goods = "2:21100003:750000,1:21140029:60,1:21140028:60,1:21140027:52,1:21140026:52,1:21140025:52,1:21140024:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003816] = {id = 1130003816, name = (PUtil.get)(81040007), level = 16, level_show = "7:2:4", card_id = 11300038, add_attr = "1:81050003:11265,1:81050004:3520,1:81050002:148580,1:81050021:60,1:81050022:63", card_lv_limit = 60, need_goods = "2:21100003:900000,1:21140032:60,1:21140031:60,1:21140030:60,1:21140029:52,1:21140028:52,1:21140027:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003817] = {id = 1130003817, name = (PUtil.get)(81040008), level = 17, level_show = "8:0:4", card_id = 11300038, add_attr = "1:81050003:12755,1:81050004:3985,1:81050002:168215,1:81050021:64,1:81050022:67", card_lv_limit = 62, need_goods = "2:21100003:1000000,1:21140035:60,1:21140034:60,1:21140033:60,1:21140032:60,1:21140031:52,1:21140030:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003818] = {id = 1130003818, name = (PUtil.get)(81040008), level = 18, level_show = "8:1:4", card_id = 11300038, add_attr = "1:81050003:14340,1:81050004:4480,1:81050002:189080,1:81050021:68,1:81050022:71", card_lv_limit = 65, need_goods = "2:21100003:1100000,1:21140038:60,1:21140037:60,1:21140036:60,1:21140035:60,1:21140034:60,1:21140033:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003819] = {id = 1130003819, name = (PUtil.get)(81040008), level = 19, level_show = "8:2:4", card_id = 11300038, add_attr = "1:81050003:16015,1:81050004:5005,1:81050002:211170,1:81050021:72,1:81050022:75", card_lv_limit = 67, need_goods = "2:21100003:1200000,1:21140041:60,1:21140040:60,1:21140039:60,1:21140038:60,1:21140037:60,1:21140036:60", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003820] = {id = 1130003820, name = (PUtil.get)(81040008), level = 20, level_show = "8:3:4", card_id = 11300038, add_attr = "1:81050003:17690,1:81050004:5530,1:81050002:233260,1:81050021:76,1:81050022:79", card_lv_limit = 70, need_goods = "2:21100003:1300000,1:21140044:68,1:21140043:60,1:21140042:60,1:21140041:60,1:21140040:60,1:21140039:60", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003821] = {id = 1130003821, name = (PUtil.get)(81040008), level = 21, level_show = "9:0:5", card_id = 11300038, add_attr = "1:81050003:19365,1:81050004:6055,1:81050002:255350,1:81050021:80,1:81050022:83", card_lv_limit = 72, need_goods = "2:21100003:1400000,1:21140047:60,1:21140046:60,1:21140045:60,1:21140044:60,1:21140043:68,1:21140042:68", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003900] = {id = 1130003900, name = 0, level = 0, level_show = "0", card_id = 11300039, add_attr = "0", card_lv_limit = 0, need_goods = "0", skill_level_number = 7, unlock_fashion_id = 14303900, unlock_secFashion_id = 0}
+, 
+[1130003901] = {id = 1130003901, name = (PUtil.get)(81040001), level = 1, level_show = "1:0:1", card_id = 11300039, add_attr = "1:81050003:180,1:81050004:30,1:81050002:1210,1:81050021:4,1:81050022:4", card_lv_limit = 1, need_goods = "2:21100003:5000,1:21140001:8", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003902] = {id = 1130003902, name = (PUtil.get)(81040001), level = 2, level_show = "1:1:1", card_id = 11300039, add_attr = "1:81050003:360,1:81050004:55,1:81050002:2420,1:81050021:8,1:81050022:6", card_lv_limit = 1, need_goods = "2:21100003:10000,1:21140002:8,1:21140001:8", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003903] = {id = 1130003903, name = (PUtil.get)(81040002), level = 3, level_show = "2:0:1", card_id = 11300039, add_attr = "1:81050003:550,1:81050004:85,1:81050002:3685,1:81050021:11,1:81050022:8", card_lv_limit = 1, need_goods = "2:21100003:18000,1:21140002:10,1:21140001:10", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003904] = {id = 1130003904, name = (PUtil.get)(81040002), level = 4, level_show = "2:1:1", card_id = 11300039, add_attr = "1:81050003:925,1:81050004:145,1:81050002:6210,1:81050021:15,1:81050022:13", card_lv_limit = 1, need_goods = "2:21100003:28000,1:21140004:18,1:21140003:14,1:21140002:14", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003905] = {id = 1130003905, name = (PUtil.get)(81040003), level = 5, level_show = "3:0:2", card_id = 11300039, add_attr = "1:81050003:1450,1:81050004:225,1:81050002:9720,1:81050021:19,1:81050022:17", card_lv_limit = 1, need_goods = "2:21100003:40000,1:21140006:22,1:21140005:22,1:21140004:16,1:21140003:16", skill_level_number = 7, unlock_fashion_id = 14303901, unlock_secFashion_id = 0}
+, 
+[1130003906] = {id = 1130003906, name = (PUtil.get)(81040003), level = 6, level_show = "3:1:2", card_id = 11300039, add_attr = "1:81050003:2100,1:81050004:325,1:81050002:14110,1:81050021:23,1:81050022:21", card_lv_limit = 22, need_goods = "2:21100003:60000,1:21140005:22,1:21140008:26,1:21140007:26,1:21140006:26,1:21140004:22", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003907] = {id = 1130003907, name = (PUtil.get)(81040004), level = 7, level_show = "4:0:2", card_id = 11300039, add_attr = "1:81050003:2890,1:81050004:450,1:81050002:19380,1:81050021:26,1:81050022:25", card_lv_limit = 26, need_goods = "2:21100003:80000,1:21140011:32,1:21140010:32,1:21140009:30,1:21140008:30,1:21140007:26,1:21140006:26", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003908] = {id = 1130003908, name = (PUtil.get)(81040004), level = 8, level_show = "4:1:2", card_id = 11300039, add_attr = "1:81050003:3805,1:81050004:590,1:81050002:25525,1:81050021:30,1:81050022:29", card_lv_limit = 30, need_goods = "2:21100003:100000,1:21140014:36,1:21140013:36,1:21140012:32,1:21140011:32,1:21140010:28,1:21140009:28", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003909] = {id = 1130003909, name = (PUtil.get)(81040005), level = 9, level_show = "5:0:3", card_id = 11300039, add_attr = "1:81050003:4850,1:81050004:755,1:81050002:32550,1:81050021:34,1:81050022:33", card_lv_limit = 35, need_goods = "2:21100003:125000,1:21140014:34,1:21140013:34,1:21140016:38,1:21140015:38,1:21140012:34,1:21140011:34", skill_level_number = 7, unlock_fashion_id = 14303902, unlock_secFashion_id = 0}
+, 
+[1130003910] = {id = 1130003910, name = (PUtil.get)(81040005), level = 10, level_show = "5:1:3", card_id = 11300039, add_attr = "1:81050003:6030,1:81050004:940,1:81050002:40460,1:81050021:38,1:81050022:38", card_lv_limit = 40, need_goods = "2:21100003:175000,1:21140014:38,1:21140018:42,1:21140017:42,1:21140016:38,1:21140015:38,1:21140013:38", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003911] = {id = 1130003911, name = (PUtil.get)(81040006), level = 11, level_show = "6:0:3", card_id = 11300039, add_attr = "1:81050003:7335,1:81050004:1140,1:81050002:49240,1:81050021:42,1:81050022:42", card_lv_limit = 45, need_goods = "2:21100003:250000,1:21140020:46,1:21140019:46,1:21140018:42,1:21140017:42,1:21140016:42,1:21140015:42", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003912] = {id = 1130003912, name = (PUtil.get)(81040006), level = 12, level_show = "6:1:3", card_id = 11300039, add_attr = "1:81050003:8775,1:81050004:1365,1:81050002:58900,1:81050021:45,1:81050022:46", card_lv_limit = 50, need_goods = "2:21100003:350000,1:21140022:52,1:21140021:52,1:21140020:46,1:21140019:46,1:21140018:46,1:21140017:46", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003913] = {id = 1130003913, name = (PUtil.get)(81040006), level = 13, level_show = "6:2:3", card_id = 11300039, add_attr = "1:81050003:10345,1:81050004:1610,1:81050002:69445,1:81050021:49,1:81050022:50", card_lv_limit = 52, need_goods = "2:21100003:450000,1:21140024:52,1:21140023:52,1:21140022:52,1:21140021:52,1:21140020:52,1:21140019:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003914] = {id = 1130003914, name = (PUtil.get)(81040007), level = 14, level_show = "7:0:4", card_id = 11300039, add_attr = "1:81050003:12050,1:81050004:1875,1:81050002:80860,1:81050021:53,1:81050022:54", card_lv_limit = 55, need_goods = "2:21100003:600000,1:21140026:60,1:21140025:52,1:21140024:52,1:21140023:52,1:21140022:52,1:21140021:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003915] = {id = 1130003915, name = (PUtil.get)(81040007), level = 15, level_show = "7:1:4", card_id = 11300039, add_attr = "1:81050003:13880,1:81050004:2160,1:81050002:93155,1:81050021:57,1:81050022:58", card_lv_limit = 57, need_goods = "2:21100003:750000,1:21140029:60,1:21140028:60,1:21140027:52,1:21140026:52,1:21140025:52,1:21140024:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003916] = {id = 1130003916, name = (PUtil.get)(81040007), level = 16, level_show = "7:2:4", card_id = 11300039, add_attr = "1:81050003:15845,1:81050004:2465,1:81050002:106330,1:81050021:60,1:81050022:63", card_lv_limit = 60, need_goods = "2:21100003:900000,1:21140032:60,1:21140031:60,1:21140030:60,1:21140029:52,1:21140028:52,1:21140027:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003917] = {id = 1130003917, name = (PUtil.get)(81040008), level = 17, level_show = "8:0:4", card_id = 11300039, add_attr = "1:81050003:17940,1:81050004:2790,1:81050002:120385,1:81050021:64,1:81050022:67", card_lv_limit = 62, need_goods = "2:21100003:1000000,1:21140035:60,1:21140034:60,1:21140033:60,1:21140032:60,1:21140031:52,1:21140030:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003918] = {id = 1130003918, name = (PUtil.get)(81040008), level = 18, level_show = "8:1:4", card_id = 11300039, add_attr = "1:81050003:20165,1:81050004:3135,1:81050002:135315,1:81050021:68,1:81050022:71", card_lv_limit = 65, need_goods = "2:21100003:1100000,1:21140038:60,1:21140037:60,1:21140036:60,1:21140035:60,1:21140034:60,1:21140033:52", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003919] = {id = 1130003919, name = (PUtil.get)(81040008), level = 19, level_show = "8:2:4", card_id = 11300039, add_attr = "1:81050003:22520,1:81050004:3505,1:81050002:151120,1:81050021:72,1:81050022:75", card_lv_limit = 67, need_goods = "2:21100003:1200000,1:21140041:60,1:21140040:60,1:21140039:60,1:21140038:60,1:21140037:60,1:21140036:60", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003920] = {id = 1130003920, name = (PUtil.get)(81040008), level = 20, level_show = "8:3:4", card_id = 11300039, add_attr = "1:81050003:24875,1:81050004:3875,1:81050002:166925,1:81050021:76,1:81050022:79", card_lv_limit = 70, need_goods = "2:21100003:1300000,1:21140044:68,1:21140043:60,1:21140042:60,1:21140041:60,1:21140040:60,1:21140039:60", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
+, 
+[1130003921] = {id = 1130003921, name = (PUtil.get)(81040008), level = 21, level_show = "9:0:5", card_id = 11300039, add_attr = "1:81050003:27230,1:81050004:4245,1:81050002:182730,1:81050021:80,1:81050022:83", card_lv_limit = 72, need_goods = "2:21100003:1400000,1:21140047:60,1:21140046:60,1:21140045:60,1:21140044:60,1:21140043:68,1:21140042:68", skill_level_number = 7, unlock_fashion_id = 0, unlock_secFashion_id = 0}
 }
 return BaseCardQualityUpData
 

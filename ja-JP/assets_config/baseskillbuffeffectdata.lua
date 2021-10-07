@@ -129,6 +129,8 @@ BaseSkillBuffEffectData = {
 , 
 [417] = {id = 417, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
+[419] = {id = 419, attribute_id = 0, control_type = "101", words_path = "Battle:buff_409", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "FX_common_ridicule", effect_head_priority = 3, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
 [501] = {id = 501, attribute_id = 81050002, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [502] = {id = 502, attribute_id = 81050003, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "BuffIcon:buff_502", icon_priority = 2, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
