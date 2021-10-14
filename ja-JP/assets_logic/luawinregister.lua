@@ -724,8 +724,6 @@ GuildBossHurtReportWindow = {"CardHeadIconCircle"}
 , 
 GuildBossSupportWindow = {"Equipicon"}
 , 
-ActivityDungeonShopWindow = {"Equipicon"}
-, 
 FriendsListWindow = {"CharacterHeadBanner", "Title"}
 , 
 FriendAddWindow = {"CharacterHeadBanner", "CardHeadIconCircle"}
@@ -772,7 +770,7 @@ TowerTopStageWindow = {"TowerPic"}
 , 
 ActivityDungeonMainWindow = {"ActivityDungeonTwo"}
 , 
-ActivityDungeonShopWindow = {"ActivityDungeonTwo"}
+ActivityDungeonShopWindow = {"ActivityDungeonTwo", "Equipicon"}
 , 
 ActivityDungeonExchangeWindow = {"ActivityDungeonTwo"}
 , 
