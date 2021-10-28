@@ -1573,6 +1573,16 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
     local new = presetData.New
     presetData.New = nil
     if new then
+      if presetData.cardId ~= 0 then
+        for k,v in pairs(presetData.equipIndex) do
+          local equip = (EquiptData.Equipments)[(EquiptData.Equipments)[v]]
+          if equip and not (EquiptMgr.EquipIsAvailable)(equip, presetData.cardId) then
+            (MessageMgr.SendCenterTips)((PUtil.get)(60000662))
+            return 
+          end
+        end
+      end
+      ;
       (EquiptService.ReqAddEquipScheme)(presetData, 0)
     else
       local oldEquipts = {}
@@ -1613,7 +1623,7 @@ EquiptMgr.UpdateEquipPreset = function(presetData, name, ...)
         UIMgr:SendWindowMessage((WinResConfig.EquipmentWindow).name, (WindowMsgEnum.Equipt).E_MSG_CANCEL_EDIT_PRESET)
       end
     end
-    -- DECOMPILER ERROR: 10 unprocessed JMP targets
+    -- DECOMPILER ERROR: 12 unprocessed JMP targets
   end
 
       local prompt = function(...)

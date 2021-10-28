@@ -38,7 +38,7 @@ ShopBuyWindow.OnInit = function(bridgeObj, ...)
   -- DECOMPILER ERROR at PC67: Confused about usage of register: R3 in 'UnsetPending'
 
   if buyData.MaxNum > 1 then
-    (uis.TimeTxt).text = (PUtil.get)(20000332, tostring(buyData.MaxNum))
+    (uis.TimeTxt).text = (PUtil.get)(20000335, tostring(buyData.MaxNum))
     -- DECOMPILER ERROR at PC69: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
@@ -47,7 +47,7 @@ ShopBuyWindow.OnInit = function(bridgeObj, ...)
     -- DECOMPILER ERROR at PC87: Confused about usage of register: R3 in 'UnsetPending'
 
     if tonumber(buyData.reset_type) == 0 or buyData.sell_limit_time > 1 then
-      (uis.TimeTxt).text = (PUtil.get)(20000332, tostring(buyData.MaxNum))
+      (uis.TimeTxt).text = (PUtil.get)(20000335, tostring(buyData.MaxNum))
       -- DECOMPILER ERROR at PC89: Confused about usage of register: R3 in 'UnsetPending'
 
       ;

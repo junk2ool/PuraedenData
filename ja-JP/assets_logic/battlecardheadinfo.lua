@@ -166,13 +166,13 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
   end
 
   headInfo.UpdateDander = function(self, battleCard, dander, removeFullRage, ...)
-    -- function num : 0_0_6 , upvalues : min, math, rageProgressBar, _ENV, BattleCardCamp, WindowMsgEnum
+    -- function num : 0_0_6 , upvalues : min, math, _ENV, rageProgressBar, BattleCardCamp, WindowMsgEnum
     local _lastDander = self.lastDander
     local _nowDander = battleCard:GetDander()
     if dander then
       _nowDander = min(battleCard:GetMaxDander(), _lastDander + dander)
       _nowDander = (math.max)(_nowDander, 0)
-      if _nowDander ~= battleCard:GetDander() then
+      if not BattleConfig.isPlayBack and _nowDander ~= battleCard:GetDander() then
         _nowDander = battleCard:GetDander()
       end
     end
