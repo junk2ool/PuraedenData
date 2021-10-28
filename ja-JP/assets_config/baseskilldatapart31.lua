@@ -3863,6 +3863,186 @@ BaseSkillDataPart31 = {
 , 
 [47205333] = {id = 47205333, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 25800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[47205401] = {id = 47205401, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205402] = {id = 47205402, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205403] = {id = 47205403, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205404] = {id = 47205404, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205405] = {id = 47205405, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205406] = {id = 47205406, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205407] = {id = 47205407, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205408] = {id = 47205408, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205409] = {id = 47205409, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205410] = {id = 47205410, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205411] = {id = 47205411, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205412] = {id = 47205412, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205413] = {id = 47205413, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205414] = {id = 47205414, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205415] = {id = 47205415, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205416] = {id = 47205416, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205417] = {id = 47205417, name = (PUtil.get)(81222111), remark = (PUtil.get)(81322111), des = (PUtil.get)(81610001, (PUtil.get)(81322111), (PUtil.get)(81662111)), des_level_up = "81050901:154", des_array = (PUtil.get)(81662111), icon_path = "SkillIcon:43002111", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46121111:3071:10000,2:46121112:3071:10000,3:46121113:3071:10000", show_id = 43111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0, star_config_id = "46121111:46121112"}
+, 
+[47205418] = {id = 47205418, name = (PUtil.get)(81221003), remark = (PUtil.get)(81321003), des = (PUtil.get)(81610001, (PUtil.get)(81321003), (PUtil.get)(81661003)), des_level_up = "81050901:99", des_array = (PUtil.get)(81661003), icon_path = "SkillIcon:43001003", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46110031:3001:10000,2:46110032:3001:10000", show_id = 43001003, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205419] = {id = 47205419, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205420] = {id = 47205420, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205421] = {id = 47205421, name = (PUtil.get)(81222111), remark = (PUtil.get)(81322111), des = (PUtil.get)(81610001, (PUtil.get)(81322111), (PUtil.get)(81662111)), des_level_up = "81050901:154", des_array = (PUtil.get)(81662111), icon_path = "SkillIcon:43002111", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46121111:3071:10000,2:46121112:3071:10000,3:46121113:3071:10000", show_id = 43111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0, star_config_id = "46121111:46121112"}
+, 
+[47205422] = {id = 47205422, name = (PUtil.get)(81223002), remark = (PUtil.get)(81323002), des = (PUtil.get)(81610001, (PUtil.get)(81323002), (PUtil.get)(81663002)), des_level_up = "81050901:123", des_array = (PUtil.get)(81663002), icon_path = "SkillIcon:43003002", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46130021:1000:10000,2:47405402:3001:10000", show_id = 43001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205423] = {id = 47205423, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205424] = {id = 47205424, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205425] = {id = 47205425, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205426] = {id = 47205426, name = (PUtil.get)(81222111), remark = (PUtil.get)(81322111), des = (PUtil.get)(81610001, (PUtil.get)(81322111), (PUtil.get)(81662111)), des_level_up = "81050901:154", des_array = (PUtil.get)(81662111), icon_path = "SkillIcon:43002111", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46121111:3071:10000,2:46121112:3071:10000,3:46121113:3071:10000", show_id = 43111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0, star_config_id = "46121111:46121112"}
+, 
+[47205427] = {id = 47205427, name = (PUtil.get)(81223002), remark = (PUtil.get)(81323002), des = (PUtil.get)(81610001, (PUtil.get)(81323002), (PUtil.get)(81663002)), des_level_up = "81050901:123", des_array = (PUtil.get)(81663002), icon_path = "SkillIcon:43003002", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46130021:1000:10000,2:47405402:3001:10000", show_id = 43001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205428] = {id = 47205428, name = (PUtil.get)(81221003), remark = (PUtil.get)(81321003), des = (PUtil.get)(81610001, (PUtil.get)(81321003), (PUtil.get)(81661003)), des_level_up = "81050901:99", des_array = (PUtil.get)(81661003), icon_path = "SkillIcon:43001003", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46110031:3001:10000,2:46110032:3001:10000", show_id = 43001003, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205429] = {id = 47205429, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205430] = {id = 47205430, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205431] = {id = 47205431, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205432] = {id = 47205432, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205433] = {id = 47205433, name = (PUtil.get)(81212111), remark = (PUtil.get)(81312111), des = (PUtil.get)(81610001, (PUtil.get)(81312111), (PUtil.get)(81652111)), des_level_up = "81050901:305", des_array = (PUtil.get)(81652111), icon_path = "SkillIcon:42002111", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46021111:3001:10000", show_id = 42111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205434] = {id = 47205434, name = (PUtil.get)(81211003), remark = (PUtil.get)(81311003), des = (PUtil.get)(81610001, (PUtil.get)(81311003), (PUtil.get)(81651003)), des_level_up = "81050901:165", des_array = (PUtil.get)(81651003), icon_path = "SkillIcon:42001003", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46010031:3001:10000,2:46010032:3001:10000", show_id = 42001003, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205435] = {id = 47205435, type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205436] = {id = 47205436, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205437] = {id = 47205437, name = (PUtil.get)(81212111), remark = (PUtil.get)(81312111), des = (PUtil.get)(81610001, (PUtil.get)(81312111), (PUtil.get)(81652111)), des_level_up = "81050901:305", des_array = (PUtil.get)(81652111), icon_path = "SkillIcon:42002111", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46021111:3001:10000", show_id = 42111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205438] = {id = 47205438, name = (PUtil.get)(81213002), remark = (PUtil.get)(81313002), des = (PUtil.get)(81610001, (PUtil.get)(81313002), (PUtil.get)(81653002)), des_level_up = "81050901:119", des_array = (PUtil.get)(81653002), icon_path = "SkillIcon:42003002", type = 2, targetType = 2123, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47405401:1000:10000", show_id = 42001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205439] = {id = 47205439, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205440] = {id = 47205440, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205441] = {id = 47205441, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205442] = {id = 47205442, name = (PUtil.get)(81212111), remark = (PUtil.get)(81312111), des = (PUtil.get)(81610001, (PUtil.get)(81312111), (PUtil.get)(81652111)), des_level_up = "81050901:305", des_array = (PUtil.get)(81652111), icon_path = "SkillIcon:42002111", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46021111:3001:10000", show_id = 42111006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205443] = {id = 47205443, name = (PUtil.get)(81213002), remark = (PUtil.get)(81313002), des = (PUtil.get)(81610001, (PUtil.get)(81313002), (PUtil.get)(81653002)), des_level_up = "81050901:119", des_array = (PUtil.get)(81653002), icon_path = "SkillIcon:42003002", type = 2, targetType = 2123, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47405401:1000:10000", show_id = 42001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205444] = {id = 47205444, name = (PUtil.get)(81211003), remark = (PUtil.get)(81311003), des = (PUtil.get)(81610001, (PUtil.get)(81311003), (PUtil.get)(81651003)), des_level_up = "81050901:165", des_array = (PUtil.get)(81651003), icon_path = "SkillIcon:42001003", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46010031:3001:10000,2:46010032:3001:10000", show_id = 42001003, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205445] = {id = 47205445, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205446] = {id = 47205446, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205447] = {id = 47205447, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205448] = {id = 47205448, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205501] = {id = 47205501, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205502] = {id = 47205502, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205503] = {id = 47205503, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205504] = {id = 47205504, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205505] = {id = 47205505, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205506] = {id = 47205506, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205507] = {id = 47205507, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205508] = {id = 47205508, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205509] = {id = 47205509, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205510] = {id = 47205510, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205511] = {id = 47205511, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205512] = {id = 47205512, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205513] = {id = 47205513, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205514] = {id = 47205514, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205515] = {id = 47205515, name = (PUtil.get)(81223010), remark = (PUtil.get)(81323010), des = (PUtil.get)(81610001, (PUtil.get)(81323010), (PUtil.get)(81663010)), des_level_up = "81050901:151", des_array = (PUtil.get)(81663010), icon_path = "SkillIcon:43003010", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46130101:3001:10000,2:46130102:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205516] = {id = 47205516, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205517] = {id = 47205517, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205518] = {id = 47205518, name = (PUtil.get)(81223010), remark = (PUtil.get)(81323010), des = (PUtil.get)(81610001, (PUtil.get)(81323010), (PUtil.get)(81663010)), des_level_up = "81050901:151", des_array = (PUtil.get)(81663010), icon_path = "SkillIcon:43003010", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46130101:3001:10000,2:46130102:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205519] = {id = 47205519, name = (PUtil.get)(81222110), remark = (PUtil.get)(81322110), des = (PUtil.get)(81610001, (PUtil.get)(81322110), (PUtil.get)(81662110)), des_level_up = "81050901:140", des_array = (PUtil.get)(81662110), icon_path = "SkillIcon:43002110", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46121101:3001:10000", show_id = 43001101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205520] = {id = 47205520, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205521] = {id = 47205521, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205522] = {id = 47205522, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205523] = {id = 47205523, name = (PUtil.get)(81223010), remark = (PUtil.get)(81323010), des = (PUtil.get)(81610001, (PUtil.get)(81323010), (PUtil.get)(81663010)), des_level_up = "81050901:151", des_array = (PUtil.get)(81663010), icon_path = "SkillIcon:43003010", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46130101:3001:10000,2:46130102:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205524] = {id = 47205524, name = (PUtil.get)(81221005), remark = (PUtil.get)(81321005), des = (PUtil.get)(81610001, (PUtil.get)(81321005), (PUtil.get)(81661005)), des_level_up = "81050902:95", des_array = (PUtil.get)(81661005), icon_path = "SkillIcon:43001005", type = 3, targetType = 3011, damage = 0, damage_up = 0, damage_rate = -12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47405501:1000:10000", show_id = 43001005, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205525] = {id = 47205525, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205526] = {id = 47205526, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205527] = {id = 47205527, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205528] = {id = 47205528, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205529] = {id = 47205529, name = (PUtil.get)(81213010), remark = (PUtil.get)(81313010), des = (PUtil.get)(81610001, (PUtil.get)(81313010), (PUtil.get)(81653010)), des_level_up = "81050901:169", des_array = (PUtil.get)(81653010), icon_path = "SkillIcon:42003010", type = 2, targetType = 2008, move_pos_type = 2, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46030101:3061:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0, skill_cost = "81050024:5:10000:1,81050024:5:6000:1&81050001:5:1000:1"}
+, 
+[47205530] = {id = 47205530, type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205531] = {id = 47205531, type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205532] = {id = 47205532, name = (PUtil.get)(81213010), remark = (PUtil.get)(81313010), des = (PUtil.get)(81610001, (PUtil.get)(81313010), (PUtil.get)(81653010)), des_level_up = "81050901:169", des_array = (PUtil.get)(81653010), icon_path = "SkillIcon:42003010", type = 2, targetType = 2008, move_pos_type = 2, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46030101:3061:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0, skill_cost = "81050024:5:10000:1,81050024:5:6000:1&81050001:5:1000:1"}
+, 
+[47205533] = {id = 47205533, name = (PUtil.get)(81212110), remark = (PUtil.get)(81312110), des = (PUtil.get)(81610001, (PUtil.get)(81312110), (PUtil.get)(81652110)), des_level_up = "81050901:136", des_array = (PUtil.get)(81652110), icon_path = "SkillIcon:42002110", type = 2, targetType = 2009, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46021101:1000:10000", show_id = 42001101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205534] = {id = 47205534, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205535] = {id = 47205535, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205536] = {id = 47205536, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205537] = {id = 47205537, name = (PUtil.get)(81213010), remark = (PUtil.get)(81313010), des = (PUtil.get)(81610001, (PUtil.get)(81313010), (PUtil.get)(81653010)), des_level_up = "81050901:169", des_array = (PUtil.get)(81653010), icon_path = "SkillIcon:42003010", type = 2, targetType = 2008, move_pos_type = 2, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46030101:3061:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0, skill_cost = "81050024:5:10000:1,81050024:5:6000:1&81050001:5:1000:1"}
+, 
+[47205538] = {id = 47205538, name = (PUtil.get)(81211005), remark = (PUtil.get)(81311005), des = (PUtil.get)(81610001, (PUtil.get)(81311005), (PUtil.get)(81651005)), des_level_up = "81050902:158", des_array = (PUtil.get)(81651005), icon_path = "SkillIcon:42001005", type = 2, targetType = 3011, damage = 0, damage_up = 0, damage_rate = -30000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 42001005, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205539] = {id = 47205539, type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205540] = {id = 47205540, type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205541] = {id = 47205541, type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47205542] = {id = 47205542, type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [47210101] = {id = 47210101, name = (PUtil.get)(81221003), des_array = (PUtil.get)(81831003), icon_path = "SkillIcon:43001003", type = 3, targetType = 2001, damage = 1962, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47400103:3001:10000", show_id = 43001003, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47210102] = {id = 47210102, name = (PUtil.get)(81221104), des_array = (PUtil.get)(81831010), icon_path = "SkillIcon:43001104", type = 3, targetType = 2001, damage = 1580, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47400101:1000:3000", show_id = 43001104, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}

@@ -3180,7 +3180,7 @@ FormationWindow.OnHide = function(...)
 end
 
 FormationWindow.OnClose = function(...)
-  -- function num : 0_99 , upvalues : _ENV, DragModel, DragDropManager, enemyLoaderList, FormationWindow, selfLoaderList, grpTalkCom, mFormationData, myselfFightDate, supportID, supportPlayerIndex, enemyFightDate, alreadyCard, MaxFight, ExpeditionListData, appaySfx, putHolder, uis, contentPane, scrollList, cardListDate, speedSort, selfGrp, _gestureDic, bgModel, currentTxt, expeditionSweep
+  -- function num : 0_99 , upvalues : _ENV, DragModel, DragDropManager, enemyLoaderList, FormationWindow, selfLoaderList, grpTalkCom, mFormationData, supportID, supportPlayerIndex, myselfFightDate, enemyFightDate, alreadyCard, MaxFight, ExpeditionListData, appaySfx, putHolder, uis, contentPane, scrollList, cardListDate, speedSort, selfGrp, _gestureDic, bgModel, currentTxt, expeditionSweep
   (BattleBackground.ClearBackground)(true)
   DragModel = nil
   local dragAgent = (DragDropManager.inst).dragAgent
@@ -3202,57 +3202,69 @@ FormationWindow.OnClose = function(...)
     end
   end
   grpTalkCom = {}
-  -- DECOMPILER ERROR at PC64: Confused about usage of register: R1 in 'UnsetPending'
-
   if mFormationData.formationType == FormationType.GuildBattle then
-    (MessageMgr.formationData).myselfList = myselfFightDate
-    ;
-    (GuildBossMgr.SaveCardList)(myselfFightDate, supportID, supportPlayerIndex)
-  end
-  -- DECOMPILER ERROR at PC75: Confused about usage of register: R1 in 'UnsetPending'
+    if supportID > 0 then
+      local card = (FormationWindow.GetSupportOneCardData)(supportID, supportPlayerIndex)
+      for k,v in pairs(myselfFightDate) do
+        if v == card.id then
+          myselfFightDate[k] = nil
+          break
+        end
+      end
+    end
+    do
+      -- DECOMPILER ERROR at PC82: Confused about usage of register: R1 in 'UnsetPending'
 
-  if FormationPresetData then
-    FormationPresetData.FormationData = nil
-  end
-  selfLoaderList = {}
-  enemyLoaderList = {}
-  myselfFightDate = {nil, nil, nil, nil, nil, nil}
-  enemyFightDate = {nil, nil, nil, nil, nil, nil}
-  alreadyCard = {}
-  MaxFight = 0
-  ExpeditionListData = nil
-  ;
-  (GRoot.inst):ClearCustomPopups()
-  ;
-  (CommonWinMgr.RemoveAssets)((WinResConfig.FormationWindow).name)
-  ;
-  (LuaEffect.DestroyEffect)(appaySfx)
-  ;
-  (LuaEffect.DestroyEffect)(putHolder)
-  -- DECOMPILER ERROR at PC114: Confused about usage of register: R1 in 'UnsetPending'
+      ;
+      (MessageMgr.formationData).myselfList = myselfFightDate
+      ;
+      (GuildBossMgr.SaveCardList)(myselfFightDate, supportID, supportPlayerIndex)
+      -- DECOMPILER ERROR at PC93: Confused about usage of register: R1 in 'UnsetPending'
 
-  ;
-  (GRoot.inst).IgnoreItemClick = true
-  uis = {}
-  contentPane = nil
-  scrollList = nil
-  cardListDate = {}
-  speedSort = {}
-  selfGrp = nil
-  appaySfx = nil
-  putHolder = nil
-  _gestureDic = {}
-  ;
-  (ResHelper.DestroyGameObject)(bgModel, false)
-  ;
-  (Util.SetCameraActive)(Game.battleCamera, false)
-  bgModel = nil
-  ;
-  (GuideData.AbolishControlRefer)((WinResConfig.FormationWindow).name)
-  ;
-  (AudioManager.DisposeCurAudioAndBubble)()
-  currentTxt = {}
-  expeditionSweep = 0
+      if FormationPresetData then
+        FormationPresetData.FormationData = nil
+      end
+      selfLoaderList = {}
+      enemyLoaderList = {}
+      myselfFightDate = {nil, nil, nil, nil, nil, nil}
+      enemyFightDate = {nil, nil, nil, nil, nil, nil}
+      alreadyCard = {}
+      MaxFight = 0
+      ExpeditionListData = nil
+      ;
+      (GRoot.inst):ClearCustomPopups()
+      ;
+      (CommonWinMgr.RemoveAssets)((WinResConfig.FormationWindow).name)
+      ;
+      (LuaEffect.DestroyEffect)(appaySfx)
+      ;
+      (LuaEffect.DestroyEffect)(putHolder)
+      -- DECOMPILER ERROR at PC132: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      (GRoot.inst).IgnoreItemClick = true
+      uis = {}
+      contentPane = nil
+      scrollList = nil
+      cardListDate = {}
+      speedSort = {}
+      selfGrp = nil
+      appaySfx = nil
+      putHolder = nil
+      _gestureDic = {}
+      ;
+      (ResHelper.DestroyGameObject)(bgModel, false)
+      ;
+      (Util.SetCameraActive)(Game.battleCamera, false)
+      bgModel = nil
+      ;
+      (GuideData.AbolishControlRefer)((WinResConfig.FormationWindow).name)
+      ;
+      (AudioManager.DisposeCurAudioAndBubble)()
+      currentTxt = {}
+      expeditionSweep = 0
+    end
+  end
 end
 
 FormationWindow.InitAsset = function(formationData, ...)

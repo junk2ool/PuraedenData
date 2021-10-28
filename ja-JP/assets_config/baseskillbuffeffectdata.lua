@@ -334,6 +334,14 @@ BaseSkillBuffEffectData = {
 [911] = {id = 911, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "BuffIcon:buff_911", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [912] = {id = 912, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "FX_common_guard", effect_around_priority = 4, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[913] = {id = 913, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "FX_11300040_skill_buff", effect_around_priority = 4, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[914] = {id = 914, attribute_id = 0, control_type = "0", words_path = "Battle:buff_914", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[915] = {id = 915, attribute_id = 0, control_type = "0", words_path = "Battle:buff_915", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
+[916] = {id = 916, attribute_id = 0, control_type = "0", words_path = "Battle:buff_916", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 }
 return BaseSkillBuffEffectData
 

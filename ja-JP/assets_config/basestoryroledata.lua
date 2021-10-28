@@ -361,6 +361,8 @@ BaseStoryRoleData = {
 , 
 [75200602] = {id = 75200602, name = (PUtil.get)(86101060), role_path = "img_11300011_2", effect_path = "FIGHT_KILL", fashion_id = "14301101", offset = "-38:48"}
 , 
+[75200603] = {id = 75200603, name = (PUtil.get)(86101102), effect_path = "FIGHT_KILL", fashion_id = "15040017"}
+, 
 [75200611] = {id = 75200611, name = (PUtil.get)(86101061), role_path = "img_11202008_2", effect_path = "FIGHT_KILL", fashion_id = "14220801", offset = "15:52"}
 , 
 [75200612] = {id = 75200612, name = (PUtil.get)(86101061), role_path = "img_11202008_1", effect_path = "FIGHT_KILL", fashion_id = "14220802"}

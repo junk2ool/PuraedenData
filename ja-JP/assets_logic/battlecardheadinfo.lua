@@ -170,8 +170,11 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
     local _lastDander = self.lastDander
     local _nowDander = battleCard:GetDander()
     if dander then
-      _nowDander = min(battleCard:GetMaxDanderLimit(), _lastDander + dander)
+      _nowDander = min(battleCard:GetMaxDander(), _lastDander + dander)
       _nowDander = (math.max)(_nowDander, 0)
+      if _nowDander ~= battleCard:GetDander() then
+        _nowDander = battleCard:GetDander()
+      end
     end
     local maxDander = battleCard:GetMaxDander()
     local value = min(100 * _nowDander / maxDander, 100)

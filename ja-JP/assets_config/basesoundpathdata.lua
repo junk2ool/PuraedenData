@@ -6297,25 +6297,27 @@ BaseSoundPathData = {
 , 
 [230400103] = {id = 230400103, play_frame = 67, path = "sfx_megumin_big_tx_67fr", bank = "megumin"}
 , 
-[230400104] = {id = 230400104, play_frame = 173, path = "sfx_megumin_big_tx_173fr", bank = "megumin"}
+[230400104] = {id = 230400104, play_frame = 127, path = "sfx_megumin_big_tx_127fr", bank = "megumin"}
 , 
-[230400105] = {id = 230400105, play_frame = 178, path = "sfx_megumin_big_tx_178fr", bank = "megumin"}
+[230400105] = {id = 230400105, play_frame = 173, path = "sfx_megumin_big_tx_173fr", bank = "megumin"}
 , 
-[230400106] = {id = 230400106, play_frame = 182, path = "sfx_megumin_big_tx_182fr", bank = "megumin"}
+[230400106] = {id = 230400106, play_frame = 178, path = "sfx_megumin_big_tx_178fr", bank = "megumin"}
 , 
-[230400107] = {id = 230400107, play_frame = 317, path = "sfx_megumin_big_tx_317fr", bank = "megumin"}
+[230400107] = {id = 230400107, play_frame = 182, path = "sfx_megumin_big_tx_182fr", bank = "megumin"}
 , 
-[230400108] = {id = 230400108, play_frame = 384, path = "sfx_megumin_big_tx_384fr", bank = "megumin"}
+[230400108] = {id = 230400108, play_frame = 317, path = "sfx_megumin_big_tx_317fr", bank = "megumin"}
 , 
-[230400109] = {id = 230400109, play_frame = 388, path = "sfx_megumin_big_tx_388fr", bank = "megumin"}
+[230400109] = {id = 230400109, play_frame = 384, path = "sfx_megumin_big_tx_384fr", bank = "megumin"}
 , 
-[230400110] = {id = 230400110, play_frame = 412, path = "sfx_megumin_big_tx_412fr", bank = "megumin"}
+[230400110] = {id = 230400110, play_frame = 388, path = "sfx_megumin_big_tx_388fr", bank = "megumin"}
 , 
-[230400111] = {id = 230400111, play_frame = 489, path = "sfx_megumin_big_tx_489fr", bank = "megumin"}
+[230400111] = {id = 230400111, play_frame = 412, path = "sfx_megumin_big_tx_412fr", bank = "megumin"}
 , 
-[230400112] = {id = 230400112, play_frame = 527, path = "sfx_megumin_big_tx_527fr", bank = "megumin"}
+[230400112] = {id = 230400112, play_frame = 489, path = "sfx_megumin_big_tx_489fr", bank = "megumin"}
 , 
-[230400113] = {id = 230400113, play_frame = 574, path = "sfx_megumin_big_tx_574fr", bank = "megumin"}
+[230400113] = {id = 230400113, play_frame = 527, path = "sfx_megumin_big_tx_527fr", bank = "megumin"}
+, 
+[230400114] = {id = 230400114, play_frame = 574, path = "sfx_megumin_big_tx_574fr", bank = "megumin"}
 , 
 [230400201] = {id = 230400201, play_frame = 56, path = "sfx_megumin_pt_wh_56fr", bank = "megumin"}
 , 
@@ -6336,6 +6338,50 @@ BaseSoundPathData = {
 [230400401] = {id = 230400401, play_frame = 16, path = "sfx_megumin_pt_wh_56fr", bank = "megumin"}
 , 
 [230400402] = {id = 230400402, play_frame = 36, path = "sfx_megumin_pt_tx_66fr", bank = "megumin"}
+, 
+[230410101] = {id = 230410101, play_frame = 4, path = "sfx_yunyun_big_tx_4fr", bank = "yunyun"}
+, 
+[230410102] = {id = 230410102, play_frame = 20, path = "sfx_yunyun_big_tx_20fr", bank = "yunyun"}
+, 
+[230410103] = {id = 230410103, play_frame = 100, path = "sfx_yunyun_big_tx_100fr", bank = "yunyun"}
+, 
+[230410104] = {id = 230410104, play_frame = 117, path = "sfx_yunyun_big_tx_117fr", bank = "yunyun"}
+, 
+[230410105] = {id = 230410105, play_frame = 129, path = "sfx_yunyun_big_tx_129fr", bank = "yunyun"}
+, 
+[230410106] = {id = 230410106, play_frame = 155, path = "sfx_yunyun_big_tx_155fr", bank = "yunyun"}
+, 
+[230410107] = {id = 230410107, play_frame = 225, path = "sfx_yunyun_big_tx_225fr", bank = "yunyun"}
+, 
+[230410108] = {id = 230410108, play_frame = 233, path = "sfx_yunyun_big_tx_233fr", bank = "yunyun"}
+, 
+[230410109] = {id = 230410109, play_frame = 257, path = "sfx_yunyun_big_tx_257fr", bank = "yunyun"}
+, 
+[230410110] = {id = 230410110, play_frame = 272, path = "sfx_yunyun_big_tx_272fr", bank = "yunyun"}
+, 
+[230410111] = {id = 230410111, play_frame = 312, path = "sfx_yunyun_big_tx_312fr", bank = "yunyun"}
+, 
+[230410112] = {id = 230410112, play_frame = 324, path = "sfx_yunyun_big_tx_324fr", bank = "yunyun"}
+, 
+[230410113] = {id = 230410113, play_frame = 332, path = "sfx_yunyun_big_tx_332fr", bank = "yunyun"}
+, 
+[230410114] = {id = 230410114, play_frame = 339, path = "sfx_yunyun_big_tx_339fr", bank = "yunyun"}
+, 
+[230410115] = {id = 230410115, play_frame = 393, path = "sfx_yunyun_big_tx_393fr", bank = "yunyun"}
+, 
+[230410116] = {id = 230410116, play_frame = 445, path = "sfx_yunyun_big_tx_445fr", bank = "yunyun"}
+, 
+[230410117] = {id = 230410117, play_frame = 484, path = "sfx_yunyun_big_tx_484fr", bank = "yunyun"}
+, 
+[230410201] = {id = 230410201, play_frame = 4, path = "sfx_yunyun_pt_wh_4fr", bank = "yunyun"}
+, 
+[230410202] = {id = 230410202, play_frame = 65, path = "sfx_yunyun_pt_wh_65fr", bank = "yunyun"}
+, 
+[230410203] = {id = 230410203, play_frame = 75, path = "sfx_yunyun_pt_tx_75fr", bank = "yunyun"}
+, 
+[230410301] = {id = 230410301, play_frame = 2, path = "sfx_yunyun_small_wh_2fr", bank = "yunyun"}
+, 
+[230410302] = {id = 230410302, play_frame = 74, path = "sfx_yunyun_small_tx_74fr", bank = "yunyun"}
 }
 return BaseSoundPathData
 

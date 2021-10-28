@@ -209,8 +209,16 @@ BattleDataCount.GetPreRoundCount = function(...)
 
   BattleAtk.curAtkInfo = preRoundInfo
   preRoundInfo.defCardsInfo = {}
+  local trigger = false
   local defCardInfo = preRoundInfo.defCardsInfo
   for _,v in ipairs(liveCards) do
+    if not trigger then
+      trigger = true
+      ;
+      (self.DealActiveBuff)(nil, preRoundInfo, BattleBuffSettleRoundType.BEFORE_RAGE_COVER)
+      ;
+      (self.UpdateBuffCount)(preRoundInfo, BattleBuffDeductionRoundType.BEFORE_RAGE_COVER)
+    end
     local cardConfig = v:GetCardConfig()
     if cardConfig then
       local dander = v:GetDanderRound()
@@ -536,16 +544,16 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
           local defPos = buff:GetCurDefPos()
           local defCard = (BattleData.GetCardInfoByPos)(defPos)
           local deductionRoundType = buff:GetDeductionRoundType()
-          -- DECOMPILER ERROR at PC193: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC196: Unhandled construct in 'MakeBoolean' P3
 
-          -- DECOMPILER ERROR at PC193: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC196: Unhandled construct in 'MakeBoolean' P3
 
-          -- DECOMPILER ERROR at PC193: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC196: Unhandled construct in 'MakeBoolean' P3
 
-          -- DECOMPILER ERROR at PC193: Unhandled construct in 'MakeBoolean' P3
+          -- DECOMPILER ERROR at PC196: Unhandled construct in 'MakeBoolean' P3
 
           if defCard and defCard:IsDead() ~= true and (deductionRoundType == deduction_round_type or ((deductionRoundType == BattleBuffDeductionRoundType.BEFORE_ACTION and deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK) or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.AFTER_ACTION or deductionRoundType ~= BattleBuffDeductionRoundType.BEFORE_ROUND_3 or deduction_round_type ~= BattleBuffDeductionRoundType.BEFORE_ROUND or deductionRoundType == BattleBuffDeductionRoundType.BEFORE_All_ATK and (deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_SKILL or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ASSIST))) then
-            if deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY then
+            if deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_SINCE_2 or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ROUND_DELAY or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_RAGE_COVER then
               (self.RealUpdateBuffCount)(buff, atkInfo)
             else
               if (deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_SKILL or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ATTACK or deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ACTION or deduction_round_type == BattleBuffDeductionRoundType.AFTER_TREAT_DIRECT or deduction_round_type == BattleBuffDeductionRoundType.BEFORE_ASSIST or deduction_round_type == BattleBuffDeductionRoundType.AFTER_ASSIST) and (BattleAtk.IsAtkCardByPos)(atkInfo, defPos) then
@@ -556,12 +564,12 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SKILL_ENEMY and (BattleAtk.IsDefCampByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
           end
-          -- DECOMPILER ERROR at PC265: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC268: Unhandled construct in 'MakeBoolean' P1
 
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
           end
-          -- DECOMPILER ERROR at PC283: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC286: Unhandled construct in 'MakeBoolean' P1
 
           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_HIT_ALL and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
             (self.RealUpdateBuffCount)(buff, atkInfo)
@@ -598,7 +606,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                       ;
                       (self.RealUpdateBuffCount)(buff, atkInfo)
                     else
-                      -- DECOMPILER ERROR at PC391: Unhandled construct in 'MakeBoolean' P1
+                      -- DECOMPILER ERROR at PC394: Unhandled construct in 'MakeBoolean' P1
 
                       if deduction_round_type == BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK and atkInfo.isTreatment == false and (BattleAtk.IsDefCardByPos)(atkInfo, defPos) then
                         local attackTime = defCard:RecodeHitTimes()
@@ -620,7 +628,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                         if deduction_round_type == BattleBuffDeductionRoundType.AFTER_DEF_BLK then
                           (self.RealUpdateBuffCount)(buff, atkInfo)
                         else
-                          -- DECOMPILER ERROR at PC440: Unhandled construct in 'MakeBoolean' P1
+                          -- DECOMPILER ERROR at PC443: Unhandled construct in 'MakeBoolean' P1
 
                           if deduction_round_type == BattleBuffDeductionRoundType.AFTER_ENEMY_HEAL and (math.abs)(arg - defPos) > 50 then
                             (self.RealUpdateBuffCount)(buff, atkInfo)
@@ -655,7 +663,7 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                               if deduction_round_type == BattleBuffDeductionRoundType.AFTER_OWNER_CRIT then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
                               else
-                                -- DECOMPILER ERROR at PC516: Unhandled construct in 'MakeBoolean' P1
+                                -- DECOMPILER ERROR at PC519: Unhandled construct in 'MakeBoolean' P1
 
                                 if deduction_round_type == BattleBuffDeductionRoundType.AFTER_SHIELD_INVALID and arg == buff:GetCurDefPos() then
                                   (self.RealUpdateBuffCount)(buff, atkInfo)
@@ -664,41 +672,41 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                               if deductionRoundType == BattleBuffDeductionRoundType.AFTER_SHIELD_GOT and arg == buff:GetCurDefPos() then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
                               end
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC529: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC532: LeaveBlock: unexpected jumping out IF_STMT
 
                             end
                           end
@@ -858,7 +866,7 @@ BattleDataCount.RealUpdateBuffCount = function(buff, atkInfo, notRemove, ...)
         end
         buff:DealAttribute(atkInfo, buff)
         buff:SetActiveCount(curActiveCount + 1)
-        buff:DealSpecialEffect()
+        buff:DealSpecialEffect(atkInfo)
         t_insert(allBuffTable, {buff = buff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.UPDATE})
         if IsBattleServer == nil then
           print("更新buff生效回合 ", buff:GetBuffLog())

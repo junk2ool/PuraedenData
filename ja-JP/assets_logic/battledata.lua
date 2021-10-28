@@ -703,7 +703,7 @@ BattleData.TestSkillCondition = function(battleCard, ...)
       else
         do
           do
-            do return battleCard:GetMaxDander(true) <= battleCard:GetDander(), {attrId = BattleCardAttributeID.DANDER, value = battleCard:GetMaxDander(true)} end
+            do return battleCard:GetMaxDander() <= battleCard:GetDander(), {attrId = BattleCardAttributeID.DANDER, value = battleCard:GetMaxDander()} end
             do return false end
             -- DECOMPILER ERROR: 2 unprocessed JMP targets
           end
@@ -875,10 +875,15 @@ end
 BattleData.GetCostDander = function(costTable, ...)
   -- function num : 0_30 , upvalues : ipairs, _ENV
   if costTable then
+    local count = 0
     for i,v in ipairs(costTable) do
+      count = count + 1
       if v.attrId == BattleCardAttributeID.DANDER then
         return v.value
       end
+    end
+    if count == 0 and costTable.attrId == BattleCardAttributeID.DANDER then
+      return costTable.value
     end
   end
 end

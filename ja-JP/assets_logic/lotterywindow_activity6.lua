@@ -44,12 +44,10 @@ LotteryWindow_Activity6.PreLoadFxMain = function(uis, ...)
       local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
       if fx_main == nil then
         local holder, effect = (LuaEffect.AddUIEffect)(fashionData.show_cg, false, false, Vector3.zero, 1)
-        do
-          holder:SetXY((((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).width / 2, (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).height / 2)
-          ;
-          (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).root):AddChild(holder)
-          fx_main = effect
-        end
+        holder:SetXY((((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).width / 2, (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).height / 2)
+        ;
+        (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).root):AddChild(holder)
+        fx_main = effect
       else
         do
           ;
@@ -72,39 +70,51 @@ LotteryWindow_Activity6.PreLoadFxMain = function(uis, ...)
           local boneModel = (Util.ShowUIModel)(fashionData.spd_bundle, (((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader, fashionData.show_spine_type)
           ;
           (SkeletonAnimationUtil.SetAnimation)(boneModel, 0, "idle", true)
-          local scale = 20
-          ;
-          (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
-          ;
-          (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
-          ;
-          (CSLuaUtil.SetGOLocalPos)(boneModel, ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).width * 0.5, -((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).height, 0)
-          ;
-          (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn).onClick):Set(function(...)
+          do
+            local scale = 20
+            do
+              (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
+              ;
+              (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
+              ;
+              (CSLuaUtil.SetGOLocalPos)(boneModel, ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).width * 0.5, -((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).height, 0)
+              ;
+              (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn).onClick):Set(function(...)
     -- function num : 0_2_0 , upvalues : _ENV, lotteryCardId
     OpenWindow("CardDetailsWindow", UILayer.HUD, lotteryCardId)
   end
 )
-          ;
-          (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn):GetChild("PicLoader")).url = (Util.GetItemUrl)(cardData.lottery_pic)
-        end
-        do
-          -- DECOMPILER ERROR at PC190: Confused about usage of register: R3 in 'UnsetPending'
+              ;
+              (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn):GetChild("PicLoader")).url = (Util.GetItemUrl)(cardData.lottery_pic)
+            end
+            local config = ((TableData.gTable).BaseLotteryShowData)[tonumber(lotteryType)]
+            local bg = config.LotteryTow
+            if bg then
+              local cardPic2Loader = ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPic2Loader).CardPicLoader
+              local texture = (ResHelper.LoadTexture)(bg)
+              SetLoaderTexture(cardPic2Loader, texture)
+            else
+              do
+                loge("UP池类型 " .. lotteryType .. " LotteryTow 字段未配置")
+                -- DECOMPILER ERROR at PC220: Confused about usage of register: R5 in 'UnsetPending'
 
-          ;
-          ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 4
-          for index,value in ipairs(split(excelShowData.card_ids, ":")) do
-            local cardId = tonumber(value)
-            local curCardData = ((TableData.gTable).BaseCardData)[cardId]
-            local seeBtn = ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).root):GetChild("Card_B" .. tostring(index) .. "_Btn")
-            ;
-            (seeBtn:GetChild("PicLoader")).url = (Util.GetItemUrl)(curCardData.lottery_pic)
-            ;
-            (seeBtn.onClick):Set(function(...)
+                ;
+                ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 4
+                for index,value in ipairs(split(excelShowData.card_ids, ":")) do
+                  local cardId = tonumber(value)
+                  local curCardData = ((TableData.gTable).BaseCardData)[cardId]
+                  local seeBtn = ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).root):GetChild("Card_B" .. tostring(index) .. "_Btn")
+                  ;
+                  (seeBtn:GetChild("PicLoader")).url = (Util.GetItemUrl)(curCardData.lottery_pic)
+                  ;
+                  (seeBtn.onClick):Set(function(...)
     -- function num : 0_2_1 , upvalues : _ENV, cardId
     OpenWindow("CardDetailsWindow", UILayer.HUD, cardId)
   end
 )
+                end
+              end
+            end
           end
         end
       end

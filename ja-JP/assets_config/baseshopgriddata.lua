@@ -35,7 +35,7 @@ BaseShopGridData = {
 , 
 [23002007] = {id = 23002007, shop_type = 2, reset_type = "1", reset_time = "0", sell_limit_time = 1, player_level_min = 17, player_level_max = 999, sort_index = "7", shop_id = 23000002, begin_time = "0", end_time = "0"}
 , 
-[23002008] = {id = 23002008, shop_type = 2, reset_type = "2", reset_time = "5:202110070500:MX0", sell_limit_time = 15, player_level_min = 11, player_level_max = 999, sort_index = "8", shop_id = 23000002, begin_time = "5:202110070500:MX0", end_time = "5:202110132359:MX0"}
+[23002008] = {id = 23002008, shop_type = 2, reset_type = "2", reset_time = "5:202110220500:MX0", sell_limit_time = 15, player_level_min = 11, player_level_max = 999, sort_index = "8", shop_id = 23000002, begin_time = "5:202110220500:MX0", end_time = "5:202110282359:MX0"}
 , 
 [23003001] = {id = 23003001, shop_type = 3, reset_type = "1", reset_time = "0", sell_limit_time = 1, player_level_min = 15, player_level_max = 999, sort_index = "1", shop_id = 23000003, begin_time = "0", end_time = "0"}
 , 

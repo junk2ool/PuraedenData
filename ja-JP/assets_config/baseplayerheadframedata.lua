@@ -19,13 +19,15 @@ BasePlayerHeadFrameData = {
 , 
 [78610009] = {id = 78610009, name = (PUtil.get)(84124009), des = (PUtil.get)(84122007), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0010", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1620403200"}
 , 
-[78610010] = {id = 78610010, name = (PUtil.get)(84124010), des = (PUtil.get)(84122008), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0012", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
+[78610010] = {id = 78610010, name = (PUtil.get)(84124010), des = (PUtil.get)(84122008), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0012", condition = "0", sort = 10, reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
 , 
-[78610011] = {id = 78610011, name = (PUtil.get)(84124011), des = (PUtil.get)(84122009), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0011", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1625018399"}
+[78610011] = {id = 78610011, name = (PUtil.get)(84124011), des = (PUtil.get)(84122009), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0011", condition = "0", sort = 11, reward_sort = 9880001, own_show = 1, open_time = "1625018399"}
 , 
-[78610012] = {id = 78610012, name = (PUtil.get)(84124012), des = (PUtil.get)(84122010), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0013", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
+[78610012] = {id = 78610012, name = (PUtil.get)(84124012), des = (PUtil.get)(84122010), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0013", condition = "0", sort = 12, reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
 , 
-[78610013] = {id = 78610013, name = (PUtil.get)(84124013), des = (PUtil.get)(84122011), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0014", condition = "0", sort = 9, reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
+[78610013] = {id = 78610013, name = (PUtil.get)(84124013), des = (PUtil.get)(84122011), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0014", condition = "0", sort = 13, reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
+, 
+[78610014] = {id = 78610014, name = (PUtil.get)(84124014), des = (PUtil.get)(84122012), type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0015", condition = "0", sort = 14, reward_sort = 9880001, own_show = 1, open_time = "1635019199"}
 }
 return BasePlayerHeadFrameData
 

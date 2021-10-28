@@ -3270,8 +3270,8 @@ effectTable = {eff}
   end
 
   battleCard.SetDander = function(self, dander, ...)
-    -- function num : 0_0_134 , upvalues : cardInfo
-    cardInfo:SetDander(dander)
+    -- function num : 0_0_134 , upvalues : cardInfo, math
+    cardInfo:SetDander((math.min)((math.max)(dander, 0), self:GetMaxDander()))
   end
 
   battleCard.GetExtraDander = function(self, ...)

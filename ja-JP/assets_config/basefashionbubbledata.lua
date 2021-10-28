@@ -13651,15 +13651,15 @@ BaseFashionBubbleData = {
 , 
 [103304001] = {id = 103304001, bubble_text = (PUtil.get)(103304001), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "324:290", direction = 2, voice_path = "Megumin_Stage_1"}
 , 
-[103304011] = {id = 103304011, bubble_text = (PUtil.get)(103304011), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "106:310", direction = 1, voice_path = "Megumin_Stage_1"}
+[103304011] = {id = 103304011, bubble_text = (PUtil.get)(103304011), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "440:306", direction = 2, voice_path = "Megumin_Stage_1"}
 , 
-[103304021] = {id = 103304021, bubble_text = (PUtil.get)(103304021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "106:310", direction = 1, voice_path = "Megumin_Stage_1"}
+[103304021] = {id = 103304021, bubble_text = (PUtil.get)(103304021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "440:306", direction = 2, voice_path = "Megumin_Stage_1"}
 , 
 [104304001] = {id = 104304001, bubble_text = (PUtil.get)(104304001), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "324:290", direction = 2, voice_path = "Megumin_Star_1"}
 , 
-[104304011] = {id = 104304011, bubble_text = (PUtil.get)(104304011), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "106:310", direction = 1, voice_path = "Megumin_Star_1"}
+[104304011] = {id = 104304011, bubble_text = (PUtil.get)(104304011), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "440:306", direction = 2, voice_path = "Megumin_Star_1"}
 , 
-[104304021] = {id = 104304021, bubble_text = (PUtil.get)(104304021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "106:310", direction = 1, voice_path = "Megumin_Star_1"}
+[104304021] = {id = 104304021, bubble_text = (PUtil.get)(104304021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "440:306", direction = 2, voice_path = "Megumin_Star_1"}
 , 
 [105304001] = {id = 105304001, bubble_text = (PUtil.get)(105304001), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "631:295", direction = 2, voice_path = "Megumin_Interaction_1"}
 , 
@@ -13728,8 +13728,6 @@ BaseFashionBubbleData = {
 [112304004] = {id = 112304004, voice_path = "Megumin_Battle_Hit_4"}
 , 
 [112304005] = {id = 112304005, voice_path = "Megumin_Battle_Hit_5"}
-, 
-[112304006] = {id = 112304006, voice_path = "Megumin_Battle_Hit_6"}
 , 
 [113304001] = {id = 113304001, voice_path = "Megumin_Battle_Die_1"}
 , 
@@ -13852,8 +13850,6 @@ BaseFashionBubbleData = {
 [111304104] = {id = 111304104, voice_path = "Yunyun_Battle_N_4"}
 , 
 [111304105] = {id = 111304105, voice_path = "Yunyun_Battle_N_5"}
-, 
-[111304106] = {id = 111304106, voice_path = "Yunyun_Battle_N_6"}
 , 
 [112304101] = {id = 112304101, voice_path = "Yunyun_Battle_Hit_1"}
 , 

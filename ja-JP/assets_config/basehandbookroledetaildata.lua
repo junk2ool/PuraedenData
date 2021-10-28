@@ -951,6 +951,26 @@ BaseHandbookRoleDetailData = {
 , 
 [17100955] = {id = 17100955, name = 17100955, remark = (PUtil.get)(92100955)}
 , 
+[17100961] = {id = 17100961, name = 17100961, remark = (PUtil.get)(92100961)}
+, 
+[17100962] = {id = 17100962, name = 17100962, remark = (PUtil.get)(92100962)}
+, 
+[17100963] = {id = 17100963, name = 17100963, remark = (PUtil.get)(92100963)}
+, 
+[17100964] = {id = 17100964, name = 17100964, remark = (PUtil.get)(92100964)}
+, 
+[17100965] = {id = 17100965, name = 17100965, remark = (PUtil.get)(92100965)}
+, 
+[17100971] = {id = 17100971, name = 17100971, remark = (PUtil.get)(92100971)}
+, 
+[17100972] = {id = 17100972, name = 17100972, remark = (PUtil.get)(92100972)}
+, 
+[17100973] = {id = 17100973, name = 17100973, remark = (PUtil.get)(92100973)}
+, 
+[17100974] = {id = 17100974, name = 17100974, remark = (PUtil.get)(92100974)}
+, 
+[17100975] = {id = 17100975, name = 17100975, remark = (PUtil.get)(92100975)}
+, 
 [18100151] = {id = 18100151, name = (PUtil.get)(95000141), remark = (PUtil.get)(117100101), voice_path = "Shanon_Home_Talk_1", sort = 151, bubble_id = "14000100:2:445:258,14000101:2:445:258,14000102:2:445:258"}
 , 
 [18100152] = {id = 18100152, name = (PUtil.get)(95000142), remark = (PUtil.get)(117100102), voice_path = "Shanon_Home_Talk_2", sort = 152, bubble_id = "14000100:2:445:258,14000101:2:445:258,14000102:2:445:258"}
@@ -8151,83 +8171,81 @@ BaseHandbookRoleDetailData = {
 , 
 [18303953] = {id = 18303953, name = (PUtil.get)(95000143), remark = (PUtil.get)(117303903), voice_path = "Wiz_Home_Talk_3", sort = 153, bubble_id = "14303900:2:474:202,14303901:2:425:217,14303902:2:425:217"}
 , 
-[18304001] = {id = 18304001, name = (PUtil.get)(95000001), remark = (PUtil.get)(101304001), voice_path = "Megumin_Get_1", sort = 10, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304001] = {id = 18304001, name = (PUtil.get)(95000001), remark = (PUtil.get)(101304001), voice_path = "Megumin_Get_1", sort = 10, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304002] = {id = 18304002, name = (PUtil.get)(95000002), remark = (PUtil.get)(102304001), voice_path = "Megumin_In_1", sort = 20, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304002] = {id = 18304002, name = (PUtil.get)(95000002), remark = (PUtil.get)(102304001), voice_path = "Megumin_In_1", sort = 20, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304003] = {id = 18304003, name = (PUtil.get)(95000011), remark = (PUtil.get)(97030401), voice_path = "Megumin_Main_1", sort = 30, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304003] = {id = 18304003, name = (PUtil.get)(95000011), remark = (PUtil.get)(97030401), voice_path = "Megumin_Main_1", sort = 30, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304004] = {id = 18304004, name = (PUtil.get)(95000012), remark = (PUtil.get)(97030402), voice_path = "Megumin_Main_2", sort = 31, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304004] = {id = 18304004, name = (PUtil.get)(95000012), remark = (PUtil.get)(97030402), voice_path = "Megumin_Main_2", sort = 31, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304005] = {id = 18304005, name = (PUtil.get)(95000013), remark = (PUtil.get)(97030403), voice_path = "Megumin_Main_3", sort = 32, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304005] = {id = 18304005, name = (PUtil.get)(95000013), remark = (PUtil.get)(97030403), voice_path = "Megumin_Main_3", sort = 32, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304006] = {id = 18304006, name = (PUtil.get)(95000014), remark = (PUtil.get)(97030404), voice_path = "Megumin_Main_4", sort = 33, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304006] = {id = 18304006, name = (PUtil.get)(95000014), remark = (PUtil.get)(97030404), voice_path = "Megumin_Main_4", sort = 33, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304007] = {id = 18304007, name = (PUtil.get)(95000021), remark = (PUtil.get)(103304001), voice_path = "Megumin_Stage_1", sort = 40, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304007] = {id = 18304007, name = (PUtil.get)(95000021), remark = (PUtil.get)(103304001), voice_path = "Megumin_Stage_1", sort = 40, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304008] = {id = 18304008, name = (PUtil.get)(95000031), remark = (PUtil.get)(101304011), voice_path = "Megumin_Stage_2", sort = 41, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304008] = {id = 18304008, name = (PUtil.get)(95000031), remark = (PUtil.get)(101304011), voice_path = "Megumin_Stage_2", sort = 41, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304009] = {id = 18304009, name = (PUtil.get)(95000032), remark = (PUtil.get)(101304021), voice_path = "Megumin_Stage_3", sort = 42, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304009] = {id = 18304009, name = (PUtil.get)(95000032), remark = (PUtil.get)(101304021), voice_path = "Megumin_Stage_3", sort = 42, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304010] = {id = 18304010, name = (PUtil.get)(95000041), remark = (PUtil.get)(104304001), voice_path = "Megumin_Star_1", sort = 50, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304010] = {id = 18304010, name = (PUtil.get)(95000041), remark = (PUtil.get)(104304001), voice_path = "Megumin_Star_1", sort = 50, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304011] = {id = 18304011, name = (PUtil.get)(95000051), remark = (PUtil.get)(105304001), type = 1, voice_path = "Megumin_Interaction_1", sort = 140, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304011] = {id = 18304011, name = (PUtil.get)(95000051), remark = (PUtil.get)(105304001), type = 1, voice_path = "Megumin_Interaction_1", sort = 140, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304012] = {id = 18304012, name = (PUtil.get)(95000052), remark = (PUtil.get)(105304002), type = 1, voice_path = "Megumin_Interaction_2", sort = 141, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304012] = {id = 18304012, name = (PUtil.get)(95000052), remark = (PUtil.get)(105304002), type = 1, voice_path = "Megumin_Interaction_2", sort = 141, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304013] = {id = 18304013, name = (PUtil.get)(95000053), remark = (PUtil.get)(105304003), type = 1, voice_path = "Megumin_Interaction_3", sort = 142, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304013] = {id = 18304013, name = (PUtil.get)(95000053), remark = (PUtil.get)(105304003), type = 1, voice_path = "Megumin_Interaction_3", sort = 142, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304014] = {id = 18304014, name = (PUtil.get)(95000054), remark = (PUtil.get)(105304004), type = 1, voice_path = "Megumin_Interaction_4", sort = 143, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304014] = {id = 18304014, name = (PUtil.get)(95000054), remark = (PUtil.get)(105304004), type = 1, voice_path = "Megumin_Interaction_4", sort = 143, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304015] = {id = 18304015, name = (PUtil.get)(95000055), remark = (PUtil.get)(105304005), type = 1, voice_path = "Megumin_Interaction_5", sort = 144, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304015] = {id = 18304015, name = (PUtil.get)(95000055), remark = (PUtil.get)(105304005), type = 1, voice_path = "Megumin_Interaction_5", sort = 144, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304016] = {id = 18304016, name = (PUtil.get)(95000061), remark = (PUtil.get)(108304001), voice_path = "Megumin_Go_1", sort = 60, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304016] = {id = 18304016, name = (PUtil.get)(95000061), remark = (PUtil.get)(108304001), voice_path = "Megumin_Go_1", sort = 60, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304017] = {id = 18304017, name = (PUtil.get)(95000071), remark = (PUtil.get)(111304001), voice_path = "Megumin_Battle_N_1", sort = 70, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304017] = {id = 18304017, name = (PUtil.get)(95000071), remark = (PUtil.get)(111304001), voice_path = "Megumin_Battle_N_1", sort = 70, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304018] = {id = 18304018, name = (PUtil.get)(95000072), remark = (PUtil.get)(111304002), voice_path = "Megumin_Battle_N_2", sort = 71, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304018] = {id = 18304018, name = (PUtil.get)(95000072), remark = (PUtil.get)(111304002), voice_path = "Megumin_Battle_N_2", sort = 71, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304019] = {id = 18304019, name = (PUtil.get)(95000073), remark = (PUtil.get)(111304003), voice_path = "Megumin_Battle_N_3", sort = 72, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304019] = {id = 18304019, name = (PUtil.get)(95000073), remark = (PUtil.get)(111304003), voice_path = "Megumin_Battle_N_3", sort = 72, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304020] = {id = 18304020, name = (PUtil.get)(95000074), remark = (PUtil.get)(111304004), voice_path = "Megumin_Battle_N_4", sort = 73, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304020] = {id = 18304020, name = (PUtil.get)(95000074), remark = (PUtil.get)(111304004), voice_path = "Megumin_Battle_N_4", sort = 73, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304021] = {id = 18304021, name = (PUtil.get)(95000075), remark = (PUtil.get)(111304005), voice_path = "Megumin_Battle_N_5", sort = 74, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304021] = {id = 18304021, name = (PUtil.get)(95000075), remark = (PUtil.get)(111304005), voice_path = "Megumin_Battle_N_5", sort = 74, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304022] = {id = 18304022, name = (PUtil.get)(95000076), remark = (PUtil.get)(111304006), voice_path = "Megumin_Battle_N_6", sort = 75, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304022] = {id = 18304022, name = (PUtil.get)(95000076), remark = (PUtil.get)(111304006), voice_path = "Megumin_Battle_N_6", sort = 75, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304023] = {id = 18304023, name = (PUtil.get)(95000081), remark = (PUtil.get)(112304001), voice_path = "Megumin_Battle_Hit_1", sort = 80, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304023] = {id = 18304023, name = (PUtil.get)(95000081), remark = (PUtil.get)(112304001), voice_path = "Megumin_Battle_Hit_1", sort = 80, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304024] = {id = 18304024, name = (PUtil.get)(95000082), remark = (PUtil.get)(112304002), voice_path = "Megumin_Battle_Hit_2", sort = 81, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304024] = {id = 18304024, name = (PUtil.get)(95000082), remark = (PUtil.get)(112304002), voice_path = "Megumin_Battle_Hit_2", sort = 81, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304025] = {id = 18304025, name = (PUtil.get)(95000083), remark = (PUtil.get)(112304003), voice_path = "Megumin_Battle_Hit_3", sort = 82, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304025] = {id = 18304025, name = (PUtil.get)(95000083), remark = (PUtil.get)(112304003), voice_path = "Megumin_Battle_Hit_3", sort = 82, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304026] = {id = 18304026, name = (PUtil.get)(95000084), remark = (PUtil.get)(112304004), voice_path = "Megumin_Battle_Hit_4", sort = 83, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304026] = {id = 18304026, name = (PUtil.get)(95000084), remark = (PUtil.get)(112304004), voice_path = "Megumin_Battle_Hit_4", sort = 83, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304027] = {id = 18304027, name = (PUtil.get)(95000085), remark = (PUtil.get)(112304005), voice_path = "Megumin_Battle_Hit_5", sort = 84, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304027] = {id = 18304027, name = (PUtil.get)(95000085), remark = (PUtil.get)(112304005), voice_path = "Megumin_Battle_Hit_5", sort = 84, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304028] = {id = 18304028, name = (PUtil.get)(95000086), remark = (PUtil.get)(112304006), voice_path = "Megumin_Battle_Hit_6", sort = 85, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304029] = {id = 18304029, name = (PUtil.get)(95000091), remark = (PUtil.get)(113304001), voice_path = "Megumin_Battle_Die_1", sort = 90, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304029] = {id = 18304029, name = (PUtil.get)(95000091), remark = (PUtil.get)(113304001), voice_path = "Megumin_Battle_Die_1", sort = 90, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304030] = {id = 18304030, name = (PUtil.get)(95000101), remark = (PUtil.get)(114304001), voice_path = "Megumin_Battle_H_1", sort = 100, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304030] = {id = 18304030, name = (PUtil.get)(95000101), remark = (PUtil.get)(114304001), voice_path = "Megumin_Battle_H_1", sort = 100, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304031] = {id = 18304031, name = (PUtil.get)(95000102), remark = (PUtil.get)(114304002), voice_path = "Megumin_Battle_H_2", sort = 101, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304031] = {id = 18304031, name = (PUtil.get)(95000102), remark = (PUtil.get)(114304002), voice_path = "Megumin_Battle_H_2", sort = 101, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304032] = {id = 18304032, name = (PUtil.get)(95000111), remark = (PUtil.get)(115304001), voice_path = "Megumin_Battle_C_1", sort = 110, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304032] = {id = 18304032, name = (PUtil.get)(95000111), remark = (PUtil.get)(115304001), voice_path = "Megumin_Battle_C_1", sort = 110, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304033] = {id = 18304033, name = (PUtil.get)(95000112), remark = (PUtil.get)(115304002), voice_path = "Megumin_Battle_C_2", sort = 111, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304033] = {id = 18304033, name = (PUtil.get)(95000112), remark = (PUtil.get)(115304002), voice_path = "Megumin_Battle_C_2", sort = 111, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304034] = {id = 18304034, name = (PUtil.get)(95000121), remark = (PUtil.get)(106304001), voice_path = "Megumin_Win_1", sort = 120, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304034] = {id = 18304034, name = (PUtil.get)(95000121), remark = (PUtil.get)(106304001), voice_path = "Megumin_Win_1", sort = 120, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304035] = {id = 18304035, name = (PUtil.get)(95000131), remark = (PUtil.get)(107304001), voice_path = "Megumin_Fail_1", sort = 130, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304035] = {id = 18304035, name = (PUtil.get)(95000131), remark = (PUtil.get)(107304001), voice_path = "Megumin_Fail_1", sort = 130, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304050] = {id = 18304050, name = (PUtil.get)(95000140), remark = (PUtil.get)(116304001), voice_path = "Megumin_Home_In_1", sort = 150, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304050] = {id = 18304050, name = (PUtil.get)(95000140), remark = (PUtil.get)(116304001), voice_path = "Megumin_Home_In_1", sort = 150, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304051] = {id = 18304051, name = (PUtil.get)(95000141), remark = (PUtil.get)(117304001), voice_path = "Megumin_Home_Talk_1", sort = 151, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304051] = {id = 18304051, name = (PUtil.get)(95000141), remark = (PUtil.get)(117304001), voice_path = "Megumin_Home_Talk_1", sort = 151, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304052] = {id = 18304052, name = (PUtil.get)(95000142), remark = (PUtil.get)(117304002), voice_path = "Megumin_Home_Talk_2", sort = 152, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
-[18304052] = {id = 18304052, name = (PUtil.get)(95000142), remark = (PUtil.get)(117304002), voice_path = "Megumin_Home_Talk_2", sort = 152, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
-, 
-[18304053] = {id = 18304053, name = (PUtil.get)(95000143), remark = (PUtil.get)(117304003), voice_path = "Megumin_Home_Talk_3", sort = 153, bubble_id = "14304000:2:324:290,14304001:1:106:310,14304002:1:106:310"}
+[18304053] = {id = 18304053, name = (PUtil.get)(95000143), remark = (PUtil.get)(117304003), voice_path = "Megumin_Home_Talk_3", sort = 153, bubble_id = "14304000:2:324:290,14304001:2:440:306,14304002:2:440:306"}
 , 
 [18304101] = {id = 18304101, name = (PUtil.get)(95000001), remark = (PUtil.get)(101304101), voice_path = "Yunyun_Get_1", sort = 10, bubble_id = "14304100:2:452:264,14304101:2:389:250,14304102:2:389:250"}
 , 
@@ -8270,8 +8288,6 @@ BaseHandbookRoleDetailData = {
 [18304120] = {id = 18304120, name = (PUtil.get)(95000074), remark = (PUtil.get)(111304104), voice_path = "Yunyun_Battle_N_4", sort = 73, bubble_id = "14304100:2:452:264,14304101:2:389:250,14304102:2:389:250"}
 , 
 [18304121] = {id = 18304121, name = (PUtil.get)(95000075), remark = (PUtil.get)(111304105), voice_path = "Yunyun_Battle_N_5", sort = 74, bubble_id = "14304100:2:452:264,14304101:2:389:250,14304102:2:389:250"}
-, 
-[18304122] = {id = 18304122, name = (PUtil.get)(95000076), remark = (PUtil.get)(111304106), voice_path = "Yunyun_Battle_N_6", sort = 75, bubble_id = "14304100:2:452:264,14304101:2:389:250,14304102:2:389:250"}
 , 
 [18304123] = {id = 18304123, name = (PUtil.get)(95000081), remark = (PUtil.get)(112304101), voice_path = "Yunyun_Battle_Hit_1", sort = 80, bubble_id = "14304100:2:452:264,14304101:2:389:250,14304102:2:389:250"}
 , 

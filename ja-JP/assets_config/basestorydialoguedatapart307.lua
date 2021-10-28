@@ -654,5 +654,7 @@ BaseStoryDialogueDataPart307 = {
 [75715968] = {id = 75715968, remark = (PUtil.get)(86274930), type = 1, option_ids = "0", next = 75715969, role_ids = "75200021:75200011", role_type = 75200021, position = "195:606:10050,642:606:10000", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007}
 , 
 [75715969] = {id = 75715969, remark = (PUtil.get)(86274931), type = 1, option_ids = "0", next = -1, role_ids = "75200021:75200011", role_type = 75200011, position = "195:606:10000,642:606:10050", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007}
+, 
+[75716101] = {id = 75716101, remark = (PUtil.get)(86274932)}
 }
 
