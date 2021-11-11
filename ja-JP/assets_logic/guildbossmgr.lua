@@ -674,7 +674,7 @@ GuildBossMgr.SaveCardList = function(forData, supportId, supportPlayerIndex, ...
       end
     end
     ;
-    (GuildBossService.ReqSaveCardGroup)(cardList)
+    (GuildBossMgr.ReqSaveCardGroup)(cardList)
   end
 end
 

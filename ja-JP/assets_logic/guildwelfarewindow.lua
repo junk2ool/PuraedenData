@@ -59,7 +59,7 @@ GuildWelfareWindow.OnShown = function(...)
   -- function num : 0_7 , upvalues : GuildWelfareWindow
   (GuildWelfareWindow.InitEvent)()
   ;
-  (GuildWelfareWindow.InitItem)()
+  (GuildWelfareWindow.Init)()
 end
 
 GuildWelfareWindow.OnHide = function(...)
@@ -67,18 +67,14 @@ GuildWelfareWindow.OnHide = function(...)
 end
 
 GuildWelfareWindow.Init = function(...)
-  -- function num : 0_9
-end
-
-GuildWelfareWindow.InitItem = function(...)
-  -- function num : 0_10 , upvalues : GUILD_TIDY_SLOTS_AMOUNT, GuildWelfareWindow
+  -- function num : 0_9 , upvalues : GUILD_TIDY_SLOTS_AMOUNT, GuildWelfareWindow
   for i = 1, GUILD_TIDY_SLOTS_AMOUNT do
     (GuildWelfareWindow.InitClearItem)(i)
   end
 end
 
 GuildWelfareWindow.InitClearItem = function(index, ...)
-  -- function num : 0_11 , upvalues : uis, _ENV, clearItems, CLEAN_UP_DURATION
+  -- function num : 0_10 , upvalues : uis, _ENV, clearItems, CLEAN_UP_DURATION
   local content = (uis.WelfareContent)["Content_0" .. tostring(index)]
   -- DECOMPILER ERROR at PC19: Confused about usage of register: R2 in 'UnsetPending'
 
@@ -99,8 +95,9 @@ GuildWelfareWindow.InitClearItem = function(index, ...)
   local sound, pressPanel = nil, nil
   local ctrls = {}
   local tweens = {}
+  local pos = {}
   longPress:AddEventListener("onLongPressBegin", function(...)
-    -- function num : 0_11_0 , upvalues : clearItems, sound, _ENV, pressPanel, ctrls, CLEAN_UP_DURATION, tweens
+    -- function num : 0_10_0 , upvalues : clearItems, sound, _ENV, pressPanel, ctrls, CLEAN_UP_DURATION, pos, tweens
     if #clearItems < 1 then
       return 
     end
@@ -117,21 +114,19 @@ GuildWelfareWindow.InitClearItem = function(index, ...)
         bar = pressPanel:GetChild("ClearBar")
         bar.value = 0
         tweener = ((bar:TweenValue(100, CLEAN_UP_DURATION)):SetEase((FairyGUI.EaseType).Linear)):OnComplete(function(...)
-      -- function num : 0_11_0_0 , upvalues : _content, i, clearItems, _ENV
+      -- function num : 0_10_0_0 , upvalues : _content, _ENV, pos, i, clearItems
       -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
 
       (_content.root).visible = false
-      if i == #clearItems then
-        clearItems = {}
-      end
       local index = (string.gsub)((_content.root).gameObjectName, "Content_0", "")
       index = tonumber(index)
       ;
-      (SimpleTimer.setTimeout)(0.2 * i, function(...)
-        -- function num : 0_11_0_0_0 , upvalues : _ENV, index
-        (GuildService.ReqGuildGiftGet)(index)
+      (table.insert)(pos, index)
+      if i == #clearItems then
+        clearItems = {}
+        ;
+        (GuildService.ReqGuildGiftGet)(pos)
       end
-)
     end
 )
         ;
@@ -141,7 +136,7 @@ GuildWelfareWindow.InitClearItem = function(index, ...)
   end
 )
   longPress:AddEventListener("onLongPressEnd", function(...)
-    -- function num : 0_11_1 , upvalues : _ENV, sound, clearItems, tweens, ctrls
+    -- function num : 0_10_1 , upvalues : _ENV, sound, clearItems, tweens, ctrls, pos
     (LuaSound.StopSound)(sound)
     for i = 1, #clearItems do
       if tweens[i] then
@@ -155,17 +150,18 @@ GuildWelfareWindow.InitClearItem = function(index, ...)
     end
     tweens = {}
     ctrls = {}
+    pos = {}
   end
 )
 end
 
 GuildWelfareWindow.ClickRankingBtn = function(...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   (GuildService.ReqGuildGiftRank)()
 end
 
 GuildWelfareWindow.OnClose = function(...)
-  -- function num : 0_13 , upvalues : _ENV, GuildWelfareWindow, uis, contentPane, argTable
+  -- function num : 0_12 , upvalues : _ENV, GuildWelfareWindow, uis, contentPane, argTable
   (CommonWinMgr.RemoveAssets)((WinResConfig.GuildWelfareWindow).name)
   ;
   (GuildWelfareWindow.RemoveEvent)()
@@ -175,7 +171,7 @@ GuildWelfareWindow.OnClose = function(...)
 end
 
 GuildWelfareWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_14 , upvalues : _ENV, GuildWelfareWindow
+  -- function num : 0_13 , upvalues : _ENV, GuildWelfareWindow
   if msgId == (WindowMsgEnum.Guild).E_MSG_REFRESH_WELFARE_STATUS then
     (GuildWelfareWindow.Init)()
   end

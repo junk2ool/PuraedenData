@@ -1161,6 +1161,12 @@ BaseShopPoolData = {
 , 
 [23208001] = {id = 23208001, grid_id = "23002008", sell_time = "0", item = "1:21500406:1", sell_price = "2:21100002:500", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
 , 
+[23209001] = {id = 23209001, grid_id = "23002009", sell_time = "0", item = "1:21500411:1", sell_price = "2:21100002:880", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
+, 
+[23210001] = {id = 23210001, grid_id = "23002010", sell_time = "0", item = "1:21500412:1", sell_price = "2:21100002:660", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
+, 
+[23211001] = {id = 23211001, grid_id = "23002011", sell_time = "0", item = "1:21500413:1", sell_price = "2:21100002:1280", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
+, 
 [23301001] = {id = 23301001, grid_id = "23003001", sell_time = "0", item = "1:21122002:5", sell_price = "2:21100007:400", sell_type = "0", prob = "556", player_level_min = "15", player_level_max = "999"}
 , 
 [23301002] = {id = 23301002, grid_id = "23003001", sell_time = "0", item = "1:21122008:5", sell_price = "2:21100007:400", sell_type = "0", prob = "556", player_level_min = "15", player_level_max = "999"}
@@ -1560,8 +1566,6 @@ BaseShopPoolData = {
 [23546001] = {id = 23546001, grid_id = "23005046", sell_time = "0", item = "1:21140002:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
 [23547001] = {id = 23547001, grid_id = "23005047", sell_time = "0", item = "1:21140001:1", sell_price = "2:21100023:1", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
-, 
-[23548001] = {id = 23548001, grid_id = "23005048", sell_time = "0", item = "4:62002218:1", sell_price = "2:21100023:150", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 
 [23601001] = {id = 23601001, grid_id = "23006001", sell_time = "0", item = "8:21600001:1", sell_price = "2:21100024:150", sell_type = "0", prob = "10000", player_level_min = "1", player_level_max = "999"}
 , 

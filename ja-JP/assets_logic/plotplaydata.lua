@@ -77,7 +77,8 @@ end
 -- DECOMPILER ERROR at PC105: Confused about usage of register: R4 in 'UnsetPending'
 
 PlotPlayData.InitQueueData = function(...)
-  -- function num : 0_1 , upvalues : _plotQueue, _currentPlotIndex
+  -- function num : 0_1 , upvalues : _choices, _plotQueue, _currentPlotIndex
+  _choices = {}
   _plotQueue = {}
   _currentPlotIndex = 0
 end

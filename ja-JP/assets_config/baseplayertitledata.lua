@@ -19,29 +19,31 @@ BasePlayerTitleData = {
 , 
 [29000009] = {id = 29000009, name = (PUtil.get)(84111109), goods_icon = "ItemIcon:29000009", type = 1, quality = 1, remark = (PUtil.get)(84111009), des = (PUtil.get)(84111209), icon = "Title:29000009", date = -2, sort = 2, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
-[29000010] = {id = 29000010, name = (PUtil.get)(84111110), goods_icon = "ItemIcon:29000010", type = 1, quality = 3, remark = (PUtil.get)(84111010), des = (PUtil.get)(84111210), icon = "Title:29000010", date = -1, sort = 21, add_attr = "0", reward_sort = 9880001, own_show = 1}
+[29000010] = {id = 29000010, name = (PUtil.get)(84111110), goods_icon = "ItemIcon:29000010", type = 1, quality = 3, remark = (PUtil.get)(84111010), des = (PUtil.get)(84111210), icon = "Title:29000010", date = -1, sort = 22, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
-[29000011] = {id = 29000011, name = (PUtil.get)(84111111), goods_icon = "ItemIcon:29000011", type = 1, quality = 3, remark = (PUtil.get)(84111011), des = (PUtil.get)(84111211), icon = "Title:29000011", date = -1, sort = 20, add_attr = "0", reward_sort = 9880001, own_show = 1}
+[29000011] = {id = 29000011, name = (PUtil.get)(84111111), goods_icon = "ItemIcon:29000011", type = 1, quality = 3, remark = (PUtil.get)(84111011), des = (PUtil.get)(84111211), icon = "Title:29000011", date = -1, sort = 21, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
-[29000012] = {id = 29000012, name = (PUtil.get)(84111112), goods_icon = "ItemIcon:29000012", type = 1, quality = 3, remark = (PUtil.get)(84111012), des = (PUtil.get)(84111212), icon = "Title:29000012", date = -1, sort = 19, add_attr = "0", reward_sort = 9880001, own_show = 1}
+[29000012] = {id = 29000012, name = (PUtil.get)(84111112), goods_icon = "ItemIcon:29000012", type = 1, quality = 3, remark = (PUtil.get)(84111012), des = (PUtil.get)(84111212), icon = "Title:29000012", date = -1, sort = 20, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
-[29000013] = {id = 29000013, name = (PUtil.get)(84111113), goods_icon = "ItemIcon:29000013", type = 1, quality = 3, remark = (PUtil.get)(84111013), des = (PUtil.get)(84111213), icon = "Title:29000013", date = -1, sort = 18, add_attr = "0", reward_sort = 9880001, own_show = 1}
+[29000013] = {id = 29000013, name = (PUtil.get)(84111113), goods_icon = "ItemIcon:29000013", type = 1, quality = 3, remark = (PUtil.get)(84111013), des = (PUtil.get)(84111213), icon = "Title:29000013", date = -1, sort = 19, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
-[29000014] = {id = 29000014, name = (PUtil.get)(84111114), goods_icon = "ItemIcon:29000014", type = 1, quality = 3, remark = (PUtil.get)(84111014), des = (PUtil.get)(84111214), icon = "Title:29000014", date = -1, sort = 17, add_attr = "0", reward_sort = 9880001, own_show = 1}
+[29000014] = {id = 29000014, name = (PUtil.get)(84111114), goods_icon = "ItemIcon:29000014", type = 1, quality = 3, remark = (PUtil.get)(84111014), des = (PUtil.get)(84111214), icon = "Title:29000014", date = -1, sort = 18, add_attr = "0", reward_sort = 9880001, own_show = 1}
 , 
-[29000015] = {id = 29000015, name = (PUtil.get)(84111115), goods_icon = "ItemIcon:29000015", type = 1, quality = 3, remark = (PUtil.get)(84111015), des = (PUtil.get)(84111215), icon = "Title:29000015", date = -1, sort = 16, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1619834399"}
+[29000015] = {id = 29000015, name = (PUtil.get)(84111115), goods_icon = "ItemIcon:29000015", type = 1, quality = 3, remark = (PUtil.get)(84111015), des = (PUtil.get)(84111215), icon = "Title:29000015", date = -1, sort = 17, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1619834399"}
 , 
-[29000016] = {id = 29000016, name = (PUtil.get)(84111116), goods_icon = "ItemIcon:29000016", type = 1, quality = 3, remark = (PUtil.get)(84111016), des = (PUtil.get)(84111216), icon = "Title:29000016", date = -1, sort = 15, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
+[29000016] = {id = 29000016, name = (PUtil.get)(84111116), goods_icon = "ItemIcon:29000016", type = 1, quality = 3, remark = (PUtil.get)(84111016), des = (PUtil.get)(84111216), icon = "Title:29000016", date = -1, sort = 16, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1622426399"}
 , 
-[29000017] = {id = 29000017, name = (PUtil.get)(84111117), goods_icon = "ItemIcon:29000017", type = 1, quality = 3, remark = (PUtil.get)(84111017), des = (PUtil.get)(84111217), icon = "Title:29000017", date = -1, sort = 14, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1625018399"}
+[29000017] = {id = 29000017, name = (PUtil.get)(84111117), goods_icon = "ItemIcon:29000017", type = 1, quality = 3, remark = (PUtil.get)(84111017), des = (PUtil.get)(84111217), icon = "Title:29000017", date = -1, sort = 15, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1625018399"}
 , 
-[29000018] = {id = 29000018, name = (PUtil.get)(84111118), goods_icon = "ItemIcon:29000018", type = 1, quality = 3, remark = (PUtil.get)(84111018), des = (PUtil.get)(84111218), icon = "Title:29000018", date = -1, sort = 13, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1625778000"}
+[29000018] = {id = 29000018, name = (PUtil.get)(84111118), goods_icon = "ItemIcon:29000018", type = 1, quality = 3, remark = (PUtil.get)(84111018), des = (PUtil.get)(84111218), icon = "Title:29000018", date = -1, sort = 14, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1625778000"}
 , 
-[29000019] = {id = 29000019, name = (PUtil.get)(84111119), goods_icon = "ItemIcon:29000019", type = 1, quality = 3, remark = (PUtil.get)(84111019), des = (PUtil.get)(84111219), icon = "Title:29000019", date = -1, sort = 12, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
+[29000019] = {id = 29000019, name = (PUtil.get)(84111119), goods_icon = "ItemIcon:29000019", type = 1, quality = 3, remark = (PUtil.get)(84111019), des = (PUtil.get)(84111219), icon = "Title:29000019", date = -1, sort = 13, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1627696799"}
 , 
-[29000020] = {id = 29000020, name = (PUtil.get)(84111120), goods_icon = "ItemIcon:29000020", type = 1, quality = 3, remark = (PUtil.get)(84111020), des = (PUtil.get)(84111220), icon = "Title:29000020", date = -1, sort = 11, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
+[29000020] = {id = 29000020, name = (PUtil.get)(84111120), goods_icon = "ItemIcon:29000020", type = 1, quality = 3, remark = (PUtil.get)(84111020), des = (PUtil.get)(84111220), icon = "Title:29000020", date = -1, sort = 12, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1630375199"}
 , 
-[29000021] = {id = 29000021, name = (PUtil.get)(84111121), goods_icon = "ItemIcon:29000021", type = 1, quality = 3, remark = (PUtil.get)(84111021), des = (PUtil.get)(84111221), icon = "Title:29000021", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1632967199"}
+[29000021] = {id = 29000021, name = (PUtil.get)(84111121), goods_icon = "ItemIcon:29000021", type = 1, quality = 3, remark = (PUtil.get)(84111021), des = (PUtil.get)(84111221), icon = "Title:29000021", date = -1, sort = 11, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1632967199"}
+, 
+[29000022] = {id = 29000022, name = (PUtil.get)(84111122), goods_icon = "ItemIcon:29000022", type = 1, quality = 3, remark = (PUtil.get)(84111022), des = (PUtil.get)(84111222), icon = "Title:29000022", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1635645599"}
 , 
 [29000101] = {id = 29000101, name = (PUtil.get)(84112101), goods_icon = "ItemIcon:29000101", type = 1, quality = 3, remark = (PUtil.get)(84112001), des = (PUtil.get)(84112201), icon = "Title:29000101", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1620403200"}
 }

@@ -2099,7 +2099,7 @@ end
 FormationWindow.SetSkillInfo = function(cardData, isMonster, ...)
   -- function num : 0_55 , upvalues : _ENV, FormationWindow
   local skillInfo = cardData.skillInfo
-  local unique_skill_id, special_skill_id = nil, nil
+  local unique_skill_id, special_skill_id, ex_skill_id = nil, nil, nil
   local unique_skill_level = 0
   local special_skill_level = 0
   if isMonster then
@@ -2108,11 +2108,13 @@ FormationWindow.SetSkillInfo = function(cardData, isMonster, ...)
     local cardTable = (TableData.GetBaseMonsterData)(cardData.id)
     unique_skill_id = cardTable.unique_skill_id
     special_skill_id = cardTable.special_skill_id
+    ex_skill_id = cardTable.ex_passiveSkillId
   else
     do
       local cardTable = ((TableData.gTable).BaseCardData)[cardData.id]
       unique_skill_id = cardTable.unique_skill_id
       special_skill_id = cardTable.special_skill_id
+      ex_skill_id = cardTable.ex_passiveSkillId
       if skillInfo then
         for _,v in pairs(skillInfo) do
           if v.id == unique_skill_id then
@@ -2127,16 +2129,21 @@ FormationWindow.SetSkillInfo = function(cardData, isMonster, ...)
       do
         local uniqueSkill, isChange = (CardData.JudgeSealSkillModify)(cardData.sealSkillInfo, unique_skill_id)
         local specialSkill, isChange2 = (CardData.JudgeSealSkillModify)(cardData.sealSkillInfo, special_skill_id)
-        local height = (FormationWindow.CreateSingleSkill)(uniqueSkill, unique_skill_level, true, cardData, isChange)
-        local height2 = (FormationWindow.CreateSingleSkill)(specialSkill, special_skill_level, false, cardData, isChange2)
-        return height + height2
+        local exSkill, isChange3 = (CardData.JudgeSealSkillModify)(cardData.sealSkillInfo, ex_skill_id)
+        local height = (FormationWindow.CreateSingleSkill)(uniqueSkill, unique_skill_level, true, cardData, isChange, false)
+        local height2 = (FormationWindow.CreateSingleSkill)(specialSkill, special_skill_level, false, cardData, isChange2, false)
+        local height3 = (FormationWindow.CreateSingleSkill)(exSkill, special_skill_level, false, cardData, isChange3, true)
+        return height + height2 + height3
       end
     end
   end
 end
 
-FormationWindow.CreateSingleSkill = function(skillID, level, isUnique, cardData, isSealSkill, ...)
+FormationWindow.CreateSingleSkill = function(skillID, level, isUnique, cardData, isSealSkill, isExSkill, ...)
   -- function num : 0_56 , upvalues : _ENV, uis, FormationWindow
+  if not skillID or skillID == 0 then
+    return 0
+  end
   local uniqueSkill = UIMgr:CreateObject("Formation", "CardSkill")
   local skillConfig = (TableData.GetBaseSkillData)(skillID)
   ;
@@ -2152,6 +2159,9 @@ FormationWindow.CreateSingleSkill = function(skillID, level, isUnique, cardData,
       ChangeUIController(uniqueSkill:GetChild("SkillFrameGrp"), "c1", 2)
     else
       ChangeUIController(uniqueSkill:GetChild("SkillFrameGrp"), "c1", 1)
+    end
+    if isExSkill then
+      ChangeUIController(uniqueSkill:GetChild("SkillFrameGrp"), "c1", 3)
     end
     ;
     (uniqueSkill:GetChild("CardWordTxt")).text = (FormationWindow.GetSkillRemark)(skillConfig, level, cardData)

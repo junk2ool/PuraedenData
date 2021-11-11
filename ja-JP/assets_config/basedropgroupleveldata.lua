@@ -197,6 +197,22 @@ BaseDropGroupLevelData = {
 , 
 [27201005] = {id = 27201005, type = 2105, level_limit = "1:999", drop_ids = "22800205"}
 , 
+[27201006] = {id = 27201006, type = 2106, level_limit = "1:999", drop_ids = "22800206"}
+, 
+[27201007] = {id = 27201007, type = 2107, level_limit = "1:999", drop_ids = "22800207"}
+, 
+[27201008] = {id = 27201008, type = 2108, level_limit = "1:999", drop_ids = "22800208"}
+, 
+[27201009] = {id = 27201009, type = 2109, level_limit = "1:999", drop_ids = "22800209"}
+, 
+[27201010] = {id = 27201010, type = 2110, level_limit = "1:999", drop_ids = "22800210"}
+, 
+[27201011] = {id = 27201011, type = 2111, level_limit = "1:999", drop_ids = "22800211"}
+, 
+[27201012] = {id = 27201012, type = 2112, level_limit = "1:999", drop_ids = "22800212"}
+, 
+[27201013] = {id = 27201013, type = 2113, level_limit = "1:999", drop_ids = "22800213"}
+, 
 [27201101] = {id = 27201101, type = 2011, level_limit = "1:999", drop_ids = "24150001"}
 , 
 [27201102] = {id = 27201102, type = 2012, level_limit = "1:999", drop_ids = "24150002"}
