@@ -561,6 +561,9 @@ end
 HandBookMgr.GetCardIntimacyData = function(cardID, level, ...)
   -- function num : 0_31 , upvalues : _ENV
   local IntimacyUpData = ((TableData.gTable).BaseCardData)[cardID]
+  if not IntimacyUpData then
+    return nil
+  end
   local intimacyType = IntimacyUpData.intimacy_grow_type
   local IntimacyUpData = (TableData.gTable).BaseIntimacyUpData
   for _,v in pairs(IntimacyUpData) do

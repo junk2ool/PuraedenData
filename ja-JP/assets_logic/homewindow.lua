@@ -1086,15 +1086,7 @@ HomeWindow.OnClickShop = function(...)
   -- function num : 0_24 , upvalues : _ENV
   ld("Shop", function(...)
     -- function num : 0_24_0 , upvalues : _ENV
-    local isProductActivity = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Product)
-    if isProductActivity == true then
-      (PayService.ReqPayData)(false)
-    else
-      ;
-      (ShopMgr.SetProductData)({})
-      ;
-      (ShopService.OnReqShopData)()
-    end
+    (ShopService.OnReqShopData)()
   end
 )
 end
@@ -1661,8 +1653,6 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
                 (((uis.BottomButton).LotteryTenTips).root).visible = para > 0
               elseif msgId == (WindowMsgEnum.HomeWindow).E_MSG_REFRESH_PRODUCT then
                 (HomeWindow.RefreshProduct)(para)
-              elseif msgId == (WindowMsgEnum.HomeWindow).E_MSG_RESET_PRODUCT then
-                (ShopService.OnReqShopData)()
               end
             end
           end
@@ -1673,7 +1663,7 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
   if msgId == (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION then
     (HomeWindow.AutoPlayVoiceAndBubble)()
   end
-  -- DECOMPILER ERROR: 5 unprocessed JMP targets
+  -- DECOMPILER ERROR: 4 unprocessed JMP targets
 end
 
 HomeWindow.CheckActivityIcon = function(...)

@@ -21,9 +21,6 @@ PayData.SavePayData = function(msg, ...)
   for i,v in ipairs((PayData.savePayData).productList) do
     print("礼包活动id   ", v.productId)
   end
-  if UIMgr:IsWindowOpen((WinResConfig.HomeWindow).name) then
-    UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.HomeWindow).E_MSG_RESET_PRODUCT)
-  end
 end
 
 -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
@@ -137,7 +134,7 @@ PayData.GetProducListInfo = function(...)
     end
   end
   for _,v in pairs(config) do
-    if v.platform == platform and (v.type == PayProductType.Product or v.tap_type == PayProductTapType.TuiSongLiBao) then
+    if v.platform == platform and (v.type == PayProductType.Product or v.tap_type == (ShopBtnTab.TuiSongLiBao).tapType) then
       local info = (PayData.GetProductInfo)(v.product_id)
       if info and info.unlockTime > 0 then
         info.id = v.id
@@ -163,6 +160,10 @@ end
 
 PayData.HaveTuiSongLiBao = function(...)
   -- function num : 0_7 , upvalues : _ENV
+  local isProductActivity = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Product)
+  if isProductActivity == false then
+    return false
+  end
   local data = (PayData.GetProducListInfo)()
   if #data > 0 then
     return true
