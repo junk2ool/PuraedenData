@@ -666,31 +666,59 @@ BattlePlay.GetNextAttackTime = function(atkInfo, card, defCard, targetFloat, ...
   end
 end
 
--- DECOMPILER ERROR at PC76: Confused about usage of register: R15 in 'UnsetPending'
+local __attacktarget = function(atkCard, attackType, defCards, atkEndCallBack, allEndCallback, ...)
+  -- function num : 0_16 , upvalues : BattleAttackType
+  if attackType == BattleAttackType.RUN then
+    atkCard:RunToTargetCard(defCards, atkEndCallBack, allEndCallback)
+  else
+    if attackType == BattleAttackType.JUMP then
+      atkCard:JumpToTargetCard(defCards, atkEndCallBack, allEndCallback)
+    else
+      if attackType == BattleAttackType.STAND then
+        atkCard:Attack(defCards, atkEndCallBack, allEndCallback)
+      else
+        if attackType == BattleAttackType.FLASH then
+          atkCard:FlashToTargetCard(defCards, atkEndCallBack, allEndCallback)
+        end
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC77: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack, ...)
-  -- function num : 0_16 , upvalues : self, BattleAttackType, _ENV, ipairs
+  -- function num : 0_17 , upvalues : self, BattleCardState, __attacktarget, _ENV, ipairs
   atkCard:SetAtkInfo(atkInfo)
   atkCard:SetAttackType(attackType)
   atkCard:SetMovePosType(atkInfo.movePosType)
   atkCard:SetAllBuffEffectVisible(false)
   local callBack = function(...)
-    -- function num : 0_16_0 , upvalues : self, atkInfo, attackType, BattleAttackType, atkCard, defCards, atkEndCallBack, allEndCallBack
+    -- function num : 0_17_0 , upvalues : self, atkInfo, atkCard, BattleCardState, __attacktarget, attackType, defCards, atkEndCallBack, allEndCallBack
     (self.PlayDamageShareMove)(atkInfo)
-    if attackType == BattleAttackType.RUN then
-      atkCard:RunToTargetCard(defCards, atkEndCallBack, allEndCallBack)
-    else
-      if attackType == BattleAttackType.JUMP then
-        atkCard:JumpToTargetCard(defCards, atkEndCallBack, allEndCallBack)
+    local curState = atkCard:GetCurState()
+    do
+      if curState == BattleCardState.FLOAT_UP or curState == BattleCardState.FLOAT_DOWN then
+        local floatCallback = atkCard.floatCallBack
+        do
+          atkCard.floatCallBack = function(...)
+      -- function num : 0_17_0_0 , upvalues : floatCallback, __attacktarget, atkCard, attackType, defCards, atkEndCallBack, allEndCallBack
+      if floatCallback then
+        __attacktarget(atkCard, attackType, defCards, atkEndCallBack, function(...)
+        -- function num : 0_17_0_0_0 , upvalues : floatCallback, allEndCallBack
+        floatCallback()
+        allEndCallBack()
+      end
+)
       else
-        if attackType == BattleAttackType.STAND then
-          atkCard:Attack(defCards, atkEndCallBack, allEndCallBack)
-        else
-          if attackType == BattleAttackType.FLASH then
-            atkCard:FlashToTargetCard(defCards, atkEndCallBack, allEndCallBack)
-          end
+        __attacktarget(atkCard, attackType, defCards, atkEndCallBack, allEndCallBack)
+      end
+    end
+
+          return 
         end
       end
+      __attacktarget(atkCard, attackType, defCards, atkEndCallBack, allEndCallBack)
     end
   end
 
@@ -712,7 +740,7 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
       local oriSkillConfig = atkCard:GetSkillConfig()
       if oriSkillConfig.special_type ~= BattleSkillSpecialType.COPY and (scriptPath == nil or scriptPath == "" or not scriptPath or (string.find)(scriptPath, "SkillScript") == nil) then
         atkCard:PlayCommonSkillEffect(function(...)
-    -- function num : 0_16_1 , upvalues : _ENV, skillId, atkCard, callBack
+    -- function num : 0_17_1 , upvalues : _ENV, skillId, atkCard, callBack
     (BattlePlay.ShowSkillCard)(skillId, atkCard:GetPosIndex(), callBack)
   end
 )
@@ -747,10 +775,10 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
   end
 end
 
--- DECOMPILER ERROR at PC79: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC80: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.ShowSkillCard = function(skillId, posIndex, callBack, ...)
-  -- function num : 0_17 , upvalues : _ENV, UIMgr
+  -- function num : 0_18 , upvalues : _ENV, UIMgr
   local skillConfig = (TableData.GetBaseSkillData)(skillId)
   local card = (BattleData.GetCardInfoByPos)(posIndex)
   if card then
@@ -770,10 +798,10 @@ BattlePlay.ShowSkillCard = function(skillId, posIndex, callBack, ...)
   end
 end
 
--- DECOMPILER ERROR at PC82: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC83: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayDamageShareMove = function(atkInfo, ...)
-  -- function num : 0_18 , upvalues : ipairs, _ENV
+  -- function num : 0_19 , upvalues : ipairs, _ENV
   local defCardsInfo = atkInfo.defCardsInfo
   for _,v in ipairs(defCardsInfo) do
     if v.shareDamageCardPos ~= 0 then
@@ -782,7 +810,7 @@ BattlePlay.PlayDamageShareMove = function(atkInfo, ...)
       if needMoveCard and targetCard then
         targetCard.damageShareCardPos = v.defPos
         needMoveCard:JumpToDamageShareCard(targetCard, function(...)
-    -- function num : 0_18_0
+    -- function num : 0_19_0
   end
 )
       end
@@ -790,10 +818,10 @@ BattlePlay.PlayDamageShareMove = function(atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC85: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC86: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayPreRoundInfo = function(...)
-  -- function num : 0_19 , upvalues : _ENV, BattleState, ipairs, self, BattleBuffDeductionRoundType, BattleBuffSettleRoundType
+  -- function num : 0_20 , upvalues : _ENV, BattleState, ipairs, self, BattleBuffDeductionRoundType, BattleBuffSettleRoundType
   local curRound = BattleData.roundIndex
   ;
   (BattleData.SetBattleState)(BattleState.PRE_ROUND_PLAYING)
@@ -839,7 +867,7 @@ BattlePlay.PlayPreRoundInfo = function(...)
   (self.PlayBuff)(playBuffInfo, nil, BattleBuffDeductionRoundType.AFTER_DAMAGE, BattleBuffSettleRoundType.AFTER_DAMAGE)
   if updateCount > 0 then
     (SimpleTimer.setTimeout)(0.8, function(...)
-    -- function num : 0_19_0 , upvalues : _ENV, BattleState
+    -- function num : 0_20_0 , upvalues : _ENV, BattleState
     (BattleData.SetBattleState)(BattleState.CHANGE_ATTACK)
   end
 )
@@ -851,10 +879,10 @@ BattlePlay.PlayPreRoundInfo = function(...)
   (self.PlayAtkOrderShow)()
 end
 
--- DECOMPILER ERROR at PC88: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC89: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayAtkOrderShow = function(...)
-  -- function num : 0_20 , upvalues : _ENV, ipairs
+  -- function num : 0_21 , upvalues : _ENV, ipairs
   local allLiveCard = (BattleData.GetAliveCards)()
   ;
   (table.sort)(allLiveCard, BattleData.AtkOrderSort)
@@ -863,10 +891,10 @@ BattlePlay.PlayAtkOrderShow = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC91: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC92: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRoundType, playSettleRoundType, ...)
-  -- function num : 0_21 , upvalues : BattleBuffDeductionRoundType, BattleBuffSettleRoundType, ipairs, _ENV
+  -- function num : 0_22 , upvalues : BattleBuffDeductionRoundType, BattleBuffSettleRoundType, ipairs, _ENV
   local allBuffTable = atkInfo.allBuffTable
   local updateBuffCount = 0
   local deductionRoundType2, deductionRoundType3, settleRoundType2, card = nil, nil, nil, nil
@@ -1163,10 +1191,10 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
   return updateBuffCount
 end
 
--- DECOMPILER ERROR at PC94: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC95: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayEnd = function(...)
-  -- function num : 0_22 , upvalues : _ENV
+  -- function num : 0_23 , upvalues : _ENV
   log("    出手结束")
   ;
   (BattleAtk.ClearAtkInfo)()
@@ -1176,25 +1204,25 @@ BattlePlay.PlayEnd = function(...)
   (BattlePlay.PlayAtkOrderShow)()
 end
 
--- DECOMPILER ERROR at PC97: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC98: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayBattleWin = function(callBack, ...)
-  -- function num : 0_23
+  -- function num : 0_24
   if callBack then
     callBack()
   end
 end
 
--- DECOMPILER ERROR at PC100: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC101: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.ClearAllPlayRes = function(...)
-  -- function num : 0_24
+  -- function num : 0_25
 end
 
--- DECOMPILER ERROR at PC103: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC104: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayFlashEffect = function(card, ...)
-  -- function num : 0_25 , upvalues : _ENV
+  -- function num : 0_26 , upvalues : _ENV
   local SortingHelper = require("SortingHelper")
   if card then
     local model = card:GetModel()
@@ -1211,7 +1239,7 @@ BattlePlay.PlayFlashEffect = function(card, ...)
       local time = (LuaEffect.GetEffectDuration)(eff)
       ;
       (SimpleTimer.setTimeout)(time, function(...)
-    -- function num : 0_25_0 , upvalues : _ENV, eff, SortingHelper, card
+    -- function num : 0_26_0 , upvalues : _ENV, eff, SortingHelper, card
     if (BattleMgr.IsInBattle)() == false then
       return 
     end
@@ -1228,10 +1256,10 @@ BattlePlay.PlayFlashEffect = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC106: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC107: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.SetLayer = function(eff, layer, ...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : _ENV
   if eff and eff.transform then
     local skillCamera = Game.skillCamera
     if skillCamera and skillCamera.activeSelf == true then
@@ -1244,10 +1272,10 @@ BattlePlay.SetLayer = function(eff, layer, ...)
   end
 end
 
--- DECOMPILER ERROR at PC109: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC110: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlaySkillSound = function(soundStr, hitCardList, ...)
-  -- function num : 0_27 , upvalues : _ENV, math, ipairs
+  -- function num : 0_28 , upvalues : _ENV, math, ipairs
   if IsBattleServer == true or BattleData.skipBattle == true then
     return 
   end
@@ -1259,11 +1287,11 @@ BattlePlay.PlaySkillSound = function(soundStr, hitCardList, ...)
     local config = (TableData.gTable).BaseSoundPathData
     local idStrTable = split(soundStr, ":")
     local callback = function(play_frame, path, bank, ...)
-    -- function num : 0_27_0 , upvalues : math, _ENV
+    -- function num : 0_28_0 , upvalues : math, _ENV
     local frame = (math.max)(0, play_frame - 10)
     ;
     (SimpleTimer.setTimeout)(frame * 0.01666, function(...)
-      -- function num : 0_27_0_0 , upvalues : _ENV, bank, path
+      -- function num : 0_28_0_0 , upvalues : _ENV, bank, path
       if (BattleMgr.IsInBattle)() == false then
         return 
       end

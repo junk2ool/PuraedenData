@@ -985,16 +985,26 @@ BattleCard.Initial = function(data, ...)
           do
             (AudioManager.PlayBattleVoice)(fashionId, CVAudioType.UniqueSkillBubble)
             local attackCallBack = function(...)
-      -- function num : 0_0_50_0 , upvalues : _ENV, self, atkEndCallBack, allEndCallBack, atkInfo, ipairs, totalDefCards, danderDefList, BattleBuffDeductionRoundType
+      -- function num : 0_0_50_0 , upvalues : _ENV, self, atkEndCallBack, skillType, BattleSkillType, atkInfo, ipairs, allEndCallBack, totalDefCards, danderDefList, BattleBuffDeductionRoundType
       loge("出手结束 位置：  " .. self:GetPosIndex())
       if atkEndCallBack then
         atkEndCallBack()
       end
       self:MoveBack(function(...)
-        -- function num : 0_0_50_0_0 , upvalues : self, allEndCallBack
+        -- function num : 0_0_50_0_0 , upvalues : self, skillType, BattleSkillType, _ENV, atkInfo, ipairs, allEndCallBack
         self:DealAfterAtk()
-        if allEndCallBack then
-          allEndCallBack()
+        if (skillType == BattleSkillType.NORMAL or skillType == BattleSkillType.SMALL) and (BattleBuff.IsBearDamageTrans)(self) then
+          local defCardsInfo = atkInfo.defCardsInfo
+          for _,v in ipairs(defCardsInfo) do
+            if v.isCounter == false and v.defCardUid == self:GetCardUid() then
+              self:ChangeHp({hurt = v.hpDef, absorb = 0}, atkInfo)
+            end
+          end
+        end
+        do
+          if allEndCallBack then
+            allEndCallBack()
+          end
         end
       end
 )
@@ -2859,7 +2869,7 @@ effectTable = {eff}
   end
 
   battleCard.Destroy = function(self, ...)
-    -- function num : 0_0_87 , upvalues : shadow, ResHelper, flagNextAttack, headInfo, cardInfo, bloodBuffEffectTable, bodyBuffEffectTable, headBuffEffectTable, aroundBuffEffectTable, atkInfo, cardConfig, normalSkillConfig, smallSkillConfig, uniqueSkillConfig, assistSkillConfig, fashionConfig, copyModel, model, SkeletonAnimationUtil
+    -- function num : 0_0_87 , upvalues : shadow, ResHelper, flagNextAttack, headInfo, cardInfo, bloodBuffEffectTable, bodyBuffEffectTable, headBuffEffectTable, aroundBuffEffectTable, atkInfo, cardConfig, normalSkillConfig, smallSkillConfig, uniqueSkillConfig, assistSkillConfig, fashionConfig, copyModel, model, typeof, _ENV, SkeletonAnimationUtil
     self:RemoveWaitUniqueSkillEffect()
     if shadow then
       (ResHelper.DestroyGameObject)(shadow, false)
@@ -2892,7 +2902,11 @@ effectTable = {eff}
       copyModel = nil
     end
     if model then
-      (SkeletonAnimationUtil.SetSkin)(model, "default")
+      local skeleton = model:GetComponent(typeof(((CS.Spine).Unity).SkeletonAnimation))
+      local initialSkin = skeleton.initialSkinName
+      local skin = (Util.StringIsNullOrEmpty)(initialSkin) and "default" or initialSkin
+      ;
+      (SkeletonAnimationUtil.SetSkin)(model, skin)
       ;
       (SkeletonAnimationUtil.SetColor)(model, 1, 1, 1)
       local trans = nil
@@ -3573,7 +3587,7 @@ effectTable = {eff}
   end
 
   battleCard.SetControlType = function(self, effectId, value, ...)
-    -- function num : 0_0_182 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo
+    -- function num : 0_0_182 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo, typeof
     if effectId == BattleDisplayEffect.STUN then
       self:SetIsStun(value)
       -- DECOMPILER ERROR at PC15: Unhandled construct in 'MakeBoolean' P1
@@ -3645,8 +3659,11 @@ effectTable = {eff}
                       (ResHelper.DestroyGameObject)(model, false)
                       local fashionID = cardInfo:GetFashionId()
                       self:CreateCard(fashionID, true)
+                      local skeleton = model:GetComponent(typeof(((CS.Spine).Unity).SkeletonAnimation))
+                      local initialSkin = skeleton.initialSkinName
+                      local skin = (Util.StringIsNullOrEmpty)(initialSkin) and "default" or initialSkin
                       ;
-                      (SkeletonAnimationUtil.SetSkin)(model, "default")
+                      (SkeletonAnimationUtil.SetSkin)(model, skin)
                       copyFashionID = 0
                     end
                     do

@@ -2548,6 +2548,10 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ski
                 if isResist == true then
                   damageReduceTotal = 10000
                 end
+                if CaseEffectID == BattleDisplayEffect.DAMAGE_IGNORE_SHIELD then
+                  damageExtraAdd = 0
+                  damageReduceTotal = 0
+                end
                 if atkInfo and isHurt == true then
                   local atkPos = atkInfo.atkPos
                   local atkBuffTable = (BattleBuffMgr.GetBuffListByCardPos)(atkPos)
@@ -2634,6 +2638,28 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ski
                       end
                     end
                   end
+                  local isDmgTrans, dmgTransBuff = (BattleBuff.IsDamageTransference)(defCard)
+                  if isDmgTrans then
+                    local allCard = (BattleBuff.GetDamageBearFromTransCards)()
+                    local value = (BattleBuff.GetBuffEffectValue)(dmgTransBuff, BattleDisplayEffect.DAMAGE_TRANSFERENCE)
+                    value = (math.max)(0, (math.min)(10000, value))
+                    local trans_damage = (math.ceil)(value * damage / #allCard / 10000)
+                    damage = (math.ceil)(damage * (10000 - value) / 10000)
+                    for k,v in pairs(allCard) do
+                      if (v.card):GetPosIndex() ~= defCard:GetPosIndex() then
+                        local isFind = false
+                        for _,m in ipairs(divideCardInfo) do
+                          if m.card == v.card then
+                            isFind = true
+                            m.damage = m.damage + trans_damage
+                          end
+                        end
+                        if isFind == false then
+                          (table.insert)(divideCardInfo, {card = v.card, damage = trans_damage})
+                        end
+                      end
+                    end
+                  end
                 end
                 damage = damage - damageExtraAdd
                 totalDamage = damage
@@ -2676,7 +2702,7 @@ BattleBuff.DealRealHpLoss = function(defCard, damage, isRoundAtk, damageAdd, ski
                       end
                     end
                     do return damage, absorbDamage, specialEffect, divideCardInfo end
-                    -- DECOMPILER ERROR: 36 unprocessed JMP targets
+                    -- DECOMPILER ERROR: 40 unprocessed JMP targets
                   end
                 end
               end
@@ -3206,8 +3232,34 @@ end
 
 -- DECOMPILER ERROR at PC184: Confused about usage of register: R14 in 'UnsetPending'
 
+BattleBuff.IsDamageTransference = function(card, ...)
+  -- function num : 0_54 , upvalues : _ENV, BattleDisplayEffect
+  do
+    if card then
+      local isDmgTrans, buff = (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.DAMAGE_TRANSFERENCE)
+      return isDmgTrans, buff
+    end
+    return false
+  end
+end
+
+-- DECOMPILER ERROR at PC187: Confused about usage of register: R14 in 'UnsetPending'
+
+BattleBuff.IsBearDamageTrans = function(card, ...)
+  -- function num : 0_55 , upvalues : _ENV, BattleDisplayEffect
+  do
+    if card then
+      local isBearDmgTrans, buff = (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.DAMAGE_BEAR_FROM_TRANS)
+      return isBearDmgTrans, buff
+    end
+    return false
+  end
+end
+
+-- DECOMPILER ERROR at PC190: Confused about usage of register: R14 in 'UnsetPending'
+
 BattleBuff.GetShapeShiftID = function(card, ...)
-  -- function num : 0_54 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect, tonumber
+  -- function num : 0_56 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect, tonumber
   if card then
     local buffTable = (BattleBuffMgr.GetBuffList)()
     for _,v in ipairs(buffTable) do
@@ -3224,10 +3276,10 @@ BattleBuff.GetShapeShiftID = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC187: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC193: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetCounterValue = function(card, ...)
-  -- function num : 0_55 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
+  -- function num : 0_57 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
   local totalValue = 0
   if card then
     local buffTable = (BattleBuffMgr.GetBuffList)()
@@ -3248,10 +3300,10 @@ BattleBuff.GetCounterValue = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC190: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC196: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetDamageShareInfo = function(buff, ...)
-  -- function num : 0_56 , upvalues : ipairs, BattleDisplayEffect, _ENV
+  -- function num : 0_58 , upvalues : ipairs, BattleDisplayEffect, _ENV
   local value = 0
   local buffData = buff:GetBuffInfo()
   local atkPos = buff:GetAtkPos()
@@ -3268,10 +3320,10 @@ BattleBuff.GetDamageShareInfo = function(buff, ...)
   return card, value
 end
 
--- DECOMPILER ERROR at PC193: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC199: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetBuffEffectValue = function(buff, effectId, ...)
-  -- function num : 0_57 , upvalues : ipairs
+  -- function num : 0_59 , upvalues : ipairs
   local value = 0
   local buffData = buff:GetBuffInfo()
   local effectTable = buffData.effectTable
@@ -3283,20 +3335,20 @@ BattleBuff.GetBuffEffectValue = function(buff, effectId, ...)
   return value
 end
 
--- DECOMPILER ERROR at PC196: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC202: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.IsCardCanShareDamage = function(card, ...)
-  -- function num : 0_58 , upvalues : _ENV
+  -- function num : 0_60 , upvalues : _ENV
   if (BattleBuff.IsBuffSleep)(card) == true or (BattleBuff.IsBuffStun)(card) == true or (BattleBuff.IsBuffParalysis)(card) == true then
     return false
   end
   return true
 end
 
--- DECOMPILER ERROR at PC199: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC205: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainEffectId = function(card, effectId, ...)
-  -- function num : 0_59 , upvalues : _ENV, BattleBuffMgr, ipairs
+  -- function num : 0_61 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and effectId then
     if BattleConfig.isPlayBack == true then
       local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
@@ -3332,10 +3384,10 @@ BattleBuff.ContainEffectId = function(card, effectId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC202: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC208: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainBuffId = function(card, buffId, ...)
-  -- function num : 0_60 , upvalues : _ENV, BattleBuffMgr, ipairs
+  -- function num : 0_62 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and buffId then
     if BattleConfig.isPlayBack == true then
       local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
@@ -3363,10 +3415,10 @@ BattleBuff.ContainBuffId = function(card, buffId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC205: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC211: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainDeductionRoundType = function(card, id, ...)
-  -- function num : 0_61 , upvalues : _ENV, BattleBuffMgr, ipairs
+  -- function num : 0_63 , upvalues : _ENV, BattleBuffMgr, ipairs
   if card and id then
     if BattleConfig.isPlayBack == true then
       local buffTable = (BattleBuffMgr.GetBuffPlayBackList)()
@@ -3397,10 +3449,10 @@ BattleBuff.ContainDeductionRoundType = function(card, id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC208: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC214: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.ContainBuffGroup = function(card, type, ...)
-  -- function num : 0_62 , upvalues : BattleBuffMgr, ipairs
+  -- function num : 0_64 , upvalues : BattleBuffMgr, ipairs
   if card and type then
     local buffTable = (BattleBuffMgr.GetBuffList)()
     for _,v in ipairs(buffTable) do
@@ -3415,10 +3467,10 @@ BattleBuff.ContainBuffGroup = function(card, type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC211: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC217: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
-  -- function num : 0_63 , upvalues : ipairs
+  -- function num : 0_65 , upvalues : ipairs
   if buff and effectId then
     local effectTable = nil
     if buff.GetEffectTable then
@@ -3437,10 +3489,10 @@ BattleBuff.IsBuffContainEffectId = function(buff, effectId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC214: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC220: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetDamageDivideCards = function(card, ...)
-  -- function num : 0_64 , upvalues : _ENV, ipairs
+  -- function num : 0_66 , upvalues : _ENV, ipairs
   local cards = {}
   local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
   for i,v in ipairs(allCard) do
@@ -3452,10 +3504,10 @@ BattleBuff.GetDamageDivideCards = function(card, ...)
   return cards
 end
 
--- DECOMPILER ERROR at PC217: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC223: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetExtraDamageDivideCards = function(card, ...)
-  -- function num : 0_65 , upvalues : _ENV, ipairs
+  -- function num : 0_67 , upvalues : _ENV, ipairs
   local cards = {}
   local allCard = (BattleData.GetAliveCards)(card:GetCampFlag())
   for i,v in ipairs(allCard) do
@@ -3467,10 +3519,10 @@ BattleBuff.GetExtraDamageDivideCards = function(card, ...)
   return cards
 end
 
--- DECOMPILER ERROR at PC220: Confused about usage of register: R14 in 'UnsetPending'
+-- DECOMPILER ERROR at PC226: Confused about usage of register: R14 in 'UnsetPending'
 
 BattleBuff.GetUniqueSkillDamageAdd = function(atkCard, ...)
-  -- function num : 0_66 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
+  -- function num : 0_68 , upvalues : BattleBuffMgr, ipairs, BattleDisplayEffect
   local totalAddPercent = 0
   local buffTable = BattleBuffMgr.buffList
   for _,buff in ipairs(buffTable) do
@@ -3485,6 +3537,21 @@ BattleBuff.GetUniqueSkillDamageAdd = function(atkCard, ...)
     end
   end
   return totalAddPercent
+end
+
+-- DECOMPILER ERROR at PC229: Confused about usage of register: R14 in 'UnsetPending'
+
+BattleBuff.GetDamageBearFromTransCards = function(...)
+  -- function num : 0_69 , upvalues : _ENV
+  local cards = {}
+  local allCard = (BattleData.GetAliveCards)()
+  for k,v in pairs(allCard) do
+    local isBearDmgTrans, info = (BattleBuff.IsBearDamageTrans)(v)
+    if isBearDmgTrans then
+      (table.insert)(cards, {card = v, info = info})
+    end
+  end
+  return cards
 end
 
 

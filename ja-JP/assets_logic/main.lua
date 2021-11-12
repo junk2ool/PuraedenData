@@ -271,6 +271,7 @@ local OpenLoginWindow = function(...)
         end
 )
         ld("Friends")
+        ld("Shop")
       end
 )
     end

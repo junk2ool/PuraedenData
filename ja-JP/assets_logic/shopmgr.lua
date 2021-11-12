@@ -7,8 +7,9 @@ self.isExternalRequest = false
 self.ExternalFun = {}
 self.ExternalType = {}
 self.ActivityData = {}
-ShopType = {Recharge = 11, GiftBuy = 12, Grocer = 1, MysteryShop = 2, TokenShop = 3, ExpeditionShop = 4, ActivityDungeonShop = 5, Family_NormalShop = 6, Family_SeedShop = 7, Family_SecretShop = 8, RelicShop = 9}
--- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
+self.ProductData = {}
+ShopType = {Recharge = 11, GiftBuy = 12, Grocer = 1, MysteryShop = 2, TokenShop = 3, ExpeditionShop = 4, ActivityDungeonShop = 5, Family_NormalShop = 6, Family_SeedShop = 7, Family_SecretShop = 8, RelicShop = 9, TuiSongLiBao = 10}
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.InitShop = function(msg, ...)
   -- function num : 0_0 , upvalues : self, _ENV
@@ -32,15 +33,24 @@ ShopMgr.InitShop = function(msg, ...)
     self.ExternalType = {}
   else
     if #self.ShopData <= 0 then
-      (ShopMgr.ExternalGotoShop)(ShopType.GiftBuy)
+      local productData = (ShopMgr.GetProductData)()
+      local isProductActivity = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Product)
+      if productData.productId and isProductActivity == true then
+        (ShopMgr.ExternalGotoShop)(ShopType.TuiSongLiBao)
+      else
+        ;
+        (ShopMgr.ExternalGotoShop)(ShopType.GiftBuy)
+      end
     else
-      ;
-      (ShopService.ReqShopGridDataByShopId)(((self.ShopData)[1]).shopId)
+      do
+        ;
+        (ShopService.ReqShopGridDataByShopId)(((self.ShopData)[1]).shopId)
+      end
     end
   end
 end
 
--- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.isContainShopType = function(shops, type, ...)
   -- function num : 0_1 , upvalues : _ENV
@@ -53,14 +63,14 @@ ShopMgr.isContainShopType = function(shops, type, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.GetOpenShopData = function(...)
   -- function num : 0_2 , upvalues : self
   return self.ShopData
 end
 
--- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.InitShopGridData = function(msg, ...)
   -- function num : 0_3 , upvalues : _ENV
@@ -97,13 +107,16 @@ ShopMgr.InitShopGridData = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.ExternalGotoShop = function(type, ...)
   -- function num : 0_4 , upvalues : _ENV
   if type == ShopType.Recharge and (FunctionControlMgr.GetFunctionState)(ControlID.Shop_Recharge, true) then
-    UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_SET_TYPE, ShopType.Recharge)
-    OpenWindow((WinResConfig.ShopWindow).name, UILayer.HUD, ShopType.Recharge)
+    if UIMgr:IsWindowOpen((WinResConfig.ShopWindow).name) then
+      UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_SET_TYPE, ShopType.Recharge)
+    else
+      OpenWindow((WinResConfig.ShopWindow).name, UILayer.HUD, ShopType.Recharge)
+    end
     ;
     (PayService.ReqPayData)(false)
   end
@@ -112,11 +125,21 @@ ShopMgr.ExternalGotoShop = function(type, ...)
     ;
     (PayService.ReqPayData)(false)
   end
-  ;
-  (ShopService.OnReqShopGridData)(type)
+  if type == ShopType.TuiSongLiBao then
+    if (PayData.HaveTuiSongLiBao)() == true then
+      OpenWindow((WinResConfig.ShopWindow).name, UILayer.HUD, ShopType.TuiSongLiBao)
+    else
+      OpenWindow((WinResConfig.ShopWindow).name, UILayer.HUD, ShopType.GiftBuy)
+    end
+    ;
+    (PayService.ReqPayData)(false)
+  else
+    ;
+    (ShopService.OnReqShopGridData)(type)
+  end
 end
 
--- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.ExternalGetShopState = function(fid, shopType, fun, ...)
   -- function num : 0_5 , upvalues : _ENV, self
@@ -134,7 +157,7 @@ ShopMgr.ExternalGetShopState = function(fid, shopType, fun, ...)
   end
 end
 
--- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.InitOpenShop = function(shopId, time, refreshTimes, ...)
   -- function num : 0_6 , upvalues : self, _ENV
@@ -147,7 +170,7 @@ ShopMgr.InitOpenShop = function(shopId, time, refreshTimes, ...)
   end
 end
 
--- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC51: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.ShopGridData = function(data, ...)
   -- function num : 0_7 , upvalues : self, _ENV
@@ -164,7 +187,7 @@ ShopMgr.ShopGridData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC51: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC54: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.SetShopGridData = function(data, ...)
   -- function num : 0_8 , upvalues : _ENV, self
@@ -177,7 +200,7 @@ ShopMgr.SetShopGridData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC54: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.GetRefreshConsumption = function(shopId, times, ...)
   -- function num : 0_9 , upvalues : _ENV
@@ -206,7 +229,7 @@ ShopMgr.GetRefreshConsumption = function(shopId, times, ...)
   end
 end
 
--- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.GetQualityUpCard = function(propID, ...)
   -- function num : 0_10 , upvalues : _ENV
@@ -234,7 +257,7 @@ ShopMgr.GetQualityUpCard = function(propID, ...)
   return needList
 end
 
--- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.GetRangeStr = function(orderStr, contentStr, buyTime, ...)
   -- function num : 0_11 , upvalues : _ENV
@@ -252,7 +275,7 @@ ShopMgr.GetRangeStr = function(orderStr, contentStr, buyTime, ...)
   return contentTable[#contentTable]
 end
 
--- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC66: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.SetActivityData = function(data, ...)
   -- function num : 0_12 , upvalues : self
@@ -262,10 +285,24 @@ ShopMgr.SetActivityData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC66: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R1 in 'UnsetPending'
+
+ShopMgr.SetProductData = function(data, ...)
+  -- function num : 0_13 , upvalues : self, _ENV
+  self.ProductData = {}
+  if not data then
+    self.ProductData = {}
+    local isOpen = UIMgr:IsWindowOpen((WinResConfig.HomeWindow).name)
+    if isOpen then
+      UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.HomeWindow).E_MSG_REFRESH_PRODUCT, data.productId)
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R1 in 'UnsetPending'
 
 ShopMgr.GetGiftCountDown = function(actId, ...)
-  -- function num : 0_13 , upvalues : _ENV, self
+  -- function num : 0_14 , upvalues : _ENV, self
   for index,value in pairs(self.ActivityData) do
     if value.actId == actId then
       return value.endTime
@@ -274,27 +311,27 @@ ShopMgr.GetGiftCountDown = function(actId, ...)
 end
 
 local ShopIdFilter = function(shopDataItem, shopId, ...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   do return tonumber(shopDataItem.id) == tonumber(shopId) end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 local ActivityIdFilter = function(shopDataItem, activityId, ...)
-  -- function num : 0_15
+  -- function num : 0_16
   do return shopDataItem.activity_id == activityId end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 local ShopTypeFilter = function(shopDataItem, shopType, ...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   do return tonumber(shopDataItem.type) == tonumber(shopType) end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC72: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R4 in 'UnsetPending'
 
 ShopMgr.GetShopDataItem = function(filter, ...)
-  -- function num : 0_17 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV
   local shopData = (TableData.gTable).BaseShopData
   for _,item in pairs(shopData) do
     if filter and filter(item, ...) then
@@ -303,31 +340,31 @@ ShopMgr.GetShopDataItem = function(filter, ...)
   end
 end
 
--- DECOMPILER ERROR at PC75: Confused about usage of register: R4 in 'UnsetPending'
-
-ShopMgr.GetShopDataItemByShopId = function(shopId, ...)
-  -- function num : 0_18 , upvalues : _ENV, ShopIdFilter
-  return (ShopMgr.GetShopDataItem)(ShopIdFilter, shopId)
-end
-
--- DECOMPILER ERROR at PC78: Confused about usage of register: R4 in 'UnsetPending'
-
-ShopMgr.GetShopDataItemByShopType = function(shopType, ...)
-  -- function num : 0_19 , upvalues : _ENV, ShopTypeFilter
-  return (ShopMgr.GetShopDataItem)(ShopTypeFilter, shopType)
-end
-
 -- DECOMPILER ERROR at PC81: Confused about usage of register: R4 in 'UnsetPending'
 
-ShopMgr.GetShopDataItemByActivityId = function(activityId, ...)
-  -- function num : 0_20 , upvalues : _ENV, ActivityIdFilter
-  return (ShopMgr.GetShopDataItem)(ActivityIdFilter, activityId)
+ShopMgr.GetShopDataItemByShopId = function(shopId, ...)
+  -- function num : 0_19 , upvalues : _ENV, ShopIdFilter
+  return (ShopMgr.GetShopDataItem)(ShopIdFilter, shopId)
 end
 
 -- DECOMPILER ERROR at PC84: Confused about usage of register: R4 in 'UnsetPending'
 
+ShopMgr.GetShopDataItemByShopType = function(shopType, ...)
+  -- function num : 0_20 , upvalues : _ENV, ShopTypeFilter
+  return (ShopMgr.GetShopDataItem)(ShopTypeFilter, shopType)
+end
+
+-- DECOMPILER ERROR at PC87: Confused about usage of register: R4 in 'UnsetPending'
+
+ShopMgr.GetShopDataItemByActivityId = function(activityId, ...)
+  -- function num : 0_21 , upvalues : _ENV, ActivityIdFilter
+  return (ShopMgr.GetShopDataItem)(ActivityIdFilter, activityId)
+end
+
+-- DECOMPILER ERROR at PC90: Confused about usage of register: R4 in 'UnsetPending'
+
 ShopMgr.GetShopTypeByShopId = function(shopId, ...)
-  -- function num : 0_21 , upvalues : _ENV
+  -- function num : 0_22 , upvalues : _ENV
   local shopDataItem = (ShopMgr.GetShopDataItemByShopId)(shopId)
   if shopDataItem then
     return tonumber(shopDataItem.type)
@@ -335,15 +372,22 @@ ShopMgr.GetShopTypeByShopId = function(shopId, ...)
   return -1
 end
 
--- DECOMPILER ERROR at PC87: Confused about usage of register: R4 in 'UnsetPending'
+-- DECOMPILER ERROR at PC93: Confused about usage of register: R4 in 'UnsetPending'
 
 ShopMgr.GetShopIdByShopType = function(shopType, ...)
-  -- function num : 0_22 , upvalues : _ENV
+  -- function num : 0_23 , upvalues : _ENV
   local shopDataItem = (ShopMgr.GetShopDataItemByShopType)(shopType)
   if shopDataItem then
     return shopDataItem.id
   end
   return -1
+end
+
+-- DECOMPILER ERROR at PC96: Confused about usage of register: R4 in 'UnsetPending'
+
+ShopMgr.GetProductData = function(...)
+  -- function num : 0_24 , upvalues : self
+  return self.ProductData
 end
 
 

@@ -19,7 +19,7 @@ BaseConditionData = {
 , 
 [72501009] = {id = 72501009, type = 1000, judge = 5, field = "guildLv"}
 , 
-[72501010] = {id = 72501010, type = 1000, judge = 5, field = "matrixLv"}
+[72501010] = {id = 72501010, type = 1000, judge = 5, field = "matrix"}
 , 
 [72501011] = {id = 72501011, type = 1000, judge = 5, field = "cardIntimacyLvNum", rele_id = "72501008"}
 , 
@@ -36,6 +36,18 @@ BaseConditionData = {
 [72501017] = {id = 72501017, type = 1000, judge = 5, field = "sealSkillLv"}
 , 
 [72501018] = {id = 72501018, type = 1000, judge = 5, field = "logoutTime"}
+, 
+[72501019] = {id = 72501019, type = 1000, judge = 5, field = "totalPay"}
+, 
+[72501020] = {id = 72501020, type = 1000, judge = 5, field = "buyGift"}
+, 
+[72501021] = {id = 72501021, type = 1000, judge = 5, field = "notBuyGiftExpired"}
+, 
+[72501022] = {id = 72501022, type = 1000, judge = 5, field = "giftExpired"}
+, 
+[72501023] = {id = 72501023, type = 1000, judge = 5, field = "matrixNodeLv"}
+, 
+[72501024] = {id = 72501024, type = 1000, judge = 5, field = "matrixSealLv"}
 , 
 [72502101] = {id = 72502101, type = 2100, save = 1, accu = 1, judge = 5}
 , 

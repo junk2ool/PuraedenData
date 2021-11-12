@@ -341,9 +341,47 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
           ;
           (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
         end
+        ;
+        (HomeWindow.RefreshProduct)()
         -- DECOMPILER ERROR: 15 unprocessed JMP targets
       end
     end
+  end
+end
+
+HomeWindow.RefreshProduct = function(data, ...)
+  -- function num : 0_4 , upvalues : _ENV, uis
+  local isProductActivity = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Product)
+  local productTips = (uis.BottomButton).GiftTips
+  if isProductActivity == true then
+    ld("Shop", function(...)
+    -- function num : 0_4_0 , upvalues : data, _ENV, productTips
+    local id = nil
+    local productName = ""
+    if data then
+      id = data
+    else
+      id = ((ShopMgr.GetProductData)()).productId
+    end
+    if id then
+      log("显示礼包推送提示")
+      local config = (TableData.gTable).BasePayProductData
+      for _,v in pairs(config) do
+        if v.product_id == id then
+          productName = v.product_name
+        end
+      end
+      -- DECOMPILER ERROR at PC30: Confused about usage of register: R3 in 'UnsetPending'
+
+      ;
+      (productTips.WordTxt).text = productName
+      -- DECOMPILER ERROR at PC32: Confused about usage of register: R3 in 'UnsetPending'
+
+      ;
+      (productTips.root).visible = true
+    end
+  end
+)
   end
 end
 
@@ -352,7 +390,7 @@ local PossibleBanner = {}
 local _timers = {}
 local isGet = false
 HomeWindow.InitActivityBannerList = function(...)
-  -- function num : 0_4 , upvalues : uis, _ENV, HomeWindow, BannerListData, BannerIndex, isGet
+  -- function num : 0_5 , upvalues : uis, _ENV, HomeWindow, BannerListData, BannerIndex, isGet
   local list = (uis.Activity).PicList
   -- DECOMPILER ERROR at PC7: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -368,7 +406,7 @@ HomeWindow.InitActivityBannerList = function(...)
   list.columnGap = 0
   ;
   ((list.scrollPane).onScrollEnd):Set(function(...)
-    -- function num : 0_4_0 , upvalues : BannerListData, BannerIndex, list, HomeWindow, isGet
+    -- function num : 0_5_0 , upvalues : BannerListData, BannerIndex, list, HomeWindow, isGet
     local length = #BannerListData
     BannerIndex = (list.scrollPane).currentPageX % length + 1
     ;
@@ -379,7 +417,7 @@ HomeWindow.InitActivityBannerList = function(...)
 end
 
 HomeWindow.onClickBannerShow = function(...)
-  -- function num : 0_5 , upvalues : _ENV, holder
+  -- function num : 0_6 , upvalues : _ENV, holder
   local fashionShow = (ActorData.GetFashionShow)()
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionShow]
   local cardID = fashionData.card_id
@@ -405,7 +443,7 @@ HomeWindow.onClickBannerShow = function(...)
 end
 
 HomeWindow.SetPageShow = function(...)
-  -- function num : 0_6 , upvalues : uis, BannerIndex, _ENV
+  -- function num : 0_7 , upvalues : uis, BannerIndex, _ENV
   local list = (uis.Activity).PageNumberList
   local length = list.numItems
   for i = 1, length do
@@ -419,7 +457,7 @@ HomeWindow.SetPageShow = function(...)
 end
 
 HomeWindow.InitPageList = function(...)
-  -- function num : 0_7 , upvalues : uis, BannerListData
+  -- function num : 0_8 , upvalues : uis, BannerListData
   ((uis.Activity).PageNumberList):RemoveChildrenToPool()
   local subList = (uis.Activity).PageNumberList
   local length = #BannerListData
@@ -431,7 +469,7 @@ HomeWindow.InitPageList = function(...)
 end
 
 HomeWindow.ActivityBannerRenderer = function(index, obj, ...)
-  -- function num : 0_8 , upvalues : _ENV, BannerListData
+  -- function num : 0_9 , upvalues : _ENV, BannerListData
   index = index + 1
   local data = ((TableData.gTable).BaseActivityBannerData)[(BannerListData[index]).Key]
   ;
@@ -444,7 +482,7 @@ HomeWindow.ActivityBannerRenderer = function(index, obj, ...)
   end
   ;
   (obj.onClick):Set(function(...)
-    -- function num : 0_8_0 , upvalues : _ENV, redDot, data
+    -- function num : 0_9_0 , upvalues : _ENV, redDot, data
     ld("GetWay")
     if redDot.visible and data.time_type == 0 then
       (ActivityService.ReqSaveBannerId)({data.id})
@@ -456,7 +494,7 @@ HomeWindow.ActivityBannerRenderer = function(index, obj, ...)
 end
 
 HomeWindow.UpdateActivityList = function(...)
-  -- function num : 0_9 , upvalues : _ENV, _timers, BannerListData, PossibleBanner, HomeWindow, uis, BannerTimer, BannerAniTime, BannerIndex
+  -- function num : 0_10 , upvalues : _ENV, _timers, BannerListData, PossibleBanner, HomeWindow, uis, BannerTimer, BannerAniTime, BannerIndex
   for k,v in pairs(_timers) do
     v:stop()
   end
@@ -470,7 +508,7 @@ HomeWindow.UpdateActivityList = function(...)
       local data = BannerListData[index]
       if data.EndTime ~= nil then
         (table.insert)(_timers, (SimpleTimer.setTimeout)(data.EndTime - (LuaTime.GetTimeStamp)(), function(...)
-    -- function num : 0_9_0 , upvalues : _ENV, BannerListData, index, list, BannerTimer, HomeWindow
+    -- function num : 0_10_0 , upvalues : _ENV, BannerListData, index, list, BannerTimer, HomeWindow
     loge("结束:" .. (BannerListData[index]).Key)
     ;
     (table.remove)(BannerListData, index)
@@ -493,13 +531,13 @@ HomeWindow.UpdateActivityList = function(...)
       local data = PossibleBanner[index]
       if data.BeginTime ~= nil then
         (table.insert)(_timers, (SimpleTimer.setTimeout)(data.BeginTime - (LuaTime.GetTimeStamp)(), function(...)
-    -- function num : 0_9_1 , upvalues : _ENV, PossibleBanner, index, BannerListData, data, list, BannerTimer, BannerAniTime, HomeWindow, BannerIndex
+    -- function num : 0_10_1 , upvalues : _ENV, PossibleBanner, index, BannerListData, data, list, BannerTimer, BannerAniTime, HomeWindow, BannerIndex
     (table.remove)(PossibleBanner, index)
     ;
     (table.insert)(BannerListData, {Key = data.Key, EndTime = data.EndTime})
     ;
     (table.sort)(BannerListData, function(a, b, ...)
-      -- function num : 0_9_1_0 , upvalues : _ENV
+      -- function num : 0_10_1_0 , upvalues : _ENV
       local aConfig = ((TableData.gTable).BaseActivityBannerData)[a.Key]
       local bConfig = ((TableData.gTable).BaseActivityBannerData)[b.Key]
       do return aConfig.sort < bConfig.sort end
@@ -509,7 +547,7 @@ HomeWindow.UpdateActivityList = function(...)
     list.numItems = #BannerListData
     if BannerTimer == nil and #BannerListData > 1 then
       BannerTimer = (SimpleTimer.setInterval)(5, 9999, function(...)
-      -- function num : 0_9_1_1 , upvalues : list, BannerAniTime
+      -- function num : 0_10_1_1 , upvalues : list, BannerAniTime
       (list.scrollPane):ScrollRight(1, true, BannerAniTime)
     end
 )
@@ -526,7 +564,7 @@ HomeWindow.UpdateActivityList = function(...)
     end
     if #BannerListData > 1 then
       BannerTimer = (SimpleTimer.setInterval)(5, 9999, function(...)
-    -- function num : 0_9_2 , upvalues : list, BannerAniTime
+    -- function num : 0_10_2 , upvalues : list, BannerAniTime
     (list.scrollPane):ScrollRight(1, true, BannerAniTime)
   end
 )
@@ -543,7 +581,7 @@ HomeWindow.UpdateActivityList = function(...)
 end
 
 HomeWindow.GetNewlyOpenFunctionBanner = function(...)
-  -- function num : 0_10 , upvalues : PossibleBanner, _ENV, BannerListData, uis, BannerTimer, BannerAniTime, HomeWindow, BannerIndex
+  -- function num : 0_11 , upvalues : PossibleBanner, _ENV, BannerListData, uis, BannerTimer, BannerAniTime, HomeWindow, BannerIndex
   local count = #PossibleBanner
   local data = nil
   local index = 1
@@ -561,7 +599,7 @@ HomeWindow.GetNewlyOpenFunctionBanner = function(...)
   until false
   ;
   (table.sort)(BannerListData, function(a, b, ...)
-    -- function num : 0_10_0 , upvalues : _ENV
+    -- function num : 0_11_0 , upvalues : _ENV
     local aConfig = ((TableData.gTable).BaseActivityBannerData)[a.Key]
     local bConfig = ((TableData.gTable).BaseActivityBannerData)[b.Key]
     do return aConfig.sort < bConfig.sort end
@@ -574,7 +612,7 @@ HomeWindow.GetNewlyOpenFunctionBanner = function(...)
   ((uis.Activity).PicList).numItems = #BannerListData
   if BannerTimer == nil and #BannerListData > 1 then
     BannerTimer = (SimpleTimer.setInterval)(5, 9999, function(...)
-    -- function num : 0_10_1 , upvalues : uis, BannerAniTime
+    -- function num : 0_11_1 , upvalues : uis, BannerAniTime
     (((uis.Activity).PicList).scrollPane):ScrollRight(1, true, BannerAniTime)
   end
 )
@@ -588,7 +626,7 @@ HomeWindow.GetNewlyOpenFunctionBanner = function(...)
 end
 
 HomeWindow.GetActivityBannerListData = function(...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   local tableData = (TableData.gTable).BaseActivityBannerData
   local mTable = {}
   local possible = {}
@@ -617,7 +655,7 @@ HomeWindow.GetActivityBannerListData = function(...)
   end
   ;
   (table.sort)(mTable, function(a, b, ...)
-    -- function num : 0_11_0 , upvalues : _ENV
+    -- function num : 0_12_0 , upvalues : _ENV
     local aConfig = ((TableData.gTable).BaseActivityBannerData)[a.Key]
     local bConfig = ((TableData.gTable).BaseActivityBannerData)[b.Key]
     do return aConfig.sort < bConfig.sort end
@@ -628,7 +666,7 @@ HomeWindow.GetActivityBannerListData = function(...)
 end
 
 HomeWindow.BindingUI = function(...)
-  -- function num : 0_12 , upvalues : _ENV, uis
+  -- function num : 0_13 , upvalues : _ENV, uis
   local winName = (WinResConfig.HomeWindow).name
   local BindingUI = RedDotMgr.BindingUI
   local RedDotComID = RedDotComID
@@ -654,7 +692,7 @@ HomeWindow.BindingUI = function(...)
 end
 
 HomeWindow.CheckCardsRedDot = function(...)
-  -- function num : 0_13 , upvalues : _ENV, uis
+  -- function num : 0_14 , upvalues : _ENV, uis
   (CardData.CheckUpAllHeroRedPoint)()
   ;
   (((uis.BottomButton).CardBtn):GetChild("RedDot")).visible = (CardData.CheckUpSixHeroRedPoint)()
@@ -662,7 +700,7 @@ end
 
 local texture = nil
 HomeWindow.InitBackground = function(onlyBg, ...)
-  -- function num : 0_14 , upvalues : _ENV, homeUis, HomeWindow, holder, contentPane, showModel, texture, holderEffectBack, holderEffectFront
+  -- function num : 0_15 , upvalues : _ENV, homeUis, HomeWindow, holder, contentPane, showModel, texture, holderEffectBack, holderEffectFront
   local fashionShow = (ActorData.GetFashionShow)()
   local fashionConfig = ((TableData.gTable).BaseFashionData)[fashionShow]
   local cg = fashionConfig.show_cg
@@ -723,7 +761,7 @@ HomeWindow.InitBackground = function(onlyBg, ...)
 end
 
 HomeWindow.UpdateChooseBgArrow = function(...)
-  -- function num : 0_15 , upvalues : uis
+  -- function num : 0_16 , upvalues : uis
   local BackGroundChoice = uis.BackGroundChoice
   local leftArrow = BackGroundChoice.LeftBtn
   local rightArrow = BackGroundChoice.RightBtn
@@ -749,7 +787,7 @@ HomeWindow.UpdateChooseBgArrow = function(...)
 end
 
 HomeWindow.InitFunctionControl = function(...)
-  -- function num : 0_16 , upvalues : _ENV, uis
+  -- function num : 0_17 , upvalues : _ENV, uis
   local RegisterGuideAndControl = GuideData.RegisterGuideAndControl
   local ControlID = ControlID
   local HomeWindowConfig = WinResConfig.HomeWindow
@@ -771,14 +809,14 @@ HomeWindow.InitFunctionControl = function(...)
 end
 
 HomeWindow.InitSend = function(...)
-  -- function num : 0_17 , upvalues : popup, _ENV, GmCommand
+  -- function num : 0_18 , upvalues : popup, _ENV, GmCommand
   popup = UIMgr:CreateObject("Tool", "sendChat")
   if popup then
     popup.draggable = true
     local model = GetTool_sendChatUis(popup)
     do
       ((model.sendBtn).onClick):Set(function(...)
-    -- function num : 0_17_0 , upvalues : model, _ENV
+    -- function num : 0_18_0 , upvalues : model, _ENV
     local content = (model.NameInTxt).text
     if (string.find)(content, "gm,") then
       (LoginService.OnReqSendChar)(content)
@@ -791,7 +829,7 @@ HomeWindow.InitSend = function(...)
           local num = strs[3]
           ;
           (SimpleTimer.setInterval)(0.5, num, function(...)
-      -- function num : 0_17_0_0 , upvalues : _ENV, id
+      -- function num : 0_18_0_0 , upvalues : _ENV, id
       (LotteryService.ReqLotteryDraw)(id)
     end
 )
@@ -802,7 +840,7 @@ HomeWindow.InitSend = function(...)
 )
       ;
       ((model.nextAccountBtn).onClick):Set(function(...)
-    -- function num : 0_17_1 , upvalues : model, _ENV
+    -- function num : 0_18_1 , upvalues : model, _ENV
     local content = (model.NameInTxt).text
     local title = (string.sub)(content, 0, 3)
     if title ~= ".gm" then
@@ -812,7 +850,7 @@ HomeWindow.InitSend = function(...)
 )
       ;
       ((model.yifaBtn).onClick):Set(function(...)
-    -- function num : 0_17_2 , upvalues : _ENV, GmCommand
+    -- function num : 0_18_2 , upvalues : _ENV, GmCommand
     local command = split(GmCommand.ALL, ":")
     for _,v in ipairs(command) do
       (LoginService.OnReqSendChar)(v)
@@ -834,7 +872,7 @@ HomeWindow.InitSend = function(...)
     end
     ;
     (SimpleTimer.setTimeout)(1, function(...)
-      -- function num : 0_17_2_0 , upvalues : _ENV, DebrisStr
+      -- function num : 0_18_2_0 , upvalues : _ENV, DebrisStr
       (LoginService.OnReqSendChar)(DebrisStr)
     end
 )
@@ -842,39 +880,39 @@ HomeWindow.InitSend = function(...)
 )
       ;
       ((model.physicalBtn).onClick):Set(function(...)
-    -- function num : 0_17_3 , upvalues : _ENV, GmCommand
+    -- function num : 0_18_3 , upvalues : _ENV, GmCommand
     (LoginService.OnReqSendChar)(GmCommand.physical)
   end
 )
       ;
       ((model.BindBtn).onClick):Set(function(...)
-    -- function num : 0_17_4 , upvalues : _ENV, GmCommand
+    -- function num : 0_18_4 , upvalues : _ENV, GmCommand
     (LoginService.OnReqSendChar)(GmCommand.bind)
   end
 )
       ;
       ((model.moneyBtn).onClick):Set(function(...)
-    -- function num : 0_17_5 , upvalues : _ENV, GmCommand
+    -- function num : 0_18_5 , upvalues : _ENV, GmCommand
     (LoginService.OnReqSendChar)(GmCommand.gold)
   end
 )
       ;
       ((model.uplevelBtn).onClick):Set(function(...)
-    -- function num : 0_17_6 , upvalues : _ENV, GmCommand
+    -- function num : 0_18_6 , upvalues : _ENV, GmCommand
     (LoginService.OnReqSendChar)(GmCommand.uplevel)
   end
 )
       ;
       ((model.diamondBtn).onClick):Set(function(...)
-    -- function num : 0_17_7 , upvalues : _ENV, GmCommand
+    -- function num : 0_18_7 , upvalues : _ENV, GmCommand
     (LoginService.OnReqSendChar)(GmCommand.diamond)
   end
 )
       ;
       ((model.battleTestBtn).onClick):Set(function(...)
-    -- function num : 0_17_8 , upvalues : _ENV
+    -- function num : 0_18_8 , upvalues : _ENV
     ld("Battle", function(...)
-      -- function num : 0_17_8_0 , upvalues : _ENV
+      -- function num : 0_18_8_0 , upvalues : _ENV
       -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
       (package.loaded).BattleTest = nil
@@ -885,13 +923,13 @@ HomeWindow.InitSend = function(...)
 )
       ;
       ((model.NamingBtn).onClick):Set(function(...)
-    -- function num : 0_17_9 , upvalues : _ENV
+    -- function num : 0_18_9 , upvalues : _ENV
     OpenWindow((WinResConfig.NameWindow).name, UILayer.HUD)
   end
 )
       ;
       ((model.GetAllCardBtn).onClick):Set(function(...)
-    -- function num : 0_17_10 , upvalues : _ENV
+    -- function num : 0_18_10 , upvalues : _ENV
     local cardData = (CardData.GetNotObtainedCardList)()
     local str = ""
     for _,v in pairs(cardData) do
@@ -912,13 +950,13 @@ HomeWindow.InitSend = function(...)
 )
       ;
       ((model.AllCardStageMaxBtn).onClick):Set(function(...)
-    -- function num : 0_17_11 , upvalues : _ENV, GmCommand
+    -- function num : 0_18_11 , upvalues : _ENV, GmCommand
     (LoginService.OnReqSendChar)(GmCommand.UpStarMax)
   end
 )
       ;
       ((model.AllEquipBtn).onClick):Set(function(...)
-    -- function num : 0_17_12 , upvalues : _ENV
+    -- function num : 0_18_12 , upvalues : _ENV
     local BasePropData = (TableData.gTable).BaseEquipData
     local str = ""
     for _,v in pairs(BasePropData) do
@@ -930,31 +968,31 @@ HomeWindow.InitSend = function(...)
 )
       ;
       (((model.root):GetChild("closeGuide")).onClick):Set(function(...)
-    -- function num : 0_17_13 , upvalues : _ENV
+    -- function num : 0_18_13 , upvalues : _ENV
     (Util.SetPlayerSetting)(PlayerPrefsKeyName.GUIDE_OPEN, 0)
   end
 )
       ;
       (((model.root):GetChild("OpenGuide")).onClick):Set(function(...)
-    -- function num : 0_17_14 , upvalues : _ENV
+    -- function num : 0_18_14 , upvalues : _ENV
     (Util.SetPlayerSetting)(PlayerPrefsKeyName.GUIDE_OPEN, 1)
   end
 )
       ;
       (((model.root):GetChild("AllSkill")).onClick):Set(function(...)
-    -- function num : 0_17_15 , upvalues : _ENV
+    -- function num : 0_18_15 , upvalues : _ENV
     (LoginService.OnReqSendChar)("gm,superCard,0,skill")
   end
 )
       ;
       (((model.root):GetChild("AllQuality")).onClick):Set(function(...)
-    -- function num : 0_17_16 , upvalues : _ENV
+    -- function num : 0_18_16 , upvalues : _ENV
     (LoginService.OnReqSendChar)("gm,superCard,0,quality")
   end
 )
       ;
       (((model.root):GetChild("AllStar")).onClick):Set(function(...)
-    -- function num : 0_17_17 , upvalues : _ENV
+    -- function num : 0_18_17 , upvalues : _ENV
     (LoginService.OnReqSendChar)("gm,superCard,0,star")
   end
 )
@@ -963,7 +1001,7 @@ HomeWindow.InitSend = function(...)
 end
 
 HomeWindow.Update = function(...)
-  -- function num : 0_18 , upvalues : _ENV, popup, HomeWindow
+  -- function num : 0_19 , upvalues : _ENV, popup, HomeWindow
   if (Application.platform == RuntimePlatform.WindowsEditor or Application.platform == RuntimePlatform.OSXEditor) and (Input.GetKey)(KeyCode.N) and (Input.GetKeyDown)(KeyCode.M) then
     (PlayerPrefs.DeleteAll)()
   end
@@ -975,7 +1013,7 @@ HomeWindow.Update = function(...)
   end
   if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.B) then
     ld("Relic", function(...)
-    -- function num : 0_18_0 , upvalues : _ENV
+    -- function num : 0_19_0 , upvalues : _ENV
     (RelicService.ReqTempleInit)()
   end
 )
@@ -990,14 +1028,14 @@ HomeWindow.Update = function(...)
   end
   if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.V) then
     ld("Homeland", function(...)
-    -- function num : 0_18_1 , upvalues : _ENV
+    -- function num : 0_19_1 , upvalues : _ENV
     (HomelandService.ReqInFamily)()
   end
 )
   end
   if (Input.GetKey)(KeyCode.A) and (Input.GetKeyDown)(KeyCode.D) then
     ld("Homeland", function(...)
-    -- function num : 0_18_2 , upvalues : _ENV
+    -- function num : 0_19_2 , upvalues : _ENV
     (HomelandMgr.OpenRoom)()
   end
 )
@@ -1005,9 +1043,9 @@ HomeWindow.Update = function(...)
 end
 
 HomeWindow.OnClickBag = function(...)
-  -- function num : 0_19 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   ld("Bag", function(...)
-    -- function num : 0_19_0 , upvalues : _ENV
+    -- function num : 0_20_0 , upvalues : _ENV
     OpenWindow((WinResConfig.BagWindow).name, UILayer.HUD)
     ;
     (RedDotMgr.EliminateRedDot)((WinResConfig.HomeWindow).name, RedDotComID.Home_bag)
@@ -1016,7 +1054,7 @@ HomeWindow.OnClickBag = function(...)
 end
 
 HomeWindow.onClickTask = function(...)
-  -- function num : 0_20 , upvalues : _ENV
+  -- function num : 0_21 , upvalues : _ENV
   if (FunctionControlMgr.GetFunctionState)(ControlID.Task_Daily, false) then
     (TaskService.ReqTaskData)(TaskType.Daily)
   else
@@ -1031,67 +1069,75 @@ HomeWindow.onClickTask = function(...)
 end
 
 HomeWindow.onClickMail = function(...)
-  -- function num : 0_21 , upvalues : _ENV
+  -- function num : 0_22 , upvalues : _ENV
   ld("Mail", function(...)
-    -- function num : 0_21_0 , upvalues : _ENV
+    -- function num : 0_22_0 , upvalues : _ENV
     OpenWindow((WinResConfig.MailWindow).name, UILayer.HUD)
   end
 )
 end
 
 HomeWindow.onClickHead = function(...)
-  -- function num : 0_22 , upvalues : _ENV
+  -- function num : 0_23 , upvalues : _ENV
   OpenWindow((WinResConfig.ActorInfoWindow).name, UILayer.HUD)
 end
 
 HomeWindow.OnClickShop = function(...)
-  -- function num : 0_23 , upvalues : _ENV
+  -- function num : 0_24 , upvalues : _ENV
   ld("Shop", function(...)
-    -- function num : 0_23_0 , upvalues : _ENV
-    (ShopService.OnReqShopData)()
+    -- function num : 0_24_0 , upvalues : _ENV
+    local isProductActivity = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Product)
+    if isProductActivity == true then
+      (PayService.ReqPayData)(false)
+    else
+      ;
+      (ShopMgr.SetProductData)({})
+      ;
+      (ShopService.OnReqShopData)()
+    end
   end
 )
 end
 
 HomeWindow.OnClickFriend = function(...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   OpenWindow((WinResConfig.FriendsListWindow).name, UILayer.HUD)
 end
 
 HomeWindow.ClickPlayerInfoBtn = function(...)
-  -- function num : 0_25 , upvalues : _ENV
+  -- function num : 0_26 , upvalues : _ENV
   OpenWindow((WinResConfig.ActorInfoWindow).name, UILayer.HUD)
 end
 
 HomeWindow.ClickHomelandBtn = function(...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : _ENV
   ld("Homeland", function(...)
-    -- function num : 0_26_0 , upvalues : _ENV
+    -- function num : 0_27_0 , upvalues : _ENV
     (HomelandService.ReqInFamily)()
   end
 )
 end
 
 HomeWindow.ClickAnnouncementBtn = function(...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_28 , upvalues : _ENV
   (AnnouncementMgr.OpenAnnouncement)()
 end
 
 HomeWindow.onClickAdventureBtn = function(...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   (Util.SetDelayCall)(function(...)
-    -- function num : 0_28_0 , upvalues : _ENV
+    -- function num : 0_29_0 , upvalues : _ENV
     OpenWindow((WinResConfig.AdventureWindow).name, UILayer.HUD)
   end
 )
 end
 
 HomeWindow.onClickTeamBtn = function(...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   ld("Talent", function(...)
-    -- function num : 0_29_0 , upvalues : _ENV
+    -- function num : 0_30_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_29_0_0 , upvalues : _ENV
+      -- function num : 0_30_0_0 , upvalues : _ENV
       OpenWindow((WinResConfig.TalentMainWindow).name, UILayer.HUD)
     end
 )
@@ -1100,26 +1146,26 @@ HomeWindow.onClickTeamBtn = function(...)
 end
 
 HomeWindow.onClickGuildBtn = function(...)
-  -- function num : 0_30 , upvalues : _ENV
+  -- function num : 0_31 , upvalues : _ENV
   ld("Guild", function(...)
-    -- function num : 0_30_0 , upvalues : _ENV
+    -- function num : 0_31_0 , upvalues : _ENV
     (GuildMgr.OpenGuild)()
   end
 )
 end
 
 HomeWindow.onClickActivityBtn = function(...)
-  -- function num : 0_31 , upvalues : _ENV
+  -- function num : 0_32 , upvalues : _ENV
   (ActivityMgr.OnClickHomeActivityBtn)((WindowMsgEnum.ActivityMainWindow).SING_INIT)
 end
 
 HomeWindow.onClickCardBtn = function(...)
-  -- function num : 0_32 , upvalues : _ENV
+  -- function num : 0_33 , upvalues : _ENV
   print("open the CardListWindow")
   ld("Card", function(...)
-    -- function num : 0_32_0 , upvalues : _ENV
+    -- function num : 0_33_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_32_0_0 , upvalues : _ENV
+      -- function num : 0_33_0_0 , upvalues : _ENV
       OpenWindow("CardListWindow", UILayer.HUD)
     end
 )
@@ -1128,11 +1174,11 @@ HomeWindow.onClickCardBtn = function(...)
 end
 
 HomeWindow.onClickEquipmentBtn = function(...)
-  -- function num : 0_33 , upvalues : _ENV
+  -- function num : 0_34 , upvalues : _ENV
   ld("Equipt", function(...)
-    -- function num : 0_33_0 , upvalues : _ENV
+    -- function num : 0_34_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_33_0_0 , upvalues : _ENV
+      -- function num : 0_34_0_0 , upvalues : _ENV
       (EquiptMgr.OpenEquipmentWindow)()
     end
 )
@@ -1141,20 +1187,20 @@ HomeWindow.onClickEquipmentBtn = function(...)
 end
 
 HomeWindow.onClickHandbookBtn = function(...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_35 , upvalues : _ENV
   ld("HandBook", function(...)
-    -- function num : 0_34_0 , upvalues : _ENV
+    -- function num : 0_35_0 , upvalues : _ENV
     OpenWindow((WinResConfig.HandBookMainWindow).name, UILayer.HUD)
   end
 )
 end
 
 HomeWindow.onClickLotteryBtn = function(...)
-  -- function num : 0_35 , upvalues : _ENV
+  -- function num : 0_36 , upvalues : _ENV
   ld("Lottery", function(...)
-    -- function num : 0_35_0 , upvalues : _ENV
+    -- function num : 0_36_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
-      -- function num : 0_35_0_0 , upvalues : _ENV
+      -- function num : 0_36_0_0 , upvalues : _ENV
       (ActorService.ReqActivityLottery)()
     end
 )
@@ -1163,14 +1209,14 @@ HomeWindow.onClickLotteryBtn = function(...)
 end
 
 HomeWindow.UpdateActor = function(...)
-  -- function num : 0_36 , upvalues : HomeWindow
+  -- function num : 0_37 , upvalues : HomeWindow
   (HomeWindow.UpdateActorLvAndPower)()
   ;
   (HomeWindow.UpdateActorMoney)()
 end
 
 HomeWindow.UpdateBg = function(...)
-  -- function num : 0_37 , upvalues : HomeWindow, _ENV, homeUis
+  -- function num : 0_38 , upvalues : HomeWindow, _ENV, homeUis
   (HomeWindow.RemoveShowModel)()
   local isStatic = (Util.GetPlayerSetting)(PlayerPrefsKeyName.MAIN_SHOW_STATIC, "0")
   print("===============isStatic", isStatic)
@@ -1186,12 +1232,12 @@ HomeWindow.UpdateBg = function(...)
 end
 
 HomeWindow.RemoveShowModel = function(...)
-  -- function num : 0_38 , upvalues : _ENV, homeUis
+  -- function num : 0_39 , upvalues : _ENV, homeUis
   (Util.RecycleUIModel)(homeUis.ShowLoader)
 end
 
 HomeWindow.UpdateActorLvAndPower = function(...)
-  -- function num : 0_39 , upvalues : uis, _ENV
+  -- function num : 0_40 , upvalues : uis, _ENV
   local levelTxt = (uis.HeadGrp).LevelTxt
   local fcTxt = (uis.HeadGrp).FcTxt
   local fcWordTxt = (uis.HeadGrp).FcWordTxt
@@ -1212,7 +1258,7 @@ HomeWindow.UpdateActorLvAndPower = function(...)
 end
 
 HomeWindow.UpdateActorMoney = function(...)
-  -- function num : 0_40 , upvalues : uis, _ENV, assetType
+  -- function num : 0_41 , upvalues : uis, _ENV, assetType
   local diamondTxt = ((uis.HeadGrp).Diamonds).IconTxt
   local goldTxt = ((uis.HeadGrp).Gold).IconTxt
   local PhysicalTxt = ((uis.HeadGrp).Power).IconTxt
@@ -1222,13 +1268,13 @@ HomeWindow.UpdateActorMoney = function(...)
 end
 
 HomeWindow.OnBgScrollView = function(...)
-  -- function num : 0_41 , upvalues : HomeWindow
+  -- function num : 0_42 , upvalues : HomeWindow
   (HomeWindow.UpdateChooseBgArrow)()
 end
 
 local bgTable = {}
 HomeWindow.UpdateSelectBgPanel = function(refresh, ...)
-  -- function num : 0_42 , upvalues : uis, HomeWindow, bgTable, _ENV
+  -- function num : 0_43 , upvalues : uis, HomeWindow, bgTable, _ENV
   if refresh ~= true then
     local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
     if TouchScreenBtn then
@@ -1257,7 +1303,7 @@ HomeWindow.UpdateSelectBgPanel = function(refresh, ...)
     end
     ;
     (table.sort)(configTable, function(a, b, ...)
-    -- function num : 0_42_0
+    -- function num : 0_43_0
     do return a.sort < b.sort end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -1289,24 +1335,6 @@ HomeWindow.UpdateSelectBgPanel = function(refresh, ...)
 end
 
 HomeWindow.TouchBgScreen = function(...)
-  -- function num : 0_43 , upvalues : uis, _ENV, HomeWindow
-  local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
-  if TouchScreenBtn then
-    (TouchScreenBtn.onClick):Clear()
-  end
-  local panel = (uis.BackGroundChoice).root
-  if panel then
-    PlayUITrans(panel, "in", function(...)
-    -- function num : 0_43_0 , upvalues : TouchScreenBtn, HomeWindow
-    if TouchScreenBtn then
-      (TouchScreenBtn.onClick):Set(HomeWindow.TouchScreenBtnReverse)
-    end
-  end
-, nil, nil, nil, nil, nil, true)
-  end
-end
-
-HomeWindow.TouchScreenBtnReverse = function(...)
   -- function num : 0_44 , upvalues : uis, _ENV, HomeWindow
   local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
   if TouchScreenBtn then
@@ -1317,6 +1345,24 @@ HomeWindow.TouchScreenBtnReverse = function(...)
     PlayUITrans(panel, "in", function(...)
     -- function num : 0_44_0 , upvalues : TouchScreenBtn, HomeWindow
     if TouchScreenBtn then
+      (TouchScreenBtn.onClick):Set(HomeWindow.TouchScreenBtnReverse)
+    end
+  end
+, nil, nil, nil, nil, nil, true)
+  end
+end
+
+HomeWindow.TouchScreenBtnReverse = function(...)
+  -- function num : 0_45 , upvalues : uis, _ENV, HomeWindow
+  local TouchScreenBtn = (uis.BackGroundChoice).TouchScreenBtn
+  if TouchScreenBtn then
+    (TouchScreenBtn.onClick):Clear()
+  end
+  local panel = (uis.BackGroundChoice).root
+  if panel then
+    PlayUITrans(panel, "in", function(...)
+    -- function num : 0_45_0 , upvalues : TouchScreenBtn, HomeWindow
+    if TouchScreenBtn then
       (TouchScreenBtn.onClick):Set(HomeWindow.TouchBgScreen)
     end
   end
@@ -1325,7 +1371,7 @@ HomeWindow.TouchScreenBtnReverse = function(...)
 end
 
 HomeWindow.UpdateOneBg = function(hand, config, ...)
-  -- function num : 0_45 , upvalues : _ENV, HomeWindow
+  -- function num : 0_46 , upvalues : _ENV, HomeWindow
   if hand and config then
     (hand:GetChild("PictureLoader")).url = (Util.GetItemUrl)(config.path_ui)
     local curSelect = (ActorData.GetGeneralHomeBg)()
@@ -1345,7 +1391,7 @@ HomeWindow.UpdateOneBg = function(hand, config, ...)
       end
       ;
       (hand.onClick):Set(function(...)
-    -- function num : 0_45_0 , upvalues : isSelect, isGet, _ENV, config, HomeWindow
+    -- function num : 0_46_0 , upvalues : isSelect, isGet, _ENV, config, HomeWindow
     if isSelect ~= true and isGet == true then
       local lastBgId = (ActorData.GetGeneralHomeBg)()
       ;
@@ -1365,7 +1411,7 @@ HomeWindow.UpdateOneBg = function(hand, config, ...)
 end
 
 HomeWindow.UpdateActivityBtnIcon = function(activityId, ...)
-  -- function num : 0_46 , upvalues : _ENV, uis
+  -- function num : 0_47 , upvalues : _ENV, uis
   local imageDataConfig = ((TableData.gTable).BaseActivityImageConfigData)[activityId]
   if imageDataConfig then
     local picLoader = (FairyUIUtils.FindLoader)(uis.ActivityDungeonBtn, "PicLoader")
@@ -1379,7 +1425,7 @@ HomeWindow.UpdateActivityBtnIcon = function(activityId, ...)
 end
 
 HomeWindow.FirstLoginVoiceAndBubble = function(...)
-  -- function num : 0_47 , upvalues : _ENV, fashionID, homeUis
+  -- function num : 0_48 , upvalues : _ENV, fashionID, homeUis
   local recordFirstLogin = (AudioManager.GetRecordFirstLogin)()
   if recordFirstLogin then
     return 
@@ -1392,25 +1438,25 @@ HomeWindow.FirstLoginVoiceAndBubble = function(...)
 end
 
 HomeWindow.AutoPlayVoiceAndBubble = function(...)
-  -- function num : 0_48 , upvalues : _ENV, fashionID, cvVoiceTimer, AUTOCVTIME, homeUis
+  -- function num : 0_49 , upvalues : _ENV, fashionID, cvVoiceTimer, AUTOCVTIME, homeUis
   loge("***********开启一个循环定时器 用于定时随机播放语音和气泡")
   fashionID = (ActorData.GetFashionShow)()
   cvVoiceTimer = (SimpleTimer.setInterval)(AUTOCVTIME, -1, function(...)
-    -- function num : 0_48_0 , upvalues : _ENV, fashionID, homeUis
+    -- function num : 0_49_0 , upvalues : _ENV, fashionID, homeUis
     (AudioManager.PlayBubbleAndVoice)(true, true, fashionID, CVAudioType.HomeIdleBubble, homeUis.ShowLoader, homeUis, false, true, nil, false)
   end
 )
 end
 
 HomeWindow.onClickShowLoader = function(...)
-  -- function num : 0_49 , upvalues : fashionID, _ENV, homeUis
+  -- function num : 0_50 , upvalues : fashionID, _ENV, homeUis
   fashionID = (ActorData.GetFashionShow)()
   ;
   (AudioManager.PlayBubbleAndVoice)(true, true, fashionID, CVAudioType.HomeIdleBubble, homeUis.ShowLoader, homeUis, false, true, nil, false)
 end
 
 HomeWindow.onClickTouchScreenBtn = function(...)
-  -- function num : 0_50 , upvalues : _ENV, uis
+  -- function num : 0_51 , upvalues : _ENV, uis
   PlayUITrans(uis.root, "in")
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
@@ -1419,12 +1465,12 @@ HomeWindow.onClickTouchScreenBtn = function(...)
 end
 
 HomeWindow.onClickHideBtn = function(...)
-  -- function num : 0_51 , upvalues : _ENV, uis
+  -- function num : 0_52 , upvalues : _ENV, uis
   PlayUITrans(uis.root, "hide")
 end
 
 HomeWindow.onClickBackgroundBtn = function(...)
-  -- function num : 0_52 , upvalues : _ENV, uis, HomeWindow
+  -- function num : 0_53 , upvalues : _ENV, uis, HomeWindow
   ChangeController(uis.c1Ctr, 1)
   ;
   (HomeWindow.UpdateSelectBgPanel)()
@@ -1433,12 +1479,12 @@ HomeWindow.onClickBackgroundBtn = function(...)
 end
 
 HomeWindow.onClickCloseBackgroundBtn = function(...)
-  -- function num : 0_53 , upvalues : _ENV, uis
+  -- function num : 0_54 , upvalues : _ENV, uis
   ChangeController(uis.c1Ctr, 0)
 end
 
 HomeWindow.OnShown = function(...)
-  -- function num : 0_54 , upvalues : _ENV, uis
+  -- function num : 0_55 , upvalues : _ENV, uis
   (GuideMgr.CheckIsTriggerGuide)((WinResConfig.HomeWindow).name)
   ;
   (GuideMgr.MildGuideTrigger)((WinResConfig.HomeWindow).name)
@@ -1477,7 +1523,7 @@ HomeWindow.OnShown = function(...)
   end
   ;
   (SimpleTimer.setTimeout)(0.3, function(...)
-    -- function num : 0_54_0 , upvalues : _ENV
+    -- function num : 0_55_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC15: Confused about usage of register: R0 in 'UnsetPending'
 
     if not (GuideMgr.IsInMainGuide)() and not (FunctionControlMgr.IsPrepareFunctionOpenWindow)() then
@@ -1494,17 +1540,17 @@ HomeWindow.OnShown = function(...)
 )
   ;
   (MessageMgr.OnRegisterBackWinFunc)((WinResConfig.HomeWindow).name, function(...)
-    -- function num : 0_54_1 , upvalues : uis, _ENV
+    -- function num : 0_55_1 , upvalues : uis, _ENV
     if (uis.c1Ctr).selectedIndex == 1 then
       (SimpleTimer.setTimeout)(0.01, function(...)
-      -- function num : 0_54_1_0 , upvalues : uis
+      -- function num : 0_55_1_0 , upvalues : uis
       (uis.c1Ctr):SetSelectedIndex(0)
     end
 )
     else
       ;
       (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000521), function(...)
-      -- function num : 0_54_1_1 , upvalues : _ENV
+      -- function num : 0_55_1_1 , upvalues : _ENV
       (Application.Quit)()
     end
 , nil, nil, nil, nil, nil, UILayer.HUD1)
@@ -1515,11 +1561,11 @@ HomeWindow.OnShown = function(...)
 end
 
 HomeWindow.OnHide = function(...)
-  -- function num : 0_55
+  -- function num : 0_56
 end
 
 HomeWindow.ClearAllHolder = function(...)
-  -- function num : 0_56 , upvalues : holder, _ENV, holderEffectBack, holderEffectFront
+  -- function num : 0_57 , upvalues : holder, _ENV, holderEffectBack, holderEffectFront
   if holder then
     (LuaEffect.DestroyEffect)(holder)
     holder = nil
@@ -1535,7 +1581,7 @@ HomeWindow.ClearAllHolder = function(...)
 end
 
 HomeWindow.OnClose = function(...)
-  -- function num : 0_57 , upvalues : texture, _ENV, _timers, showModel, HomeWindow, bgTable, uis, popup, homeUis, contentPane, cvVoiceTimer, BannerTimer, ActivityTimer
+  -- function num : 0_58 , upvalues : texture, _ENV, _timers, showModel, HomeWindow, bgTable, uis, popup, homeUis, contentPane, cvVoiceTimer, BannerTimer, ActivityTimer
   if texture then
     (ResHelper.UnloadTexture)(texture)
     texture = nil
@@ -1586,7 +1632,7 @@ HomeWindow.OnClose = function(...)
 end
 
 HomeWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_58 , upvalues : _ENV, HomeWindow, playWelcome, uis
+  -- function num : 0_59 , upvalues : _ENV, HomeWindow, playWelcome, uis
   if msgId == (WindowMsgEnum.HomeWindow).E_MSG_UPDATE_ACTOR_INFO then
     (HomeWindow.UpdateActor)()
   else
@@ -1613,6 +1659,10 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
 
                 ;
                 (((uis.BottomButton).LotteryTenTips).root).visible = para > 0
+              elseif msgId == (WindowMsgEnum.HomeWindow).E_MSG_REFRESH_PRODUCT then
+                (HomeWindow.RefreshProduct)(para)
+              elseif msgId == (WindowMsgEnum.HomeWindow).E_MSG_RESET_PRODUCT then
+                (ShopService.OnReqShopData)()
               end
             end
           end
@@ -1623,11 +1673,11 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
   if msgId == (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION then
     (HomeWindow.AutoPlayVoiceAndBubble)()
   end
-  -- DECOMPILER ERROR: 3 unprocessed JMP targets
+  -- DECOMPILER ERROR: 5 unprocessed JMP targets
 end
 
 HomeWindow.CheckActivityIcon = function(...)
-  -- function num : 0_59 , upvalues : _ENV, uis, ActivityTimer, HomeWindow
+  -- function num : 0_60 , upvalues : _ENV, uis, ActivityTimer, HomeWindow
   local serverTime = (LuaTime.GetTimeStamp)()
   local selectedIndex = 0
   local timeMinus = 0
@@ -1706,7 +1756,7 @@ HomeWindow.CheckActivityIcon = function(...)
           ActivityTimer = nil
         end
         ActivityTimer = (SimpleTimer.setTimeout)(timeMinus, function(...)
-    -- function num : 0_59_0 , upvalues : _ENV, HomeWindow
+    -- function num : 0_60_0 , upvalues : _ENV, HomeWindow
     local curBgId = (ActorData.GetGeneralHomeBg)()
     local curBgData = ((TableData.gTable).BaseHomeBackgroundData)[curBgId]
     if curBgData.begin_time ~= nil then

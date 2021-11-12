@@ -21,7 +21,7 @@ BaseSlotsRoundData = {
 , 
 [24011015] = {id = 24011015, type = 3, num_round = 4, max_num = 300, pool = 15, min_limit = 0, calculate_type = 1, end_round = 2}
 , 
-[24011101] = {id = 24011101, type = 2, num_round = -1, max_num = 76, pool = 101, min_limit = 50, calculate_type = 2}
+[24011101] = {id = 24011101, type = 2, num_round = -1, max_num = 117, pool = 101, min_limit = 50, calculate_type = 2}
 }
 return BaseSlotsRoundData
 

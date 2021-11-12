@@ -1,21 +1,24 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 PayMgr = {}
-PayProductType = {RechargeDiamond = 1, LittleMonthCard = 2, BigMonthCard = 3, RechargeGift = 4, ActivityGift = 5}
+PayProductType = {RechargeDiamond = 1, LittleMonthCard = 2, BigMonthCard = 3, RechargeGift = 4, ActivityGift = 5, Product = 6}
 PayProductLimitType = {NoLimit = 0, DayLimit = 1, WeekLimit = 2, MouthLimit = 3, ForeverLimit = 4}
--- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+PayProductTapType = {Recharge = 1, GiftBuy = 2, TuiSongLiBao = 3, Grocer = 4, MysteryShop = 5, TokenShop = 6, ExpeditionShop = 7}
+ShopBtnTxtTab = {(PUtil.get)(20000314), (PUtil.get)(20000315), (PUtil.get)(20000661), (PUtil.get)(20000065), (PUtil.get)(20000066), (PUtil.get)(20000067), (PUtil.get)(20000068)}
+ShopBtnNameTab = {"Recharge", "GiftBuy", "TuiSongLiBao", "Grocer", "MysteryShop", "TokenShop", "ExpeditionShop"}
+-- DECOMPILER ERROR at PC68: Confused about usage of register: R0 in 'UnsetPending'
 
 PayMgr.LimitBuy = false
--- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC70: Confused about usage of register: R0 in 'UnsetPending'
 
 PayMgr.RecodeProductID = 0
--- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R0 in 'UnsetPending'
 
 PayMgr.LimitProductID = 0
--- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC74: Confused about usage of register: R0 in 'UnsetPending'
 
 PayMgr.RecodeTimes = 0
--- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC77: Confused about usage of register: R0 in 'UnsetPending'
 
 PayMgr.SendPayCheck = function(configId, ...)
   -- function num : 0_0 , upvalues : _ENV
@@ -32,7 +35,7 @@ PayMgr.SendPayCheck = function(configId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC80: Confused about usage of register: R0 in 'UnsetPending'
 
 PayMgr.DealAfterPayCheck = function(msg, ...)
   -- function num : 0_1 , upvalues : _ENV

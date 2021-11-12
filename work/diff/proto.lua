@@ -2430,7 +2430,9 @@ enum E_LOTTERY_TYPE
 	LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE2 = 12;//十连必出扭蛋活动2
 	LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE3 = 13;//十连必出扭蛋活动3
 	LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE4 = 14;//十连必出扭蛋活动4
-	
+	LOTTERY_ACTIVITY_CAPSULE_UP5 = 15;//活动扭蛋up5
+	LOTTERY_ACTIVITY_CAPSULE_UP6 = 16;//活动扭蛋up6
+	LOTTERY_ACTIVITY_CAPSULE_UP7 = 17;//活动扭蛋up7
 }
 
 //抽奖模式
@@ -3829,12 +3831,13 @@ message GuildGiftPostAndType
 //1541公会馈礼获取
 message ReqGuildGiftGet
 {
-    int32 pos               = 1;//位置
+    repeated int32 pos         = 1;//请求的位置（传几个就给几个）
 }
 //1542公会馈礼获取
 message ResGuildGiftGet
 {
-	repeated GoodsObject goods = 1;//奖励 
+    repeated int32 pos         = 1;//馈礼成功的位置
+	repeated GoodsObject goods = 2;//奖励
 }
 
 //1543公会馈礼排行
@@ -5610,6 +5613,9 @@ enum E_MSG_ID
 	Pay_ReqPaySuccess                   = 2007;//请求充值成功
 	Pay_ResPaySuccess                   = 2008;//返回充值成功
 
+	Pay_ReqUnlockProduct                = 2011;//请求商品解锁定推送
+	Pay_ResUnlockProduct                = 2012;//返回商品解锁定推送
+
 
 	GuildWar_ReqGuildWarInfo               = 2101;//请求公会战信息
 	GuildWar_ResGuildWarInfo               = 2102;//返回公会战信息
@@ -5796,6 +5802,7 @@ message ProductInfo
 	int32                 weekBuyCount = 4;//本周购买次数
 	int32                monthBuyCount = 5;//本月购买次数
 	bool 						   new = 6;//NEW标签
+	int64                   unlockTime = 7;//解锁时间（非解锁商品为0）
 }
 
 //总充值信息
@@ -5864,6 +5871,18 @@ message ReqPaySuccess
 message ResPaySuccess
 {
 	string                   productId = 1;//商品ID
+}
+
+//2011 请求商品解锁定推送
+message ReqUnlockProduct
+{
+	
+}
+//2012 返回商品解锁定推送
+message ResUnlockProduct
+{
+	string                   productId = 1;//商品ID
+	bool                        unlock = 2;//是否解锁（true为解锁，false为锁定）
 }
 
 
@@ -6534,7 +6553,6 @@ message ShopGridData{
 	int32 shopPoolId            = 4;//格子上的商品配置id
 	bool corner                 = 5;//是否有new角标
 	int64 endTime               = 6;//格子过期时间
-	
 }
 
 //请求刷新商店
@@ -7222,6 +7240,8 @@ ReqGetMoonReward = 2005,
 ResGetMoonReward = 2006,
 ReqPaySuccess = 2007,
 ResPaySuccess = 2008,
+ReqUnlockProduct = 2011,
+ResUnlockProduct = 2012,
 ReqGuildWarInfo = 2101,
 ResGuildWarInfo = 2102,
 ReqRefreshBattleInfo = 2103,
@@ -7807,6 +7827,8 @@ MsgNameByID = {[0] = "Unknown",
 [2006] = "ResGetMoonReward",
 [2007] = "ReqPaySuccess",
 [2008] = "ResPaySuccess",
+[2011] = "ReqUnlockProduct",
+[2012] = "ResUnlockProduct",
 [2101] = "ReqGuildWarInfo",
 [2102] = "ResGuildWarInfo",
 [2103] = "ReqRefreshBattleInfo",
@@ -8086,6 +8108,7 @@ BattleData = "BattleData",
 ReqPlayerList = "ReqPlayerList",
 ResSellProp = "ResSellProp",
 Event = "Event",
+ResUnlockProduct = "ResUnlockProduct",
 Expedition = "Expedition",
 ResImpeachData = "ResImpeachData",
 ReqGetCardChat = "ReqGetCardChat",
@@ -8556,6 +8579,7 @@ ReqPlayerCards = "ReqPlayerCards",
 ReqSetHandbookCover = "ReqSetHandbookCover",
 ReqPlayerInfo = "ReqPlayerInfo",
 ResMailDetail = "ResMailDetail",
+ReqUnlockProduct = "ReqUnlockProduct",
 DamageData = "DamageData",
 ResBuyAssist = "ResBuyAssist",
 ReqActivityList = "ReqActivityList",
@@ -8698,7 +8722,7 @@ FriendOperationCode = {OP_SUCCESS = 0, EXCEED_MAX_FRIEND_COUNT = 1, EXCEED_TARGE
 , 
 E_RANK_TYPE = {RANK_TYPE_UNKNOWN = 0}
 , 
-E_LOTTERY_TYPE = {LOTTERY_TYPE_UNKNOWN = 0, LOTTERY_TYPE_CARD = 1, LOTTERY_TYPE_EQUIP = 2, LOTTERY_TYPE_COUPON = 3, LOTTERY_TYPE_NOVICE = 4, LOTTERY_TEN_EVEN_CAPSULE = 6, LOTTERY_ACTIVITY_CAPSULE_UP1 = 7, LOTTERY_ACTIVITY_CAPSULE_UP2 = 8, LOTTERY_ACTIVITY_CAPSULE_UP3 = 9, LOTTERY_ACTIVITY_CAPSULE_UP4 = 10, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE1 = 11, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE2 = 12, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE3 = 13, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE4 = 14}
+E_LOTTERY_TYPE = {LOTTERY_TYPE_UNKNOWN = 0, LOTTERY_TYPE_CARD = 1, LOTTERY_TYPE_EQUIP = 2, LOTTERY_TYPE_COUPON = 3, LOTTERY_TYPE_NOVICE = 4, LOTTERY_TEN_EVEN_CAPSULE = 6, LOTTERY_ACTIVITY_CAPSULE_UP1 = 7, LOTTERY_ACTIVITY_CAPSULE_UP2 = 8, LOTTERY_ACTIVITY_CAPSULE_UP3 = 9, LOTTERY_ACTIVITY_CAPSULE_UP4 = 10, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE1 = 11, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE2 = 12, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE3 = 13, LOTTERY_ACTIVITY_TEN_EVEN_CAPSULE4 = 14, LOTTERY_ACTIVITY_CAPSULE_UP5 = 15, LOTTERY_ACTIVITY_CAPSULE_UP6 = 16, LOTTERY_ACTIVITY_CAPSULE_UP7 = 17}
 , 
 E_QUERY_TYPE = {QUERY_UNKNOWN = 0, OBJECT_INDEX = 1, ACCOUNT = 2, NAME = 3}
 , 

@@ -472,6 +472,8 @@ risk_time_not_enough = {id = "risk_time_not_enough", name = "イベントはま�
 text_is_empty = {id = "text_is_empty", name = "空のテキスト", name_cn = "文本为空"}
 , 
 player_del_not_support = {id = "player_del_not_support", name = "player_del_not_support", name_cn = "对方账号异常，无法使用该支援角色"}
+, 
+product_locked = {id = "product_locked", name = "購入ができません", name_cn = "商品已锁定"}
 }
 return BaseAlertData
 

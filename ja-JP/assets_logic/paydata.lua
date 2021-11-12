@@ -21,6 +21,9 @@ PayData.SavePayData = function(msg, ...)
   for i,v in ipairs((PayData.savePayData).productList) do
     print("礼包活动id   ", v.productId)
   end
+  if UIMgr:IsWindowOpen((WinResConfig.HomeWindow).name) then
+    UIMgr:SendWindowMessage((WinResConfig.HomeWindow).name, (WindowMsgEnum.HomeWindow).E_MSG_RESET_PRODUCT)
+  end
 end
 
 -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
@@ -121,8 +124,56 @@ end
 
 -- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
 
-PayData.GetProductSortWeight = function(id, ...)
+PayData.GetProducListInfo = function(...)
   -- function num : 0_6 , upvalues : _ENV
+  local list = {}
+  local config = (TableData.gTable).BasePayProductData
+  local platform = "ANDROID"
+  if Application.platform == RuntimePlatform.Android then
+    platform = "ANDROID"
+  else
+    if Application.platform == RuntimePlatform.IPhonePlayer then
+      platform = "IOS"
+    end
+  end
+  for _,v in pairs(config) do
+    if v.platform == platform and (v.type == PayProductType.Product or v.tap_type == PayProductTapType.TuiSongLiBao) then
+      local info = (PayData.GetProductInfo)(v.product_id)
+      if info and info.unlockTime > 0 then
+        info.id = v.id
+        info.sort = v.sort
+        ;
+        (table.insert)(list, info)
+      end
+    end
+  end
+  ;
+  (table.sort)(list, function(a, b, ...)
+    -- function num : 0_6_0 , upvalues : _ENV
+    local aRe = (PayData.GetProductSortWeight)(a.id)
+    local bRe = (PayData.GetProductSortWeight)(b.id)
+    do return a.sort + aRe < b.sort + bRe end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+  return list
+end
+
+-- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
+
+PayData.HaveTuiSongLiBao = function(...)
+  -- function num : 0_7 , upvalues : _ENV
+  local data = (PayData.GetProducListInfo)()
+  if #data > 0 then
+    return true
+  end
+  return false
+end
+
+-- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
+
+PayData.GetProductSortWeight = function(id, ...)
+  -- function num : 0_8 , upvalues : _ENV
   local config = ((TableData.gTable).BasePayProductData)[id]
   if config.type == PayProductType.BigMonthCard or config.type == PayProductType.LittleMonthCard then
     return 0
@@ -136,10 +187,10 @@ PayData.GetProductSortWeight = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetProductConfig = function(productId, ...)
-  -- function num : 0_7 , upvalues : _ENV
+  -- function num : 0_9 , upvalues : _ENV
   local config = (TableData.gTable).BasePayProductData
   local platform = "ANDROID"
   if Application.platform == RuntimePlatform.Android then
@@ -156,10 +207,10 @@ PayData.GetProductConfig = function(productId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC35: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetPayCheckParam = function(...)
-  -- function num : 0_8 , upvalues : _ENV
+  -- function num : 0_10 , upvalues : _ENV
   local platform = "ANDROID"
   if Application.platform == RuntimePlatform.Android then
     platform = "ANDROID"
@@ -171,10 +222,10 @@ PayData.GetPayCheckParam = function(...)
   return platform
 end
 
--- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC38: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetRemainMonthCardDay = function(type, ...)
-  -- function num : 0_9 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   if type == PayProductType.LittleMonthCard then
     return ((PayData.savePayData).moonPayInfo).resMoonSurplus
   else
@@ -186,10 +237,10 @@ PayData.GetRemainMonthCardDay = function(type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC35: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC41: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetMonthCardCanGet = function(type, ...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_12 , upvalues : _ENV
   local day = (PayData.GetRemainMonthCardDay)(type)
   if day > 0 then
     local get = (PayData.GetMonthCardIsGet)(type)
@@ -201,10 +252,10 @@ PayData.GetMonthCardCanGet = function(type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC38: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetMonthCardIsGet = function(type, ...)
-  -- function num : 0_11 , upvalues : _ENV
+  -- function num : 0_13 , upvalues : _ENV
   if type == PayProductType.LittleMonthCard then
     return ((PayData.savePayData).moonPayInfo).resMoonReceive
   else
@@ -214,10 +265,10 @@ PayData.GetMonthCardIsGet = function(type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC41: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetProductDataByType = function(type, ...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_14 , upvalues : _ENV
   local config = (TableData.gTable).BasePayProductData
   local platform = (PayData.GetPayCheckParam)()
   for _,v in pairs(config) do
@@ -227,10 +278,10 @@ PayData.GetProductDataByType = function(type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC44: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetProductTimes = function(product_id, Limit_type, ...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   local list = (PayData.savePayData).productList
   for _,v in ipairs(list) do
     if v.productId == product_id then
@@ -253,10 +304,10 @@ PayData.GetProductTimes = function(product_id, Limit_type, ...)
   end
 end
 
--- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC53: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetProductRemainTimes = function(id, ...)
-  -- function num : 0_14 , upvalues : _ENV
+  -- function num : 0_16 , upvalues : _ENV
   local config = ((TableData.gTable).BasePayProductData)[id]
   local buyTime = (PayData.GetProductTimes)(config.product_id, config.sell_limit_type)
   local limitTime = config.sell_limit_max
@@ -267,10 +318,10 @@ PayData.GetProductRemainTimes = function(id, ...)
   end
 end
 
--- DECOMPILER ERROR at PC50: Confused about usage of register: R0 in 'UnsetPending'
+-- DECOMPILER ERROR at PC56: Confused about usage of register: R0 in 'UnsetPending'
 
 PayData.GetProductRemainTimesByProductId = function(id, ...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   local config = nil
   local allConfig = (TableData.gTable).BasePayProductData
   for i,v in pairs(allConfig) do

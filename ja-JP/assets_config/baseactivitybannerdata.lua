@@ -5,9 +5,9 @@ BaseActivityBannerData = {
 , 
 [34100002] = {id = 34100002, icon = "HomeAd:HomeAd_062", goto_id = 100108, time_type = 0, begin_time = "1635642000", end_time = "1636988400", sort = 4}
 , 
-[34100003] = {id = 34100003, icon = "HomeAd:HomeAd_060", goto_id = 100108, time_type = 0, begin_time = "1634241599", end_time = "1635606000", sort = 1}
+[34100003] = {id = 34100003, icon = "HomeAd:HomeAd_063", goto_id = 100108, time_type = 0, begin_time = "1636919999", end_time = "1638284400", sort = 1}
 , 
-[34100004] = {id = 34100004, icon = "HomeAd:HomeAd_061", goto_id = 100108, time_type = 0, begin_time = "1634950800", end_time = "1635606000", sort = 2}
+[34100004] = {id = 34100004, icon = "HomeAd:HomeAd_064", goto_id = 100108, time_type = 0, begin_time = "1637542800", end_time = "1638198000", sort = 2}
 , 
 [34100011] = {id = 34100011, icon = "HomeAd:HomeAd_008", goto_id = 300103, time_type = 0, begin_time = "1614974399", end_time = "1615147199", sort = 6}
 , 

@@ -2,6 +2,7 @@
 -- function num : 0 , upvalues : _ENV
 require("Home_LotteryTipsByName")
 require("Home_LotteryTenTipsByName")
+require("Home_GiftTipsByName")
 GetHome_BottomButtonUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
@@ -15,6 +16,7 @@ GetHome_BottomButtonUis = function(ui, ...)
   uis.TaskBtn = ui:GetChild("TaskBtn")
   uis.LotteryTips = GetHome_LotteryTipsUis(ui:GetChild("LotteryTips"))
   uis.LotteryTenTips = GetHome_LotteryTenTipsUis(ui:GetChild("LotteryTenTips"))
+  uis.GiftTips = GetHome_GiftTipsUis(ui:GetChild("GiftTips"))
   uis.ClothesCtr = ui:GetController("Clothes")
   uis.root = ui
   return uis

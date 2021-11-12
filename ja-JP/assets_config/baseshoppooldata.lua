@@ -1167,6 +1167,12 @@ BaseShopPoolData = {
 , 
 [23211001] = {id = 23211001, grid_id = "23002011", sell_time = "0", item = "1:21500413:1", sell_price = "2:21100002:1280", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
 , 
+[23212001] = {id = 23212001, grid_id = "23002012", sell_time = "0", item = "1:21500411:1", sell_price = "2:21100002:880", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
+, 
+[23213001] = {id = 23213001, grid_id = "23002013", sell_time = "0", item = "1:21500412:1", sell_price = "2:21100002:660", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
+, 
+[23214001] = {id = 23214001, grid_id = "23002014", sell_time = "0", item = "1:21500413:1", sell_price = "2:21100002:1280", sell_type = "0", prob = "10000", player_level_min = "11", player_level_max = "999"}
+, 
 [23301001] = {id = 23301001, grid_id = "23003001", sell_time = "0", item = "1:21122002:5", sell_price = "2:21100007:400", sell_type = "0", prob = "556", player_level_min = "15", player_level_max = "999"}
 , 
 [23301002] = {id = 23301002, grid_id = "23003001", sell_time = "0", item = "1:21122008:5", sell_price = "2:21100007:400", sell_type = "0", prob = "556", player_level_min = "15", player_level_max = "999"}

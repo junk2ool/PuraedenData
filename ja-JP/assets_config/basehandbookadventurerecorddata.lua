@@ -1,15 +1,15 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BaseHandbookAdventureRecordData = {
-[52100101] = {id = 52100101, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140101, 1, 1), icon = "HandBookBanner:handbook_03_1", story_id = "75901601:75901602:75901603:75901611", sort = 1}
+[52100101] = {id = 52100101, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140101, 1, 1), icon = "HandBookBanner:handbook_03_1", story_id = "75001101:75001102:75001103:75001104:75001105:75001106:75001107:75001108:75001109", sort = 1}
 , 
-[52100102] = {id = 52100102, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140102, 1, 2), icon = "HandBookBanner:handbook_03_2", story_id = "75901621:75901631:75901632:75901633:75901634", sort = 2}
+[52100102] = {id = 52100102, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140102, 1, 2), icon = "HandBookBanner:handbook_03_2", story_id = "75001231:75001251", sort = 2}
 , 
-[52100103] = {id = 52100103, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140103, 1, 3), icon = "HandBookBanner:handbook_03_3", story_id = "75901641:75901651:75901652", sort = 3}
+[52100103] = {id = 52100103, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140103, 1, 3), icon = "HandBookBanner:handbook_03_3", story_id = "75001331:75001332:75001333:75001334", sort = 3}
 , 
-[52100104] = {id = 52100104, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140104, 1, 4), icon = "HandBookBanner:handbook_03_4", story_id = "75901661:75901662:75901671", sort = 4}
+[52100104] = {id = 52100104, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140104, 1, 4), icon = "HandBookBanner:handbook_03_4", story_id = "75001441:75001451", sort = 4}
 , 
-[52100105] = {id = 52100105, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140105, 1, 5), icon = "HandBookBanner:handbook_03_5", story_id = "75901681", sort = 5}
+[52100105] = {id = 52100105, name = (PUtil.get)(85140101), remark = (PUtil.get)(85140105, 1, 5), icon = "HandBookBanner:handbook_03_5", story_id = "75001521", sort = 5}
 , 
 [52100201] = {id = 52100201, name = (PUtil.get)(85140102), remark = (PUtil.get)(85140201, 2, 1), icon = "HandBookBanner:handbook_08_1", story_id = "75002111:75002131", sort = 1}
 , 

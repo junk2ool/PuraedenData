@@ -115,6 +115,7 @@ PayService.OnResPaySuccess = function(msg, ...)
   end
   UIMgr:RemoveWindowList((WinResConfig.ShopMonthCardWindow).name)
   UIMgr:RemoveWindowList((WinResConfig.ShopGiftWindow).name)
+  UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_CHECKPRODUCTSTATE, msg)
 end
 
 ;
