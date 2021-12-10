@@ -613,7 +613,7 @@ HomelandData.InitRoomStyleInfo = function(data, wall, floor, background, ...)
     _roomData.Floor = {Id = 0}
   end
   if background then
-    _roomData.Floor = background
+    _roomData.Background = background
   else
     _roomData.Background = {Id = 0}
   end

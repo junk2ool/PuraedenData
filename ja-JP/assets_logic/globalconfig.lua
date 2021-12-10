@@ -19,7 +19,7 @@ PlayerPrefsKeyName = {BATTLE_SPEED_INDEX = "BATTLE_SPEED_INDEX", BATTLE_AUTO = "
 local MsgIdByName = (_ENV.Proto).MsgIdByName
 _ENV.SpecialGoodsID = {Gift_Code = 250250}
 _ENV.NeedShowGetGoodsMsg = {[MsgIdByName.ReqDestroyEquip] = true, [MsgIdByName.ReqGetMailAnnex] = true, [MsgIdByName.ReqAdventureBuilding] = true, [MsgIdByName.ReqSignInReward] = true, [MsgIdByName.ReqStoryReward] = true, [MsgIdByName.ReqPaySuccess] = true, [(_ENV.SpecialGoodsID).Gift_Code] = true, [MsgIdByName.ReqGetBindReward] = true, [MsgIdByName.ReqSlotsOperation] = true, [MsgIdByName.ReqLotteryConversion] = true, [MsgIdByName.ReqEndRisk] = true, [MsgIdByName.ReqChallengeReward] = true}
-_ENV.NeedShowPromptMsg = {[MsgIdByName.ReqSignIn] = true, [MsgIdByName.ReqTaskReward] = true, [MsgIdByName.ReqPointReward] = true, [MsgIdByName.ReqShopBuy] = true, [MsgIdByName.ReqGetMoonReward] = true, [MsgIdByName.ResLoginActGet] = true, [MsgIdByName.ReqGetWarReward] = true, [MsgIdByName.ReqSupportHarvest] = true, [MsgIdByName.ReqAssistGuildMember] = true}
+_ENV.NeedShowPromptMsg = {[MsgIdByName.ReqSignIn] = true, [MsgIdByName.ReqTaskReward] = true, [MsgIdByName.ReqPointReward] = true, [MsgIdByName.ReqShopBuy] = true, [MsgIdByName.ReqPayCardReward] = true, [MsgIdByName.ResLoginActGet] = true, [MsgIdByName.ReqGetWarReward] = true, [MsgIdByName.ReqSupportHarvest] = true, [MsgIdByName.ReqAssistGuildMember] = true}
 _ENV.FCChangeMsg = {[MsgIdByName.ReqUseProp] = true}
 _ENV.UsePropScene = {PiceToCard = 1, CardLevelUp = 2, HandBookToCard = 3}
 _ENV.HeroBookState = {OPEN = "open", KEEP = "keep", CLOSE = "close", IDLE = "idle"}

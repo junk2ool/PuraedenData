@@ -358,10 +358,13 @@ HomeWindow.RefreshProduct = function(data, ...)
     -- function num : 0_4_0 , upvalues : data, _ENV, productTips
     local id = nil
     local productName = ""
+    local show = false
     if data then
-      id = data
+      id = data.productId
+      show = data.unlock
     else
       id = ((ShopMgr.GetProductData)()).productId
+      show = ((ShopMgr.GetProductData)()).unlock
     end
     if id then
       log("显示礼包推送提示")
@@ -371,14 +374,14 @@ HomeWindow.RefreshProduct = function(data, ...)
           productName = v.product_name
         end
       end
-      -- DECOMPILER ERROR at PC30: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC36: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (productTips.WordTxt).text = productName
-      -- DECOMPILER ERROR at PC32: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC38: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
-      (productTips.root).visible = true
+      (productTips.root).visible = show
     end
   end
 )
