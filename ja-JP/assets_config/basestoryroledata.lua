@@ -549,6 +549,38 @@ BaseStoryRoleData = {
 , 
 [75200884] = {id = 75200884, name = (PUtil.get)(86101110), role_path = "img_13010019", effect_path = "FIGHT_KILL", fashion_id = "15040019", offset = "28:-300"}
 , 
+[75200891] = {id = 75200891, name = (PUtil.get)(86101111), role_path = "img_11300046_1", effect_path = "FIGHT_KILL", fashion_id = "14304600", offset = "28:26"}
+, 
+[75200892] = {id = 75200892, name = (PUtil.get)(86101111), role_path = "img_11300046_2", effect_path = "FIGHT_KILL", fashion_id = "14304601", offset = "28:26"}
+, 
+[75200893] = {id = 75200893, name = (PUtil.get)(86101102), role_path = "img_11300046_1", effect_path = "FIGHT_KILL", fashion_id = "14304600", offset = "28:26"}
+, 
+[75200894] = {id = 75200894, name = (PUtil.get)(86101111), effect_path = "FIGHT_KILL", fashion_id = "14304600", offset = "28:26"}
+, 
+[75200901] = {id = 75200901, name = (PUtil.get)(86101112), role_path = "img_11202020_1", effect_path = "FIGHT_KILL", fashion_id = "14222000", offset = "-20:-12"}
+, 
+[75200902] = {id = 75200902, name = (PUtil.get)(86101112), role_path = "img_11202020_2", effect_path = "FIGHT_KILL", fashion_id = "14222001", offset = "-20:-12"}
+, 
+[75200903] = {id = 75200903, name = (PUtil.get)(86101102), role_path = "img_11202020_1", effect_path = "FIGHT_KILL", fashion_id = "14222000", offset = "-20:-12"}
+, 
+[75200904] = {id = 75200904, name = (PUtil.get)(86101112), effect_path = "FIGHT_KILL", fashion_id = "14222000", offset = "-20:-12"}
+, 
+[75200911] = {id = 75200911, name = (PUtil.get)(86101113), role_path = "img_13010023", effect_path = "FIGHT_KILL", fashion_id = "15040023", offset = "0:14"}
+, 
+[75200912] = {id = 75200912, name = (PUtil.get)(86101113), role_path = "img_13010023", effect_path = "FIGHT_KILL", fashion_id = "15040023", offset = "0:14"}
+, 
+[75200913] = {id = 75200913, name = (PUtil.get)(86101102), role_path = "img_13010023", effect_path = "FIGHT_KILL", fashion_id = "15040023", offset = "0:14"}
+, 
+[75200914] = {id = 75200914, name = (PUtil.get)(86101113), effect_path = "FIGHT_KILL", fashion_id = "15040023", offset = "0:14"}
+, 
+[75200921] = {id = 75200921, name = (PUtil.get)(86101114), role_path = "img_11300014_1", effect_path = "FIGHT_KILL", fashion_id = "14301400", offset = "31:-126"}
+, 
+[75200922] = {id = 75200922, name = (PUtil.get)(86101114), role_path = "img_11300014_2", effect_path = "FIGHT_KILL", fashion_id = "14301401", offset = "31:-126"}
+, 
+[75200923] = {id = 75200923, name = (PUtil.get)(86101102), effect_path = "FIGHT_KILL", fashion_id = "14301400", offset = "31:-126"}
+, 
+[75200924] = {id = 75200924, name = (PUtil.get)(86101114), effect_path = "FIGHT_KILL", fashion_id = "14301400", offset = "31:-126"}
+, 
 [75210001] = {id = 75210001, name = (PUtil.get)(86103005), role_path = "img_12010001", effect_path = "FIGHT_KILL", fashion_id = "15010001", offset = "10:80"}
 , 
 [75210002] = {id = 75210002, name = (PUtil.get)(86103006), role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
@@ -792,6 +824,10 @@ BaseStoryRoleData = {
 [75210121] = {id = 75210121, name = (PUtil.get)(86101102), role_path = "img_13010016", effect_path = "FIGHT_KILL", fashion_id = "15040016", offset = "0:-108"}
 , 
 [75210122] = {id = 75210122, name = (PUtil.get)(86109026), role_path = "img_12010005", effect_path = "FIGHT_KILL", fashion_id = "15010005", offset = "10:65"}
+, 
+[75210123] = {id = 75210123, name = (PUtil.get)(86109027), role_path = "img_13010021", effect_path = "FIGHT_KILL", fashion_id = "15040021", offset = "53:35"}
+, 
+[75210124] = {id = 75210124, name = (PUtil.get)(86109028), role_path = "img_13010022", effect_path = "FIGHT_KILL", fashion_id = "15040022", offset = "68:-6"}
 , 
 [75203001] = {id = 75203001, name = (PUtil.get)(86103001), role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 
@@ -1102,6 +1138,12 @@ BaseStoryRoleData = {
 [75206094] = {id = 75206094, name = (PUtil.get)(86101089), role_path = "npcCardSpine_12010008", effect_path = "FIGHT_KILL", fashion_id = "15010008", offset = "20:70"}
 , 
 [75206095] = {id = 75206095, name = (PUtil.get)(86109011), role_path = "img_13010002", effect_path = "FIGHT_KILL", fashion_id = "15040002", offset = "-10:35"}
+, 
+[75206096] = {id = 75206096, name = (PUtil.get)(86109029), effect_path = "FIGHT_KILL"}
+, 
+[75206097] = {id = 75206097, name = (PUtil.get)(86109030), effect_path = "FIGHT_KILL"}
+, 
+[75206098] = {id = 75206098, name = (PUtil.get)(86109031), effect_path = "FIGHT_KILL"}
 , 
 [75209000] = {id = 75209000, name = (PUtil.get)(86109001), role_path = "npcCardSpine_11301004", effect_path = "FIGHT_KILL", fashion_id = "14310401", expression_type = 1, offset = "-40:80"}
 , 

@@ -31,7 +31,7 @@ BasePlayData = {
 , 
 [76000100] = {id = 76000100, type = 100, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", bgm_id = 1040018, set_speed = 3, double_activity_id = "0"}
 , 
-[76000110] = {id = 76000110, type = 102, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", reset_time = "1:0500:MX0", background_path = "BattleScene_1027", bgm_id = 1040018, set_speed = 3, double_activity_id = "0"}
+[76000110] = {id = 76000110, type = 102, cd = "0", cd_cost = "0", free_times = 0, win_reward = "0", lose_reward = "0", reset_time = "1:0500:MX0", background_path = "BattleScene_4030", bgm_id = 1040018, set_speed = 3, double_activity_id = "0"}
 }
 return BasePlayData
 

@@ -83,7 +83,7 @@ BaseStoryDialogueDataPart179 = {
 , 
 [75459228] = {id = 75459228, remark = (PUtil.get)(86248055), type = 1, option_ids = "0", next = 75459229, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
-[75459229] = {id = 75459229, remark = (PUtil.get)(86248056), type = 1, option_ids = "75505931:75505932", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+[75459229] = {id = 75459229, remark = (PUtil.get)(86248056), type = 1, option_ids = "75505941:75505942", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
 [75459230] = {id = 75459230, remark = (PUtil.get)(86248057), type = 1, option_ids = "0", next = 75459232, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
@@ -115,7 +115,7 @@ BaseStoryDialogueDataPart179 = {
 , 
 [75459244] = {id = 75459244, remark = (PUtil.get)(86248071), type = 1, option_ids = "0", next = 75459245, role_ids = "75200451:75200161", role_type = 75200451, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 
-[75459245] = {id = 75459245, remark = (PUtil.get)(86248072), type = 1, option_ids = "75505941:75505942", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", role_admission_type = "75200601:0:0", role_departure_type = "75200451:0:0,75200161:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
+[75459245] = {id = 75459245, remark = (PUtil.get)(86248072), type = 1, option_ids = "75505951:75505952", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", role_admission_type = "75200601:0:0", role_departure_type = "75200451:0:0,75200161:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 
 [75459246] = {id = 75459246, remark = (PUtil.get)(86248073), type = 1, option_ids = "0", next = 75459248, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020009}
 , 
@@ -135,7 +135,7 @@ BaseStoryDialogueDataPart179 = {
 , 
 [75459254] = {id = 75459254, remark = (PUtil.get)(86248081), type = 1, option_ids = "0", next = 75459255, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", role_departure_type = "75200471:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
-[75459255] = {id = 75459255, remark = (PUtil.get)(86248082), type = 1, option_ids = "75505951:75505952", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
+[75459255] = {id = 75459255, remark = (PUtil.get)(86248082), type = 1, option_ids = "75505961:75505962", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
 [75459256] = {id = 75459256, remark = (PUtil.get)(86248083), type = 1, option_ids = "0", next = 75459258, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
@@ -165,7 +165,7 @@ BaseStoryDialogueDataPart179 = {
 , 
 [75459269] = {id = 75459269, remark = (PUtil.get)(86248096), type = 1, option_ids = "0", next = 75459270, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
-[75459270] = {id = 75459270, remark = (PUtil.get)(86248097), type = 1, option_ids = "75505961:75505962", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+[75459270] = {id = 75459270, remark = (PUtil.get)(86248097), type = 1, option_ids = "75505971:75505972", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
 [75459271] = {id = 75459271, remark = (PUtil.get)(86248098), type = 1, option_ids = "0", next = 75459273, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
@@ -195,7 +195,7 @@ BaseStoryDialogueDataPart179 = {
 , 
 [75459284] = {id = 75459284, remark = (PUtil.get)(86248111), type = 1, option_ids = "0", next = 75459285, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007}
 , 
-[75459285] = {id = 75459285, remark = (PUtil.get)(86248112), type = 1, option_ids = "75505971:75505972", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007}
+[75459285] = {id = 75459285, remark = (PUtil.get)(86248112), type = 1, option_ids = "75505981:75505982", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007}
 , 
 [75459286] = {id = 75459286, remark = (PUtil.get)(86248113), type = 1, option_ids = "0", next = 75459288, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020007}
 , 
@@ -209,7 +209,7 @@ BaseStoryDialogueDataPart179 = {
 , 
 [75459291] = {id = 75459291, remark = (PUtil.get)(86248118), type = 1, option_ids = "0", next = 75459292, role_ids = "75200611:75200601", role_type = 75200601, position = "195:606:10000,642:606:10050", role_admission_type = "75200601:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
-[75459292] = {id = 75459292, remark = (PUtil.get)(86248119), type = 1, option_ids = "75505981:75505982", next = 0, role_ids = "75200611:75200601", role_type = 75200611, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
+[75459292] = {id = 75459292, remark = (PUtil.get)(86248119), type = 1, option_ids = "75505991:75505992", next = 0, role_ids = "75200611:75200601", role_type = 75200611, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
 [75459293] = {id = 75459293, remark = (PUtil.get)(86248120), type = 1, option_ids = "0", next = 75459295, role_ids = "75200611:75200601", role_type = 75200601, position = "195:606:10000,642:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020002}
 , 
@@ -231,7 +231,7 @@ BaseStoryDialogueDataPart179 = {
 , 
 [75459302] = {id = 75459302, remark = (PUtil.get)(86248129), type = 1, option_ids = "0", next = -1, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020008}
 , 
-[75459303] = {id = 75459303, remark = (PUtil.get)(86248130), type = 1, option_ids = "75505991:75505992", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020008}
+[75459303] = {id = 75459303, remark = (PUtil.get)(86248130), type = 1, option_ids = "75505901:75505902", next = 0, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020008}
 , 
 [75459304] = {id = 75459304, remark = (PUtil.get)(86248131), type = 1, option_ids = "0", next = 75459306, role_ids = "75200601", role_type = 75200601, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020008}
 , 

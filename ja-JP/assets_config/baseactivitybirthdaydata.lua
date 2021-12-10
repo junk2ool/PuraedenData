@@ -158,6 +158,10 @@ BaseActivityBirthdayData = {
 [11300043] = {id = 11300043, card_name = (PUtil.get)(81013043), fashion_id = 14304301, remark = (PUtil.get)(89200078), server_date = "9:01010500:MX0", date_remark = "1/1", rewards = "2:21100001:50"}
 , 
 [11300049] = {id = 11300049, card_name = (PUtil.get)(81013049), fashion_id = 14304901, remark = (PUtil.get)(89200079), server_date = "9:01150500:MX0", date_remark = "1/15", rewards = "2:21100001:50"}
+, 
+[11202020] = {id = 11202020, card_name = (PUtil.get)(81012220), fashion_id = 14222001, remark = (PUtil.get)(89200080), server_date = "9:11160500:MX0", date_remark = "11/16", rewards = "2:21100001:50"}
+, 
+[11300046] = {id = 11300046, card_name = (PUtil.get)(81013046), fashion_id = 14304601, remark = (PUtil.get)(89200081), server_date = "9:09010500:MX0", date_remark = "9/1", rewards = "2:21100001:50"}
 }
 return BaseActivityBirthdayData
 

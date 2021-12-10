@@ -32,6 +32,8 @@ BaseTowerData = {
 [51315003] = {id = 51315003, name = (PUtil.get)(85901003), name_icon = "Tower:TowerName_3", stages = "52318301:52318302:52318303:52318304", open_condition = "72501001:0:1", pre = 0, next = 0, tower_icon = "Equipicon:h_61500021", fc_range = "7000:11000", attr_power = "81050002:4914,81050003:9694,81050004:10000", fc_show = 8443, pool_id = 4011, cost = "0", background_path = "BattleScene_1011", bgm_id = 1040019, type = 2, drop_show = "4:61010013:0", equip_buffs = (PUtil.get)(85550003, 1, 2, 3, 6, 12, 18, 18)}
 , 
 [51315004] = {id = 51315004, name = (PUtil.get)(85901004), name_icon = "Tower:TowerName_4", stages = "52318401:52318402:52318403:52318404", open_condition = "72501001:0:1", pre = 0, next = 0, tower_icon = "Equipicon:h_61500031", fc_range = "7000:11000", attr_power = "81050002:4914,81050003:9694,81050004:10000", fc_show = 8443, pool_id = 4011, cost = "0", background_path = "BattleScene_1018", bgm_id = 1040022, type = 2, drop_show = "4:61010013:0", equip_buffs = (PUtil.get)(85550004, 40, 40)}
+, 
+[51315005] = {id = 51315005, name = (PUtil.get)(85901001), name_icon = "Tower:TowerName_1", stages = "52318501:52318502:52318503:52318504", open_condition = "72501001:0:1", pre = 0, next = 0, tower_icon = "Equipicon:h_61500041", fc_range = "7000:11000", attr_power = "81050002:4914,81050003:9694,81050004:10000", fc_show = 8443, pool_id = 4011, cost = "0", background_path = "BattleScene_1004", bgm_id = 1040011, type = 2, drop_show = "4:61010013:0", equip_buffs = (PUtil.get)(85550005)}
 }
 return BaseTowerData
 
