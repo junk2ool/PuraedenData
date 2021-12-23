@@ -2316,8 +2316,9 @@ effectTable = {eff}
       print("已死亡，阵位：", self:GetPosIndex())
       self:Die()
     else
-      if curState == BattleCardState.FALL_DOWN then
-        self:ChangeState(BattleCardState.UP, false, function(...)
+      if not self.reviving then
+        if curState == BattleCardState.FALL_DOWN then
+          self:ChangeState(BattleCardState.UP, false, function(...)
       -- function num : 0_0_71_0 , upvalues : curState, BattleCardState, self, callBack, notSetActionState, _ENV
       if curState == BattleCardState.UP then
         self:Stand()
@@ -2330,14 +2331,15 @@ effectTable = {eff}
       end
     end
 )
-      else
-        if self:GetFloatUpState() == BattleCardFloatUpState.NONE then
-          self:Stand()
-          if callBack then
-            callBack()
-          end
-          if notSetActionState ~= true then
-            (BattleAtk.SetWaitActionCardState)(self:GetPosIndex(), true)
+        else
+          if self:GetFloatUpState() == BattleCardFloatUpState.NONE then
+            self:Stand()
+            if callBack then
+              callBack()
+            end
+            if notSetActionState ~= true then
+              (BattleAtk.SetWaitActionCardState)(self:GetPosIndex(), true)
+            end
           end
         end
       end
@@ -2774,7 +2776,7 @@ effectTable = {eff}
         end
       end
       if IsBattleServer == nil and BattleData.skipBattle ~= true then
-        if self:GetDisPlayHp() <= 0 and headInfo then
+        if self:GetDisPlayHp() <= 0 and not revivedInfo and headInfo then
           headInfo:Destroy()
           headInfo = nil
         end
@@ -2854,10 +2856,10 @@ effectTable = {eff}
       self:Stand()
       if not headInfo then
         headInfo = (BattleCardHeadInfo.BindInfo)(self)
-        headInfo.lastHp = 0
-        headInfo:UpdateHp(self, 0)
-        self:UpdateHeadInfoVisible()
       end
+      headInfo.lastHp = 0
+      headInfo:UpdateHp(self, 0)
+      self:UpdateHeadInfoVisible(true)
       self:ChangeDander(rage)
       self:ChangeHp({hurt = hp, absorb = 0, revive = true})
       ;
@@ -3110,8 +3112,8 @@ effectTable = {eff}
   end
 
   battleCard.IsDisplayAlive = function(self, ...)
-    -- function num : 0_0_93
-    if self:GetDisPlayHp() <= 0 then
+    -- function num : 0_0_93 , upvalues : revivedInfo
+    if self:GetDisPlayHp() <= 0 and not revivedInfo and not self.reviving then
       return false
     end
     return true
