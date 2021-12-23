@@ -780,6 +780,10 @@ BattleMgr.PlayBattleState = function(curState, ...)
   end
 , [BattleState.CHANGE_ATTACK] = function(...)
     -- function num : 0_20_5 , upvalues : _ENV
+    if (BattlePlay.WaitForRevivingCards)() then
+      return 
+    end
+    ;
     (BattlePlay.PlayEnd)()
   end
 , [BattleState.BUFF_BEFORE_ATTACK] = function(...)
@@ -796,6 +800,10 @@ BattleMgr.PlayBattleState = function(curState, ...)
   end
 , [BattleState.BUFF_AFTER_ATTACK] = function(...)
     -- function num : 0_20_8 , upvalues : _ENV
+    if (BattlePlay.WaitForRevivingCards)() then
+      return 
+    end
+    ;
     (BattlePlay.PlayBuffAfterAtk)()
   end
 , [BattleState.CHANGE_ROUND] = function(...)

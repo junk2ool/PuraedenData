@@ -783,12 +783,12 @@ end
 BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack, ...)
   -- function num : 0_18 , upvalues : _ENV, self, BattleCardState, __attacktarget, ipairs
   local revivedCount = 0
-  if atkCard:GetRevivedInfo() or atkCard.reviving then
+  if atkCard:GetRevivedInfo() or atkCard:IsReviving() then
     revivedCount = revivedCount + 1
   end
   do
-    for k,v in pairs(defCards) do
-      if v:GetRevivedInfo() or v.reviving then
+    for k,defCard in pairs(defCards) do
+      if defCard:GetRevivedInfo() or defCard:IsReviving() then
         revivedCount = revivedCount + 1
       end
     end
@@ -803,12 +803,12 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
     end
   end
 
-    if atkCard:GetRevivedInfo() or atkCard.reviving then
-      atkCard:SetRevivedCallback(onrevived)
+    if atkCard:GetRevivedInfo() or atkCard:IsReviving() then
+      atkCard:AddRevivedCallback(onrevived)
     end
-    for k,v in pairs(defCards) do
-      if v:GetRevivedInfo() or v.reviving then
-        v:SetRevivedCallback(onrevived)
+    for k,defCard in pairs(defCards) do
+      if defCard:GetRevivedInfo() or defCard:IsReviving() then
+        defCard:AddRevivedCallback(onrevived)
       end
     end
     return 
@@ -1245,8 +1245,8 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                                             ;
                                             (BattleBuff.PlayBuffRemove)(card, buffData)
                                           end
-                                          for k,v in pairs(buffData.effectTable) do
-                                            if v.effectId == BattleDisplayEffect.REVIVE_HP_RAGE then
+                                          for k,effect in pairs(buffData.effectTable) do
+                                            if effect.effectId == BattleDisplayEffect.REVIVE_HP_RAGE then
                                               local card = (BattleData.GetCardInfoByPos)(buffData.curDefPos)
                                               if card then
                                                 v.isDeal = true
@@ -1492,6 +1492,23 @@ BattlePlay.PlaySkillSound = function(soundStr, hitCardList, ...)
         end
       end
     end
+  end
+end
+
+-- DECOMPILER ERROR at PC114: Confused about usage of register: R17 in 'UnsetPending'
+
+BattlePlay.WaitForRevivingCards = function(...)
+  -- function num : 0_30 , upvalues : _ENV, ipairs
+  if IsBattleServer == nil and BattleData.skipBattle ~= true then
+    local allCards = (BattleData.GetAllCardList)()
+    for i,card in ipairs(allCards) do
+      if card:IsReviving() then
+        return true
+      end
+    end
+  end
+  do
+    return false
   end
 end
 

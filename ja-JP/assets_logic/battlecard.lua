@@ -91,8 +91,8 @@ BattleCard.Initial = function(data, ...)
   local multipleSkillTimes = 0
   local waitingSkill = false
   local needClearTransfigurationBeforeSkill = false
+  local reviving = false
   local revivedInfo = false
-  local pendingChangeHp = {}
   local revivedCallback = false
   battleCard.ClearChangeWave = function(self, ...)
     -- function num : 0_0_0 , upvalues : foePos, foeDamage
@@ -1013,14 +1013,29 @@ BattleCard.Initial = function(data, ...)
 )
       self:ChangeDander(atkInfo.danderAtk)
       for i,targetCard in ipairs(totalDefCards) do
-        if danderDefList then
-          targetCard:ChangeDander(danderDefList[i])
+        do
+          if danderDefList then
+            targetCard:ChangeDander(danderDefList[i])
+          end
+          if targetCard:GetPosIndex() ~= self:GetPosIndex() then
+            if targetCard:GetRevivedInfo() or targetCard:IsReviving() then
+              targetCard:AddRevivedCallback(function(...)
+        -- function num : 0_0_50_0_1 , upvalues : _ENV, atkInfo, targetCard, BattleBuffDeductionRoundType
+        (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_HIT)
+        local attackTime = targetCard:RecodeHitTimes()
+        if attackTime > 0 and attackTime % 4 == 0 then
+          (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
         end
-        if targetCard:GetPosIndex() ~= self:GetPosIndex() then
-          (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_HIT)
-          local attackTime = targetCard:RecodeHitTimes()
-          if attackTime > 0 and attackTime % 4 == 0 then
-            (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
+      end
+)
+            else
+              ;
+              (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_HIT)
+              local attackTime = targetCard:RecodeHitTimes()
+              if attackTime > 0 and attackTime % 4 == 0 then
+                (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
+              end
+            end
           end
         end
       end
@@ -1950,15 +1965,30 @@ Data = {Name = "attack"}
             local defCardsInfo = {}
           end
           for _,cardInfo in ipairs(defCardsInfo) do
-            local targetCard = (BattleData.GetCardInfoByPos)(cardInfo.defPos)
-            if targetCard then
-              targetCard:ChangeDander(cardInfo.danderDef)
-            end
-            if cardInfo.defPos ~= self:GetPosIndex() then
-              (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_HIT)
-              local attackTime = targetCard:RecodeHitTimes()
-              if attackTime > 0 and attackTime % 4 == 0 then
-                (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
+            do
+              local targetCard = (BattleData.GetCardInfoByPos)(cardInfo.defPos)
+              if targetCard then
+                targetCard:ChangeDander(cardInfo.danderDef)
+              end
+              if cardInfo.defPos ~= self:GetPosIndex() then
+                if targetCard:GetRevivedInfo() or targetCard:IsReviving() then
+                  targetCard:AddRevivedCallback(function(...)
+        -- function num : 0_0_64_3_0 , upvalues : _ENV, atkInfo, targetCard, BattleBuffDeductionRoundType
+        (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_HIT)
+        local attackTime = targetCard:RecodeHitTimes()
+        if attackTime > 0 and attackTime % 4 == 0 then
+          (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
+        end
+      end
+)
+                else
+                  ;
+                  (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_HIT)
+                  local attackTime = targetCard:RecodeHitTimes()
+                  if attackTime > 0 and attackTime % 4 == 0 then
+                    (BattlePlay.PlayBuff)(atkInfo, targetCard, BattleBuffDeductionRoundType.AFTER_FOUR_ATTACK)
+                  end
+                end
               end
             end
           end
@@ -2303,7 +2333,7 @@ effectTable = {eff}
   end
 
   battleCard.DealAfterAtk = function(self, notSetActionState, callBack, ...)
-    -- function num : 0_0_71 , upvalues : _ENV, revivedInfo, curState, BattleCardState, BattleCardFloatUpState
+    -- function num : 0_0_71 , upvalues : _ENV, revivedInfo, reviving, curState, BattleCardState, BattleCardFloatUpState
     loge("处理伤害结算")
     print("阵位：", self:GetPosIndex(), " 剩余血量：", self:GetDisPlayHp())
     self:MoveBackDamageShareCard()
@@ -2316,7 +2346,7 @@ effectTable = {eff}
       print("已死亡，阵位：", self:GetPosIndex())
       self:Die()
     else
-      if not self.reviving then
+      if not reviving then
         if curState == BattleCardState.FALL_DOWN then
           self:ChangeState(BattleCardState.UP, false, function(...)
       -- function num : 0_0_71_0 , upvalues : curState, BattleCardState, self, callBack, notSetActionState, _ENV
@@ -2561,7 +2591,7 @@ effectTable = {eff}
   end
 
   battleCard.ChangeHp = function(self, hurtData, atkInfo, isBuffHurt, effect, showAttackEndEffect, curHitIndex, ...)
-    -- function num : 0_0_81 , upvalues : _ENV, pendingChangeHp, battleCard, ipairs, HurtNumType, headInfo, LeanTween, tweenValue, delayedCall, curState, BattleCardState, revivedInfo, BattleDisplayEffect
+    -- function num : 0_0_81 , upvalues : reviving, battleCard, ipairs, HurtNumType, headInfo, _ENV, LeanTween, tweenValue, delayedCall, curState, BattleCardState, revivedInfo, BattleDisplayEffect
     local hurtHp = hurtData.hurt
     local absorb = hurtData.absorb
     local oriValue = hurtData.oriValue
@@ -2579,8 +2609,8 @@ effectTable = {eff}
     end
     local isSkillTarget = false
     local hpDef = nil
-    if self.reviving and not hurtData.revive then
-      (table.insert)(pendingChangeHp, function(...)
+    if reviving and not hurtData.revive then
+      self:AddRevivedCallback(function(...)
       -- function num : 0_0_81_0 , upvalues : battleCard, hurtData, atkInfo, isBuffHurt, effect, showAttackEndEffect, curHitIndex
       battleCard:ChangeHp(hurtData, atkInfo, isBuffHurt, effect, showAttackEndEffect, curHitIndex)
     end
@@ -2607,9 +2637,9 @@ effectTable = {eff}
               isSkillTarget = defCardInfo.isSkillTarget
               isResist = defCardInfo.isResist
               hpDef = defCardInfo.hpDef
-              -- DECOMPILER ERROR at PC61: LeaveBlock: unexpected jumping out IF_THEN_STMT
+              -- DECOMPILER ERROR at PC59: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC61: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC59: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -2642,44 +2672,59 @@ effectTable = {eff}
           local timeScale = Time.timeScale
           if BattleMgr.endTimer1 then
             (LeanTween.cancel)((BattleMgr.endTimer1).uniqueId)
-            -- DECOMPILER ERROR at PC129: Confused about usage of register: R27 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC127: Confused about usage of register: R27 in 'UnsetPending'
 
             BattleMgr.endTimer1 = nil
           end
-          -- DECOMPILER ERROR at PC140: Confused about usage of register: R27 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC141: Confused about usage of register: R27 in 'UnsetPending'
 
-          BattleMgr.endTimer1 = (tweenValue(Time.timeScale, 0.3, 0.3)):setOnUpdate(function(x, ...)
+          BattleMgr.endTimer1 = ((tweenValue(Time.timeScale, 0.3, 0.3)):setOnUpdate(function(x, ...)
       -- function num : 0_0_81_1 , upvalues : _ENV
       -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
       Time.timeScale = x
     end
+)):setOnComplete(function(...)
+      -- function num : 0_0_81_2 , upvalues : _ENV
+      -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+      BattleMgr.endTimer1 = nil
+    end
 )
           if BattleMgr.endTimer3 then
             (LeanTween.cancel)((BattleMgr.endTimer3).uniqueId)
-            -- DECOMPILER ERROR at PC151: Confused about usage of register: R27 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC152: Confused about usage of register: R27 in 'UnsetPending'
 
             BattleMgr.endTimer3 = nil
           end
-          -- DECOMPILER ERROR at PC157: Confused about usage of register: R27 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC158: Confused about usage of register: R27 in 'UnsetPending'
 
           BattleMgr.endTimer3 = delayedCall(0.85, function(...)
-      -- function num : 0_0_81_2 , upvalues : _ENV, LeanTween, tweenValue, timeScale
+      -- function num : 0_0_81_3 , upvalues : _ENV, LeanTween, tweenValue, timeScale
       if BattleMgr.endTimer2 then
         (LeanTween.cancel)((BattleMgr.endTimer2).uniqueId)
         -- DECOMPILER ERROR at PC10: Confused about usage of register: R0 in 'UnsetPending'
 
         BattleMgr.endTimer2 = nil
       end
-      -- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
 
-      BattleMgr.endTimer2 = (tweenValue(0.3, timeScale, 0.3)):setOnUpdate(function(x, ...)
-        -- function num : 0_0_81_2_0 , upvalues : _ENV
+      BattleMgr.endTimer2 = ((tweenValue(0.3, timeScale, 0.3)):setOnUpdate(function(x, ...)
+        -- function num : 0_0_81_3_0 , upvalues : _ENV
         -- DECOMPILER ERROR at PC1: Confused about usage of register: R1 in 'UnsetPending'
 
         Time.timeScale = x
       end
+)):setOnComplete(function(...)
+        -- function num : 0_0_81_3_1 , upvalues : _ENV
+        -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+        BattleMgr.endTimer2 = nil
+      end
 )
+      -- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+
+      BattleMgr.endTimer3 = nil
     end
 )
         end
@@ -2710,7 +2755,7 @@ effectTable = {eff}
           hurtNumType = HurtNumType.BLOCK_HURT
         end
         ShowHurtNum(hurtNumType, hurtHp, self)
-        -- DECOMPILER ERROR at PC220: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC221: Unhandled construct in 'MakeBoolean' P1
 
         if (not atkInfo or self:GetCardUid() ~= atkInfo.atkCardUid or isBuffHurt == true) and revivedInfo and self.speedUp == nil then
           self:Revive(revivedInfo.hp, revivedInfo.rage)
@@ -2723,13 +2768,15 @@ effectTable = {eff}
         if curHitIndex == 1 and self:IsDead() == false then
           (AudioManager.PlayBattleVoice)(self:GetFashionId(), CVAudioType.HitBubble)
         end
-        self:ChangeState(targetState, false, function(...)
-      -- function num : 0_0_81_3 , upvalues : self, BattleCardState
+        if not reviving and not revivedInfo then
+          self:ChangeState(targetState, false, function(...)
+      -- function num : 0_0_81_4 , upvalues : self, BattleCardState
       if self:GetCurState() ~= BattleCardState.FALL_DOWN then
         self:Stand()
       end
     end
 , true)
+        end
         ;
         (BattleBuff.RemoveShieldBuff)(self)
       elseif hurtHp > 0 then
@@ -2750,14 +2797,14 @@ effectTable = {eff}
             hurtNumType = HurtNumType.RESIST
           end
         end
-        -- DECOMPILER ERROR at PC303: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC310: Unhandled construct in 'MakeBoolean' P1
 
         if isCounter == true and absorb == 0 and isImmune == true then
           hurtNumType = HurtNumType.IMMUNE
           ShowHurtNum(hurtNumType, 0, self)
         end
       end
-      -- DECOMPILER ERROR at PC325: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC332: Unhandled construct in 'MakeBoolean' P1
 
       if hurtNumType == HurtNumType.ABSORB_HURT and curHitIndex == 1 and self:IsDead() == false then
         (AudioManager.PlayBattleVoice)(self:GetFashionId(), CVAudioType.HitBubble)
@@ -2850,9 +2897,9 @@ effectTable = {eff}
   end
 
   battleCard.Revive = function(self, hp, rage, ...)
-    -- function num : 0_0_85 , upvalues : headInfo, _ENV, pendingChangeHp, revivedCallback, curState, BattleCardState
+    -- function num : 0_0_85 , upvalues : headInfo, _ENV, reviving, revivedCallback, ipairs, curState, BattleCardState
     local dorevive = function(curState, ...)
-      -- function num : 0_0_85_0 , upvalues : self, headInfo, _ENV, rage, hp, pendingChangeHp, revivedCallback
+      -- function num : 0_0_85_0 , upvalues : self, headInfo, _ENV, rage, hp, reviving, revivedCallback, ipairs
       self:Stand()
       if not headInfo then
         headInfo = (BattleCardHeadInfo.BindInfo)(self)
@@ -2864,28 +2911,25 @@ effectTable = {eff}
       self:ChangeHp({hurt = hp, absorb = 0, revive = true})
       ;
       (BattleAtk.SetWaitActionCardState)(self:GetPosIndex(), true)
-      self.reviving = false
-      local len = #pendingChangeHp
-      for i = 1, len do
-        (pendingChangeHp[i])()
-      end
-      for i = 1, len do
-        pendingChangeHp[i] = nil
-      end
-      if revivedCallback then
-        revivedCallback()
-        revivedCallback = nil
+      reviving = false
+      if revivedCallback and next(revivedCallback) then
+        for i,callback in ipairs(revivedCallback) do
+          callback()
+        end
+        for k,v in pairs(revivedCallback) do
+          revivedCallback[k] = nil
+        end
       end
     end
 
-    self.reviving = true
+    reviving = true
     ;
     (BattleAtk.SetWaitActionCardState)(self:GetPosIndex(), false)
     if curState == BattleCardState.FALL_DOWN then
       self:PlayRevivedEffect()
       self:ChangeState(BattleCardState.UP, false, dorevive)
     else
-      self:ChangeState(BattleCardState.FALL_DOWN, false, function(curState, ...)
+      self:ChangeState(BattleCardState.DIE, false, function(curState, ...)
       -- function num : 0_0_85_1 , upvalues : self, BattleCardState, dorevive
       self:PlayRevivedEffect()
       self:ChangeState(BattleCardState.UP, false, dorevive)
@@ -3049,24 +3093,24 @@ effectTable = {eff}
   end
 
   battleCard.ChangeState = function(self, state, is_loop, callBack, updateNow, mixDuration, ...)
-    -- function num : 0_0_91 , upvalues : curState, BattleCardState, _ENV, SkeletonAnimationUtil, RemoveEvent, AddEvent
+    -- function num : 0_0_91 , upvalues : curState, BattleCardState, reviving, _ENV, SkeletonAnimationUtil, RemoveEvent, AddEvent
     local model = self:GetModel()
     if model then
       if curState == state and callBack == nil then
         return 
       end
       if curState == BattleCardState.DIE and state ~= curState then
-        if callBack then
+        if not reviving and callBack then
           callBack(curState)
         end
         return 
       end
-      -- DECOMPILER ERROR at PC36: Confused about usage of register: R7 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC39: Confused about usage of register: R7 in 'UnsetPending'
 
       if state == BattleCardState.ATTACK or state == BattleCardState.ATTACK_AIR or state == BattleCardState.SKILL or state == BattleCardState.UNIQUE_SKILL then
         BattleMgr.startRecord = true
       else
-        -- DECOMPILER ERROR at PC51: Confused about usage of register: R7 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC54: Confused about usage of register: R7 in 'UnsetPending'
 
         if curState == BattleCardState.ATTACK or curState == BattleCardState.ATTACK_AIR or curState == BattleCardState.SKILL then
           BattleMgr.startRecord = false
@@ -3112,8 +3156,8 @@ effectTable = {eff}
   end
 
   battleCard.IsDisplayAlive = function(self, ...)
-    -- function num : 0_0_93 , upvalues : revivedInfo
-    if self:GetDisPlayHp() <= 0 and not revivedInfo and not self.reviving then
+    -- function num : 0_0_93 , upvalues : revivedInfo, reviving
+    if self:GetDisPlayHp() <= 0 and not revivedInfo and not reviving then
       return false
     end
     return true
@@ -3701,10 +3745,18 @@ effectTable = {eff}
   end
 
   battleCard.SetControlType = function(self, effectId, value, ...)
-    -- function num : 0_0_184 , upvalues : BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo, typeof
+    -- function num : 0_0_184 , upvalues : reviving, BattleDisplayEffect, curState, BattleCardState, _ENV, headInfo, copyModel, copyFashionID, model, ResHelper, SkeletonAnimationUtil, cardInfo, typeof
+    if reviving then
+      self:AddRevivedCallback(function(...)
+      -- function num : 0_0_184_0 , upvalues : self, effectId, value
+      self:SetControlType(effectId, value)
+    end
+)
+      return 
+    end
     if effectId == BattleDisplayEffect.STUN then
       self:SetIsStun(value)
-      -- DECOMPILER ERROR at PC15: Unhandled construct in 'MakeBoolean' P1
+      -- DECOMPILER ERROR at PC22: Unhandled construct in 'MakeBoolean' P1
 
       if value == true and curState == BattleCardState.IDLE then
         self:ChangeState(BattleCardState.STUN, true)
@@ -3718,7 +3770,7 @@ effectTable = {eff}
       else
         if effectId == BattleDisplayEffect.SLEEP then
           self:SetIsSleep(value)
-          -- DECOMPILER ERROR at PC46: Unhandled construct in 'MakeBoolean' P1
+          -- DECOMPILER ERROR at PC53: Unhandled construct in 'MakeBoolean' P1
 
           if value == true and curState == BattleCardState.IDLE then
             self:ChangeState(BattleCardState.STUN, true)
@@ -3729,7 +3781,7 @@ effectTable = {eff}
         else
           if effectId == BattleDisplayEffect.TRANSFIGURATION then
             do
-              -- DECOMPILER ERROR at PC69: Unhandled construct in 'MakeBoolean' P1
+              -- DECOMPILER ERROR at PC76: Unhandled construct in 'MakeBoolean' P1
 
               if value and self:GetIsCopy() == false then
                 local effectData = ((TableData.gTable).BaseSkillBuffEffectData)[BattleDisplayEffect.TRANSFIGURATION]
@@ -3822,9 +3874,18 @@ effectTable = {eff}
     return revivedInfo
   end
 
-  battleCard.SetRevivedCallback = function(self, callback, ...)
-    -- function num : 0_0_190 , upvalues : revivedCallback
-    revivedCallback = callback
+  battleCard.IsReviving = function(self, ...)
+    -- function num : 0_0_190 , upvalues : reviving
+    return reviving
+  end
+
+  battleCard.AddRevivedCallback = function(self, callback, ...)
+    -- function num : 0_0_191 , upvalues : revivedCallback, _ENV
+    if not revivedCallback then
+      revivedCallback = {}
+    end
+    ;
+    (table.insert)(revivedCallback, callback)
   end
 
   battleCard:Init(data)
