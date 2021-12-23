@@ -27,8 +27,11 @@ BattleMgr.InitBattle = function(...)
     -- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
 
     BattleMgr.displaySKillCard = false
+    self.__fixedupdatehandler = (BattleErrorHandle.Catch)(self.FixedUpdate)
     ;
-    (UpdateMgr.AddFixedUpdateHandler)(self.FixedUpdate)
+    (UpdateMgr.AddFixedUpdateHandler)(self.__fixedupdatehandler)
+    ;
+    (UpdateMgr.AddUpdateHandler)(BattleErrorHandle.Update)
     local battleCamera = Game.battleCamera
     do
       do
@@ -524,12 +527,14 @@ BattleMgr.CloseBattle = function(force, callback, noLoading, ...)
     ;
     (AudioManager.StopAllBattleVoice)()
     ;
-    (UpdateMgr.RemoveFixedUpdateHandler)(self.FixedUpdate)
+    (UpdateMgr.RemoveFixedUpdateHandler)(self.__fixedupdatehandler)
+    ;
+    (UpdateMgr.RemoveUpdateHandler)(BattleErrorHandle.Update)
     ;
     (SimpleTimer.StopAllTimer)()
     ;
     (LeanTween.cancelAll)()
-    -- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
 
     Time.timeScale = 1
     ;
@@ -783,6 +788,10 @@ BattleMgr.PlayBattleState = function(curState, ...)
   end
 , [BattleState.PLAY_ATTACK] = function(...)
     -- function num : 0_20_7 , upvalues : _ENV
+    (BattleErrorHandle.ResetElapse)()
+    ;
+    (BattleErrorHandle.EnableUpdate)(true)
+    ;
     (BattlePlay.PlayAtk)()
   end
 , [BattleState.BUFF_AFTER_ATTACK] = function(...)
@@ -790,11 +799,15 @@ BattleMgr.PlayBattleState = function(curState, ...)
     (BattlePlay.PlayBuffAfterAtk)()
   end
 , [BattleState.CHANGE_ROUND] = function(...)
-    -- function num : 0_20_9 , upvalues : self
+    -- function num : 0_20_9 , upvalues : _ENV, self
+    (BattleErrorHandle.EnableUpdate)(false)
+    ;
     (self.TurnToNextRound)()
   end
 , [BattleState.CHANGE_WAVE] = function(...)
     -- function num : 0_20_10 , upvalues : _ENV, BattleState, self
+    (BattleErrorHandle.EnableUpdate)(false)
+    ;
     (BattleData.SetBattleState)(BattleState.CHANGE_WAVEING)
     if IsBattleServer == nil and BattleData.skipBattle ~= true then
       (SimpleTimer.setTimeout)(0.5, function(...)
@@ -819,7 +832,9 @@ BattleMgr.PlayBattleState = function(curState, ...)
       ;
       (BattleData.SetBattleState)(BattleState.SEND_BATTLE_END_MSG)
       ;
-      (UpdateMgr.RemoveFixedUpdateHandler)(self.FixedUpdate)
+      (UpdateMgr.RemoveFixedUpdateHandler)(self.__fixedupdatehandler)
+      ;
+      (UpdateMgr.RemoveUpdateHandler)(BattleErrorHandle.Update)
       if BattleData.skipBattle == true then
         (self.DealBattleOver)()
         return 

@@ -38,7 +38,7 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
     local obj = UIMgr:CreateObject("Shop", "RewardA")
     ;
     (uis.RewardAList):AddChild(obj)
-    canBuy = (((PayData.GetPayData)()).moonPayInfo).resCanBuy
+    canBuy = ((PayData.GetCardDataByType)(PayProductType.LittleMonthCard)).cardCanBuy
     addEffect(obj)
     tarItem = obj
     tarType = (ActivityMgr.MouthDoubleType).AssetMouth
@@ -53,14 +53,14 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
     ((obj:GetChildAt(3)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
   else
     do
-      -- DECOMPILER ERROR at PC115: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC116: Confused about usage of register: R6 in 'UnsetPending'
 
       if configData.type == PayProductType.BigMonthCard then
         (uis.c1Ctr).selectedIndex = 1
         local obj = UIMgr:CreateObject("Shop", "RewardB")
         ;
         (uis.RewardBList):AddChild(obj)
-        canBuy = (((PayData.GetPayData)()).moonPayInfo).diaCanBuy
+        canBuy = ((PayData.GetCardDataByType)(PayProductType.BigMonthCard)).cardCanBuy
         addEffect(obj)
         tarItem = obj
         tarType = (ActivityMgr.MouthDoubleType).DiamondMouth
@@ -71,28 +71,61 @@ ShopMonthCardWindow.OnInit = function(bridgeObj, ...)
         ((obj:GetChildAt(1)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
         ;
         ((obj:GetChildAt(2)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
-      end
-      do
-        ;
-        (ShopMonthCardWindow.InitEvent)()
-        -- DECOMPILER ERROR at PC179: Confused about usage of register: R6 in 'UnsetPending'
+      else
+        do
+          -- DECOMPILER ERROR at PC181: Confused about usage of register: R6 in 'UnsetPending'
 
-        ;
-        (uis.ItemNameTxt).text = (PUtil.get)(20000355)
-        ;
-        (ShopMonthCardWindow.SetDouble)(tarItem, tarType, activityId)
-        -- DECOMPILER ERROR at PC190: Confused about usage of register: R6 in 'UnsetPending'
+          if configData.type == PayProductType.WeekCard then
+            (uis.c1Ctr).selectedIndex = 2
+            local obj = UIMgr:CreateObject("Shop", "RewardC")
+            ;
+            (uis.RewardCList):AddChild(obj)
+            canBuy = ((PayData.GetCardDataByType)(PayProductType.WeekCard)).cardCanBuy
+            addEffect(obj)
+            tarItem = obj
+            tarType = (ActivityMgr.MouthDoubleType).DiamondMouth
+            activityId = 87301801
+            ;
+            ((obj:GetChildAt(0)):GetChild("WordTxt")).text = (PUtil.get)(85000001)
+            ;
+            ((obj:GetChildAt(1)):GetChild("WordTxt")).text = (PUtil.get)(85000001)
+            ;
+            ((obj:GetChildAt(2)):GetChild("WordTxt")).text = (PUtil.get)(85000002)
+          end
+          do
+            ;
+            (ShopMonthCardWindow.InitEvent)()
+            ;
+            (ShopMonthCardWindow.SetDouble)(tarItem, tarType, activityId)
+            -- DECOMPILER ERROR at PC251: Confused about usage of register: R6 in 'UnsetPending'
 
-        ;
-        (uis.TipsTxt).text = (PUtil.get)(20000356)
-        -- DECOMPILER ERROR at PC196: Confused about usage of register: R6 in 'UnsetPending'
+            ;
+            (uis.TipsTxt).text = (PUtil.get)(20000356)
+            -- DECOMPILER ERROR at PC267: Confused about usage of register: R6 in 'UnsetPending'
 
-        ;
-        (uis.TitleTxt).text = (PUtil.get)(20000406)
-        local lod = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_MONTHLYCARD_HUGE, true, true)
-        ;
-        (uis.root):AddChild(lod)
-        lod:SetXY((uis.Decorate_03_Image).x + (uis.Decorate_03_Image).width * 0.5, (uis.Decorate_03_Image).y + (uis.Decorate_03_Image).height * 0.5)
+            if configData.type == PayProductType.LittleMonthCard or configData.type == PayProductType.BigMonthCard then
+              (uis.TitleTxt).text = (PUtil.get)(20000406)
+              -- DECOMPILER ERROR at PC273: Confused about usage of register: R6 in 'UnsetPending'
+
+              ;
+              (uis.ItemNameTxt).text = (PUtil.get)(20000355)
+            else
+              -- DECOMPILER ERROR at PC285: Confused about usage of register: R6 in 'UnsetPending'
+
+              if configData.type == PayProductType.WeekCard then
+                (uis.TitleTxt).text = (PUtil.get)(20000664)
+                -- DECOMPILER ERROR at PC291: Confused about usage of register: R6 in 'UnsetPending'
+
+                ;
+                (uis.ItemNameTxt).text = (PUtil.get)(20000665)
+              end
+            end
+            local lod = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_MONTHLYCARD_HUGE, true, true)
+            ;
+            (uis.root):AddChild(lod)
+            lod:SetXY((uis.Decorate_03_Image).x + (uis.Decorate_03_Image).width * 0.5, (uis.Decorate_03_Image).y + (uis.Decorate_03_Image).height * 0.5)
+          end
+        end
       end
     end
   end
@@ -103,7 +136,6 @@ ShopMonthCardWindow.SetDouble = function(obj, type, activityId, ...)
   local childNum = (obj:GetChildren()).Length
   local isHave = (ActivityMgr.GetMouthRewardDouble)(type)
   local actData = ((TableData.gTable).BaseActivityData)[activityId]
-  print("------------------isHave", isHave, actData.begin_time)
   for i = 0, childNum - 1 do
     local item = obj:GetChildAt(i)
     local ctr = item:GetController("c1")
@@ -113,12 +145,12 @@ ShopMonthCardWindow.SetDouble = function(obj, type, activityId, ...)
       ctr.selectedIndex = 0
     end
   end
-  -- DECOMPILER ERROR at PC38: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC33: Confused about usage of register: R6 in 'UnsetPending'
 
   if isHave then
     (uis.TimeTxt).text = actData.remark
   else
-    -- DECOMPILER ERROR at PC41: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC36: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (uis.TimeTxt).text = ""
@@ -169,7 +201,7 @@ ShopMonthCardWindow.InitEvent = function(...)
   ((uis.GetBtn).onClick):Set(function(...)
     -- function num : 0_2_2 , upvalues : canGet, _ENV, configData
     if canGet then
-      (PayService.ReqGetMoonReward)(configData.type)
+      (PayService.ReqPayCardReward)(configData.type)
     else
       ;
       (MessageMgr.SendCenterTips)((PUtil.get)(20000387))

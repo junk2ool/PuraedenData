@@ -127,6 +127,8 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Moon_Dia, RedDotComID.Shop_Gift)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.FREE_GIFT, RedDotComID.Shop_Gift)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.Card_Week, RedDotComID.Shop_Gift)
   winName = (WinResConfig.AdventureWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Adventure_Main, RedDotComID.Home_Adventure, (WinResConfig.HomeWindow).name)

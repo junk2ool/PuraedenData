@@ -10,7 +10,7 @@ local CurrentActivityDungeonType = -1
 ActivityMgr.VitGetState = {MayGet = 0, AlreadyGet = 1, Unable = 2, Buy = 3}
 -- DECOMPILER ERROR at PC32: Confused about usage of register: R4 in 'UnsetPending'
 
-ActivityMgr.ActivityType = {SevenTask = 1, ActivityDungeon = 2, Drop_Multiple = 3, Limit_Gift = 4, Daily_Pay = 5, Total_Pay = 6, Activity_Lottery = 8, Total_Login = 7, Newbie_Lottery = 9, Free_Lottery = 10, Prize = 11, Relic = 12, LotteryIntergral = 13, NewActivityDungeon = 14, Return = 15, TowerExpand = 16, Product = 17}
+ActivityMgr.ActivityType = {SevenTask = 1, ActivityDungeon = 2, Drop_Multiple = 3, Limit_Gift = 4, Daily_Pay = 5, Total_Pay = 6, Activity_Lottery = 8, Total_Login = 7, Newbie_Lottery = 9, Free_Lottery = 10, Prize = 11, Relic = 12, LotteryIntergral = 13, NewActivityDungeon = 14, Return = 15, TowerExpand = 16, TuiSongProduct = 17}
 -- DECOMPILER ERROR at PC37: Confused about usage of register: R4 in 'UnsetPending'
 
 ActivityMgr.MouthDoubleType = {AssetMouth = 9, DiamondMouth = 10}
@@ -534,11 +534,13 @@ end
 -- DECOMPILER ERROR at PC241: Confused about usage of register: R5 in 'UnsetPending'
 
 ActivityMgr.InitLotteryIntegralData = function(data, ...)
-  -- function num : 0_37 , upvalues : self
-  if data == nil then
-    return self.lotteryIntegralActInfo
+  -- function num : 0_37 , upvalues : self, _ENV
+  self.lotteryIntegralActInfo = data
+  local isOpen = UIMgr:IsWindowOpen((WinResConfig.LotteryIntegralWindow).name)
+  if not isOpen then
+    OpenWindow((WinResConfig.LotteryIntegralWindow).name, UILayer.HUD, self.lotteryIntegralActInfo)
   else
-    self.lotteryIntegralActInfo = data
+    UIMgr:SendWindowMessage((WinResConfig.LotteryIntegralWindow).name, (WindowMsgEnum.LotteryIntegral).E_MSG_INIT_REWARD, {data = self.lotteryIntegralActInfo})
   end
 end
 

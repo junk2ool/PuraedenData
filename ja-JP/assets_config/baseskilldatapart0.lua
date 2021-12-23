@@ -141,6 +141,8 @@ BaseSkillDataPart0 = {
 , 
 [41003019] = {id = 41003019, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[41003021] = {id = 41003021, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [41003022] = {id = 41003022, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [41003023] = {id = 41003023, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -186,6 +188,8 @@ BaseSkillDataPart0 = {
 [41003045] = {id = 41003045, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [41003046] = {id = 41003046, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[41003047] = {id = 41003047, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [41003048] = {id = 41003048, name = (PUtil.get)(81200001), type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 41003106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 

@@ -272,7 +272,7 @@ ActivityService.ResActivityInfo = function(msg, ...)
             (SlotsService.ReqSlotsData)((SlotsData.SlotType).PRIZE_SLOT)
           else
             if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).LotteryIntergral then
-              UIMgr:SendWindowMessage((WinResConfig.LotteryIntegralWindow).name, (WindowMsgEnum.LotteryIntegral).E_MSG_INIT_REWARD, {data = msg})
+              (ActivityMgr.InitLotteryIntegralData)(msg)
             else
               if (msg.baseActivityInfo).type == (ActivityMgr.ActivityType).Relic then
                 (ActivityMgr.InitRelicData)(msg)

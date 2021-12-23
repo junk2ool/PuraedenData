@@ -137,15 +137,16 @@ randomBuff = {}
     return self.RoundDamage
   end
 
-  battleCardInfo.SetRoundDamage = function(self, value, ...)
+  battleCardInfo.SetRoundDamage = function(self, value, silent, ...)
     -- function num : 0_0_10 , upvalues : _ENV
     if IsBattleServer == nil then
       logw("SetRoundDamage:" .. value .. "  " .. value - self.RoundDamage .. " " .. self.id)
     end
     if value > 0 then
       self.TotalDamage = self.TotalDamage + value - self.RoundDamage
-      ;
-      (BattleDataCount.UpdateBuffCount)(BattleAtk.curAtkInfo, BattleBuffDeductionRoundType.DAMAGE_REACH_MAXHP, self.posIndex)
+      if not silent then
+        (BattleDataCount.UpdateBuffCount)(BattleAtk.curAtkInfo, BattleBuffDeductionRoundType.DAMAGE_REACH_MAXHP, self.posIndex)
+      end
     end
     self.RoundDamage = value
   end
@@ -175,22 +176,23 @@ randomBuff = {}
     return self.hp
   end
 
-  battleCardInfo.SetHp = function(self, hp, switchHp, ...)
+  battleCardInfo.SetHp = function(self, hp, switchHp, silent, ...)
     -- function num : 0_0_16 , upvalues : _ENV, math
     if IsBattleServer == nil then
       print("改变血量 ： 位置：", self:GetPosIndex(), " 血量变化：", hp, " 实际变化：", (math.min)(hp, self:GetMaxHp()))
     end
     hp = (math.min)(hp, self:GetMaxHp())
+    local previous = self.hp
+    self.hp = hp
     if not switchHp then
-      if self.hp < hp then
+      if previous < hp then
         (BattleDataCount.UpdateBuffCount)(BattleAtk.curAtkInfo, BattleBuffDeductionRoundType.AFTER_ENEMY_HEAL, self.posIndex)
       else
-        if hp < self.hp then
-          self:SetRoundDamage(self.RoundDamage + self.hp - hp)
+        if hp < previous then
+          self:SetRoundDamage(self.RoundDamage + previous - hp, silent)
         end
       end
     end
-    self.hp = hp
   end
 
   battleCardInfo.GetStar = function(self, ...)
@@ -467,83 +469,88 @@ randomBuff = {}
             return value, 0, {isKeepAlive = false, isInvincible = false}
           end
           if value < 0 then
-            realDamage = (BattleBuff.DealRealHpLoss)(card, -value, nil, nil, nil, effectId)
+            local trueDmg = (BattleBuff.IsBuffContainEffectId)(buff, BattleDisplayEffect.TRUE_DAMAGE)
+            realDamage = (BattleBuff.DealRealHpLoss)(card, -value, nil, nil, nil, effectId, trueDmg)
             value = -realDamage
             if IsBattleServer == nil then
               SaveBattleProcess("\tbuff伤害 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
             end
           else
-            if value > 0 then
-              if (BattleBuff.IsForbiddenTreatment)(card) then
-                value = 0
-                if IsBattleServer == nil then
-                  SaveBattleProcess("\tbuff加血（封疗） 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
-                end
-              else
-                local defBeTreatAdd = card:GetBeTreatAdd()
-                local defBeTreatSub = card:GetBeTreatSub()
-                value = (math.ceil)(value * (1 + defBeTreatAdd / 10000 - defBeTreatSub / 1000))
-                if IsBattleServer == nil then
-                  SaveBattleProcess("\tbuff加血 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
+            do
+              if value > 0 then
+                if (BattleBuff.IsForbiddenTreatment)(card) then
+                  value = 0
+                  if IsBattleServer == nil then
+                    SaveBattleProcess("\tbuff加血（封疗） 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
+                  end
+                else
+                  local defBeTreatAdd = card:GetBeTreatAdd()
+                  local defBeTreatSub = card:GetBeTreatSub()
+                  value = (math.ceil)(value * (1 + defBeTreatAdd / 10000 - defBeTreatSub / 1000))
+                  if IsBattleServer == nil then
+                    SaveBattleProcess("\tbuff加血 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
+                  end
                 end
               end
-            end
-          end
-          do
-            local dieLater = false
-            if curValue + value <= 0 then
               do
-                if (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
-                  local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
-                  if isTrigger then
-                    value = -curValue + 1
-                  end
-                end
-                if card.waitingSkill or (BattleBuff.ContainDeductionRoundType)(card, BattleBuffDeductionRoundType.DIE_SKILL_DIE) then
-                  if not card.waitingSkill then
-                    local curAtkPos = buff:GetAtkPos()
-                    local atkCard = (BattleData.GetCardInfoByPos)(curAtkPos)
-                    ;
-                    (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.DIE_SKILL_DIE, atkCard)
-                    dieLater = true
-                  end
+                local dieLater = false
+                if curValue + value <= 0 then
                   do
-                    do
-                      value = -curValue + 1
-                      self:SetHp(curValue + (value))
-                      if curValue + (value) <= 0 or dieLater then
-                        (BattleDataCount.UpdateEquipBuff)(atkInfo.atkPos, BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
+                    if (BattleBuff.ContainEffectId)(card, BattleDisplayEffect.LOCK_HP) then
+                      local isTrigger = (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NEAR_DEATH)
+                      if isTrigger then
+                        value = -curValue + 1
                       end
-                      do return value, absorbDamage, specialEffect end
-                      if attributeId == BattleCardAttributeID.DANDER then
-                        local t = curValue + (value)
-                        -- DECOMPILER ERROR at PC210: Overwrote pending register: R12 in 'AssignReg'
-
-                        local maxDander = self:GetMaxDander()
-                        -- DECOMPILER ERROR at PC216: Overwrote pending register: R13 in 'AssignReg'
-
-                        if maxDander < t then
-                          if buff and (buff:GetBuffConfig()).sp_save then
-                            self:SetExtraDander(t - maxDander + self:GetExtraDander())
-                          end
-                          t = maxDander
-                        end
-                        self:SetDander(t)
-                        if IsBattleServer == nil then
-                          SaveBattleProcess("\tbuff改变怒气 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
-                        end
-                      else
+                    end
+                    if card.waitingSkill or (BattleBuff.ContainDeductionRoundType)(card, BattleBuffDeductionRoundType.DIE_SKILL_DIE) then
+                      if not card.waitingSkill then
+                        local curAtkPos = buff:GetAtkPos()
+                        local atkCard = (BattleData.GetCardInfoByPos)(curAtkPos)
+                        ;
+                        (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.DIE_SKILL_DIE, atkCard)
+                        dieLater = true
+                      end
+                      do
                         do
-                          self[attrConfig.name] = curValue + (value)
-                          do
-                            if attributeId == BattleCardAttributeID.MAX_HP then
-                              local hpConfig = baseAttributeData[BattleCardAttributeID.HP]
-                              self[hpConfig.name] = self[hpConfig.name] + (value)
+                          value = -curValue + 1
+                          ;
+                          (BattleDataCount.ReviveCheck)(card, -(value), nil, buff)
+                          self:SetHp(curValue + (value))
+                          if curValue + (value) <= 0 or dieLater then
+                            (BattleDataCount.UpdateEquipBuff)(atkInfo.atkPos, BattleBuffDeductionRoundType.DAMAGE_KILL, atkInfo)
+                          end
+                          do return value, absorbDamage, specialEffect end
+                          if attributeId == BattleCardAttributeID.DANDER then
+                            local t = curValue + (value)
+                            -- DECOMPILER ERROR at PC224: Overwrote pending register: R12 in 'AssignReg'
+
+                            local maxDander = self:GetMaxDander()
+                            -- DECOMPILER ERROR at PC230: Overwrote pending register: R13 in 'AssignReg'
+
+                            if maxDander < t then
+                              if buff and (buff:GetBuffConfig()).sp_save then
+                                self:SetExtraDander(t - maxDander + self:GetExtraDander())
+                              end
+                              t = maxDander
                             end
+                            self:SetDander(t)
                             if IsBattleServer == nil then
-                              SaveBattleProcess("\tbuff属性变化 位置：" .. self:GetPosIndex() .. " 属性变化：" .. (CardData.GetAttrRemarkById)(attributeId) .. " 变化值：" .. value)
+                              SaveBattleProcess("\tbuff改变怒气 位置：" .. self:GetPosIndex() .. " 变化值：" .. value)
                             end
-                            self[attrConfig.name] = value
+                          else
+                            do
+                              self[attrConfig.name] = curValue + (value)
+                              do
+                                if attributeId == BattleCardAttributeID.MAX_HP then
+                                  local hpConfig = baseAttributeData[BattleCardAttributeID.HP]
+                                  self[hpConfig.name] = self[hpConfig.name] + (value)
+                                end
+                                if IsBattleServer == nil then
+                                  SaveBattleProcess("\tbuff属性变化 位置：" .. self:GetPosIndex() .. " 属性变化：" .. (CardData.GetAttrRemarkById)(attributeId) .. " 变化值：" .. value)
+                                end
+                                self[attrConfig.name] = value
+                              end
+                            end
                           end
                         end
                       end

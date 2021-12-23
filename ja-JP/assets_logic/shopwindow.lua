@@ -10,8 +10,7 @@ local isBackOpen = false
 local freeItem = nil
 local shopTapBtnTab = {}
 local tapIndex = 2
-local productList = {}
-local curProductData = nil
+local curTuiSongProductData = nil
 local isSendProductMsg = false
 local haveTuiSongLiBao = false
 local mType = nil
@@ -484,46 +483,67 @@ ShopWindow.RefreshGiftPanel = function(...)
 end
 
 ShopWindow.RefreshProductPanel = function(...)
-  -- function num : 0_13 , upvalues : uis, curProductData, _ENV, productCdTime, isSendProductMsg, ShopWindow
+  -- function num : 0_13 , upvalues : _ENV, uis, curTuiSongProductData, ShopWindow
+  local config = (TableData.gTable).BasePayProductData
   local list = uis.GiftList
-  local curProduct = nil
+  ;
+  ((PayData.GetProducListInfo)())
+  local productList = nil
+  local product, curTuiSongProduct = nil, nil
   list:RemoveChildrenToPool()
-  if not curProductData then
-    return 
+  for _,v in ipairs(productList) do
+    local productData = config[v.id]
+    if productData.type == (ShopBtnTab.TuiSongLiBao).type and productData.tap_type == (ShopBtnTab.TuiSongLiBao).tapType then
+      curTuiSongProduct = list:AddItemFromPool((Util.GetResUrl)(curTuiSongProductData.icon))
+      ;
+      (ShopWindow.RefreshCurTuiSongProduct)(curTuiSongProduct)
+    else
+      product = list:AddItemFromPool((Util.GetResUrl)(productData.icon))
+      ;
+      (ShopWindow.RefreshGift)(product, v)
+    end
   end
-  curProduct = list:AddItemFromPool((Util.GetResUrl)(curProductData.icon))
+  if curTuiSongProductData and not curTuiSongProduct then
+    product = list:AddItemFromPool((Util.GetResUrl)(curTuiSongProductData.icon))
+    ;
+    (ShopWindow.RefreshCurTuiSongProduct)(product)
+  end
+end
+
+ShopWindow.RefreshCurTuiSongProduct = function(curProduct, ...)
+  -- function num : 0_14 , upvalues : productCdTime, curTuiSongProductData, _ENV, isSendProductMsg, ShopWindow
   if productCdTime then
     productCdTime:Stop()
   end
-  if curProductData.got == true then
+  if curTuiSongProductData.got == true then
     (curProduct:GetController("c1")).selectedIndex = 1
     ;
     (curProduct.onClick):Set(function(...)
-    -- function num : 0_13_0 , upvalues : _ENV
+    -- function num : 0_14_0 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(20000662))
   end
 )
   else
     local TimeTxt = (curProduct:GetChild("GiftTips")):GetChild("WordTxt")
     do
-      if curProductData.isTimeout and curProductData.isTimeout == true then
+      if curTuiSongProductData.isTimeout and curTuiSongProductData.isTimeout == true then
         TimeTxt.text = (PUtil.get)(20000663)
         ;
         (curProduct.onClick):Set(function(...)
-    -- function num : 0_13_1 , upvalues : _ENV
+    -- function num : 0_14_1 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(20000662))
   end
 )
       else
-        productCdTime = (LuaTime.CountDown)(curProductData.unlockTime * 0.001 + curProductData.keepSec - (ActorData.GetServerTime)() * 0.001, TimeTxt, function(...)
-    -- function num : 0_13_2 , upvalues : isSendProductMsg, curProductData, TimeTxt, _ENV, curProduct
+        productCdTime = (LuaTime.CountDown)(curTuiSongProductData.unlockTime * 0.001 + curTuiSongProductData.keepSec - (ActorData.GetServerTime)() * 0.001, TimeTxt, function(...)
+    -- function num : 0_14_2 , upvalues : isSendProductMsg, curTuiSongProductData, TimeTxt, _ENV, curProduct
     if isSendProductMsg == false then
       isSendProductMsg = true
-      curProductData.isTimeout = true
+      curTuiSongProductData.isTimeout = true
       TimeTxt.text = (PUtil.get)(20000663)
       ;
       (curProduct.onClick):Set(function(...)
-      -- function num : 0_13_2_0 , upvalues : _ENV
+      -- function num : 0_14_2_0 , upvalues : _ENV
       (MessageMgr.SendCenterTips)((PUtil.get)(20000662))
     end
 )
@@ -532,8 +552,8 @@ ShopWindow.RefreshProductPanel = function(...)
 )
         ;
         (curProduct.onClick):Set(function(...)
-    -- function num : 0_13_3 , upvalues : ShopWindow, curProductData
-    (ShopWindow.OnClickProduct)(curProductData.id)
+    -- function num : 0_14_3 , upvalues : ShopWindow, curTuiSongProductData
+    (ShopWindow.OnClickProduct)(curTuiSongProductData.id)
   end
 )
       end
@@ -542,7 +562,7 @@ ShopWindow.RefreshProductPanel = function(...)
 end
 
 ShopWindow.JugeFreeGiftRedDot = function(...)
-  -- function num : 0_14 , upvalues : _ENV, freeItem
+  -- function num : 0_15 , upvalues : _ENV, freeItem
   local node = RedDotManager:GetNodeByObj((WinResConfig.ShopWindow).name, RedDotComID.FREE_GIFT)
   if freeItem then
     (freeItem:GetChild("RedDot")).visible = node.NodeValue
@@ -550,7 +570,7 @@ ShopWindow.JugeFreeGiftRedDot = function(...)
 end
 
 ShopWindow.RefreshGift = function(gift, info, ...)
-  -- function num : 0_15 , upvalues : _ENV, freeItem, ShopWindow
+  -- function num : 0_16 , upvalues : _ENV, freeItem, ShopWindow
   local config = ((TableData.gTable).BasePayProductData)[info.id]
   if gift and info and config then
     local sell_level = split(config.sell_level, ":")
@@ -572,7 +592,7 @@ ShopWindow.RefreshGift = function(gift, info, ...)
           ;
           (ShopWindow.JugeFreeGiftRedDot)()
         end
-        if config.type == PayProductType.LittleMonthCard or config.type == PayProductType.BigMonthCard then
+        if config.type == PayProductType.LittleMonthCard or config.type == PayProductType.BigMonthCard or config.type == PayProductType.WeekCard then
           local remainDay = (PayData.GetRemainMonthCardDay)(config.type)
           if remainDay > 0 then
             wordTxt.text = (PUtil.get)(20000325, remainDay)
@@ -622,8 +642,8 @@ ShopWindow.RefreshGift = function(gift, info, ...)
           end
           ;
           (gift.onClick):Set(function(...)
-    -- function num : 0_15_0 , upvalues : config, _ENV, remainTime, ShopWindow, info
-    if config.sell_limit_type == PayProductLimitType.NoLimit or remainTime > 0 then
+    -- function num : 0_16_0 , upvalues : config, _ENV, remainTime, ShopWindow, info
+    if config.sell_limit_type == PayProductLimitType.NoLimit or remainTime > 0 or config.type == PayProductType.WeekCard then
       (ShopWindow.OnClickProduct)(info.id)
     end
   end
@@ -636,12 +656,12 @@ ShopWindow.RefreshGift = function(gift, info, ...)
 end
 
 ShopWindow.OnClickProduct = function(id, ...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_17 , upvalues : _ENV
   local config = ((TableData.gTable).BasePayProductData)[id]
   if not config then
     return 
   end
-  if config.type == PayProductType.BigMonthCard or config.type == PayProductType.LittleMonthCard then
+  if config.type == PayProductType.BigMonthCard or config.type == PayProductType.LittleMonthCard or config.type == PayProductType.WeekCard then
     OpenWindow((WinResConfig.ShopMonthCardWindow).name, UILayer.HUD1, id)
   else
     if config.type == PayProductType.RechargeGift or config.type == PayProductType.ActivityGift then
@@ -658,7 +678,7 @@ ShopWindow.OnClickProduct = function(id, ...)
 end
 
 ShopWindow.InitShopBtn = function(...)
-  -- function num : 0_17 , upvalues : initShop, uis, _ENV, productList, curProductData, haveTuiSongLiBao, currentType, tapIndex, ShopWindow, shopTapBtnTab, mType
+  -- function num : 0_18 , upvalues : initShop, uis, _ENV, curTuiSongProductData, haveTuiSongLiBao, currentType, tapIndex, ShopWindow, shopTapBtnTab, mType
   if initShop == true then
     return 
   end
@@ -670,81 +690,67 @@ ShopWindow.InitShopBtn = function(...)
   ;
   (Util.CopyOne)(shopBtnTxtTab, ShopBtnTxt)
   list:RemoveChildrenToPool()
-  productList = (PayData.GetProducListInfo)()
-  curProductData = productList[1]
-  if curProductData then
-    local config = (TableData.gTable).BasePayProductData
-    local data = config[curProductData.id]
-    curProductData.id = data.id
-    curProductData.icon = data.icon
-    curProductData.keepSec = data.keep_sec
-    curProductData.got = false
-    curProductData.isTimeout = false
-    haveTuiSongLiBao = true
-  else
+  curTuiSongProductData = (PayData.GetCurTuiSongLiBao)()
+  haveTuiSongLiBao = (PayData.HaveTuiSongLiBao)()
+  if not curTuiSongProductData and currentType == ShopType.TuiSongLiBao then
+    tapIndex = 1
+    currentType = ShopType.GiftBuy
+    ;
+    (ShopWindow.ShowGiftBuy)()
+  end
+  if haveTuiSongLiBao == false then
+    (table.remove)(shopBtnTNameTab, 3)
+    ;
+    (table.remove)(shopBtnTxtTab, 3)
+  end
+  for i = 1, #shopBtnTNameTab do
+    local btn = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.ShopWindow).package, "ChoiceBtn"))
     do
-      haveTuiSongLiBao = false
-      if currentType == ShopType.TuiSongLiBao then
-        tapIndex = 1
-        currentType = ShopType.GiftBuy
-        ;
-        (ShopWindow.ShowGiftBuy)()
+      if i == #shopBtnTNameTab then
+        (btn:GetChild("DecorateImage")).visible = false
       end
-      if haveTuiSongLiBao == false then
-        (table.remove)(shopBtnTNameTab, 3)
-        ;
-        (table.remove)(shopBtnTxtTab, 3)
-      end
-      do
-        for i = 1, #shopBtnTNameTab do
-          local btn = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.ShopWindow).package, "ChoiceBtn"))
-          if i == #shopBtnTNameTab then
-            (btn:GetChild("DecorateImage")).visible = false
-          end
-          ;
-          (btn:GetChild("NameTxt")).text = shopBtnTxtTab[i]
-          btn.name = shopBtnTNameTab[i]
-          shopTapBtnTab[btn.name] = btn
-          local index = i - 1
-          ;
-          (btn.onClick):Set(function(...)
-    -- function num : 0_17_0 , upvalues : ShopWindow, _ENV, btn, index
+      ;
+      (btn:GetChild("NameTxt")).text = shopBtnTxtTab[i]
+      btn.name = shopBtnTNameTab[i]
+      shopTapBtnTab[btn.name] = btn
+      local index = i - 1
+      ;
+      (btn.onClick):Set(function(...)
+    -- function num : 0_18_0 , upvalues : ShopWindow, _ENV, btn, index
     (ShopWindow.OnClickShopType)(ShopType[btn.name], index)
   end
 )
-        end
-      end
-      ;
-      (((uis.Diamonds).Diamonds_A_Btn):GetChild("WordTxt")).text = (PUtil.get)(20000366)
-      ;
-      (((uis.Diamonds).Diamonds_B_Btn):GetChild("WordTxt")).text = (PUtil.get)(20000367)
-      ;
-      (((uis.Diamonds).Diamonds_A_Btn).onClick):Set(function(...)
-    -- function num : 0_17_1 , upvalues : _ENV
+    end
+  end
+  ;
+  (((uis.Diamonds).Diamonds_A_Btn):GetChild("WordTxt")).text = (PUtil.get)(20000366)
+  ;
+  (((uis.Diamonds).Diamonds_B_Btn):GetChild("WordTxt")).text = (PUtil.get)(20000367)
+  ;
+  (((uis.Diamonds).Diamonds_A_Btn).onClick):Set(function(...)
+    -- function num : 0_18_1 , upvalues : _ENV
     OpenWindow((WinResConfig.ExplainWindow).name, UILayer.HUD1, (PUtil.get)(89102003), (PUtil.get)(20000366))
   end
 )
-      ;
-      (((uis.Diamonds).Diamonds_B_Btn).onClick):Set(function(...)
-    -- function num : 0_17_2 , upvalues : _ENV
+  ;
+  (((uis.Diamonds).Diamonds_B_Btn).onClick):Set(function(...)
+    -- function num : 0_18_2 , upvalues : _ENV
     OpenWindow((WinResConfig.ExplainWindow).name, UILayer.HUD1, (PUtil.get)(89102001), (PUtil.get)(20000367))
   end
 )
-      if mType then
-        list.selectedIndex = tapIndex
-        mType = nil
-      end
-      initShop = true
-      ;
-      (ShopWindow.InitFunctionControl)()
-      ;
-      (ShopWindow.Binding)()
-    end
+  if mType then
+    list.selectedIndex = tapIndex
+    mType = nil
   end
+  initShop = true
+  ;
+  (ShopWindow.InitFunctionControl)()
+  ;
+  (ShopWindow.Binding)()
 end
 
 ShopWindow.OnClickShopType = function(type, index, ...)
-  -- function num : 0_18 , upvalues : currentType, uis, ShopWindow, _ENV
+  -- function num : 0_19 , upvalues : currentType, uis, ShopWindow, _ENV
   if type == currentType then
     return 
   end
@@ -778,13 +784,13 @@ ShopWindow.OnClickShopType = function(type, index, ...)
 end
 
 ShopWindow.SetInputIgnore = function(...)
-  -- function num : 0_19 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   (GRoot.inst).touchable = false
   ;
   (SimpleTimer.setTimeout)(0.1, function(...)
-    -- function num : 0_19_0 , upvalues : _ENV
+    -- function num : 0_20_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     (GRoot.inst).touchable = true
@@ -793,7 +799,7 @@ ShopWindow.SetInputIgnore = function(...)
 end
 
 ShopWindow.SetTypeShow = function(shopType, ...)
-  -- function num : 0_20 , upvalues : _ENV, ShopWindow
+  -- function num : 0_21 , upvalues : _ENV, ShopWindow
   if shopType == ShopType.Grocer then
     local moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
     ;
@@ -854,7 +860,7 @@ ShopWindow.SetTypeShow = function(shopType, ...)
 end
 
 ShopWindow.SetShopTapIndex = function(type, ...)
-  -- function num : 0_21 , upvalues : _ENV, haveTuiSongLiBao, uis
+  -- function num : 0_22 , upvalues : _ENV, haveTuiSongLiBao, uis
   local tapIndex = nil
   if type == ShopType.Recharge then
     tapIndex = 0
@@ -906,18 +912,21 @@ ShopWindow.SetShopTapIndex = function(type, ...)
   ((uis.ShopPanelGrp).BtnList).selectedIndex = tapIndex
 end
 
-ShopWindow.CheckProductState = function(para, ...)
-  -- function num : 0_22 , upvalues : curProductData
-  if not curProductData then
+ShopWindow.CheckTuiSongProductState = function(para, ...)
+  -- function num : 0_23 , upvalues : _ENV, curTuiSongProductData
+  if (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).TuiSongProduct) == false then
     return 
   end
-  if para and para.productId and para.productId == curProductData.productId then
-    curProductData.got = true
+  if not curTuiSongProductData then
+    return 
+  end
+  if para and para.productId and para.productId == curTuiSongProductData.productId then
+    curTuiSongProductData.got = true
   end
 end
 
 ShopWindow.OnShown = function(...)
-  -- function num : 0_23 , upvalues : isBackOpen, ShopWindow, _ENV
+  -- function num : 0_24 , upvalues : isBackOpen, ShopWindow, _ENV
   if isBackOpen then
     (ShopWindow.RefreshWin)()
   end
@@ -926,7 +935,7 @@ ShopWindow.OnShown = function(...)
 end
 
 ShopWindow.OnHide = function(...)
-  -- function num : 0_24 , upvalues : mTime, productCdTime
+  -- function num : 0_25 , upvalues : mTime, productCdTime
   if mTime then
     mTime:Stop()
   end
@@ -936,7 +945,7 @@ ShopWindow.OnHide = function(...)
 end
 
 ShopWindow.InitAssetStrip = function(...)
-  -- function num : 0_25 , upvalues : _ENV, uis
+  -- function num : 0_26 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.ShopWindow).name
   m.Tip = (PUtil.get)(20000069)
@@ -947,7 +956,7 @@ ShopWindow.InitAssetStrip = function(...)
 end
 
 ShopWindow.OnClose = function(...)
-  -- function num : 0_26 , upvalues : _ENV, ShopGridData, uis, freeItem, contentPane, currentType, shopTapBtnTab, productList, curProductData, initShop
+  -- function num : 0_27 , upvalues : _ENV, ShopGridData, uis, freeItem, contentPane, currentType, shopTapBtnTab, curTuiSongProductData, initShop
   (GuideData.AbolishControlRefer)((WinResConfig.ShopWindow).name)
   ;
   (RedDotMgr.RemoveUIRefer)((WinResConfig.ShopWindow).name)
@@ -959,15 +968,14 @@ ShopWindow.OnClose = function(...)
   contentPane = nil
   currentType = -1
   shopTapBtnTab = {}
-  productList = {}
-  curProductData = nil
+  curTuiSongProductData = nil
   initShop = false
 end
 
 ShopWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_27 , upvalues : _ENV, ShopWindow, uis, ShopGridData, currentType
+  -- function num : 0_28 , upvalues : _ENV, ShopWindow, uis, ShopGridData, currentType
   if msgId == (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_CHECKPRODUCTSTATE then
-    (ShopWindow.CheckProductState)(para)
+    (ShopWindow.CheckTuiSongProductState)(para)
   else
     if msgId == (WindowMsgEnum.ShopWindow).E_MSG_REFRESH then
       (ShopWindow.RefreshWin)()
@@ -976,7 +984,7 @@ ShopWindow.HandleMessage = function(msgId, para, ...)
         (uis.CommodityList):SetAnimIsPlay(false)
         ;
         (SimpleTimer.setTimeout)(0.5, function(...)
-    -- function num : 0_27_0 , upvalues : uis
+    -- function num : 0_28_0 , upvalues : uis
     (uis.CommodityList):SetAnimIsPlay(true)
   end
 )

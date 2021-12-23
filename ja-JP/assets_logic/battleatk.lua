@@ -303,6 +303,20 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, multipleSkil
         end
         ;
         (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
+        local len = #atkInfo.defCardsInfo
+        for i = 1, len do
+          for i = 1, len do
+            local defCardInfo = (atkInfo.defCardsInfo)[i]
+            local revivedInfo = defCardInfo.revivedInfo
+            if revivedInfo then
+              local card = (BattleData.GetCardInfoByUid)(defCardInfo.defCardUid)
+              card:SetHp(revivedInfo.hp)
+              card:SetDander(revivedInfo.rage)
+              ;
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_REVIVE, card:GetPosIndex())
+            end
+          end
+        end
         local assistCard = (self.IsAssistAtk)(atkCard)
         if #assistCard > 0 and defCard:IsDead() ~= true and #curTargetCards <= 1 then
           atkInfo.moveCamera = true
@@ -317,6 +331,20 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, multipleSkil
               (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
               ;
               (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.AFTER_ASSIST)
+              local len = #oneAssistAtkInfo.defCardsInfo
+              for i = 1, len do
+                for i = 1, len do
+                  local defCardInfo = (oneAssistAtkInfo.defCardsInfo)[i]
+                  local revivedInfo = defCardInfo.revivedInfo
+                  if revivedInfo then
+                    local card = (BattleData.GetCardInfoByUid)(defCardInfo.defCardUid)
+                    card:SetHp(revivedInfo.hp)
+                    card:SetDander(revivedInfo.rage)
+                    ;
+                    (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_REVIVE, card:GetPosIndex())
+                  end
+                end
+              end
             end
           end
         end
@@ -415,6 +443,20 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, multipleSkill
       do
         ;
         (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
+        local len = #atkInfo.defCardsInfo
+        for i = 1, len do
+          for i = 1, len do
+            local defCardInfo = (atkInfo.defCardsInfo)[i]
+            local revivedInfo = defCardInfo.revivedInfo
+            if revivedInfo then
+              local card = (BattleData.GetCardInfoByUid)(defCardInfo.defCardUid)
+              card:SetHp(revivedInfo.hp)
+              card:SetDander(revivedInfo.rage)
+              ;
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_REVIVE, card:GetPosIndex())
+            end
+          end
+        end
         if isTreatment == false and #curTargetCards <= 1 and defCard:GetCampFlag() ~= atkCard:GetCampFlag() then
           local assistCard = (self.IsAssistAtk)(atkCard)
           if #assistCard > 0 and defCard:IsDead() ~= true then
@@ -429,6 +471,20 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, multipleSkill
                 (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
                 ;
                 (BattleDataCount.UpdateBuffCount)(oneAssistAtkInfo, BattleBuffDeductionRoundType.AFTER_ASSIST)
+                local len = #oneAssistAtkInfo.defCardsInfo
+                for i = 1, len do
+                  for i = 1, len do
+                    local defCardInfo = (oneAssistAtkInfo.defCardsInfo)[i]
+                    local revivedInfo = defCardInfo.revivedInfo
+                    if revivedInfo then
+                      local card = (BattleData.GetCardInfoByUid)(defCardInfo.defCardUid)
+                      card:SetHp(revivedInfo.hp)
+                      card:SetDander(revivedInfo.rage)
+                      ;
+                      (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_REVIVE, card:GetPosIndex())
+                    end
+                  end
+                end
               end
             end
           end
@@ -502,6 +558,20 @@ BattleAtk.InsertSkillInfo = function(curSkill, skillAdd, ...)
         killCount = mKillCount
         ;
         (BattleDataCount.DealHitCritBuff)(defCardInfoTable, atkInfo)
+        local len = #atkInfo.defCardsInfo
+        for i = 1, len do
+          for i = 1, len do
+            local defCardInfo = (atkInfo.defCardsInfo)[i]
+            local revivedInfo = defCardInfo.revivedInfo
+            if revivedInfo then
+              local card = (BattleData.GetCardInfoByUid)(defCardInfo.defCardUid)
+              card:SetHp(revivedInfo.hp)
+              card:SetDander(revivedInfo.rage)
+              ;
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_REVIVE, card:GetPosIndex())
+            end
+          end
+        end
       end
     else
       do

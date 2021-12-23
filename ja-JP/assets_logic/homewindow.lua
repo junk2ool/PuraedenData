@@ -301,49 +301,52 @@ HomeWindow.RefreshActivityBtnVisible = function(...)
       local lotteryIntergral = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).LotteryIntergral)
       local lotteryIntergralCom = (uis.LeftList):GetChild("LotteryIntegral")
       if lotteryIntergral == true then
-        local lotteryIntergralBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "LotteryIntegralBtn"))
-        if lotteryIntergralCom == nil then
-          lotteryIntergralBtn.name = "LotteryIntegral"
-          ;
-          (lotteryIntergralBtn.onClick):Set(function(...)
+        do
+          if lotteryIntergralCom == nil then
+            local lotteryIntergralBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "LotteryIntegralBtn"))
+            ;
+            (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_LotteryIntegral, lotteryIntergralBtn)
+            lotteryIntergralBtn.name = "LotteryIntegral"
+            ;
+            (lotteryIntergralBtn.onClick):Set(function(...)
     -- function num : 0_3_2 , upvalues : _ENV
-    OpenWindow((WinResConfig.LotteryIntegralWindow).name, UILayer.HUD)
+    (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).LotteryIntergral)
   end
 )
-        end
-        ;
-        (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_LotteryIntegral, lotteryIntergralBtn)
-        ;
-        (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
-      elseif lotteryIntergralCom then
-        (uis.LeftList):RemoveChild(lotteryIntergralCom)
-      end
-      local returnOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Return)
-      do
-        if returnOpen then
-          local returnBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "ReturnBtn"))
-          ;
-          (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityReturn, returnBtn)
+          end
           ;
           (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
-          ;
-          (returnBtn.onClick):Set(function(...)
+          if lotteryIntergralCom then
+            (uis.LeftList):RemoveChild(lotteryIntergralCom)
+          end
+          local returnOpen = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Return)
+          do
+            if returnOpen then
+              local returnBtn = (uis.LeftList):AddItemFromPool((UIPackage.GetItemURL)("Home", "ReturnBtn"))
+              ;
+              (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityReturn, returnBtn)
+              ;
+              (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
+              ;
+              (returnBtn.onClick):Set(function(...)
     -- function num : 0_3_3 , upvalues : _ENV
     ld("ActivityReturn")
     ;
     (ActivityReturnMgr.TryOpenUI)()
   end
 )
+            end
+            local isNAD = (uis.ActivityDungeonBtn).visible
+            if isNAD == true then
+              (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityDungeon, uis.ActivityDungeonBtn)
+              ;
+              (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
+            end
+            ;
+            (HomeWindow.RefreshProduct)()
+            -- DECOMPILER ERROR: 15 unprocessed JMP targets
+          end
         end
-        local isNAD = (uis.ActivityDungeonBtn).visible
-        if isNAD == true then
-          (RedDotMgr.BindingUI)((WinResConfig.HomeWindow).name, RedDotComID.Home_ActivityDungeon, uis.ActivityDungeonBtn)
-          ;
-          (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
-        end
-        ;
-        (HomeWindow.RefreshProduct)()
-        -- DECOMPILER ERROR: 15 unprocessed JMP targets
       end
     end
   end
@@ -351,7 +354,7 @@ end
 
 HomeWindow.RefreshProduct = function(data, ...)
   -- function num : 0_4 , upvalues : _ENV, uis
-  local isProductActivity = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).Product)
+  local isProductActivity = (ActivityMgr.GetActivityIsOpen)((ActivityMgr.ActivityType).TuiSongProduct)
   local productTips = (uis.BottomButton).GiftTips
   if isProductActivity == true then
     ld("Shop", function(...)

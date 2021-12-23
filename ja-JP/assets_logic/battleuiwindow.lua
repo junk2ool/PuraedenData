@@ -1108,6 +1108,14 @@ BattleUIWindow.UpdateCardHp = function(info, ...)
         (GuideMgr.RemoveFightMildGuide)(posIndex)
         local energyProgressBar = (cardUis.root):GetChild("BottomAngerBar")
         energyProgressBar.value = 0
+      else
+        do
+          -- DECOMPILER ERROR at PC72: Confused about usage of register: R7 in 'UnsetPending'
+
+          if (cardUis.root).grayed then
+            (cardUis.root).grayed = false
+          end
+        end
       end
     end
   end

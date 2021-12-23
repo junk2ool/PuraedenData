@@ -36,6 +36,7 @@ require("BattleResource")
 require("BattleSkill")
 require("BattleResultCount")
 require("BattleCameraMgr")
+BattleErrorHandle = require("BattleErrorHandle")
 local BattleScriptList = {}
 return BattleScriptList
 

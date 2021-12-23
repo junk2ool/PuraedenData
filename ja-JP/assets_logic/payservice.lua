@@ -9,7 +9,7 @@ PayService.Init = function(...)
   ;
   (Net.AddListener)((Proto.MsgName).ResPayData, PayService.OnResPayData)
   ;
-  (Net.AddListener)((Proto.MsgName).ResGetMoonReward, PayService.OnResGetMoonReward)
+  (Net.AddListener)((Proto.MsgName).ResPayCardReward, PayService.OnResPayCardReward)
   ;
   (Net.AddListener)((Proto.MsgName).ResPaySuccess, PayService.OnResPaySuccess)
 end
@@ -66,32 +66,34 @@ end
 
 -- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
 
-PayService.ReqGetMoonReward = function(type, ...)
+PayService.ReqPayCardReward = function(type, ...)
   -- function num : 0_5 , upvalues : _ENV
   local m = {}
-  m.moonType = type
+  m.cardType = type
   ;
-  (Net.Send)((Proto.MsgName).ReqGetMoonReward, m, (Proto.MsgName).ResGetMoonReward)
+  (Net.Send)((Proto.MsgName).ReqPayCardReward, m, (Proto.MsgName).ResPayCardReward)
 end
 
 -- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
 
-PayService.OnResGetMoonReward = function(msg, ...)
+PayService.OnResPayCardReward = function(msg, ...)
   -- function num : 0_6 , upvalues : _ENV
-  -- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
-
-  if msg.moonReceive then
-    if msg.moonType == PayProductType.LittleMonthCard then
-      ((PayData.savePayData).moonPayInfo).resMoonReceive = true
+  if msg.cardType then
+    if msg.cardType == PayProductType.LittleMonthCard then
+      ((PayData.GetCardDataByType)(PayProductType.LittleMonthCard)).cardReceive = true
       ;
       (RedDotMgr.EliminateRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Moon_Res)
     else
-      -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
-
-      if msg.moonType == PayProductType.BigMonthCard then
-        ((PayData.savePayData).moonPayInfo).diaMoonReceive = true
+      if msg.cardType == PayProductType.BigMonthCard then
+        ((PayData.GetCardDataByType)(PayProductType.BigMonthCard)).cardReceive = true
         ;
         (RedDotMgr.EliminateRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Moon_Dia)
+      else
+        if msg.cardType == PayProductType.WeekCard then
+          ((PayData.GetCardDataByType)(PayProductType.WeekCard)).cardReceive = true
+          ;
+          (RedDotMgr.EliminateRedDot)((WinResConfig.ShopWindow).name, RedDotComID.Card_Week)
+        end
       end
     end
     UIMgr:SendWindowMessage((WinResConfig.TaskWindow).name, (WindowMsgEnum.TaskWindow).TASK_REFRESH_WINDOW)

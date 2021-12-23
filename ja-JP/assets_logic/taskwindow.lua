@@ -419,7 +419,7 @@ TaskWindow.Renderer = function(index, item, ...)
         ;
         ((objModel.functionBtn).onClick):Set(function(...)
     -- function num : 0_11_1 , upvalues : _ENV, mouthType, TaskWindow
-    (PayService.ReqGetMoonReward)(mouthType)
+    (PayService.ReqPayCardReward)(mouthType)
     ;
     (TaskWindow.SetListTouchEnable)()
   end
@@ -568,6 +568,8 @@ TaskWindow.SetTaskList = function(taskType, ...)
     ;
     (TaskWindow.AddToTaskList)(PayProductType.LittleMonthCard)
     ;
+    (TaskWindow.AddToTaskList)(PayProductType.WeekCard)
+    ;
     (table.sort)(taskListData, function(a, b, ...)
     -- function num : 0_12_0 , upvalues : _ENV
     local aTotal = 0
@@ -603,7 +605,7 @@ TaskWindow.SetTaskList = function(taskType, ...)
   end
 )
   end
-  -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.TaskDetailedList).numItems = #taskListData
@@ -611,22 +613,30 @@ end
 
 TaskWindow.AddToTaskList = function(type, ...)
   -- function num : 0_13 , upvalues : _ENV, taskListData
-  local data = {}
-  data.MouthType = type
-  local remainTime = (PayData.GetRemainMonthCardDay)(type)
-  local isGet = (PayData.GetMonthCardIsGet)(type)
-  if remainTime > 0 then
-    if isGet then
-      data.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS
-    else
-      data.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN
+  do
+    if type == PayProductType.WeekCard then
+      local weekCardData = (PayData.GetCardDataByType)(type)
+      if weekCardData and weekCardData.cardSurplus <= 0 and weekCardData.cardCanBuy == false then
+        return 
+      end
     end
-  else
-    data.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT
+    local data = {}
+    data.MouthType = type
+    local remainTime = (PayData.GetRemainMonthCardDay)(type)
+    local isGet = (PayData.GetMonthCardIsGet)(type)
+    if remainTime > 0 then
+      if isGet then
+        data.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS
+      else
+        data.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN
+      end
+    else
+      data.status = (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT
+    end
+    data.remainTime = remainTime
+    ;
+    (table.insert)(taskListData, data)
   end
-  data.remainTime = remainTime
-  ;
-  (table.insert)(taskListData, data)
 end
 
 TaskWindow.InitTaskTabBtn = function(...)

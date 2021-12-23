@@ -21,20 +21,20 @@ local abs = math.abs
 -- DECOMPILER ERROR at PC32: Confused about usage of register: R10 in 'UnsetPending'
 
 BattleCardHeadInfo.BindInfo = function(battleCard, ...)
-  -- function num : 0_0 , upvalues : _ENV, BattleCardCamp, WinResConfig, WindowMsgEnum, min, math, ChangeController, ipairs, GetResUrl, abs
+  -- function num : 0_0 , upvalues : _ENV, math, BattleCardCamp, WinResConfig, WindowMsgEnum, min, ChangeController, ipairs, GetResUrl, abs
   local headInfo = {}
   local totalBuffCount = 6
   local headObject, hpGreenProgressBar, hpYellowProgressBar, rageProgressBar, defenseProgressBar, hpEliteProgressBar, hpBossProgressBar, uiPanel, buffIcon1Grp, buffIcon2Grp, buffIcon3Grp, controller, orderTxt, attackOrder, percentageTxt, buffIconList, headInfoObj, talk, originParent = nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil
   headInfo.Init = function(self, battleCard, ...)
-    -- function num : 0_0_0 , upvalues : originParent, headInfoObj, uiPanel, _ENV, headObject, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, hpYellowProgressBar, rageProgressBar, defenseProgressBar, buffIcon1Grp, buffIcon2Grp, buffIcon3Grp, controller, attackOrder, orderTxt, percentageTxt, buffIconList, talk
+    -- function num : 0_0_0 , upvalues : originParent, headInfoObj, uiPanel, _ENV, headObject, math, hpGreenProgressBar, hpEliteProgressBar, hpBossProgressBar, hpYellowProgressBar, rageProgressBar, defenseProgressBar, buffIcon1Grp, buffIcon2Grp, buffIcon3Grp, controller, attackOrder, orderTxt, percentageTxt, buffIconList, talk
     originParent = battleCard:GetModel()
     headInfoObj = (((battleCard:GetModel()).transform):Find("HeadInfo")).gameObject
     if headInfoObj then
       headInfoObj:SetActive(true)
       uiPanel = (headInfoObj.transform):GetComponent(typeof(FairyGUI.UIPanel))
       headObject = uiPanel.ui
-      self.lastHp = battleCard:GetHp()
-      self.lastDander = battleCard:GetDander()
+      self.lastHp = (math.max)(0, battleCard:GetHp())
+      self.lastDander = (math.max)(0, battleCard:GetDander())
       local uis = GetBattle_BattleCharacterBloodUis(headObject)
       hpGreenProgressBar = uis.HpGreenProgressBar
       hpEliteProgressBar = uis.HpEliteProgressBar
@@ -151,7 +151,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
             hpEliteProgressBar.value = targetValue
             hpBossProgressBar.value = targetValue
             hpYellowProgressBar.value = targetValue
-            self.lastHp = _nowHp
+            self.lastHp = (math.max)(0, _nowHp)
             if battleCard:GetCampFlag() == BattleCardCamp.LEFT then
               UIMgr:SendWindowMessage((WinResConfig.BattleUIWindow).name, (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_CARD_HP, {posIndex = battleCard:GetPosIndex(), lastHp = _lastHP, nowHp = _nowHp, targetValue = targetValue})
             else
@@ -182,7 +182,7 @@ BattleCardHeadInfo.BindInfo = function(battleCard, ...)
     if BattleConfig.isPlayBack == true then
       battleCard:SetDander(_nowDander)
     end
-    self.lastDander = _nowDander
+    self.lastDander = (math.max)(0, _nowDander)
     if battleCard:GetCampFlag() == BattleCardCamp.LEFT then
       UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_CARD_DANDER, {posIndex = battleCard:GetPosIndex(), targetValue = value, removeFullRage = removeFullRage})
     end

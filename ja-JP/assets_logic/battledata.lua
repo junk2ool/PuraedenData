@@ -53,6 +53,11 @@ BattleData.SaveBattleData = function(data, endCallback, needLoad, ...)
           end
           ;
           (self.InitBattleData)(self.battleData)
+          ;
+          (BattleErrorHandle.CacheInitBattleData)(copy(self.battleData))
+          if self.battleType == (ProtoEnum.E_BATTLE_TYPE).EXPEDITION and ExpeditionMgr then
+            (BattleErrorHandle.CacheExpeditionBattleData)({stageId = (ExpeditionMgr.GetCurrentStage)(), changeFc = (ExpeditionMgr.GetExpeditionChangeFc)(), selfMaxFc = (ExpeditionMgr.GetExpeditionSelfMaxFc)()})
+          end
           if IsBattleServer == true then
             self.saveBattleData = data
           end
@@ -67,7 +72,7 @@ BattleData.SaveBattleData = function(data, endCallback, needLoad, ...)
               ;
               (((CS.UnityEngine).Object).DontDestroyOnLoad)(BattleRoot)
             end
-            -- DECOMPILER ERROR at PC128: Confused about usage of register: R5 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC159: Confused about usage of register: R5 in 'UnsetPending'
 
             BattleRoot.name = "BattleRoot"
           end
@@ -279,6 +284,8 @@ BattleData.ClearBattleData = function(...)
     self.battleData = {}
     ;
     (BattleData.InitBattleData)({})
+    ;
+    (BattleErrorHandle.Clear)()
   end
 end
 

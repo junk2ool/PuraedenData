@@ -362,6 +362,8 @@ BattlePlay.PlayAtk = function(...)
     if atkInfo and atkCard and totalDamage < 0 then
       UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_DAMAGE, {camp = atkCard:GetCampFlag(), isCrit = isCrit, totalDamage = (math.abs)(totalDamage)})
     end
+    ;
+    (BattleErrorHandle.ResetElapse)()
   end
 
     local allEndCallBack = function(...)
@@ -374,6 +376,8 @@ BattlePlay.PlayAtk = function(...)
     (BattleData.SetBattleState)(BattleState.BUFF_AFTER_ATTACK)
     local SkillParse = require("SkillParse")
     ClearSkillMask()
+    ;
+    (BattleErrorHandle.ResetElapse)()
   end
 
     if skillConfig and skillConfig.move_pos_type and OvertureMgr.isPlaying ~= true then
@@ -450,7 +454,7 @@ local curAssistIndex = 0
 -- DECOMPILER ERROR at PC61: Confused about usage of register: R15 in 'UnsetPending'
 
 BattlePlay.PlayAssistAtk = function(attackType, atkCard, defCard, atkInfo, atkEndCallBack, allEndCallBack, ...)
-  -- function num : 0_11 , upvalues : curAssistIndex, totalDamage, _ENV, self, BattleConfig, UIMgr
+  -- function num : 0_11 , upvalues : curAssistIndex, totalDamage, _ENV, self, BattleConfig, BattleCardState, UIMgr
   local assistAtkInfo = atkInfo.assistAtkInfo
   local defCardInfo = (atkInfo.defCardsInfo)[1]
   curAssistIndex = 1
@@ -458,9 +462,34 @@ BattlePlay.PlayAssistAtk = function(attackType, atkCard, defCard, atkInfo, atkEn
   local nextAssistAtkInfo = assistAtkInfo[curAssistIndex]
   local card = (BattleData.GetCardInfoByPos)(nextAssistAtkInfo.atkPos)
   local _, moveType = (self.GetNextAttackTime)(nextAssistAtkInfo, card, defCard)
+  local onnextassist = function(...)
+    -- function num : 0_11_0 , upvalues : curAssistIndex, atkInfo, assistAtkInfo, _ENV, allEndCallBack
+    local lastIndex = curAssistIndex - 1
+    local count, subCount = #atkInfo.defCardsInfo, #(assistAtkInfo[lastIndex]).defCardsInfo
+    if subCount < count then
+      for i = 1, count do
+        local defCardInfo = (atkInfo.defCardsInfo)[i]
+        for j = 1, subCount do
+          local subDefCardInfo = ((assistAtkInfo[lastIndex]).defCardsInfo)[j]
+          if defCardInfo.defCardUid ~= subDefCardInfo.defCardUid then
+            local card = (BattleData.GetCardInfoByUid)(defCardInfo.defCardUid)
+            if card then
+              card:DealAfterAtk()
+            end
+          end
+        end
+      end
+    end
+    do
+      if allEndCallBack then
+        allEndCallBack()
+      end
+    end
+  end
+
   ;
   (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
-    -- function num : 0_11_0 , upvalues : _ENV, BattleConfig, self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
+    -- function num : 0_11_1 , upvalues : _ENV, BattleConfig, self, atkInfo, assistAtkInfo, curAssistIndex, BattleCardState, moveType, atkCard, defCard, atkEndCallBack, onnextassist
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedMax
@@ -469,16 +498,64 @@ BattlePlay.PlayAssistAtk = function(attackType, atkCard, defCard, atkInfo, atkEn
     Time.timeScale = Time.timeScale * BattlePlay.assistSpeed
     self.AssistCameraMove = true
     ;
-    (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
+    (BattleErrorHandle.ResetElapse)()
+    if atkInfo.isStrike then
+      local defCount = #atkInfo.defCardsInfo
+      for i = 1, defCount do
+        local defCardInfo = (atkInfo.defCardsInfo)[i]
+        local assistCardInfo = assistAtkInfo[curAssistIndex]
+        if defCardInfo.defCardUid == assistCardInfo.atkCardUid then
+          local assistCard = (BattleData.GetCardInfoByUid)(assistCardInfo.atkCardUid)
+          local curState = assistCard:GetCurState()
+          if curState ~= BattleCardState.FLOAT_DOWN or curState ~= BattleCardState.FLOAT_UP then
+            assistCard.floatCallBack = function(...)
+      -- function num : 0_11_1_0 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, onnextassist
+      (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, onnextassist)
+    end
+
+            return 
+          end
+        end
+      end
+    end
+    do
+      ;
+      (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, onnextassist)
+    end
   end
 )
   UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
 end
 
--- DECOMPILER ERROR at PC64: Confused about usage of register: R15 in 'UnsetPending'
+local __playassistatk = function(attackType, moveType, atkCard, assistAtkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack, ...)
+  -- function num : 0_12 , upvalues : curAssistIndex, self, _ENV, BattleConfig, UIMgr
+  local info = assistAtkInfo[curAssistIndex]
+  ;
+  (self.StartPlay)(attackType, assistAtkCard, {defCard}, info, function(...)
+    -- function num : 0_12_1 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
+    (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
+  end
+, (((curAssistIndex == #assistAtkInfo and function(...)
+    -- function num : 0_12_0 , upvalues : _ENV, BattleConfig, atkEndCallBack
+    -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
+
+    Time.timeScale = Time.timeScale / BattlePlay.assistSpeed
+    -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
+
+    BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
+    atkEndCallBack()
+  end
+) or curAssistIndex == #assistAtkInfo) and allEndCallBack))
+  UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = assistAtkCard, skillType = info.skillType})
+  curAssistIndex = curAssistIndex + 1
+  -- DECOMPILER ERROR: 2 unprocessed JMP targets
+end
+
+-- DECOMPILER ERROR at PC65: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.PlayOneAssistAtk = function(attackType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack, ...)
-  -- function num : 0_12 , upvalues : curAssistIndex, _ENV, totalDamage, self, BattleCardFloatUpState, BattleAttackType, BattleConfig, UIMgr
+  -- function num : 0_13 , upvalues : _ENV, curAssistIndex, totalDamage, self, BattleCardFloatUpState, BattleAttackType, __playassistatk
+  (BattleErrorHandle.ResetElapse)()
   local info = assistAtkInfo[curAssistIndex]
   local assistAtkCard = (BattleData.GetCardInfoByUid)(info.atkCardUid)
   local defCardInfo = (info.defCardsInfo)[1]
@@ -507,32 +584,42 @@ BattlePlay.PlayOneAssistAtk = function(attackType, atkCard, defCard, assistAtkIn
     if targetFloatState == BattleCardFloatUpState.FLOAT and attackType == BattleAttackType.RUN then
       attackType = BattleAttackType.JUMP
     end
-    ;
-    (self.StartPlay)(attackType, assistAtkCard, {defCard}, info, function(...)
-    -- function num : 0_12_1 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
-    (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
+    if info.isStrike then
+      local total = #assistAtkInfo
+      local atkInfo = BattleAtk.curAtkInfo
+      local defCount = #atkInfo.defCardsInfo
+      for i = curAssistIndex + 1, total do
+        local assistCardInfo = assistAtkInfo[i]
+        for j = 1, defCount do
+          local defCardInfo = (atkInfo.defCardsInfo)[j]
+          if defCardInfo.defCardUid == assistCardInfo.atkCardUid then
+            assistCardInfo.__postponetofloatover = true
+          end
+        end
+        break
+      end
+    end
+    do
+      do
+        if info.__postponetofloatover then
+          local assistCard = (BattleData.GetCardInfoByUid)(info.atkCardUid)
+          assistCard.floatCallBack = function(...)
+    -- function num : 0_13_0 , upvalues : __playassistatk, attackType, moveType, atkCard, assistAtkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
+    __playassistatk(attackType, moveType, atkCard, assistAtkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
   end
-, (((curAssistIndex == #assistAtkInfo and function(...)
-    -- function num : 0_12_0 , upvalues : _ENV, BattleConfig, atkEndCallBack
-    -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
-    Time.timeScale = Time.timeScale / BattlePlay.assistSpeed
-    -- DECOMPILER ERROR at PC9: Confused about usage of register: R0 in 'UnsetPending'
-
-    BattlePlay.assistSpeed = BattleConfig.assistRatioSpeedNormal
-    atkEndCallBack()
-  end
-) or curAssistIndex == #assistAtkInfo) and allEndCallBack))
-    UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = assistAtkCard, skillType = info.skillType})
-    curAssistIndex = curAssistIndex + 1
-    -- DECOMPILER ERROR: 2 unprocessed JMP targets
+          return 
+        end
+        __playassistatk(attackType, moveType, atkCard, assistAtkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
+      end
+    end
   end
 end
 
--- DECOMPILER ERROR at PC67: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC68: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.UpdateCardFloat = function(...)
-  -- function num : 0_13 , upvalues : _ENV, ipairs, BattleCardFloatUpState, BattleCardState, self, BattleConfig, Vector3
+  -- function num : 0_14 , upvalues : _ENV, ipairs, BattleCardFloatUpState, BattleCardState, self, BattleConfig, Vector3
   local allCard = (BattleData.GetAllCardList)()
   for i,v in ipairs(allCard) do
     do
@@ -557,8 +644,14 @@ BattlePlay.UpdateCardFloat = function(...)
             BattlePlay.curStrikeIndex = 1
             v:SetFloatUpState(BattleCardFloatUpState.NONE)
             v:ChangeState(BattleCardState.FALL_DOWN, false, function(...)
-    -- function num : 0_13_0 , upvalues : _ENV, v, BattleCardState
+    -- function num : 0_14_0 , upvalues : _ENV, v, BattleCardState
     if (BattleMgr.IsInBattle)() == true and v:GetCurState() == BattleCardState.FALL_DOWN then
+      local revivedInfo = v:GetRevivedInfo()
+      if revivedInfo then
+        v:Revive(revivedInfo.hp, revivedInfo.rage)
+        v:SetRevivedInfo(nil)
+        return 
+      end
       if v:IsDisplayAlive() == false then
         local callBack = v.floatCallBack
         if callBack then
@@ -568,7 +661,7 @@ BattlePlay.UpdateCardFloat = function(...)
       else
         do
           v:ChangeState(BattleCardState.UP, false, function(...)
-      -- function num : 0_13_0_0 , upvalues : _ENV, v, BattleCardState
+      -- function num : 0_14_0_0 , upvalues : _ENV, v, BattleCardState
       if (BattleMgr.IsInBattle)() == true and v:GetCurState() == BattleCardState.UP then
         local callBack = v.floatCallBack
         if callBack then
@@ -607,10 +700,10 @@ BattlePlay.UpdateCardFloat = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC70: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC71: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.GetCardPosition = function(card, delayTime, ...)
-  -- function num : 0_14 , upvalues : _ENV, self, Vector3, BattleConfig
+  -- function num : 0_15 , upvalues : _ENV, self, Vector3, BattleConfig
   local v0 = card.speedUp
   local nowPosition = card:GetCurPosition()
   local oriPosition = card.position
@@ -630,10 +723,10 @@ BattlePlay.GetCardPosition = function(card, delayTime, ...)
   end
 end
 
--- DECOMPILER ERROR at PC73: Confused about usage of register: R15 in 'UnsetPending'
+-- DECOMPILER ERROR at PC74: Confused about usage of register: R16 in 'UnsetPending'
 
 BattlePlay.GetNextAttackTime = function(atkInfo, card, defCard, targetFloat, ...)
-  -- function num : 0_15 , upvalues : _ENV, BattleAttackType, BattleConfig
+  -- function num : 0_16 , upvalues : _ENV, BattleAttackType, BattleConfig
   local attackSpd, effect_name, effect_name_target, bullet_config = card:GetAttackSpdAndEffect(atkInfo, {defCard}, targetFloat)
   local attackTimeTable = nil
   local firstAttackTime = 0
@@ -667,7 +760,7 @@ BattlePlay.GetNextAttackTime = function(atkInfo, card, defCard, targetFloat, ...
 end
 
 local __attacktarget = function(atkCard, attackType, defCards, atkEndCallBack, allEndCallback, ...)
-  -- function num : 0_16 , upvalues : BattleAttackType
+  -- function num : 0_17 , upvalues : BattleAttackType
   if attackType == BattleAttackType.RUN then
     atkCard:RunToTargetCard(defCards, atkEndCallBack, allEndCallback)
   else
@@ -685,16 +778,48 @@ local __attacktarget = function(atkCard, attackType, defCards, atkEndCallBack, a
   end
 end
 
--- DECOMPILER ERROR at PC77: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack, ...)
-  -- function num : 0_17 , upvalues : self, BattleCardState, __attacktarget, _ENV, ipairs
-  atkCard:SetAtkInfo(atkInfo)
-  atkCard:SetAttackType(attackType)
-  atkCard:SetMovePosType(atkInfo.movePosType)
-  atkCard:SetAllBuffEffectVisible(false)
-  local callBack = function(...)
-    -- function num : 0_17_0 , upvalues : self, atkInfo, atkCard, BattleCardState, __attacktarget, attackType, defCards, atkEndCallBack, allEndCallBack
+  -- function num : 0_18 , upvalues : _ENV, self, BattleCardState, __attacktarget, ipairs
+  local revivedCount = 0
+  if atkCard:GetRevivedInfo() or atkCard.reviving then
+    revivedCount = revivedCount + 1
+  end
+  do
+    for k,v in pairs(defCards) do
+      if v:GetRevivedInfo() or v.reviving then
+        revivedCount = revivedCount + 1
+      end
+    end
+  end
+  if revivedCount > 0 then
+    local index = 0
+    local onrevived = function(...)
+    -- function num : 0_18_0 , upvalues : index, revivedCount, _ENV, attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack
+    index = index + 1
+    if index == revivedCount then
+      (BattlePlay.StartPlay)(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack)
+    end
+  end
+
+    if atkCard:GetRevivedInfo() or atkCard.reviving then
+      atkCard:SetRevivedCallback(onrevived)
+    end
+    for k,v in pairs(defCards) do
+      if v:GetRevivedInfo() or v.reviving then
+        v:SetRevivedCallback(onrevived)
+      end
+    end
+    return 
+  end
+  do
+    atkCard:SetAtkInfo(atkInfo)
+    atkCard:SetAttackType(attackType)
+    atkCard:SetMovePosType(atkInfo.movePosType)
+    atkCard:SetAllBuffEffectVisible(false)
+    local callBack = function(...)
+    -- function num : 0_18_1 , upvalues : self, atkInfo, atkCard, BattleCardState, __attacktarget, attackType, defCards, atkEndCallBack, allEndCallBack
     (self.PlayDamageShareMove)(atkInfo)
     local curState = atkCard:GetCurState()
     do
@@ -702,10 +827,10 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
         local floatCallback = atkCard.floatCallBack
         do
           atkCard.floatCallBack = function(...)
-      -- function num : 0_17_0_0 , upvalues : floatCallback, __attacktarget, atkCard, attackType, defCards, atkEndCallBack, allEndCallBack
+      -- function num : 0_18_1_0 , upvalues : floatCallback, __attacktarget, atkCard, attackType, defCards, atkEndCallBack, allEndCallBack
       if floatCallback then
         __attacktarget(atkCard, attackType, defCards, atkEndCallBack, function(...)
-        -- function num : 0_17_0_0_0 , upvalues : floatCallback, allEndCallBack
+        -- function num : 0_18_1_0_0 , upvalues : floatCallback, allEndCallBack
         floatCallback()
         allEndCallBack()
       end
@@ -722,63 +847,71 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
     end
   end
 
-  local skillId = atkInfo.skillId
-  local skillConfig = (TableData.GetBaseSkillData)(skillId)
-  local skillType = atkInfo.skillType
-  if atkInfo.atkFail ~= true and skillType == BattleSkillType.SMALL then
-    atkCard:PlayCommonSkillEffect(callBack)
-  else
-    if atkInfo.atkFail ~= true and skillType == BattleSkillType.SKILL and skillConfig then
-      if atkCard:IsNeedClearTransfigurationBeforeSkill() then
-        atkCard:SetNeedClearTransfigurationBeforeSkill(false)
-        atkCard:SetControlType(BattleDisplayEffect.TRANSFIGURATION, false)
-      end
-      local fashionId = atkCard:GetFashionId()
-      local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
-      local skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]
-      local scriptPath = skillShowConfig.effect_attack
-      local oriSkillConfig = atkCard:GetSkillConfig()
-      if oriSkillConfig.special_type ~= BattleSkillSpecialType.COPY and (scriptPath == nil or scriptPath == "" or not scriptPath or (string.find)(scriptPath, "SkillScript") == nil) then
-        atkCard:PlayCommonSkillEffect(function(...)
-    -- function num : 0_17_1 , upvalues : _ENV, skillId, atkCard, callBack
+    local skillId = atkInfo.skillId
+    local skillConfig = (TableData.GetBaseSkillData)(skillId)
+    local skillType = atkInfo.skillType
+    if atkInfo.atkFail ~= true and skillType == BattleSkillType.SMALL then
+      atkCard:PlayCommonSkillEffect(callBack)
+    else
+      if atkInfo.atkFail ~= true and skillType == BattleSkillType.SKILL and skillConfig then
+        if atkCard:IsNeedClearTransfigurationBeforeSkill() then
+          atkCard:SetNeedClearTransfigurationBeforeSkill(false)
+          atkCard:SetControlType(BattleDisplayEffect.TRANSFIGURATION, false)
+        end
+        local fashionId = atkCard:GetFashionId()
+        local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
+        local skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]
+        local scriptPath = skillShowConfig.effect_attack
+        local oriSkillConfig = atkCard:GetSkillConfig()
+        if oriSkillConfig.special_type ~= BattleSkillSpecialType.COPY and (scriptPath == nil or scriptPath == "" or not scriptPath or (string.find)(scriptPath, "SkillScript") == nil) then
+          atkCard:PlayCommonSkillEffect(function(...)
+    -- function num : 0_18_2 , upvalues : _ENV, skillId, atkCard, callBack
     (BattlePlay.ShowSkillCard)(skillId, atkCard:GetPosIndex(), callBack)
   end
 )
-      else
-        local defCardsInfo = atkInfo.defCardsInfo
-        for _,v in ipairs(defCardsInfo) do
-          if v.isCounter == false and v.defCardUid == atkCard:GetCardUid() then
-            atkCard:ChangeHp({hurt = v.hpDef, absorb = 0}, atkInfo)
+        else
+          local defCardsInfo = atkInfo.defCardsInfo
+          for _,v in ipairs(defCardsInfo) do
+            if v.isCounter == false and v.defCardUid == atkCard:GetCardUid() then
+              atkCard:ChangeHp({hurt = v.hpDef, absorb = 0}, atkInfo)
+            end
           end
+          atkCard:PlayUniqueSkillEffect(skillId, callBack, atkEndCallBack, allEndCallBack, defCards)
         end
-        atkCard:PlayUniqueSkillEffect(skillId, callBack, atkEndCallBack, allEndCallBack, defCards)
       end
     end
-  end
-  do
-    callBack()
-    if skillConfig and skillConfig.extra_spine then
-      atkCard:PlayRandomNumSpine(skillConfig.extra_spine, #defCards)
-    end
-    if skillConfig and (skillType == BattleSkillType.SMALL or skillType == BattleSkillType.SKILL) and atkInfo.atkFail ~= true then
-      local fashionId = atkCard:GetFashionId()
-      if skillType == BattleSkillType.SMALL then
-        (AudioManager.PlayBattleVoice)(fashionId, CVAudioType.SkillBubble)
+    do
+      callBack()
+      local defCardsInfo = atkInfo.defCardsInfo
+      for k,v in pairs(defCardsInfo) do
+        if v.revivedInfo then
+          local defCard = (BattleData.GetCardInfoByUid)(v.defCardUid)
+          defCard:SetRevivedInfo(v.revivedInfo)
+        end
       end
-      local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
-      local skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]
-      local camera_id = skillShowConfig.camera_id
-      if camera_id and camera_id ~= 0 then
-        (BattleCameraMgr.MoveCamera)(camera_id, atkCard, defCards[1])
+      if skillConfig and skillConfig.extra_spine then
+        atkCard:PlayRandomNumSpine(skillConfig.extra_spine, #defCards)
+      end
+      if skillConfig and (skillType == BattleSkillType.SMALL or skillType == BattleSkillType.SKILL) and atkInfo.atkFail ~= true then
+        local fashionId = atkCard:GetFashionId()
+        if skillType == BattleSkillType.SMALL then
+          (AudioManager.PlayBattleVoice)(fashionId, CVAudioType.SkillBubble)
+        end
+        local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
+        local skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]
+        local camera_id = skillShowConfig.camera_id
+        if camera_id and camera_id ~= 0 then
+          (BattleCameraMgr.MoveCamera)(camera_id, atkCard, defCards[1])
+        end
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC80: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC81: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.ShowSkillCard = function(skillId, posIndex, callBack, ...)
-  -- function num : 0_18 , upvalues : _ENV, UIMgr
+  -- function num : 0_19 , upvalues : _ENV, UIMgr
   local skillConfig = (TableData.GetBaseSkillData)(skillId)
   local card = (BattleData.GetCardInfoByPos)(posIndex)
   if card then
@@ -798,10 +931,10 @@ BattlePlay.ShowSkillCard = function(skillId, posIndex, callBack, ...)
   end
 end
 
--- DECOMPILER ERROR at PC83: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC84: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlayDamageShareMove = function(atkInfo, ...)
-  -- function num : 0_19 , upvalues : ipairs, _ENV
+  -- function num : 0_20 , upvalues : ipairs, _ENV
   local defCardsInfo = atkInfo.defCardsInfo
   for _,v in ipairs(defCardsInfo) do
     if v.shareDamageCardPos ~= 0 then
@@ -810,7 +943,7 @@ BattlePlay.PlayDamageShareMove = function(atkInfo, ...)
       if needMoveCard and targetCard then
         targetCard.damageShareCardPos = v.defPos
         needMoveCard:JumpToDamageShareCard(targetCard, function(...)
-    -- function num : 0_19_0
+    -- function num : 0_20_0
   end
 )
       end
@@ -818,10 +951,10 @@ BattlePlay.PlayDamageShareMove = function(atkInfo, ...)
   end
 end
 
--- DECOMPILER ERROR at PC86: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC87: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlayPreRoundInfo = function(...)
-  -- function num : 0_20 , upvalues : _ENV, BattleState, ipairs, self, BattleBuffDeductionRoundType, BattleBuffSettleRoundType
+  -- function num : 0_21 , upvalues : _ENV, BattleState, ipairs, self, BattleBuffDeductionRoundType, BattleBuffSettleRoundType
   local curRound = BattleData.roundIndex
   ;
   (BattleData.SetBattleState)(BattleState.PRE_ROUND_PLAYING)
@@ -867,7 +1000,7 @@ BattlePlay.PlayPreRoundInfo = function(...)
   (self.PlayBuff)(playBuffInfo, nil, BattleBuffDeductionRoundType.AFTER_DAMAGE, BattleBuffSettleRoundType.AFTER_DAMAGE)
   if updateCount > 0 then
     (SimpleTimer.setTimeout)(0.8, function(...)
-    -- function num : 0_20_0 , upvalues : _ENV, BattleState
+    -- function num : 0_21_0 , upvalues : _ENV, BattleState
     (BattleData.SetBattleState)(BattleState.CHANGE_ATTACK)
   end
 )
@@ -879,10 +1012,10 @@ BattlePlay.PlayPreRoundInfo = function(...)
   (self.PlayAtkOrderShow)()
 end
 
--- DECOMPILER ERROR at PC89: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC90: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlayAtkOrderShow = function(...)
-  -- function num : 0_21 , upvalues : _ENV, ipairs
+  -- function num : 0_22 , upvalues : _ENV, ipairs
   local allLiveCard = (BattleData.GetAliveCards)()
   ;
   (table.sort)(allLiveCard, BattleData.AtkOrderSort)
@@ -891,10 +1024,10 @@ BattlePlay.PlayAtkOrderShow = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC92: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC93: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRoundType, playSettleRoundType, ...)
-  -- function num : 0_22 , upvalues : BattleBuffDeductionRoundType, BattleBuffSettleRoundType, ipairs, _ENV
+  -- function num : 0_23 , upvalues : BattleBuffDeductionRoundType, BattleBuffSettleRoundType, ipairs, _ENV
   local allBuffTable = atkInfo.allBuffTable
   local updateBuffCount = 0
   local deductionRoundType2, deductionRoundType3, settleRoundType2, card = nil, nil, nil, nil
@@ -1108,66 +1241,83 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
                                             ;
                                             (BattleBuff.PlayBuffRemove)(card, buffData)
                                           end
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                          for k,v in pairs(buffData.effectTable) do
+                                            if v.effectId == BattleDisplayEffect.REVIVE_HP_RAGE then
+                                              local card = (BattleData.GetCardInfoByPos)(buffData.curDefPos)
+                                              if card then
+                                                v.isDeal = true
+                                                ;
+                                                (BattleBuffMgr.RemoveBuffFromPlayBackList)(buffData)
+                                                ;
+                                                (BattleBuff.PlayBuffRemove)(card, buffData)
+                                                break
+                                              end
+                                            end
+                                          end
+                                          do
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out DO_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out DO_STMT
 
-                                          -- DECOMPILER ERROR at PC446: LeaveBlock: unexpected jumping out IF_STMT
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
+                                            -- DECOMPILER ERROR at PC475: LeaveBlock: unexpected jumping out IF_STMT
+
+                                          end
                                         end
                                       end
                                     end
@@ -1191,10 +1341,10 @@ BattlePlay.PlayBuff = function(atkInfo, targetCard, deductionRoundType, settleRo
   return updateBuffCount
 end
 
--- DECOMPILER ERROR at PC95: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC96: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlayEnd = function(...)
-  -- function num : 0_23 , upvalues : _ENV
+  -- function num : 0_24 , upvalues : _ENV
   log("    出手结束")
   ;
   (BattleAtk.ClearAtkInfo)()
@@ -1204,25 +1354,25 @@ BattlePlay.PlayEnd = function(...)
   (BattlePlay.PlayAtkOrderShow)()
 end
 
--- DECOMPILER ERROR at PC98: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC99: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlayBattleWin = function(callBack, ...)
-  -- function num : 0_24
+  -- function num : 0_25
   if callBack then
     callBack()
   end
 end
 
--- DECOMPILER ERROR at PC101: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC102: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.ClearAllPlayRes = function(...)
-  -- function num : 0_25
+  -- function num : 0_26
 end
 
--- DECOMPILER ERROR at PC104: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC105: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlayFlashEffect = function(card, ...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : _ENV
   local SortingHelper = require("SortingHelper")
   if card then
     local model = card:GetModel()
@@ -1239,7 +1389,7 @@ BattlePlay.PlayFlashEffect = function(card, ...)
       local time = (LuaEffect.GetEffectDuration)(eff)
       ;
       (SimpleTimer.setTimeout)(time, function(...)
-    -- function num : 0_26_0 , upvalues : _ENV, eff, SortingHelper, card
+    -- function num : 0_27_0 , upvalues : _ENV, eff, SortingHelper, card
     if (BattleMgr.IsInBattle)() == false then
       return 
     end
@@ -1256,10 +1406,10 @@ BattlePlay.PlayFlashEffect = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC107: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC108: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.SetLayer = function(eff, layer, ...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_28 , upvalues : _ENV
   if eff and eff.transform then
     local skillCamera = Game.skillCamera
     if skillCamera and skillCamera.activeSelf == true then
@@ -1272,10 +1422,10 @@ BattlePlay.SetLayer = function(eff, layer, ...)
   end
 end
 
--- DECOMPILER ERROR at PC110: Confused about usage of register: R16 in 'UnsetPending'
+-- DECOMPILER ERROR at PC111: Confused about usage of register: R17 in 'UnsetPending'
 
 BattlePlay.PlaySkillSound = function(soundStr, hitCardList, ...)
-  -- function num : 0_28 , upvalues : _ENV, math, ipairs
+  -- function num : 0_29 , upvalues : _ENV, math, ipairs
   if IsBattleServer == true or BattleData.skipBattle == true then
     return 
   end
@@ -1287,11 +1437,11 @@ BattlePlay.PlaySkillSound = function(soundStr, hitCardList, ...)
     local config = (TableData.gTable).BaseSoundPathData
     local idStrTable = split(soundStr, ":")
     local callback = function(play_frame, path, bank, ...)
-    -- function num : 0_28_0 , upvalues : math, _ENV
+    -- function num : 0_29_0 , upvalues : math, _ENV
     local frame = (math.max)(0, play_frame - 10)
     ;
     (SimpleTimer.setTimeout)(frame * 0.01666, function(...)
-      -- function num : 0_28_0_0 , upvalues : _ENV, bank, path
+      -- function num : 0_29_0_0 , upvalues : _ENV, bank, path
       if (BattleMgr.IsInBattle)() == false then
         return 
       end

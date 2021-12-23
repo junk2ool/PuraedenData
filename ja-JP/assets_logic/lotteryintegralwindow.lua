@@ -5,11 +5,13 @@ local LotteryIntegralWindow = {}
 local uis, contentPane, bridge, argTable, integralData, create = nil, nil, nil, nil, nil, nil
 local canEffect = {}
 local mTime = nil
+local isBackOpen = false
 LotteryIntegralWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, bridge, argTable, uis
+  -- function num : 0_0 , upvalues : _ENV, contentPane, bridge, isBackOpen, argTable, uis, integralData, LotteryIntegralWindow
   bridgeObj:SetView((WinResConfig.LotteryIntegralWindow).package, (WinResConfig.LotteryIntegralWindow).comName)
   contentPane = bridgeObj.contentPane
   bridge = bridgeObj
+  isBackOpen = bridgeObj.OpenFromClose
   argTable = bridgeObj.argTable
   contentPane:Center()
   uis = GetLotteryIntegral_LotteryIntegralUis(contentPane)
@@ -21,32 +23,45 @@ LotteryIntegralWindow.OnInit = function(bridgeObj, ...)
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
   ;
   (CommonWinMgr.RegisterAssets)(m)
+  if isBackOpen == false and argTable[1] then
+    integralData = argTable[1]
+  else
+    ;
+    (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).LotteryIntergral)
+  end
   ;
-  (ActivityService.OnReqActivityInfo)((ActivityMgr.ActivityType).LotteryIntergral)
+  (LotteryIntegralWindow.RefreshWindow)()
 end
 
 LotteryIntegralWindow.RefreshWindow = function(...)
-  -- function num : 0_1 , upvalues : _ENV, integralData, uis, mTime, create, canEffect
+  -- function num : 0_1 , upvalues : integralData, _ENV, uis, mTime, create, canEffect
+  local rewards = (integralData.lotteryIntegralActInfo).rewardList
+  ;
+  (table.sort)(rewards, function(a, b, ...)
+    -- function num : 0_1_0
+    do return a.id < b.id end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
   local rewardData = (TableData.gTable).BaseActivityPointsRewardData
   local maxPoint = 0
-  for _,v in pairs(rewardData) do
-    maxPoint = v.need
-  end
-  -- DECOMPILER ERROR at PC21: Confused about usage of register: R2 in 'UnsetPending'
+  local lastIndex = #rewards
+  maxPoint = (rewardData[(rewards[lastIndex]).id]).need
+  -- DECOMPILER ERROR at PC26: Confused about usage of register: R4 in 'UnsetPending'
 
   if maxPoint <= (integralData.lotteryIntegralActInfo).points then
     ((uis.Integral).IntegralTxt).text = (PUtil.get)(194)
   else
-    -- DECOMPILER ERROR at PC27: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC32: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
     ((uis.Integral).IntegralTxt).text = (integralData.lotteryIntegralActInfo).points
   end
-  -- DECOMPILER ERROR at PC34: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC39: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   ((uis.Integral).NameTxt).text = (PUtil.get)(306)
-  -- DECOMPILER ERROR at PC41: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC46: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   ((uis.Tips).TipsTxt).text = (PUtil.get)(310)
@@ -54,11 +69,11 @@ LotteryIntegralWindow.RefreshWindow = function(...)
   ((uis.GoBtn):GetChild("title")).text = (PUtil.get)(302)
   ;
   ((uis.GoBtn).onClick):Set(function(...)
-    -- function num : 0_1_0 , upvalues : _ENV
+    -- function num : 0_1_1 , upvalues : _ENV
     ld("Lottery", function(...)
-      -- function num : 0_1_0_0 , upvalues : _ENV
+      -- function num : 0_1_1_0 , upvalues : _ENV
       (Util.SetDelayCall)(function(...)
-        -- function num : 0_1_0_0_0 , upvalues : _ENV
+        -- function num : 0_1_1_0_0 , upvalues : _ENV
         (ActorService.ReqActivityLottery)()
       end
 )
@@ -78,26 +93,18 @@ LotteryIntegralWindow.RefreshWindow = function(...)
       mTime:Stop()
     end
     mTime = (LuaTime.CountDown)(destoryTime * 0.001 - (ActorData.GetServerTime)() * 0.001, (uis.Integral).TimeTxt, function(...)
-    -- function num : 0_1_1 , upvalues : uis, _ENV
+    -- function num : 0_1_2 , upvalues : uis, _ENV
     -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
     ((uis.Integral).TimeTxt).text = (PUtil.get)(20000221)
   end
 , true, nil, 312)
   else
-    -- DECOMPILER ERROR at PC113: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC118: Confused about usage of register: R11 in 'UnsetPending'
 
     ;
     ((uis.Integral).TimeTxt).text = (PUtil.get)(20000388, startStr, endStr)
   end
-  local rewards = (integralData.lotteryIntegralActInfo).rewardList
-  ;
-  (table.sort)(rewards, function(a, b, ...)
-    -- function num : 0_1_2
-    do return a.id < b.id end
-    -- DECOMPILER ERROR: 1 unprocessed JMP targets
-  end
-)
   if create then
     create:stop()
     create = nil
@@ -108,63 +115,56 @@ LotteryIntegralWindow.RefreshWindow = function(...)
   local shopGrpNum = (math.ceil)(shopNum / 5)
   local t = 1
   for index,value in ipairs(canEffect) do
-    do
-      if value ~= nil then
-        do
-          (LuaEffect.DestroyEffect)(value)
-          -- DECOMPILER ERROR at PC150: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-          -- DECOMPILER ERROR at PC150: LeaveBlock: unexpected jumping out IF_STMT
-
-        end
-      end
+    if value ~= nil then
+      (LuaEffect.DestroyEffect)(value)
     end
   end
   canEffect = {}
   for i = 1, shopGrpNum do
     local rewardItemList = ((((uis.Integral).RewardListShow).RewardList):AddItemFromPool()):GetChild("RewardItemList")
-    rewardItemList:RemoveChildrenToPool()
-    for j = 1, 5 do
-      local shopIndex = (t - 1) * 5 + j
-      if shopNum < shopIndex then
-        return 
-      end
-      print("id", (rewards[shopIndex]).id)
-      local shopItem = rewardItemList:AddItemFromPool()
-      local rewardConfig = ((TableData.gTable).BaseActivityPointsRewardData)[(rewards[shopIndex]).id]
-      local rewardId = tonumber((split(rewardConfig.rewards_show, ":"))[2])
-      local rewardShowConfig = (Util.GetConfigDataByID)(rewardId)
-      print("111111111111111", rewardId, rewardShowConfig.icon, rewardShowConfig.icon_path)
-      if not rewardShowConfig.icon then
-        (shopItem:GetChild("IconLoader")).url = (Util.GetItemUrl)(rewardShowConfig.icon_path)
-        ;
-        (CommonWinMgr.RegisterItemLongPress)(shopItem:GetChild("IconLoader"), rewardId)
-        ;
-        (shopItem:GetController("c1")).selectedIndex = (rewards[shopIndex]).status
-        local itemNumber = ""
-        if tonumber((split(rewardConfig.rewards_show, ":"))[3]) > 1 then
-          itemNumber = (split(rewardConfig.rewards_show, ":"))[3]
+    do
+      rewardItemList:RemoveChildrenToPool()
+      for j = 1, 5 do
+        local shopIndex = (t - 1) * 5 + j
+        if shopNum < shopIndex then
+          return 
         end
-        ;
-        (shopItem:GetChild("ItemNumberTxt")).text = itemNumber
-        ;
-        (shopItem:GetChild("NumberTxt")).text = rewardConfig.need
-        do
-          if (rewards[shopIndex]).status ~= (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT or (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
-            local holder, effect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERYINTERGRAL_LOOP, true, shopItem, Vector2(shopItem.width / 2, shopItem.height / 2))
-            -- DECOMPILER ERROR at PC292: Confused about usage of register: R30 in 'UnsetPending'
-
-            ;
-            (effect.transform).localPosition = Vector3(0, ((effect.transform).localPosition).y, 0)
-            ;
-            (table.insert)(canEffect, holder)
-            ;
-            (Util.SetSfxClipInListCom)((holder.displayObject).gameObject, ((uis.Integral).RewardListShow).RewardList)
-          else
+        print("id", (rewards[shopIndex]).id)
+        local shopItem = rewardItemList:AddItemFromPool()
+        local rewardConfig = ((TableData.gTable).BaseActivityPointsRewardData)[(rewards[shopIndex]).id]
+        local rewardId = tonumber((split(rewardConfig.rewards_show, ":"))[2])
+        local rewardShowConfig = (Util.GetConfigDataByID)(rewardId)
+        print("111111111111111", rewardId, rewardShowConfig.icon, rewardShowConfig.icon_path)
+        if not rewardShowConfig.icon then
+          (shopItem:GetChild("IconLoader")).url = (Util.GetItemUrl)(rewardShowConfig.icon_path)
+          ;
+          (CommonWinMgr.RegisterItemLongPress)(shopItem:GetChild("IconLoader"), rewardId)
+          ;
+          (shopItem:GetController("c1")).selectedIndex = (rewards[shopIndex]).status
+          local itemNumber = ""
+          if tonumber((split(rewardConfig.rewards_show, ":"))[3]) > 1 then
+            itemNumber = (split(rewardConfig.rewards_show, ":"))[3]
           end
-          if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
-            do
-              (shopItem.onClick):Set(function(...)
+          ;
+          (shopItem:GetChild("ItemNumberTxt")).text = itemNumber
+          ;
+          (shopItem:GetChild("NumberTxt")).text = rewardConfig.need
+          do
+            if (rewards[shopIndex]).status ~= (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT or (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_CAN then
+              local holder, effect = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERYINTERGRAL_LOOP, true, shopItem, Vector2(shopItem.width / 2, shopItem.height / 2))
+              -- DECOMPILER ERROR at PC290: Confused about usage of register: R31 in 'UnsetPending'
+
+              ;
+              (effect.transform).localPosition = Vector3(0, ((effect.transform).localPosition).y, 0)
+              ;
+              (table.insert)(canEffect, holder)
+              ;
+              (Util.SetSfxClipInListCom)((holder.displayObject).gameObject, ((uis.Integral).RewardListShow).RewardList)
+            else
+            end
+            if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_HAS then
+              do
+                (shopItem.onClick):Set(function(...)
     -- function num : 0_1_3 , upvalues : rewards, shopIndex, _ENV, rewardConfig, rewardId, integralData, shopItem, canEffect
     if (rewards[shopIndex]).status == (ProtoEnum.E_STATUS_TYPE).STATUS_TYPE_NOT then
       (MessageMgr.SendCenterTips)((PUtil.get)(303))
@@ -199,22 +199,23 @@ LotteryIntegralWindow.RefreshWindow = function(...)
     -- DECOMPILER ERROR: 6 unprocessed JMP targets
   end
 )
-              -- DECOMPILER ERROR at PC319: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC319: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC319: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC319: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-              -- DECOMPILER ERROR at PC319: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC317: LeaveBlock: unexpected jumping out IF_STMT
 
+              end
             end
           end
         end
       end
+      t = t + 1
     end
-    t = t + 1
   end
 end
 
