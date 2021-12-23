@@ -2906,6 +2906,8 @@ effectTable = {eff}
       end
       headInfo.lastHp = 0
       headInfo:UpdateHp(self, 0)
+      headInfo.lastDander = 0
+      headInfo:UpdateDander(self, 0, true)
       self:UpdateHeadInfoVisible(true)
       self:ChangeDander(rage)
       self:ChangeHp({hurt = hp, absorb = 0, revive = true})

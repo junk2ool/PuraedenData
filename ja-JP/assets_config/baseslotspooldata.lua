@@ -217,7 +217,7 @@ BaseSlotsPoolData = {
 , 
 [24402508] = {id = 24402508, type = 15, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 5, bottom_num = 0}
 , 
-[24403101] = {id = 24403101, type = 16, reward = "5:29000023:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403101] = {id = 24403101, type = 16, reward = "5:29000024:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403102] = {id = 24403102, type = 16, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
@@ -231,7 +231,7 @@ BaseSlotsPoolData = {
 , 
 [24403107] = {id = 24403107, type = 16, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24403201] = {id = 24403201, type = 17, reward = "1:21122220:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403201] = {id = 24403201, type = 17, reward = "1:21122225:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403202] = {id = 24403202, type = 17, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
@@ -245,7 +245,7 @@ BaseSlotsPoolData = {
 , 
 [24403207] = {id = 24403207, type = 17, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24403301] = {id = 24403301, type = 18, reward = "1:21122108:30", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403301] = {id = 24403301, type = 18, reward = "1:21122207:30", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403302] = {id = 24403302, type = 18, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
@@ -259,7 +259,7 @@ BaseSlotsPoolData = {
 , 
 [24403307] = {id = 24403307, type = 18, reward = "1:21500602:1", reward_lab = 2, reward_type = 2, reward_max = 165, sort = 4, bottom_num = 0}
 , 
-[24403401] = {id = 24403401, type = 19, reward = "1:21122220:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
+[24403401] = {id = 24403401, type = 19, reward = "1:21122225:20", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, bottom_num = 0}
 , 
 [24403402] = {id = 24403402, type = 19, reward = "2:21100001:10", reward_lab = 2, reward_type = 2, reward_max = 20, sort = 2, bottom_num = 0}
 , 
@@ -291,15 +291,15 @@ BaseSlotsPoolData = {
 , 
 [24410101] = {id = 24410101, type = 101, reward = "1:21500610:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 1, intelligence = 3, tip_id = 21500610, reward_show = "1:21500610:1", bottom_num = 0}
 , 
-[24410102] = {id = 24410102, type = 101, reward = "1:21120000:4", reward_lab = 1, reward_type = 1, reward_max = 5, sort = 2, group_icon = "Prize:y_21120000", intelligence = 3, tip_id = 21500614, reward_show = "1:21120000:4", bottom_num = 0}
+[24410102] = {id = 24410102, type = 101, reward = "1:21120000:4", reward_lab = 1, reward_type = 1, reward_max = 5, sort = 2, intelligence = 3, tip_id = 21500614, reward_show = "1:21120000:4", bottom_num = 0}
 , 
 [24410103] = {id = 24410103, type = 101, reward = "1:21500621:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 3, intelligence = 3, tip_id = 21500621, reward_show = "1:21500621:1", bottom_num = 0}
 , 
 [24410104] = {id = 24410104, type = 101, reward = "1:21160001:2", reward_lab = 1, reward_type = 1, reward_max = 5, sort = 7, intelligence = 3, tip_id = 21500622, reward_show = "1:21160001:2", bottom_num = 0}
 , 
-[24410105] = {id = 24410105, type = 101, reward = "1:21500616:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 8, group_icon = "Prize:y_21500616", intelligence = 3, tip_id = 21500616, reward_show = "1:21140014:38,1:21140018:42,1:21140017:42,1:21140016:38,1:21140015:38,1:21140013:38", bottom_num = 0}
+[24410105] = {id = 24410105, type = 101, reward = "1:21500626:1", reward_lab = 1, reward_type = 1, reward_max = 1, sort = 8, intelligence = 3, reward_show = "1:21500626:1", bottom_num = 0}
 , 
-[24410106] = {id = 24410106, type = 101, reward = "1:21120001:5", reward_lab = 2, reward_type = 2, reward_max = 4, sort = 6, group_icon = "Prize:y_21120001", intelligence = 2, tip_id = 21500615, reward_show = "1:21120001:5", bottom_num = 0}
+[24410106] = {id = 24410106, type = 101, reward = "1:21120001:5", reward_lab = 2, reward_type = 2, reward_max = 4, sort = 6, intelligence = 2, tip_id = 21500615, reward_show = "1:21120001:5", bottom_num = 0}
 , 
 [24410107] = {id = 24410107, type = 101, reward = "4:61080011:1", reward_lab = 2, reward_type = 2, reward_max = 1, sort = 4, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080011:1", bottom_num = 0}
 , 
@@ -309,7 +309,7 @@ BaseSlotsPoolData = {
 , 
 [24410110] = {id = 24410110, type = 101, reward = "4:61080014:1", reward_lab = 2, reward_type = 2, reward_max = 1, sort = 4, group_name = (PUtil.get)(82500611), group_icon = "Prize:y_61080011", intelligence = 2, tip_id = 21500611, reward_show = "4:61080014:1", bottom_num = 0}
 , 
-[24410111] = {id = 24410111, type = 101, reward = "1:21150002:20", reward_lab = 2, reward_type = 2, reward_max = 5, sort = 5, intelligence = 2, tip_id = 21500623, reward_show = "1:21150002:20", bottom_num = 0}
+[24410111] = {id = 24410111, type = 101, reward = "1:21500627:1", reward_lab = 2, reward_type = 2, reward_max = 1, sort = 5, intelligence = 2, reward_show = "1:21500627:1", bottom_num = 0}
 , 
 [24410112] = {id = 24410112, type = 101, reward = "1:21500607:1", reward_lab = 2, reward_type = 2, reward_max = 2, sort = 9, group_name = (PUtil.get)(82500609), group_icon = "Prize:y_21500609", intelligence = 2, tip_id = 21500609, reward_show = "1:21140011:32,1:21140010:32,1:21140009:30,1:21140008:30,1:21140007:26,1:21140006:26", bottom_num = 0}
 , 
@@ -325,15 +325,15 @@ BaseSlotsPoolData = {
 , 
 [24410118] = {id = 24410118, type = 101, reward = "1:21500606:1", reward_lab = 2, reward_type = 2, reward_max = 1, sort = 10, group_name = (PUtil.get)(82500606), group_icon = "Prize:y_21500606", intelligence = 1, tip_id = 21500606, reward_show = "1:21140005:22,1:21140008:26,1:21140007:26,1:21140006:26,1:21140004:22", bottom_num = 0}
 , 
-[24410119] = {id = 24410119, type = 101, reward = "1:21150001:50", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 11, intelligence = 1, tip_id = 21500624, reward_show = "1:21150001:50", bottom_num = 0}
+[24410119] = {id = 24410119, type = 101, reward = "1:21500628:1", reward_lab = 2, reward_type = 2, reward_max = 1, sort = 11, intelligence = 1, reward_show = "1:21500628:1", bottom_num = 0}
 , 
 [24410120] = {id = 24410120, type = 101, reward = "1:21130004:5", reward_lab = 2, reward_type = 2, reward_max = 10, sort = 12, intelligence = 1, tip_id = 21500625, reward_show = "1:21130004:5", bottom_num = 0}
 , 
-[24410121] = {id = 24410121, type = 101, reward = "2:21100003:140000", reward_lab = 2, reward_type = 2, reward_max = 35, sort = 13, group_icon = "Prize:y_21100003", intelligence = 1, tip_id = 21500612, reward_show = "2:21100003:140000", bottom_num = 0}
+[24410121] = {id = 24410121, type = 101, reward = "2:21100003:140000", reward_lab = 2, reward_type = 2, reward_max = 35, sort = 13, intelligence = 1, tip_id = 21500612, reward_show = "2:21100003:140000", bottom_num = 0}
 , 
-[24410122] = {id = 24410122, type = 101, reward = "1:21110004:9", reward_lab = 2, reward_type = 2, reward_max = 25, sort = 14, group_icon = "Prize:y_21110004", intelligence = 1, tip_id = 21500613, reward_show = "1:21110004:9", bottom_num = 0}
+[24410122] = {id = 24410122, type = 101, reward = "1:21110004:9", reward_lab = 2, reward_type = 2, reward_max = 25, sort = 14, intelligence = 1, tip_id = 21500613, reward_show = "1:21110004:9", bottom_num = 0}
 , 
-[24410123] = {id = 24410123, type = 101, reward = "9:78601315:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601315:1", bottom_num = 117}
+[24410123] = {id = 24410123, type = 101, reward = "9:78601318:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601318:1", bottom_num = 109}
 }
 return BaseSlotsPoolData
 
