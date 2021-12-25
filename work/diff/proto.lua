@@ -771,6 +771,13 @@ message BattleAtkInfo
 	bool skillAddition                      = 24;//本次技能是否是追加技能
 }
 
+//单次攻击后触发复活的角色信息
+message BattleRevivedInfo
+{
+    int32  hp                               = 1;
+    int32  rage                             = 2;
+}
+
 message BattleBuffObject
 {
 	BattleBuff buff 						= 1;//buff的数据
@@ -792,6 +799,7 @@ message BattleBuff
     int32 activeForever                     = 11;//效果是否是永久生效 0 不是永久 1 是永久
     int64 buffTimeStamp                     = 12;//buff挂载的时间戳
     repeated CommonObject summonCards		= 13;//召唤的卡片列表
+    BattleRevivedInfo revivedInfo           = 14;//buff属性生效后触发的复活
 }
 
 message BattleBuffEffect
@@ -822,6 +830,7 @@ message DefendCardInfo
     int32 shareDamageCardPos                = 12;//被援护卡片的位置
     bool isSkillTarget                      = 13;//是否是攻击技能直接选址目标
     bool isImmune                           = 14;//是否免疫
+    BattleRevivedInfo revivedInfo           = 15;
 
 }
 
@@ -845,6 +854,22 @@ message ReqExitBattle{
 message ResExitBattle{
 	string battleUid                        = 1;//战斗唯一标示
 
+}
+
+//711请求异常战斗数据
+message ReqExceptionBattleData
+{
+    E_BATTLE_TYPE battleType                   = 1;//战斗类型（非BATTLE_TYPE_UNKNOWN则代表为请求获取异常战斗数据，随机返回一条该战斗类型的数据）
+    InitBattleData initBattleData              = 2;//战斗初始化数据
+    ExpeditionBattleData expeditionBattleData  = 3;//远征使用到的数据信息（battleType==EXPEDITION）
+    string stackTrace                          = 4;//异常堆栈信息
+}
+//712返回异常战斗数据
+message ResExceptionBattleData
+{
+    InitBattleData initBattleData              = 1;//战斗初始化数
+    ExpeditionBattleData expeditionBattleData  = 2;//远征使用到的数据信息
+    string stackTrace                          = 3;//异常堆栈信息
 }
 
 
@@ -5207,7 +5232,11 @@ enum E_MSG_ID
 	Battle_ReqBattleData                = 705;//请求战斗数据
 	Battle_ResBattleData                = 706;//请求战斗数据
 	Battle_ReqExitBattle                = 707;//请求退出战斗
-	Battle_ResExitBattle                = 708;//请求退出战斗  
+	Battle_ResExitBattle                = 708;//请求退出战斗
+
+	Battle_ReqExceptionBattleData       = 711;//请求异常战斗数据
+	Battle_ResExceptionBattleData       = 712;//返回异常战斗数据
+
 	
 	Shop_ReqShopData                    = 801;//请求商店类型
 	Shop_ResShopData					= 802;//商店类型
@@ -5607,8 +5636,8 @@ enum E_MSG_ID
 	Pay_ReqPayData                      = 2003;//请求支付数据
 	Pay_ResPayData                      = 2004;//返回支付数据
 
-	Pay_ReqGetMoonReward                = 2005;//请求领取月卡奖励
-	Pay_ResGetMoonReward                = 2006;//返回领取月卡奖励
+	Pay_ReqPayCardReward                = 2005;//请求领取充值卡奖励
+	Pay_ResPayCardReward                = 2006;//返回领取充值卡奖励
 
 	Pay_ReqPaySuccess                   = 2007;//请求充值成功
 	Pay_ResPaySuccess                   = 2008;//返回充值成功
@@ -5822,17 +5851,14 @@ message DailyPayInfo
 	int32             todayGiveDiamond = 3;//今日充值赠送获得钻石数量
 }
 
-//月卡充值信息
-message MoonPayInfo
+//充值卡信息
+message PayCardInfo
 {
-	int32              resMoonBuyCount = 1;//资源月卡购买次数
-	int32 			    resMoonSurplus = 2;//资源月卡剩余有效天数
-	bool 				resMoonReceive = 3;//资源月卡当日奖励是否已领
-	bool                     resCanBuy = 4;//资源月卡能否购买
-	int32 			   diaMoonBuyCount = 5;//钻石月卡购买次数
-	int32 			    diaMoonSurplus = 6;//钻石月卡剩余有效天数
-	bool 				diaMoonReceive = 7;//钻石月卡当日奖励是否已领
-	bool                     diaCanBuy = 8;//钻石月卡能否购买
+	string                   productId = 1;//商品ID
+	int32                totalBuyCount = 2;//总购买次数
+	int32 			       cardSurplus = 3;//卡剩余有效天数
+	bool 				   cardReceive = 4;//卡当日奖励是否已领
+	bool                    cardCanBuy = 5;//卡能否购买
 }
 
 //2003 请求充值数据
@@ -5846,20 +5872,20 @@ message ResPayData
 	repeated ProductInfo    productList = 1;//商品信息列表
 			 TotalPayInfo  totalPayInfo = 2;//总充值信息
 			 DailyPayInfo  dailyPayInfo = 3;//每日充值信息
-			 MoonPayInfo    moonPayInfo = 4;//月卡充值信息
+	repeated PayCardInfo    payCardList = 4;//充值卡信息
     bool                          login = 5;//是否登录时请求
 }
 
-//2005 请求领取月卡奖励
-message ReqGetMoonReward
+//2005 请求领取充值卡奖励
+message ReqPayCardReward
 {
-	int32                      moonType = 1;//月卡类型
+	int32                      cardType = 1;//卡类型
 }
-//2006 返回领取月卡奖励
-message ResGetMoonReward
+//2006 返回领取充值卡奖励
+message ResPayCardReward
 {
-	int32                      moonType = 1;//月卡类型
-	bool 				    moonReceive = 2;//奖励是否已领
+	int32                      cardType = 1;//卡类型
+	bool 				    cardReceive = 2;//奖励是否已领
 }
 
 //2007 请求充值成功
@@ -6972,6 +6998,8 @@ ReqBattleData = 705,
 ResBattleData = 706,
 ReqExitBattle = 707,
 ResExitBattle = 708,
+ReqExceptionBattleData = 711,
+ResExceptionBattleData = 712,
 ReqShopData = 801,
 ResShopData = 802,
 ReqShopGridData = 803,
@@ -7236,8 +7264,8 @@ ReqPayCheck = 2001,
 ResPayCheck = 2002,
 ReqPayData = 2003,
 ResPayData = 2004,
-ReqGetMoonReward = 2005,
-ResGetMoonReward = 2006,
+ReqPayCardReward = 2005,
+ResPayCardReward = 2006,
 ReqPaySuccess = 2007,
 ResPaySuccess = 2008,
 ReqUnlockProduct = 2011,
@@ -7559,6 +7587,8 @@ MsgNameByID = {[0] = "Unknown",
 [706] = "ResBattleData",
 [707] = "ReqExitBattle",
 [708] = "ResExitBattle",
+[711] = "ReqExceptionBattleData",
+[712] = "ResExceptionBattleData",
 [801] = "ReqShopData",
 [802] = "ResShopData",
 [803] = "ReqShopGridData",
@@ -7823,8 +7853,8 @@ MsgNameByID = {[0] = "Unknown",
 [2002] = "ResPayCheck",
 [2003] = "ReqPayData",
 [2004] = "ResPayData",
-[2005] = "ReqGetMoonReward",
-[2006] = "ResGetMoonReward",
+[2005] = "ReqPayCardReward",
+[2006] = "ResPayCardReward",
 [2007] = "ReqPaySuccess",
 [2008] = "ResPaySuccess",
 [2011] = "ReqUnlockProduct",
@@ -7969,6 +7999,7 @@ ReqPayCheck = "ReqPayCheck",
 ReqActivateMatrixNode = "ReqActivateMatrixNode",
 ReqInTrial = "ReqInTrial",
 ReqPlayerAddGoods = "ReqPlayerAddGoods",
+ReqPayCardReward = "ReqPayCardReward",
 ReqInFriendPK = "ReqInFriendPK",
 ReqRoomInfo = "ReqRoomInfo",
 BattleBuffEffect = "BattleBuffEffect",
@@ -8039,6 +8070,7 @@ ReqSetChat = "ReqSetChat",
 ReqPaySuccess = "ReqPaySuccess",
 RoomStyle = "RoomStyle",
 TrialStage = "TrialStage",
+ResPayCardReward = "ResPayCardReward",
 ReqPlayDice = "ReqPlayDice",
 ResRemoveEquipScheme = "ResRemoveEquipScheme",
 ReqGuildSummary = "ReqGuildSummary",
@@ -8066,7 +8098,6 @@ ResLandUproot = "ResLandUproot",
 ResSettleGuildPK = "ResSettleGuildPK",
 ResGuildPK = "ResGuildPK",
 ResUpdateEquipSchemeName = "ResUpdateEquipSchemeName",
-MoonPayInfo = "MoonPayInfo",
 ResSubmitTask = "ResSubmitTask",
 ResWarReward = "ResWarReward",
 EquipSetsBuff = "EquipSetsBuff",
@@ -8161,6 +8192,7 @@ ResFriendInfo = "ResFriendInfo",
 ReqMyClickLikeRemark = "ReqMyClickLikeRemark",
 ResActivityInfoList = "ResActivityInfoList",
 ReturnLoginActInfo = "ReturnLoginActInfo",
+ResExceptionBattleData = "ResExceptionBattleData",
 ReqEmbattle = "ReqEmbattle",
 LimitGiftActInfo = "LimitGiftActInfo",
 ReqLotteryRecord = "ReqLotteryRecord",
@@ -8191,7 +8223,6 @@ ReqGetBindReward = "ReqGetBindReward",
 SupportObject = "SupportObject",
 ResHandLetterList = "ResHandLetterList",
 ArenaCard = "ArenaCard",
-ReqGetMoonReward = "ReqGetMoonReward",
 ResSupportSet = "ResSupportSet",
 ResPutOnEquip = "ResPutOnEquip",
 ResAdventureBuilding = "ResAdventureBuilding",
@@ -8266,6 +8297,7 @@ ResWishReward = "ResWishReward",
 ReqPing = "ReqPing",
 ReqAdventureBuilding = "ReqAdventureBuilding",
 ReqHandLetterList = "ReqHandLetterList",
+BattleRevivedInfo = "BattleRevivedInfo",
 ResSignInInit = "ResSignInInit",
 ResAssistGuildMember = "ResAssistGuildMember",
 ReqSettleExpedition = "ReqSettleExpedition",
@@ -8333,6 +8365,7 @@ ResChangeFriendRelation = "ResChangeFriendRelation",
 ResRandomMonsterGroupList = "ResRandomMonsterGroupList",
 ResTalentTreeStarUp = "ResTalentTreeStarUp",
 ReqSignInReward = "ReqSignInReward",
+ReqExceptionBattleData = "ReqExceptionBattleData",
 ReqPlayClearCDTime = "ReqPlayClearCDTime",
 ResBeginRisk = "ResBeginRisk",
 ResAddOrUpdateDeckScheme = "ResAddOrUpdateDeckScheme",
@@ -8436,6 +8469,7 @@ ReqSettleCGCopyStage = "ReqSettleCGCopyStage",
 ReqServerList = "ReqServerList",
 ResAlert = "ResAlert",
 ReqInitConversion = "ReqInitConversion",
+PayCardInfo = "PayCardInfo",
 ResCGCopyStage = "ResCGCopyStage",
 ReqLevelUpMatrixSeal = "ReqLevelUpMatrixSeal",
 ResPopUpLevelUp = "ResPopUpLevelUp",
@@ -8475,7 +8509,6 @@ ResArenaData = "ResArenaData",
 LotteryIntegralActInfo = "LotteryIntegralActInfo",
 ReqPointReward = "ReqPointReward",
 ReqRandomPlayerInfo = "ReqRandomPlayerInfo",
-ResGetMoonReward = "ResGetMoonReward",
 ResEndRisk = "ResEndRisk",
 AssistFightData = "AssistFightData",
 ReqInGuildStage = "ReqInGuildStage",
