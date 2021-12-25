@@ -564,4 +564,34 @@
 [52700312] = {id = 52700312, name = "研究員達を捕まえに！", remark = "研究員達を捕まえに！", icon = "HandBookBanner:Activity_10_4", story_id = "75901461:75901462:75901471", sort = 4}
 , 
 [52700314] = {id = 52700314, name = "真実は闇の中", remark = "真実は闇の中", icon = "HandBookBanner:Activity_10_5", story_id = "75901481", sort = 5}
+, 
+[52700403] = {id = 52700403, name = "謎の訪問者", remark = "謎の訪問者", icon = "HandBookBanner:Activity_13_1", story_id = "75901501:75901502:75901511:75901512:75901513", sort = 1}
+, 
+[52700406] = {id = 52700406, name = "仲間探し", remark = "仲間探し", icon = "HandBookBanner:Activity_13_2", story_id = "75901521:75901531:75901532", sort = 2}
+, 
+[52700409] = {id = 52700409, name = "予期せぬ再会", remark = "予期せぬ再会", icon = "HandBookBanner:Activity_13_3", story_id = "75901541:75901542:75901543:75901551:75901552", sort = 3}
+, 
+[52700412] = {id = 52700412, name = "未曾有の大ピンチ", remark = "未曾有の大ピンチ", icon = "HandBookBanner:Activity_13_4", story_id = "75901561:75901562:75901571:75901572", sort = 4}
+, 
+[52700414] = {id = 52700414, name = "嵐の再来", remark = "嵐の再来", icon = "HandBookBanner:Activity_13_5", story_id = "75901581:75901582:75901591:75901593:75901594:75901595:75901596", sort = 5}
+, 
+[52700503] = {id = 52700503, name = "ハーミットの依頼", remark = "ハーミットの依頼", icon = "HandBookBanner:Activity_14_1", story_id = "75901601:75901602:75901603:75901611", sort = 1}
+, 
+[52700506] = {id = 52700506, name = "いわくつきの豪邸", remark = "いわくつきの豪邸", icon = "HandBookBanner:Activity_14_2", story_id = "75901621:75901631:75901632:75901633:75901634", sort = 2}
+, 
+[52700509] = {id = 52700509, name = "謎の下宿人", remark = "謎の下宿人", icon = "HandBookBanner:Activity_14_3", story_id = "75901641:75901651:75901653", sort = 3}
+, 
+[52700512] = {id = 52700512, name = "秘密の地下部屋", remark = "秘密の地下部屋", icon = "HandBookBanner:Activity_14_4", story_id = "75901661:75901662:75901671", sort = 4}
+, 
+[52700514] = {id = 52700514, name = "真相と選択", remark = "真相と選択", icon = "HandBookBanner:Activity_14_5", story_id = "75901681", sort = 5}
+, 
+[52700603] = {id = 52700603, name = "学園事件の調査依頼", remark = "学園事件の調査依頼", icon = "HandBookBanner:Activity_15_1", story_id = "75901701:75901711", sort = 1}
+, 
+[52700606] = {id = 52700606, name = "学園での内偵", remark = "学園での内偵", icon = "HandBookBanner:Activity_15_2", story_id = "75901721:75901731:75901732:75901733", sort = 2}
+, 
+[52700609] = {id = 52700609, name = "調査停滞", remark = "調査停滞", icon = "HandBookBanner:Activity_15_3", story_id = "75901741:75901751", sort = 3}
+, 
+[52700612] = {id = 52700612, name = "真相が明らかに！", remark = "真相が明らかに！", icon = "HandBookBanner:Activity_15_4", story_id = "75901761:75901762:75901771:75901781", sort = 4}
+, 
+[52700614] = {id = 52700614, name = "茶会での会話", remark = "茶会での会話", icon = "HandBookBanner:Activity_15_5", story_id = "75901791", sort = 5}
 }

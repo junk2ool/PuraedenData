@@ -95,6 +95,10 @@
 , 
 [44002217] = {id = 44002217, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[44002218] = {id = 44002218, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44002220] = {id = 44002220, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [44002221] = {id = 44002221, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44003001] = {id = 44003001, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44001001, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -135,6 +139,8 @@
 , 
 [44003019] = {id = 44003019, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[44003021] = {id = 44003021, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [44003022] = {id = 44003022, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44003023] = {id = 44003023, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
@@ -167,7 +173,25 @@
 , 
 [44003037] = {id = 44003037, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[44003038] = {id = 44003038, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003039] = {id = 44003039, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003040] = {id = 44003040, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003041] = {id = 44003041, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003043] = {id = 44003043, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 3000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003045] = {id = 44003045, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003046] = {id = 44003046, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003047] = {id = 44003047, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [44003048] = {id = 44003048, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[44003049] = {id = 44003049, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [44003101] = {id = 44003101, name = "未定義(81230001)", type = 4, targetType = 0, damage = 0, damage_up = 0, damage_rate = 2000, damage_rate_up = 0, strike_prob = 5000, fall_prob = 5000, buff_odds = 0, buff_list = "0", show_id = 44003101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 

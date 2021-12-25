@@ -174,4 +174,22 @@
 [51610202] = {id = 51610202, name = "闇の研究所", type = 201, stages = "52700306:52700307:52700308:52700309", open_condition = "72501001:0:1,72504612:52700305:1", pre = 51610201, next = "51610203", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
 [51610203] = {id = 51610203, name = "闇の研究所", type = 201, stages = "52700310:52700311:52700312:52700313:52700314", open_condition = "72501001:0:1,72504612:52700309:1", pre = 51610202, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610301] = {id = 51610301, name = "この素晴らしいエデン大陸に祝福を！ ", type = 201, stages = "52700401:52700402:52700403:52700404:52700405", open_condition = "72501001:0:1", pre = 0, next = "51610302", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610302] = {id = 51610302, name = "この素晴らしいエデン大陸に祝福を！ ", type = 201, stages = "52700406:52700407:52700408:52700409", open_condition = "72501001:0:1,72504612:52700405:1", pre = 51610301, next = "51610303", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610303] = {id = 51610303, name = "この素晴らしいエデン大陸に祝福を！ ", type = 201, stages = "52700410:52700411:52700412:52700413:52700414", open_condition = "72501001:0:1,72504612:52700409:1", pre = 51610302, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610401] = {id = 51610401, name = "絶叫のお化け屋敷！", type = 201, stages = "52700501:52700502:52700503:52700504:52700505", open_condition = "72501001:0:1", pre = 0, next = "51610402", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610402] = {id = 51610402, name = "絶叫のお化け屋敷！", type = 201, stages = "52700506:52700507:52700508:52700509", open_condition = "72501001:0:1,72504612:52700505:1", pre = 51610401, next = "51610403", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610403] = {id = 51610403, name = "絶叫のお化け屋敷！", type = 201, stages = "52700510:52700511:52700512:52700513:52700514", open_condition = "72501001:0:1,72504612:52700509:1", pre = 51610402, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610501] = {id = 51610501, name = "学園薔薇色ミステリー", type = 201, stages = "52700601:52700602:52700603:52700604:52700605", open_condition = "72501001:0:1", pre = 0, next = "51610502", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610502] = {id = 51610502, name = "学園薔薇色ミステリー", type = 201, stages = "52700606:52700607:52700608:52700609", open_condition = "72501001:0:1,72504612:52700605:1", pre = 51610501, next = "51610503", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610503] = {id = 51610503, name = "学園薔薇色ミステリー", type = 201, stages = "52700610:52700611:52700612:52700613:52700614", open_condition = "72501001:0:1,72504612:52700609:1", pre = 51610502, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 }

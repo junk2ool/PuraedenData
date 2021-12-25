@@ -1,6 +1,8 @@
 {
 [77100001] = {id = 77100001, name = "秘境", remark = "「秘境－願掛け」で獲得する", icon = "ItemIcon:21160003", type = 307002, value = 0, sort = 10}
 , 
+[77100002] = {id = 77100002, name = "秘境", remark = "「秘境－願掛け」で獲得する", icon = "ItemIcon:21160003", type = 102005, value = 0, sort = 10}
+, 
 [77121001] = {id = 77121001, name = "冒険者修行", remark = "第2章\n2-8 シャノン", icon = "ItemIcon:21160003", type = 300102, value = 52200214, sort = 10}
 , 
 [77121002] = {id = 77121002, name = "冒険者修行", remark = "第1章\n1-2 オリヴィア", icon = "ItemIcon:21160003", type = 300102, value = 52200103, sort = 10}
@@ -462,6 +464,30 @@
 [77422221] = {id = 77422221, name = "イベント", remark = "イベント 「闇の研究所」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77423048] = {id = 77423048, name = "募集", remark = "「闇の研究所」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423043] = {id = 77423043, name = "募集", remark = "「東方の笛声」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77422218] = {id = 77422218, name = "イベント", remark = "イベント 「この素晴らしいエデン大陸に祝福を！Ⅰ」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423038] = {id = 77423038, name = "募集", remark = "「この素晴らしいエデン大陸に祝福を！Ⅰ」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423039] = {id = 77423039, name = "募集", remark = "「この素晴らしいエデン大陸に祝福を！Ⅰ」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423040] = {id = 77423040, name = "募集", remark = "「この素晴らしいエデン大陸に祝福を！Ⅱ」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423041] = {id = 77423041, name = "募集", remark = "「この素晴らしいエデン大陸に祝福を！Ⅱ」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423049] = {id = 77423049, name = "募集", remark = "「絶叫のお化け屋敷！」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423045] = {id = 77423045, name = "募集", remark = "「トリックナイト」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77422220] = {id = 77422220, name = "イベント", remark = "イベント 「学園薔薇色ミステリー」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423046] = {id = 77423046, name = "募集", remark = "「学園薔薇色ミステリー」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423047] = {id = 77423047, name = "募集", remark = "「幸せを呼ぶ温泉女神と水の精霊」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
+, 
+[77423021] = {id = 77423021, name = "募集", remark = "「幸せを呼ぶ温泉女神と水の精霊」で獲得する", icon = "ItemIcon:21160003", type = 0, value = 0, sort = 40}
 , 
 [77430003] = {id = 77430003, name = "秘境", remark = "「秘境－キャンプ/願掛け」で獲得する", icon = "ItemIcon:21160003", type = 300107, value = 0, sort = 40}
 , 

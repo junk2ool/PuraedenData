@@ -124,4 +124,10 @@
 [51610101] = {id = 51610101, type = 3, activity_type = 313, name = "脱出！無人島？", remark = "脱出！無人島？", record_ids = "52700203:52700206:52700209:52700212:52700214", sort = 13, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
 [51610201] = {id = 51610201, type = 3, activity_type = 314, name = "闇の研究所", remark = "闇の研究所", record_ids = "52700303:52700306:52700309:52700312:52700314", sort = 14, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51610301] = {id = 51610301, type = 3, activity_type = 315, name = "この素晴らしいエデン大陸に祝福を！ ", remark = "この素晴らしいエデン大陸に祝福を！ ", record_ids = "52700403:52700406:52700409:52700412:52700414", sort = 15, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51610401] = {id = 51610401, type = 3, activity_type = 316, name = "絶叫のお化け屋敷！", remark = "絶叫のお化け屋敷！", record_ids = "52700503:52700506:52700509:52700512:52700514", sort = 16, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51610501] = {id = 51610501, type = 3, activity_type = 317, name = "学園薔薇色ミステリー", remark = "学園薔薇色ミステリー", record_ids = "52700603:52700606:52700609:52700612:52700614", sort = 17, unlockPoints = 0, nextId = 0, needStage = 0}
 }

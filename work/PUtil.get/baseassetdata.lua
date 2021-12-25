@@ -37,25 +37,25 @@
 , 
 [21100019] = {id = 21100019, name = "天賦ポイント", remark = "ギルド戦における天賦のレベルアップに使用する。", quality = 3, icon = "ItemIcon:21100019", go_to_id = "77400019", reward_sort = 9690002}
 , 
-[21100020] = {id = 21100020, name = "バゲット", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100023", reward_sort = 9690001}
+[21100020] = {id = 21100020, name = "羽子板", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100023", reward_sort = 9690001}
 , 
 [21100021] = {id = 21100021, name = "リッタのギフト券", remark = "リッタが発行した特別ギフト券。イベントショップでギフトを抽選できる。", quality = 3, icon = "ItemIcon:21100018", reward_sort = 9690002}
 , 
 [21100022] = {id = 21100022, name = "農場EXP", remark = "農場レベルアップに使用する。", quality = 3, icon = "ItemIcon:21100022", reward_sort = 9690002}
 , 
-[21100023] = {id = 21100023, name = "バゲット", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100023", reward_sort = 9690001}
+[21100023] = {id = 21100023, name = "羽子板", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100023", reward_sort = 9690001}
 , 
 [21100024] = {id = 21100024, name = "ハウスコイン", remark = "成熟した作物を収穫すると獲得。消費することで農場ショップ内で様々なオブジェクトを購入可能。", quality = 3, icon = "ItemIcon:21100024", go_to_id = "77400024", reward_sort = 9690002}
 , 
-[21100025] = {id = 21100025, name = "バゲット", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100025", go_to_id = "77300025", reward_sort = 9690001}
+[21100025] = {id = 21100025, name = "羽子板", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100025", go_to_id = "77300025", reward_sort = 9690001}
 , 
-[21100026] = {id = 21100026, name = "バゲット", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100026", reward_sort = 9690001}
+[21100026] = {id = 21100026, name = "羽子板", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100026", reward_sort = 9690001}
 , 
-[21100027] = {id = 21100027, name = "手作りマカロン", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100027", reward_sort = 9690001}
+[21100027] = {id = 21100027, name = "ジンジャーブレッドマン", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100027", reward_sort = 9690001}
 , 
 [21100028] = {id = 21100028, name = "リッタのギフト券", remark = "リッタが発行した特別ギフト券。イベントショップでギフトを抽選できる。", quality = 3, icon = "ItemIcon:21100018", reward_sort = 9690002}
 , 
-[21100029] = {id = 21100029, name = "バゲット", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100024", reward_sort = 9690001}
+[21100029] = {id = 21100029, name = "羽子板", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100024", reward_sort = 9690001}
 , 
 [21100030] = {id = 21100030, name = "リッタのギフト券", remark = "リッタが発行した特別ギフト券。イベントショップでギフトを抽選できる。", quality = 3, icon = "ItemIcon:21100018", reward_sort = 9690002}
 }
