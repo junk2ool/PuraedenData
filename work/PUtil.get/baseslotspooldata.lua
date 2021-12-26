@@ -331,5 +331,5 @@
 , 
 [24410122] = {id = 24410122, type = 101, reward = "1:21110004:9", reward_lab = 2, reward_type = 2, reward_max = 25, sort = 14, intelligence = 1, tip_id = 21500613, reward_show = "1:21110004:9", bottom_num = 0}
 , 
-[24410123] = {id = 24410123, type = 101, reward = "9:78601318:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601318:1", bottom_num = 109}
+[24410123] = {id = 24410123, type = 101, reward = "9:78601318:1", reward_lab = 1, reward_type = 3, reward_max = 1, sort = 15, intelligence = 4, reward_show = "9:78601318:1", bottom_num = 104}
 }
