@@ -258,4 +258,6 @@
 [78601205] = {id = 78601205, name = "ブレーニア", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300047_2", condition = "72501008:11300047:10", sort = 896, reward_sort = 9880001, own_show = 1, open_time = "1639515600"}
 , 
 [78601206] = {id = 78601206, name = "ピース", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300021_2", condition = "72501008:11300021:10", sort = 895, reward_sort = 9880001, own_show = 1, open_time = "1639515600"}
+, 
+[78601207] = {id = 78601207, name = "シェリー(新春)", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11300055_2", condition = "72501008:11300055:10", sort = 894, reward_sort = 9880001, own_show = 1, open_time = "1640912400"}
 }

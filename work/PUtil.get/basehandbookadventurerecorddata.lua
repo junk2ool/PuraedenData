@@ -594,4 +594,14 @@
 [52700612] = {id = 52700612, name = "真相が明らかに！", remark = "真相が明らかに！", icon = "HandBookBanner:Activity_15_4", story_id = "75901761:75901762:75901771:75901781", sort = 4}
 , 
 [52700614] = {id = 52700614, name = "茶会での会話", remark = "茶会での会話", icon = "HandBookBanner:Activity_15_5", story_id = "75901791", sort = 5}
+, 
+[52700703] = {id = 52700703, name = "旧友に会う", remark = "旧友に会う", icon = "HandBookBanner:Activity_16_1", story_id = "75901801:75901802:75901811", sort = 1}
+, 
+[52700706] = {id = 52700706, name = "羽子板試合", remark = "羽子板試合", icon = "HandBookBanner:Activity_16_2", story_id = "75901821:75901831:75901832", sort = 2}
+, 
+[52700709] = {id = 52700709, name = "予期せぬ事態", remark = "予期せぬ事態", icon = "HandBookBanner:Activity_16_3", story_id = "75901841:75901851", sort = 3}
+, 
+[52700712] = {id = 52700712, name = "ぶつかり合う戦い", remark = "ぶつかり合う戦い", icon = "HandBookBanner:Activity_16_4", story_id = "75901861:75901871:75901872:75901873", sort = 4}
+, 
+[52700714] = {id = 52700714, name = "新たなメンバー", remark = "新たなメンバー", icon = "HandBookBanner:Activity_16_5", story_id = "75901881", sort = 5}
 }

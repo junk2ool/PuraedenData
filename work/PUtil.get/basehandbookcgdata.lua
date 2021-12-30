@@ -171,9 +171,9 @@
 , 
 [26131060] = {id = 26131060, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11301006, index = 50, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 
-[26300101] = {id = 26300101, name = "森の中の練習", remark = "自分の声を聞きながら歌っていけば、練習が捗る気がします！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92108001", fashion_id = "92108001", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = 0}
+[26300101] = {id = 26300101, name = "森の中の練習", remark = "自分の声を聞きながら歌っていけば、練習が捗る気がします！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92108001", fashion_id = "92108001", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = 1596157200}
 , 
-[26300102] = {id = 26300102, name = "カフェでのライブ", remark = "憧れのアイドルと同じ舞台に立つなんて、夢みたい…！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 2, icon = "HandBookCGBanner:92108002", fashion_id = "92108002", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = 0}
+[26300102] = {id = 26300102, name = "カフェでのライブ", remark = "憧れのアイドルと同じ舞台に立つなんて、夢みたい…！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 2, icon = "HandBookCGBanner:92108002", fashion_id = "92108002", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = 1596157200}
 , 
 [26300201] = {id = 26300201, name = "海浜のふたり", remark = "暑い夏に海の涼しさを感じましょう！", des = "第一章 ロック中", type = 3, chapter_id = 51410002, index = 1, icon = "HandBookCGBanner:92108003", fashion_id = "92108003", activity_sort = 2, activity_name = "「集客！波乱のサマー」", open_time = 0}
 , 
@@ -218,4 +218,10 @@
 [26301103] = {id = 26301103, name = "水着に着替えてもらおう", remark = "わ、わかった。き、着替えてくる…！", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 1, icon = "HandBookCGBanner:92108045", fashion_id = "92108045", activity_sort = 12, activity_name = "奪還！海の家！", open_time = 1625014800}
 , 
 [26301104] = {id = 26301104, name = "夏の海は最高だ", remark = "せっかくの、素敵な海だから。一緒に楽しもう。", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 2, icon = "HandBookCGBanner:92108046", fashion_id = "92108046", activity_sort = 12, activity_name = "奪還！海の家！", open_time = 1625014800}
+, 
+[26301105] = {id = 26301105, name = "リラックスタイム", remark = "皆様、どうぞここでお好きにおくつろぎください。", des = "第一章 ロック中", type = 3, chapter_id = 51410013, index = 1, icon = "HandBookCGBanner:92108047", fashion_id = "92108047", activity_sort = 13, activity_name = "脱出！無人島？", open_time = 1625014800}
+, 
+[26301106] = {id = 26301106, name = "囚われの実験体", remark = "…嫌よ。私は逃げるつもりがない。だって、もしまた失敗なんてしたら…", des = "第一章 ロック中", type = 3, chapter_id = 51410014, index = 1, icon = "HandBookCGBanner:92108048", fashion_id = "92108048", activity_sort = 14, activity_name = "闇の研究所", open_time = 1630371600}
+, 
+[26301107] = {id = 26301107, name = "束縛された魂", remark = "ごめんなさいごめんなさい幽霊さん、リリー達を祟り殺さないでください！！", des = "第一章 ロック中", type = 3, chapter_id = 51410015, index = 1, icon = "HandBookCGBanner:92108049", fashion_id = "92108049", activity_sort = 15, activity_name = "絶叫のお化け屋敷！", open_time = 1635642000}
 }

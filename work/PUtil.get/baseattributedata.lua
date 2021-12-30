@@ -51,9 +51,9 @@
 , 
 [81050026] = {id = 81050026, remark = "怒普攻回复/小技能回复", name = "dander_atk", display_name = "SP攻撃回復", fc_base = 0, equip_show = 0, type = 0}
 , 
-[81050027] = {id = 81050027, remark = "怒气击杀回复", name = "dander_hit", display_name = "SP撃破回復", fc_base = 0, equip_show = 0, type = 0}
+[81050027] = {id = 81050027, remark = "怒气受击回复", name = "dander_hit", display_name = "SP撃破回復", fc_base = 0, equip_show = 0, type = 0}
 , 
-[81050028] = {id = 81050028, remark = "怒气受击回复", name = "dander_kill", display_name = "SP被弾回復", fc_base = 0, equip_show = 0, type = 0}
+[81050028] = {id = 81050028, remark = "怒气击杀回复", name = "dander_kill", display_name = "SP被弾回復", fc_base = 0, equip_show = 0, type = 0}
 , 
 [81050029] = {id = 81050029, remark = "克制加成%", name = "restraint_add_rate", display_name = "克制加成", fc_base = 70000, equip_show = 0, type = 0}
 , 

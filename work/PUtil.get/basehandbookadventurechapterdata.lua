@@ -130,4 +130,6 @@
 [51610401] = {id = 51610401, type = 3, activity_type = 316, name = "絶叫のお化け屋敷！", remark = "絶叫のお化け屋敷！", record_ids = "52700503:52700506:52700509:52700512:52700514", sort = 16, unlockPoints = 0, nextId = 0, needStage = 0}
 , 
 [51610501] = {id = 51610501, type = 3, activity_type = 317, name = "学園薔薇色ミステリー", remark = "学園薔薇色ミステリー", record_ids = "52700603:52700606:52700609:52700612:52700614", sort = 17, unlockPoints = 0, nextId = 0, needStage = 0}
+, 
+[51610601] = {id = 51610601, type = 3, activity_type = 318, name = "正月、紅白羽子板大会♪", remark = "正月、紅白羽子板大会♪", record_ids = "52700703:52700706:52700709:52700712:52700714", sort = 18, unlockPoints = 0, nextId = 0, needStage = 0}
 }

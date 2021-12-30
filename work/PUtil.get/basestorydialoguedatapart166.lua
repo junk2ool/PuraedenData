@@ -271,7 +271,7 @@
 , 
 [75433902] = {id = 75433902, remark = "気を付けて探してくださいまし。\nこの辺りは崖もありますから――", type = 1, option_ids = "0", next = 75433903, role_ids = "75200331", expression = "0", action = "0", action_type = "0", role_type = 75200331, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
-[75433903] = {id = 75433903, remark = "あっ！　リーダー様！", type = 1, option_ids = "0", next = -1, role_ids = "75200331", expression = "0", action = "0", action_type = "0", role_type = 75200331, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0"}
+[75433903] = {id = 75433903, remark = "あっ！　リーダー様！", type = 1, option_ids = "0", next = -1, role_ids = "75200331", expression = "0", action = "0", action_type = "0", role_type = 75200331, position = "418:606:10050", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 
 [75433904] = {id = 75433904, remark = "ふう…わたくしが腕を掴んでいなければ、リーダー様は\n今頃、崖の下でした。さあ、引き上げますよ。", type = 1, option_ids = "0", next = 75433905, role_ids = "75200331", expression = "0", action = "0", action_type = "0", role_type = 75200331, position = "418:606:10050", role_admission_type = "75200331:0:0", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 1020001}
 , 

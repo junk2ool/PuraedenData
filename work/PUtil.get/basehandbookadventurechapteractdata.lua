@@ -32,4 +32,6 @@
 [36000016] = {id = 36000016, name = "手帳", icon = "HandBookPlotBanner:ActivityPlot_16", activity_type = 316, sort = 16}
 , 
 [36000017] = {id = 36000017, name = "手帳", icon = "HandBookPlotBanner:ActivityPlot_17", activity_type = 317, sort = 17}
+, 
+[36000018] = {id = 36000018, name = "手帳", icon = "HandBookPlotBanner:ActivityPlot_18", activity_type = 318, sort = 18}
 }
