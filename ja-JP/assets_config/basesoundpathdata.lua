@@ -6568,6 +6568,46 @@ BaseSoundPathData = {
 [230210301] = {id = 230210301, play_frame = 12, path = "sfx_peace_small_wh_12fr", bank = "peace"}
 , 
 [230210302] = {id = 230210302, play_frame = 72, path = "sfx_peace_small_tx_72fr", bank = "peace"}
+, 
+[230550101] = {id = 230550101, play_frame = 4, path = "sfx_sherrynewyear_big_tx_4fr", bank = "sherrynewyear"}
+, 
+[230550102] = {id = 230550102, play_frame = 154, path = "sfx_sherrynewyear_big_tx_154fr", bank = "sherrynewyear"}
+, 
+[230550103] = {id = 230550103, play_frame = 198, path = "sfx_sherrynewyear_big_tx_198fr", bank = "sherrynewyear"}
+, 
+[230550104] = {id = 230550104, play_frame = 214, path = "sfx_sherrynewyear_big_tx_214fr", bank = "sherrynewyear"}
+, 
+[230550105] = {id = 230550105, play_frame = 232, path = "sfx_sherrynewyear_big_tx_232fr", bank = "sherrynewyear"}
+, 
+[230550106] = {id = 230550106, play_frame = 285, path = "sfx_sherrynewyear_big_tx_285fr", bank = "sherrynewyear"}
+, 
+[230550107] = {id = 230550107, play_frame = 313, path = "sfx_sherrynewyear_big_tx_313fr", bank = "sherrynewyear"}
+, 
+[230550108] = {id = 230550108, play_frame = 337, path = "sfx_sherrynewyear_big_tx_337fr", bank = "sherrynewyear"}
+, 
+[230550109] = {id = 230550109, play_frame = 350, path = "sfx_sherrynewyear_big_tx_350fr", bank = "sherrynewyear"}
+, 
+[230550110] = {id = 230550110, play_frame = 441, path = "sfx_sherrynewyear_big_tx_441fr", bank = "sherrynewyear"}
+, 
+[230550111] = {id = 230550111, play_frame = 513, path = "sfx_sherrynewyear_big_tx_513fr", bank = "sherrynewyear"}
+, 
+[230550112] = {id = 230550112, play_frame = 540, path = "sfx_sherrynewyear_big_tx_540fr", bank = "sherrynewyear"}
+, 
+[230550113] = {id = 230550113, play_frame = 568, path = "sfx_sherrynewyear_big_tx_568fr", bank = "sherrynewyear"}
+, 
+[230550201] = {id = 230550201, play_frame = 2, path = "sfx_sherrynewyear_pt_wh_2fr", bank = "sherrynewyear"}
+, 
+[230550202] = {id = 230550202, play_frame = 73, path = "sfx_sherrynewyear_pt_wh_73fr", bank = "sherrynewyear"}
+, 
+[230550203] = {id = 230550203, play_frame = 82, path = "sfx_sherrynewyear_pt_wh_82fr", bank = "sherrynewyear"}
+, 
+[230550204] = {id = 230550204, play_frame = 102, path = "sfx_sherrynewyear_pt_tx_102fr", bank = "sherrynewyear"}
+, 
+[230550301] = {id = 230550301, play_frame = 18, path = "sfx_sherrynewyear_small_wh_18fr", bank = "sherrynewyear"}
+, 
+[230550302] = {id = 230550302, play_frame = 79, path = "sfx_sherrynewyear_small_wh_79fr", bank = "sherrynewyear"}
+, 
+[230550303] = {id = 230550303, play_frame = 105, path = "sfx_sherrynewyear_small_tx_105fr", bank = "sherrynewyear"}
 }
 return BaseSoundPathData
 

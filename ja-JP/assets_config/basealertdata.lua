@@ -125,6 +125,8 @@ lottery_cd_error = {id = "lottery_cd_error", name_cn = "已删除"}
 , 
 lottery_max_num = {id = "lottery_max_num", name = "本日の募集回数が使用切れです", name_cn = "今日的招募次数已使用完啦"}
 , 
+today_lottery_max_num = {id = "today_lottery_max_num", name = "募集回数が使用切れです", name_cn = "招募次数已使用完啦"}
+, 
 max_buy_num_zero = {id = "max_buy_num_zero", name = "最大購入可能回数はゼロです", name_cn = "最大购买次数为0"}
 , 
 no_arena_cd = {id = "no_arena_cd", name = "闘技場挑戦が冷却中ですから、お待ちください", name_cn = "竞技场挑战冷却中，请稍后"}

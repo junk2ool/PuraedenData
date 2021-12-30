@@ -194,6 +194,12 @@ BaseChapterData = {
 [51610502] = {id = 51610502, name = (PUtil.get)(85181700), type = 201, stages = "52700606:52700607:52700608:52700609", open_condition = "72501001:0:1,72504612:52700605:1", pre = 51610501, next = "51610503", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
 [51610503] = {id = 51610503, name = (PUtil.get)(85181700), type = 201, stages = "52700610:52700611:52700612:52700613:52700614", open_condition = "72501001:0:1,72504612:52700609:1", pre = 51610502, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610601] = {id = 51610601, name = (PUtil.get)(85181800), type = 201, stages = "52700701:52700702:52700703:52700704:52700705", open_condition = "72501001:0:1", pre = 0, next = "51610602", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610602] = {id = 51610602, name = (PUtil.get)(85181800), type = 201, stages = "52700706:52700707:52700708:52700709", open_condition = "72501001:0:1,72504612:52700705:1", pre = 51610601, next = "51610603", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+, 
+[51610603] = {id = 51610603, name = (PUtil.get)(85181800), type = 201, stages = "52700710:52700711:52700712:52700713:52700714", open_condition = "72501001:0:1,72504612:52700709:1", pre = 51610602, next = "0", activity_id = 33001401, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 }
 return BaseChapterData
 

@@ -47,7 +47,7 @@ BasePlayerTitleData = {
 , 
 [29000023] = {id = 29000023, name = (PUtil.get)(84111123), goods_icon = "ItemIcon:29000023", type = 1, quality = 3, remark = (PUtil.get)(84111023), des = (PUtil.get)(84111223), icon = "Title:29000023", date = -1, sort = 11, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1638237599"}
 , 
-[29000024] = {id = 29000024, name = (PUtil.get)(84111124), goods_icon = "ItemIcon:29000024", type = 1, quality = 3, remark = (PUtil.get)(84111024), des = (PUtil.get)(84111224), icon = "Title:29000024", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1640915999"}
+[29000024] = {id = 29000024, name = (PUtil.get)(84111124), goods_icon = "ItemIcon:29000024", type = 1, quality = 3, remark = (PUtil.get)(84111024), des = (PUtil.get)(84111224), icon = "Title:29000024", date = -1, sort = 10, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1640051999"}
 , 
 [29000101] = {id = 29000101, name = (PUtil.get)(84112101), goods_icon = "ItemIcon:29000101", type = 1, quality = 3, remark = (PUtil.get)(84112001), des = (PUtil.get)(84112201), icon = "Title:29000101", date = -1, sort = 1, add_attr = "0", reward_sort = 9880001, own_show = 1, open_time = "1620403200"}
 }

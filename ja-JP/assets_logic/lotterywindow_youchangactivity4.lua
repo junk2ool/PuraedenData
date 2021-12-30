@@ -16,6 +16,10 @@ LotteryWindow_YouChangActivity4.RefreshWindow = function(_uis, ...)
   ;
   ((((uis.LotteryPanelGrp).GetCha_LuckBagGrp).SpecialOneTimeBtn):GetChild("Number_01_Txt")).text = ""
   ;
+  ((((uis.LotteryPanelGrp).GetCha_LuckBagGrp).SpecialOneTimeBtn):GetChild("Tips1Txt")).text = (PUtil.get)(20000666)
+  ;
+  ((((uis.LotteryPanelGrp).GetCha_LuckBagGrp).SpecialOneTimeBtn):GetChild("Tips3Txt")).text = (PUtil.get)(60000542)
+  ;
   (LotteryWindow_YouChangActivity4.PreLoadFxMain)(uis)
 end
 
@@ -32,12 +36,25 @@ end
 
 LotteryWindow_YouChangActivity4.PreLoadFxMain = function(uis, ...)
   -- function num : 0_2 , upvalues : _ENV, lotteryType
+  for _,v in pairs(ActorData.tempOtherLottery) do
+    if v.lotteryType == lotteryType then
+      local surNum = (math.floor)(v.surLotteryNum / 10)
+      ;
+      ((((uis.LotteryPanelGrp).GetCha_LuckBagGrp).SpecialOneTimeBtn):GetChild("Tips2Txt")).text = tostring(surNum)
+    end
+  end
   local excelShowData = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
-  local str = split(excelShowData.card_ids, ":")
-  -- DECOMPILER ERROR at PC17: Confused about usage of register: R3 in 'UnsetPending'
-
-  ;
-  ((((uis.LotteryPanelGrp).GetCha_LuckBagGrp).CardPicLoader).CardPicLoader).url = (Util.GetItemUrl)(excelShowData.card_ids)
+  local cardNum = #split(excelShowData.card_ids, ":")
+  local bg = excelShowData.LotteryTow
+  if bg then
+    local cardPicLoader = (((uis.LotteryPanelGrp).GetCha_LuckBagGrp).CardPicLoader).CardPicLoader
+    local texture = (ResHelper.LoadTexture)(bg)
+    SetLoaderTexture(cardPicLoader, texture)
+  else
+    do
+      loge("UP池类型 " .. lotteryType .. " LotteryTow 字段未配置")
+    end
+  end
 end
 
 -- DECOMPILER ERROR at PC23: Confused about usage of register: R8 in 'UnsetPending'
@@ -195,7 +212,7 @@ end
 
 LotteryWindow_YouChangActivity4.ReceiveDrawedData = function(para, ...)
   -- function num : 0_5 , upvalues : _ENV, lotteryType
-  (ActorData.SubLotteryActivityNum)((para.data).lotteryId, 1)
+  (ActorData.SubLotteryActivityNum)((para.data).lotteryId, 10)
   ;
   (LotteryMgr.PlayLotteryEffects)(function(...)
     -- function num : 0_5_0 , upvalues : _ENV, lotteryType

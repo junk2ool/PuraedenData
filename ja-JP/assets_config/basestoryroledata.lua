@@ -331,6 +331,8 @@ BaseStoryRoleData = {
 , 
 [75200512] = {id = 75200512, name = (PUtil.get)(86101051), role_path = "img_11300010_2", effect_path = "FIGHT_KILL", fashion_id = "14301001", offset = "17:95"}
 , 
+[75200513] = {id = 75200513, name = (PUtil.get)(86101051), role_path = "img_11300010_1", effect_path = "FIGHT_KILL", fashion_id = "14301000", offset = "0:95"}
+, 
 [75200521] = {id = 75200521, name = (PUtil.get)(86101052), role_path = "img_11300006_1", effect_path = "FIGHT_KILL", fashion_id = "14300600"}
 , 
 [75200522] = {id = 75200522, name = (PUtil.get)(86101052), role_path = "img_11300006_2", effect_path = "FIGHT_KILL", fashion_id = "14300601"}
@@ -581,6 +583,22 @@ BaseStoryRoleData = {
 , 
 [75200924] = {id = 75200924, name = (PUtil.get)(86101114), effect_path = "FIGHT_KILL", fashion_id = "14301400", offset = "31:-126"}
 , 
+[75200931] = {id = 75200931, name = (PUtil.get)(86101115), role_path = "img_11202025_1", effect_path = "FIGHT_KILL", fashion_id = "14222501", offset = "-63:-166"}
+, 
+[75200932] = {id = 75200932, name = (PUtil.get)(86101115), role_path = "img_11202025_2", effect_path = "FIGHT_KILL", fashion_id = "14222502", offset = "-30:-65"}
+, 
+[75200933] = {id = 75200933, name = (PUtil.get)(86101102), effect_path = "FIGHT_KILL", fashion_id = "14222501", offset = "-63:-166"}
+, 
+[75200934] = {id = 75200934, name = (PUtil.get)(86101115), effect_path = "FIGHT_KILL", fashion_id = "14222501", offset = "-63:-166"}
+, 
+[75200941] = {id = 75200941, name = (PUtil.get)(86101116), role_path = "img_11300055_1", effect_path = "FIGHT_KILL", fashion_id = "14305501", offset = "-110:48"}
+, 
+[75200942] = {id = 75200942, name = (PUtil.get)(86101116), role_path = "img_11300055_2", effect_path = "FIGHT_KILL", fashion_id = "14305502", offset = "-35:0"}
+, 
+[75200943] = {id = 75200943, name = (PUtil.get)(86101102), effect_path = "FIGHT_KILL", fashion_id = "14305501", offset = "-110:48"}
+, 
+[75200944] = {id = 75200944, name = (PUtil.get)(86101116), effect_path = "FIGHT_KILL", fashion_id = "14305501", offset = "-110:48"}
+, 
 [75210001] = {id = 75210001, name = (PUtil.get)(86103005), role_path = "img_12010001", effect_path = "FIGHT_KILL", fashion_id = "15010001", offset = "10:80"}
 , 
 [75210002] = {id = 75210002, name = (PUtil.get)(86103006), role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
@@ -828,6 +846,12 @@ BaseStoryRoleData = {
 [75210123] = {id = 75210123, name = (PUtil.get)(86109027), role_path = "img_13010021", effect_path = "FIGHT_KILL", fashion_id = "15040021", offset = "53:35"}
 , 
 [75210124] = {id = 75210124, name = (PUtil.get)(86109028), role_path = "img_13010022", effect_path = "FIGHT_KILL", fashion_id = "15040022", offset = "68:-6"}
+, 
+[75210125] = {id = 75210125, name = (PUtil.get)(86109032), role_path = "img_12010011", effect_path = "FIGHT_KILL", fashion_id = "15010011", offset = "10:50"}
+, 
+[75210126] = {id = 75210126, name = (PUtil.get)(86109033), role_path = "img_13010002", effect_path = "FIGHT_KILL", fashion_id = "15040002", offset = "-10:35"}
+, 
+[75210127] = {id = 75210127, name = (PUtil.get)(86109034), role_path = "img_12010006", effect_path = "FIGHT_KILL", fashion_id = "15010006", offset = "20:60"}
 , 
 [75203001] = {id = 75203001, name = (PUtil.get)(86103001), role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 
@@ -1144,6 +1168,10 @@ BaseStoryRoleData = {
 [75206097] = {id = 75206097, name = (PUtil.get)(86109030), effect_path = "FIGHT_KILL"}
 , 
 [75206098] = {id = 75206098, name = (PUtil.get)(86109031), effect_path = "FIGHT_KILL"}
+, 
+[75206099] = {id = 75206099, name = (PUtil.get)(86109035), role_path = "img_12010017", effect_path = "FIGHT_KILL", fashion_id = "15010017", offset = "25:45"}
+, 
+[75206100] = {id = 75206100, name = (PUtil.get)(86109036), role_path = "img_12010017", effect_path = "FIGHT_KILL", fashion_id = "15010017", offset = "25:45"}
 , 
 [75209000] = {id = 75209000, name = (PUtil.get)(86109001), role_path = "npcCardSpine_11301004", effect_path = "FIGHT_KILL", fashion_id = "14310401", expression_type = 1, offset = "-40:80"}
 , 

@@ -57,6 +57,8 @@ BaseSkillBuffEffectData = {
 , 
 [130] = {id = 130, attribute_id = 81050001, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
+[131] = {id = 131, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+, 
 [150] = {id = 150, attribute_id = 81050001, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [151] = {id = 151, attribute_id = 81050001, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "BuffIcon:buff_106", icon_priority = 2, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
@@ -211,9 +213,9 @@ BaseSkillBuffEffectData = {
 , 
 [604] = {id = 604, attribute_id = 81050026, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
-[605] = {id = 605, attribute_id = 81050028, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+[605] = {id = 605, attribute_id = 81050027, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
-[606] = {id = 606, attribute_id = 81050027, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
+[606] = {id = 606, attribute_id = 81050028, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 
 [607] = {id = 607, attribute_id = 81050024, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_ground_path = "0", effect_ground_priority = 0, buff_show_times = "0", effect_fashion_id = 0}
 , 

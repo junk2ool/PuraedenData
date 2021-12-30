@@ -596,6 +596,16 @@ BaseHandbookAdventureRecordData = {
 [52700612] = {id = 52700612, name = (PUtil.get)(85181704), remark = (PUtil.get)(85181704, 1, 4), icon = "HandBookBanner:Activity_15_4", story_id = "75901761:75901762:75901771:75901781", sort = 4}
 , 
 [52700614] = {id = 52700614, name = (PUtil.get)(85181705), remark = (PUtil.get)(85181705, 1, 5), icon = "HandBookBanner:Activity_15_5", story_id = "75901791", sort = 5}
+, 
+[52700703] = {id = 52700703, name = (PUtil.get)(85181801), remark = (PUtil.get)(85181801, 1, 1), icon = "HandBookBanner:Activity_16_1", story_id = "75901801:75901802:75901811", sort = 1}
+, 
+[52700706] = {id = 52700706, name = (PUtil.get)(85181802), remark = (PUtil.get)(85181802, 1, 2), icon = "HandBookBanner:Activity_16_2", story_id = "75901821:75901831:75901832", sort = 2}
+, 
+[52700709] = {id = 52700709, name = (PUtil.get)(85181803), remark = (PUtil.get)(85181803, 1, 3), icon = "HandBookBanner:Activity_16_3", story_id = "75901841:75901851", sort = 3}
+, 
+[52700712] = {id = 52700712, name = (PUtil.get)(85181804), remark = (PUtil.get)(85181804, 1, 4), icon = "HandBookBanner:Activity_16_4", story_id = "75901861:75901871:75901872:75901873", sort = 4}
+, 
+[52700714] = {id = 52700714, name = (PUtil.get)(85181805), remark = (PUtil.get)(85181805, 1, 5), icon = "HandBookBanner:Activity_16_5", story_id = "75901881", sort = 5}
 }
 return BaseHandbookAdventureRecordData
 

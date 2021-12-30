@@ -34,6 +34,10 @@ BaseLotteryPoolData = {
 [24100016] = {id = 24100016, drop_ids = "2026", change_num = "0"}
 , 
 [24100017] = {id = 24100017, drop_ids = "2029", change_num = "0"}
+, 
+[24100018] = {id = 24100018, drop_ids = "2033", change_num = "0"}
+, 
+[24100019] = {id = 24100019, drop_ids = "2036", change_num = "0"}
 }
 return BaseLotteryPoolData
 

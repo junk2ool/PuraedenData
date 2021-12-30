@@ -1896,5 +1896,11 @@ BaseSkillBuffDataPart27 = {
 [47406004] = {id = 47406004, type = 100, value = "905:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 23, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 , 
 [47406005] = {id = 47406005, type = 40, value = "409:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 3, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47406201] = {id = 47406201, type = 100, value = "1:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 4, deduction_round_type = 1, settle_round_cnt = 10, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "2:46322092:3016:10000,3:46322093:3016:10000", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
+, 
+[47406202] = {id = 47406202, type = 60, value = "601:1:500:1", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 6, deduction_round_type = 0, settle_round_cnt = 1, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "0", play_settle_round_type = 0, active_forever = 1, resetting_round = 0, change_to_other_id = 0}
+, 
+[47406203] = {id = 47406203, type = 100, value = "1:0:0:0", value_up = "0", trigger_condition = 0, trigger_type = 0, trigger_value = "0", deduction_value = 10000, overlay_num = 0, overlay_buff_list = "0", settle_round_type = 4, deduction_round_type = 1, settle_round_cnt = 10, per_round_limit = 0, settle_buff_list = "0", deduction_buff_list = "2:46322092:3001:10000,3:46322093:3001:10000", play_settle_round_type = 0, active_forever = 0, resetting_round = 0, change_to_other_id = 0}
 }
 
