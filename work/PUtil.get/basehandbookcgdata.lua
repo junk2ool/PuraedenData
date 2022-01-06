@@ -171,9 +171,9 @@
 , 
 [26131060] = {id = 26131060, name = "キャラクターCG", remark = "キャラクターCGの記述", des = "第四十章 ロック中", type = 2, chapter_id = 11301006, index = 50, icon = "HandBookCGBanner:92101001", fashion_id = "92101001", open_time = 0}
 , 
-[26300101] = {id = 26300101, name = "森の中の練習", remark = "自分の声を聞きながら歌っていけば、練習が捗る気がします！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92108001", fashion_id = "92108001", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = 1596157200}
+[26300101] = {id = 26300101, name = "森の中の練習", remark = "自分の声を聞きながら歌っていけば、練習が捗る気がします！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92108001", fashion_id = "92108001", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = "2020-07-31 10:00:00"}
 , 
-[26300102] = {id = 26300102, name = "カフェでのライブ", remark = "憧れのアイドルと同じ舞台に立つなんて、夢みたい…！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 2, icon = "HandBookCGBanner:92108002", fashion_id = "92108002", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = 1596157200}
+[26300102] = {id = 26300102, name = "カフェでのライブ", remark = "憧れのアイドルと同じ舞台に立つなんて、夢みたい…！", des = "第一章 ロック中", type = 3, chapter_id = 51410001, index = 2, icon = "HandBookCGBanner:92108002", fashion_id = "92108002", activity_sort = 1, activity_name = "「届け！遠海よりの唄」", open_time = "2020-07-31 10:00:00"}
 , 
 [26300201] = {id = 26300201, name = "海浜のふたり", remark = "暑い夏に海の涼しさを感じましょう！", des = "第一章 ロック中", type = 3, chapter_id = 51410002, index = 1, icon = "HandBookCGBanner:92108003", fashion_id = "92108003", activity_sort = 2, activity_name = "「集客！波乱のサマー」", open_time = 0}
 , 
@@ -183,45 +183,45 @@
 , 
 [26300302] = {id = 26300302, name = "運命の出逢い", remark = "これからはすべてあたしに任せて♪一番輝くスーパースターにしてあげるから！", des = "第一章 ロック中", type = 3, chapter_id = 51410003, index = 2, icon = "HandBookCGBanner:92108006", fashion_id = "92108006", activity_sort = 3, activity_name = "「密着！ビッグスターの裏顔」", open_time = 0}
 , 
-[26300401] = {id = 26300401, name = "ハロウィンパレード", remark = "トリックオアトリートー！さぁ、この調子でどんどんお菓子をもらいに行こう！", des = "第一章 ロック中", type = 3, chapter_id = 51410004, index = 1, icon = "HandBookCGBanner:92108007", fashion_id = "92108007", activity_sort = 4, activity_name = "「ハロウィン  WRAITH BANQUET」", open_time = 1604106000}
+[26300401] = {id = 26300401, name = "ハロウィンパレード", remark = "トリックオアトリートー！さぁ、この調子でどんどんお菓子をもらいに行こう！", des = "第一章 ロック中", type = 3, chapter_id = 51410004, index = 1, icon = "HandBookCGBanner:92108007", fashion_id = "92108007", activity_sort = 4, activity_name = "「ハロウィン  WRAITH BANQUET」", open_time = "2020-10-31 10:00:00"}
 , 
-[26300402] = {id = 26300402, name = "ハロウィンパーティー", remark = "それじゃ行くよ！ジャックオーランタン、点火～！", des = "第一章 ロック中", type = 3, chapter_id = 51410004, index = 2, icon = "HandBookCGBanner:92108008", fashion_id = "92108008", activity_sort = 4, activity_name = "「ハロウィン  WRAITH BANQUET」", open_time = 1604106000}
+[26300402] = {id = 26300402, name = "ハロウィンパーティー", remark = "それじゃ行くよ！ジャックオーランタン、点火～！", des = "第一章 ロック中", type = 3, chapter_id = 51410004, index = 2, icon = "HandBookCGBanner:92108008", fashion_id = "92108008", activity_sort = 4, activity_name = "「ハロウィン  WRAITH BANQUET」", open_time = "2020-10-31 10:00:00"}
 , 
-[26300501] = {id = 26300501, name = "プレゼント配り", remark = "クリスマスという大切な日に、子どもたちにプレゼントを配りましょう！", des = "第一章 ロック中", type = 3, chapter_id = 51410005, index = 1, icon = "HandBookCGBanner:92108009", fashion_id = "92108009", activity_sort = 5, activity_name = "「クリスマス   正義を貫くサンタ」", open_time = 1606698000}
+[26300501] = {id = 26300501, name = "プレゼント配り", remark = "クリスマスという大切な日に、子どもたちにプレゼントを配りましょう！", des = "第一章 ロック中", type = 3, chapter_id = 51410005, index = 1, icon = "HandBookCGBanner:92108009", fashion_id = "92108009", activity_sort = 5, activity_name = "「クリスマス   正義を貫くサンタ」", open_time = "2020-11-30 10:00:00"}
 , 
-[26300502] = {id = 26300502, name = "特別なプレゼント", remark = "いい子にプレゼントを...お姉さんのリボンを解いてみて？", des = "第一章 ロック中", type = 3, chapter_id = 51410005, index = 2, icon = "HandBookCGBanner:92108010", fashion_id = "92108010", activity_sort = 5, activity_name = "「クリスマス   正義を貫くサンタ」", open_time = 1606698000}
+[26300502] = {id = 26300502, name = "特別なプレゼント", remark = "いい子にプレゼントを...お姉さんのリボンを解いてみて？", des = "第一章 ロック中", type = 3, chapter_id = 51410005, index = 2, icon = "HandBookCGBanner:92108010", fashion_id = "92108010", activity_sort = 5, activity_name = "「クリスマス   正義を貫くサンタ」", open_time = "2020-11-30 10:00:00"}
 , 
-[26300601] = {id = 26300601, name = "お見合い破談作戦", remark = "なんて可憐な人だ…これはもはや運命というより、宿命！今すぐ結婚しよう！", des = "第一章 ロック中", type = 3, chapter_id = 51410006, index = 1, icon = "HandBookCGBanner:92108011", fashion_id = "92108011", activity_sort = 6, activity_name = "「正月 お見合い攻防戦」", open_time = 1609376400}
+[26300601] = {id = 26300601, name = "お見合い破談作戦", remark = "なんて可憐な人だ…これはもはや運命というより、宿命！今すぐ結婚しよう！", des = "第一章 ロック中", type = 3, chapter_id = 51410006, index = 1, icon = "HandBookCGBanner:92108011", fashion_id = "92108011", activity_sort = 6, activity_name = "「正月 お見合い攻防戦」", open_time = "2020-12-31 10:00:00"}
 , 
-[26300602] = {id = 26300602, name = "新年初詣", remark = "今年こそ、静かに過ごせますように…まぁ、無理だろうけどな。", des = "第一章 ロック中", type = 3, chapter_id = 51410006, index = 2, icon = "HandBookCGBanner:92108012", fashion_id = "92108012", activity_sort = 6, activity_name = "「正月 お見合い攻防戦」", open_time = 1609376400}
+[26300602] = {id = 26300602, name = "新年初詣", remark = "今年こそ、静かに過ごせますように…まぁ、無理だろうけどな。", des = "第一章 ロック中", type = 3, chapter_id = 51410006, index = 2, icon = "HandBookCGBanner:92108012", fashion_id = "92108012", activity_sort = 6, activity_name = "「正月 お見合い攻防戦」", open_time = "2020-12-31 10:00:00"}
 , 
-[26300701] = {id = 26300701, name = "買い出しの帰り道", remark = "本当に魅力的で、素敵な人で…！クーニャちゃんと出会えたら、私は救われたんです。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 1, icon = "HandBookCGBanner:92108013", fashion_id = "92108013", activity_sort = 7, activity_name = "「ファミリーの名にかけて！」", open_time = 1612054800}
+[26300701] = {id = 26300701, name = "買い出しの帰り道", remark = "本当に魅力的で、素敵な人で…！クーニャちゃんと出会えたら、私は救われたんです。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 1, icon = "HandBookCGBanner:92108013", fashion_id = "92108013", activity_sort = 7, activity_name = "「ファミリーの名にかけて！」", open_time = "2021-01-31 10:00:00"}
 , 
-[26300702] = {id = 26300702, name = "支え合う二人", remark = "一人で立ち向かうしかないと思っていたが、私のそばにプデルがいる…こんなに心強いことはない。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 2, icon = "HandBookCGBanner:92108014", fashion_id = "92108014", activity_sort = 7, activity_name = "「ファミリーの名にかけて！」", open_time = 1612054800}
+[26300702] = {id = 26300702, name = "支え合う二人", remark = "一人で立ち向かうしかないと思っていたが、私のそばにプデルがいる…こんなに心強いことはない。", des = "第一章 ロック中", type = 3, chapter_id = 51410007, index = 2, icon = "HandBookCGBanner:92108014", fashion_id = "92108014", activity_sort = 7, activity_name = "「ファミリーの名にかけて！」", open_time = "2021-01-31 10:00:00"}
 , 
-[26300801] = {id = 26300801, name = "触れぬ天籟", remark = "私以外だけど…レイナちゃんの歌声がみんなに届くようになって本当によかったです。", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 1, icon = "HandBookCGBanner:92108017", fashion_id = "92108017", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = 1614474000}
+[26300801] = {id = 26300801, name = "触れぬ天籟", remark = "私以外だけど…レイナちゃんの歌声がみんなに届くようになって本当によかったです。", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 1, icon = "HandBookCGBanner:92108017", fashion_id = "92108017", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = "2021-02-28 10:00:00"}
 , 
-[26300802] = {id = 26300802, name = "タネハの夢", remark = "レイナちゃんとおしゃべりできるなんて…やっと念願の夢が叶いました！", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 2, icon = "HandBookCGBanner:92108018", fashion_id = "92108018", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = 1614474000}
+[26300802] = {id = 26300802, name = "タネハの夢", remark = "レイナちゃんとおしゃべりできるなんて…やっと念願の夢が叶いました！", des = "第一章 ロック中", type = 3, chapter_id = 51410008, index = 2, icon = "HandBookCGBanner:92108018", fashion_id = "92108018", activity_sort = 8, activity_name = "「無言の歌姫」", open_time = "2021-02-28 10:00:00"}
 , 
-[26300901] = {id = 26300901, name = "自分を変えろ！", remark = "もう、逃げるのはやめます！わたしも何かしたいです！", des = "第一章 ロック中", type = 3, chapter_id = 51410009, index = 1, icon = "HandBookCGBanner:92108019", fashion_id = "92108019", activity_sort = 9, activity_name = "勇気100％　BunnyBunny", open_time = 1617152400}
+[26300901] = {id = 26300901, name = "自分を変えろ！", remark = "もう、逃げるのはやめます！わたしも何かしたいです！", des = "第一章 ロック中", type = 3, chapter_id = 51410009, index = 1, icon = "HandBookCGBanner:92108019", fashion_id = "92108019", activity_sort = 9, activity_name = "勇気100％　BunnyBunny", open_time = "2021-03-31 10:00:00"}
 , 
-[26300902] = {id = 26300902, name = "仲間と突き進もう", remark = "シャイちゃんは、わたしたちの仲間だよ！これからも一緒に頑張ろうね♪", des = "第一章 ロック中", type = 3, chapter_id = 51410009, index = 2, icon = "HandBookCGBanner:92108020", fashion_id = "92108020", activity_sort = 9, activity_name = "勇気100％　BunnyBunny", open_time = 1617152400}
+[26300902] = {id = 26300902, name = "仲間と突き進もう", remark = "シャイちゃんは、わたしたちの仲間だよ！これからも一緒に頑張ろうね♪", des = "第一章 ロック中", type = 3, chapter_id = 51410009, index = 2, icon = "HandBookCGBanner:92108020", fashion_id = "92108020", activity_sort = 9, activity_name = "勇気100％　BunnyBunny", open_time = "2021-03-31 10:00:00"}
 , 
-[26301001] = {id = 26301001, name = "罠に落ちたメンバー達", remark = "…人間、捕らえた。父さん、母さん、傷つけたやつら…！", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 1, icon = "HandBookCGBanner:92108021", fashion_id = "92108021", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1617152400}
+[26301001] = {id = 26301001, name = "罠に落ちたメンバー達", remark = "…人間、捕らえた。父さん、母さん、傷つけたやつら…！", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 1, icon = "HandBookCGBanner:92108021", fashion_id = "92108021", activity_sort = 10, activity_name = "野生児の反撃", open_time = "2021-03-31 10:00:00"}
 , 
-[26301002] = {id = 26301002, name = "新たな冒険の旅へ", remark = "…お前と、一緒に行ける。ワタシ、すごく嬉しい。", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 2, icon = "HandBookCGBanner:92108022", fashion_id = "92108022", activity_sort = 10, activity_name = "野生児の反撃", open_time = 1617152400}
+[26301002] = {id = 26301002, name = "新たな冒険の旅へ", remark = "…お前と、一緒に行ける。ワタシ、すごく嬉しい。", des = "第一章 ロック中", type = 3, chapter_id = 51410010, index = 2, icon = "HandBookCGBanner:92108022", fashion_id = "92108022", activity_sort = 10, activity_name = "野生児の反撃", open_time = "2021-03-31 10:00:00"}
 , 
-[26301101] = {id = 26301101, name = "゙ゲームスタート", remark = "細かいことを気にしている場合かい？さぁ、思う存分戦うといい。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 1, icon = "HandBookCGBanner:92108023", fashion_id = "92108023", activity_sort = 11, activity_name = "嘘の契り", open_time = 1622422800}
+[26301101] = {id = 26301101, name = "゙ゲームスタート", remark = "細かいことを気にしている場合かい？さぁ、思う存分戦うといい。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 1, icon = "HandBookCGBanner:92108023", fashion_id = "92108023", activity_sort = 11, activity_name = "嘘の契り", open_time = "2021-05-31 10:00:00"}
 , 
-[26301102] = {id = 26301102, name = "隠された真実", remark = "はは、君はどこまで私を傷つけられるのか…興味深いね。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 2, icon = "HandBookCGBanner:92108024", fashion_id = "92108024", activity_sort = 11, activity_name = "嘘の契り", open_time = 1622422800}
+[26301102] = {id = 26301102, name = "隠された真実", remark = "はは、君はどこまで私を傷つけられるのか…興味深いね。", des = "第一章 ロック中", type = 3, chapter_id = 51410011, index = 2, icon = "HandBookCGBanner:92108024", fashion_id = "92108024", activity_sort = 11, activity_name = "嘘の契り", open_time = "2021-05-31 10:00:00"}
 , 
-[26301103] = {id = 26301103, name = "水着に着替えてもらおう", remark = "わ、わかった。き、着替えてくる…！", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 1, icon = "HandBookCGBanner:92108045", fashion_id = "92108045", activity_sort = 12, activity_name = "奪還！海の家！", open_time = 1625014800}
+[26301103] = {id = 26301103, name = "水着に着替えてもらおう", remark = "わ、わかった。き、着替えてくる…！", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 1, icon = "HandBookCGBanner:92108045", fashion_id = "92108045", activity_sort = 12, activity_name = "奪還！海の家！", open_time = "2021-06-30 10:00:00"}
 , 
-[26301104] = {id = 26301104, name = "夏の海は最高だ", remark = "せっかくの、素敵な海だから。一緒に楽しもう。", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 2, icon = "HandBookCGBanner:92108046", fashion_id = "92108046", activity_sort = 12, activity_name = "奪還！海の家！", open_time = 1625014800}
+[26301104] = {id = 26301104, name = "夏の海は最高だ", remark = "せっかくの、素敵な海だから。一緒に楽しもう。", des = "第一章 ロック中", type = 3, chapter_id = 51410012, index = 2, icon = "HandBookCGBanner:92108046", fashion_id = "92108046", activity_sort = 12, activity_name = "奪還！海の家！", open_time = "2021-06-30 10:00:00"}
 , 
-[26301105] = {id = 26301105, name = "リラックスタイム", remark = "皆様、どうぞここでお好きにおくつろぎください。", des = "第一章 ロック中", type = 3, chapter_id = 51410013, index = 1, icon = "HandBookCGBanner:92108047", fashion_id = "92108047", activity_sort = 13, activity_name = "脱出！無人島？", open_time = 1625014800}
+[26301105] = {id = 26301105, name = "リラックスタイム", remark = "皆様、どうぞここでお好きにおくつろぎください。", des = "第一章 ロック中", type = 3, chapter_id = 51410013, index = 1, icon = "HandBookCGBanner:92108047", fashion_id = "92108047", activity_sort = 13, activity_name = "脱出！無人島？", open_time = "2021-06-30 10:00:00"}
 , 
-[26301106] = {id = 26301106, name = "囚われの実験体", remark = "…嫌よ。私は逃げるつもりがない。だって、もしまた失敗なんてしたら…", des = "第一章 ロック中", type = 3, chapter_id = 51410014, index = 1, icon = "HandBookCGBanner:92108048", fashion_id = "92108048", activity_sort = 14, activity_name = "闇の研究所", open_time = 1630371600}
+[26301106] = {id = 26301106, name = "囚われの実験体", remark = "…嫌よ。私は逃げるつもりがない。だって、もしまた失敗なんてしたら…", des = "第一章 ロック中", type = 3, chapter_id = 51410014, index = 1, icon = "HandBookCGBanner:92108048", fashion_id = "92108048", activity_sort = 14, activity_name = "闇の研究所", open_time = "2021-08-31 10:00:00"}
 , 
-[26301107] = {id = 26301107, name = "束縛された魂", remark = "ごめんなさいごめんなさい幽霊さん、リリー達を祟り殺さないでください！！", des = "第一章 ロック中", type = 3, chapter_id = 51410015, index = 1, icon = "HandBookCGBanner:92108049", fashion_id = "92108049", activity_sort = 15, activity_name = "絶叫のお化け屋敷！", open_time = 1635642000}
+[26301107] = {id = 26301107, name = "束縛された魂", remark = "ごめんなさいごめんなさい幽霊さん、リリー達を祟り殺さないでください！！", des = "第一章 ロック中", type = 3, chapter_id = 51410015, index = 1, icon = "HandBookCGBanner:92108049", fashion_id = "92108049", activity_sort = 15, activity_name = "絶叫のお化け屋敷！", open_time = "2021-10-31 10:00:00"}
 }
