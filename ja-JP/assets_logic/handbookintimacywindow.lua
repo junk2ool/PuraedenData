@@ -297,92 +297,102 @@ HandBookIntimacyWindow.RefreshCardInfo = function(...)
   local RoleData = ((TableData.gTable).BaseHandbookRoleData)[currentID]
   local basicInfo = RoleData.remark
   local info = (Util.ParseConfigStr)(basicInfo)
-  local objA = UIMgr:CreateObject("HandBook", "IntimacyCardInfo_A")
-  local infoList = objA:GetChild("TipsList")
-  ;
-  (objA:GetChild("ShuXingNameTxt")).text = (PUtil.get)(20000359)
-  infoList.numItems = 0
-  local height = 0
-  for _,v in ipairs(info) do
-    local content = UIMgr:CreateObject("HandBook", "IntimacyCardInfo_A_Tips")
+  if RoleData.birthday ~= nil then
+    local tempTable = {}
+    tempTable[1] = (PUtil.get)(40002091)
+    local birthday = split(RoleData.birthday, ":")
+    tempTable[2] = (PUtil.get)(40002092, birthday[1], birthday[2])
     ;
-    (content:GetChild("NameTxt")).text = v[1]
-    ;
-    (content:GetChild("NumberTxt")).text = v[2]
-    infoList:AddChild(content)
-    height = height + content.height
+    (table.insert)(info, tempTable)
   end
-  infoList.height = height
-  list:AddChild(objA)
-  local infoStory = RoleData.story
-  local storyInfo = (Util.ParseConfigStr)(infoStory)
-  local oneCard = (CardData.GetCardData)(currentID)
-  for i,v in ipairs(storyInfo) do
-    local infoID = tonumber(v[1])
-    local lockType = tonumber(v[2])
-    local lockValue = tonumber(v[3])
-    local objA = UIMgr:CreateObject("HandBook", "IntimacyCardInfo_B")
+  do
+    local objA = UIMgr:CreateObject("HandBook", "IntimacyCardInfo_A")
+    local infoList = objA:GetChild("TipsList")
     ;
-    (objA:GetChild("ShuXingNameTxt")).text = (PUtil.get)(20000143, i)
-    local content = objA:GetChild("WordTxt")
-    if lockType == 1 then
-      local intimacyLv = oneCard.intimacyLv
-      if intimacyLv < lockValue then
-        content.text = (PUtil.get)(20000145, lockValue)
-        objA.grayed = true
-      else
-        local DesData = ((TableData.gTable).BaseHandbookRoleDetailData)[infoID]
-        content.text = DesData.remark
-        objA.grayed = false
-      end
-    else
-      do
-        if lockType == 2 then
-          local qualityLv = oneCard.quality
-          if qualityLv < lockValue then
-            content.text = (PUtil.get)(20000146, lockValue)
-            objA.grayed = true
-          else
-            local DesData = ((TableData.gTable).BaseHandbookRoleDetail)[infoID]
-            content.text = DesData.remark
-            objA.grayed = false
-          end
+    (objA:GetChild("ShuXingNameTxt")).text = (PUtil.get)(20000359)
+    infoList.numItems = 0
+    local height = 0
+    for _,v in ipairs(info) do
+      local content = UIMgr:CreateObject("HandBook", "IntimacyCardInfo_A_Tips")
+      ;
+      (content:GetChild("NameTxt")).text = v[1]
+      ;
+      (content:GetChild("NumberTxt")).text = v[2]
+      infoList:AddChild(content)
+      height = height + content.height
+    end
+    infoList.height = height
+    list:AddChild(objA)
+    local infoStory = RoleData.story
+    local storyInfo = (Util.ParseConfigStr)(infoStory)
+    local oneCard = (CardData.GetCardData)(currentID)
+    for i,v in ipairs(storyInfo) do
+      local infoID = tonumber(v[1])
+      local lockType = tonumber(v[2])
+      local lockValue = tonumber(v[3])
+      local objA = UIMgr:CreateObject("HandBook", "IntimacyCardInfo_B")
+      ;
+      (objA:GetChild("ShuXingNameTxt")).text = (PUtil.get)(20000143, i)
+      local content = objA:GetChild("WordTxt")
+      if lockType == 1 then
+        local intimacyLv = oneCard.intimacyLv
+        if intimacyLv < lockValue then
+          content.text = (PUtil.get)(20000145, lockValue)
+          objA.grayed = true
+        else
+          local DesData = ((TableData.gTable).BaseHandbookRoleDetailData)[infoID]
+          content.text = DesData.remark
+          objA.grayed = false
         end
+      else
         do
+          if lockType == 2 then
+            local qualityLv = oneCard.quality
+            if qualityLv < lockValue then
+              content.text = (PUtil.get)(20000146, lockValue)
+              objA.grayed = true
+            else
+              local DesData = ((TableData.gTable).BaseHandbookRoleDetail)[infoID]
+              content.text = DesData.remark
+              objA.grayed = false
+            end
+          end
           do
-            list:AddChild(objA)
-            -- DECOMPILER ERROR at PC145: LeaveBlock: unexpected jumping out DO_STMT
+            do
+              list:AddChild(objA)
+              -- DECOMPILER ERROR at PC170: LeaveBlock: unexpected jumping out DO_STMT
 
-            -- DECOMPILER ERROR at PC145: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC170: LeaveBlock: unexpected jumping out DO_STMT
 
-            -- DECOMPILER ERROR at PC145: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC170: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-            -- DECOMPILER ERROR at PC145: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC170: LeaveBlock: unexpected jumping out IF_STMT
 
+            end
           end
         end
       end
     end
-  end
-  local selectIn = ((uis.IntimacyPanelGep).c1Ctr).selectedIndex
-  if selectIn == 1 then
-    (RedDotMgr.RemoveIntimacyInfoRedDot)(currentID, true, false)
-    ;
-    (((uis.IntimacyPanelGep).Button_02_Btn):GetChild("RedDot")).visible = false
-    local index = (HandBookIntimacyWindow.GetCardIndex)()
-    ;
-    (HandBookIntimacyWindow.CheckHeadRedDot)(index)
-  else
-    do
-      if selectIn == 2 then
-        (RedDotMgr.RemoveIntimacyInfoRedDot)(currentID, false, true)
-        ;
-        (((uis.IntimacyPanelGep).Button_03_Btn):GetChild("RedDot")).visible = false
-        local index = (HandBookIntimacyWindow.GetCardIndex)()
-        ;
-        (HandBookIntimacyWindow.CheckHeadRedDot)(index)
-        ;
-        (HandBookIntimacyWindow.RefreshCardVoice)()
+    local selectIn = ((uis.IntimacyPanelGep).c1Ctr).selectedIndex
+    if selectIn == 1 then
+      (RedDotMgr.RemoveIntimacyInfoRedDot)(currentID, true, false)
+      ;
+      (((uis.IntimacyPanelGep).Button_02_Btn):GetChild("RedDot")).visible = false
+      local index = (HandBookIntimacyWindow.GetCardIndex)()
+      ;
+      (HandBookIntimacyWindow.CheckHeadRedDot)(index)
+    else
+      do
+        if selectIn == 2 then
+          (RedDotMgr.RemoveIntimacyInfoRedDot)(currentID, false, true)
+          ;
+          (((uis.IntimacyPanelGep).Button_03_Btn):GetChild("RedDot")).visible = false
+          local index = (HandBookIntimacyWindow.GetCardIndex)()
+          ;
+          (HandBookIntimacyWindow.CheckHeadRedDot)(index)
+          ;
+          (HandBookIntimacyWindow.RefreshCardVoice)()
+        end
       end
     end
   end

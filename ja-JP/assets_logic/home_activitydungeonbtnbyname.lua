@@ -4,6 +4,7 @@ require("CommonResource_RedDollByName")
 GetHome_ActivityDungeonBtnUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
+  uis.PicLoader = ui:GetChild("PicLoader")
   uis.RedDot = GetCommonResource_RedDollUis(ui:GetChild("RedDot"))
   uis.buttonCtr = ui:GetController("button")
   uis.root = ui

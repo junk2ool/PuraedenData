@@ -1290,9 +1290,13 @@ HomeWindow.UpdateSelectBgPanel = function(refresh, ...)
         local serverTime = (LuaTime.GetTimeStamp)()
         local beginTime = config.begin_time
         local endTime = config.end_time
-        -- DECOMPILER ERROR at PC49: Unhandled construct in 'MakeBoolean' P1
+        local pathUi = config.path_ui
+        local pathAb = config.path_ab
+        -- DECOMPILER ERROR at PC55: Unhandled construct in 'MakeBoolean' P1
 
-        if beginTime ~= nil and endTime ~= nil and beginTime <= serverTime and serverTime <= endTime then
+        -- DECOMPILER ERROR at PC55: Unhandled construct in 'MakeBoolean' P1
+
+        if pathUi ~= nil and pathAb ~= nil and beginTime ~= nil and endTime ~= nil and beginTime <= serverTime and serverTime <= endTime then
           (table.insert)(configTable, config)
         end
       end
