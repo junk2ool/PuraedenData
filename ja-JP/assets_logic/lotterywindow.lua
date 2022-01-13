@@ -784,13 +784,28 @@ LotteryWindow.RunCardResultEffect = function(index, ...)
   if isShouldPlay and cardInfo.intelligence > 1 then
     local cardExcelData = ((TableData.gTable).BaseCardData)[cardInfo.id]
     do
-      -- DECOMPILER ERROR at PC103: Confused about usage of register: R4 in 'UnsetPending'
+      local intelligence = cardExcelData.intelligence - 1
+      local lotteryWord = cardExcelData.lotteryWord and cardExcelData.lotteryWord or ""
+      -- DECOMPILER ERROR at PC112: Confused about usage of register: R6 in 'UnsetPending'
 
-      ((uis.StartWord).c1Ctr).selectedIndex = cardExcelData.intelligence - 1
-      -- DECOMPILER ERROR at PC110: Confused about usage of register: R4 in 'UnsetPending'
+      if intelligence == 1 then
+        ((uis.StartWord).Lines1Txt).text = lotteryWord
+      else
+        -- DECOMPILER ERROR at PC118: Confused about usage of register: R6 in 'UnsetPending'
+
+        if intelligence == 2 then
+          ((uis.StartWord).Lines2Txt).text = lotteryWord
+        end
+      end
+      -- DECOMPILER ERROR at PC121: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
-      ((uis.StartWord).LinesLoader).url = (Util.GetItemUrl)(cardExcelData.lottery_dialogue)
+      ((uis.StartWord).c1Ctr).selectedIndex = intelligence
+      -- DECOMPILER ERROR at PC131: Confused about usage of register: R6 in 'UnsetPending'
+
+      if cardExcelData.lottery_dialogue then
+        ((uis.StartWord).LinesLoader).url = (Util.GetItemUrl)(cardExcelData.lottery_dialogue)
+      end
       if UI_LOTTERY_REWARD_TEXT == nil then
         local holder, effect_Txt = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERY_REWARD_TEXT, false, (uis.StartWord).root, (Vector2(((uis.StartWord).root).width * 0.5, ((uis.StartWord).root).height * 0.5)), nil, 1, false)
         UI_LOTTERY_REWARD_TEXT = effect_Txt
@@ -854,7 +869,7 @@ LotteryWindow.RunCardResultEffect = function(index, ...)
   else
     (LotteryWindow.PlayTimeLineOrCameraMove)(index)
   end
-  -- DECOMPILER ERROR: 10 unprocessed JMP targets
+  -- DECOMPILER ERROR: 15 unprocessed JMP targets
 end
 
 LotteryWindow.PlayTimeLineOrCameraMove = function(index, ...)

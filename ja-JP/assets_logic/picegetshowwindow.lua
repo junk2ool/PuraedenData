@@ -122,10 +122,11 @@ PiceGetShowWindow.CardLines = function(...)
 
       if cardExcelData.intelligence > 1 then
         ((uis.StartWord).root).visible = true
-        -- DECOMPILER ERROR at PC57: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
 
-        ;
-        ((uis.StartWord).LinesLoader).url = (Util.GetItemUrl)(cardExcelData.lottery_dialogue)
+        if cardExcelData.lottery_dialogue then
+          ((uis.StartWord).LinesLoader).url = (Util.GetItemUrl)(cardExcelData.lottery_dialogue)
+        end
         if cardExcelData.lottery_show then
           video:PreLoadVideo(cardExcelData.lottery_show)
         end

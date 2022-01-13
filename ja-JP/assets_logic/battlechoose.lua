@@ -817,8 +817,16 @@ BattleChoose.GetTargetCardsByTargetId = function(atkCard, targetId, defCards, is
     targetCards = (self.GetCardsBySide)(atkCard, false)
   end
 , [2003] = function(...)
-    -- function num : 0_27_8 , upvalues : targetCards, self, atkCard
+    -- function num : 0_27_8 , upvalues : targetCards, self, atkCard, _ENV
     targetCards = (self.GetCardsByCross)(atkCard, false, true)
+    local pos = atkCard:GetPosIndex() % 100 % 7
+    ;
+    (table.sort)(targetCards, function(x, ...)
+      -- function num : 0_27_8_0 , upvalues : pos
+      do return x:GetPosIndex() % 100 % 7 == pos end
+      -- DECOMPILER ERROR: 1 unprocessed JMP targets
+    end
+)
   end
 , [2004] = function(...)
     -- function num : 0_27_9 , upvalues : targetCards, self, atkCard

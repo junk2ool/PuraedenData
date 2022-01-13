@@ -9119,6 +9119,34 @@
 , 
 [125302601] = {id = 125302601, voice_path = "MB_Aineas_Battle_C_1"}
 , 
+[121302701] = {id = 121302701, voice_path = "MB_Hephaestus_Battle_N_1"}
+, 
+[121302702] = {id = 121302702, voice_path = "MB_Hephaestus_Battle_N_2"}
+, 
+[122302701] = {id = 122302701, voice_path = "MB_Hephaestus_Battle_Hit_1"}
+, 
+[122302702] = {id = 122302702, voice_path = "MB_Hephaestus_Battle_Hit_2"}
+, 
+[122302703] = {id = 122302703, voice_path = "MB_Hephaestus_Battle_Hit_3"}
+, 
+[124302701] = {id = 124302701, voice_path = "MB_Hephaestus_Battle_H_1"}
+, 
+[125302701] = {id = 125302701, voice_path = "MB_Hephaestus_Battle_C_1"}
+, 
+[121302801] = {id = 121302801, voice_path = "MB_Aglaia_Battle_N_1"}
+, 
+[121302802] = {id = 121302802, voice_path = "MB_Aglaia_Battle_N_2"}
+, 
+[122302801] = {id = 122302801, voice_path = "MB_Aglaia_Battle_Hit_1"}
+, 
+[122302802] = {id = 122302802, voice_path = "MB_Aglaia_Battle_Hit_2"}
+, 
+[122302803] = {id = 122302803, voice_path = "MB_Aglaia_Battle_Hit_3"}
+, 
+[124302801] = {id = 124302801, voice_path = "MB_Aglaia_Battle_H_1"}
+, 
+[125302801] = {id = 125302801, voice_path = "MB_Aglaia_Battle_C_1"}
+, 
 [97022101] = {id = 97022101, bubble_text = "サンタというものは、想像以上に体力が必要なのですね。一軒一軒掃除をしながら、プレゼントを渡して回らないといけないだなんて…。わたくしもさらに鍛えなければなりませんね。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_1"}
 , 
 [97022102] = {id = 97022102, bubble_text = "特別な夜を迎えるなら、いつも以上に徹底的に掃除しないといけませんね。さぁ、まずは積もった雪をすべて排除いたしましょう。リーダー様もお時間があるなら手を貸してください。", expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "723:264", direction = 2, voice_path = "Xmas_neneru_Main_2"}

@@ -184,12 +184,28 @@ CardListWindow.RefreshScroll = function(_ownCards, _notOwnCards, ...)
     local data = canMergeCards[i]
     if data.attr_prior == cardFilterType or cardFilterType == 0 then
       (table.insert)(frontCardDataList, {cardData = data, type = CardType.CanMerge})
+    else
+      if cardFilterType == 4 then
+        local cardId = data.id
+        local config = ((TableData.gTable).BaseCardData)[cardId]
+        if config.seal_grow_type ~= nil then
+          (table.insert)(frontCardDataList, {cardData = data, type = CardType.CanMerge})
+        end
+      end
     end
   end
   for i = 1, #_ownCards do
     local data = _ownCards[i]
     if data.attr_prior == cardFilterType or cardFilterType == 0 then
       (table.insert)(frontCardDataList, {cardData = data, type = CardType.Own, cardIndex = i})
+    else
+      if cardFilterType == 4 then
+        local cardId = data.id
+        local config = ((TableData.gTable).BaseCardData)[cardId]
+        if config.seal_grow_type ~= nil then
+          (table.insert)(frontCardDataList, {cardData = data, type = CardType.Own, cardIndex = i})
+        end
+      end
     end
   end
   _ownCardsLineCount = (math.ceil)(#frontCardDataList / LineAmountNum)
@@ -498,6 +514,8 @@ CardListWindow.SetOnChangedEvent = function(...)
   ;
   ((uis.ASSBtn):GetChild("NameTxt")).text = (PUtil.get)(20000226)
   ;
+  ((uis.CXBtn):GetChild("NameTxt")).text = (PUtil.get)(40002090)
+  ;
   ((uis.AllBtn).onClick):Set(CardListWindow.OnClickChoiceBtn)
   ;
   ((uis.ATKBtn).onClick):Set(CardListWindow.OnClickChoiceBtn)
@@ -505,6 +523,8 @@ CardListWindow.SetOnChangedEvent = function(...)
   ((uis.DEFBtn).onClick):Set(CardListWindow.OnClickChoiceBtn)
   ;
   ((uis.ASSBtn).onClick):Set(CardListWindow.OnClickChoiceBtn)
+  ;
+  ((uis.CXBtn).onClick):Set(CardListWindow.OnClickChoiceBtn)
 end
 
 CardListWindow.OnClickChoiceBtn = function(...)
@@ -529,6 +549,8 @@ CardListWindow.DisposeAllButtoTrans = function(...)
   DisposeTrans(uis.ASSBtn, "TypeBtnOut")
   DisposeTrans(uis.ATKBtn, "TypeBtnIn")
   DisposeTrans(uis.ATKBtn, "TypeBtnOut")
+  DisposeTrans(uis.CXBtn, "TypeBtnIn")
+  DisposeTrans(uis.CXBtn, "TypeBtnOut")
 end
 
 CardListWindow.ScrollToCardByID = function(cardID, ...)

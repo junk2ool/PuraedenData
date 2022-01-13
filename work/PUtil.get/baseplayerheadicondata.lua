@@ -45,6 +45,8 @@
 , 
 [78601318] = {id = 78601318, name = "気持ちぃ～ アイコン", des = "温泉最高～\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_018", condition = "0", sort = 22, reward_sort = 9880001, own_show = 1, open_time = "2021-12-24 06:00:00"}
 , 
+[78601319] = {id = 78601319, name = "美味しいわ", des = "モチモチは嫌いじゃないわ\n「女神のおもちゃ箱」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_019", condition = "0", sort = 23, reward_sort = 9880001, own_show = 1, open_time = "2022-01-23 06:00:00"}
+, 
 [78601401] = {id = 78601401, name = "嘘？！　アイコン", des = "200回連続募集でSSR冒険者が出現しなかった際に贈られるアイコン。", type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1, open_time = "2021-04-24 06:00:00"}
 , 
 [78601101] = {id = 78601101, name = "シャノン", des = "好感度が Lv10 に到達", type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}

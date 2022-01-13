@@ -298,65 +298,67 @@ end
 CardInfoWindow.SetDetailedContentOtherGrp = function(...)
   -- function num : 0_9 , upvalues : _ENV, cardData, uis, fashionId
   local excelData = ((TableData.gTable).BaseCardData)[cardData.id]
-  -- DECOMPILER ERROR at PC11: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
 
-  ;
-  ((uis.DetailedContentOtherGrp).CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
-  -- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
-
-  ;
-  ((uis.DetailedContentOtherGrp).RelationTxt).text = (PUtil.get)(138)
-  -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
-
-  ;
-  ((uis.DetailedContentOtherGrp).RelationNameTxt).text = (Util.GetCardIntimacyData)(cardData.id)
-  -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
-
-  ;
-  ((uis.DetailedContentOtherGrp).RelationLevelTxt).text = cardData.intimacyLv
-  -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
-
-  ;
-  ((uis.DetailedContentOtherGrp).JuQingTxt).text = (PUtil.get)(20000377)
-  -- DECOMPILER ERROR at PC49: Confused about usage of register: R1 in 'UnsetPending'
-
-  if excelData.is_handbookstage_open == 0 then
-    ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(207) .. "[/color]"
-  else
-    -- DECOMPILER ERROR at PC63: Confused about usage of register: R1 in 'UnsetPending'
-
-    if cardData.intimacyLv == 0 then
-      ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(60000085) .. "[/color]"
-    else
-      -- DECOMPILER ERROR at PC75: Confused about usage of register: R1 in 'UnsetPending'
-
-      ;
-      ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = (PUtil.get)(140, (Util.GetCardStoryIndex)(cardData.id))
-    end
+  if excelData.cv_pic then
+    ((uis.DetailedContentOtherGrp).CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
   end
-  ;
-  (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Clear()
-  ;
-  (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Add(function(...)
+  -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+
+  if excelData.cv_name then
+    ((uis.DetailedContentOtherGrp).RelationTxt).text = (PUtil.get)(138)
+    -- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    ((uis.DetailedContentOtherGrp).RelationNameTxt).text = (Util.GetCardIntimacyData)(cardData.id)
+    -- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    ((uis.DetailedContentOtherGrp).RelationLevelTxt).text = cardData.intimacyLv
+    -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+
+    ;
+    ((uis.DetailedContentOtherGrp).JuQingTxt).text = (PUtil.get)(20000377)
+    -- DECOMPILER ERROR at PC55: Confused about usage of register: R1 in 'UnsetPending'
+
+    if excelData.is_handbookstage_open == 0 then
+      ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(207) .. "[/color]"
+    else
+      -- DECOMPILER ERROR at PC69: Confused about usage of register: R1 in 'UnsetPending'
+
+      if cardData.intimacyLv == 0 then
+        ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(60000085) .. "[/color]"
+      else
+        -- DECOMPILER ERROR at PC81: Confused about usage of register: R1 in 'UnsetPending'
+
+        ;
+        ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = (PUtil.get)(140, (Util.GetCardStoryIndex)(cardData.id))
+      end
+    end
+    ;
+    (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Clear()
+    ;
+    (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Add(function(...)
     -- function num : 0_9_0 , upvalues : _ENV
     OpenWindow((WinResConfig.CardChoiceWindow).name, UILayer.HUD)
   end
 )
-  local fashionD = (CardData.GetFashionConfig)(cardData)
-  fashionId = fashionD.id
-  local littleLoader = ((uis.DetailedContentOtherGrp).ChangeCardBtn):GetChild("QBanLoader")
-  ;
-  (Util.RecycleUIModel)(littleLoader)
-  local boneModel = (Util.ShowUIModel)(fashionD.spd_bundle, littleLoader, fashionD.show_spine_type)
-  ;
-  (SkeletonAnimationUtil.SetAnimation)(boneModel, 0, "idle", true)
-  local scale = 20
-  ;
-  (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
-  ;
-  (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
-  ;
-  (CSLuaUtil.SetGOLocalPos)(boneModel, 63, -116, 0)
+    local fashionD = (CardData.GetFashionConfig)(cardData)
+    fashionId = fashionD.id
+    local littleLoader = ((uis.DetailedContentOtherGrp).ChangeCardBtn):GetChild("QBanLoader")
+    ;
+    (Util.RecycleUIModel)(littleLoader)
+    local boneModel = (Util.ShowUIModel)(fashionD.spd_bundle, littleLoader, fashionD.show_spine_type)
+    ;
+    (SkeletonAnimationUtil.SetAnimation)(boneModel, 0, "idle", true)
+    local scale = 20
+    ;
+    (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
+    ;
+    (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
+    ;
+    (CSLuaUtil.SetGOLocalPos)(boneModel, 63, -116, 0)
+  end
 end
 
 -- DECOMPILER ERROR at PC52: Confused about usage of register: R13 in 'UnsetPending'

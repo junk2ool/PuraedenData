@@ -51,7 +51,7 @@
 , 
 [21100026] = {id = 21100026, name = "羽子板", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100026", reward_sort = 9690001}
 , 
-[21100027] = {id = 21100027, name = "ジンジャーブレッドマン", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100027", reward_sort = 9690001}
+[21100027] = {id = 21100027, name = "東の国の甘酒", remark = "イベントのショップで様々な突破素材と交換できる。", quality = 3, icon = "ItemIcon:21100020", reward_sort = 9690001}
 , 
 [21100028] = {id = 21100028, name = "リッタのギフト券", remark = "リッタが発行した特別ギフト券。イベントショップでギフトを抽選できる。", quality = 3, icon = "ItemIcon:21100018", reward_sort = 9690002}
 , 

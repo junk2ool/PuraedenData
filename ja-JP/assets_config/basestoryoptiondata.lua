@@ -2465,8 +2465,6 @@ BaseStoryOptionData = {
 , 
 [75506018] = {id = 75506018, remark = (PUtil.get)(86370410), next = 75461006}
 , 
-[75506101] = {id = 75506101}
-, 
 [75801101] = {id = 75801101, remark = (PUtil.get)(86370001), next = 75701124}
 , 
 [75801102] = {id = 75801102, remark = (PUtil.get)(86370002), next = 75701125}
@@ -3222,6 +3220,42 @@ BaseStoryOptionData = {
 [75801825] = {id = 75801825, remark = (PUtil.get)(86370513), next = 75718916}
 , 
 [75801826] = {id = 75801826, remark = (PUtil.get)(86370514), next = 75718917}
+, 
+[75506401] = {id = 75506401, remark = (PUtil.get)(86370515), next = 75464103}
+, 
+[75506402] = {id = 75506402, remark = (PUtil.get)(86370516), next = 75464104}
+, 
+[75506403] = {id = 75506403, remark = (PUtil.get)(86370517), next = 75464204}
+, 
+[75506404] = {id = 75506404, remark = (PUtil.get)(86370518), next = 75464205}
+, 
+[75506405] = {id = 75506405, remark = (PUtil.get)(86370519), next = 75464311}
+, 
+[75506406] = {id = 75506406, remark = (PUtil.get)(86370520), next = 75464312}
+, 
+[75506407] = {id = 75506407, remark = (PUtil.get)(86370521), next = 75464405}
+, 
+[75506408] = {id = 75506408, remark = (PUtil.get)(86370522), next = 75464406}
+, 
+[75506409] = {id = 75506409, remark = (PUtil.get)(86370523), next = 75464503}
+, 
+[75506410] = {id = 75506410, remark = (PUtil.get)(86370524), next = 75464504}
+, 
+[75506411] = {id = 75506411, remark = (PUtil.get)(86370525), next = 75464614}
+, 
+[75506412] = {id = 75506412, remark = (PUtil.get)(86370526), next = 75464615}
+, 
+[75506413] = {id = 75506413, remark = (PUtil.get)(86370527), next = 75464803}
+, 
+[75506414] = {id = 75506414, remark = (PUtil.get)(86370528), next = 75464804}
+, 
+[75506415] = {id = 75506415, remark = (PUtil.get)(86370529), next = 75464904}
+, 
+[75506416] = {id = 75506416, remark = (PUtil.get)(86370530), next = 75464905}
+, 
+[75506417] = {id = 75506417, remark = (PUtil.get)(86370531), next = 75465008}
+, 
+[75506418] = {id = 75506418, remark = (PUtil.get)(86370532), next = 75465009}
 }
 return BaseStoryOptionData
 

@@ -6399,6 +6399,46 @@ BaseSoundPathData = {
 , 
 [282580303] = {id = 282580303, play_frame = 114, path = "sfx_boss_aphrodite_small_tx_114fr", bank = "boss_aphrodite"}
 , 
+[282590101] = {id = 282590101, play_frame = 21, path = "sfx_boss_aglaia_big_tx_21fr", bank = "boss_aglaia"}
+, 
+[282590102] = {id = 282590102, play_frame = 35, path = "sfx_boss_aglaia_big_tx_35fr", bank = "boss_aglaia"}
+, 
+[282590103] = {id = 282590103, play_frame = 57, path = "sfx_boss_aglaia_big_tx_57fr", bank = "boss_aglaia"}
+, 
+[282590104] = {id = 282590104, play_frame = 88, path = "sfx_boss_aglaia_big_tx_88fr", bank = "boss_aglaia"}
+, 
+[282590105] = {id = 282590105, play_frame = 119, path = "sfx_boss_aglaia_big_tx_119fr", bank = "boss_aglaia"}
+, 
+[282590201] = {id = 282590201, play_frame = 11, path = "sfx_boss_aglaia_pt_wh_11fr", bank = "boss_aglaia"}
+, 
+[282590202] = {id = 282590202, play_frame = 68, path = "sfx_boss_aglaia_pt_tx_68fr", bank = "boss_aglaia"}
+, 
+[282590203] = {id = 282590203, play_frame = 93, path = "sfx_boss_aglaia_pt_tx_93fr", bank = "boss_aglaia"}
+, 
+[282590301] = {id = 282590301, play_frame = 9, path = "sfx_boss_aglaia_small_wh_9fr", bank = "boss_aglaia"}
+, 
+[282590302] = {id = 282590302, play_frame = 86, path = "sfx_boss_aglaia_small_tx_86fr", bank = "boss_aglaia"}
+, 
+[282590303] = {id = 282590303, play_frame = 107, path = "sfx_boss_aglaia_small_tx_107fr", bank = "boss_aglaia"}
+, 
+[282600101] = {id = 282600101, play_frame = 40, path = "sfx_boss_hephaestus_big_wh_40fr", bank = "boss_hephaestus"}
+, 
+[282600102] = {id = 282600102, play_frame = 99, path = "sfx_boss_hephaestus_big_wh_99fr", bank = "boss_hephaestus"}
+, 
+[282600103] = {id = 282600103, play_frame = 112, path = "sfx_boss_hephaestus_big_tx_112fr", bank = "boss_hephaestus"}
+, 
+[282600201] = {id = 282600201, play_frame = 37, path = "sfx_boss_hephaestus_pt_wh_37fr", bank = "boss_hephaestus"}
+, 
+[282600202] = {id = 282600202, play_frame = 48, path = "sfx_boss_hephaestus_pt_tx_48fr", bank = "boss_hephaestus"}
+, 
+[282600301] = {id = 282600301, play_frame = 22, path = "sfx_boss_hephaestus_small_wh_22fr", bank = "boss_hephaestus"}
+, 
+[282600302] = {id = 282600302, play_frame = 37, path = "sfx_boss_hephaestus_small_wh_37fr", bank = "boss_hephaestus"}
+, 
+[282600303] = {id = 282600303, play_frame = 67, path = "sfx_boss_hephaestus_small_wh_67fr", bank = "boss_hephaestus"}
+, 
+[282600304] = {id = 282600304, play_frame = 70, path = "sfx_boss_hephaestus_small_tx_70fr", bank = "boss_hephaestus"}
+, 
 [230450101] = {id = 230450101, play_frame = 29, path = "sfx_hamit_halloween_big_tx_29fr", bank = "hamit_halloween"}
 , 
 [230450102] = {id = 230450102, play_frame = 87, path = "sfx_hamit_halloween_big_tx_87fr", bank = "hamit_halloween"}

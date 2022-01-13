@@ -42,4 +42,6 @@
 [78610021] = {id = 78610021, name = "寅年アイコン枠", des = "今年もよろしくお願いします。\n「感謝祭」より獲得可能。", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0022", condition = "0", sort = 21, reward_sort = 9880001, own_show = 1, open_time = "2021-12-31 10:59:59"}
 , 
 [78610022] = {id = 78610022, name = "いい子にしてた？", des = "お姉さんと一緒にクリスマスを過ごしましょう", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0023", condition = "0", sort = 22, reward_sort = 9880001, own_show = 1, open_time = "2021-12-25 10:59:59"}
+, 
+[78610023] = {id = 78610023, name = "ふりもふ頭脳派", des = "これで私も軍師になれる！", type = 3, intelligence = 4, icon_path = "CardHeadFrame:Frame_0024", condition = "0", sort = 23, reward_sort = 9880001, own_show = 1, open_time = "2032-12-24 06:00:00"}
 }

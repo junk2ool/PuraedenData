@@ -53,7 +53,7 @@ BaseAssetData = {
 , 
 [21100026] = {id = 21100026, name = (PUtil.get)(82100020), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100026", reward_sort = 9690001}
 , 
-[21100027] = {id = 21100027, name = (PUtil.get)(82100021), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100027", reward_sort = 9690001}
+[21100027] = {id = 21100027, name = (PUtil.get)(82100021), remark = (PUtil.get)(83100020), quality = 3, icon = "ItemIcon:21100020", reward_sort = 9690001}
 , 
 [21100028] = {id = 21100028, name = (PUtil.get)(82100018), remark = (PUtil.get)(83100018), quality = 3, icon = "ItemIcon:21100018", reward_sort = 9690002}
 , 

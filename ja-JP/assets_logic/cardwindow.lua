@@ -184,9 +184,9 @@ CardWindow.CustomPropInit = function(isCreatSpine, ...)
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   (uis.JueseNameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
-  -- DECOMPILER ERROR at PC9: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
 
-  if isCreatSpine then
+  if not excelData.name or isCreatSpine then
     (uis.PictureLoader).alpha = 0
     ;
     (Util.RecycleUIModel)(uis.PictureLoader)
@@ -232,7 +232,7 @@ CardWindow.CustomPropInit = function(isCreatSpine, ...)
     (CardInfoWindow.Init)(uis)
   end
 )
-        -- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC89: Confused about usage of register: R1 in 'UnsetPending'
 
         ;
         (uis.c2Ctr).selectedIndex = cardData.intelligence - 1

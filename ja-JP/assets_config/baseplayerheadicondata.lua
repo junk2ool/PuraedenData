@@ -47,6 +47,8 @@ BasePlayerHeadIconData = {
 , 
 [78601318] = {id = 78601318, name = (PUtil.get)(84123018), des = (PUtil.get)(84121019), type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_018", condition = "0", sort = 22, reward_sort = 9880001, own_show = 1, open_time = "1640293200"}
 , 
+[78601319] = {id = 78601319, name = (PUtil.get)(84123019), des = (PUtil.get)(84121020), type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_019", condition = "0", sort = 23, reward_sort = 9880001, own_show = 1, open_time = "1642885200"}
+, 
 [78601401] = {id = 78601401, name = (PUtil.get)(84123101), des = (PUtil.get)(84121101), type = 3, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_Task_001", condition = "0", sort = 1, reward_sort = 9880001, own_show = 1, open_time = "1619211600"}
 , 
 [78601101] = {id = 78601101, name = (PUtil.get)(81011001), des = (PUtil.get)(84121001, 10), type = 2, intelligence = 4, icon_path = "CardHeadIconCircle:HeadCircle_11100001_2", condition = "72501008:11100001:10", sort = 1000, reward_sort = 9880001, own_show = 1}

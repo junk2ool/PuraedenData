@@ -851,6 +851,12 @@
 , 
 [75210127] = {id = 75210127, name = "街の人", role_path = "img_12010006", effect_path = "FIGHT_KILL", fashion_id = "15010006", offset = "20:60"}
 , 
+[75210128] = {id = 75210128, name = "騎士団員", role_path = "img_12010008", effect_path = "FIGHT_KILL", fashion_id = "15010008", offset = "20:70"}
+, 
+[75210129] = {id = 75210129, name = "騎士団員", role_path = "img_12010007", effect_path = "FIGHT_KILL", fashion_id = "15010007", offset = "33:-15"}
+, 
+[75210130] = {id = 75210130, name = "悪党", role_path = "img_12010002", effect_path = "FIGHT_KILL", fashion_id = "15010002", offset = "-5:70"}
+, 
 [75203001] = {id = 75203001, name = "山豚", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010018"}
 , 
 [75203002] = {id = 75203002, name = "森の長い羽の鳥", role_path = "l2d_11201004", effect_path = "FIGHT_KILL", fashion_id = "15010019"}

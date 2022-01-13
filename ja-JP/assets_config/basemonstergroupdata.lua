@@ -3050,6 +3050,12 @@ BaseMonsterGroupData = {
 [51406202] = {id = 51406202, max_round = 5, monster_list = "12636204:12636205:0:0:0:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1019", bgm_id = 1040021, story_id = "0", story_times = "0"}
 , 
 [51406203] = {id = 51406203, max_round = 5, monster_list = "12636208:0:0:12636209:0:12636210", boss_id = 12632010, hp_bar_count = 1, background_path = "BattleScene_1019", bgm_id = 1040021, story_id = "0", story_times = "0"}
+, 
+[51406401] = {id = 51406401, max_round = 5, monster_list = "0:12636402:0:0:0:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1024", bgm_id = 1040020, story_id = "0", story_times = "0"}
+, 
+[51406402] = {id = 51406402, max_round = 5, monster_list = "0:0:0:12636405:12636404:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1024", bgm_id = 1040020, story_id = "0", story_times = "0"}
+, 
+[51406403] = {id = 51406403, max_round = 5, monster_list = "0:12636410:0:12636408:0:12636409", boss_id = 12636410, hp_bar_count = 1, background_path = "BattleScene_1024", bgm_id = 1040020, story_id = "0", story_times = "0"}
 }
 return BaseMonsterGroupData
 
