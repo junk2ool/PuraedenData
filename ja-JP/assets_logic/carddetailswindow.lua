@@ -37,15 +37,24 @@ CardDetailsWindow.RefreshWindow = function(...)
   ;
   ((uis.AssetStripGrp).CloseAssetGrp).visible = false
   local excelData = ((TableData.gTable).BaseCardData)[cardId]
-  -- DECOMPILER ERROR at PC45: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC48: Confused about usage of register: R2 in 'UnsetPending'
+
+  if excelData.name_pic then
+    ((uis.InformationGrp).JueseNameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
+  end
+  -- DECOMPILER ERROR at PC52: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
-  ((uis.InformationGrp).JueseNameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
-  -- DECOMPILER ERROR at PC50: Confused about usage of register: R2 in 'UnsetPending'
+  ((uis.InformationGrp).CardNameTxt).text = excelData.name
+  -- DECOMPILER ERROR at PC56: Confused about usage of register: R2 in 'UnsetPending'
+
+  ;
+  ((uis.InformationGrp).CVNameTxt).text = excelData.cv_name
+  -- DECOMPILER ERROR at PC61: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.InformationGrp).c1Ctr).selectedIndex = excelData.intelligence - 1
-  -- DECOMPILER ERROR at PC53: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC64: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (uis.c1Ctr).selectedIndex = excelData.intelligence
@@ -53,15 +62,15 @@ CardDetailsWindow.RefreshWindow = function(...)
   local propsTxt = {((uis.InformationGrp).One).LabelTxt, ((uis.InformationGrp).Two).LabelTxt, ((uis.InformationGrp).Three).LabelTxt}
   local selfLabel = split(excelData.card_label_show, ":")
   for i = 1, #props do
-    -- DECOMPILER ERROR at PC83: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC94: Confused about usage of register: R9 in 'UnsetPending'
 
     ((props[i]).root).visible = false
   end
   for i = 1, #selfLabel do
-    -- DECOMPILER ERROR at PC93: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC104: Confused about usage of register: R9 in 'UnsetPending'
 
     ((props[SELF_LABEL_MAX - i]).root).visible = true
-    -- DECOMPILER ERROR at PC103: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC114: Confused about usage of register: R9 in 'UnsetPending'
 
     ;
     (propsTxt[SELF_LABEL_MAX - i]).text = (PUtil.get)(tonumber(selfLabel[i]))
@@ -73,14 +82,15 @@ CardDetailsWindow.RefreshWindow = function(...)
       ((uis.InformationGrp).StarList):AddItemFromPool()
     end
   end
-  -- DECOMPILER ERROR at PC124: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC138: Confused about usage of register: R5 in 'UnsetPending'
 
-  ;
-  ((uis.InformationGrp).CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
+  if excelData.cv_pic then
+    ((uis.InformationGrp).CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
+  end
   local fashionIds = split(excelData.fashion_ids, ":")
   local fashionId = tonumber(fashionIds[#fashionIds])
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
-  -- DECOMPILER ERROR at PC141: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC155: Confused about usage of register: R8 in 'UnsetPending'
 
   if fashionData.show_cg ~= nil then
     (uis.c1Ctr).selectedIndex = 0
@@ -93,13 +103,13 @@ CardDetailsWindow.RefreshWindow = function(...)
     end
   else
     do
-      -- DECOMPILER ERROR at PC176: Overwrote pending register: R8 in 'AssignReg'
+      -- DECOMPILER ERROR at PC190: Overwrote pending register: R8 in 'AssignReg'
 
       ;
       (effect.RecycleUIModel)(uis.CardLoader)
       ;
       (Util.CreateShowModel)(fashionId, uis.CardLoader, true, false, true)
-      -- DECOMPILER ERROR at PC197: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC211: Confused about usage of register: R8 in 'UnsetPending'
 
       if fashionData.unlock_remark then
         (uis.WordTxt).text = (PUtil.get)(186, fashionData.unlock_remark)
@@ -111,7 +121,7 @@ CardDetailsWindow.RefreshWindow = function(...)
         if skills[i] ~= nil then
           local skillGrp = GetCommonResource_SkillFrameUis((uis.SkillMessageList):AddItemFromPool())
           local skillData = (TableData.GetBaseSkillData)(skills[i])
-          -- DECOMPILER ERROR at PC227: Confused about usage of register: R15 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC241: Confused about usage of register: R15 in 'UnsetPending'
 
           ;
           (skillGrp.SkillLoader).url = (Util.GetResUrl)(skillData.icon_path)
@@ -130,22 +140,22 @@ CardDetailsWindow.RefreshWindow = function(...)
   end
 )
           local skillType = skillData.type
-          -- DECOMPILER ERROR at PC241: Confused about usage of register: R16 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC255: Confused about usage of register: R16 in 'UnsetPending'
 
           if skillType == 2 then
             (skillGrp.c1Ctr).selectedIndex = 2
           else
-            -- DECOMPILER ERROR at PC246: Confused about usage of register: R16 in 'UnsetPending'
+            -- DECOMPILER ERROR at PC260: Confused about usage of register: R16 in 'UnsetPending'
 
             if skillType == 3 then
               (skillGrp.c1Ctr).selectedIndex = 1
             else
-              -- DECOMPILER ERROR at PC251: Confused about usage of register: R16 in 'UnsetPending'
+              -- DECOMPILER ERROR at PC265: Confused about usage of register: R16 in 'UnsetPending'
 
               if skillType == 6 then
                 (skillGrp.c1Ctr).selectedIndex = 3
               else
-                -- DECOMPILER ERROR at PC254: Confused about usage of register: R16 in 'UnsetPending'
+                -- DECOMPILER ERROR at PC268: Confused about usage of register: R16 in 'UnsetPending'
 
                 ;
                 (skillGrp.c1Ctr).selectedIndex = 0

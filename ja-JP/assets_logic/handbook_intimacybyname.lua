@@ -13,9 +13,11 @@ GetHandBook_IntimacyUis = function(ui, ...)
   uis.LeftBtn = ui:GetChild("LeftBtn")
   uis.RightBtn = ui:GetChild("RightBtn")
   uis.CardNameLoader = ui:GetChild("CardNameLoader")
+  uis.CardNameTxt = ui:GetChild("CardNameTxt")
   uis.Decorate_01_Image = ui:GetChild("Decorate_01_Image")
   uis.CVImage = ui:GetChild("CVImage")
   uis.CVNameLoader = ui:GetChild("CVNameLoader")
+  uis.CVNameTxt = ui:GetChild("CVNameTxt")
   uis.root = ui
   return uis
 end

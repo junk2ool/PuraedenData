@@ -500,6 +500,10 @@ BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
               break
             end
           end
+          local config = tempBuff:GetBuffConfig()
+          if config.type == 40 then
+            (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_CONTROLLED, card:GetPosIndex())
+          end
           t_insert(allBuffTable, {buff = tempBuff:GetBuffInfo(atkInfo, true), type = BattleBuffOprType.NEW})
           if IsBattleServer == nil then
             (BattleData.SaveBattleProcess)("  新增buff " .. tempBuff:GetBuffLog())
@@ -511,7 +515,7 @@ BattleDataCount.DealAddBuff = function(card, tempBuff, atkInfo, ...)
           (self.DealExtraBuffList)(tempBuff, atkInfo, "settle_buff_list")
           return true
         end
-        -- DECOMPILER ERROR: 7 unprocessed JMP targets
+        -- DECOMPILER ERROR: 8 unprocessed JMP targets
       end
     end
   end
@@ -698,44 +702,49 @@ BattleDataCount.UpdateBuffCount = function(atkInfo, deduction_round_type, arg, .
                               if deduction_round_type == BattleBuffDeductionRoundType.AFTER_REVIVE and arg == buff:GetCurDefPos() then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
                               end
+                              -- DECOMPILER ERROR at PC595: Unhandled construct in 'MakeBoolean' P1
+
                               if (deduction_round_type == BattleBuffDeductionRoundType.AFTER_CRIT_BEFORE_DMG or deduction_round_type == BattleBuffDeductionRoundType.AFTER_CRIT_AFTER_DMG) and arg == buff:GetCurDefPos() then
                                 (self.RealUpdateBuffCount)(buff, atkInfo)
                               end
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out DO_STMT
+                              if deduction_round_type == BattleBuffDeductionRoundType.AFTER_CONTROLLED and arg == buff:GetCurDefPos() then
+                                (self.RealUpdateBuffCount)(buff, atkInfo)
+                              end
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out DO_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out DO_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                              -- DECOMPILER ERROR at PC596: LeaveBlock: unexpected jumping out IF_STMT
+                              -- DECOMPILER ERROR at PC608: LeaveBlock: unexpected jumping out IF_STMT
 
                             end
                           end

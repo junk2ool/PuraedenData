@@ -176,15 +176,25 @@ end
 CardGetShowWindow.RefreshDetailInfo = function(...)
   -- function num : 0_3 , upvalues : _ENV, cardID, uis, CardGetShowWindow, FxManager, lastClickIndex, isHave, isAutoClose, CloseAndBroadcast, moveConfig
   local excelData = ((TableData.gTable).BaseCardData)[cardID]
-  -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC13: Confused about usage of register: R1 in 'UnsetPending'
+
+  if excelData.cv_pic then
+    (uis.CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
+  end
+  -- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
+
+  if excelData.name_pic then
+    (uis.NameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
+  end
+  -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
-  (uis.CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
-  -- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
+  (uis.CardNameTxt).text = excelData.name
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
-  (uis.NameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
-  -- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
+  (uis.CVNameTxt).text = excelData.cv_name
+  -- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.c2Ctr).selectedIndex = excelData.intelligence
@@ -216,7 +226,7 @@ CardGetShowWindow.RefreshDetailInfo = function(...)
 )
     end
   end
-  -- DECOMPILER ERROR at PC92: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC104: Confused about usage of register: R4 in 'UnsetPending'
 
   if isHave then
     (uis.c1Ctr).selectedIndex = 1
@@ -233,28 +243,28 @@ CardGetShowWindow.RefreshDetailInfo = function(...)
         end
       end
     end
-    -- DECOMPILER ERROR at PC114: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC126: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     ((uis.Repeat).c1Ctr).selectedIndex = piceIndex
-    -- DECOMPILER ERROR at PC118: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC130: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
     (((uis.RepeatTips).Repeat).c1Ctr).selectedIndex = piceIndex
     local imgUrl = nil
     local piecesId = tonumber((split(excelData.recruit_cost, ":"))[2])
     imgUrl = (Util.GetItemUrl)((((TableData.gTable).BasePropData)[piecesId]).icon)
-    -- DECOMPILER ERROR at PC139: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC151: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (((uis.RepeatTips).Repeat).IconLoader).url = imgUrl
-    -- DECOMPILER ERROR at PC142: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC154: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     ((uis.Repeat).IconLoader).url = imgUrl
   else
     do
-      -- DECOMPILER ERROR at PC145: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC157: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = 0

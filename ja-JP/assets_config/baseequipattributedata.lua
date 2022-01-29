@@ -997,4 +997,5 @@ BaseEquipAttributeData = {
 , 
 [64101304] = {id = 64101304, type = 13, level = 5, next = 0, value = "1:81050022:114"}
 }
+return BaseEquipAttributeData
 

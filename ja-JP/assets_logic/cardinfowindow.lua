@@ -188,38 +188,47 @@ CardInfoWindow.SetDetailedContentGrp = function(...)
 
   ((uis.DetailedContentGrp).LevelTxt).text = (PUtil.get)(53) .. cardData.level
   local excelData = ((TableData.gTable).BaseCardData)[cardData.id]
-  -- DECOMPILER ERROR at PC20: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC23: Confused about usage of register: R1 in 'UnsetPending'
+
+  if excelData.name_pic then
+    ((uis.DetailedContentGrp).JueseNameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
+  end
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
-  ((uis.DetailedContentGrp).JueseNameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
+  ((uis.DetailedContentGrp).CardNameTxt).text = excelData.name
+  -- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  ((uis.DetailedContentOtherGrp).CVNameTxt).text = excelData.cv_name
   local props = {(uis.DetailedContentGrp).One, (uis.DetailedContentGrp).Two, (uis.DetailedContentGrp).Three}
   local propsTxt = {((uis.DetailedContentGrp).One).LabelTxt, ((uis.DetailedContentGrp).Two).LabelTxt, ((uis.DetailedContentGrp).Three).LabelTxt}
   local selfLabel = split(excelData.card_label_show, ":")
   for i = 1, #props do
-    -- DECOMPILER ERROR at PC50: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC61: Confused about usage of register: R8 in 'UnsetPending'
 
     ((props[i]).root).visible = false
   end
   for i = 1, #selfLabel do
-    -- DECOMPILER ERROR at PC60: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC71: Confused about usage of register: R8 in 'UnsetPending'
 
     ((props[SELF_LABEL_MAX - i]).root).visible = true
-    -- DECOMPILER ERROR at PC70: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC81: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (propsTxt[SELF_LABEL_MAX - i]).text = (PUtil.get)(tonumber(selfLabel[i]))
   end
   local preUpStageData = (Card_StageUpWindow.GetBaseCardQualityData)(cardData.quality)
   local levelShow = split(preUpStageData.level_show, ":")
-  -- DECOMPILER ERROR at PC84: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC95: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   ((uis.DetailedContentGrp).c2Ctr).selectedIndex = cardData.intelligence - 1
-  -- DECOMPILER ERROR at PC90: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC101: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   ((uis.DetailedContentGrp).c1Ctr).selectedIndex = tonumber(levelShow[1])
-  -- DECOMPILER ERROR at PC94: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC105: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   ((uis.DetailedContentGrp).StageNumberTxt).text = cardData.quality
@@ -303,62 +312,66 @@ CardInfoWindow.SetDetailedContentOtherGrp = function(...)
   if excelData.cv_pic then
     ((uis.DetailedContentOtherGrp).CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
   end
-  -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
 
   if excelData.cv_name then
-    ((uis.DetailedContentOtherGrp).RelationTxt).text = (PUtil.get)(138)
-    -- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
+    ((uis.DetailedContentOtherGrp).CVNameTxt).text = excelData.cv_name
+  end
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
 
-    ;
-    ((uis.DetailedContentOtherGrp).RelationNameTxt).text = (Util.GetCardIntimacyData)(cardData.id)
-    -- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
+  ;
+  ((uis.DetailedContentOtherGrp).RelationTxt).text = (PUtil.get)(138)
+  -- DECOMPILER ERROR at PC35: Confused about usage of register: R1 in 'UnsetPending'
 
-    ;
-    ((uis.DetailedContentOtherGrp).RelationLevelTxt).text = cardData.intimacyLv
-    -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+  ;
+  ((uis.DetailedContentOtherGrp).RelationNameTxt).text = (Util.GetCardIntimacyData)(cardData.id)
+  -- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
 
-    ;
-    ((uis.DetailedContentOtherGrp).JuQingTxt).text = (PUtil.get)(20000377)
-    -- DECOMPILER ERROR at PC55: Confused about usage of register: R1 in 'UnsetPending'
+  ;
+  ((uis.DetailedContentOtherGrp).RelationLevelTxt).text = cardData.intimacyLv
+  -- DECOMPILER ERROR at PC46: Confused about usage of register: R1 in 'UnsetPending'
 
-    if excelData.is_handbookstage_open == 0 then
-      ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(207) .. "[/color]"
+  ;
+  ((uis.DetailedContentOtherGrp).JuQingTxt).text = (PUtil.get)(20000377)
+  -- DECOMPILER ERROR at PC59: Confused about usage of register: R1 in 'UnsetPending'
+
+  if excelData.is_handbookstage_open == 0 then
+    ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(207) .. "[/color]"
+  else
+    -- DECOMPILER ERROR at PC73: Confused about usage of register: R1 in 'UnsetPending'
+
+    if cardData.intimacyLv == 0 then
+      ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(60000085) .. "[/color]"
     else
-      -- DECOMPILER ERROR at PC69: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC85: Confused about usage of register: R1 in 'UnsetPending'
 
-      if cardData.intimacyLv == 0 then
-        ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = "[color=#ff5f7b]" .. (PUtil.get)(60000085) .. "[/color]"
-      else
-        -- DECOMPILER ERROR at PC81: Confused about usage of register: R1 in 'UnsetPending'
-
-        ;
-        ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = (PUtil.get)(140, (Util.GetCardStoryIndex)(cardData.id))
-      end
+      ;
+      ((uis.DetailedContentOtherGrp).JuQingNumberTxt).text = (PUtil.get)(140, (Util.GetCardStoryIndex)(cardData.id))
     end
-    ;
-    (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Clear()
-    ;
-    (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Add(function(...)
+  end
+  ;
+  (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Clear()
+  ;
+  (((uis.DetailedContentOtherGrp).ChangeCardBtn).onClick):Add(function(...)
     -- function num : 0_9_0 , upvalues : _ENV
     OpenWindow((WinResConfig.CardChoiceWindow).name, UILayer.HUD)
   end
 )
-    local fashionD = (CardData.GetFashionConfig)(cardData)
-    fashionId = fashionD.id
-    local littleLoader = ((uis.DetailedContentOtherGrp).ChangeCardBtn):GetChild("QBanLoader")
-    ;
-    (Util.RecycleUIModel)(littleLoader)
-    local boneModel = (Util.ShowUIModel)(fashionD.spd_bundle, littleLoader, fashionD.show_spine_type)
-    ;
-    (SkeletonAnimationUtil.SetAnimation)(boneModel, 0, "idle", true)
-    local scale = 20
-    ;
-    (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
-    ;
-    (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
-    ;
-    (CSLuaUtil.SetGOLocalPos)(boneModel, 63, -116, 0)
-  end
+  local fashionD = (CardData.GetFashionConfig)(cardData)
+  fashionId = fashionD.id
+  local littleLoader = ((uis.DetailedContentOtherGrp).ChangeCardBtn):GetChild("QBanLoader")
+  ;
+  (Util.RecycleUIModel)(littleLoader)
+  local boneModel = (Util.ShowUIModel)(fashionD.spd_bundle, littleLoader, fashionD.show_spine_type)
+  ;
+  (SkeletonAnimationUtil.SetAnimation)(boneModel, 0, "idle", true)
+  local scale = 20
+  ;
+  (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
+  ;
+  (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
+  ;
+  (CSLuaUtil.SetGOLocalPos)(boneModel, 63, -116, 0)
 end
 
 -- DECOMPILER ERROR at PC52: Confused about usage of register: R13 in 'UnsetPending'

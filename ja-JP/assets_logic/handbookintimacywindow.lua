@@ -612,14 +612,24 @@ HandBookIntimacyWindow.RefreshCardInformation = function(isInit, refreshCard, No
   end
 )
     local cardData = ((TableData.gTable).BaseCardData)[currentID]
-    -- DECOMPILER ERROR at PC45: Confused about usage of register: R6 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC48: Confused about usage of register: R6 in 'UnsetPending'
+
+    if cardData.name_pic then
+      (uis.CardNameLoader).url = (Util.GetItemUrl)(cardData.name_pic)
+    end
+    -- DECOMPILER ERROR at PC57: Confused about usage of register: R6 in 'UnsetPending'
+
+    if cardData.cv_pic then
+      (uis.CVNameLoader).url = (Util.GetItemUrl)(cardData.cv_pic)
+    end
+    -- DECOMPILER ERROR at PC60: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
-    (uis.CardNameLoader).url = (Util.GetItemUrl)(cardData.name_pic)
-    -- DECOMPILER ERROR at PC51: Confused about usage of register: R6 in 'UnsetPending'
+    (uis.CardNameTxt).text = cardData.name
+    -- DECOMPILER ERROR at PC63: Confused about usage of register: R6 in 'UnsetPending'
 
     ;
-    (uis.CVNameLoader).url = (Util.GetItemUrl)(cardData.cv_pic)
+    (uis.CVNameTxt).text = cardData.cv_name
     ;
     (HandBookIntimacyWindow.RefreshRightIntimacyInfo)(true, NoItem)
     if not isInit and not NoItem then
