@@ -485,6 +485,8 @@ ActivityDungeonWindow33001401 = {name = "ActivityDungeonWindow33001401", package
 ActivityDungeonWindow33001402 = {name = "ActivityDungeonWindow33001402", package = "ActivityDungeonTwo", comName = "BattleMain", hideBelow = true}
 , 
 ActivityDungeonWindow33001403 = {name = "ActivityDungeonWindow33001403", package = "ActivityDungeonTwo", comName = "BattleMain", hideBelow = true}
+, 
+BuffInfoWindow = {name = "BuffInfoWindow", package = "Formation", comName = "BuffInfoWindow", hideBelow = false}
 }
 _ENV.RegisterAllLuaWindowType = function(...)
   -- function num : 0_0 , upvalues : _ENV

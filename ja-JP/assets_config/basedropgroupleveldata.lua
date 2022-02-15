@@ -359,6 +359,8 @@ BaseDropGroupLevelData = {
 , 
 [27500017] = {id = 27500017, type = 5017, level_limit = "26:999", drop_ids = "28020017"}
 , 
+[27500018] = {id = 27500018, type = 5018, level_limit = "26:999", drop_ids = "28020018"}
+, 
 [27600001] = {id = 27600001, type = 6001, level_limit = "1:999", drop_ids = "28500101"}
 , 
 [27600002] = {id = 27600002, type = 6002, level_limit = "1:999", drop_ids = "28500102"}

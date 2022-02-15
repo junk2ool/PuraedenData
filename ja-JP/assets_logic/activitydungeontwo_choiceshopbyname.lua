@@ -5,6 +5,7 @@ require("ActivityDungeonTwo_StageListByName")
 GetActivityDungeonTwo_ChoiceShopUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
+  uis.BgLoader = ui:GetChild("BgLoader")
   uis.BackgroundEffectLoader = ui:GetChild("BackgroundEffectLoader")
   uis.AssetStrip = GetCommonResource_AssetStripUis(ui:GetChild("AssetStrip"))
   uis.CommodityList = ui:GetChild("CommodityList")

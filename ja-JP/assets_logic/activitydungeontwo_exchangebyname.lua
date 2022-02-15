@@ -6,6 +6,7 @@ require("CommonResource_AssetStripByName")
 GetActivityDungeonTwo_ExchangeUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
+  uis.BgLoader = ui:GetChild("BgLoader")
   uis.ALoader = ui:GetChild("ALoader")
   uis.RewardShow = GetActivityDungeonTwo_RewardShowUis(ui:GetChild("RewardShow"))
   uis.GetReward_A = GetActivityDungeonTwo_GetRewardUis(ui:GetChild("GetReward_A"))

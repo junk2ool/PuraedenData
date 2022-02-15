@@ -1560,6 +1560,186 @@ BaseCardSealSkillUpData = {
 [78722544] = {id = 78722544, name = (PUtil.get)(121620062), remark = (PUtil.get)(121520061, 211, 50), icon_path = "SkillIconImprint:SealSkillIcon_43002006", type = 20065, level = 4, next_id = 78722545, change_skill = "42002006:49720064", need_seal_level = 75, need_skill_id = 78722531, next_cost = "1:21122006:5,1:21140012:20,1:21140013:20,1:21140014:20,1:21140015:20,1:21140016:20,1:21150002:30"}
 , 
 [78722545] = {id = 78722545, name = (PUtil.get)(121620062), remark = (PUtil.get)(121520062, 221, 50, 10), icon_path = "SkillIconImprint:SealSkillIcon_43002006", type = 20065, level = 5, next_id = 0, change_skill = "42002006:49720065", need_seal_level = 75, need_skill_id = 78722531, next_cost = "0"}
+, 
+[78722600] = {id = 78722600, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100100), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10041, level = 0, next_id = 78722601, need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121004:20,1:21150201:10"}
+, 
+[78722601] = {id = 78722601, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "1"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10041, level = 1, next_id = 78722602, buff_list = "49300010", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121004:5,1:21140001:10,1:21140002:10,1:21140003:5,1:21140004:5,1:21150002:10"}
+, 
+[78722602] = {id = 78722602, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "2.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10041, level = 2, next_id = 78722603, buff_list = "49300020", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121004:5,1:21140001:20,1:21140002:20,1:21140003:10,1:21140004:10,1:21150002:10"}
+, 
+[78722603] = {id = 78722603, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "4.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10041, level = 3, next_id = 78722604, buff_list = "49300030", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121004:5,1:21140001:30,1:21140002:30,1:21140003:15,1:21140004:15,1:21150002:10"}
+, 
+[78722604] = {id = 78722604, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "7.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10041, level = 4, next_id = 78722605, buff_list = "49300040", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21121004:5,1:21140001:40,1:21140002:40,1:21140003:20,1:21140004:20,1:21150002:10"}
+, 
+[78722605] = {id = 78722605, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "10"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 10041, level = 5, next_id = 0, buff_list = "49300050", need_seal_level = 15, need_skill_id = 0, next_cost = "0"}
+, 
+[78722610] = {id = 78722610, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100220), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10042, level = 0, next_id = 78722611, need_seal_level = 30, need_skill_id = 78722601, next_cost = "1:21121004:40,1:21150201:10"}
+, 
+[78722611] = {id = 78722611, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 40), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10042, level = 1, next_id = 78722612, buff_list = "49300310", need_seal_level = 30, need_skill_id = 78722601, next_cost = "1:21121004:5,1:21140003:5,1:21140004:5,1:21140005:10,1:21140006:5,1:21140007:5,1:21150002:15"}
+, 
+[78722612] = {id = 78722612, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 50), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10042, level = 2, next_id = 78722613, buff_list = "49300320", need_seal_level = 30, need_skill_id = 78722601, next_cost = "1:21121004:5,1:21140003:10,1:21140004:10,1:21140005:20,1:21140006:10,1:21140007:10,1:21150002:15"}
+, 
+[78722613] = {id = 78722613, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 60), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10042, level = 3, next_id = 78722614, buff_list = "49300330", need_seal_level = 30, need_skill_id = 78722601, next_cost = "1:21121004:5,1:21140003:15,1:21140004:15,1:21140005:30,1:21140006:15,1:21140007:15,1:21150002:15"}
+, 
+[78722614] = {id = 78722614, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 70), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10042, level = 4, next_id = 78722615, buff_list = "49300340", need_seal_level = 30, need_skill_id = 78722601, next_cost = "1:21121004:5,1:21140003:20,1:21140004:20,1:21140005:40,1:21140006:20,1:21140007:20,1:21150002:15"}
+, 
+[78722615] = {id = 78722615, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 80), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 10042, level = 5, next_id = 0, buff_list = "49300350", need_seal_level = 30, need_skill_id = 78722601, next_cost = "0"}
+, 
+[78722620] = {id = 78722620, name = (PUtil.get)(121610041), remark = (PUtil.get)(121410040), icon_path = "SkillIconImprint:SealSkillIcon_43001004", type = 10043, level = 0, next_id = 78722621, need_seal_level = 45, need_skill_id = 78722611, next_cost = "1:21121004:60,1:21150202:10"}
+, 
+[78722621] = {id = 78722621, name = (PUtil.get)(121610041), remark = (PUtil.get)(121410041, 122, 25), icon_path = "SkillIconImprint:SealSkillIcon_43001004", type = 10043, level = 1, next_id = 78722622, change_skill = "43001004:49810041", need_seal_level = 45, need_skill_id = 78722611, next_cost = "1:21121004:5,1:21140006:5,1:21140007:5,1:21140008:10,1:21140009:5,1:21140010:5,1:21150002:20"}
+, 
+[78722622] = {id = 78722622, name = (PUtil.get)(121610041), remark = (PUtil.get)(121410041, 126, 25), icon_path = "SkillIconImprint:SealSkillIcon_43001004", type = 10043, level = 2, next_id = 78722623, change_skill = "43001004:49810042", need_seal_level = 45, need_skill_id = 78722611, next_cost = "1:21121004:5,1:21140006:10,1:21140007:10,1:21140008:20,1:21140009:10,1:21140010:10,1:21150002:20"}
+, 
+[78722623] = {id = 78722623, name = (PUtil.get)(121610041), remark = (PUtil.get)(121410041, 132, 50), icon_path = "SkillIconImprint:SealSkillIcon_43001004", type = 10043, level = 3, next_id = 78722624, change_skill = "43001004:49810043", need_seal_level = 45, need_skill_id = 78722611, next_cost = "1:21121004:5,1:21140006:15,1:21140007:15,1:21140008:30,1:21140009:15,1:21140010:15,1:21150002:20"}
+, 
+[78722624] = {id = 78722624, name = (PUtil.get)(121610041), remark = (PUtil.get)(121410041, 140, 50), icon_path = "SkillIconImprint:SealSkillIcon_43001004", type = 10043, level = 4, next_id = 78722625, change_skill = "43001004:49810044", need_seal_level = 45, need_skill_id = 78722611, next_cost = "1:21121004:5,1:21140006:20,1:21140007:20,1:21140008:40,1:21140009:20,1:21140010:20,1:21150002:20"}
+, 
+[78722625] = {id = 78722625, name = (PUtil.get)(121610041), remark = (PUtil.get)(121410041, 150, 50), icon_path = "SkillIconImprint:SealSkillIcon_43001004", type = 10043, level = 5, next_id = 0, change_skill = "43001004:49810045", need_seal_level = 45, need_skill_id = 78722611, next_cost = "0"}
+, 
+[78722630] = {id = 78722630, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100300), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10044, level = 0, next_id = 78722631, need_seal_level = 60, need_skill_id = 78722621, next_cost = "1:21121004:80,1:21150202:10"}
+, 
+[78722631] = {id = 78722631, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 4285, 475), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10044, level = 1, next_id = 78722632, add_attr = "1:81050031:4285,1:81050032:475", need_seal_level = 60, need_skill_id = 78722621, next_cost = "1:21121004:5,1:21140009:5,1:21140010:5,1:21140011:10,1:21140012:5,1:21140013:5,1:21150002:25"}
+, 
+[78722632] = {id = 78722632, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 10715, 1190), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10044, level = 2, next_id = 78722633, add_attr = "1:81050031:10715,1:81050032:1190", need_seal_level = 60, need_skill_id = 78722621, next_cost = "1:21121004:5,1:21140009:10,1:21140010:10,1:21140011:20,1:21140012:10,1:21140013:10,1:21150002:25"}
+, 
+[78722633] = {id = 78722633, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 19290, 2145), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10044, level = 3, next_id = 78722634, add_attr = "1:81050031:19290,1:81050032:2415", need_seal_level = 60, need_skill_id = 78722621, next_cost = "1:21121004:5,1:21140009:15,1:21140010:15,1:21140011:30,1:21140012:15,1:21140013:15,1:21150002:25"}
+, 
+[78722634] = {id = 78722634, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 30010, 3335), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10044, level = 4, next_id = 78722635, add_attr = "1:81050031:30010,1:81050032:3335", need_seal_level = 60, need_skill_id = 78722621, next_cost = "1:21121004:5,1:21140009:20,1:21140010:20,1:21140011:40,1:21140012:20,1:21140013:20,1:21150002:25"}
+, 
+[78722635] = {id = 78722635, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 42870, 4765), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 10044, level = 5, next_id = 0, add_attr = "1:81050031:42870,1:81050032:4765", need_seal_level = 60, need_skill_id = 78722621, next_cost = "0"}
+, 
+[78722640] = {id = 78722640, name = (PUtil.get)(121610042), remark = (PUtil.get)(121510040), icon_path = "SkillIconImprint:SealSkillIcon_42001004", type = 10045, level = 0, next_id = 78722641, need_seal_level = 75, need_skill_id = 78722631, next_cost = "1:21121004:100,1:21150203:10"}
+, 
+[78722641] = {id = 78722641, name = (PUtil.get)(121610042), remark = (PUtil.get)(121510041, 119, 10), icon_path = "SkillIconImprint:SealSkillIcon_42001004", type = 10045, level = 1, next_id = 78722642, change_skill = "42001004:49710041", need_seal_level = 75, need_skill_id = 78722631, next_cost = "1:21121004:5,1:21140012:5,1:21140013:5,1:21140014:5,1:21140015:5,1:21140016:5,1:21150002:30"}
+, 
+[78722642] = {id = 78722642, name = (PUtil.get)(121610042), remark = (PUtil.get)(121510041, 123, 10), icon_path = "SkillIconImprint:SealSkillIcon_42001004", type = 10045, level = 2, next_id = 78722643, change_skill = "42001004:49710042", need_seal_level = 75, need_skill_id = 78722631, next_cost = "1:21121004:5,1:21140012:10,1:21140013:10,1:21140014:10,1:21140015:10,1:21140016:10,1:21150002:30"}
+, 
+[78722643] = {id = 78722643, name = (PUtil.get)(121610042), remark = (PUtil.get)(121510041, 129, 20), icon_path = "SkillIconImprint:SealSkillIcon_42001004", type = 10045, level = 3, next_id = 78722644, change_skill = "42001004:49710043", need_seal_level = 75, need_skill_id = 78722631, next_cost = "1:21121004:5,1:21140012:15,1:21140013:15,1:21140014:15,1:21140015:15,1:21140016:15,1:21150002:30"}
+, 
+[78722644] = {id = 78722644, name = (PUtil.get)(121610042), remark = (PUtil.get)(121510041, 137, 20), icon_path = "SkillIconImprint:SealSkillIcon_42001004", type = 10045, level = 4, next_id = 78722645, change_skill = "42001004:49710044", need_seal_level = 75, need_skill_id = 78722631, next_cost = "1:21121004:5,1:21140012:20,1:21140013:20,1:21140014:20,1:21140015:20,1:21140016:20,1:21150002:30"}
+, 
+[78722645] = {id = 78722645, name = (PUtil.get)(121610042), remark = (PUtil.get)(121510041, 146, 30), icon_path = "SkillIconImprint:SealSkillIcon_42001004", type = 10045, level = 5, next_id = 0, change_skill = "42001004:49710045", need_seal_level = 75, need_skill_id = 78722631, next_cost = "0"}
+, 
+[78722700] = {id = 78722700, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100100), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 22061, level = 0, next_id = 78722701, need_seal_level = 15, need_skill_id = 0, next_cost = "1:21122206:20,1:21150201:10"}
+, 
+[78722701] = {id = 78722701, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "1"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 22061, level = 1, next_id = 78722702, buff_list = "49300010", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21122206:5,1:21140001:10,1:21140002:10,1:21140003:5,1:21140004:5,1:21150002:10"}
+, 
+[78722702] = {id = 78722702, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "2.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 22061, level = 2, next_id = 78722703, buff_list = "49300020", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21122206:5,1:21140001:20,1:21140002:20,1:21140003:10,1:21140004:10,1:21150002:10"}
+, 
+[78722703] = {id = 78722703, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "4.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 22061, level = 3, next_id = 78722704, buff_list = "49300030", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21122206:5,1:21140001:30,1:21140002:30,1:21140003:15,1:21140004:15,1:21150002:10"}
+, 
+[78722704] = {id = 78722704, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "7.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 22061, level = 4, next_id = 78722705, buff_list = "49300040", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21122206:5,1:21140001:40,1:21140002:40,1:21140003:20,1:21140004:20,1:21150002:10"}
+, 
+[78722705] = {id = 78722705, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "10"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 22061, level = 5, next_id = 0, buff_list = "49300050", need_seal_level = 15, need_skill_id = 0, next_cost = "0"}
+, 
+[78722710] = {id = 78722710, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100220), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 22062, level = 0, next_id = 78722711, need_seal_level = 30, need_skill_id = 78722701, next_cost = "1:21122206:40,1:21150201:10"}
+, 
+[78722711] = {id = 78722711, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 40), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 22062, level = 1, next_id = 78722712, buff_list = "49300310", need_seal_level = 30, need_skill_id = 78722701, next_cost = "1:21122206:5,1:21140003:5,1:21140004:5,1:21140005:10,1:21140006:5,1:21140007:5,1:21150002:15"}
+, 
+[78722712] = {id = 78722712, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 50), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 22062, level = 2, next_id = 78722713, buff_list = "49300320", need_seal_level = 30, need_skill_id = 78722701, next_cost = "1:21122206:5,1:21140003:10,1:21140004:10,1:21140005:20,1:21140006:10,1:21140007:10,1:21150002:15"}
+, 
+[78722713] = {id = 78722713, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 60), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 22062, level = 3, next_id = 78722714, buff_list = "49300330", need_seal_level = 30, need_skill_id = 78722701, next_cost = "1:21122206:5,1:21140003:15,1:21140004:15,1:21140005:30,1:21140006:15,1:21140007:15,1:21150002:15"}
+, 
+[78722714] = {id = 78722714, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 70), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 22062, level = 4, next_id = 78722715, buff_list = "49300340", need_seal_level = 30, need_skill_id = 78722701, next_cost = "1:21122206:5,1:21140003:20,1:21140004:20,1:21140005:40,1:21140006:20,1:21140007:20,1:21150002:15"}
+, 
+[78722715] = {id = 78722715, name = (PUtil.get)(121600012), remark = (PUtil.get)(121100221, 80), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 22062, level = 5, next_id = 0, buff_list = "49300350", need_seal_level = 30, need_skill_id = 78722701, next_cost = "0"}
+, 
+[78722720] = {id = 78722720, name = (PUtil.get)(121622061), remark = (PUtil.get)(121422060), icon_path = "SkillIconImprint:SealSkillIcon_43002206", type = 22063, level = 0, next_id = 78722721, need_seal_level = 45, need_skill_id = 78722711, next_cost = "1:21122206:60,1:21150202:10"}
+, 
+[78722721] = {id = 78722721, name = (PUtil.get)(121622061), remark = (PUtil.get)(121422061, 125), icon_path = "SkillIconImprint:SealSkillIcon_43002206", type = 22063, level = 1, next_id = 78722722, change_skill = "43002206:49822061", need_seal_level = 45, need_skill_id = 78722711, next_cost = "1:21122206:5,1:21140006:5,1:21140007:5,1:21140008:10,1:21140009:5,1:21140010:5,1:21150002:20"}
+, 
+[78722722] = {id = 78722722, name = (PUtil.get)(121622061), remark = (PUtil.get)(121422061, 129), icon_path = "SkillIconImprint:SealSkillIcon_43002206", type = 22063, level = 2, next_id = 78722723, change_skill = "43002206:49822062", need_seal_level = 45, need_skill_id = 78722711, next_cost = "1:21122206:5,1:21140006:10,1:21140007:10,1:21140008:20,1:21140009:10,1:21140010:10,1:21150002:20"}
+, 
+[78722723] = {id = 78722723, name = (PUtil.get)(121622061), remark = (PUtil.get)(121422061, 135), icon_path = "SkillIconImprint:SealSkillIcon_43002206", type = 22063, level = 3, next_id = 78722724, change_skill = "43002206:49822063", need_seal_level = 45, need_skill_id = 78722711, next_cost = "1:21122206:5,1:21140006:15,1:21140007:15,1:21140008:30,1:21140009:15,1:21140010:15,1:21150002:20"}
+, 
+[78722724] = {id = 78722724, name = (PUtil.get)(121622061), remark = (PUtil.get)(121422061, 144), icon_path = "SkillIconImprint:SealSkillIcon_43002206", type = 22063, level = 4, next_id = 78722725, change_skill = "43002206:49822064", need_seal_level = 45, need_skill_id = 78722711, next_cost = "1:21122206:5,1:21140006:20,1:21140007:20,1:21140008:40,1:21140009:20,1:21140010:20,1:21150002:20"}
+, 
+[78722725] = {id = 78722725, name = (PUtil.get)(121622061), remark = (PUtil.get)(121422061, 154), icon_path = "SkillIconImprint:SealSkillIcon_43002206", type = 22063, level = 5, next_id = 0, change_skill = "43002206:49822065", need_seal_level = 45, need_skill_id = 78722711, next_cost = "0"}
+, 
+[78722730] = {id = 78722730, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100300), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 22064, level = 0, next_id = 78722731, need_seal_level = 60, need_skill_id = 78722721, next_cost = "1:21122206:80,1:21150202:10"}
+, 
+[78722731] = {id = 78722731, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 4285, 475), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 22064, level = 1, next_id = 78722732, add_attr = "1:81050031:4285,1:81050032:475", need_seal_level = 60, need_skill_id = 78722721, next_cost = "1:21122206:5,1:21140009:5,1:21140010:5,1:21140011:10,1:21140012:5,1:21140013:5,1:21150002:25"}
+, 
+[78722732] = {id = 78722732, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 10715, 1190), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 22064, level = 2, next_id = 78722733, add_attr = "1:81050031:10715,1:81050032:1190", need_seal_level = 60, need_skill_id = 78722721, next_cost = "1:21122206:5,1:21140009:10,1:21140010:10,1:21140011:20,1:21140012:10,1:21140013:10,1:21150002:25"}
+, 
+[78722733] = {id = 78722733, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 19290, 2145), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 22064, level = 3, next_id = 78722734, add_attr = "1:81050031:19290,1:81050032:2415", need_seal_level = 60, need_skill_id = 78722721, next_cost = "1:21122206:5,1:21140009:15,1:21140010:15,1:21140011:30,1:21140012:15,1:21140013:15,1:21150002:25"}
+, 
+[78722734] = {id = 78722734, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 30010, 3335), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 22064, level = 4, next_id = 78722735, add_attr = "1:81050031:30010,1:81050032:3335", need_seal_level = 60, need_skill_id = 78722721, next_cost = "1:21122206:5,1:21140009:20,1:21140010:20,1:21140011:40,1:21140012:20,1:21140013:20,1:21150002:25"}
+, 
+[78722735] = {id = 78722735, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 42870, 4765), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 22064, level = 5, next_id = 0, add_attr = "1:81050031:42870,1:81050032:4765", need_seal_level = 60, need_skill_id = 78722721, next_cost = "0"}
+, 
+[78722740] = {id = 78722740, name = (PUtil.get)(121622062), remark = (PUtil.get)(121522060), icon_path = "SkillIconImprint:SealSkillIcon_42002206", type = 22065, level = 0, next_id = 78722741, need_seal_level = 75, need_skill_id = 78722731, next_cost = "1:21122206:100,1:21150203:10"}
+, 
+[78722741] = {id = 78722741, name = (PUtil.get)(121622062), remark = (PUtil.get)(121522061, 122, 145), icon_path = "SkillIconImprint:SealSkillIcon_42002206", type = 22065, level = 1, next_id = 78722742, change_skill = "42002206:49722061", need_seal_level = 75, need_skill_id = 78722731, next_cost = "1:21122206:5,1:21140012:5,1:21140013:5,1:21140014:5,1:21140015:5,1:21140016:5,1:21150002:30"}
+, 
+[78722742] = {id = 78722742, name = (PUtil.get)(121622062), remark = (PUtil.get)(121522061, 126, 145), icon_path = "SkillIconImprint:SealSkillIcon_42002206", type = 22065, level = 2, next_id = 78722743, change_skill = "42002206:49722062", need_seal_level = 75, need_skill_id = 78722731, next_cost = "1:21122206:5,1:21140012:10,1:21140013:10,1:21140014:10,1:21140015:10,1:21140016:10,1:21150002:30"}
+, 
+[78722743] = {id = 78722743, name = (PUtil.get)(121622062), remark = (PUtil.get)(121522061, 132, 155), icon_path = "SkillIconImprint:SealSkillIcon_42002206", type = 22065, level = 3, next_id = 78722744, change_skill = "42002206:49722063", need_seal_level = 75, need_skill_id = 78722731, next_cost = "1:21122206:5,1:21140012:15,1:21140013:15,1:21140014:15,1:21140015:15,1:21140016:15,1:21150002:30"}
+, 
+[78722744] = {id = 78722744, name = (PUtil.get)(121622062), remark = (PUtil.get)(121522061, 140, 155), icon_path = "SkillIconImprint:SealSkillIcon_42002206", type = 22065, level = 4, next_id = 78722745, change_skill = "42002206:49722064", need_seal_level = 75, need_skill_id = 78722731, next_cost = "1:21122206:5,1:21140012:20,1:21140013:20,1:21140014:20,1:21140015:20,1:21140016:20,1:21150002:30"}
+, 
+[78722745] = {id = 78722745, name = (PUtil.get)(121622062), remark = (PUtil.get)(121522061, 150, 155), icon_path = "SkillIconImprint:SealSkillIcon_42002206", type = 22065, level = 5, next_id = 0, change_skill = "42002206:49722065", need_seal_level = 75, need_skill_id = 78722731, next_cost = "0"}
+, 
+[78722800] = {id = 78722800, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100100), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 31031, level = 0, next_id = 78722801, need_seal_level = 15, need_skill_id = 0, next_cost = "1:21123103:20,1:21150201:10"}
+, 
+[78722801] = {id = 78722801, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "1"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 31031, level = 1, next_id = 78722802, buff_list = "49300010", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21123103:5,1:21140001:10,1:21140002:10,1:21140003:5,1:21140004:5,1:21150002:10"}
+, 
+[78722802] = {id = 78722802, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "2.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 31031, level = 2, next_id = 78722803, buff_list = "49300020", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21123103:5,1:21140001:20,1:21140002:20,1:21140003:10,1:21140004:10,1:21150002:10"}
+, 
+[78722803] = {id = 78722803, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "4.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 31031, level = 3, next_id = 78722804, buff_list = "49300030", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21123103:5,1:21140001:30,1:21140002:30,1:21140003:15,1:21140004:15,1:21150002:10"}
+, 
+[78722804] = {id = 78722804, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "7.5"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 31031, level = 4, next_id = 78722805, buff_list = "49300040", need_seal_level = 15, need_skill_id = 0, next_cost = "1:21123103:5,1:21140001:40,1:21140002:40,1:21140003:20,1:21140004:20,1:21150002:10"}
+, 
+[78722805] = {id = 78722805, name = (PUtil.get)(121600002), remark = (PUtil.get)(121100101, "10"), icon_path = "SkillIconImprint:SealSkillIcon_1_2", type = 31031, level = 5, next_id = 0, buff_list = "49300050", need_seal_level = 15, need_skill_id = 0, next_cost = "0"}
+, 
+[78722810] = {id = 78722810, name = (PUtil.get)(121600013), remark = (PUtil.get)(121100230), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 31032, level = 0, next_id = 78722811, need_seal_level = 30, need_skill_id = 78722801, next_cost = "1:21123103:40,1:21150201:10"}
+, 
+[78722811] = {id = 78722811, name = (PUtil.get)(121600013), remark = (PUtil.get)(121100231, 8), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 31032, level = 1, next_id = 78722812, buff_list = "49300410", need_seal_level = 30, need_skill_id = 78722801, next_cost = "1:21123103:5,1:21140003:5,1:21140004:5,1:21140005:10,1:21140006:5,1:21140007:5,1:21150002:15"}
+, 
+[78722812] = {id = 78722812, name = (PUtil.get)(121600013), remark = (PUtil.get)(121100231, 16), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 31032, level = 2, next_id = 78722813, buff_list = "49300420", need_seal_level = 30, need_skill_id = 78722801, next_cost = "1:21123103:5,1:21140003:10,1:21140004:10,1:21140005:20,1:21140006:10,1:21140007:10,1:21150002:15"}
+, 
+[78722813] = {id = 78722813, name = (PUtil.get)(121600013), remark = (PUtil.get)(121100231, 24), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 31032, level = 3, next_id = 78722814, buff_list = "49300430", need_seal_level = 30, need_skill_id = 78722801, next_cost = "1:21123103:5,1:21140003:15,1:21140004:15,1:21140005:30,1:21140006:15,1:21140007:15,1:21150002:15"}
+, 
+[78722814] = {id = 78722814, name = (PUtil.get)(121600013), remark = (PUtil.get)(121100231, 32), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 31032, level = 4, next_id = 78722815, buff_list = "49300440", need_seal_level = 30, need_skill_id = 78722801, next_cost = "1:21123103:5,1:21140003:20,1:21140004:20,1:21140005:40,1:21140006:20,1:21140007:20,1:21150002:15"}
+, 
+[78722815] = {id = 78722815, name = (PUtil.get)(121600013), remark = (PUtil.get)(121100231, 40), icon_path = "SkillIconImprint:SealSkillIcon_2_1", type = 31032, level = 5, next_id = 0, buff_list = "49300450", need_seal_level = 30, need_skill_id = 78722801, next_cost = "0"}
+, 
+[78722820] = {id = 78722820, name = (PUtil.get)(121631031), remark = (PUtil.get)(121431030), icon_path = "SkillIconImprint:SealSkillIcon_43003103", type = 31033, level = 0, next_id = 78722821, need_seal_level = 45, need_skill_id = 78722811, next_cost = "1:21123103:60,1:21150202:10"}
+, 
+[78722821] = {id = 78722821, name = (PUtil.get)(121631031), remark = (PUtil.get)(121431031, 143, 20), icon_path = "SkillIconImprint:SealSkillIcon_43003103", type = 31033, level = 1, next_id = 78722822, change_skill = "43003103:49831031", need_seal_level = 45, need_skill_id = 78722811, next_cost = "1:21123103:5,1:21140006:5,1:21140007:5,1:21140008:10,1:21140009:5,1:21140010:5,1:21150002:20"}
+, 
+[78722822] = {id = 78722822, name = (PUtil.get)(121631031), remark = (PUtil.get)(121431031, 147, 20), icon_path = "SkillIconImprint:SealSkillIcon_43003103", type = 31033, level = 2, next_id = 78722823, change_skill = "43003103:49831032", need_seal_level = 45, need_skill_id = 78722811, next_cost = "1:21123103:5,1:21140006:10,1:21140007:10,1:21140008:20,1:21140009:10,1:21140010:10,1:21150002:20"}
+, 
+[78722823] = {id = 78722823, name = (PUtil.get)(121631031), remark = (PUtil.get)(121431031, 154, 30), icon_path = "SkillIconImprint:SealSkillIcon_43003103", type = 31033, level = 3, next_id = 78722824, change_skill = "43003103:49831033", need_seal_level = 45, need_skill_id = 78722811, next_cost = "1:21123103:5,1:21140006:15,1:21140007:15,1:21140008:30,1:21140009:15,1:21140010:15,1:21150002:20"}
+, 
+[78722824] = {id = 78722824, name = (PUtil.get)(121631031), remark = (PUtil.get)(121431031, 164, 30), icon_path = "SkillIconImprint:SealSkillIcon_43003103", type = 31033, level = 4, next_id = 78722825, change_skill = "43003103:49831034", need_seal_level = 45, need_skill_id = 78722811, next_cost = "1:21123103:5,1:21140006:20,1:21140007:20,1:21140008:40,1:21140009:20,1:21140010:20,1:21150002:20"}
+, 
+[78722825] = {id = 78722825, name = (PUtil.get)(121631031), remark = (PUtil.get)(121431031, 175, 40), icon_path = "SkillIconImprint:SealSkillIcon_43003103", type = 31033, level = 5, next_id = 0, change_skill = "43003103:49831035", need_seal_level = 45, need_skill_id = 78722811, next_cost = "0"}
+, 
+[78722830] = {id = 78722830, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100300), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 31034, level = 0, next_id = 78722831, need_seal_level = 60, need_skill_id = 78722821, next_cost = "1:21123103:80,1:21150202:10"}
+, 
+[78722831] = {id = 78722831, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 4285, 475), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 31034, level = 1, next_id = 78722832, add_attr = "1:81050031:4285,1:81050032:475", need_seal_level = 60, need_skill_id = 78722821, next_cost = "1:21123103:5,1:21140009:5,1:21140010:5,1:21140011:10,1:21140012:5,1:21140013:5,1:21150002:25"}
+, 
+[78722832] = {id = 78722832, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 10715, 1190), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 31034, level = 2, next_id = 78722833, add_attr = "1:81050031:10715,1:81050032:1190", need_seal_level = 60, need_skill_id = 78722821, next_cost = "1:21123103:5,1:21140009:10,1:21140010:10,1:21140011:20,1:21140012:10,1:21140013:10,1:21150002:25"}
+, 
+[78722833] = {id = 78722833, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 19290, 2145), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 31034, level = 3, next_id = 78722834, add_attr = "1:81050031:19290,1:81050032:2145", need_seal_level = 60, need_skill_id = 78722821, next_cost = "1:21123103:5,1:21140009:15,1:21140010:15,1:21140011:30,1:21140012:15,1:21140013:15,1:21150002:25"}
+, 
+[78722834] = {id = 78722834, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 30010, 3335), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 31034, level = 4, next_id = 78722835, add_attr = "1:81050031:30010,1:81050032:3335", need_seal_level = 60, need_skill_id = 78722821, next_cost = "1:21123103:5,1:21140009:20,1:21140010:20,1:21140011:40,1:21140012:20,1:21140013:20,1:21150002:25"}
+, 
+[78722835] = {id = 78722835, name = (PUtil.get)(121600022), remark = (PUtil.get)(121100301, 42870, 4765), icon_path = "SkillIconImprint:SealSkillIcon_3_2", type = 31034, level = 5, next_id = 0, add_attr = "1:81050031:42870,1:81050032:4765", need_seal_level = 60, need_skill_id = 78722821, next_cost = "0"}
+, 
+[78722840] = {id = 78722840, name = (PUtil.get)(121631032), remark = (PUtil.get)(121531030), icon_path = "SkillIconImprint:SealSkillIcon_42003103", type = 31035, level = 0, next_id = 78722841, need_seal_level = 75, need_skill_id = 78722831, next_cost = "1:21123103:100,1:21150203:10"}
+, 
+[78722841] = {id = 78722841, name = (PUtil.get)(121631032), remark = (PUtil.get)(121531031, 241, 50), icon_path = "SkillIconImprint:SealSkillIcon_42003103", type = 31035, level = 1, next_id = 78722842, change_skill = "42003103:49731031", need_seal_level = 75, need_skill_id = 78722831, next_cost = "1:21123103:5,1:21140012:5,1:21140013:5,1:21140014:5,1:21140015:5,1:21140016:5,1:21150002:30"}
+, 
+[78722842] = {id = 78722842, name = (PUtil.get)(121631032), remark = (PUtil.get)(121531031, 248, 50), icon_path = "SkillIconImprint:SealSkillIcon_42003103", type = 31035, level = 2, next_id = 78722843, change_skill = "42003103:49731032", need_seal_level = 75, need_skill_id = 78722831, next_cost = "1:21123103:5,1:21140012:10,1:21140013:10,1:21140014:10,1:21140015:10,1:21140016:10,1:21150002:30"}
+, 
+[78722843] = {id = 78722843, name = (PUtil.get)(121631032), remark = (PUtil.get)(121531031, 260, 60), icon_path = "SkillIconImprint:SealSkillIcon_42003103", type = 31035, level = 3, next_id = 78722844, change_skill = "42003103:49731033", need_seal_level = 75, need_skill_id = 78722831, next_cost = "1:21123103:5,1:21140012:15,1:21140013:15,1:21140014:15,1:21140015:15,1:21140016:15,1:21150002:30"}
+, 
+[78722844] = {id = 78722844, name = (PUtil.get)(121631032), remark = (PUtil.get)(121531031, 276, 60), icon_path = "SkillIconImprint:SealSkillIcon_42003103", type = 31035, level = 4, next_id = 78722845, change_skill = "42003103:49731034", need_seal_level = 75, need_skill_id = 78722831, next_cost = "1:21123103:5,1:21140012:20,1:21140013:20,1:21140014:20,1:21140015:20,1:21140016:20,1:21150002:30"}
+, 
+[78722845] = {id = 78722845, name = (PUtil.get)(121631032), remark = (PUtil.get)(121531031, 295, 70), icon_path = "SkillIconImprint:SealSkillIcon_42003103", type = 31035, level = 5, next_id = 0, change_skill = "42003103:49731035", need_seal_level = 75, need_skill_id = 78722831, next_cost = "0"}
 }
 return BaseCardSealSkillUpData
 

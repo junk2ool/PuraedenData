@@ -175,6 +175,13 @@ ActivityDungeonMainWindow.InitInvariable = function(...)
   ;
   (Util.CreateShowModel)(activityData.fashion_id, uis.CardLoader)
   local fashionData = ((TableData.gTable).BaseFashionData)[activityData.fashion_id]
+  local cardData = ((TableData.gTable).BaseCardData)[fashionData.card_id]
+  ;
+  ((((uis.root):GetChild("CardInfoBtn")):GetChild("CardName")):GetController("c1")).selectedIndex = cardData.intelligence - 2
+  ;
+  ((((uis.root):GetChild("CardInfoBtn")):GetChild("CardName")):GetChild("CardTxt")).text = cardData.name
+  ;
+  ((((uis.root):GetChild("CardInfoBtn")):GetChild("CardName")):GetChild("CVTxt")).text = cardData.cv_name
   local spineLoader = ((uis.root):GetChild("CardInfoBtn")):GetChild("CardQLoader")
   ;
   (Util.RecycleUIModel)(spineLoader)
@@ -215,7 +222,6 @@ ActivityDungeonMainWindow.InitPanelIcons = function(activityId, ...)
   if imageConfigData then
     bgLoader.url = (Util.GetItemUrl)(imageConfigData.activity_bkg)
     logoLoader.url = (Util.GetItemUrl)(imageConfigData.activity_title)
-    cardTipsLoader.url = (Util.GetItemUrl)(imageConfigData.activity_actor)
   else
     loge("Can Not Find Activity Image Config With " .. tostring(activityId))
   end

@@ -116,14 +116,18 @@ BattleUpWindow.PlayTransitionHide = function(...)
   numTween = nil
   ;
   (BattleUpWindow.StopSound)()
-  closeTween = ((GTween.DelayedCall)(0.5)):OnComplete(function(...)
-    -- function num : 0_3_0 , upvalues : closeTween, closeTrans, _ENV, contentPane, fightSpine
-    closeTween = nil
-    closeTrans = PlayUITrans(contentPane, "BattleEnd", function(...)
+  closeTween = (GTween.DelayedCall)(0.5)
+  local upvalue = closeTween
+  closeTween:OnComplete(function(...)
+    -- function num : 0_3_0 , upvalues : upvalue, closeTween, closeTrans, _ENV, contentPane, fightSpine
+    if upvalue == closeTween then
+      closeTween = nil
+      closeTrans = PlayUITrans(contentPane, "BattleEnd", function(...)
       -- function num : 0_3_0_0 , upvalues : _ENV
       UIMgr:CloseWindow((WinResConfig.BattleUpWindow).name)
     end
 )
+    end
     if fightSpine then
       (SkeletonAnimationUtil.SetAnimation)(fightSpine, 0, "idle2", false)
     end

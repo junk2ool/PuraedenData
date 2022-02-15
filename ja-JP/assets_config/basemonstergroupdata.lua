@@ -3062,6 +3062,16 @@ BaseMonsterGroupData = {
 [51406402] = {id = 51406402, max_round = 5, monster_list = "0:0:0:12636405:12636404:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
 , 
 [51406403] = {id = 51406403, max_round = 5, monster_list = "0:12636410:0:12636408:0:12636409", boss_id = 12636410, hp_bar_count = 1, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
+, 
+[51406501] = {id = 51406501, max_round = 5, monster_list = "0:12636502:0:0:0:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
+, 
+[51406502] = {id = 51406502, max_round = 5, monster_list = "12636505:0:0:0:12636506:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
+, 
+[51406503] = {id = 51406503, max_round = 5, monster_list = "12636511:12636512:0:12636513:12636515:12636514", boss_id = 12636515, hp_bar_count = 1, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
+, 
+[51406601] = {id = 51406601, max_round = 5, monster_list = "12636602:12636603:12636604:12636605:12636606:12636607", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
+, 
+[51406602] = {id = 51406602, max_round = 5, monster_list = "12636611:12636616:12636612:0:0:0", boss_id = 12636616, hp_bar_count = 1, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
 }
 return BaseMonsterGroupData
 

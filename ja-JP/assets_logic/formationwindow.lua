@@ -3336,6 +3336,35 @@ FormationWindow.InitAsset = function(formationData, ...)
       (m.ExternalData).GetCardStatus = RelicData.GetRelicCardState
     end
   end
+  m.explainFunc = function(...)
+    -- function num : 0_100_3 , upvalues : _ENV
+    local wordID = nil
+    local windowNameData = (TableData.gTable).BaseWindowNameData
+    for _,v in pairs(windowNameData) do
+      if v.window_name == (WinResConfig.FormationWindow).name then
+        if (Util.StringIsNullOrEmpty)(v.rule_des) then
+          return 
+        end
+        local cons = (Util.ParseConfigStr)(v.rule_des)
+        for _,v in ipairs(cons) do
+          local functionID = tonumber(v[1])
+          if functionID == 0 or (FunctionControlMgr.GetFunctionState)(functionID) then
+            wordID = tonumber(v[2])
+            break
+          end
+        end
+      end
+    end
+    if wordID and wordID > 0 then
+      local ruleDes = (PUtil.get)(tonumber(wordID))
+      OpenWindow((WinResConfig.BuffInfoWindow).name, UILayer.HUD1, tostring(ruleDes))
+    else
+      do
+        OpenWindow((WinResConfig.BuffInfoWindow).name, UILayer.HUD1)
+      end
+    end
+  end
+
   ;
   (CommonWinMgr.RegisterAssets)(m)
 end

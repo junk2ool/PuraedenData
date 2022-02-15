@@ -5,6 +5,7 @@ require("CommonResource_AssetStripByName")
 GetActivityDungeon_ActivityDungeonUis = function(ui, ...)
   -- function num : 0_0 , upvalues : _ENV
   local uis = {}
+  uis.BgLoader = ui:GetChild("BgLoader")
   uis.BackgroundEffectLoader = ui:GetChild("BackgroundEffectLoader")
   uis.Line = GetCommonResource_Line_04Uis(ui:GetChild("Line"))
   uis.AssetStripGrp = GetCommonResource_AssetStripUis(ui:GetChild("AssetStripGrp"))

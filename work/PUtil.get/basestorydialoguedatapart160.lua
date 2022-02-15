@@ -513,7 +513,7 @@
 , 
 [75422608] = {id = 75422608, remark = "わかった、楽しみにしておるぞ。", type = 1, option_ids = "0", next = 75422609, role_ids = "75200221:75200031", expression = "0", action = "0", action_type = "0", role_type = 75200221, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 0}
 , 
-[75422609] = {id = 75422609, remark = "…ふ、なかなか素直な娘でござるな。\nリーダーも可愛くて仕方なかろう？", type = 1, option_ids = "0", next = 75422610, role_ids = "75200221:75200031", expression = "0", action = "0", action_type = "0", role_type = 75200221, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 0}
+[75422609] = {id = 75422609, remark = "…ふ、なかなか素直な娘でござるな。\nリーダーも可愛くて仕方なかろう？", type = 1, option_ids = "0", next = 75422611, role_ids = "75200221:75200031", expression = "0", action = "0", action_type = "0", role_type = 75200221, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 0}
 , 
 [75422610] = {id = 75422610, remark = "拙者の相手は", type = 1, option_ids = "0", next = 75422611, role_ids = "75200221:75200031", expression = "0", action = "0", action_type = "0", role_type = 75200221, position = "195:606:10050,642:606:10000", scene_effect_position = "1:2", expression_position = "1:2", carmera = 51100001, carmera_time = 1, role_shake = "0", bgm = 0}
 , 

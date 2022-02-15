@@ -108,21 +108,34 @@ PiceGetShowWindow.CardLines = function(...)
   ;
   ((uis.StartWord).root).visible = false
   local cardExcelData = ((TableData.gTable).BaseCardData)[cardID]
-  -- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
-
-  ;
-  ((uis.StartWord).c1Ctr).selectedIndex = cardExcelData.intelligence - 1
   if UI_LOTTERY_REWARD_TEXT == nil then
     local holder, effect_Txt = (LuaEffect.CreateEffectToObj)(UIEffectEnum.UI_LOTTERY_REWARD_TEXT, false, (uis.StartWord).root, (Vector2(((uis.StartWord).root).width * 0.5, ((uis.StartWord).root).height * 0.5)), nil, 1, false)
     UI_LOTTERY_REWARD_TEXT = effect_Txt
   else
     do
       UI_LOTTERY_REWARD_TEXT:SetActive(true)
-      -- DECOMPILER ERROR at PC50: Confused about usage of register: R1 in 'UnsetPending'
+      local intelligence = cardExcelData.intelligence - 1
+      local lotteryWord = cardExcelData.lotteryWord and cardExcelData.lotteryWord or ""
+      -- DECOMPILER ERROR at PC53: Confused about usage of register: R3 in 'UnsetPending'
+
+      if intelligence == 1 then
+        ((uis.StartWord).Lines1Txt).text = lotteryWord
+      else
+        -- DECOMPILER ERROR at PC59: Confused about usage of register: R3 in 'UnsetPending'
+
+        if intelligence == 2 then
+          ((uis.StartWord).Lines2Txt).text = lotteryWord
+        end
+      end
+      -- DECOMPILER ERROR at PC62: Confused about usage of register: R3 in 'UnsetPending'
+
+      ;
+      ((uis.StartWord).c1Ctr).selectedIndex = intelligence
+      -- DECOMPILER ERROR at PC68: Confused about usage of register: R3 in 'UnsetPending'
 
       if cardExcelData.intelligence > 1 then
         ((uis.StartWord).root).visible = true
-        -- DECOMPILER ERROR at PC60: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC78: Confused about usage of register: R3 in 'UnsetPending'
 
         if cardExcelData.lottery_dialogue then
           ((uis.StartWord).LinesLoader).url = (Util.GetItemUrl)(cardExcelData.lottery_dialogue)
@@ -161,15 +174,25 @@ end
 PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
   -- function num : 0_2 , upvalues : _ENV, uis, PiceGetShowWindow, FxManager, lastClickIndex, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END, clickEnable, picesNum
   (LuaSound.PlaySound)(LuaSound.CARD_GET_SHOW, SoundBank.OTHER)
-  -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
+
+  if excelData.name_pic then
+    (uis.NameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
+  end
+  -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+
+  if excelData.cv_pic then
+    (uis.CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
+  end
+  -- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
-  (uis.CVNameLoader).url = (Util.GetItemUrl)(excelData.cv_pic)
-  -- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
+  (uis.CardNameTxt).text = excelData.name
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
-  (uis.NameLoader).url = (Util.GetItemUrl)(excelData.name_pic)
-  -- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
+  (uis.CVNameTxt).text = excelData.cv_name
+  -- DECOMPILER ERROR at PC33: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.c2Ctr).selectedIndex = excelData.intelligence
@@ -203,7 +226,7 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
   end
   local trans = (uis.root):GetTransition("show")
   trans.invalidateBatchingEveryFrame = true
-  -- DECOMPILER ERROR at PC96: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC108: Confused about usage of register: R5 in 'UnsetPending'
 
   ;
   ((uis.StartWord).root).visible = false
@@ -218,7 +241,7 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
     clickEnable = true
   end
 )
-  -- DECOMPILER ERROR at PC120: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC132: Confused about usage of register: R5 in 'UnsetPending'
 
   if picesNum > 0 then
     (uis.c1Ctr).selectedIndex = 1
@@ -235,28 +258,28 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
         end
       end
     end
-    -- DECOMPILER ERROR at PC142: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC154: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
     ((uis.Repeat).c1Ctr).selectedIndex = piceIndex
-    -- DECOMPILER ERROR at PC146: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC158: Confused about usage of register: R7 in 'UnsetPending'
 
     ;
     (((uis.RepeatTips).Repeat).c1Ctr).selectedIndex = piceIndex
     local imgUrl = nil
     local piecesId = tonumber((split(excelData.recruit_cost, ":"))[2])
     imgUrl = (Util.GetItemUrl)((((TableData.gTable).BasePropData)[piecesId]).icon)
-    -- DECOMPILER ERROR at PC167: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC179: Confused about usage of register: R9 in 'UnsetPending'
 
     ;
     (((uis.RepeatTips).Repeat).IconLoader).url = imgUrl
-    -- DECOMPILER ERROR at PC170: Confused about usage of register: R9 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC182: Confused about usage of register: R9 in 'UnsetPending'
 
     ;
     ((uis.Repeat).IconLoader).url = imgUrl
   else
     do
-      -- DECOMPILER ERROR at PC173: Confused about usage of register: R5 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC185: Confused about usage of register: R5 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = 0

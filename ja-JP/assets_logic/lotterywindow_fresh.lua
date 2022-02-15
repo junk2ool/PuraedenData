@@ -21,6 +21,12 @@ LotteryWindow_Fresh.RefreshWindow = function(uis, ...)
   if uis then
     grp = uis
     ;
+    ((((((grp.LotteryPanelGrp).GetCha_NewCardGrp).CharacterFreshComp).root):GetChild("Card_01_Btn")):GetChild("CardName")).visible = false
+    ;
+    ((((((grp.LotteryPanelGrp).GetCha_NewCardGrp).CharacterFreshComp).root):GetChild("Card_02_Btn")):GetChild("CardName")).visible = false
+    ;
+    ((((((grp.LotteryPanelGrp).GetCha_NewCardGrp).CharacterFreshComp).root):GetChild("Card_03_Btn")):GetChild("CardName")).visible = false
+    ;
     (LotteryWindow_Fresh.InitAnimation)(grp)
   else
     ;

@@ -349,11 +349,53 @@
 , 
 [21601020] = {id = 21601020, name = "クリスマスリース", remark = "赤と金色のリボンがついた可愛い輪っか。", icon = "FamilyFurniture:21601020", resource = "FamilyFurniture:h_21601020", type = 4, size = "2:2", time = -1, direction = 1, sort = 501, quality = 3}
 , 
+[21601101] = {id = 21601101, name = "薄ピンクの床", remark = "ベージュと淡いピンクのカラーコーディネートで可愛い仕上がりに。小さなハート柄模様がポイント♪", icon = "FamilyFurniture:21601101", resource = "FamilyFurniture:h_21601101", type = 2, size = "0", time = -1, direction = 0, sort = 620, quality = 3}
+, 
+[21601102] = {id = 21601102, name = "青空の壁紙①", remark = "青い空に白い雲、ネコをイメージした図案も可愛らしい。", icon = "FamilyFurniture:21601102", resource = "FamilyFurniture:h_21601102", type = 1, size = "0", time = -1, direction = 0, sort = 619, quality = 3}
+, 
+[21601103] = {id = 21601103, name = "遊園地の門", remark = "上にネコ型の看板が掛かっている。", icon = "FamilyFurniture:21601103", resource = "FamilyFurniture:h_21601103", type = 4, size = "3:6", time = -1, move_location = "4:32", direction = 1, sort = 618, quality = 3}
+, 
+[21601104] = {id = 21601104, name = "ポップコーンメーカー", remark = "誰でも簡単にポップコーンが作れるポップコーンメーカー！", icon = "FamilyFurniture:21601104", resource = "FamilyFurniture:h_21601104", type = 3, size = "1:1", time = -1, direction = 0, sort = 617, quality = 3}
+, 
+[21601105] = {id = 21601105, name = "滑り台", remark = "滑り台はウェーブ状のスロープを採用している。", icon = "FamilyFurniture:21601105", resource = "FamilyFurniture:h_21601105", type = 3, size = "2:3", time = -1, move_location = "-9:33", direction = 0, sort = 616, quality = 3}
+, 
+[21601106] = {id = 21601106, name = "わたあめメーカー", remark = "さまざまな飴でオリジナルわたあめが作れる！車輪がついているので移動も簡単。", icon = "FamilyFurniture:21601106", resource = "FamilyFurniture:h_21601106", type = 3, size = "2:2", time = -1, direction = 0, sort = 615, quality = 3}
+, 
+[21601107] = {id = 21601107, name = "レンガ花壇・ピンク", remark = "植物がきれいに手入れされている。", icon = "FamilyFurniture:21601107", resource = "FamilyFurniture:h_21601107", type = 3, size = "2:2", time = -1, move_location = "2:22", direction = 0, sort = 614, quality = 3}
+, 
+[21601108] = {id = 21601108, name = "メリーゴーランド", remark = "遊園地の楽しい思い出作りに欠かせないもの。", icon = "FamilyFurniture:21601108", resource = "FamilyFurniture:h_21601108", type = 3, size = "3:3", time = -1, move_location = "0:22", direction = 0, sort = 613, quality = 3}
+, 
+[21601109] = {id = 21601109, name = "風船の束", remark = "色とりどりの風船で一気に雰囲気を盛り上げる!", icon = "FamilyFurniture:21601109", resource = "FamilyFurniture:h_21601109", type = 3, size = "1:1", time = -1, move_location = "-2:23", direction = 0, sort = 612, quality = 3}
+, 
+[21601110] = {id = 21601110, name = "赤いポスト", remark = "派手すぎず、おしゃれな色合いでほどよく目を引く。", icon = "FamilyFurniture:21601110", resource = "FamilyFurniture:h_21601110", type = 3, size = "1:1", time = -1, move_location = "0:22", direction = 0, sort = 611, quality = 3}
+, 
+[21601111] = {id = 21601111, name = "バネ付き木馬", remark = "お風呂で遊ぶおもちゃ「ぷかぷかアヒル」をモチーフしたユニークなデザインの木馬、親近感が湧きやすい。", icon = "FamilyFurniture:21601111", resource = "FamilyFurniture:h_21601111", type = 3, size = "1:1", time = -1, move_location = "0:22", direction = 0, sort = 610, quality = 3}
+, 
+[21601112] = {id = 21601112, name = "アイスクリームトラック", remark = "おいしいアイスクリームはいかがですか？", icon = "FamilyFurniture:21601112", resource = "FamilyFurniture:h_21601112", type = 3, size = "2:2", time = -1, direction = 0, sort = 609, quality = 3}
+, 
+[21601113] = {id = 21601113, name = "ウッドベンチ", remark = "歩き疲れ、遊び疲れたら、こちらで一休みしましょう。", icon = "FamilyFurniture:21601113", resource = "FamilyFurniture:h_21601113", type = 3, size = "1:2", time = -1, direction = 0, sort = 608, quality = 3}
+, 
+[21601114] = {id = 21601114, name = "木製看板・ネコ型", remark = "思わず目がいくネコ形の看板。", icon = "FamilyFurniture:21601114", resource = "FamilyFurniture:h_21601114", type = 3, size = "1:1", time = -1, direction = 0, sort = 607, quality = 3}
+, 
+[21601115] = {id = 21601115, name = "ハッピーキャッスル", remark = "青とピンクの色合いで、他のインテリアに馴染みやすい。", icon = "FamilyFurniture:21601115", resource = "FamilyFurniture:h_21601115", type = 3, size = "4:4", time = -1, direction = 0, sort = 606, quality = 3}
+, 
+[21601116] = {id = 21601116, name = "回転コーヒーカップ", remark = "誰でも楽しめるくるくる回るアトラクション。", icon = "FamilyFurniture:21601116", resource = "FamilyFurniture:h_21601116", type = 3, size = "3:3", time = -1, move_location = "5:30", direction = 0, sort = 605, quality = 3}
+, 
+[21601117] = {id = 21601117, name = "噴水", remark = "洋風の噴水が上品な雰囲気に。", icon = "FamilyFurniture:21601117", resource = "FamilyFurniture:h_21601117", type = 3, size = "4:4", time = -1, direction = 0, sort = 604, quality = 3}
+, 
+[21601118] = {id = 21601118, name = "ジェットコースター", remark = "正面から見るとハート模様が見える。", icon = "FamilyFurniture:21601118", resource = "FamilyFurniture:h_21601118", type = 3, size = "3:3", time = -1, move_location = "0:33", direction = 0, sort = 603, quality = 3}
+, 
+[21601119] = {id = 21601119, name = "ラヴィの立ち札", remark = "他のメンバーよりもっとラヴィだけを見てください、リーダーさん♪", icon = "FamilyFurniture:21601119", resource = "FamilyFurniture:h_21601119", type = 3, size = "1:1", time = -1, direction = 0, sort = 602, quality = 3}
+, 
+[21601120] = {id = 21601120, name = "青空の壁紙②", remark = "雲の中にお城がぼんやり見える。", icon = "FamilyFurniture:21601120", resource = "FamilyFurniture:h_21601120", type = 4, size = "6:6", time = -1, move_location = "-2:27", direction = 1, sort = 601, quality = 3}
+, 
 [21610001] = {id = 21610001, name = "のどかな田園", remark = "デフォルトの背景。", icon = "FamilyFurniture:FamilyBg_001", resource = "FamilyBg:FamilyBg_001", type = 6, size = "0", time = -1, direction = 0, sort = 1001, quality = 3}
 , 
 [21610002] = {id = 21610002, name = "リゾートビーチ", remark = "夏といえば、海！透明度の高い海と白い砂浜が魅力。", icon = "FamilyFurniture:FamilyBg_002", resource = "FamilyBg:FamilyBg_002", type = 6, size = "0", time = -1, direction = 0, sort = 1002, quality = 3}
 , 
 [21610003] = {id = 21610003, name = "錦秋の候", remark = "秋山明浄にして粧うが如く。", icon = "FamilyFurniture:FamilyBg_003", resource = "FamilyBg:FamilyBg_003", type = 6, size = "0", time = -1, direction = 0, sort = 1003, quality = 3}
 , 
-[21610004] = {id = 21610004, name = "冬の雪林", remark = "雪に覆われた樹林。", icon = "FamilyFurniture:FamilyBg_004", resource = "FamilyBg:FamilyBg_004", type = 6, size = "0", time = -1, direction = 0, sort = 1003, quality = 3}
+[21610004] = {id = 21610004, name = "冬の雪林", remark = "雪に覆われた樹林。", icon = "FamilyFurniture:FamilyBg_004", resource = "FamilyBg:FamilyBg_004", type = 6, size = "0", time = -1, direction = 0, sort = 1004, quality = 3}
+, 
+[21610005] = {id = 21610005, name = "新緑の森", remark = "木々や草が茂った森を満喫！", icon = "FamilyFurniture:FamilyBg_005", resource = "FamilyBg:FamilyBg_005", type = 6, size = "0", time = -1, direction = 0, sort = 1005, quality = 3}
 }

@@ -351,13 +351,55 @@ BaseFamilyFurnitureData = {
 , 
 [21601020] = {id = 21601020, name = (PUtil.get)(82710176), remark = (PUtil.get)(83710176), icon = "FamilyFurniture:21601020", resource = "FamilyFurniture:h_21601020", type = 4, size = "2:2", time = -1, direction = 1, sort = 501, quality = 3}
 , 
+[21601101] = {id = 21601101, name = (PUtil.get)(82710177), remark = (PUtil.get)(83710177), icon = "FamilyFurniture:21601101", resource = "FamilyFurniture:h_21601101", type = 2, size = "0", time = -1, direction = 0, sort = 620, quality = 3}
+, 
+[21601102] = {id = 21601102, name = (PUtil.get)(82710178), remark = (PUtil.get)(83710178), icon = "FamilyFurniture:21601102", resource = "FamilyFurniture:h_21601102", type = 1, size = "0", time = -1, direction = 0, sort = 619, quality = 3}
+, 
+[21601103] = {id = 21601103, name = (PUtil.get)(82710179), remark = (PUtil.get)(83710179), icon = "FamilyFurniture:21601103", resource = "FamilyFurniture:h_21601103", type = 4, size = "3:6", time = -1, move_location = "4:32", direction = 1, sort = 618, quality = 3}
+, 
+[21601104] = {id = 21601104, name = (PUtil.get)(82710180), remark = (PUtil.get)(83710180), icon = "FamilyFurniture:21601104", resource = "FamilyFurniture:h_21601104", type = 3, size = "1:1", time = -1, direction = 0, sort = 617, quality = 3}
+, 
+[21601105] = {id = 21601105, name = (PUtil.get)(82710181), remark = (PUtil.get)(83710181), icon = "FamilyFurniture:21601105", resource = "FamilyFurniture:h_21601105", type = 3, size = "2:3", time = -1, move_location = "-9:33", direction = 0, sort = 616, quality = 3}
+, 
+[21601106] = {id = 21601106, name = (PUtil.get)(82710182), remark = (PUtil.get)(83710182), icon = "FamilyFurniture:21601106", resource = "FamilyFurniture:h_21601106", type = 3, size = "2:2", time = -1, direction = 0, sort = 615, quality = 3}
+, 
+[21601107] = {id = 21601107, name = (PUtil.get)(82710183), remark = (PUtil.get)(83710183), icon = "FamilyFurniture:21601107", resource = "FamilyFurniture:h_21601107", type = 3, size = "2:2", time = -1, move_location = "2:22", direction = 0, sort = 614, quality = 3}
+, 
+[21601108] = {id = 21601108, name = (PUtil.get)(82710184), remark = (PUtil.get)(83710184), icon = "FamilyFurniture:21601108", resource = "FamilyFurniture:h_21601108", type = 3, size = "3:3", time = -1, move_location = "0:22", direction = 0, sort = 613, quality = 3}
+, 
+[21601109] = {id = 21601109, name = (PUtil.get)(82710185), remark = (PUtil.get)(83710185), icon = "FamilyFurniture:21601109", resource = "FamilyFurniture:h_21601109", type = 3, size = "1:1", time = -1, move_location = "-2:23", direction = 0, sort = 612, quality = 3}
+, 
+[21601110] = {id = 21601110, name = (PUtil.get)(82710186), remark = (PUtil.get)(83710186), icon = "FamilyFurniture:21601110", resource = "FamilyFurniture:h_21601110", type = 3, size = "1:1", time = -1, move_location = "0:22", direction = 0, sort = 611, quality = 3}
+, 
+[21601111] = {id = 21601111, name = (PUtil.get)(82710187), remark = (PUtil.get)(83710187), icon = "FamilyFurniture:21601111", resource = "FamilyFurniture:h_21601111", type = 3, size = "1:1", time = -1, move_location = "0:22", direction = 0, sort = 610, quality = 3}
+, 
+[21601112] = {id = 21601112, name = (PUtil.get)(82710188), remark = (PUtil.get)(83710188), icon = "FamilyFurniture:21601112", resource = "FamilyFurniture:h_21601112", type = 3, size = "2:2", time = -1, direction = 0, sort = 609, quality = 3}
+, 
+[21601113] = {id = 21601113, name = (PUtil.get)(82710189), remark = (PUtil.get)(83710189), icon = "FamilyFurniture:21601113", resource = "FamilyFurniture:h_21601113", type = 3, size = "1:2", time = -1, direction = 0, sort = 608, quality = 3}
+, 
+[21601114] = {id = 21601114, name = (PUtil.get)(82710190), remark = (PUtil.get)(83710190), icon = "FamilyFurniture:21601114", resource = "FamilyFurniture:h_21601114", type = 3, size = "1:1", time = -1, direction = 0, sort = 607, quality = 3}
+, 
+[21601115] = {id = 21601115, name = (PUtil.get)(82710191), remark = (PUtil.get)(83710191), icon = "FamilyFurniture:21601115", resource = "FamilyFurniture:h_21601115", type = 3, size = "4:4", time = -1, direction = 0, sort = 606, quality = 3}
+, 
+[21601116] = {id = 21601116, name = (PUtil.get)(82710192), remark = (PUtil.get)(83710192), icon = "FamilyFurniture:21601116", resource = "FamilyFurniture:h_21601116", type = 3, size = "3:3", time = -1, move_location = "5:30", direction = 0, sort = 605, quality = 3}
+, 
+[21601117] = {id = 21601117, name = (PUtil.get)(82710193), remark = (PUtil.get)(83710193), icon = "FamilyFurniture:21601117", resource = "FamilyFurniture:h_21601117", type = 3, size = "4:4", time = -1, direction = 0, sort = 604, quality = 3}
+, 
+[21601118] = {id = 21601118, name = (PUtil.get)(82710194), remark = (PUtil.get)(83710194), icon = "FamilyFurniture:21601118", resource = "FamilyFurniture:h_21601118", type = 3, size = "3:3", time = -1, move_location = "0:33", direction = 0, sort = 603, quality = 3}
+, 
+[21601119] = {id = 21601119, name = (PUtil.get)(82710195), remark = (PUtil.get)(83710195), icon = "FamilyFurniture:21601119", resource = "FamilyFurniture:h_21601119", type = 3, size = "1:1", time = -1, direction = 0, sort = 602, quality = 3}
+, 
+[21601120] = {id = 21601120, name = (PUtil.get)(82710196), remark = (PUtil.get)(83710196), icon = "FamilyFurniture:21601120", resource = "FamilyFurniture:h_21601120", type = 4, size = "6:6", time = -1, move_location = "-2:27", direction = 1, sort = 601, quality = 3}
+, 
 [21610001] = {id = 21610001, name = (PUtil.get)(82720001), remark = (PUtil.get)(83720001), icon = "FamilyFurniture:FamilyBg_001", resource = "FamilyBg:FamilyBg_001", type = 6, size = "0", time = -1, direction = 0, sort = 1001, quality = 3}
 , 
 [21610002] = {id = 21610002, name = (PUtil.get)(82720002), remark = (PUtil.get)(83720002), icon = "FamilyFurniture:FamilyBg_002", resource = "FamilyBg:FamilyBg_002", type = 6, size = "0", time = -1, direction = 0, sort = 1002, quality = 3}
 , 
 [21610003] = {id = 21610003, name = (PUtil.get)(82720003), remark = (PUtil.get)(83720003), icon = "FamilyFurniture:FamilyBg_003", resource = "FamilyBg:FamilyBg_003", type = 6, size = "0", time = -1, direction = 0, sort = 1003, quality = 3}
 , 
-[21610004] = {id = 21610004, name = (PUtil.get)(82720004), remark = (PUtil.get)(83720004), icon = "FamilyFurniture:FamilyBg_004", resource = "FamilyBg:FamilyBg_004", type = 6, size = "0", time = -1, direction = 0, sort = 1003, quality = 3}
+[21610004] = {id = 21610004, name = (PUtil.get)(82720004), remark = (PUtil.get)(83720004), icon = "FamilyFurniture:FamilyBg_004", resource = "FamilyBg:FamilyBg_004", type = 6, size = "0", time = -1, direction = 0, sort = 1004, quality = 3}
+, 
+[21610005] = {id = 21610005, name = (PUtil.get)(82720005), remark = (PUtil.get)(83720005), icon = "FamilyFurniture:FamilyBg_005", resource = "FamilyBg:FamilyBg_005", type = 6, size = "0", time = -1, direction = 0, sort = 1005, quality = 3}
 }
 return BaseFamilyFurnitureData
 
