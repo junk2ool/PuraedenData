@@ -2323,35 +2323,35 @@ BaseMonsterGroupData = {
 , 
 [53609062] = {id = 53609062, max_round = 10, monster_list = "12790611:12790612:12790613:12790614:12790615:12790616", boss_id = 12790615, hp_bar_count = 9, background_path = "BattleScene_1007", bgm_id = 1040001, story_id = "0", story_times = "0"}
 , 
-[53800011] = {id = 53800011, max_round = 10, monster_list = "13000101:13000102:13000103:13000104:13000105:13000106", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1011", bgm_id = 1040009, story_id = "0", story_times = "0"}
+[53800011] = {id = 53800011, max_round = 10, monster_list = "13000101:13000102:13000103:13000104:13000105:13000106", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040010, story_id = "0", story_times = "0"}
 , 
-[53800021] = {id = 53800021, max_round = 10, monster_list = "13000201:13000202:13000203:13000204:13000205:13000206", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1018", bgm_id = 1040001, story_id = "0", story_times = "0"}
+[53800021] = {id = 53800021, max_round = 10, monster_list = "13000201:13000202:13000203:13000204:13000205:13000206", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040018, story_id = "0", story_times = "0"}
 , 
-[53800031] = {id = 53800031, max_round = 10, monster_list = "13000301:13000302:13000303:13000304:13000305:13000306", boss_id = 13000305, hp_bar_count = 9, background_path = "BattleScene_1009", bgm_id = 1040010, story_id = "0", story_times = "0"}
+[53800031] = {id = 53800031, max_round = 10, monster_list = "13000301:13000302:13000303:13000304:13000305:13000306", boss_id = 13000305, hp_bar_count = 9, background_path = "BattleScene_1001", bgm_id = 1040002, story_id = "0", story_times = "0"}
 , 
-[53800041] = {id = 53800041, max_round = 10, monster_list = "13000401:13000402:13000403:13000404:13000405:13000406", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1026", bgm_id = 1040005, story_id = "0", story_times = "0"}
+[53800041] = {id = 53800041, max_round = 10, monster_list = "13000401:13000402:13000403:13000404:13000405:13000406", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1003", bgm_id = 1040014, story_id = "0", story_times = "0"}
 , 
-[53800051] = {id = 53800051, max_round = 10, monster_list = "13000501:13000502:13000503:13000504:13000505:13000506", boss_id = 13000505, hp_bar_count = 9, background_path = "BattleScene_1003", bgm_id = 1040004, story_id = "0", story_times = "0"}
+[53800051] = {id = 53800051, max_round = 10, monster_list = "13000501:13000502:13000503:13000504:13000505:13000506", boss_id = 13000505, hp_bar_count = 9, background_path = "BattleScene_1001", bgm_id = 1040003, story_id = "0", story_times = "0"}
 , 
-[53800061] = {id = 53800061, max_round = 10, monster_list = "13000601:13000602:13000603:13000604:13000605:13000606", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1011", bgm_id = 1040005, story_id = "0", story_times = "0"}
+[53800061] = {id = 53800061, max_round = 10, monster_list = "13000601:13000602:13000603:13000604:13000605:13000606", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040016, story_id = "0", story_times = "0"}
 , 
-[53800071] = {id = 53800071, max_round = 10, monster_list = "13000701:13000702:13000703:13000704:13000705:13000706", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1018", bgm_id = 1040007, story_id = "0", story_times = "0"}
+[53800071] = {id = 53800071, max_round = 10, monster_list = "13000701:13000702:13000703:13000704:13000705:13000706", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040010, story_id = "0", story_times = "0"}
 , 
-[53800081] = {id = 53800081, max_round = 10, monster_list = "13000801:13000802:13000803:13000804:13000805:13000806", boss_id = 13000805, hp_bar_count = 9, background_path = "BattleScene_1026", bgm_id = 1040003, story_id = "0", story_times = "0"}
+[53800081] = {id = 53800081, max_round = 10, monster_list = "13000801:13000802:13000803:13000804:13000805:13000806", boss_id = 13000805, hp_bar_count = 9, background_path = "BattleScene_1001", bgm_id = 1040009, story_id = "0", story_times = "0"}
 , 
-[53800091] = {id = 53800091, max_round = 10, monster_list = "13000901:13000902:13000903:13000904:13000905:13000906", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1003", bgm_id = 1040014, story_id = "0", story_times = "0"}
+[53800091] = {id = 53800091, max_round = 10, monster_list = "13000901:13000902:13000903:13000904:13000905:13000906", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040018, story_id = "0", story_times = "0"}
 , 
-[53800101] = {id = 53800101, max_round = 10, monster_list = "13001001:13001002:13001003:13001004:13001005:13001006", boss_id = 13001005, hp_bar_count = 9, background_path = "BattleScene_1011", bgm_id = 1040006, story_id = "0", story_times = "0"}
+[53800101] = {id = 53800101, max_round = 10, monster_list = "13001001:13001002:13001003:13001004:13001005:13001006", boss_id = 13001005, hp_bar_count = 9, background_path = "BattleScene_1003", bgm_id = 1040007, story_id = "0", story_times = "0"}
 , 
-[53800111] = {id = 53800111, max_round = 10, monster_list = "13001101:13001102:13001103:13001104:13001105:13001106", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1009", bgm_id = 1040014, story_id = "0", story_times = "0"}
+[53800111] = {id = 53800111, max_round = 10, monster_list = "13001101:13001102:13001103:13001104:13001105:13001106", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040010, story_id = "0", story_times = "0"}
 , 
-[53800121] = {id = 53800121, max_round = 10, monster_list = "13001201:13001202:13001203:13001204:13001205:13001206", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
+[53800121] = {id = 53800121, max_round = 10, monster_list = "13001201:13001202:13001203:13001204:13001205:13001206", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040018, story_id = "0", story_times = "0"}
 , 
-[53800131] = {id = 53800131, max_round = 10, monster_list = "13001301:13001302:13001303:13001304:13001305:13001306", boss_id = 13001305, hp_bar_count = 9, background_path = "BattleScene_1003", bgm_id = 1040004, story_id = "0", story_times = "0"}
+[53800131] = {id = 53800131, max_round = 10, monster_list = "13001301:13001302:13001303:13001304:13001305:13001306", boss_id = 13001305, hp_bar_count = 9, background_path = "BattleScene_1001", bgm_id = 1040002, story_id = "0", story_times = "0"}
 , 
-[53800141] = {id = 53800141, max_round = 10, monster_list = "13001401:13001402:13001403:13001404:13001405:13001406", boss_id = 13001403, hp_bar_count = 1, background_path = "BattleScene_1026", bgm_id = 1040005, story_id = "0", story_times = "0"}
+[53800141] = {id = 53800141, max_round = 10, monster_list = "13001401:13001402:13001403:13001404:13001405:13001406", boss_id = 13001403, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040010, story_id = "0", story_times = "0"}
 , 
-[53800151] = {id = 53800151, max_round = 5, monster_list = "0:13001501:13001504:13001502:0:13001503", boss_id = 13001501, hp_bar_count = 1, background_path = "BattleScene_4030", bgm_id = 1040018, story_id = "0", story_times = "0"}
+[53800151] = {id = 53800151, max_round = 5, monster_list = "0:13001501:0:13001503:13001502:0", boss_id = 13001502, hp_bar_count = 1, background_path = "BattleScene_1027", bgm_id = 1040018, story_id = "0", story_times = "0"}
 , 
 [51400101] = {id = 51400101, max_round = 5, monster_list = "12630101:0:0:0:12630102:0", boss_id = 0, hp_bar_count = 1, background_path = "BattleScene_1009", bgm_id = 1040003, story_id = "0", story_times = "0"}
 , 
@@ -3072,6 +3072,20 @@ BaseMonsterGroupData = {
 [51406601] = {id = 51406601, max_round = 5, monster_list = "12636602:12636603:12636604:12636605:12636606:12636607", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
 , 
 [51406602] = {id = 51406602, max_round = 5, monster_list = "12636611:12636616:12636612:0:0:0", boss_id = 12636616, hp_bar_count = 1, background_path = "BattleScene_1018", bgm_id = 1040022, story_id = "0", story_times = "0"}
+, 
+[51406701] = {id = 51406701, max_round = 5, monster_list = "0:12636702:0:0:0:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1019", bgm_id = 1040009, story_id = "0", story_times = "0"}
+, 
+[51406702] = {id = 51406702, max_round = 5, monster_list = "12636706:12636705:0:0:12636707:0", boss_id = 12636706, hp_bar_count = 1, background_path = "BattleScene_1024", bgm_id = 1040020, story_id = "0", story_times = "0"}
+, 
+[51406801] = {id = 51406801, max_round = 5, monster_list = "12636803:12636804:12636805:12636806:12636807:12636808", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1009", bgm_id = 1040012, story_id = "0", story_times = "0"}
+, 
+[51406802] = {id = 51406802, max_round = 5, monster_list = "12636812:12636814:0:12636813:0:12636815", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1025", bgm_id = 1040005, story_id = "0", story_times = "0"}
+, 
+[51406803] = {id = 51406803, max_round = 5, monster_list = "12636819:12636823:12636820:0:12636821:12636822", boss_id = 12636823, hp_bar_count = 1, background_path = "BattleScene_1008", bgm_id = 1040005, story_id = "0", story_times = "0"}
+, 
+[51406901] = {id = 51406901, max_round = 5, monster_list = "12636902:0:0:0:12636903:0", boss_id = 0, hp_bar_count = 0, background_path = "BattleScene_1009", bgm_id = 1040012, story_id = "0", story_times = "0"}
+, 
+[51406902] = {id = 51406902, max_round = 5, monster_list = "12636908:12636910:0:12636909:0:12636911", boss_id = 12636908, hp_bar_count = 1, background_path = "BattleScene_1007", bgm_id = 1040016, story_id = "0", story_times = "0"}
 }
 return BaseMonsterGroupData
 

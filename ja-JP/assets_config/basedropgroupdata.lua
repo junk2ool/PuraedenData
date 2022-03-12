@@ -1447,6 +1447,14 @@ BaseDropGroupData = {
 , 
 [22501804] = {id = 22501804, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050014:1:5000,61100014:1:2800,61500064:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 
+[22501901] = {id = 22501901, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050011:1:5000,61100011:1:2800,61500071:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[22501902] = {id = 22501902, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050012:1:5000,61100012:1:2800,61500072:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[22501903] = {id = 22501903, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050013:1:5000,61100013:1:2800,61500073:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
+[22501904] = {id = 22501904, type = 1, propType = 0, assetType = 1, cardType = 0, equipType = 2, equips = "61050014:1:5000,61100014:1:2800,61500074:1:2200", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
+, 
 [22520001] = {id = 22520001, type = 1, propType = 0, assetType = 0, cardType = 0, equipType = 1, equips = "61010012:1:1", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
 , 
 [22520002] = {id = 22520002, type = 1, propType = 0, assetType = 0, cardType = 0, equipType = 1, equips = "61010013:1:1", titleType = 0, titles = "0", seedType = 0, seeds = "0", furnitureType = 0, furnitures = "0", fashionType = 0, fashions = "0", level_limit = "1:999"}
