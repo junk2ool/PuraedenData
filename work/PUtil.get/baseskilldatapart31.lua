@@ -5067,6 +5067,198 @@
 , 
 [47206933] = {id = 47206933, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
+[47207001] = {id = 47207001, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207002] = {id = 47207002, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207003] = {id = 47207003, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207004] = {id = 47207004, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207005] = {id = 47207005, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207006] = {id = 47207006, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207007] = {id = 47207007, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207008] = {id = 47207008, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207009] = {id = 47207009, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207010] = {id = 47207010, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207011] = {id = 47207011, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207012] = {id = 47207012, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207013] = {id = 47207013, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207014] = {id = 47207014, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207015] = {id = 47207015, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207016] = {id = 47207016, name = "全速前進!", remark = "私は走るのをやめないわ、だって待っている子供達がいるんだもの！", des = "私は走るのをやめないわ、だって待っている子供達がいるんだもの！\n\n自分の会心を30%上昇させた状態で、敵単体に（攻撃*damage_A%damage_B)点のダメージを与える。", des_level_up = "81050901:185", des_array = "自分の会心を30%上昇させた状態で、敵単体にダメージを与える。", icon_path = "SkillIcon:43003024", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207017] = {id = 47207017, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207018] = {id = 47207018, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207019] = {id = 47207019, name = "全速前進!", remark = "私は走るのをやめないわ、だって待っている子供達がいるんだもの！", des = "私は走るのをやめないわ、だって待っている子供達がいるんだもの！\n\n自分の会心を30%上昇させた状態で、敵単体に（攻撃*damage_A%damage_B)点のダメージを与える。", des_level_up = "81050901:185", des_array = "自分の会心を30%上昇させた状態で、敵単体にダメージを与える。", icon_path = "SkillIcon:43003024", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207020] = {id = 47207020, name = "輝きの剣", remark = "ベルの最強のオリジナル剣技は、誰かに褒めてもらいたいと思う時に使われる。", des = "ベルの最強のオリジナル剣技は、誰かに褒めてもらいたいと思う時に使われる。\n\n敵単体に（攻撃*damage_A%damage_B）点のダメージを与え、50%の確率で（攻撃*35%）点の追加ダメージを付与する。60%の確率で味方後列の攻撃を10%上昇させる（1行動ターン）。", des_level_up = "81050901:123", des_array = "敵単体にダメージを与え、確率で追加ダメージを付与する。60%の確率で味方後列の攻撃を10%上昇させる（1行動ターン）。", icon_path = "SkillIcon:43003006", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "2:46130062:3006:10000", show_id = 43003006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207021] = {id = 47207021, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207022] = {id = 47207022, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207023] = {id = 47207023, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207024] = {id = 47207024, name = "全速前進!", remark = "私は走るのをやめないわ、だって待っている子供達がいるんだもの！", des = "私は走るのをやめないわ、だって待っている子供達がいるんだもの！\n\n自分の会心を30%上昇させた状態で、敵単体に（攻撃*damage_A%damage_B)点のダメージを与える。", des_level_up = "81050901:185", des_array = "自分の会心を30%上昇させた状態で、敵単体にダメージを与える。", icon_path = "SkillIcon:43003024", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207025] = {id = 47207025, name = "デマを粉砕せよ！", remark = "変な噂を早い段階で打ち消しておかなければならない！それがマネージャーの仕事の一つだから！", des = "変な噂を早い段階で打ち消しておかなければならない！それがマネージャーの仕事の一つだから！\n\n敵単体に（攻撃*damage_A%damage_B)点のダメージを与え、自身に外殻強化を1回付与する。\n\n「外殻強化：効果持続期間中、必ず攻撃をガードする」", des_level_up = "81050901:107", des_array = "敵単体にダメージを与え、自身に外殻強化を1回付与する。\n\n「外殻強化：効果持続期間中、必ず攻撃をガードする」", icon_path = "SkillIcon:43002208", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46122081:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207026] = {id = 47207026, name = "おしゃれの達人", remark = "おしゃれの達人として、ミアの一挙一動はファンを熱狂させる。", des = "おしゃれの達人として、ミアの一挙一動はファンを熱狂させる。\n\n敵単体に（攻撃*damage_A%damage_B)点のダメージを与え、35%の確率で気絶を1行動ターン付与し、理性喪失を2大ラウンドの間付与する。\n\n「気絶：行動不能となる。ガードすることもできない」\n「理性喪失：毎ターン最大HPの8%分失う」", des_level_up = "81050901:133", des_array = "敵単体にダメージを与え、確率で気絶を1行動ターン付与し、理性喪失を2大ラウンドの間付与する。\n\n「気絶：行動不能となる。ガードすることもできない」\n「理性喪失：毎ターン最大HPの8%分失う」", icon_path = "SkillIcon:43003012", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "2:46130122:1000:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207027] = {id = 47207027, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207028] = {id = 47207028, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207029] = {id = 47207029, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207030] = {id = 47207030, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207031] = {id = 47207031, name = "走れソリよ！", remark = "毎日走る練習をしているのは、この日にプレゼントの詰まったソリを速く引けるためなのよ。", des = "毎日走る練習をしているのは、この日にプレゼントの詰まったソリを速く引けるためなのよ。\n\n敵単体に（攻撃*damage_A%damage_B)点のダメージを与える。目標を撃破した場合、目標の十字列にいる敵に（攻撃*40%）のダメージを拡散する。", des_level_up = "81050901:277", des_array = "敵単体にダメージを与える。目標を撃破した場合、目標の十字列にいる敵に（攻撃*40%）のダメージを拡散する。", icon_path = "SkillIcon:42003024", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "2:46030242:3001:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207032] = {id = 47207032, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207033] = {id = 47207033, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207034] = {id = 47207034, name = "走れソリよ！", remark = "毎日走る練習をしているのは、この日にプレゼントの詰まったソリを速く引けるためなのよ。", des = "毎日走る練習をしているのは、この日にプレゼントの詰まったソリを速く引けるためなのよ。\n\n敵単体に（攻撃*damage_A%damage_B)点のダメージを与える。目標を撃破した場合、目標の十字列にいる敵に（攻撃*40%）のダメージを拡散する。", des_level_up = "81050901:277", des_array = "敵単体にダメージを与える。目標を撃破した場合、目標の十字列にいる敵に（攻撃*40%）のダメージを拡散する。", icon_path = "SkillIcon:42003024", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "2:46030242:3001:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207035] = {id = 47207035, name = "孤高の剣", remark = "ベルの最強オリジナル剣技は、相手に黙らせる時に使われる、", des = "ベルの最強オリジナル剣技は、相手に黙らせる時に使われる、\n\n十字列の敵に（攻撃*damage_A%damage_B）点のダメージ、2ラウンドの間追加で（攻撃*10%）の持続ダメージを与える。30%の確率で目標を2行動ターン沈黙させる。\n\n「沈黙：奥義を使用できない」", des_level_up = "81050901:110", des_array = "十字列の敵にダメージ、2ラウンドの間追加で持続ダメージを与える。確率で目標を2行動ターン沈黙させる。\n\n「沈黙：奥義を使用できない」", icon_path = "SkillIcon:42003006", type = 2, targetType = 2003, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46030061:1000:10000", show_id = 42003006, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207036] = {id = 47207036, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207037] = {id = 47207037, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207038] = {id = 47207038, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207039] = {id = 47207039, name = "走れソリよ！", remark = "毎日走る練習をしているのは、この日にプレゼントの詰まったソリを速く引けるためなのよ。", des = "毎日走る練習をしているのは、この日にプレゼントの詰まったソリを速く引けるためなのよ。\n\n敵単体に（攻撃*damage_A%damage_B)点のダメージを与える。目標を撃破した場合、目標の十字列にいる敵に（攻撃*40%）のダメージを拡散する。", des_level_up = "81050901:277", des_array = "敵単体にダメージを与える。目標を撃破した場合、目標の十字列にいる敵に（攻撃*40%）のダメージを拡散する。", icon_path = "SkillIcon:42003024", type = 2, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "2:46030242:3001:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207040] = {id = 47207040, name = "特別な趣味", remark = "豪邸に深い興味持つハーミットは、理想の豪邸を見つけたら何としても手に入れる！", des = "豪邸に深い興味持つハーミットは、理想の豪邸を見つけたら何としても手に入れる！\n\n最も防御が高い敵3名に（攻撃*damage_A%damage_B)点のダメージを与える。2行動ターンの間、目標の防御を50%低下させ、自身の防御を50%上昇させる。", des_level_up = "81050901:117", des_array = "最も防御が高い敵3名にダメージを与える。2行動ターンの間、目標の防御を低下させ、自身の防御を上昇させる。", icon_path = "SkillIcon:42002208", type = 2, targetType = 2153, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46022081:1000:10000,2:46022082:3001:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207041] = {id = 47207041, name = "輝いてるミアだよ！", remark = "どこにいても、人の目を惹く可愛いミア。今日のミアも輝いてるんですけど！", des = "どこにいても、人の目を惹く可愛いミア。今日のミアも輝いてるんですけど！\n\n敵前列に（攻撃*damage_A%damage_B)点のダメージを与え、1行動ターンの間、20%の確率で目標を気絶させ（自身の最大HPが5%軽減ごとに、追加で気絶の発生確率を2%アップさせる）、理性喪失を2大ラウンドの間付与する。さらに目標のSPを100点減少させ、自身に100点のSPを回復する。\n\n「気絶：行動不能となる。ガードすることもできない」\n「理性喪失：毎ターン最大HPの6%分失う」", des_level_up = "81050901:145", des_array = "敵前列にダメージを与え、1行動ターンの間、20%の確率で目標を気絶させ（自身の最大HPが5%軽減ごとに、追加で気絶の発生確率を2%アップさせる）、理性喪失を2大ラウンドの間付与する。さらに目標のSPを100点減少させ、自身に100点のSPを回復する。\n\n「気絶：行動不能となる。ガードすることもできない」\n「理性喪失：毎ターン最大HPの6%分失う」", icon_path = "SkillIcon:42003012", type = 2, targetType = 2005, move_pos_type = 3, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "2:46030122:1000:10000,3:46030123:3001:10000,4:46030124:1000:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207042] = {id = 47207042, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207043] = {id = 47207043, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207044] = {id = 47207044, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207045] = {id = 47207045, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207101] = {id = 47207101, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207102] = {id = 47207102, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207103] = {id = 47207103, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207104] = {id = 47207104, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207105] = {id = 47207105, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207106] = {id = 47207106, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207107] = {id = 47207107, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207108] = {id = 47207108, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207109] = {id = 47207109, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207110] = {id = 47207110, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207111] = {id = 47207111, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207112] = {id = 47207112, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207113] = {id = 47207113, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207114] = {id = 47207114, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207115] = {id = 47207115, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207116] = {id = 47207116, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207117] = {id = 47207117, type = 1, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 10000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207118] = {id = 47207118, name = "爆水球", remark = "レイナちゃんへの愛がこの水球のように、つい爆発しちゃって…♪", des = "レイナちゃんへの愛がこの水球のように、つい爆発しちゃって…♪\n\n敵単体に（攻撃*damage_A%damage_B) 点のダメージを与え、自身のSPを100点回復する。", des_level_up = "81050901:129", des_array = "敵単体にダメージを与え、自身のSPを100点回復する。", icon_path = "SkillIcon:43002213", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46122131:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207119] = {id = 47207119, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207120] = {id = 47207120, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207121] = {id = 47207121, name = "爆水球", remark = "レイナちゃんへの愛がこの水球のように、つい爆発しちゃって…♪", des = "レイナちゃんへの愛がこの水球のように、つい爆発しちゃって…♪\n\n敵単体に（攻撃*damage_A%damage_B) 点のダメージを与え、自身のSPを100点回復する。", des_level_up = "81050901:129", des_array = "敵単体にダメージを与え、自身のSPを100点回復する。", icon_path = "SkillIcon:43002213", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46122131:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207122] = {id = 47207122, name = "宝石の輝き", remark = "どんな硬い宝石でも、キキはそれを磨いて輝かせることができる！", des = "どんな硬い宝石でも、キキはそれを磨いて輝かせることができる！\n\n敵単体に（攻撃*damage_A%damage_B）点のダメージを与え、2ラウンドの間自身の防御を75%上昇させる。", des_level_up = "81050901:99", des_array = "敵単体にダメージを与え、2大ラウンドの間、自身の防御を上昇させる。", icon_path = "SkillIcon:43002106", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46121061:3001:10000", show_id = 43002106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207123] = {id = 47207123, name = "愛は正義だ！", remark = "ラヴィの愛を阻止できるものこの世にはない！", des = "ラヴィの愛を阻止できるものこの世にはない！\n\n敵単体に（攻撃*damage_A%damage_B）点のダメージを与え、40%の確率で（攻撃*20%）点の追加ダメージを付与する。１ラウンドの間、防御を35%低下させ、味方後列の会心を8%上昇させる（1行動ターン）。", des_level_up = "81050901:168", des_array = "敵単体にダメージを与え、確率で追加ダメージを与える。防御を１ラウンドの間低下させ、味方後列の会心を1行動ターン上昇させる。", icon_path = "SkillIcon:43003101", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "2:46131012:1000:10000", show_id = 43003101, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207124] = {id = 47207124, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207125] = {id = 47207125, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207126] = {id = 47207126, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207127] = {id = 47207127, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207128] = {id = 47207128, name = "爆水球", remark = "レイナちゃんへの愛がこの水球のように、つい爆発しちゃって…♪", des = "レイナちゃんへの愛がこの水球のように、つい爆発しちゃって…♪\n\n敵単体に（攻撃*damage_A%damage_B) 点のダメージを与え、自身のSPを100点回復する。", des_level_up = "81050901:129", des_array = "敵単体にダメージを与え、自身のSPを100点回復する。", icon_path = "SkillIcon:43002213", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46122131:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207129] = {id = 47207129, name = "なめんなよ", remark = "ドミニクは自分の子供体型を利用して、相手が油断しているうちに攻撃を仕掛ける。", des = "ドミニクは自分の子供体型を利用して、相手が油断しているうちに攻撃を仕掛ける。\n\n敵単体に（攻撃*damage_A%damage_B）点のダメージを与え、目標のHPが50%以上の場合、（攻撃*90%）点の追加ダメージを与える。", des_level_up = "81050901:139", des_array = "敵単体にダメージを与え、目標のHPが50%以上の場合、追加でダメージを与える。", icon_path = "SkillIcon:43002108", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46121081:1000:10000", show_id = 43002108, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 2}
+, 
+[47207130] = {id = 47207130, name = "シャドウストライク", remark = "完璧な偽装のおかげで、任務に失敗したことはない。", des = "完璧な偽装のおかげで、任務に失敗したことはない。\n\n敵単体に（攻撃*damage_A%damage_B）点のダメージを与え、自身に暗影庇護を1行動ターン付与する。1ラウンドの間、自身に持続回復効果を付与し、自身の最大HPの10%を回復する。\n\n「暗影庇護：効果持続期間中に必ず攻撃をガードする」", des_level_up = "81050901:151", des_array = "敵単体にダメージを与え、自身に暗影庇護を1行動ターン付与する。1ラウンドの間、自身に持続回復効果を付与し、自身の最大HPの10%を回復する。\n\n「暗影庇護：効果持続期間中に必ず攻撃をガードする」", icon_path = "SkillIcon:43003010", type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46130101:3001:10000,2:46130102:3001:10000", show_id = 43111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207131] = {id = 47207131, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207132] = {id = 47207132, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207133] = {id = 47207133, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207134] = {id = 47207134, type = 3, targetType = 2001, damage = 0, damage_up = 0, damage_rate = 12800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207135] = {id = 47207135, name = "渦潮", remark = "レイナちゃんが可愛くないと思う人は、海流に呑まれてしまえ！", des = "レイナちゃんが可愛くないと思う人は、海流に呑まれてしまえ！\n\n敵全体に（攻撃*damage_A%damage_B) 点のダメージを与える。", des_level_up = "81050901:101", des_array = "敵全体にダメージを与える。", icon_path = "SkillIcon:42002213", type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207136] = {id = 47207136, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207137] = {id = 47207137, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207138] = {id = 47207138, name = "渦潮", remark = "レイナちゃんが可愛くないと思う人は、海流に呑まれてしまえ！", des = "レイナちゃんが可愛くないと思う人は、海流に呑まれてしまえ！\n\n敵全体に（攻撃*damage_A%damage_B) 点のダメージを与える。", des_level_up = "81050901:101", des_array = "敵全体にダメージを与える。", icon_path = "SkillIcon:42002213", type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207139] = {id = 47207139, name = "宝石と一緒に輝こう", remark = "どんな苦労があっても、宝石の輝きを見れば、キキは全身に力が満ちているように感じる！", des = "どんな苦労があっても、宝石の輝きを見れば、キキは全身に力が満ちているように感じる！\n\n敵縦列に（攻撃*damage_A%damage_B）点のダメージを与える。自身のHPが40%以下の場合、（攻撃*250%）点の追加ダメージを与える。", des_level_up = "81050901:112", des_array = "敵縦列にダメージを与える。自身のHPが40%以下の場合、追加ダメージを与える。", icon_path = "SkillIcon:42002106", type = 2, targetType = 2008, move_pos_type = 2, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46021061:1000:10000", show_id = 42002106, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207140] = {id = 47207140, name = "愛は希望だ！", remark = "ラヴィはスーパー強い愛の力を解き放ち、目標全員が彼女の虜になる！", des = "ラヴィはスーパー強い愛の力を解き放ち、目標全員が彼女の虜になる！\n\n敵全体に（攻撃*damage_A%damage_B）点のダメージを与え、会心が16%上昇。", des_level_up = "81050901:117", des_array = "敵全体にダメージを与え、会心が上昇する。", icon_path = "SkillIcon:42003101", type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207141] = {id = 47207141, type = 2, targetType = 2006, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207142] = {id = 47207142, type = 2, targetType = 2006, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207143] = {id = 47207143, type = 2, targetType = 2006, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207144] = {id = 47207144, type = 2, targetType = 2006, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207145] = {id = 47207145, name = "渦潮", remark = "レイナちゃんが可愛くないと思う人は、海流に呑まれてしまえ！", des = "レイナちゃんが可愛くないと思う人は、海流に呑まれてしまえ！\n\n敵全体に（攻撃*damage_A%damage_B) 点のダメージを与える。", des_level_up = "81050901:101", des_array = "敵全体にダメージを与える。", icon_path = "SkillIcon:42002213", type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207146] = {id = 47207146, name = "冒険を始めよう", remark = "ドミニクは後輩たちに本物の「冒険家」とはなんなのかをしっかりと見せてやる！", des = "ドミニクは後輩たちに本物の「冒険家」とはなんなのかをしっかりと見せてやる！\n\nHPが最も高い敵に（攻撃*damage_A%damage_B）点のダメージを与え、味方後列にHP抑圧効果を2行動ターン付与する。\n\n「HP抑圧：敵のHPが50%以上の場合、（攻撃*25%）点の追加ダメージを与える」", des_level_up = "81050901:232", des_array = "HPが最も高い敵にダメージを与え、味方後列にHP抑圧効果を2行動ターン付与する。\n\n「HP抑圧：敵のHPが50%以上の場合、追加でダメージを与える」", icon_path = "SkillIcon:42002108", type = 2, targetType = 2131, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46021081:3006:10000", show_id = 42002108, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 1}
+, 
+[47207147] = {id = 47207147, name = "決断の刻", remark = "目標を達成するために命かけてもかまわない！", des = "目標を達成するために命かけてもかまわない！\n\n敵縦列に（攻撃*damage_A%damage_B）点のダメージを与え、自身より素早さが低い味方の中にいる素早さが最も高い者にSPを300点回復する。\nSPが100%未満の時でも発動することができる。※60%≤SP≤100%\nSPが100%になった状態で奥義を発動する場合、自身のHPが減少しない。\nSPが60%≤SP<100%になった状態で奥義を発動する場合、自身の最大HPの10%を失う。\n※HPが足りない場合は発動不可。", des_level_up = "81050901:169", des_array = "敵縦列にダメージを与え、自身より素早さが低い味方の中にいる素早さが最も高い者にSPを300点回復する。\nSPが100%未満の時でも発動することができる。※60%≤SP≤100%\nSPが100%になった状態で奥義を発動する場合、自身のHPが減少しない。\nSPが60%≤SP<100%になった状態で奥義を発動する場合、自身の最大HPの10%を失う。\n※HPが足りない場合は発動不可。", icon_path = "SkillIcon:42003010", type = 2, targetType = 2008, move_pos_type = 2, damage = 0, damage_up = 0, damage_rate = 15800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:46030101:3061:10000", show_id = 42111018, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0, skill_cost = "81050024:5:10000:1,81050024:5:6000:1&81050001:5:1000:1"}
+, 
+[47207148] = {id = 47207148, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207149] = {id = 47207149, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207150] = {id = 47207150, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
+[47207151] = {id = 47207151, type = 2, targetType = 2002, damage = 0, damage_up = 0, damage_rate = 18800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47407101:1000:10000", add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+, 
 [47210101] = {id = 47210101, name = "エイプリル、突撃！", des_array = "敵単体にダメージを与え、会心が上昇する。", icon_path = "SkillIcon:43001003", type = 3, targetType = 2001, damage = 1962, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47400103:3001:10000", show_id = 43001003, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47210102] = {id = 47210102, name = "スクープ追跡", des_array = "敵単体にダメージを与え、確率で目標を1行動ターン拘束させる。\n\n「拘束：通常攻撃と特技を使用できない。協撃に参加しない」", icon_path = "SkillIcon:43001104", type = 3, targetType = 2001, damage = 1580, damage_up = 0, damage_rate = 0, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47400101:1000:3000", show_id = 43001104, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}

@@ -1643,9 +1643,9 @@
 , 
 [75602322] = {id = 75602322, scene_path = "92000038", dialogue_ids = "75423203", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "村のお手伝いで薪割りをしていたマルタは、力加減ができなくて、飛んで行った破片がリーダーにぶつかってしまった。", times = 0}
 , 
-[75602331] = {id = 75602331, scene_path = "92000013", dialogue_ids = "75423301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタたちはクエストによって宝箱を隣国に運ぶ途中に、盗賊団が現れ…", times = 0}
+[75602331] = {id = 75602331, scene_path = "92000013", dialogue_ids = "75423301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ずっと働いていたウルスラに休ませようとしたが、休みとして、ウルスラはリーダーにお仕えすることに。", times = 0}
 , 
-[75602332] = {id = 75602332, scene_path = "92000013", dialogue_ids = "75423309", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタたちはクエストによって宝箱を隣国に運ぶ途中に、盗賊団が現れ…", times = 0}
+[75602332] = {id = 75602332, scene_path = "92000013", dialogue_ids = "75423309", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ずっと働いていたウルスラに休ませようとしたが、休みとして、ウルスラはリーダーにお仕えすることに。", times = 0}
 , 
 [75602341] = {id = 75602341, scene_path = "92000008", dialogue_ids = "75423401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "任務に付き添うなんて、ウルスラは自分がリーダーの信頼を勝ち取れないと考え…", times = 0}
 , 
@@ -1661,9 +1661,9 @@
 , 
 [75602372] = {id = 75602372, scene_path = "92000008", dialogue_ids = "75423704", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "危険に遭わないよう、マルタは必ずリーダーを守ってみせようと約束した。", times = 0}
 , 
-[75602381] = {id = 75602381, scene_path = "92000009", dialogue_ids = "75423801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタはリーダーの有能な助手になりたいと思い、そのために日々努力している。", times = 0}
+[75602381] = {id = 75602381, scene_path = "92000009", dialogue_ids = "75423801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "盗賊団に囲まれ、ウルスラはリーダーと一緒に戦って勝利を手にした。", times = 0}
 , 
-[75602391] = {id = 75602391, scene_path = "92000033", dialogue_ids = "75423901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを表現するために、マルタはご馳走を用意したが、二人っきりになれなかったことに少し残念。", times = 0}
+[75602391] = {id = 75602391, scene_path = "92000033", dialogue_ids = "75423901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラとフランは本に書いてある通り、頑張って笑顔の練習をしている…", times = 0}
 , 
 [75602301] = {id = 75602301, scene_path = "92000015", dialogue_ids = "75423001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタは自分がプライドに加入したことで、大きな変化を遂げたと感じ、その気持ちをリーダーに伝える。", times = 0}
 , 
@@ -2465,7 +2465,7 @@
 , 
 [75604922] = {id = 75604922, scene_path = "92000008", dialogue_ids = "75449203", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "村のお手伝いで薪割りをしていたマルタは、力加減ができなくて、飛んで行った破片がリーダーにぶつかってしまった。", times = 0}
 , 
-[75604931] = {id = 75604931, scene_path = "92000015", dialogue_ids = "75449301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタたちはクエストによって宝箱を隣国に運ぶ途中に、盗賊団が現れ…", times = 0}
+[75604931] = {id = 75604931, scene_path = "92000015", dialogue_ids = "75449301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ずっと働いていたウルスラに休ませようとしたが、休みとして、ウルスラはリーダーにお仕えすることに。", times = 0}
 , 
 [75604941] = {id = 75604941, scene_path = "92000009", dialogue_ids = "75449401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "任務に付き添うなんて、ウルスラは自分がリーダーの信頼を勝ち取れないと考え…", times = 0}
 , 
@@ -2477,11 +2477,11 @@
 , 
 [75604971] = {id = 75604971, scene_path = "92000025", dialogue_ids = "75449701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "危険に遭わないよう、マルタは必ずリーダーを守ってみせようと約束した。", times = 0}
 , 
-[75604981] = {id = 75604981, scene_path = "92000008", dialogue_ids = "75449801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタはリーダーの有能な助手になりたいと思い、そのために日々努力している。", times = 0}
+[75604981] = {id = 75604981, scene_path = "92000008", dialogue_ids = "75449801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "盗賊団に囲まれ、ウルスラはリーダーと一緒に戦って勝利を手にした。", times = 0}
 , 
-[75604982] = {id = 75604982, scene_path = "92000008", dialogue_ids = "75449808", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "マルタはリーダーの有能な助手になりたいと思い、そのために日々努力している。", times = 0}
+[75604982] = {id = 75604982, scene_path = "92000008", dialogue_ids = "75449808", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "盗賊団に囲まれ、ウルスラはリーダーと一緒に戦って勝利を手にした。", times = 0}
 , 
-[75604991] = {id = 75604991, scene_path = "92000015", dialogue_ids = "75449901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自分の気持ちを表現するために、マルタはご馳走を用意したが、二人っきりになれなかったことに少し残念。", times = 0}
+[75604991] = {id = 75604991, scene_path = "92000015", dialogue_ids = "75449901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラとフランは本に書いてある通り、頑張って笑顔の練習をしている…", times = 0}
 , 
 [75604901] = {id = 75604901, scene_path = "92000013", dialogue_ids = "75449001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ウルスラは感謝の意を表し、まだ迷うことがあるけど、リーダーと共に生きていきたいと言い切った。", times = 0}
 , 
@@ -2523,7 +2523,7 @@
 , 
 [75605091] = {id = 75605091, scene_path = "92000012", dialogue_ids = "75450901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "長風呂のせいでのぼせてしまったリーダーを、ノンノはうちわであおいだり、水を飲ませたりして看病する。", times = 0}
 , 
-[75605001] = {id = 75605001, scene_path = "92000025", dialogue_ids = "75450001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノンノはこれからもリーダーから自分にない癒し方を見て学ぶだけでなく、リーダーを癒す人になりたいと言う。", times = 0}
+[75605001] = {id = 75605001, scene_path = "92000025", dialogue_ids = "75450001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "夜道を歩いている中、リーダーはシェリーに声をかけられた。そして彼女は本当の気持ちを伝えた。", times = 0}
 , 
 [75605111] = {id = 75605111, scene_path = "92000013", dialogue_ids = "75451101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "街でシェリーと名乗る美しい少女に声をかけられ、彼女をプライドに入れてほしいと言う。", times = 0}
 , 
@@ -2559,9 +2559,9 @@
 , 
 [75605192] = {id = 75605192, scene_path = "92000038", dialogue_ids = "75451913", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "潜入調査を行っている最中、シェリーとリーダーはキャストレッドに気づかれてしまった。戦いに勝つために、リーダーは囮になって敵を引きつけることに。", times = 0}
 , 
-[75605101] = {id = 75605101, scene_path = "92000033", dialogue_ids = "75451001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノンノはこれからもリーダーから自分にない癒し方を見て学ぶだけでなく、リーダーを癒す人になりたいと言う。", times = 0}
+[75605101] = {id = 75605101, scene_path = "92000033", dialogue_ids = "75451001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "夜道を歩いている中、リーダーはシェリーに声をかけられた。そして彼女は本当の気持ちを伝えた。", times = 0}
 , 
-[75605102] = {id = 75605102, scene_path = "92000040", dialogue_ids = "75451002", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノンノはこれからもリーダーから自分にない癒し方を見て学ぶだけでなく、リーダーを癒す人になりたいと言う。", times = 0}
+[75605102] = {id = 75605102, scene_path = "92000040", dialogue_ids = "75451002", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "夜道を歩いている中、リーダーはシェリーに声をかけられた。そして彼女は本当の気持ちを伝えた。", times = 0}
 , 
 [75605311] = {id = 75605311, scene_path = "92000030", dialogue_ids = "75453101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "喫茶店での収入が少なくて困っているリサと出会った。生活を維持するため、リサはプライドに加入することに。", times = 0}
 , 
@@ -3066,6 +3066,56 @@
 [75607092] = {id = 75607092, scene_path = "92000086", dialogue_ids = "75470905", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リリーは、リーダーを守ろうとしたときに寒さを感じなくなったことに気づいた。", times = 0}
 , 
 [75607001] = {id = 75607001, scene_path = "92000086", dialogue_ids = "75471001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "特訓に付き合っていたお礼として、リリーはマフラーをリーダーに贈った。", times = 0}
+, 
+[75607111] = {id = 75607111, scene_path = "92000009", dialogue_ids = "75471101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "平原でベルの音が聞こえたエイプリル達が音のする方に向かうと、息を切らしてのろのろ走るヨウルを見つける。", times = 0}
+, 
+[75607112] = {id = 75607112, scene_path = "92000009", dialogue_ids = "75471105", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "平原でベルの音が聞こえたエイプリル達が音のする方に向かうと、息を切らしてのろのろ走るヨウルを見つける。", times = 0}
+, 
+[75607121] = {id = 75607121, scene_path = "92000082", dialogue_ids = "75471201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "クリスマスの翌朝、ヨウルはアイリスにクリスマス手伝えなかったことを謝りつつ、プライドへの加入をリーダーに頼んだ。", times = 0}
+, 
+[75607131] = {id = 75607131, scene_path = "92000082", dialogue_ids = "75471301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "プライドに入って、さっそく荷物を遠方まで運ぶ仕事を任されたヨウルだが、道中で盗賊に襲われる。", times = 0}
+, 
+[75607132] = {id = 75607132, scene_path = "92000045", dialogue_ids = "75471305", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "プライドに入って、さっそく荷物を遠方まで運ぶ仕事を任されたヨウルだが、道中で盗賊に襲われる。", times = 0}
+, 
+[75607141] = {id = 75607141, scene_path = "92000015", dialogue_ids = "75471401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "漆黒の呪われた棺というプレゼントを突きつけられても、ヨウルはカノンの為に必ず手に入れようと決意する。", times = 0}
+, 
+[75607151] = {id = 75607151, scene_path = "92000009", dialogue_ids = "75471501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リーダーに励まされ、意気込んでいたヨウルは、もっと足が速くなるための方法を考えることにした。", times = 0}
+, 
+[75607161] = {id = 75607161, scene_path = "92000054", dialogue_ids = "75471601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ケイトのもとへやってきたヨウル。成長とともに体が重くなった理由について相談することに。", times = 0}
+, 
+[75607162] = {id = 75607162, scene_path = "92000082", dialogue_ids = "75471610", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ケイトのもとへやってきたヨウル。成長とともに体が重くなった理由について相談することに。", times = 0}
+, 
+[75607171] = {id = 75607171, scene_path = "92000012", dialogue_ids = "75471701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "縫物をするヨウルの手にある小さい布地が気になったノエル達。ヨウルは、実は自分用に作ろうと思っていたもっと軽くて動きやすい服だという。", times = 0}
+, 
+[75607181] = {id = 75607181, scene_path = "92000009", dialogue_ids = "75471801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "配達人のアリシアはヨウルに弟子入りを頼まれるが、そこにモンスターに遭遇してしまい、小包を奪われてしまう…", times = 0}
+, 
+[75607182] = {id = 75607182, scene_path = "92000009", dialogue_ids = "75471809", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "配達人のアリシアはヨウルに弟子入りを頼まれるが、そこにモンスターに遭遇してしまい、小包を奪われてしまう…", times = 0}
+, 
+[75607191] = {id = 75607191, scene_path = "92000012", dialogue_ids = "75471901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "プライドのメンバー達からほしいものを聞かれたヨウルは、少し戸惑いながらも、やがて自分の欲しいものが何なのかを理解した。", times = 0}
+, 
+[75607101] = {id = 75607101, scene_path = "92000082", dialogue_ids = "75472001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ヨウルは、もっとリーダーのことを知って、リーダーが何よりも喜ぶプレゼントを贈ることを決意する。", times = 0}
+, 
+[75607211] = {id = 75607211, scene_path = "92000013", dialogue_ids = "75472101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自己紹介より、レイナのことばかり紹介するダネハは、レイナのことが大好きな女の子らしい。", times = 0}
+, 
+[75607212] = {id = 75607212, scene_path = "92000013", dialogue_ids = "75472107", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "自己紹介より、レイナのことばかり紹介するダネハは、レイナのことが大好きな女の子らしい。", times = 0}
+, 
+[75607221] = {id = 75607221, scene_path = "92000015", dialogue_ids = "75472201", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "タネハはレイナに相応しいすばらしいクエストを探そうと意気込んでいた。", times = 0}
+, 
+[75607231] = {id = 75607231, scene_path = "92000012", dialogue_ids = "75472301", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "何やら話が盛り上がっている様子のタネハとラヴィをリーダーは見つける。", times = 0}
+, 
+[75607241] = {id = 75607241, scene_path = "92000054", dialogue_ids = "75472401", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "タネハの提案で、レイナの喉をケイトに診てもらったが、特に喉は悪いわけではなかったらしい。", times = 0}
+, 
+[75607251] = {id = 75607251, scene_path = "92000013", dialogue_ids = "75472501", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "街中にて。レイナの服を作るための素材探しをしているタネハと付き添い役のミアを見つける。", times = 0}
+, 
+[75607261] = {id = 75607261, scene_path = "92000031", dialogue_ids = "75472601", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "リッタの店で大量買いしようとしているタネハだが、それらはすべてレイナのための買い物らしい。", times = 0}
+, 
+[75607271] = {id = 75607271, scene_path = "92000087", dialogue_ids = "75472701", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "近頃、夜の森で怪しい光がうごめいているのが目撃され、調べてみると、光る棒を使っていわゆるオタ芸をしていたタネハだったことがわかった。", times = 0}
+, 
+[75607281] = {id = 75607281, scene_path = "92000012", dialogue_ids = "75472801", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "レイナの可愛さを絵にしてほしいと、タネハはベロニカに頼んだ。", times = 0}
+, 
+[75607291] = {id = 75607291, scene_path = "92000013", dialogue_ids = "75472901", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "物陰でレイナが他のメンバー達と話す姿を見ながら、タネハは少し寂しさを感じていた。", times = 0}
+, 
+[75607201] = {id = 75607201, scene_path = "92000036", dialogue_ids = "75473001", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "レイナの大事な人であるリーダーを嫉妬しながらも、これからライバルとして同士として仲良くしようとタネハは決意する。", times = 0}
 , 
 [75901111] = {id = 75901111, scene_path = "92000030", dialogue_ids = "75701101", admission_type = "1:1", departure_type = "1:1", cut_points = "1:1:657:1:657:516:104:571:75:581", skip = 1, skip_content = "ノエルが働いてるカフェに音楽に詳しい新しいバイトの子が来た。", times = 0}
 , 

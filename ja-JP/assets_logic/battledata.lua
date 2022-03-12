@@ -548,7 +548,7 @@ BattleData.AddAutoSkill = function(...)
       local atkCardUid = (BattleData.GetSkillCardFromBattleData)()
       if atkCardUid then
         local card = (BattleData.GetCardInfoByUid)(atkCardUid)
-        if card:IsDisplayAlive() and (BattleBuff.IsForbiddenSkill)(card) ~= true then
+        if card and card:IsDisplayAlive() and (BattleBuff.IsForbiddenSkill)(card) ~= true then
           local result = (self.AddSkillAtk)(card)
           if result == true then
             return 

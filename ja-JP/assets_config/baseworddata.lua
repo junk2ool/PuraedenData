@@ -3385,6 +3385,10 @@ BaseWordData = {
 , 
 [81830069] = {id = 81830069, name = "敵後列にダメージを与える。[color=#3cbcff]30%%[/color]の確率で失明を[color=#3cbcff]1[/color]行動ターンの間付与する。目標が極寒効果を受けている場合、追加でダメージ[color=#3cbcff](攻撃*100%%)[/color]を与え、極寒状態の敵[color=#3cbcff]1[/color]体につき、追加で自身に[color=#3cbcff]100[/color]点のSPを回復する。\n\n[color=#ffac26]「失明：すべての攻撃は目標に命中できない」\n「極寒：ターン毎に与えたダメージの10%%分のダメージを与え（最大10回まで重複可能）、3ラウンド持続。」[/color]"}
 , 
+[81830070] = {id = 81830070, name = "敵単体にダメージを与える。目標を撃破した場合、目標の十字列にいる敵に[color=#3cbcff]（攻撃*40%%）[/color]のダメージを拡散する。"}
+, 
+[81830071] = {id = 81830071, name = "敵全体にダメージを与える。"}
+, 
 [81831001] = {id = 81831001, name = "敵単体にダメージを与え、確率で目標を1行動ターン混乱させる。  \n \n[color=#ffac26]「混乱：奥義と特技を使用できない。協撃を発動せず、ランダムな目標（味方含め）を通常攻撃で攻撃する。」[/color]"}
 , 
 [81831002] = {id = 81831002, name = "敵単体にダメージを与え、自身にシールドを2行動ターン付与し、ダメージを吸収する。"}
@@ -3523,6 +3527,10 @@ BaseWordData = {
 , 
 [81831069] = {id = 81831069, name = "敵単体にダメージを与え、ランダムに敵[color=#3cbcff]1[/color]名に[color=#3cbcff]極寒[/color]効果を付与する。\n\n[color=#ffac26]「極寒：ターン毎に与えたダメージの10%%分のダメージを与え（最大10回まで重複可能）、3ラウンド持続。」[/color]"}
 , 
+[81831070] = {id = 81831070, name = "自分の会心を[color=#3cbcff]30%%[/color]上昇させた状態で、敵単体にダメージを与える。"}
+, 
+[81831071] = {id = 81831071, name = "敵単体にダメージを与え、自身のSPを[color=#3cbcff]100[/color]点回復する。"}
+, 
 [82100001] = {id = 82100001, name = "ダイヤ"}
 , 
 [82100002] = {id = 82100002, name = "ダイヤ（有償）"}
@@ -3561,9 +3569,9 @@ BaseWordData = {
 , 
 [82100019] = {id = 82100019, name = "天賦ポイント"}
 , 
-[82100020] = {id = 82100020, name = "フラワーのビーチサンダル"}
+[82100020] = {id = 82100020, name = "ペンライト"}
 , 
-[82100021] = {id = 82100021, name = "フラワーのビーチサンダル"}
+[82100021] = {id = 82100021, name = "ペンライト"}
 , 
 [82100022] = {id = 82100022, name = "農場EXP"}
 , 
@@ -9083,7 +9091,7 @@ BaseWordData = {
 , 
 [89034101] = {id = 89034101, name = "[color=#ffdd81]ピックアップ対象[/color]"}
 , 
-[89034102] = {id = 89034102, name = "【[color=#ffaa06]クーニャ[/color]出現率[color=#3dffbd] 1.5%%[/color]】"}
+[89034102] = {id = 89034102, name = "【[color=#ffaa06]レイナ[/color]出現率[color=#3dffbd] 1.5%%[/color]】"}
 , 
 [89034103] = {id = 89034103, name = "[color=#ffdd81]他の出現可能なSSR冒険者[/color]"}
 , 
@@ -21965,6 +21973,12 @@ BaseWordData = {
 , 
 [121231031] = {id = 121231031, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、自身に[color=#3cbcff]猩紅の嵐[/color]を付与し、今回の与えたダメージの[color=#3cbcff]%d%%[/color]を自身のHPに転換する。\n\n[color=#ffac26]「猩紅の嵐：攻撃を受ける度に、自身の攻撃が10%%アップ」[/color]"}
 , 
+[121220041] = {id = 121220041, name = "HPが最も低い味方に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のHPを回復し、自身に[color=#3cbcff]（攻撃*%d%%）[/color]点のHPを回復し、さらに[color=#3cbcff]1[/color]行動ターンの間自身の防御を[color=#3cbcff]110%%[/color]上昇させる。"}
+, 
+[121220081] = {id = 121220081, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]%d%%[/color]の確率で目標を[color=#3cbcff]1[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[121231051] = {id = 121231051, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]1[/color]行動ターンの間目標の攻撃を[color=#3cbcff]15%%[/color]低下させる；味方が[color=#3cbcff]1[/color]人陣没するごとに、追加で[color=#3cbcff]%d%%[/color]のダメージを与える。"}
+, 
 [121322051] = {id = 121322051, name = "HPが最も低い味方[color=#3cbcff]3[/color]名にHPを[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点回復させ、[color=#3cbcff]2[/color]ラウンドの間HP[color=#3cbcff]（攻撃*35%%）[/color]持続回復効果を付与し、さらに[color=#3cbcff]1[/color]行動ターンの間、攻撃を[color=#3cbcff]%d%%[/color]上昇させる。"}
 , 
 [121330031] = {id = 121330031, name = "敵全体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、目標の体中の毒素を発生させ、[color=#3cbcff]1[/color]行動ターンの間防御を[color=#3cbcff]%d%%[/color]ダウンさせる。\n\n[color=#ffac26]「毒素発生：発動した後、毒素が消失する。自身の攻撃の%d%%分ダメージを与える。」[/color]"}
@@ -22038,6 +22052,16 @@ BaseWordData = {
 [121322062] = {id = 121322062, name = "敵後列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与える。目標のHPが[color=#3cbcff]50%%[/color]以下の場合、追加で[color=#3cbcff]（攻撃*%d%%）[/color]点のダメージを与える；目標のHPが[color=#3cbcff]30%%[/color]未満の場合、[color=#3cbcff]1[/color]行動ターンの間[color=#3cbcff]拘束[/color]させる。"}
 , 
 [121331031] = {id = 121331031, name = "敵単体に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]2[/color]行動ターンの間防御を[color=#3cbcff]55%%[/color]ダウンさせ、さらに[color=#3cbcff]2[/color]行動ターンの間味方後列の会心を[color=#3cbcff]8%%[/color]アップさせる；自身に[color=#3cbcff]猩紅の嵐[/color]効果がかかっている場合、追加で[color=#3cbcff]（攻撃*%d%%）[/color]点のダメージを与える。"}
+, 
+[121320041] = {id = 121320041, name = "最もHPが低い味方にシールドを[color=#3cbcff]2[/color]ラウンドの間張り、[color=#3cbcff]（攻撃*%d%%damage_D46020041）[/color]点のダメージを吸収し、[color=#3cbcff]浄化[/color]効果を付与する上に、[color=#3cbcff]HP継続回復[/color]効果を付与する。\n\n[color=#ffac26]「浄化：全てのデバフを解除する」[/color]\n\n[color=#ffac26]「HP継続回復：毎ラウンド開始時、（攻撃*%d%%）点のHPを回復し、2ラウンド持続」[/color]"}
+, 
+[121320081] = {id = 121320081, name = "敵横列に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、[color=#3cbcff]%d%%[/color]の確率で目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させる。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[121320082] = {id = 121320082, name = "敵横列に[color=#3cbcff]（攻撃*damage_A%%damage_B[/color]）点のダメージを与え、[color=#3cbcff]%d%%[/color]の確率で目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させる；目標の中に沈黙された者がいる場合、今回の攻撃による与えたダメージが[color=#3cbcff]20%%[/color]増加する。\n\n[color=#ffac26]「沈黙：奥義を使用できない」[/color]"}
+, 
+[121331051] = {id = 121331051, name = "十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]%d%%[/color]を自分のHPに転化する上に、[color=#3cbcff]2[/color]行動ターンの間目標の攻撃を[color=#3cbcff]5%%[/color]低下させる；味方が[color=#3cbcff]1[/color]人陣没するごとに[color=#3cbcff]10%%[/color]の追加ダメージを与える。"}
+, 
+[121331052] = {id = 121331052, name = "十字列の敵に[color=#3cbcff]（攻撃*damage_A%%damage_B）[/color]点のダメージを与え、与えたダメージの[color=#3cbcff]%d%%[/color]を自分のHPに転化する上に、[color=#3cbcff]2[/color]行動ターンの間目標の攻撃を[color=#3cbcff]5%%[/color]低下させる；味方が[color=#3cbcff]1[/color]人陣没するごとに[color=#3cbcff]10%%[/color]の追加ダメージを与える；味方人数が敵より少ない場合、今回の攻撃は必ず会心が発動する。"}
 , 
 [121410010] = {id = 121410010, name = "特技倍率UP；混乱率UP"}
 , 
@@ -22162,6 +22186,18 @@ BaseWordData = {
 [121431030] = {id = 121431030, name = "特技倍率UP；与えたダメージを自身のHPに転換する"}
 , 
 [121431031] = {id = 121431031, name = "特技倍率が[color=#3cbcff]%d%%[/color]まで上昇する；与えたダメージの[color=#3cbcff]%d%%[/color]を自身のHPに転換する"}
+, 
+[121420040] = {id = 121420040, name = "特技倍率UP；HP回復量UP"}
+, 
+[121420041] = {id = 121420041, name = "特技倍率が[color=#3cbcff]%d%%[/color]まで上昇する；自身に[color=#3cbcff]（攻撃*%d%%）[/color]点のHPを回復する"}
+, 
+[121420080] = {id = 121420080, name = "特技倍率UP；沈黙確率UP"}
+, 
+[121420081] = {id = 121420081, name = "特技倍率が[color=#3cbcff]%d%%[/color]まで上昇する；[color=#3cbcff]%d%%[/color]の確率で目標を沈黙させる"}
+, 
+[121431050] = {id = 121431050, name = "特技倍率UP；追加で与えるダメージが上昇する"}
+, 
+[121431051] = {id = 121431051, name = "特技倍率が[color=#3cbcff]%d%%[/color]まで上昇する；味方が1人陣没するごとに、追加で[color=#3cbcff]%d%%[/color]のダメージを与える"}
 , 
 [121510010] = {id = 121510010, name = "奥義倍率UP"}
 , 
@@ -22301,6 +22337,22 @@ BaseWordData = {
 , 
 [121531031] = {id = 121531031, name = "奥義倍率が[color=#3cbcff]%d%%[/color]まで上昇する；追加で（攻撃*[color=#3cbcff]%d%%[/color]）のダメージを与える"}
 , 
+[121520040] = {id = 121520040, name = "奥義倍率UP；HP回復量上昇"}
+, 
+[121520041] = {id = 121520041, name = "奥義倍率が[color=#3cbcff]%d%%[/color]まで上昇する；毎ラウンド開始時、最低HPの味方に[color=#3cbcff]（攻撃*%d%%）[/color]点のHPを回復し、[color=#3cbcff]2[/color]ラウンド持続。"}
+, 
+[121520080] = {id = 121520080, name = "奥義倍率UP；沈黙確率UP"}
+, 
+[121520081] = {id = 121520081, name = "奥義倍率が[color=#3cbcff]%d%%[/color]まで上昇する；[color=#3cbcff]%d%%[/color]の確率で目標を[color=#3cbcff]2[/color]行動ターン[color=#3cbcff]沈黙[/color]させる"}
+, 
+[121520082] = {id = 121520082, name = "奥義倍率が[color=#3cbcff]%d%%[/color]まで上昇する；目標の中に沈黙された者がいる場合、今回の攻撃による与えたダメージが[color=#3cbcff]20%%[/color]増加する"}
+, 
+[121531050] = {id = 121531050, name = "奥義倍率UP；ダメージ転化率UP"}
+, 
+[121531051] = {id = 121531051, name = "奥義倍率が[color=#3cbcff]%d%%[/color]まで上昇する；与えたダメージの[color=#3cbcff]%d%%[/color]を自身のHPに転化する"}
+, 
+[121531052] = {id = 121531052, name = "奥義倍率が[color=#3cbcff]%d%%[/color]まで上昇する；味方人数が敵より少ない場合、今回の攻撃は必ず会心が発動する"}
+, 
 [121600001] = {id = 121600001, name = "魔力障壁"}
 , 
 [121600002] = {id = 121600002, name = "戦意高揚"}
@@ -22434,6 +22486,18 @@ BaseWordData = {
 [121631031] = {id = 121631031, name = "血で血を洗う"}
 , 
 [121631032] = {id = 121631032, name = "戦意熱狂"}
+, 
+[121620041] = {id = 121620041, name = "美食こそが正義！"}
+, 
+[121620042] = {id = 121620042, name = "美食の頂点"}
+, 
+[121620081] = {id = 121620081, name = "召し上げれ♪"}
+, 
+[121620082] = {id = 121620082, name = "お菓子ならできる！"}
+, 
+[121631051] = {id = 121631051, name = "流転突き"}
+, 
+[121631052] = {id = 121631052, name = "果ての一閃"}
 , 
 [144003001] = {id = 144003001, name = "\nラヴィ（総選挙）\nスペシャル立ち絵"}
 , 
